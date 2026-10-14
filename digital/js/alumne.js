@@ -75,7 +75,7 @@
     const note = $("#wsNote");
     if (sub.status === "submitted") { note.hidden = false; note.innerHTML = `Has lliurat aquesta fitxa${sub.submitted_at ? " el " + esc(fmtDate(sub.submitted_at)) : ""}. Ja no la pots modificar. Quan el professor la corregeixi, hi veuràs els comentaris.`; }
     else if (sub.status === "returned") { note.hidden = false; note.innerHTML = `<b>El professor t'ha retornat la fitxa corregida.</b> Llegeix els comentaris de cada apartat.`; }
-    else { note.hidden = false; note.innerHTML = `Les respostes es desen soles mentre escrius. ${settings.auto_calc && JSON.stringify(spec.blocks).match(/"type":"(chain|sci|math)"/) ? "Els càlculs es fan automàticament perquè puguis comprovar-los." : ""} Quan acabis, prem <b>Lliura la fitxa</b>.`; }
+    else { note.hidden = false; note.innerHTML = `Les respostes es desen soles mentre escrius. ${settings.auto_calc && (spec.html || JSON.stringify(spec.blocks).match(/"type":"(chain|sci|math)"/)) ? "Els càlculs es fan automàticament perquè puguis comprovar-los." : ""} Quan acabis, prem <b>Lliura la fitxa</b>.`; }
     cur = window.FQFitxa.render($("#wsHost"), k, {
       answers, readonly: ro, autoCalc: !!settings.auto_calc, photos: sub.photos || [], feedback: fb,
       photoUrl: (p) => S.photoUrl(p),

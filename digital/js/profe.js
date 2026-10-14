@@ -152,12 +152,12 @@
       host.innerHTML = `<div class="ws"><section class="ws-block"><b>Fotos lliurades</b>${imgs.join("") || '<p class="note">Sense fotos.</p>'}</section></div>`;
     }
     // editors de retroacció
-    const targets = spec ? [...FX.allItems(spec).filter((it) => !it.parent).map((it) => it.id), ...spec.blocks.filter((b) => b.type === "group").map((b) => b.id)] : [];
+    const targets = spec && spec.html ? Object.keys(spec.qs) : spec ? [...FX.allItems(spec).filter((it) => !it.parent).map((it) => it.id), ...spec.blocks.filter((b) => b.type === "group").map((b) => b.id)] : [];
     const editor = (id, label) => { const f = fb[id] || {}; return `<div class="fbed" data-fb="${id}"><b>${esc(label)}</b><div class="lvs">${LV.map((l) => `<button type="button" data-lv="${l}" class="${f.level === l ? "on" : ""}">${l}</button>`).join("")}</div>
       <textarea rows="2" placeholder="Comentari per a l'alumne">${esc(f.comment || "")}</textarea>${f.proposal_level || f.proposal_note ? `<div class="prop">Proposta: <b>${esc(f.proposal_level || "")}</b> ${esc(f.proposal_note || "")}<button type="button" data-accept>Fes-la servir</button></div>` : ""}</div>`; };
     targets.forEach((id) => {
-      const el = host.querySelector(`.ws-block[data-block="${id}"]`) || host.querySelector(`.ws-item[data-item="${id}"]`)?.closest(".ws-block");
-      if (el) el.insertAdjacentHTML("beforeend", editor(id, "Valoració de l'apartat " + id));
+      const el = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${id}"]`) || host.querySelector(`.ws-item[data-item="${id}"]`)?.closest(".ws-block");
+      if (el) el.insertAdjacentHTML("beforeend", editor(id, id === "diana" ? "Valoració de la diana" : (spec.html ? "Valoració de la pregunta " : "Valoració de l'apartat ") + id));
     });
     host.insertAdjacentHTML("beforeend", `<div class="ws" style="margin-top:14px"><section class="ws-block">${editor("_global", "Valoració global de la fitxa")}</section></div>`);
     host.addEventListener("click", (e) => {
@@ -176,7 +176,7 @@
       const b = $("#ai"); b.disabled = true; b.textContent = "Preparant la proposta…";
       const strip = (h) => String(h || "").replace(/<[^>]+>/g, "");
       const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
-      const items = spec.blocks.filter((b) => b.id).map((b) => {
+      const items = spec.html ? FX.htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "Inclou un dibuix en foto: valora només el text i indica al professor que revisi la foto." : "", answer: x.answer, auto: null, score: null })) : spec.blocks.filter((b) => b.id).map((b) => {
         if (b.type !== "group") { const r = FX.checkItem(b, answers[b.id]); return { id: b.id, prompt: strip(b.prompt), expected: expOf(b) || (b.type === "table" ? "taula: valors de referència" : ""), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
         const parts = b.items.map((it) => ({ it, r: FX.checkItem(it, answers[it.id]) }));
         const checked = parts.filter((x) => x.r.ok !== null); const good = checked.filter((x) => x.r.ok).length;

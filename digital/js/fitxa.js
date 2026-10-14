@@ -47,7 +47,8 @@
   /* ---------- representació ---------- */
   function render(host, key, opts) {
     ensureUnitList();
-    const spec = G.FITXES[key]; const st = { answers: { ...(opts.answers || {}) }, auto: !!opts.autoCalc, ro: !!opts.readonly };
+    const spec = G.FITXES[key];
+    if (spec.html) return renderHtml(host, key, opts); const st = { answers: { ...(opts.answers || {}) }, auto: !!opts.autoCalc, ro: !!opts.readonly };
     const photosByItem = {}; (opts.photos || []).forEach((p) => (photosByItem[p.item || "full"] = photosByItem[p.item || "full"] || []).push(p));
     const fb = {}; (opts.feedback || []).forEach((f) => (fb[f.item_id] = f));
     const dis = st.ro ? " disabled" : "";
@@ -90,10 +91,10 @@
       if (b.type === "tip") html += `<div class="ws-tip">${b.html}</div>`;
       else if (b.type === "h") html += `<h3 class="ws-h">${esc(b.text)}</h3>`;
       else if (b.type === "reading") html += `<div class="ws-read" lang="${b.lang || "en"}"><div class="rhead"><b>${esc(b.title)}</b><button type="button" class="btn ws-tts" data-tts>${ICON.play}<span>Escolta el text</span></button></div><div class="rbody"><div>${b.paras.map((p) => `<p>${esc(p)}</p>`).join("")}</div>${b.img ? `<img src="${esc(b.img)}" alt="">` : ""}</div><p class="gl"><b>Glossary:</b> ${esc(b.glossary || "")}</p></div>`;
-      else if (b.type === "group") html += `<section class="ws-block" data-block="${b.id}"><div class="ws-q"><span class="ws-n">${esc(b.id)}</span><div>${b.prompt}</div></div><div class="ws-sub">${b.items.map((x) => itemHtml(x, false)).join("")}</div>${photoBtn(b.id)}${fbHtml(b.id)}</section>`;
-      else html += `<section class="ws-block">${itemHtml(b, true)}${photoBtn(b.id)}</section>`;
+      else if (b.type === "group") html += `<section class="ws-block" data-block="${b.id}"><div class="ws-q"><span class="ws-n">${esc(b.id)}</span><div>${b.prompt}</div></div><div class="ws-sub">${b.items.map((x) => itemHtml(x, false)).join("")}</div>${b.photo ? photoBtn(b.id) : ""}${fbHtml(b.id)}</section>`;
+      else html += `<section class="ws-block">${itemHtml(b, true)}${b.photo ? photoBtn(b.id) : ""}</section>`;
     });
-    html += `<section class="ws-block"><div class="ws-q"><div><b>Foto del full en paper</b> <span class="muted">(opcional: si has fet part de la fitxa a mà)</span></div></div>${photoBtn("full")}</section>${fbHtml("_global")}</div>`;
+    html += `${fbHtml("_global")}</div>`;
     host.innerHTML = html;
     typeset(host);
 
@@ -167,9 +168,126 @@
     u.onend = () => setPlaying(false); G.speechSynthesis.speak(u); setPlaying(true);
   }
 
+  /* ================= Fitxes convertides dels fulls (spec.html) ================= */
+  function workLineHtml(ln, i, ro) {
+    const dis = ro ? " disabled" : "";
+    const del = ro ? "" : `<button type="button" class="wl-x" data-wdel="${i}" aria-label="Treu aquesta línia">${ICON.x}</button>`;
+    if (ln.t === "math") return `<div class="wl wl-math" data-wl="${i}"><span class="wl-tag">Equació</span><div class="mtools">${ro ? "" : '<button type="button" data-ins="\\frac{#@}{#?}" title="Fracció">a/b</button><button type="button" data-ins="\\cdot 10^{#?}" title="Potència de 10">·10ⁿ</button><button type="button" data-ins="#@^{#?}" title="Potència">xⁿ</button><button type="button" data-ins="\\cdot" title="Per">·</button><button type="button" data-ins="\\left(#?\\right)" title="Parèntesis">( )</button><button type="button" data-ins="\\sqrt{#?}" title="Arrel">√</button><button type="button" data-ins="\\Delta" title="Increment">Δ</button>'}</div><math-field class="mf" math-virtual-keyboard-policy="manual"${ro ? " read-only" : ""}>${esc(ln.v || "")}</math-field><output class="ws-calc" data-calc></output>${del}</div>`;
+    if (ln.t === "chain") {
+      const fs = ln.factors && ln.factors.length ? ln.factors : [{ nv: "", nu: "", dv: "", du: "" }];
+      return `<div class="wl wl-chain" data-wl="${i}"><span class="wl-tag">Factors de conversió</span><div class="ws-chain"><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="sv" value="${esc(ln.sv || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-ck="su" value="${esc(ln.su || "")}" placeholder="unitat"${dis}></span>${fs.map((f, j) => `<span class="dot">·</span><span class="frac" data-f="${j}"><span class="fn"><input class="ws-in v" inputmode="decimal" data-fk="nv" value="${esc(f.nv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="nu" value="${esc(f.nu)}" placeholder="unitat"${dis}></span><span class="fd"><input class="ws-in v" inputmode="decimal" data-fk="dv" value="${esc(f.dv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="du" value="${esc(f.du)}" placeholder="unitat"${dis}></span>${ro ? "" : `<button type="button" class="fx" data-fdel="${j}" aria-label="Treu el factor">${ICON.x}</button>`}<i class="fchk" data-fchk="${j}"></i></span>`).join("")}${ro ? "" : '<button type="button" class="addf" data-fadd>+ factor</button>'}<span class="eq">=</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="rv" value="${esc(ln.rv || "")}" placeholder="resultat"${dis}><input class="ws-in u" list="fq-units" data-ck="ru" value="${esc(ln.ru || "")}" placeholder="unitat"${dis}></span></div><output class="ws-calc" data-calc></output>${del}</div>`;
+    }
+    return `<div class="wl wl-text" data-wl="${i}"><textarea class="ws-text" rows="${ln.rows || 2}" data-wt${dis}>${esc(ln.v || "")}</textarea>${i > 0 ? del : ""}</div>`;
+  }
+  function workHtml(fid, f, a, ro) {
+    const lines = a && a.lines && a.lines.length ? a.lines : [{ t: "text", v: "", rows: f.rows || 2 }];
+    if (ro && !(a && a.lines)) return `<div class="work ro" data-fid="${fid}"><div class="wl wl-text"><textarea class="ws-text" rows="${f.rows || 2}" disabled></textarea></div></div>`;
+    return `<div class="work" data-fid="${fid}">${lines.map((ln, i) => workLineHtml(ln, i, ro)).join("")}${ro || f.plain ? "" : `<div class="wadd"><button type="button" data-wadd="text">+ text</button><button type="button" data-wadd="math">+ equació</button><button type="button" data-wadd="chain">+ factors de conversió</button></div>`}</div>`;
+  }
+  function photoFieldHtml(fid, f, photos, ro) {
+    const ps = photos.filter((p) => p.item === fid);
+    if (ro && !ps.length) return `<span class="muted">(sense foto)</span>`;
+    return `<div class="ws-photos" data-photos="${fid}">${ps.map((p) => `<span class="ph" data-path="${esc(p.path)}"><img alt="Foto adjunta" data-src="${esc(p.path)}">${ro ? "" : `<button type="button" class="ph-x" aria-label="Treu la foto">${ICON.x}</button>`}</span>`).join("")}${ro ? "" : `<label class="ws-cam">${ICON.cam}<span>${f.label && f.label.length < 40 ? "Foto: " + esc(f.label) : "Puja una foto del dibuix"}</span><input type="file" accept="image/*" capture="environment" data-photo-item="${fid}" hidden></label>`}</div>`;
+  }
+  function fieldHtml(fid, f, a, ro, photos) {
+    const dis = ro ? " disabled" : "";
+    switch (f.k) {
+      case "work": return workHtml(fid, f, a, ro);
+      case "cell": if (f.opts) return `<select class="ws-in cellf" data-cf="${fid}"${dis}><option value=""></option>${f.opts.map((o) => `<option${a && a.v === o ? " selected" : ""}>${esc(o)}</option>`).join("")}</select>`;
+        return `<input class="ws-in cellf" data-cf="${fid}" value="${esc((a && a.v) || "")}"${dis} aria-label="Resposta">`;
+      case "check": return `<input type="checkbox" class="chkf" data-cf="${fid}"${a && a.v ? " checked" : ""}${dis} aria-label="Marca">`;
+      case "rate": return `<span class="ratef" data-rate="${fid}">${[1, 2, 3, 4].map((n) => `<label><input type="radio" name="r-${fid}" value="${n}" data-cf="${fid}"${a && +a.v === n ? " checked" : ""}${dis}>${n}</label>`).join("")}</span>`;
+      case "photo": return photoFieldHtml(fid, f, photos, ro);
+    }
+    return "";
+  }
+  function drawRadar(host, spec, answers) {
+    const el = host.querySelector("[data-radar]"); if (!el) return;
+    const ids = Object.keys(spec.fields).filter((k) => spec.fields[k].k === "rate"); const n = ids.length; if (n < 3) return;
+    const R = 120, C = 150, pt = (i, v) => { const a = -Math.PI / 2 + (2 * Math.PI * i) / n; return [C + Math.cos(a) * R * v / 4, C + Math.sin(a) * R * v / 4]; };
+    let svg = `<svg viewBox="0 0 300 300" role="img" aria-label="Diana d'autoavaluació">`;
+    for (let r = 1; r <= 4; r++) svg += `<polygon points="${ids.map((_, i) => pt(i, r).join(",")).join(" ")}" fill="none" stroke="var(--line)" stroke-width="1"/>`;
+    ids.forEach((_, i) => { const [x, y] = pt(i, 4); svg += `<line x1="${C}" y1="${C}" x2="${x}" y2="${y}" stroke="var(--line)"/>`; const [lx, ly] = pt(i, 4.55); svg += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="700" fill="var(--fg)">${i + 1}</text>`; });
+    const vals = ids.map((k) => +((answers[k] || {}).v || 0));
+    if (vals.some((v) => v)) svg += `<polygon points="${vals.map((v, i) => pt(i, v).join(",")).join(" ")}" fill="color-mix(in srgb,var(--acc) 30%,transparent)" stroke="var(--acc)" stroke-width="2.5"/>` + vals.map((v, i) => v ? `<circle cx="${pt(i, v)[0]}" cy="${pt(i, v)[1]}" r="4.5" fill="var(--acc)"/>` : "").join("");
+    el.innerHTML = svg + "</svg>";
+  }
+  function renderHtml(host, key, opts) {
+    const spec = G.FITXES[key]; const ro = !!opts.readonly; const answers = { ...(opts.answers || {}) }; let auto = !!opts.autoCalc;
+    const photos = opts.photos || []; const fb = {}; (opts.feedback || []).forEach((f) => (fb[f.item_id] = f));
+    const timers = {};
+    const save = (fid, val) => { answers[fid] = val; if (ro) return; clearTimeout(timers[fid]); timers[fid] = setTimeout(() => opts.onSave && opts.onSave(fid, val), 600); };
+    const wrap = document.createElement("div"); wrap.innerHTML = spec.html;
+    wrap.querySelectorAll(".fld[data-fid]").forEach((el) => { const id = el.dataset.fid; const f = spec.fields[id]; if (!f) return; const t = document.createElement("span"); t.innerHTML = fieldHtml(id, f, answers[id], ro, photos); el.replaceWith(...t.childNodes); });
+    wrap.querySelectorAll("[data-qblock]").forEach((b) => { const f = fb[b.dataset.qblock]; if (f && (f.level || f.comment)) b.insertAdjacentHTML("beforeend", `<div class="ws-fb">${f.level ? `<span class="lvchip lv-${f.level}">${f.level}</span>` : ""}<span>${esc(f.comment || "")}</span></div>`); });
+    host.innerHTML = `<div class="ws wsh">${wrap.innerHTML}${fb._global && (fb._global.level || fb._global.comment) ? `<div class="ws-fb">${fb._global.level ? `<span class="lvchip lv-${fb._global.level}">${fb._global.level}</span>` : ""}<span>${esc(fb._global.comment || "")}</span></div>` : ""}</div>`;
+    typeset(host);
+    host.querySelectorAll("img[data-src]").forEach(async (img) => { try { img.src = await opts.photoUrl(img.dataset.src); } catch {} });
+    drawRadar(host, spec, answers);
+
+    const readWork = (w) => ({ lines: [...w.querySelectorAll(":scope > .wl")].map((l) => {
+      if (l.classList.contains("wl-math")) return { t: "math", v: l.querySelector("math-field").value };
+      if (l.classList.contains("wl-chain")) { const g = (k) => (l.querySelector(`[data-ck="${k}"]`) || {}).value || ""; return { t: "chain", sv: g("sv"), su: g("su"), rv: g("rv"), ru: g("ru"), factors: [...l.querySelectorAll("[data-f]")].map((fr) => { const q = (k) => fr.querySelector(`[data-fk="${k}"]`).value; return { nv: q("nv"), nu: q("nu"), dv: q("dv"), du: q("du") }; }) }; }
+      const ta = l.querySelector("textarea"); return { t: "text", v: ta.value, rows: +ta.getAttribute("rows") || 2 };
+    }) });
+    function calcLine(l) {
+      const out = l.querySelector("[data-calc]"); if (!out) return;
+      if (l.classList.contains("wl-math")) { const v = U.evalLatex(l.querySelector("math-field").value); out.innerHTML = auto && isFinite(v) ? `= <b>${U.fmt(v, 6)}</b>` : ""; return; }
+      const g = (k) => (l.querySelector(`[data-ck="${k}"]`) || {}).value || "";
+      const fs = [...l.querySelectorAll("[data-f]")].map((fr) => { const q = (k) => fr.querySelector(`[data-fk="${k}"]`).value; return { nv: q("nv"), nu: q("nu"), dv: q("dv"), du: q("du") }; });
+      const c = U.chain({ v: g("sv"), u: g("su") }, fs);
+      l.querySelectorAll("[data-fchk]").forEach((el, i) => { const k = c.checks[i]; el.className = "fchk" + (auto && k ? " " + k : ""); });
+      out.innerHTML = auto && c.ok && fs.length ? `Càlcul: <b>${U.fmt(c.value)} ${esc(c.unitStr)}</b>` : "";
+    }
+    host.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine);
+    if (ro) return { answers };
+
+    host.addEventListener("input", (e) => {
+      const w = e.target.closest(".work");
+      if (w) { const l = e.target.closest(".wl"); if (l) calcLine(l); save(w.dataset.fid, readWork(w)); return; }
+      const c = e.target.closest("[data-cf]"); if (c && c.type !== "radio" && c.type !== "checkbox") save(c.dataset.cf, { v: c.value });
+    });
+    host.addEventListener("change", (e) => {
+      const c = e.target.closest("[data-cf]");
+      if (c && c.type === "checkbox") save(c.dataset.cf, { v: c.checked });
+      if (c && c.tagName === "SELECT") save(c.dataset.cf, { v: c.value });
+      if (c && c.type === "radio") { save(c.dataset.cf, { v: +c.value }); drawRadar(host, spec, answers); }
+      if (e.target.dataset.photoItem) { const f = e.target.files[0]; if (f) opts.onPhoto(e.target.dataset.photoItem, f); e.target.value = ""; }
+    });
+    host.addEventListener("click", (e) => {
+      const ins = e.target.closest("[data-ins]"); if (ins) { const mf = ins.closest(".wl").querySelector("math-field"); mf.focus(); mf.executeCommand(["insert", ins.dataset.ins]); return; }
+      const px = e.target.closest(".ph-x"); if (px) { opts.onRemovePhoto(px.closest(".ph").dataset.path); return; }
+      const w = e.target.closest(".work"); if (!w) return;
+      const st = readWork(w);
+      const wa = e.target.closest("[data-wadd]"), wd = e.target.closest("[data-wdel]"), fa = e.target.closest("[data-fadd]"), fd = e.target.closest("[data-fdel]");
+      if (!(wa || wd || fa || fd)) return;
+      if (wa) st.lines.push(wa.dataset.wadd === "text" ? { t: "text", v: "", rows: 2 } : wa.dataset.wadd === "math" ? { t: "math", v: "" } : { t: "chain", factors: [{ nv: "", nu: "", dv: "", du: "" }] });
+      if (wd) st.lines.splice(+wd.dataset.wdel, 1);
+      const li = (fa || fd) ? +e.target.closest(".wl").dataset.wl : -1;
+      if (fa) st.lines[li].factors.push({ nv: "", nu: "", dv: "", du: "" });
+      if (fd) st.lines[li].factors.splice(+fd.dataset.fdel, 1);
+      const t = document.createElement("div"); t.innerHTML = workHtml(w.dataset.fid, spec.fields[w.dataset.fid], st, false); const nw = t.firstElementChild; w.replaceWith(nw);
+      nw.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine); save(nw.dataset.fid, st);
+      if (wa) { const last = nw.querySelectorAll(".wl"); const el = last[last.length - 1]; const f = el.querySelector("math-field, input, textarea"); if (f) setTimeout(() => f.focus(), 30); }
+    });
+    return { answers, setAuto(v) { auto = v; host.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine); } };
+  }
+  function answerSummary(spec, fid, a) {
+    const f = spec.fields[fid]; if (!a) return "";
+    if (f.k === "work") return (a.lines || []).map((l) => l.t === "math" ? `[${l.v}]` : l.t === "chain" ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : l.v).filter(Boolean).join(" | ");
+    if (f.k === "check") return a.v ? "[x]" : "[ ]";
+    return String(a.v ?? "");
+  }
+  function htmlItems(spec, answers) {
+    return Object.entries(spec.qs).map(([q, prompt]) => {
+      const fids = Object.keys(spec.fields).filter((k) => spec.fields[k].q === q);
+      return { id: q, prompt, answer: fids.map((k) => answerSummary(spec, k, answers[k])).filter(Boolean).join(" · ") || "(sense resposta)", photos: fids.filter((k) => spec.fields[k].k === "photo").length };
+    });
+  }
+
   const ML = "https://cdn.jsdelivr.net/npm/mathlive@0.105.3/";
   function mlSetup() { if (G.MathfieldElement) { try { G.MathfieldElement.fontsDirectory = ML + "fonts"; G.MathfieldElement.soundsDirectory = null; } catch {} } }
   mlSetup(); G.addEventListener("DOMContentLoaded", mlSetup); G.addEventListener("load", mlSetup);
 
-  G.FQFitxa = { render, checkItem, allItems, sciVal };
+  G.FQFitxa = { render, checkItem, allItems, sciVal, htmlItems };
 })(window);

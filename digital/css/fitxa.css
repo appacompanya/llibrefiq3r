@@ -107,3 +107,48 @@ math-field.mf:focus-within{border-color:var(--acc)}
   .wsbar .vtitle{flex:1 1 100%;order:-1}
   .wsbar .vtitle b{font-size:1.05rem}
 }
+/* fitxes convertides dels fulls */
+.wsh h2{font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin:10px 0 0;display:flex;gap:8px;align-items:center}
+.wsh h2 .k{width:28px;height:28px;border-radius:8px;background:var(--acc);color:#fff;display:grid;place-items:center;font-size:.95rem}
+.wsh .tip{background:color-mix(in srgb,var(--acc) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--acc) 30%,var(--line));border-radius:14px;padding:12px 16px;font-size:.95rem}
+.wsh .ws-block .q{display:flex;gap:10px;align-items:flex-start}
+.wsh .ws-block .q>.n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem}
+.wsh .ws-block .q>div{flex:1;min-width:0}
+.wsh .ws-block .q>div>*+.work,.wsh .ws-block .q>div>.work{margin-top:8px}
+.wsh table{border-collapse:collapse;width:100%;font-size:.9rem;margin:4px 0}
+.wsh table th,.wsh table td{border:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:middle}
+.wsh table th{background:var(--chip);font-size:.8rem}
+.wsh .ws-block{overflow-x:auto}
+.wsh svg{max-width:100%;height:auto;background:#fff;border-radius:8px}
+.wsh img{max-width:100%;border-radius:8px}
+.wsh .small{font-size:.85rem;color:var(--muted)}
+.wsh .two,.wsh .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.wsh .box{border:1.5px dashed var(--line);border-radius:12px;padding:10px;display:grid;gap:6px;align-content:start}
+.wsh .boxl{font-weight:700;font-size:.88rem}
+.wsh .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.wsh .fgrid>div{background:var(--surface);border-radius:8px;padding:6px;text-align:center}
+.wsh .list{display:grid;gap:10px}
+.wsh .list .c{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;grid-template-columns:110px 1fr;gap:6px 14px}
+.wsh .list .c .t{grid-column:1/-1;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.wsh .list .c .t .b{width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:grid;place-items:center}
+.wsh .list .c .t h3{margin:0;font-size:1rem;flex:1}
+.wsh .list .c .tag{font-size:.78rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.wsh .list .c .im img{width:110px}
+.wsh .list .c .w{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wsh .list .lb{font-weight:700;font-size:.82rem}
+.wsh .ws-sub-q{font-size:1.05rem}
+.work{display:grid;gap:6px;min-width:0}
+.wl{position:relative;display:grid;gap:4px;min-width:0}
+.wl-math,.wl-chain{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:color-mix(in srgb,var(--acc) 4%,var(--surface))}
+.wl-tag{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+.wl-x{position:absolute;right:-8px;top:-8px;width:22px;height:22px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);display:grid;place-items:center;cursor:pointer;padding:0}
+.wl-x svg{width:10px;height:10px}
+.wadd{display:flex;flex-wrap:wrap;gap:6px}
+.wadd button{font:inherit;font-size:.78rem;font-weight:700;border:1.5px dashed var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:3px 10px;cursor:pointer}
+.wadd button:hover{border-color:var(--acc);color:var(--acc)}
+.cellf{width:100%;min-width:4.5rem}
+.blankf{display:inline-block}.ws-in.cellf:not(td .cellf){width:10rem}
+.chkf{width:20px;height:20px;accent-color:var(--acc);vertical-align:middle;margin:0 4px}
+.ratef{display:inline-flex;gap:8px;flex-wrap:wrap}.ratef label{display:inline-flex;gap:3px;align-items:center;font-weight:700}
+.radar{width:100%;max-width:320px;justify-self:center;margin:0 auto}.radar svg{background:transparent}
+@media (max-width:620px){.wsh .list .c{grid-template-columns:1fr}.wsh .list .c .w{grid-template-columns:1fr}}

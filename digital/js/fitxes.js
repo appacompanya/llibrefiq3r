@@ -1,6 +1,6 @@
 /* Fitxes digitals. La clau és la mateixa que al llibre (D). Les fitxes que no hi són s'obren en PDF
    i l'alumne pot lliurar-ne una foto. "expected" i "criteria" només els fa servir la zona del professorat. */
-window.FITXES = {
+window.FITXES = Object.assign(window.FITXES || {}, {
 
 d1f1: {
   title: "Fitxa 1 · Magnituds, unitats i notació científica", sda: 1,
@@ -88,4 +88,4 @@ d1ellen: {
   ],
 },
 
-};
+});
