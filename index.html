@@ -268,8 +268,8 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
   <div class="view" id="vHome">
     <section class="cover" aria-labelledby="h1">
       <div class="cover-txt">
-        <div class="eyebrow">Física i química · 3r d'ESO</div>
-        <h1 id="h1">El nostre llibre de FQ</h1>
+        <div class="eyebrow">3r d'ESO</div>
+        <h1 id="h1">Física i química per entendre el món</h1>
         <p class="lead">Sis reptes per entendre la física i la química del dia a dia. Aquí tens, sessió a sessió, què farem, els fulls que necessites i les simulacions.</p>
         <p class="credit">Llibre digital dinàmic creat per <span class="sig" id="author"></span></p>
         <div class="cover-cta" id="cta"></div>
@@ -654,7 +654,7 @@ function renderHome(){
       <ellipse cx="250" cy="130" rx="120" ry="42" stroke="var(--s3)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(60 250 130)" stroke="var(--s2)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(120 250 130)" stroke="var(--s1)"/></g>
       <circle cx="250" cy="130" r="13" fill="var(--s5)"/><circle cx="370" cy="130" r="7" fill="var(--s6)"/><circle cx="190" cy="27" r="7" fill="var(--s4)"/><circle cx="190" cy="233" r="7" fill="var(--s2)"/></svg>`)
     + `<div class="tile" aria-hidden="true"><div class="tsym"><span class="sym">Fq</span><span class="sup">6</span><span class="sub">3</span></div><span class="nm">Física i química</span>
-      <span class="note n1"><i></i><b>reptes per entendre el món que ens envolta</b></span><span class="note n2"><i></i><b>3r d'ESO</b></span></div>`;
+      <span class="note n1"><i></i><b>reptes</b></span><span class="note n2"><i></i><b>3r d'ESO</b></span></div>`;
   document.getElementById("cards").innerHTML = SDAS.map(s => {
     const when = s.meta.split(" · ")[0];
     return `<a class="scard" href="#sda${s.n}" style="--c:var(${s.c})" aria-label="SdA ${s.n}: ${esc(s.title)}">${art(s.n)}<span class="num"><small>SdA</small>${s.n}</span>
