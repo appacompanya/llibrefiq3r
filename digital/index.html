@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Física i química 3r ESO · Llibre digital</title>
+<meta name="description" content="Llibre digital dinàmic de Física i química de 3r d'ESO: sis reptes, sessió a sessió, amb fitxes, simulacions i lectures.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='8' fill='white' stroke='%231f2328' stroke-width='5'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%231f2328'%3EFq%3C/text%3E%3C/svg%3E">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+/* Layout: header + SdA switcher (6 coloured chips), then the selected SdA: hero, 10-session timeline with drawings and download buttons, teacher materials */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5; --chip:#efece6;
+  --ok:#1f7a4a; --warn:#9a5b00;
+  --s1:#2F8F95; --s2:#E0782F; --s3:#6C5CC9; --s4:#3F9A5A; --s5:#D14B66; --s6:#2F6DB5;
+  --acc:var(--s1); --ink:#1d2a3a; --ink-fg:#f3f1ec; --desk:#e4e0d8; --paper:#ffffff; --grid:rgba(31,35,40,.07);
+  --font-body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  --font-display:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171b; --surface:#1d2026; --fg:#eceef1; --muted:#a3aab4; --line:#2f333b; --chip:#272b32; --ok:#5fd394; --warn:#f0b45c; --ink:#0f1620; --ink-fg:#eceef1; --desk:#0e1013; --grid:rgba(236,238,241,.06); color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15171b; --surface:#1d2026; --fg:#eceef1; --muted:#a3aab4; --line:#2f333b; --chip:#272b32; --ok:#5fd394; --warn:#f0b45c; --ink:#0f1620; --ink-fg:#eceef1; --desk:#0e1013; --grid:rgba(236,238,241,.06); color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 64px;display:grid;gap:26px}
+.top{display:grid;gap:6px}
+.eyebrow{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.05;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:68ch}
+button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px 28px;align-items:center;border-bottom:3px solid var(--acc);padding-bottom:16px}
+.hero h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,3.5vw,2.1rem);margin:2px 0 0;line-height:1.1;text-wrap:balance}
+.hero .kq{margin:6px 0 0;font-size:1.05rem}
+.hero .meta{color:var(--muted);font-size:.85rem;margin-top:6px}
+.hero .no{color:var(--acc);font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.btn{font:inherit;font-size:.86rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;border:1.5px solid var(--acc);background:var(--acc);color:#fff;text-decoration:none;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--acc)}
+.btn.link{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.link:hover{border-color:var(--acc)}
+.btn svg{width:14px;height:14px;flex:none}
+.btn.pending{background:transparent;color:var(--warn);border:1.5px dashed var(--warn);cursor:default}
+h3.sec{font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin:0}
+.sessions{display:grid;gap:10px}
+.ses{display:grid;grid-template-columns:118px 1fr;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;transition:grid-template-columns .28s ease,border-color .2s ease,box-shadow .2s ease}
+.ses:hover{border-color:var(--acc)}
+.ses:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.ses.sel{grid-template-columns:260px 1fr;border-color:var(--acc);box-shadow:0 0 0 1.5px var(--acc) inset,0 10px 24px -16px var(--acc)}
+.ses .pic{width:100%;height:84px;border-radius:10px;background:#fff;display:grid;place-items:center;overflow:hidden;transition:height .28s ease}
+.ses.sel .pic{height:186px}
+.ses .pic .pend{font-size:.75rem;color:#8a9097;text-align:center;border:1px dashed #c9cdd2;border-radius:8px;padding:14px 10px}
+.ses .pic{position:relative}
+.ses .pic img{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px);object-fit:contain}
+.ses .body{display:grid;gap:6px;min-width:0}
+.ses .hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem;flex:none}
+.ses h4{margin:0;font-size:1.02rem}
+.grp{font-size:.72rem;font-weight:700;color:var(--muted);border:1px solid var(--line, #d9dee7);border-radius:999px;padding:1px 8px}.grp.half{color:#1d7a4a;border-color:#1d7a4a}
+.phase{font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 9px}
+.ses p{margin:0;color:var(--muted);font-size:.9rem;max-width:72ch}
+.acts{display:flex;flex-wrap:wrap;gap:6px}
+.fig{margin:4px 0 2px;display:grid;gap:4px;background:#fff;border-radius:10px;padding:8px;border:1px solid var(--line)}
+.fig img{width:100%;max-height:420px;object-fit:contain}
+.fig figcaption{font-size:.76rem;color:#5f6670;text-align:right}
+.teacher{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:8px;align-content:start}
+.tcard b{font-size:.98rem}
+.tcard span{color:var(--muted);font-size:.88rem}
+.tcard .acts{margin-top:2px}
+.soon{background:var(--surface);border:1.5px dashed var(--line);border-radius:14px;padding:28px 20px;display:grid;gap:6px;justify-items:start}
+.soon b{font-family:var(--font-display);font-size:1.1rem}
+.soon span{color:var(--muted)}
+.note{font-size:.84rem;color:var(--muted);max-width:75ch}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);border-radius:10px;padding:9px 14px;font-size:.88rem;max-width:calc(100% - 32px)}
+.aval{display:grid;gap:12px}
+.avgrid{display:grid;grid-template-columns:230px 1fr;gap:16px;align-items:start}
+.stulist{display:grid;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;position:sticky;top:calc(12px + env(safe-area-inset-top,0px))}
+.stus{display:grid;gap:4px;max-height:360px;overflow:auto}
+.stu{font:inherit;font-size:.9rem;text-align:left;cursor:pointer;background:transparent;color:var(--fg);border:1px solid transparent;border-radius:8px;padding:6px 8px;display:flex;justify-content:space-between;gap:8px}
+.stu:hover{border-color:var(--line)}
+.stu.on{background:var(--chip);border-color:var(--acc)}
+.stu b{font-variant-numeric:tabular-nums}
+.stulist .lbl{font-size:.8rem;font-weight:700;margin-top:6px}
+.stulist textarea{font:inherit;font-size:.88rem;width:100%;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--bg);color:var(--fg);resize:vertical}
+.avmain{display:grid;gap:10px;min-width:0}
+.avhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.avhead h4{margin:0;font-family:var(--font-display);font-size:1.25rem}
+.nota{display:flex;align-items:baseline;gap:6px;color:var(--muted);font-size:.85rem}
+.nota b{font-size:1.5rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.avhead .acts{margin-left:auto}
+.ins{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.ins summary{cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:700;flex-wrap:wrap}
+.ins summary span:first-child{flex:1;min-width:0}
+.ins .w{font-weight:400;font-size:.8rem;color:var(--muted)}
+.tscroll{overflow-x:auto}
+table.rub{border-collapse:collapse;width:100%;min-width:640px;margin-top:8px;font-size:.82rem}
+table.rub th,table.rub td{border-top:1px solid var(--line);padding:5px;vertical-align:top;text-align:left}
+table.rub thead th{font-size:.75rem;color:var(--muted);border-top:0}
+table.rub th[scope=row]{width:24%;font-weight:400}
+.asp{display:block;font-weight:700}
+.cr{display:block;font-size:.75rem;color:var(--muted)}
+.cell-lv{font:inherit;font-size:.78rem;line-height:1.3;width:100%;min-height:52px;text-align:left;cursor:pointer;background:var(--bg);color:var(--fg);border:1.5px solid var(--line);border-radius:8px;padding:5px 7px;display:grid;gap:2px;align-content:start}
+.cell-lv:hover{border-color:var(--acc)}
+.cell-lv b{font-size:.78rem}
+.cell-lv span{color:var(--muted)}
+.cell-lv.on{color:#fff}.cell-lv.on span{color:#fff}
+.lv{display:inline-block;min-width:30px;text-align:center;font-size:.75rem;font-weight:700;border-radius:999px;padding:2px 7px;color:#fff}
+.lv-NA{background:#c2413a}.lv-AS{background:#c98a16}.lv-AN{background:#3f8f5a}.lv-AE{background:#2f6db5}
+.lv-none{background:var(--chip);color:var(--muted)}
+.cell-lv.lv-NA{background:#c2413a;border-color:#c2413a}.cell-lv.lv-AS{background:#c98a16;border-color:#c98a16}.cell-lv.lv-AN{background:#3f8f5a;border-color:#3f8f5a}.cell-lv.lv-AE{background:#2f6db5;border-color:#2f6db5}
+h4.sub{margin:6px 0 0;font-size:1rem}
+.crits{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px}
+.crit{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.crit .cc{font-weight:700;font-variant-numeric:tabular-nums}
+.crit .cn{flex:1;font-size:.85rem;color:var(--muted)}
+table.grp{border-collapse:collapse;width:100%;font-size:.85rem;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table.grp th,table.grp td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+table.grp th[scope=row]{text-align:left;font-weight:400}
+table.grp .nt{font-weight:700;font-variant-numeric:tabular-nums}
+
+/* ===== Portada ===== */
+.view{display:grid;gap:30px;min-width:0}
+.cover{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:center;padding-top:10px}
+.cover h1{font-size:clamp(2.3rem,6vw,4rem);letter-spacing:-.01em}
+.cover .lead{font-size:1.05rem}
+.cover-txt{display:grid;gap:14px;min-width:0}
+.credit{margin:0;display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted)}
+.credit .sig{font-family:var(--font-display);font-weight:800;color:var(--fg)}
+.credit::before{content:"";width:28px;height:2px;background:var(--fg);flex:none}
+.cover-cta{display:flex;flex-wrap:wrap;gap:8px}
+.cover-art{position:relative;aspect-ratio:16/11;max-width:100%;border-radius:22px;overflow:hidden;background:var(--surface);border:1px solid var(--line);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:22px 22px}
+.cover-art img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover-art svg.orb{position:absolute;inset:0;width:100%;height:100%}
+.tile{position:absolute;left:18px;bottom:18px;width:134px;height:150px;background:var(--surface);color:var(--fg);border:2px solid var(--fg);border-radius:8px;box-shadow:6px 6px 0 var(--fg)}
+.tile .tsym{position:absolute;left:10px;top:24px;display:flex;align-items:stretch}
+.tile .sym{font-family:var(--font-display);font-weight:800;font-size:3.7rem;line-height:.9;letter-spacing:-.01em}
+.tile .sup,.tile .sub{font-family:var(--font-display);font-weight:800;font-size:1.15rem;line-height:1}
+.tile .nums{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;margin-right:3px;padding:0 0 1px}
+.tile .sup{margin-top:-6px}
+.tile .sub{margin-bottom:-6px}
+.tile .nm{position:absolute;left:12px;right:8px;bottom:10px;font-size:.78rem;font-weight:700;line-height:1.15}
+.tile .ar{position:absolute;left:0;top:0;overflow:visible;color:var(--fg);pointer-events:none}
+.tile .ar-m{display:none}
+.tile .note{position:absolute;left:162px;transform:translateY(-50%);width:max-content;display:grid;gap:1px;background:var(--surface);color:var(--fg);border:2px solid var(--fg);border-radius:8px;padding:4px 10px;font-size:.74rem;line-height:1.2}
+.tile .note b{font-weight:700}
+.tile .note b i{font-family:var(--font-display);font-style:italic;font-weight:800}
+.tile .note span{color:var(--muted);font-weight:700}
+.tile .n1{top:100px}
+.tile .n2{top:140px}
+.sechd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sechd h2{font-family:var(--font-display);font-weight:800;font-size:1.55rem;margin:0}
+.sechd span{color:var(--muted);font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-radius:16px;overflow:hidden;isolation:isolate}
+.scard{--c:var(--s1);container-type:inline-size;position:relative;display:block;aspect-ratio:3/2;max-width:100%;border-radius:0;overflow:hidden;background:var(--c);color:#fff;text-decoration:none;isolation:isolate;}
+.scard img,.scard svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.scard .num{position:absolute;left:10px;top:10px;z-index:2;background:var(--surface);color:var(--fg);border-radius:8px;padding:3px 8px 4px;font-family:var(--font-display);font-weight:800;font-size:.95rem;line-height:1.1;display:grid;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.scard .num small{font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.scard .chip{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;justify-self:start;max-width:max-content;background:rgba(20,22,26,.72);color:#fff;border-radius:999px;padding:4px 12px;font-weight:700;font-size:.78rem;line-height:1.25;transition:opacity .2s ease}
+.scard .sov{position:absolute;inset:0;z-index:1;display:grid;align-content:end;gap:4px;padding:12px 14px;background:color-mix(in srgb,var(--c) 80%,transparent);opacity:0;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease}
+.sov .smeta{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.9}
+.sov h3{font-family:var(--font-display);font-weight:800;font-size:clamp(1rem,6.4cqi,1.45rem);line-height:1.1;margin:0;text-wrap:balance}
+.sov p{margin:0;font-size:clamp(.82rem,4.5cqi,1.02rem);line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@container (max-width:260px){.sov p,.sov .smeta{display:none}}
+.sov .sgo{margin-top:4px;justify-self:start;background:#fff;color:var(--c);border-radius:999px;padding:4px 12px;font-weight:700;font-size:.84rem}
+.scard:hover .sov,.scard:focus-visible .sov{opacity:1;transform:none}
+.scard:hover .chip,.scard:focus-visible .chip,.scard:hover .num,.scard:focus-visible .num{opacity:0}
+.scard .num{transition:opacity .2s ease}
+.scard:hover img,.scard:focus-visible img{transform:scale(1.04)}
+.scard:focus-visible{outline:3px solid var(--fg);outline-offset:-3px}
+.rcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rcard{--c:var(--s1);display:grid;grid-template-rows:auto 1fr;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:var(--fg);text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.rcard:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 10px 26px -14px var(--c)}
+.rart{position:relative;aspect-ratio:3/2;background:var(--c);overflow:hidden}
+.rart img,.rart svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rart .num{position:absolute;left:12px;top:12px;background:var(--surface);color:var(--fg);border-radius:8px;padding:3px 8px 4px;font-family:var(--font-display);font-weight:800;font-size:.95rem;line-height:1.1;display:grid}
+.rart .num small{font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.rbody{display:grid;gap:6px;padding:14px 16px 16px;align-content:start}
+.rbody .smeta{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.rbody h3{font-family:var(--font-display);font-weight:800;font-size:1.22rem;line-height:1.12;margin:0;text-wrap:balance}
+.rbody p{margin:0;color:var(--muted);font-size:.9rem}
+.rbody .sgo{margin-top:4px;font-weight:700;font-size:.86rem;color:var(--c)}
+@media (max-width:860px){.rcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.rcards{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ses,.ses .pic{transition:none}.rcard{transition:none}.rcard:hover{transform:none}}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.dtile{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--fg);text-decoration:none;min-width:0}
+.dtile:hover{border-color:var(--fg)}
+.dtile .pg{width:30px;height:38px;border:1.5px solid var(--fg);border-radius:3px 9px 3px 3px;background:var(--paper);display:grid;align-content:center;gap:3px;padding:0 5px}
+.dtile .pg i{display:block;height:2px;background:var(--line)}
+.dtile b{font-size:.9rem;line-height:1.2;display:block}
+.dtile span{font-size:.76rem;color:var(--muted)}
+.dtile.lnk .pg{border-style:dashed}
+.profe-band{background:var(--ink);color:var(--ink-fg);border-radius:18px;padding:18px 20px;display:grid;gap:8px}
+.profe-band h2{margin:0;font-family:var(--font-display);font-size:1.3rem}
+.profe-band p{margin:0;opacity:.85;font-size:.92rem;max-width:80ch}
+.profe-band .warn{justify-self:start;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:2px 10px}
+.qlinks{display:flex;flex-wrap:wrap;gap:8px}
+.qlinks a.btn{color:var(--ink-fg);border-color:rgba(255,255,255,.35);background:transparent}
+.foot{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;color:var(--muted);font-size:.84rem}
+.foot b{color:var(--fg)}
+/* ===== Barra de la SdA ===== */
+.sbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.home-link{font-weight:700;font-size:.9rem;color:var(--fg);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 8px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface)}
+.home-link:hover{border-color:var(--fg)}
+nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
+.sbtn{font:inherit;cursor:pointer;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;display:inline-flex;align-items:center;gap:7px;font-size:.86rem}
+.sbtn .dot{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.sbtn .tt{display:none}
+.sbtn[aria-selected="true"]{border-color:var(--c);background:var(--c);color:#fff}
+.sbtn[aria-selected="true"] .dot{background:#fff}
+.sbtn[aria-selected="true"] .tt{display:inline}
+.sbtn:hover{border-color:var(--c)}
+.hero .thumb{width:100%;max-width:100%;aspect-ratio:3/2;border-radius:18px;overflow:hidden;position:relative;background:var(--acc)}
+.hero .thumb img,.hero .thumb svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .hacts{display:grid;gap:12px;justify-items:end;min-width:0}
+.hero .hacts .thumb{justify-self:stretch}
+/* ===== Visor ===== */
+.viewer{display:grid;gap:14px;min-width:0}
+.vbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line)}
+.vtitle{flex:1;min-width:0;display:grid;gap:1px}
+.vtitle b{font-family:var(--font-display);font-size:1.15rem;line-height:1.15;overflow-wrap:anywhere}
+.vtitle span{font-size:.78rem;color:var(--muted)}
+.vtitle .vk{font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc)}
+.vtools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.zoom{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--surface)}
+.zoom button{font:inherit;font-weight:700;width:34px;height:32px;border:0;background:transparent;color:var(--fg);cursor:pointer;border-radius:999px}
+.zoom button:disabled{opacity:.35;cursor:default}
+.zoom output{min-width:52px;text-align:center;font-size:.82rem;font-variant-numeric:tabular-nums}
+.vdesk{background:var(--desk);border-radius:16px;padding:18px 12px;overflow-x:auto}
+.vpages{display:grid;gap:30px;justify-items:center;margin:0 auto;width:calc(min(100%, 860px) * var(--z,1))}
+.vpage{position:relative;width:100%;background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.18),0 8px 22px -12px rgba(0,0,0,.35);border-radius:2px}
+.vpage canvas{position:absolute;inset:0;width:100%;height:100%}
+.vpage .pn{position:absolute;right:-2px;bottom:-22px;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vmsg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;justify-items:start;max-width:560px;margin:0 auto}
+.vmsg b{font-family:var(--font-display);font-size:1.1rem}
+.spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--acc);animation:sp 0.9s linear infinite;margin:30px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}.scard img,.scard .sov,.scard .chip{transition:none}}
+@media (hover:none){.scard .sov{display:none}}
+@media (max-width:620px){
+  .cover{grid-template-columns:1fr}
+  .cover-art{order:-1}
+  .cards{margin-top:0}
+  .scard .chip{display:none}
+  .scard .num{left:6px;top:6px;padding:2px 6px 3px;font-size:.8rem}
+  .tile{left:12px;bottom:12px;width:104px;height:118px}.tile .tsym{left:9px;top:16px}.tile .sym{font-size:2.8rem}.tile .sup,.tile .sub{font-size:.95rem}.tile .nm{font-size:.68rem;left:9px}.tile .ar-d{display:none}.tile .ar-m{display:block}.tile .note{left:126px;font-size:.6rem;padding:2px 7px;border-radius:6px}.tile .n1{top:78px}.tile .n2{top:108px}
+  .hero .hacts{order:-1;justify-items:start}
+  .vtools{width:100%;justify-content:space-between}
+  .vdesk{padding:10px 6px;border-radius:12px}
+}
+@media (max-width:620px){
+  .avgrid{grid-template-columns:1fr}
+  .stulist{position:static}
+  .hero{grid-template-columns:1fr}
+  .ses{grid-template-columns:1fr}
+  .ses .pic{width:100%;height:110px}
+  .ses.sel{grid-template-columns:1fr}
+  .ses.sel .pic{height:240px}
+}
+</style>
+
+<link rel="stylesheet" href="css/fitxa.css">
+<script src="js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.105.3/mathlive.min.js"></script>
+<script src="js/units.js"></script>
+<script src="js/fitxes.js"></script>
+<script src="js/store.js"></script>
+<script src="js/fitxa.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="view" id="vHome">
+    <section class="cover" aria-labelledby="h1">
+      <div class="cover-txt">
+        <div class="eyebrow">3r d'ESO</div>
+        <h1 id="h1">Física i química per entendre el món</h1>
+        <p class="lead">Sis reptes per entendre la física i la química del dia a dia. Aquí tens, sessió a sessió, què farem, els fulls que necessites i les simulacions.</p>
+        <p class="credit">Llibre digital dinàmic creat per <span class="sig" id="author"></span></p>
+        <div class="cover-cta" id="cta"></div>
+      </div>
+      <div class="cover-art" id="coverArt"></div>
+    </section>
+    <section class="view" style="gap:14px" aria-labelledby="hReptes">
+      <div class="sechd"><h2 id="hReptes">Els sis reptes</h2></div>
+      <nav class="cards" id="cards" aria-label="Les sis situacions d'aprenentatge"></nav>
+    </section>
+    <div id="profeBand"></div>
+    <section class="view" style="gap:14px" aria-labelledby="hCurs">
+      <div class="sechd"><h2 id="hCurs">Per a tot el curs</h2><span>Clica un full per obrir-lo</span></div>
+      <div class="shelf" id="shelf"></div>
+    </section>
+  </div>
+
+  <div class="view" id="vSda" hidden>
+    <div class="sbar"><a class="home-link" href="#inici"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Totes les SdA</a>
+      <nav class="sdas" role="tablist" aria-label="Situacions d'aprenentatge" id="tabs"></nav></div>
+    <main id="panel" role="tabpanel"></main>
+    <p class="note">Clica un full per obrir-lo aquí mateix. Des del visor el pots descarregar en PDF.</p>
+  </div>
+
+  <section class="wsview" id="vWs" hidden></section>
+  <section class="viewer" id="vDoc" hidden aria-label="Visor de fulls">
+    <div class="vbar">
+      <button type="button" class="btn ghost" id="vBack"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="vBackL">Torna</span></button>
+      <div class="vtitle"><span><span class="vk" id="vKick"></span> <span id="vInfo"></span></span><b id="vName"></b></div>
+      <div class="vtools">
+        <div class="zoom" role="group" aria-label="Mida"><button type="button" id="zOut" aria-label="Redueix">−</button><output id="zLbl">100 %</output><button type="button" id="zIn" aria-label="Amplia">+</button></div>
+        <button type="button" class="btn" id="vDl"></button>
+      </div>
+    </div>
+    <div class="vdesk"><div class="vpages" id="vPages"></div></div>
+  </section>
+</div>
+<div id="toast" hidden aria-live="polite"></div>
+
+<script>
+const ICON_DL = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_DOC = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.8h5.2L12.5 5v9.2h-8.5z M9 2v3.2h3.3 M6.3 8.2h4 M6.3 10.8h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+const ICON_LINK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 3h4v4M13 3L7 9M11 9.5V13H3V5h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+const MODE = "alumne";
+const D = {
+  dc0:     {f:"curs-01-sessio-0-sondeig-idees-previes.pdf", l:"Sessió 0: sondeig d'idees prèvies"},
+  dcT:     {f:"curs-02-sessio-de-tancament.pdf", l:"Sessió de tancament"},
+  dcE:     {f:"curs-03-enquesta-de-valoracio.pdf", l:"Enquesta de valoració (anònima)"},
+  d5ruta:  {f:"sda5-01-full-de-ruta.pdf", l:"Full de ruta"},
+  d5repte: {f:"sda5-02-full-del-repte.pdf", l:"Full del repte"},
+  d5f1:    {f:"sda5-03-fitxa-1-mru.pdf", l:"Fitxa 1"},
+  d5f2:    {f:"sda5-04-fitxa-2-mrua.pdf", l:"Fitxa 2"},
+  d5f3:    {f:"sda5-05-fitxa-3-grafiques-del-patinet.pdf", l:"Fitxa 3: gràfiques"},
+  d5f4:    {f:"sda5-06-fitxa-4-trajectoria.pdf", l:"Fitxa 4"},
+  d5f5:    {f:"sda5-07-fitxa-5-difusio-i-gradient.pdf", l:"Fitxa 5: difusió i gradient"},
+  d5f6q:   {f:"sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf", l:"Fitxa 6: quimiotaxi, febre i salut"},
+  d5prob:  {f:"sda5-09-problemes-de-moviment.pdf", l:"Problemes"},
+  d5f6:    {f:"sda5-10-fitxa-7-newton-i-citoesquelet.pdf", l:"Fitxa 7 · Newton i citoesquelet"},
+  d5hooke: {f:"sda5-11-laboratori-llei-de-hooke.pdf", l:"Laboratori de Hooke"},
+  d5tfm:   {f:"sda5-12-forces-cellulars.pdf", l:"Full de forces cel·lulars"},
+  d5rub:   {f:"sda5-14-rubriques.pdf", l:"Rúbriques"},
+  d5diana: {f:"sda5-18-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  d5mapa:  {f:"sda5-19-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  d3ruta:  {f:"sda3-01-full-de-ruta.pdf", l:"Full de ruta"},
+  d3f1:    {f:"sda3-03-fitxa-1-desmuntem-el-mobil.pdf", l:"Fitxa 1"},
+  d3f2:    {f:"sda3-04-fitxa-2-models-atomics-i-isotops.pdf", l:"Fitxa 2"},
+  d3f3:    {f:"sda3-05-fitxa-3-ions-i-bateria.pdf", l:"Fitxa 3"},
+  d3lab:   {f:"sda3-07-laboratori-assaig-a-la-flama.pdf", l:"Laboratori: assaig a la flama"},
+  d3f4:    {f:"sda3-08-fitxa-4-taula-periodica.pdf", l:"Fitxa 4"},
+  d3f5:    {f:"sda3-09-fitxa-5-enllac-quimic.pdf", l:"Fitxa 5"},
+  d3dos:   {f:"sda3-10-dossier-incendis-i-elements-critics.pdf", l:"Dossier"},
+  d3camp:  {f:"sda3-11-pla-de-campanya-punt-de-recollida.pdf", l:"Pla de campanya"},
+  d3rub:   {f:"sda3-12-rubriques.pdf", l:"Rúbriques"},
+  d3diana: {f:"sda3-16-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  d3mapa:  {f:"sda3-17-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  d1amp:   {f:"sda1-18-ampliacio.pdf", l:"Reptes d'ampliació"},
+  d2amp:   {f:"sda2-15-ampliacio.pdf", l:"Reptes d'ampliació"},
+  d3amp:   {f:"sda3-18-ampliacio.pdf", l:"Reptes d'ampliació"},
+  d4amp:   {f:"sda4-16-ampliacio.pdf", l:"Reptes d'ampliació"},
+  d5amp:   {f:"sda5-20-ampliacio.pdf", l:"Reptes d'ampliació"},
+  d6amp:   {f:"sda6-14-ampliacio.pdf", l:"Reptes d'ampliació"},
+  dcF:     {f:"curs-04-formulari.pdf", l:"Formulari del curs"},
+  dcG:     {f:"curs-05-glossari.pdf", l:"Glossari del curs"},
+  d6recup: {f:"sda6-17-tasca-de-recuperacio.pdf", l:"Tasca de recuperació"},
+  d6ruta:  {f:"sda6-01-full-de-ruta.pdf", l:"Full de ruta"},
+  d6repte: {f:"sda6-02-full-del-repte.pdf", l:"Full del repte"},
+  d6f1:    {f:"sda6-03-fitxa-1-energia-potencia-i-consum.pdf", l:"Fitxa 1"},
+  d6lab:   {f:"sda6-04-laboratori-consum-real.pdf", l:"Laboratori: mesurem el consum real"},
+  d6f2:    {f:"sda6-05-fitxa-2-don-ve-lelectricitat.pdf", l:"Fitxa 2"},
+  d6pla:   {f:"sda6-06-pla-destalvi-i-debat.pdf", l:"Pla d'estalvi i debat"},
+  d6rub:   {f:"sda6-07-rubriques.pdf", l:"Rúbriques"},
+  d6diana: {f:"sda6-11-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  d6mapa:  {f:"sda6-12-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  d4ruta:  {f:"sda4-01-full-de-ruta.pdf", l:"Full de ruta"},
+  d4repte: {f:"sda4-02-full-del-repte.pdf", l:"Full del repte"},
+  d4lab1:  {f:"sda4-03-laboratori-conservacio-de-la-massa.pdf", l:"Laboratori: es conserva la massa?"},
+  d4f1:    {f:"sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf", l:"Fitxa 1"},
+  d4lab2:  {f:"sda4-05-laboratori-obtenim-hidrogen.pdf", l:"Laboratori: obtenim hidrogen"},
+  d4f2:    {f:"sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf", l:"Fitxa 2"},
+  d4lab3:  {f:"sda4-07-laboratori-electrolisi-de-laigua.pdf", l:"Laboratori: electròlisi de l'aigua"},
+  d4f3:    {f:"sda4-08-fitxa-3-taller-de-problemes.pdf", l:"Fitxa 3"},
+  d4dos:   {f:"sda4-09-dossier-hidrogen.pdf", l:"Dossier sobre l'hidrogen"},
+  d4rub:   {f:"sda4-10-rubriques.pdf", l:"Rúbriques"},
+  d4diana: {f:"sda4-14-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  d4mapa:  {f:"sda4-15-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  d1ruta:  {f:"sda1-01-full-de-ruta.pdf", l:"Full de ruta"},
+  d1reg:   {f:"sda1-02-registre-del-detectiu.pdf", l:"Registre del detectiu"},
+  d1seg:   {f:"sda1-03-seguretat-al-laboratori.pdf", l:"Seguretat al laboratori"},
+  d1f1:    {f:"sda1-04-fitxa-1-magnituds-i-unitats.pdf", l:"Fitxa 1"},
+  d1f2:    {f:"sda1-05-fitxa-2-factors-de-conversio.pdf", l:"Fitxa 2 i cerca de densitats"},
+  d1dens:  {f:"sda1-06-laboratori-densitat.pdf", l:"Laboratori de densitat"},
+  d1prov:  {f:"sda1-07-proves-conductivitat-i-ferro.pdf", l:"Full de proves"},
+  d1sep:   {f:"sda1-08-laboratori-separacio.pdf", l:"Laboratori de separació"},
+  d1crom:  {f:"sda1-09-cromatografia.pdf", l:"Cromatografia"},
+  d1ellen: {f:"sda1-10-reading-ellen-swallow-richards.pdf", l:"Reading: Ellen Swallow Richards"},
+  d1inf:   {f:"sda1-11-guio-informe-i-protocol.pdf", l:"Guió de l'informe i protocol"},
+  d1rub:   {f:"sda1-12-rubriques.pdf", l:"Rúbriques"},
+  d1diana: {f:"sda1-16-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  d1mapa:  {f:"sda1-17-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  ruta:   {f:"sda2-01-full-de-ruta.pdf", l:"Full de ruta"},
+  repte:  {f:"sda2-02-full-del-repte.pdf", l:"Full del repte"},
+  lab:    {f:"sda2-03-laboratori-globus.pdf", l:"Full de laboratori"},
+  f1:     {f:"sda2-04-fitxa-1-model-cineticomolecular.pdf", l:"Fitxa 1"},
+  f2:     {f:"sda2-05-fitxa-2-lleis-dels-gasos.pdf", l:"Fitxa 2"},
+  inf:    {f:"sda2-07-guio-informe-de-practica.pdf", l:"Guió de l'informe"},
+  video:  {f:"sda2-08-guio-del-video.pdf", l:"Guió del vídeo"},
+  rub:    {f:"sda2-09-rubriques.pdf", l:"Rúbriques"},
+  diana:  {f:"sda2-12-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
+  mapa:   {f:"sda2-13-mapa-conceptual.pdf", l:"Mapa conceptual"},
+  labc:   {f:"sda2-14-laboratori-corba-i-canvis-destat.pdf", l:"Full de laboratori"}
+};
+const L = {
+  reecat: {u:"https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf", l:"Red Eléctrica: balanç elèctric de Catalunya 2024"},
+  circuits: {u:"https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc", l:"Simulació: kit de construcció de circuits"},
+  telkes: {u:"https://ethw.org/M%C3%A1ria_Telkes", l:"Mária Telkes, pionera de l'energia solar"},
+  tmbh2: {u:"https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola", l:"Notícia: TMB rep el primer bus d'hidrogen (2021)"},
+  ajust: {u:"https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_ca.html", l:"Simulació: ajust d'equacions químiques"},
+  ferida: {u:"https://bbbc.broadinstitute.org/BBBC019", l:"Vídeos: una ferida que es tanca (migració col·lectiva)"},
+  metastasi: {u:"https://www.eurekalert.org/multimedia/893280", l:"Vídeo: una cèl·lula tumoral colonitza l'os"},
+  cito: {u:"https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", l:"Imatge: el citoesquelet al microscopi de fluorescència"},
+  febre: {u:"https://www.nature.com/articles/s41598-022-10858-w", l:"Article citat a la fitxa 5 (Khachaturyan et al., 2022)"},
+  rogers: {u:"https://abakcus.com/video/white-blood-cell-chases-bacteria/", l:"Vídeo: un neutròfil persegueix un bacteri"},
+  difusio: {u:"https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_ca.html", l:"Simulació: difusió"},
+  irimia: {u:"https://www.cellimagelibrary.org/images/39519", l:"Vídeo real: neutròfils cap a l'fMLP"},
+  rutherford: {u:"https://phet.colorado.edu/sims/html/rutherford-scattering/latest/rutherford-scattering_ca.html", l:"Simulació: dispersió de Rutherford"},
+  buildatom: {u:"https://phet.colorado.edu/ca/simulations/build-an-atom", l:"Simulació: construeix un àtom"},
+  simbat: {u:"../sim-bateria.html", l:"Simulador: la bateria de liti per dins"},
+  ptable: {u:"https://ptable.com/", l:"Taula periòdica interactiva"},
+  density: {u:"https://phet.colorado.edu/ca/simulations/density", l:"Simulació: densitat"},
+  sugarsalt: {u:"https://phet.colorado.edu/ca/simulations/sugar-and-salt-solutions", l:"Simulació: sucre i sal en dissolució"},
+  gasprop: {u:"https://phet.colorado.edu/ca/simulations/gas-properties", l:"Simulació: propietats dels gasos"},
+  gasintro:{u:"https://phet.colorado.edu/ca/simulations/gases-intro", l:"Simulació: introducció als gasos"},
+  states:  {u:"https://phet.colorado.edu/ca/simulations/states-of-matter-basics", l:"Simulació: estats de la matèria"}
+};
+
+const SDAS = [
+  {n:1, c:"--s1", title:"Detectius de la matèria", q:"Com podem identificar dotze substàncies que han perdut l'etiqueta?", meta:"1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2 i CE3", ready:true,
+   sessions:[
+    {t:"El repte i la seguretat", ph:"Explorem", p:"Al laboratori hi ha dotze pots sense etiqueta i tenim la llista de les dotze etiquetes possibles. Observarem els pots sense obrir-los i farem les primeres hipòtesis. Abans de tocar res, buscarem els errors d'un laboratori on tothom fa alguna cosa perillosa i farem el nostre decàleg de seguretat.", d:["d1ruta","d1reg","d1seg","d1rub"], l:[]},
+    {t:"Unitats i notació científica", ph:"Recordem", p:"Recordarem què és una magnitud, les unitats del Sistema Internacional i com es canvien les unitats de massa, longitud i volum. Veurem que els prefixos són potències de 10 i aprendrem a escriure i operar nombres molt grans i molt petits amb la notació científica.", d:["d1f1"], l:[]},
+    {t:"Factors de conversió", ph:"Recordem", p:"Farem canvis d'unitats encadenats, també amb unitats compostes com la densitat. A casa buscaràs la densitat de les substàncies possibles en fonts fiables i en citaràs la font.", d:["d1f2"], l:[]},
+    {t:"Densitat dels pots enigma", ph:"Experimentem", p:"Pesarem els nou pots que contenen líquids i en calcularem la densitat. La compararem amb els valors que has trobat i calcularem l'error absolut i l'error relatiu. Ja podrem assignar les primeres etiquetes!", d:["d1dens"], l:["density"]},
+    {t:"Conductivitat i el clau de ferro", ph:"Aprenem", p:"Repassarem què són les substàncies pures i les mescles. El professor farà dues demostracions i tu en registraràs els resultats: quins líquids condueixen el corrent elèctric i per què, i què passa quan posem un clau de ferro en els tres líquids blaus. Prepararem la separació de la sessió següent.", d:["d1prov"], l:["sugarsalt"]},
+    {t:"Separem mescles", ph:"Experimentem", p:"Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.", d:["d1sep","d1ellen"], l:[]},
+    {t:"La nota anònima", ph:"Ho apliquem", p:"Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.", d:["d1crom"], l:[]},
+    {t:"Resolem el cas", ph:"Ho apliquem", p:"Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.", d:["d1inf","d1mapa"], l:[]},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d1diana"], l:[]}
+   ],
+   teacher:[]},
+  {n:2, c:"--s2", title:"El desodorant kamikaze", q:"Per què explota un desodorant dins d'un cotxe a l'agost?", meta:"1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE4", ready:true,
+   sessions:[
+    {t:"El repte", ph:"Explorem", p:"Veurem què pot passar quan un esprai es queda dins d'un cotxe a l'estiu i llegirem l'etiqueta d'un aerosol. Dibuixaràs com t'imagines les partícules del gas de l'interior de la llauna i, en grup, formulareu hipòtesis sobre per què pot rebentar.", d:["ruta","repte","rub"], l:[]},
+    {t:"Els globus al fred i a la calor", ph:"Experimentem", p:"Mesurarem el perímetre de dos globus i en calcularem el volum suposant que són esfèrics. Després en deixarem un 20 minuts al congelador i l'altre damunt d'un vas amb aigua calenta, i calcularem en quin percentatge ha variat el volum de cadascun. Mentre esperem, farem prediccions.", d:["lab"], l:[]},
+    {t:"El model de partícules", ph:"Aprenem", p:"Descobrirem com és la matèria a escala de partícules: partícules en moviment constant i buit entre elles. Amb una simulació veurem que la pressió d'un gas és el resultat dels xocs de les partícules contra les parets del recipient, i entendrem per què ha variat el volum dels globus.", d:["f1"], l:["gasprop","states"]},
+    {t:"Les lleis dels gasos", ph:"Aprenem", p:"Corregirem la fitxa 1. Estudiarem els estats d'agregació i les tres lleis dels gasos, i aprendrem a fer servir l'escala Kelvin.", d:[], l:["gasintro"]},
+    {t:"Exercicis de gasos", ph:"Practiquem", p:"Resoldrem problemes de gasos, primer junts i després en parelles. La fitxa 2 l'acabaràs a casa.", d:["f2"], l:[]},
+    {t:"Corba d'escalfament i canvis d'estat", ph:"Experimentem", p:"Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.", d:["labc","inf"], l:[]},
+    {t:"Torno al repte", ph:"Ho apliquem", p:"Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.", d:["repte","video","mapa"], l:[]},
+    {t:"Gravem el vídeo per a 1r", ph:"Ho apliquem", p:"Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.", d:["rub"], l:[]},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.", d:[], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo i el coavaluarem amb la rúbrica. Faràs la diana per valorar què has après.", d:["diana"], l:[]}
+   ],
+   teacher:[]},
+  {n:3, c:"--s3", title:"Què hi ha dins del meu mòbil?", q:"Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?", meta:"1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE5 i CE6", ready:true,
+   sessions:[
+    {t:"Desmuntem el mòbil", ph:"Explorem", p:"Desmuntarem un model de mòbil peça a peça i, a partir de les etiquetes tècniques, trobarem quins elements químics conté. Farem una hipòtesi: què passaria si el llencéssim al contenidor de rebuig? Presentarem el repte: un punt de recollida de mòbils a l'institut.", d:["d3ruta","d3f1","d3rub"], l:[]},
+    {t:"De Dalton a Bohr", ph:"Aprenem", p:"Veurem com ha canviat la idea d'àtom, des de Dalton fins a Bohr. Amb els simuladors reproduirem l'experiment de Rutherford i construirem àtoms per entendre el nombre atòmic, el nombre màssic i els isòtops.", d:["d3f2"], l:["rutherford","buildatom"]},
+    {t:"Ions i el camí del reciclatge", ph:"Aprenem", p:"Recordarem què és un ió i veurem, amb el nostre simulador, com es mouen els ions de liti dins de la bateria. Després cada grup explicarà una etapa del camí que fa un mòbil quan es recicla.", d:["d3f3"], l:["simbat"]},
+    {t:"El liti a la flama", ph:"Experimentem", p:"Començarem amb 15 minuts per recordar el que vam fer abans de les vacances. Primer veurem com es distribueixen els electrons per capes segons el model de Bohr. Després comprovarem que una sal conté liti amb l'assaig a la flama i un espectroscopi: cada element emet uns colors propis, i ho explicarem amb el model de Bohr.", d:["d3lab"], l:[]},
+    {t:"La taula periòdica", ph:"Aprenem", p:"Veurem com Mendeléiev va ordenar els elements i va predir-ne de nous. Situarem a la taula els elements del mòbil i descobrirem per què els elements d'un mateix grup s'assemblen.", d:["d3f4"], l:["ptable"]},
+    {t:"L'enllaç químic", ph:"Aprenem", p:"Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.", d:["d3f5"], l:[]},
+    {t:"Per què cremen les bateries?", ph:"Ho apliquem", p:"Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.", d:["d3dos"], l:["simbat"]},
+    {t:"Posem en marxa el punt de recollida", ph:"Ho apliquem", p:"Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.", d:["d3camp","d3mapa"], l:[]},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Repassa les fitxes i el mapa conceptual.", d:[], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d3diana"], l:[]}
+   ],
+   teacher:[]},
+  {n:4, c:"--s4", title:"Un cotxe que només allibera aigua?", q:"Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?", meta:"2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3", ready:true,
+   sessions:[
+    {t:"El repte i l'espelma", ph:"Explorem", p:"Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.", d:["d4ruta","d4repte","d4rub"], l:["tmbh2"]},
+    {t:"Lavoisier al laboratori", ph:"Experimentem", p:"Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.", d:["d4lab1"], l:[]},
+    {t:"Formulació i nomenclatura", ph:"Aprenem", p:"Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.", d:["d4f1"], l:[]},
+    {t:"Obtenim hidrogen", ph:"Experimentem", p:"Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.", d:["d4lab2"], l:[]},
+    {t:"Equacions i càlculs de massa", ph:"Aprenem", p:"Aprendrem a ajustar equacions químiques i a calcular les masses de reactius i productes a partir de les masses atòmiques. Calcularem quanta aigua allibera cada dia un autobús d'hidrogen. La fitxa 2 l'acabaràs a casa.", d:["d4f2"], l:["ajust"]},
+    {t:"Electròlisi: hidrogen verd", ph:"Experimentem", p:"Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.", d:["d4lab3"], l:[]},
+    {t:"Taller de problemes", ph:"Practiquem", p:"Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d'una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d'ajust d'equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.", d:["d4f3","d4mapa"], l:["ajust"]},
+    {t:"Per què no són tots així?", ph:"Ho apliquem", p:"Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.", d:["d4dos","d4repte"], l:[]},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.", d:[], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d4diana"], l:[]}
+   ],
+   teacher:[]},
+  {n:5, c:"--s5", title:"Cèl·lules immunitàries a la caça dels patògens", q:"Com persegueix un neutròfil un bacteri sense veure'l?", meta:"2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1 i CE5", ready:true,
+   sessions:[
+    {t:"La persecució", ph:"Explorem", p:"Veurem un vídeo real d'un neutròfil que persegueix un bacteri. Veurem també per què és tan important que les cèl·lules migrin: per defensar-nos de les infeccions, per tancar les ferides i, malauradament, en la metàstasi d\'un càncer. En grup, farem una hipòtesi sobre com es mou, si fa força i com sap on és el bacteri. Rebràs les rúbriques de la SdA.", d:["d5ruta","d5repte","d5rub"], l:["rogers","ferida","metastasi"]},
+    {t:"El moviment uniforme (MRU)", ph:"Aprenem", p:"Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.", d:["d5f1"], l:[]},
+    {t:"El moviment accelerat (MRUA)", ph:"Aprenem", p:"Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l'acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d'un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.", d:["d5f2"], l:[]},
+    {t:"Les gràfiques del patinet", ph:"Ho apliquem", p:"Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.", d:["d5f3"], l:[]},
+    {t:"Trajectòria i desplaçament", ph:"Aprenem", p:"Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell (eritròcit, 7,5 µm de diàmetre) com a escala de referència i calcularem l'augment del dibuix. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.", d:["d5f4"], l:[]},
+    {t:"Difusió i gradient", ph:"Experimentem", p:"Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.", d:["d5f5"], l:["difusio"]},
+    {t:"Quimiotaxi i febre", ph:"Aprenem", p:"Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.", d:["d5f6q"], l:["rogers","febre"]},
+    {t:"Problemes de moviment", ph:"Ho apliquem", p:"Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.", d:["d5prob"], l:[]},
+    {t:"Les lleis de Newton", ph:"Aprenem", p:"Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s'atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.", d:["d5f6"], l:["cito"]},
+    {t:"La llei de Hooke", ph:"Experimentem", p:"Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.", d:["d5hooke"], l:[]},
+    {t:"Les cèl·lules també fan forces", ph:"Ho apliquem", p:"Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar la prova.", d:["d5tfm","d5mapa"], l:[]},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], l:[]},
+    {t:"Responc el repte i reflexiono", ph:"Reflexionem", p:"Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d5diana"], l:[]}
+   ],
+   teacher:[]},
+  {n:6, c:"--s6", title:"L'energia del nostre institut", q:"Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?", meta:"3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6", ready:true,
+   sessions:[
+    {t:"Auditoria energètica de l'aula", ph:"Explorem", p:"La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (la plantilla te la dona el professor a l'aula virtual), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.", d:["d6ruta","d6repte","d6rub"], l:[], half:true},
+    {t:"Energia, potència i consum", ph:"Aprenem", p:"Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.", d:["d6f1"], l:["telkes"], half:false},
+    {t:"Mesurem el consum real", ph:"Experimentem", p:"Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", d:["d6lab"], l:[], half:true},
+    {t:"D'on ve l'electricitat?", ph:"Investiguem", p:"Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.", d:["d6f2"], l:["reecat"], half:false},
+    {t:"El pla d'estalvi i el debat", ph:"Ho apliquem", p:"En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", d:["d6pla","d6repte","d6mapa"], l:[], half:true},
+    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", d:[], l:[], half:false},
+    {t:"Corregeixo, votem i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", d:["d6diana","d6pla"], l:[], half:true}
+   ],
+   teacher:[]}
+];
+
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+function dlBtn(k, ghost){ const d = D[k]; const dg = window.FITXES && window.FITXES[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#${dg ? "fitxa" : "doc"}-${k}">${ICON_DOC}${esc(d.l)}${dg ? '<span class="dig">digital</span>' : ""}</a>`; }
+function linkBtn(u, l){ const ext = /^https?:/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}>${ICON_LINK}${esc(l)}</a>`; }
+
+function renderTabs(cur){
+  document.getElementById("tabs").innerHTML = SDAS.map(s =>
+    `<button type="button" role="tab" class="sbtn" style="--c:var(${s.c})" aria-selected="${s.n===cur}" data-sda="${s.n}" id="tab${s.n}" title="${esc(s.title)}">
+      <span class="dot"></span><span>SdA ${s.n}</span><span class="tt">· ${esc(s.title)}</span></button>`).join("");
+}
+
+function renderPanel(n){
+  const s = SDAS.find(x => x.n === n);
+  const p = document.getElementById("panel");
+  p.style.setProperty("--acc", `var(${s.c})`);
+  p.setAttribute("aria-labelledby", "tab"+n);
+  document.documentElement.style.setProperty("--acc", `var(${s.c})`);
+  if (!s.ready){
+    p.innerHTML = `<div style="display:grid;gap:18px"><div class="hero"><div><div class="no">SdA ${s.n}</div><h2>${esc(s.title)}</h2><p class="kq">${esc(s.q)}</p></div></div>
+      <div class="soon"><b>Properament</b><span>Aquí hi trobaràs les sessions, els fulls i els enllaços d'aquesta SdA.</span></div></div>`;
+    return;
+  }
+  const ses = s.sessions.map((x,i) => {
+    const docs = x.d.map(k => dlBtn(k)).join("") + (MODE==="profe" ? (x.dt||[]).map(k => dlBtn(k)).join("") : "");
+    const links = x.l.map(k => linkBtn(L[k].u, L[k].l)).join("");
+    const acts = docs + links;
+    const fig = x.fig ? `<figure class="fig"><img src="${x.fig.src}" alt="${esc(x.fig.alt)}" loading="lazy"><figcaption>${esc(x.fig.cap)}</figcaption></figure>` : "";
+    const pic = x.pic === false ? `<span class="pend">Il·lustració<br>pendent</span>` : `<img src="../img/sda${s.n}-s${i+1}.png" alt="" loading="lazy">`;
+    return `<article class="ses" tabindex="0" aria-expanded="false" data-ses="${i}"><div class="pic">${pic}</div>
+      <div class="body"><div class="hd"><span class="badge">${i+1}</span><h4>${esc(x.t)}</h4><span class="phase">${esc(x.ph)}</span>${(x.half ?? ((i+1)%2===0))?`<span class="grp half" title="Sessió desdoblada: mig grup">Mig grup</span>`:`<span class="grp" title="Grup sencer">Grup sencer</span>`}</div>
+      <p>${esc(x.p)}</p>${fig}${acts?`<div class="acts">${acts}</div>`:""}</div></article>`;
+  }).join("");
+  const teach = s.teacher.map(t => `<div class="tcard"><b>${esc(t.b)}</b><span>${esc(t.s)}</span><div class="acts">${t.u?linkBtn(t.u,t.ul):""}${(t.d||[]).map(k=>dlBtn(k,true)).join("")}</div></div>`).join("");
+  p.innerHTML = `<div style="display:grid;gap:22px">
+    <div class="hero"><div><div class="no">SdA ${s.n}</div><h2>${esc(s.title)}</h2><p class="kq">${esc(s.q)}</p><div class="meta">${esc(s.meta)}</div></div>
+      <div class="hacts"><div class="thumb">${art(s.n)}</div><button type="button" class="btn" data-all="${s.n}">${ICON_DL}${MODE==="profe"?"Tot el material (ZIP)":"Tots els fulls (ZIP)"}</button></div></div>
+    <h3 class="sec">Sessió a sessió</h3>
+    <div class="sessions">${ses}</div>
+    <h3 class="sec">Vols anar més enllà?</h3>
+    <div class="teacher"><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les proves) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div>${s.n===6?`<div class="tcard"><b>Tasca de recuperació</b><span>Si el professor t'ho indica, aquesta tasca et permet recuperar o millorar la nota de la SdA abans de l'avaluació final.</span><div class="acts">${dlBtn("d6recup",true)}</div></div>`:""}</div>
+    ${MODE==="profe" ? `<h3 class="sec">Material del professorat</h3><div class="teacher">${teach}</div><section class="aval" id="aval"></section>` : ""}</div>`;
+  if (MODE==="profe") { AV.sda = s.n; renderAval(); }
+}
+
+let current = 0;
+function select(n){ current = n; renderTabs(n); renderPanel(n); try{ localStorage.setItem("fq3-sda", String(n)); }catch(e){} }
+document.getElementById("tabs").addEventListener("click", e => { const b = e.target.closest("[data-sda]"); if (b) location.replace("#sda" + b.dataset.sda); });
+document.getElementById("tabs").addEventListener("keydown", e => {
+  if (e.key!=="ArrowRight" && e.key!=="ArrowLeft") return;
+  const n = e.key==="ArrowRight" ? (current%6)+1 : ((current+4)%6)+1; location.replace("#sda" + n); setTimeout(() => document.getElementById("tab"+n).focus(), 0);
+});
+
+function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(()=>{ el.hidden = true; }, 3200); }
+let downloadsP = null;
+function getDownloads(){ return Promise.resolve({save: async ({filename, data}) => { const blob = data instanceof Blob ? data : new Blob([data], {type: "text/plain;charset=utf-8"}); const u = URL.createObjectURL(blob); const a = document.createElement("a"); a.href = u; a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 5000); }}); }
+
+function pickSes(art){
+  const was = art.classList.contains("sel");
+  document.querySelectorAll(".ses.sel").forEach(a => { a.classList.remove("sel"); a.setAttribute("aria-expanded","false"); });
+  if (!was){ art.classList.add("sel"); art.setAttribute("aria-expanded","true"); }
+}
+document.getElementById("panel").addEventListener("click", e => {
+  if (e.target.closest("a,button,input,textarea,select,summary")) return;
+  const art = e.target.closest(".ses"); if (art) pickSes(art);
+});
+document.getElementById("panel").addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("ses")) { e.preventDefault(); pickSes(e.target); }
+});
+document.getElementById("panel").addEventListener("click", async e => {
+  const b = e.target.closest("[data-all]"); if (!b) return;
+  b.disabled = true;
+  try {
+    const dl = await getDownloads();
+    if (!dl) { toast("No s'han pogut descarregar els fulls."); return; }
+    let file, blob;
+    if (b.dataset.all) {
+      if (!window.JSZip) throw {code:"fetch"};
+      toast("Preparant el ZIP…");
+      const zip = new JSZip();
+      const prefix = "sda" + b.dataset.all + "-";
+      const files = Object.values(D).filter(d => MODE==="profe" || !d.t).map(d => d.f).filter(f => f.startsWith(prefix));
+      for (const f of files) { const r = await fetch("../docs/" + f); if (!r.ok) throw {code:"fetch"}; zip.file(f, await r.blob()); }
+      blob = await zip.generateAsync({type:"blob"});
+      file = prefix + (MODE==="profe" ? "material-professorat.zip" : "fulls-alumnat.zip");
+    }
+    await dl.save({filename:file, data:blob});
+    toast("Descarregat: " + file);
+  } catch(err) {
+    const c = err && err.code;
+    if (c === "declined") toast("Descàrrega cancel·lada.");
+    else if (c === "rate_limited") toast("Ja hi ha una descàrrega oberta. Torna-ho a provar d'aquí a un moment.");
+    else if (c === "fetch") toast("No s'ha pogut carregar el fitxer. Torna-ho a provar.");
+    else toast("No s'ha pogut descarregar en aquesta vista.");
+  } finally { b.disabled = false; }
+});
+
+/* ===== Portada, navegació i visor de fulls ===== */
+const AUTHOR = "Macià Esteve Pallarès Pallarès";
+const COVERS = {"portada": "../img/portada.webp", "portada-profe": "../img/portada-profe.webp", "sda1": "../img/coberta-sda1.webp", "sda2": "../img/coberta-sda2.webp", "sda3": "../img/coberta-sda3.webp", "sda4": "../img/coberta-sda4.webp", "sda5": "../img/coberta-sda5.webp", "sda6": "../img/coberta-sda6.webp"};
+const LINKS = {};
+const SHELF = [
+  ["dc0", "Abans de la SdA 1"], ["dcF", "Totes les fórmules en una pàgina"], ["dcG", "Paraules clau en català i anglès"],
+  ["dcT", "Després de la SdA 6"], ["dcE", "Al final de cada trimestre"]
+];
+const MOTIF = {
+ 1:'<path d="M132 46h36M139 46v34l-33 62q-6 12 8 12h72q14 0 8-12l-33-62V46"/><path d="M118 124h64" opacity=".6"/><circle cx="214" cy="74" r="24"/><path d="M231 91l24 24"/><circle cx="140" cy="140" r="4"/><circle cx="158" cy="132" r="3"/>',
+ 2:'<ellipse cx="150" cy="86" rx="48" ry="56"/><path d="M144 142l6 8 6-8M150 150q-8 14 4 26"/><circle cx="133" cy="70" r="5"/><circle cx="165" cy="62" r="5"/><circle cx="160" cy="98" r="5"/><circle cx="130" cy="106" r="5"/><path d="M118 70h-10M176 58l8-6M170 104l9 4M122 114l-8 6" opacity=".6"/>',
+ 3:'<rect x="108" y="28" width="84" height="146" rx="14"/><path d="M138 38h24" opacity=".6"/><circle cx="150" cy="102" r="6" fill="currentColor"/><ellipse cx="150" cy="102" rx="32" ry="11"/><ellipse cx="150" cy="102" rx="32" ry="11" transform="rotate(60 150 102)"/><ellipse cx="150" cy="102" rx="32" ry="11" transform="rotate(120 150 102)"/>',
+ 4:'<circle cx="128" cy="104" r="30"/><circle cx="174" cy="104" r="30"/><path d="M118 92v24M138 92v24M118 104h20M164 92v24M184 92v24M164 104h20"/><circle cx="214" cy="64" r="7"/><circle cx="230" cy="40" r="5"/><circle cx="88" cy="58" r="6"/><circle cx="76" cy="36" r="4"/>',
+ 5:'<path d="M118 78q10-30 42-26t38 34q4 26-24 40t-46 2q-18-18-10-50z"/><circle cx="152" cy="94" r="12"/><path d="M98 66l-28-16M70 50h12M70 50l6 11M206 104l32 12M238 116l-12 2M238 116l-7-10M150 142v30M150 172l-6-10M150 172l6-10"/>',
+ 6:'<path d="M160 28l-46 82h34l-14 66 54-92h-36z"/><path d="M216 120h20v28q0 12-10 12h0q-10 0-10-12zM221 120v-12M231 120v-12M226 160v18" opacity=".8"/>'
+};
+function art(n, big){
+  const c = COVERS["sda" + n];
+  if (c) return `<img src="${c}" alt="" loading="${big?"eager":"lazy"}">`;
+  return `<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="color:#fff">
+    <defs><pattern id="g${n}${big?"b":""}" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#fff" stroke-opacity=".14"/></pattern></defs>
+    <rect width="300" height="200" fill="url(#g${n}${big?"b":""})"/>
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${MOTIF[n]}</g></svg>`;
+}
+const sdaOfFile = f => { const m = /^sda(\d)-/.exec(f); return m ? +m[1] : 0; };
+function lastSda(){ try { const v = +localStorage.getItem("fq3-sda"); return v>=1 && v<=6 ? v : 0; } catch(e){ return 0; } }
+
+function docTile(k, sub){
+  const d = D[k];
+  return `<a class="dtile" href="#doc-${k}"><span class="pg"><i></i><i></i><i></i><i></i></span><span><b>${esc(d.l)}</b><span>${esc(sub)}</span></span></a>`;
+}
+function linkTile(o){
+  return `<a class="dtile lnk" href="${o.u}" target="_blank" rel="noopener"><span class="pg"><i></i><i></i><i></i></span><span><b>${esc(o.l)} ↗</b><span>${esc(o.s)}</span></span></a>`;
+}
+
+let homeDone = false;
+function renderHome(){
+  document.documentElement.style.setProperty("--acc", "var(--s6)");
+  if (homeDone) { renderCta(); return; }
+  homeDone = true;
+  document.getElementById("author").textContent = AUTHOR;
+  const pc = COVERS[MODE==="profe" ? "portada-profe" : "portada"] || COVERS.portada;
+  document.getElementById("coverArt").innerHTML = (pc ? `<img class="photo" src="${pc}" alt="" >` :
+    `<svg class="orb" viewBox="0 0 400 275" aria-hidden="true"><g fill="none" stroke-width="2.5">
+      <ellipse cx="250" cy="130" rx="120" ry="42" stroke="var(--s3)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(60 250 130)" stroke="var(--s2)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(120 250 130)" stroke="var(--s1)"/></g>
+      <circle cx="250" cy="130" r="13" fill="var(--s5)"/><circle cx="370" cy="130" r="7" fill="var(--s6)"/><circle cx="190" cy="27" r="7" fill="var(--s4)"/><circle cx="190" cy="233" r="7" fill="var(--s2)"/></svg>`)
+    + `<div class="tile" aria-hidden="true"><div class="tsym"><span class="nums"><span class="sup">6</span><span class="sub">3</span></span><span class="sym">Fq</span></div><span class="nm">Física i química</span>
+      <svg class="ar ar-d" width="170" height="160" viewBox="0 0 170 160" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M16,10 L16,6 L152,6 L152,100 L162,100"/><path d="M16,92 L16,104 L142,104 L142,140 L162,140"/></g><path d="M16,17 l-5,-8 h10 z" fill="currentColor"/><path d="M16,85 l-5,8 h10 z" fill="currentColor"/></svg><svg class="ar ar-m" width="140" height="130" viewBox="0 0 140 130" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14,6 L14,3 L118,3 L118,78 L126,78"/><path d="M14,69 L14,82 L110,82 L110,108 L126,108"/></g><path d="M14,11 l-5,-8 h10 z" fill="currentColor"/><path d="M14,63 l-5,8 h10 z" fill="currentColor"/></svg><span class="note n1"><b><i>A</i> · nombre màssic</b><span>6 reptes per entendre el món</span></span><span class="note n2"><b><i>Z</i> · nombre atòmic</b><span>3r d'ESO</span></span></div>`;
+  document.getElementById("cards").innerHTML = SDAS.map(s => {
+    const when = s.meta.split(" · ")[0];
+    return `<a class="scard" href="#sda${s.n}" style="--c:var(${s.c})" aria-label="SdA ${s.n}: ${esc(s.title)}">${art(s.n)}<span class="num"><small>SdA</small>${s.n}</span>
+      <div class="sov" aria-hidden="true"><span class="smeta">SdA ${s.n} · ${esc(when)} · ${s.sessions ? s.sessions.length : 0} sessions</span><h3>${esc(s.title)}</h3><p>${esc(s.q)}</p><span class="sgo">Entra a la SdA →</span></div></a>`;
+  }).join("");
+  let shelf = SHELF.map(([k, sub]) => docTile(k, sub)).join("");
+  if (MODE === "profe") shelf += docTile("dannex", "20 pàgines, format de les bases") + linkTile(LINKS.prog) + linkTile(LINKS.reg);
+  document.getElementById("shelf").innerHTML = shelf;
+  if (MODE === "profe") {
+    document.getElementById("profeBand").innerHTML = `<section class="profe-band" aria-label="Zona del professorat">
+      <span class="warn">Només per al professorat</span><h2>Què hi ha en aquesta zona</h2>
+      <p>Cada SdA inclou, a més del material de l'alumnat, la prova i els solucionaris, les rúbriques, el material multinivell i, al final, l'eina d'avaluació per criteris de cada alumne. L'alumnat té el seu propi llibre, sense aquest material.</p>
+      <div class="qlinks">${SDAS.map(s => `<a class="btn ghost" href="#sda${s.n}" data-aval="1">Avaluació SdA ${s.n}</a>`).join("")}</div></section>`;
+  }
+  renderCta();
+}
+function renderCta(){
+  const v = lastSda(), s = SDAS.find(x => x.n === v);
+  document.getElementById("cta").innerHTML = s
+    ? `<a class="btn" href="#sda${v}" style="--acc:var(${s.c})">Continua per la SdA ${v}: ${esc(s.title)}</a>`
+    : "";
+}
+
+/* --- vistes i historial --- */
+const VIEW = {home: "vHome", sda: "vSda", doc: "vDoc", ws: "vWs"};
+let viewName = null, viewKey = null, fromNav = false, backHash = null;
+const memo = {};
+function setView(name, key){
+  const prev = viewName;
+  if (viewKey) memo[viewKey] = window.scrollY;
+  Object.entries(VIEW).forEach(([n, id]) => document.getElementById(id).hidden = n !== name);
+  viewName = name; viewKey = key;
+  const y = (prev === "doc" && memo[key] != null) ? memo[key] : 0;
+  window.scrollTo(0, y);
+}
+function route(nav){
+  const h = location.hash.slice(1);
+  if (window.FQRoute && window.FQRoute(h)) { closeDoc(); return; }
+  let m;
+  if ((m = /^doc-(\w+)$/.exec(h)) && D[m[1]] && (MODE === "profe" || !D[m[1]].t)) {
+    if (viewName !== "doc") { backHash = viewName === "sda" ? "sda" + current : (viewName === "home" ? "inici" : null); fromNav = !!nav && !!backHash; }
+    openDoc(m[1]); return;
+  }
+  if ((m = /^sda([1-6])$/.exec(h))) {
+    const n = +m[1];
+    if (current !== n) { select(n); setView("sda", h); window.scrollTo(0, 0); }
+    else { document.documentElement.style.setProperty("--acc", `var(${SDAS[n-1].c})`); setView("sda", h); }
+    closeDoc();
+    if (toAval) { toAval = false; const a = document.getElementById("aval"); if (a) a.scrollIntoView(); }
+    return;
+  }
+  renderHome(); setView("home", "inici"); closeDoc();
+}
+window.addEventListener("hashchange", () => route(true));
+let toAval = false;
+document.addEventListener("click", e => { if (e.target.closest("[data-aval]")) toAval = true; });
+
+/* --- visor PDF --- */
+const pdfCache = {};
+const ZOOMS = [0.75, 1, 1.25, 1.5, 2];
+let zi = 1, docTok = 0, vPages = [], io = null, docKey = null;
+if (window.pdfjsLib) { try { pdfjsLib.GlobalWorkerOptions.workerSrc = "../lib/pdf.worker.min.js"; } catch(e){} }
+
+function closeDoc(){ docTok++; if (io) io.disconnect(); vPages = []; docKey = null; document.getElementById("vPages").innerHTML = ""; }
+function docFail(){
+  document.getElementById("vPages").innerHTML = `<div class="vmsg"><b>Aquest full no es pot mostrar aquí</b><span>Descarrega'l i obre'l amb el lector de PDF del dispositiu.</span><button type="button" class="btn" data-save="1">${ICON_DL}Descarrega el PDF</button></div>`;
+}
+async function openDoc(k){
+  const d = D[k], n = sdaOfFile(d.f), s = SDAS.find(x => x.n === n);
+  setView("doc", "doc-" + k);
+  closeDoc(); docKey = k;
+  document.documentElement.style.setProperty("--acc", s ? `var(${s.c})` : "var(--s6)");
+  document.getElementById("vKick").textContent = s ? `SdA ${n} · ${s.title}` : "Tot el curs";
+  document.getElementById("vInfo").textContent = "";
+  document.getElementById("vName").textContent = d.l;
+  const back = backHash || (n ? "sda" + n : "inici");
+  document.getElementById("vBackL").textContent = back.startsWith("sda") ? `Torna a la SdA ${back.slice(3)}` : "Torna a l'inici";
+  document.getElementById("vDl").innerHTML = ICON_DL + "Descarrega";
+  document.title = d.l + " · " + "Física i química 3r ESO";
+  const host = document.getElementById("vPages");
+  host.innerHTML = `<div class="spin" role="status" aria-label="S'està carregant el full"></div>`;
+  const tok = ++docTok;
+  if (!window.pdfjsLib) { docFail(); return; }
+  try {
+    const pdf = await (pdfCache[d.f] = pdfCache[d.f] || pdfjsLib.getDocument({url: "../docs/" + d.f, isEvalSupported: false}).promise);
+    if (tok !== docTok) return;
+    document.getElementById("vInfo").textContent = "· " + pdf.numPages + (pdf.numPages === 1 ? " pàgina" : " pàgines");
+    const pages = [];
+    for (let i = 1; i <= pdf.numPages; i++) pages.push(await pdf.getPage(i));
+    if (tok !== docTok) return;
+    host.innerHTML = "";
+    io = new IntersectionObserver(es => es.forEach(e => { const p = vPages[+e.target.dataset.i]; if (!p) return; p.vis = e.isIntersecting; if (p.vis) drawPage(p, tok); }), {rootMargin: "800px 0px"});
+    pages.forEach((page, i) => {
+      const vp = page.getViewport({scale: 1});
+      const div = document.createElement("div");
+      div.className = "vpage"; div.dataset.i = i;
+      div.style.aspectRatio = vp.width + " / " + vp.height;
+      div.setAttribute("role", "img"); div.setAttribute("aria-label", `${d.l}, pàgina ${i+1} de ${pages.length}`);
+      if (pages.length > 1) div.innerHTML = `<span class="pn">${i+1} / ${pages.length}</span>`;
+      host.appendChild(div);
+      vPages.push({page, div, w: vp.width, drawn: 0, vis: false, busy: false});
+      io.observe(div);
+    });
+  } catch(e) {
+    delete pdfCache[d.f];
+    if (tok === docTok) docFail();
+  }
+}
+async function drawPage(p, tok){
+  const css = p.div.clientWidth; if (!css) return;
+  const want = Math.round(css * Math.min(window.devicePixelRatio || 1, 2.5));
+  if (p.busy || Math.abs(p.drawn - want) < 4) return;
+  p.busy = true;
+  try {
+    const vp = p.page.getViewport({scale: want / p.w});
+    const cv = document.createElement("canvas");
+    cv.width = Math.round(vp.width); cv.height = Math.round(vp.height);
+    await p.page.render({canvasContext: cv.getContext("2d"), viewport: vp}).promise;
+    if (tok !== docTok) return;
+    const old = p.div.querySelector("canvas"); if (old) old.remove();
+    p.div.prepend(cv); p.drawn = want;
+  } catch(e) {} finally { p.busy = false; }
+  if (p.vis && Math.abs(p.drawn - Math.round(p.div.clientWidth * Math.min(window.devicePixelRatio || 1, 2.5))) >= 4) drawPage(p, tok);
+}
+function setZoom(i){
+  zi = Math.max(0, Math.min(ZOOMS.length - 1, i));
+  document.getElementById("vPages").style.setProperty("--z", ZOOMS[zi]);
+  document.getElementById("zLbl").textContent = Math.round(ZOOMS[zi] * 100) + " %";
+  document.getElementById("zOut").disabled = zi === 0;
+  document.getElementById("zIn").disabled = zi === ZOOMS.length - 1;
+  const tok = docTok; vPages.forEach(p => { if (p.vis) drawPage(p, tok); });
+}
+let rzT; window.addEventListener("resize", () => { clearTimeout(rzT); rzT = setTimeout(() => { const tok = docTok; vPages.forEach(p => { if (p.vis) drawPage(p, tok); }); }, 200); });
+document.getElementById("zOut").addEventListener("click", () => setZoom(zi - 1));
+document.getElementById("zIn").addEventListener("click", () => setZoom(zi + 1));
+function goBack(){
+  if (fromNav) history.back();
+  else { const n = docKey ? sdaOfFile(D[docKey].f) : 0; location.hash = backHash || (n ? "sda" + n : "inici"); }
+}
+document.getElementById("vBack").addEventListener("click", goBack);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && viewName === "doc") goBack(); });
+
+function dlError(err){
+  const c = err && err.code;
+  if (c === "declined") toast("Descàrrega cancel·lada.");
+  else if (c === "rate_limited") toast("Ja hi ha una descàrrega oberta. Torna-ho a provar d'aquí a un moment.");
+  else if (c === "fetch") toast("No s'ha pogut carregar el fitxer. Torna-ho a provar.");
+  else toast("No s'ha pogut descarregar en aquesta vista.");
+}
+async function saveDoc(btn){
+  if (!docKey) return;
+  const file = D[docKey].f;
+  btn.disabled = true;
+  try {
+    const dl = await getDownloads();
+    if (!dl) { toast("No s'ha pogut descarregar el full."); return; }
+    const r = await fetch("../docs/" + file); if (!r.ok) throw {code: "fetch"};
+    await dl.save({filename: file, data: await r.blob()});
+    toast("Descarregat: " + file);
+  } catch(err) { dlError(err); } finally { btn.disabled = false; }
+}
+document.getElementById("vDoc").addEventListener("click", e => { const b = e.target.closest("#vDl,[data-save]"); if (b) saveDoc(b); });
+setZoom(1);
+
+
+window.SDAS = SDAS; window.D = D;
+window.FQShowView = (n) => setView(n, location.hash.slice(1));
+route();
+</script>
+<script src="js/alumne.js"></script>
+</body>
+</html>
