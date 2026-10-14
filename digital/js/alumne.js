@@ -10,9 +10,10 @@
   function showLogin(msg) {
     let el = $("#fqLogin");
     if (!el) { el = document.createElement("div"); el.id = "fqLogin"; el.className = "login"; document.body.appendChild(el); }
-    el.innerHTML = `<form class="card" id="fqLoginForm" autocomplete="off">
-      <div class="eyebrow">3r d'ESO · Llibre digital</div>
-      <h1>Física i química per entendre el món</h1>
+    el.innerHTML = `<img class="login-bg" src="../img/portada.webp" alt="Quatre alumnes fent experiments al laboratori de ciències">
+    <form class="card" id="fqLoginForm" autocomplete="off">
+      <div class="login-head"><span class="fq-tile" aria-hidden="true"><b>Fq</b></span><div><div class="eyebrow">3r d'ESO · Llibre digital</div>
+      <h1>Física i química per entendre el món</h1></div></div>
       <label for="fqCode">Escriu el teu codi d'accés</label>
       <input id="fqCode" name="code" placeholder="XXXX-XXXX" maxlength="9" autocapitalize="characters" spellcheck="false" required>
       <p class="err" id="fqErr">${esc(msg || "")}</p>

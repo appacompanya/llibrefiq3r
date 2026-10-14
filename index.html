@@ -263,6 +263,7 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
   .ses.sel{grid-template-columns:1fr}
   .ses.sel .pic{height:240px}
 }
+.uf{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 .12em}.uf>span{display:block;padding:0 .14em;white-space:nowrap}.uf>span:first-child{border-bottom:.08em solid currentColor}
 </style>
 
 </head>
@@ -516,6 +517,7 @@ const SDAS = [
 ];
 
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
 function dlBtn(k, ghost){ const d = D[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#doc-${k}">${ICON_DOC}${esc(d.l)}</a>`; }
 function linkBtn(u, l){ const ext = /^https?:/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}>${ICON_LINK}${esc(l)}</a>`; }
 
@@ -544,7 +546,7 @@ function renderPanel(n){
     const pic = x.pic === false ? `<span class="pend">Il·lustració<br>pendent</span>` : `<img src="img/sda${s.n}-s${i+1}.png" alt="" loading="lazy">`;
     return `<article class="ses" tabindex="0" aria-expanded="false" data-ses="${i}"><div class="pic">${pic}</div>
       <div class="body"><div class="hd"><span class="badge">${i+1}</span><h4>${esc(x.t)}</h4><span class="phase">${esc(x.ph)}</span>${(x.half ?? ((i+1)%2===0))?`<span class="grp half" title="Sessió desdoblada: mig grup">Mig grup</span>`:`<span class="grp" title="Grup sencer">Grup sencer</span>`}</div>
-      <p>${esc(x.p)}</p>${fig}${acts?`<div class="acts">${acts}</div>`:""}</div></article>`;
+      <p>${ufr(esc(x.p))}</p>${fig}${acts?`<div class="acts">${acts}</div>`:""}</div></article>`;
   }).join("");
   const teach = s.teacher.map(t => `<div class="tcard"><b>${esc(t.b)}</b><span>${esc(t.s)}</span><div class="acts">${t.u?linkBtn(t.u,t.ul):""}${(t.d||[]).map(k=>dlBtn(k,true)).join("")}</div></div>`).join("");
   p.innerHTML = `<div style="display:grid;gap:22px">

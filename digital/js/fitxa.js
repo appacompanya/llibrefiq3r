@@ -15,7 +15,35 @@
     if (unitListAdded) return; unitListAdded = true;
     const dl = document.createElement("datalist"); dl.id = "fq-units"; dl.innerHTML = UNITS.map((u) => `<option value="${u}">`).join(""); document.body.appendChild(dl);
   }
-  const typeset = (el) => { try { if (G.MathLive && G.MathLive.renderMathInElement) G.MathLive.renderMathInElement(el); } catch {} };
+  /* Unitats compostes com a fracció apilada (g/L -> g sobre L), també dins de les fórmules */
+  const UT = "(?:[kKhdcmµμnMG]?(?:g|L|l|m|s|h|min|mol|J|W|N|Pa|atm|bar|K|A|V|Ω|Wh|cal|M)|°C|€)(?:[²³⁻¹]+)?";
+  const UP = UT + "(?:·" + UT + ")*";
+  const TXT_RE = new RegExp("(^|[^\\w/·.])(" + UP + ")/(\\(" + UP + "\\)|" + UP + ")(?![\\w/²³])", "g");
+  const MU = "[A-Za-zµμ°Ω]+(?:\\^\\{?-?\\d\\}?)?", MP = MU + "(?:\\s*\\\\cdot\\s*" + MU + ")*";
+  const MATH_RE = new RegExp("\\\\mathrm\\{\\s*(" + MP + ")\\s*/\\s*(\\(\\s*" + MP + "\\s*\\)|" + MP + ")\\s*\\}", "g");
+  const unp = (b) => (b[0] === "(" && b[b.length - 1] === ")" ? b.slice(1, -1).trim() : b.trim());
+  function fracUnits(root) {
+    const skip = "svg,script,style,textarea,input,select,option,math-field,.uf,.ML__latex,.katex,[contenteditable]";
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.parentElement && n.parentElement.closest(skip) ? NodeFilter.FILTER_REJECT : /\//.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP) });
+    const nodes = []; while (w.nextNode()) nodes.push(w.currentNode);
+    nodes.forEach((n) => {
+      const parts = n.nodeValue.split(/(\\\(.*?\\\)|\\\[.*?\\\])/s);
+      let changed = false;
+      const html = parts.map((p) => {
+        if (/^\\[\(\[]/.test(p)) { const q = p.replace(MATH_RE, (m, a, b) => "\\dfrac{\\mathrm{" + a.trim() + "}}{\\mathrm{" + unp(b) + "}}"); if (q !== p) changed = true; return esc(q); }
+        return p.split(/(\s+)/).map((wd) => {
+          if (!wd.includes("/") || /:\/\/|www\./.test(wd)) return esc(wd);
+          let out = "", last = 0; TXT_RE.lastIndex = 0; let m;
+          while ((m = TXT_RE.exec(wd))) { changed = true; out += esc(wd.slice(last, m.index)) + esc(m[1]) + `<span class="uf"><span>${esc(m[2])}</span><span>${esc(unp(m[3]))}</span></span>`; last = m.index + m[0].length; }
+          return out + esc(wd.slice(last));
+        }).join("");
+      }).join("");
+      if (!changed) return;
+      const t = document.createElement("template"); t.innerHTML = html; n.replaceWith(t.content);
+    });
+  }
+  const typeset = (el) => { try { fracUnits(el); } catch {} try { if (G.MathLive && G.MathLive.renderMathInElement) G.MathLive.renderMathInElement(el); } catch {} };
+  G.FQFracUnits = fracUnits;
 
   /* ---------- comprovació automàtica (per a la zona del professorat) ---------- */
   function cellOk(cell, val) {
