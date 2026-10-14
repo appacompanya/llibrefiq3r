@@ -159,3 +159,24 @@ math-field.mf:focus-within{border-color:var(--acc)}
 @media (max-width:620px){.wsh .list .c{grid-template-columns:1fr}.wsh .list .c .w{grid-template-columns:1fr}}
 
 .uf{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 .12em}.uf>span{display:block;padding:0 .14em;white-space:nowrap}.uf>span:first-child{border-bottom:.08em solid currentColor}
+/* evita desbordaments horitzontals: les taules amples es desplacen dins del seu requadre */
+.wsh,.wsh>*,.wsh .q,.wsh .q>div{min-width:0}
+.wsh{grid-template-columns:minmax(0,1fr)}
+.wsh table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.wsh svg,.wsh img{max-width:100%;height:auto}
+.wsh p,.wsh li,.wsh td,.wsh th,.wsh .q{overflow-wrap:break-word}
+.wsh .fld-cell input,.wsh td input,.wsh td select{min-width:4.5em}
+.wsh figure{margin-left:0;margin-right:0;max-width:100%}
+.ws-q>*{min-width:0}
+.ws table{display:block;max-width:100%;overflow-x:auto}
+@media (max-width:640px){.wsh [style*="grid-template-columns"],.wsh .two,.wsh .three{grid-template-columns:minmax(0,1fr)!important}.wsh [style*="display:flex"]{flex-wrap:wrap}}
+.ws-block,.ws-item,.ws-sub{grid-template-columns:minmax(0,1fr)}
+.ws-q{max-width:100%}
+.wsh .q{grid-template-columns:auto minmax(0,1fr)}
+.wsh .ws-block{grid-template-columns:minmax(0,1fr)}
+
+/* etiqueta del tipus de repte (Càlcul, Raonament, Dades…) */
+.wsh .lvl{display:inline-block;margin:0 8px 6px 0;padding:2px 9px;border-radius:999px;background:var(--acc,#1f2328);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:.12em;line-height:1.5}
+.wsh .lvl+b{display:inline}
+.wsh .badge{display:inline-block;margin-left:8px;padding:1px 8px;border:1.5px solid currentColor;border-radius:8px;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle}
+.ws table.ws-tab,.wsh table{width:100%!important;min-width:0!important;max-width:100%!important}

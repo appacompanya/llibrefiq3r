@@ -42,7 +42,14 @@
       const t = document.createElement("template"); t.innerHTML = html; n.replaceWith(t.content);
     });
   }
-  const typeset = (el) => { try { fracUnits(el); } catch {} try { if (G.MathLive && G.MathLive.renderMathInElement) G.MathLive.renderMathInElement(el); } catch {} };
+  /* MathLive interpreta el símbol que segueix \longrightarrow com a etiqueta de la fletxa: es canvia per una fletxa simple */
+  function fixArrows(root) {
+    const RE = /\\long(right|left|leftright)arrow(\{\})?/g;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.nodeValue.includes("\\long") ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP) });
+    const ns = []; while (w.nextNode()) ns.push(w.currentNode);
+    ns.forEach((n) => { n.nodeValue = n.nodeValue.replace(RE, (m, d) => "\\;\\" + d + "arrow\\;"); });
+  }
+  const typeset = (el) => { try { fixArrows(el); } catch {} try { fracUnits(el); } catch {} try { if (G.MathLive && G.MathLive.renderMathInElement) G.MathLive.renderMathInElement(el); } catch {} };
   G.FQFracUnits = fracUnits;
 
   /* ---------- comprovació automàtica (per a la zona del professorat) ---------- */
