@@ -149,15 +149,16 @@ table.grp .nt{font-weight:700;font-variant-numeric:tabular-nums}
 .sechd h2{font-family:var(--font-display);font-weight:800;font-size:1.55rem;margin:0}
 .sechd span{color:var(--muted);font-size:.9rem}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-radius:16px;overflow:hidden;isolation:isolate}
-.scard{--c:var(--s1);position:relative;display:block;aspect-ratio:3/2;max-width:100%;border-radius:0;overflow:hidden;background:var(--c);color:#fff;text-decoration:none;isolation:isolate;}
+.scard{--c:var(--s1);container-type:inline-size;position:relative;display:block;aspect-ratio:3/2;max-width:100%;border-radius:0;overflow:hidden;background:var(--c);color:#fff;text-decoration:none;isolation:isolate;}
 .scard img,.scard svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
 .scard .num{position:absolute;left:10px;top:10px;z-index:2;background:var(--surface);color:var(--fg);border-radius:8px;padding:3px 8px 4px;font-family:var(--font-display);font-weight:800;font-size:.95rem;line-height:1.1;display:grid;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 .scard .num small{font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
 .scard .chip{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;justify-self:start;max-width:max-content;background:rgba(20,22,26,.72);color:#fff;border-radius:999px;padding:4px 12px;font-weight:700;font-size:.78rem;line-height:1.25;transition:opacity .2s ease}
 .scard .sov{position:absolute;inset:0;z-index:1;display:grid;align-content:end;gap:4px;padding:12px 14px;background:color-mix(in srgb,var(--c) 80%,transparent);opacity:0;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease}
 .sov .smeta{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.9}
-.sov h3{font-family:var(--font-display);font-weight:800;font-size:1.2rem;line-height:1.1;margin:0;text-wrap:balance}
-.sov p{margin:0;font-size:.88rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sov h3{font-family:var(--font-display);font-weight:800;font-size:clamp(1rem,6.4cqi,1.45rem);line-height:1.1;margin:0;text-wrap:balance}
+.sov p{margin:0;font-size:clamp(.82rem,4.5cqi,1.02rem);line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@container (max-width:260px){.sov p,.sov .smeta{display:none}}
 .sov .sgo{margin-top:4px;justify-self:start;background:#fff;color:var(--c);border-radius:999px;padding:4px 12px;font-weight:700;font-size:.84rem}
 .scard:hover .sov,.scard:focus-visible .sov{opacity:1;transform:none}
 .scard:hover .chip,.scard:focus-visible .chip,.scard:hover .num,.scard:focus-visible .num{opacity:0}
