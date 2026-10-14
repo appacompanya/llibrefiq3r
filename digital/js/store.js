@@ -20,10 +20,10 @@
     const setMe = (p) => { me = p; try { p ? sessionStorage.setItem("fq3-demo-me", JSON.stringify(p)) : sessionStorage.removeItem("fq3-demo-me"); } catch {} };
     const k = (...a) => a.join("|");
     return {
-      mode: "demo",
+      mode: "demo", client: null,
       async init() { return me; },
       async signInStudent(code) { const s = db.students.find((x) => x.code === normCode(code)); if (!s) throw new Error("bad_code"); setMe(s); return s; },
-      async signInTeacher() { const t = { id: "teacher", role: "teacher", display_name: "Professor (demostració)" }; setMe(t); return t; },
+      async signInTeacher(user, pw) { if (String(user).trim().toLowerCase() !== "docent" || pw !== "docent") throw new Error("bad_login"); const t = { id: "teacher", role: "teacher", display_name: "Professor (demostració)" }; setMe(t); return t; },
       async signOut() { setMe(null); },
       me: () => me,
       async getSettings() { return { ...db.settings }; },
@@ -85,7 +85,9 @@
         if (error) throw new Error("bad_code");
         const p = await loadProfile(); if (!p) throw new Error("no_profile"); return p;
       },
-      async signInTeacher(email, password) {
+      async signInTeacher(user, password) {
+        const u = String(user || "").trim().toLowerCase();
+        const email = u.includes("@") ? u : `${u}@professorat.llibrefq3.app`;
         const { error } = await sb.auth.signInWithPassword({ email, password }); if (error) throw new Error("bad_login");
         const p = await loadProfile(); if (p?.role !== "teacher") { await sb.auth.signOut(); throw new Error("not_teacher"); } return p;
       },

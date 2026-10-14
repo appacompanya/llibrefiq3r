@@ -2,7 +2,8 @@
 (function () {
   "use strict";
   const S = window.FQStore, F = window.FITXES || {}, DOCS = window.DOCS || {}, FX = window.FQFitxa;
-  const app = document.getElementById("app");
+  let app = document.getElementById("app");
+  const EMBED = !!window.FQ_EMBED;
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const LV = ["NA", "AS", "AN", "AE"];
@@ -15,13 +16,13 @@
   /* ---------- accés ---------- */
   function loginView(msg) {
     app.innerHTML = `<form class="card login" id="lf"><div class="eyebrow">Física i química · 3r d'ESO</div><h1>Zona del professorat</h1>
-      ${S.mode === "demo" ? `<p class="note"><b>Mode demostració.</b> Les dades es guarden només en aquest navegador. Entra directament.</p>` :
-      `<label class="f">Correu<input type="email" id="le" autocomplete="username" required></label><label class="f">Contrasenya<input type="password" id="lp" autocomplete="current-password" required></label>`}
+      ${S.mode === "demo" ? `<p class="note"><b>Mode demostració.</b> Les dades es guarden només en aquest navegador.</p><label class="f">Usuari<input id="le" required></label><label class="f">Contrasenya<input type="password" id="lp" required></label>` :
+      `<label class="f">Usuari<input id="le" autocomplete="username" required></label><label class="f">Contrasenya<input type="password" id="lp" autocomplete="current-password" required></label>`}
       <p class="err" id="lerr">${esc(msg || "")}</p><button class="btn" type="submit">Entra</button></form>`;
     $("#lf").onsubmit = async (e) => {
       e.preventDefault();
-      try { await S.signInTeacher(S.mode === "demo" ? "" : $("#le").value, S.mode === "demo" ? "" : $("#lp").value); await boot(); }
-      catch (err) { $("#lerr").textContent = err.message === "not_teacher" ? "Aquest compte no és de professorat." : "Correu o contrasenya incorrectes."; }
+      try { await S.signInTeacher($("#le").value, $("#lp").value); await boot(); }
+      catch (err) { $("#lerr").textContent = err.message === "not_teacher" ? "Aquest compte no és de professorat." : "Usuari o contrasenya incorrectes."; }
     };
   }
   async function boot() {
@@ -29,11 +30,11 @@
     shell();
   }
   function shell() {
-    app.innerHTML = `<header class="top"><div><div class="eyebrow">Física i química per entendre el món · ${S.mode === "demo" ? "demostració" : "llibre digital"}</div><h1>Zona del professorat</h1></div>
-      <div class="row noprint"><a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a><button class="btn ghost" id="out">Surt</button></div></header>
+    app.innerHTML = `<header class="top dtop"><div><div class="eyebrow">Zona del professorat · ${S.mode === "demo" ? "demostració" : "llibre digital"}</div><h2 class="dh">Llibre digital de l'alumnat</h2></div>
+      <div class="row noprint">${EMBED ? '<a class="btn ghost" href="#inici">← Portada del professorat</a>' : ""}<a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a>${EMBED ? "" : '<button class="btn ghost" id="out">Surt</button>'}</div></header>
       <nav class="tabs noprint" role="tablist">${[["fitxes", "Fitxes i lliuraments"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
       <main id="main"></main>`;
-    $("#out").onclick = async () => { await S.signOut(); loginView(); };
+    if ($("#out")) $("#out").onclick = async () => { await S.signOut(); loginView(); };
     app.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { tab = b.dataset.tab; curWs = null; curStu = null; shell(); }));
     ({ fitxes: fitxesView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
   }
@@ -43,8 +44,24 @@
     $("#main").innerHTML = `<section class="card"><h2>Ajudes a l'alumnat</h2>
       <label class="switch"><input type="checkbox" id="ac"${settings.auto_calc !== false ? " checked" : ""}> Càlcul automàtic a les fitxes</label>
       <p class="note">Si està activat, quan l'alumne escriu números o factors de conversió, la fitxa li mostra el resultat del càlcul i si cada factor val 1. Desactiva-ho per a les activitats d'avaluació.</p></section>
+      <section class="card" id="pdfp" hidden></section>
       <section class="card"><h2>Correcció assistida</h2><p class="note">El botó «Proposta automàtica» de cada lliurament demana una proposta de nivell i comentari per a cada apartat. La proposta no la veu l'alumne: la revises, la modifiques si cal i decideixes quan retornar la fitxa.${S.mode === "demo" ? " En mode demostració, la proposta es basa només en la comprovació automàtica." : ""}</p></section>`;
+    if (window.fqTeacherFiles && S.mode !== "demo") pdfPanel();
     $("#ac").onchange = async (e) => { try { await S.setSetting("auto_calc", e.target.checked); settings.auto_calc = e.target.checked; toast(e.target.checked ? "Càlcul automàtic activat." : "Càlcul automàtic desactivat."); } catch { toast("No s'ha pogut desar."); } };
+  }
+
+  async function pdfPanel() {
+    const box = $("#pdfp"); box.hidden = false;
+    const need = window.fqTeacherFiles(); const have = new Set(await window.fqListUploaded());
+    const missing = need.filter((f) => !have.has(f));
+    box.innerHTML = `<h2>PDF del professorat</h2><p class="note">Les proves, els solucionaris i les adaptacions es guarden en un espai privat que només pot obrir el professorat. ${missing.length ? `En falten <b>${missing.length}</b> de ${need.length}.` : `Hi són tots (${need.length}).`}</p>
+      <label class="btn ghost" style="justify-self:start">Puja PDF del professorat<input type="file" accept="application/pdf" multiple hidden id="pdfin"></label>
+      ${missing.length ? `<details><summary class="note">Quins falten?</summary><p class="note">${missing.map(esc).join("<br>")}</p></details>` : ""}`;
+    $("#pdfin").onchange = async (e) => {
+      const files = [...e.target.files].filter((f) => need.includes(f.name)); let ok = 0;
+      for (const f of files) { try { await window.fqUpload(f); ok++; toast(`Pujant… ${ok}/${files.length}`); } catch (er) { toast("Error amb " + f.name + ": " + er.message); } }
+      toast(`${ok} fitxers pujats.`); pdfPanel();
+    };
   }
 
   /* ---------- alumnat ---------- */
@@ -177,5 +194,6 @@
     };
   }
 
-  (async () => { let me = null; try { me = await S.init(); } catch {} if (me && me.role === "teacher") await boot(); else loginView(); })();
+  window.FQDigital = { mount(el) { app = el; boot(); } };
+  if (!EMBED) (async () => { let me = null; try { me = await S.init(); } catch {} if (me && me.role === "teacher") await boot(); else loginView(); })();
 })();
