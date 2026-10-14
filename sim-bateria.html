@@ -140,7 +140,7 @@ ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
       <label class="speed" for="spd">Velocitat de l'animació
         <input id="spd" type="range" min="0.5" max="3" step="0.5" value="1">
       </label>
-      <div id="state" class="state" aria-live="polite">La bateria és carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.</div>
+      <div id="state" class="state" aria-live="polite">La bateria està carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.</div>
       <div class="legend">
         <span><span class="dot" style="background:var(--li)">+</span>ió de liti, Li⁺</span>
         <span><span class="dot" style="background:var(--el);color:#3a2a00">−</span>electró, e⁻</span>
@@ -179,7 +179,7 @@ ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
         <li>Quan fas servir el mòbil, cap a on es mouen els ions Li⁺? I els electrons?</li>
         <li>Per on passen els ions i per on passen els electrons? Per què els electrons no poden travessar l'electròlit?</li>
         <li>Què canvia quan carregues el mòbil? D'on treu l'energia la bateria per fer tornar els ions?</li>
-        <li>Quan la bateria és descarregada, on és tot el liti?</li>
+        <li>Quan la bateria està descarregada, on és tot el liti?</li>
         <li>(Sessió 7) Prem «Aixafa la bateria». Què li passa al separador? Per què la temperatura puja tant? Relaciona-ho amb els incendis als camions de les escombraries.</li>
       </ol>
     </div>
@@ -252,7 +252,7 @@ ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
     mode = null; running = false; lastSpawn = 0; temp = 25; crashed = false;
     $("crack").setAttribute("visibility", "hidden"); fl.setAttribute("visibility", "hidden");
     drawDevice("off"); setButtons(); update();
-    say("La bateria és carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.");
+    say("La bateria està carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.");
   }
 
   function setButtons() {
