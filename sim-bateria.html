@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bateria de liti per dins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Layout: simulator first (diagram + control panel side by side, stacked on phones), then equations and guiding questions */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5;
+  --acc:#6C5CC9; --acc-soft:#ECE9FA;
+  --li:#6C5CC9; --el:#E0A21F; --graphite:#5b6068; --cobalt:#2F8F95; --cu:#B8693A; --al:#9aa3ad;
+  --electrolyte:#EAF3F8; --hot:#D14B66; --hot-soft:#FBE3E8;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c;
+  --acc:#a99cf0; --acc-soft:#2a2547; --li:#a99cf0; --el:#f2c14e; --graphite:#8a9099; --cobalt:#5ec4c9; --cu:#d98a5a; --al:#b7c0ca;
+  --electrolyte:#1d2b33; --hot:#f07890; --hot-soft:#3b2028; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c;
+  --acc:#a99cf0; --acc-soft:#2a2547; --li:#a99cf0; --el:#f2c14e; --graphite:#8a9099; --cobalt:#5ec4c9; --cu:#d98a5a; --al:#b7c0ca;
+  --electrolyte:#1d2b33; --hot:#f07890; --hot-soft:#3b2028; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:grid;gap:18px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.1;margin:.15em 0 0;text-wrap:balance}
+.lead{color:var(--muted);max-width:68ch;margin:0}
+a{color:var(--acc)}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:860px){.sim{grid-template-columns:1fr}}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;min-width:0}
+.stage svg{display:block;width:100%;height:auto}
+svg text{font-family:var(--body)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:14px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+button{font:inherit;font-weight:700;font-size:.95rem;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;padding:10px 12px;cursor:pointer}
+button:hover{border-color:var(--acc)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--surface)}
+button.danger{grid-column:1/-1;border-color:var(--hot);color:var(--hot)}
+button.danger[aria-pressed="true"]{background:var(--hot);color:var(--surface)}
+button.ghost{grid-column:1/-1;font-weight:400}
+.meter{display:grid;gap:6px}
+.meter .row{display:flex;justify-content:space-between;font-size:.9rem}
+.meter b{font-variant-numeric:tabular-nums;font-size:1.15rem}
+.bar{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:100%;background:var(--acc);transition:width .2s}
+.bar.t i{background:var(--hot)}
+.speed{display:grid;gap:4px;font-size:.9rem}
+.speed input{width:100%;accent-color:var(--acc)}
+.state{font-size:.95rem;border-radius:10px;padding:10px 12px;background:var(--acc-soft)}
+.state.hot{background:var(--hot-soft);color:var(--fg)}
+.legend{display:grid;gap:6px;font-size:.88rem;color:var(--muted)}
+.legend span{display:flex;gap:8px;align-items:center}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;display:inline-grid;place-items:center;font-size:10px;font-weight:700;color:#fff}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0}
+.card h2{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:0 0 8px}
+.eq{font-size:1.05rem;margin:6px 0;overflow-x:auto}
+.eq small{display:block;color:var(--muted);font-size:.82rem}
+.card.wide{grid-column:1/-1}
+.eqgrid{display:grid;grid-template-columns:140px 1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:10px 0}
+.eqgrid>div{padding:10px 12px;border-top:1px solid var(--line);min-width:0;font-size:.95rem}
+.eqgrid .eh{border-top:0;background:var(--bg)}
+.eqgrid .eh span,.eqgrid .rh span{display:block;font-size:.8rem;color:var(--muted)}
+.eqgrid .rh{background:var(--bg)}
+.eqgrid .eqn{font-size:1.08rem;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow-x:auto}
+.eqgrid.on-dis .col-dis,.eqgrid.on-chg .col-chg{background:var(--acc-soft)}
+@media (max-width:640px){.eqgrid{grid-template-columns:1fr}.eqgrid .eh:first-child{display:none}.eqgrid .eqn{white-space:normal}}
+ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
+.note{font-size:.85rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Física i química · 3r ESO · SdA 3 · Què hi ha dins del meu mòbil?</div>
+      <h1>La bateria de liti per dins</h1>
+    </div>
+    <a href="index.html">← Torna al llibre</a>
+  </div>
+  <p class="lead">Fes servir el mòbil (descàrrega) o endolla'l (càrrega) i observa què es desplaça a través de l'electròlit i què circula pel circuit extern. Els cercles lila són ions de liti (Li⁺) i els grocs, electrons (e⁻).</p>
+
+  <div class="sim">
+    <div class="stage">
+      <svg id="svg" viewBox="0 0 800 470" role="img" aria-label="Esquema d'una bateria d'ions de liti amb l'ànode de grafit a l'esquerra, el càtode d'òxid de liti i cobalt a la dreta, l'electròlit i el separador al mig, i un circuit extern amb el mòbil a dalt.">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker>
+        </defs>
+        <!-- external wire -->
+        <polyline id="wire" points="125,182 125,70 340,70 460,70 675,70 675,182" fill="none" stroke="var(--fg)" stroke-width="3" stroke-linejoin="round"/>
+        <!-- device -->
+        <g id="device"></g>
+        <!-- cell -->
+        <rect x="118" y="182" width="564" height="250" rx="16" fill="var(--surface)" stroke="var(--fg)" stroke-width="2.5"/>
+        <rect x="310" y="186" width="180" height="242" fill="var(--electrolyte)"/>
+        <rect x="118" y="182" width="12" height="250" fill="var(--cu)"/>
+        <rect x="670" y="182" width="12" height="250" fill="var(--al)"/>
+        <g id="anode"></g>
+        <g id="cathode"></g>
+        <line id="sep" x1="400" y1="190" x2="400" y2="424" stroke="var(--muted)" stroke-width="3" stroke-dasharray="7 6"/>
+        <g id="crack" visibility="hidden"><path d="M392 270 L408 284 L394 298 L409 312 L396 326" fill="none" stroke="var(--hot)" stroke-width="4"/></g>
+        <g id="flames" visibility="hidden"></g>
+        <g id="parts"></g>
+        <!-- labels -->
+        <text x="220" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Ànode: grafit (C)</text>
+        <text x="580" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="var(--fg)">Càtode: LiCoO₂</text>
+        <text x="400" y="452" text-anchor="middle" font-size="13" fill="var(--muted)">electròlit · separador</text>
+        <text x="104" y="300" text-anchor="middle" font-size="12" fill="var(--muted)" transform="rotate(-90 104 300)">làmina de coure</text>
+        <text x="700" y="300" text-anchor="middle" font-size="12" fill="var(--muted)" transform="rotate(90 700 300)">làmina d'alumini</text>
+        <text x="96" y="66" font-size="16" font-weight="700" fill="var(--fg)">−</text>
+        <text x="690" y="66" font-size="16" font-weight="700" fill="var(--fg)">+</text>
+        <text id="flow" x="400" y="150" text-anchor="middle" font-size="13" fill="var(--muted)"></text>
+      </svg>
+    </div>
+
+    <div class="panel">
+      <div class="btns" role="group" aria-label="Què fem amb el mòbil">
+        <button id="bDis" aria-pressed="false">Fes servir el mòbil</button>
+        <button id="bChg" aria-pressed="false">Carrega'l</button>
+        <button id="bPause" class="ghost">Pausa</button>
+        <button id="bCrash" class="danger" aria-pressed="false">Aixafa la bateria</button>
+        <button id="bReset" class="ghost">Torna a començar</button>
+      </div>
+      <div class="meter">
+        <div class="row"><span>Càrrega</span><b id="pct">100 %</b></div>
+        <div class="bar"><i id="pctBar"></i></div>
+        <div class="row"><span>Temperatura de la bateria</span><b id="temp">25 °C</b></div>
+        <div class="bar t"><i id="tBar" style="width:6%"></i></div>
+      </div>
+      <label class="speed" for="spd">Velocitat de l'animació
+        <input id="spd" type="range" min="0.5" max="3" step="0.5" value="1">
+      </label>
+      <div id="state" class="state" aria-live="polite">La bateria és carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.</div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--li)">+</span>ió de liti, Li⁺</span>
+        <span><span class="dot" style="background:var(--el);color:#3a2a00">−</span>electró, e⁻</span>
+        <span><span class="dot" style="background:var(--graphite);border-radius:3px"></span>capes de grafit</span>
+        <span><span class="dot" style="background:var(--cobalt);border-radius:3px"></span>capes d'òxid de cobalt</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card wide">
+      <h2>Què passa a cada elèctrode</h2>
+      <p class="note">La idea clau: dins de la bateria, el liti es desplaça en forma d'ions Li⁺ a través de l'electròlit i el separador; els electrons circulen pel circuit elèctric extern. Els ions i els electrons es tornen a reunir a l'elèctrode d'arribada.</p>
+      <div class="eqgrid" id="eqs">
+        <div class="eh"></div>
+        <div class="eh col-dis"><b>Descàrrega</b><span>fem servir el mòbil · la bateria dona energia</span></div>
+        <div class="eh col-chg"><b>Càrrega</b><span>endollem el mòbil · el carregador dona energia</span></div>
+
+        <div class="rh"><b>Grafit</b><span>ànode, pol −</span></div>
+        <div class="cell col-dis"><div class="eqn">LiC₆ → C₆ + Li⁺ + e⁻</div>Els àtoms de liti intercalats entre les capes de grafit <b>perden un electró</b> (oxidació). Els ions Li⁺ passen a l'electròlit i els electrons surten de l'elèctrode cap al circuit extern.</div>
+        <div class="cell col-chg"><div class="eqn">C₆ + Li⁺ + e⁻ → LiC₆</div>Els ions Li⁺ arriben a través de l'electròlit i s'intercalen entre les capes de grafit, on <b>guanyen els electrons</b> (reducció) que el carregador fa circular pel circuit extern.</div>
+
+        <div class="rh"><b>Òxid de cobalt</b><span>càtode, pol +</span></div>
+        <div class="cell col-dis"><div class="eqn">CoO₂ + Li⁺ + e⁻ → LiCoO₂</div>Els ions Li⁺ arriben a través de l'electròlit i els electrons, pel circuit extern després de passar pel mòbil. El cobalt <b>guanya un electró</b> (de Co⁴⁺ a Co³⁺, reducció) i l'ió Li⁺ s'intercala entre les capes de l'òxid.</div>
+        <div class="cell col-chg"><div class="eqn">LiCoO₂ → CoO₂ + Li⁺ + e⁻</div>El carregador <b>extreu electrons</b> del cobalt (de Co³⁺ a Co⁴⁺, oxidació), que circulen pel circuit extern cap al grafit. Els ions Li⁺ surten d'entre les capes de l'òxid i passen a l'electròlit.</div>
+
+        <div class="rh"><b>En total</b></div>
+        <div class="cell col-dis"><div class="eqn">LiC₆ + CoO₂ → C₆ + LiCoO₂</div>El liti passa del grafit a l'òxid de cobalt. La reacció és espontània i <b>allibera energia</b>, que el mòbil aprofita com a energia elèctrica.</div>
+        <div class="cell col-chg"><div class="eqn">C₆ + LiCoO₂ → LiC₆ + CoO₂</div>El liti torna al grafit. La reacció no és espontània: <b>necessita l'energia elèctrica</b> del carregador, que queda emmagatzemada a la bateria com a energia química.</div>
+      </div>
+      <p class="note">LiC₆ indica que hi ha un àtom de liti intercalat per cada sis àtoms de carboni. La pèrdua d'electrons s'anomena oxidació i el guany d'electrons, reducció.</p>
+    </div>
+    <div class="card">
+      <h2>Preguntes per observar</h2>
+      <ol>
+        <li>Quan fas servir el mòbil, cap a on es mouen els ions Li⁺? I els electrons?</li>
+        <li>Per on passen els ions i per on passen els electrons? Per què els electrons no poden travessar l'electròlit?</li>
+        <li>Què canvia quan carregues el mòbil? D'on treu l'energia la bateria per fer tornar els ions?</li>
+        <li>Quan la bateria és descarregada, on és tot el liti?</li>
+        <li>(Sessió 7) Prem «Aixafa la bateria». Què li passa al separador? Per què la temperatura puja tant? Relaciona-ho amb els incendis als camions de les escombraries.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="note">Model simplificat: hi ha molts menys ions que en una bateria real, en una bateria real no tot el liti surt del càtode, i no es representen els anions de l'electròlit (PF₆⁻). Els elèctrodes s'anomenen ànode i càtode segons el seu paper durant la descàrrega.</p>
+</div>
+
+<script>
+(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  const $ = id => document.getElementById(id);
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const N = 12;
+  const slotsA = [], slotsC = [];
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) { slotsA.push({x: 152 + c * 42, y: 225 + r * 44}); slotsC.push({x: 522 + c * 42, y: 225 + r * 44}); }
+
+  // electrodes
+  const an = $("anode"), ca = $("cathode");
+  for (let r = 0; r < 5; r++) {
+    el("rect", {x: 134, y: 199 + r * 44, width: 172, height: 8, rx: 3, fill: "var(--graphite)"}, an);
+    el("rect", {x: 494, y: 199 + r * 44, width: 172, height: 8, rx: 3, fill: "var(--cobalt)"}, ca);
+  }
+
+  // device drawing
+  const dev = $("device");
+  function drawDevice(kind) {
+    dev.innerHTML = "";
+    if (kind === "charger") {
+      el("rect", {x: 352, y: 46, width: 96, height: 48, rx: 10, fill: "var(--surface)", stroke: "var(--fg)", "stroke-width": 2.5}, dev);
+      el("path", {d: "M402 54 L390 72 L400 72 L396 88 L412 66 L402 66 Z", fill: "var(--el)", stroke: "var(--fg)", "stroke-width": 1.5}, dev);
+      el("text", {x: 400, y: 36, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: "var(--fg)"}, dev).textContent = "carregador (endollat)";
+    } else {
+      el("rect", {x: 378, y: 30, width: 44, height: 76, rx: 8, fill: "var(--surface)", stroke: "var(--fg)", "stroke-width": 2.5}, dev);
+      el("rect", {id: "screen", x: 384, y: 38, width: 32, height: 56, rx: 3, fill: kind === "on" ? "var(--acc-soft)" : "var(--line)"}, dev);
+      el("circle", {cx: 400, cy: 100, r: 2.5, fill: "var(--fg)"}, dev);
+      el("text", {x: 400, y: 22, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: "var(--fg)"}, dev).textContent = kind === "on" ? "mòbil en marxa" : "mòbil";
+    }
+  }
+
+  // flames
+  const fl = $("flames");
+  [[250, 182], [400, 182], [560, 182]].forEach(([x, y]) => {
+    el("path", {d: `M${x} ${y} C ${x - 22} ${y - 20}, ${x - 8} ${y - 44}, ${x} ${y - 62} C ${x + 10} ${y - 40}, ${x + 26} ${y - 26}, ${x} ${y} Z`, fill: "#E0782F", opacity: .9}, fl);
+    el("path", {d: `M${x} ${y} C ${x - 10} ${y - 12}, ${x - 3} ${y - 26}, ${x} ${y - 36} C ${x + 5} ${y - 24}, ${x + 12} ${y - 14}, ${x} ${y} Z`, fill: "#F2C14E"}, fl);
+  });
+
+  const parts = $("parts");
+  let ions, occA, occC, moving, mode, running, lastSpawn, temp, crashed, last;
+
+  function ionNode(x, y) {
+    const g = el("g", {}, parts);
+    el("circle", {cx: 0, cy: 0, r: 11, fill: "var(--li)"}, g);
+    el("text", {x: 0, y: 4.5, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: "#fff"}, g).textContent = "+";
+    g.setAttribute("transform", `translate(${x},${y})`);
+    return g;
+  }
+  function elecNode() {
+    const g = el("g", {}, parts);
+    el("circle", {cx: 0, cy: 0, r: 7, fill: "var(--el)", stroke: "var(--fg)", "stroke-width": 1}, g);
+    el("text", {x: 0, y: 4, "text-anchor": "middle", "font-size": 11, "font-weight": 700, fill: "#3a2a00"}, g).textContent = "−";
+    return g;
+  }
+
+  function reset() {
+    parts.innerHTML = "";
+    ions = []; occA = new Array(16).fill(-1); occC = new Array(16).fill(-1); moving = [];
+    for (let i = 0; i < N; i++) { occA[i] = i; ions.push({side: "A", slot: i, node: ionNode(slotsA[i].x, slotsA[i].y)}); }
+    mode = null; running = false; lastSpawn = 0; temp = 25; crashed = false;
+    $("crack").setAttribute("visibility", "hidden"); fl.setAttribute("visibility", "hidden");
+    drawDevice("off"); setButtons(); update();
+    say("La bateria és carregada: tot el liti és intercalat entre les capes de grafit. Tria què vols fer.");
+  }
+
+  function setButtons() {
+    $("bDis").setAttribute("aria-pressed", String(mode === "dis" && !crashed));
+    $("bChg").setAttribute("aria-pressed", String(mode === "chg"));
+    $("bCrash").setAttribute("aria-pressed", String(crashed));
+    $("bPause").textContent = running ? "Pausa" : "Continua";
+    $("bPause").disabled = !mode;
+  }
+  function say(t, hot) { const s = $("state"); s.textContent = t; s.classList.toggle("hot", !!hot); }
+
+  function countA() { return occA.filter(v => v >= 0).length; }
+  function update() {
+    const p = Math.round(countA() / N * 100);
+    $("pct").textContent = p + " %"; $("pctBar").style.width = p + "%";
+    $("temp").textContent = Math.round(temp) + " °C"; $("tBar").style.width = Math.min(100, temp / 500 * 100) + "%";
+    const f = $("flow");
+    if (crashed) f.textContent = "curtcircuit intern: els electrons passen pel separador trencat";
+    else if (mode === "dis" && running) f.textContent = "electrons: de l'ànode (−) al càtode (+), passant pel mòbil →";
+    else if (mode === "chg" && running) f.textContent = "← el carregador fa circular els electrons cap a l'ànode";
+    else f.textContent = "";
+    eqs();
+  }
+  function eqs() {
+    const box = $("eqs");
+    box.classList.toggle("on-dis", mode === "dis" || crashed);
+    box.classList.toggle("on-chg", mode === "chg" && !crashed);
+  }
+
+  function polyLen(pts) { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; }
+  function along(pts, t) {
+    const L = polyLen(pts) * t; let acc = 0;
+    for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); if (acc + d >= L) { const k = d ? (L - acc) / d : 0; return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * k, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * k]; } acc += d; }
+    return pts[pts.length - 1];
+  }
+  const WIRE = [[125, 182], [125, 70], [378, 70], [422, 70], [675, 70], [675, 182]];
+
+  function spawn() {
+    const fromA = mode === "dis" || crashed;
+    const src = fromA ? occA : occC, dst = fromA ? occC : occA;
+    const sIdx = src.findIndex(v => v >= 0); const dIdx = dst.findIndex(v => v === -1);
+    if (sIdx < 0 || dIdx < 0) return false;
+    const ionId = src[sIdx]; src[sIdx] = -1; dst[dIdx] = -2; // reserved
+    const sp = fromA ? slotsA[sIdx] : slotsC[sIdx], tp = fromA ? slotsC[dIdx] : slotsA[dIdx];
+    const yMid = (sp.y + tp.y) / 2;
+    const ionPath = [[sp.x, sp.y], [fromA ? 318 : 482, sp.y], [400, yMid], [fromA ? 482 : 318, tp.y], [tp.x, tp.y]];
+    let ePath;
+    if (crashed) ePath = [[300, 298], [400, 298], [500, 298]];
+    else ePath = fromA ? WIRE : WIRE.slice().reverse();
+    moving.push({ion: ions[ionId], ionId, dst, dIdx, ionPath, ePath, e: elecNode(), t: 0, side: fromA ? "C" : "A"});
+    return true;
+  }
+
+  function tick(now) {
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0; last = now;
+    const spd = parseFloat($("spd").value) * (crashed ? 2.5 : 1);
+    if (running) {
+      lastSpawn += dt * spd;
+      if (lastSpawn > 0.55 && moving.length < 3) { if (spawn()) lastSpawn = 0; }
+      if (crashed) { temp += dt * (temp < 150 ? 22 : 60); if (temp > 480) temp = 480; }
+      else temp += (30 - temp) * dt * 0.5;
+    } else if (!crashed) temp += (25 - temp) * dt * 0.3;
+    moving.forEach(m => {
+      if (running) m.t = Math.min(1, m.t + dt * spd / 1.6);
+      const [x, y] = along(m.ionPath, m.t); m.ion.node.setAttribute("transform", `translate(${x},${y})`);
+      const [ex, ey] = along(m.ePath, m.t); m.e.setAttribute("transform", `translate(${ex},${ey})`);
+    });
+    const done = moving.filter(m => m.t >= 1);
+    done.forEach(m => { m.dst[m.dIdx] = m.ionId; m.ion.side = m.side; m.e.remove(); });
+    if (done.length) moving = moving.filter(m => m.t < 1);
+    if (crashed && temp > 150) { fl.setAttribute("visibility", "visible"); say("Embalament tèrmic: el curtcircuit intern escalfa la bateria, l'electròlit (inflamable) s'evapora i crema. La calor escalfa les cel·les veïnes i el procés s'accelera. Per això una bateria aixafada dins d'un camió compactador pot provocar un incendi.", true); }
+    if (running && !moving.length) {
+      const fromA = mode === "dis" || crashed;
+      const left = fromA ? countA() : N - countA();
+      if (left === 0 && !crashed) { running = false; setButtons(); say(mode === "dis" ? "Bateria descarregada: tot el liti és intercalat a l'òxid de cobalt. Ja no poden circular més electrons pel circuit extern." : "Bateria carregada: tot el liti torna a ser intercalat al grafit."); if (mode === "dis") drawDevice("off"); }
+    }
+    update();
+    requestAnimationFrame(tick);
+  }
+
+  $("bDis").onclick = () => { if (crashed) return; mode = "dis"; running = true; drawDevice("on"); setButtons(); say("Fas servir el mòbil: els ions Li⁺ surten del grafit, travessen l'electròlit i el separador i s'intercalen a l'òxid de cobalt. Els electrons circulen pel circuit extern i fan funcionar el mòbil."); };
+  $("bChg").onclick = () => { if (crashed) return; mode = "chg"; running = true; drawDevice("charger"); setButtons(); say("Carregues el mòbil: el carregador aporta l'energia elèctrica que fa tornar els ions Li⁺ al grafit i fa circular els electrons pel circuit extern en sentit contrari."); };
+  $("bPause").onclick = () => { if (!mode) return; running = !running; setButtons(); };
+  $("bCrash").onclick = () => { if (crashed) return; crashed = true; mode = "dis"; running = true; drawDevice("off"); $("crack").setAttribute("visibility", "visible"); setButtons(); say("El separador s'ha trencat: els dos elèctrodes es toquen per dins (curtcircuit intern). Els electrons ja no passen pel mòbil i la bateria es descarrega molt de pressa.", true); };
+  $("bReset").onclick = reset;
+
+  reset();
+  if (reduce) $("spd").value = "0.5";
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
