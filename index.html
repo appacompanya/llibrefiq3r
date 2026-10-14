@@ -138,18 +138,21 @@ table.grp .nt{font-weight:700;font-variant-numeric:tabular-nums}
 .cover-art img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cover-art svg.orb{position:absolute;inset:0;width:100%;height:100%}
 .tile{position:absolute;left:18px;bottom:18px;width:134px;height:150px;background:var(--surface);color:var(--fg);border:2px solid var(--fg);border-radius:8px;box-shadow:6px 6px 0 var(--fg)}
-.tile .tsym{position:absolute;left:12px;top:22px;display:flex;align-items:stretch}
+.tile .tsym{position:absolute;left:10px;top:24px;display:flex;align-items:stretch}
 .tile .sym{font-family:var(--font-display);font-weight:800;font-size:3.7rem;line-height:.9;letter-spacing:-.01em}
-.tile .sup,.tile .sub{font-family:var(--font-display);font-weight:800;font-size:1.15rem;line-height:1;width:14px;margin-left:3px}
-.tile .sup{align-self:flex-start;margin-top:-4px}
-.tile .sub{align-self:flex-end;margin-left:-14px;margin-bottom:-6px}
+.tile .sup,.tile .sub{font-family:var(--font-display);font-weight:800;font-size:1.15rem;line-height:1}
+.tile .nums{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;margin-right:3px;padding:0 0 1px}
+.tile .sup{margin-top:-6px}
+.tile .sub{margin-bottom:-6px}
 .tile .nm{position:absolute;left:12px;right:8px;bottom:10px;font-size:.78rem;font-weight:700;line-height:1.15}
 .tile .ar{position:absolute;left:0;top:0;overflow:visible;color:var(--fg);pointer-events:none}
 .tile .ar-m{display:none}
-.tile .note{position:absolute;top:126px;transform:translateX(-50%);width:max-content}
-.tile .note b{display:block;font-size:.78rem;font-weight:700;line-height:1.2;background:var(--surface);color:var(--fg);border:2px solid var(--fg);border-radius:8px;padding:4px 9px}
-.tile .n1{left:262px}
-.tile .n2{left:176px}
+.tile .note{position:absolute;left:162px;transform:translateY(-50%);width:max-content;display:grid;gap:1px;background:var(--surface);color:var(--fg);border:2px solid var(--fg);border-radius:8px;padding:4px 10px;font-size:.74rem;line-height:1.2}
+.tile .note b{font-weight:700}
+.tile .note b i{font-family:var(--font-display);font-style:italic;font-weight:800}
+.tile .note span{color:var(--muted);font-weight:700}
+.tile .n1{top:100px}
+.tile .n2{top:140px}
 .sechd{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .sechd h2{font-family:var(--font-display);font-weight:800;font-size:1.55rem;margin:0}
 .sechd span{color:var(--muted);font-size:.9rem}
@@ -246,7 +249,7 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
   .cards{margin-top:0}
   .scard .chip{display:none}
   .scard .num{left:6px;top:6px;padding:2px 6px 3px;font-size:.8rem}
-  .tile{left:12px;bottom:12px;width:104px;height:118px}.tile .tsym{left:9px;top:16px}.tile .sym{font-size:2.8rem}.tile .sup,.tile .sub{font-size:.95rem}.tile .nm{font-size:.68rem;left:9px}.tile .ar-d{display:none}.tile .ar-m{display:block}.tile .note{top:96px}.tile .note b{font-size:.66rem;padding:3px 7px}.tile .n1{left:204px}.tile .n2{left:138px}
+  .tile{left:12px;bottom:12px;width:104px;height:118px}.tile .tsym{left:9px;top:16px}.tile .sym{font-size:2.8rem}.tile .sup,.tile .sub{font-size:.95rem}.tile .nm{font-size:.68rem;left:9px}.tile .ar-d{display:none}.tile .ar-m{display:block}.tile .note{left:126px;font-size:.6rem;padding:2px 7px;border-radius:6px}.tile .n1{top:78px}.tile .n2{top:108px}
   .hero .hacts{order:-1;justify-items:start}
   .vtools{width:100%;justify-content:space-between}
   .vdesk{padding:10px 6px;border-radius:12px}
@@ -653,8 +656,8 @@ function renderHome(){
     `<svg class="orb" viewBox="0 0 400 275" aria-hidden="true"><g fill="none" stroke-width="2.5">
       <ellipse cx="250" cy="130" rx="120" ry="42" stroke="var(--s3)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(60 250 130)" stroke="var(--s2)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(120 250 130)" stroke="var(--s1)"/></g>
       <circle cx="250" cy="130" r="13" fill="var(--s5)"/><circle cx="370" cy="130" r="7" fill="var(--s6)"/><circle cx="190" cy="27" r="7" fill="var(--s4)"/><circle cx="190" cy="233" r="7" fill="var(--s2)"/></svg>`)
-    + `<div class="tile" aria-hidden="true"><div class="tsym"><span class="sym">Fq</span><span class="sup">6</span><span class="sub">3</span></div><span class="nm">Física i química</span>
-      <svg class="ar ar-d" width="300" height="140" viewBox="0 0 300 140" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M106,24 L262,24 L262,126"/><path d="M106,74 L176,74 L176,126"/></g><path d="M106,24 l9,-6 v12 z" fill="currentColor"/><path d="M106,74 l9,-6 v12 z" fill="currentColor"/></svg><svg class="ar ar-m" width="240" height="110" viewBox="0 0 240 110" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M80,19 L204,19 L204,96"/><path d="M80,55 L138,55 L138,96"/></g><path d="M80,19 l9,-6 v12 z" fill="currentColor"/><path d="M80,55 l9,-6 v12 z" fill="currentColor"/></svg><span class="note n1"><b>reptes</b></span><span class="note n2"><b>3r d'ESO</b></span></div>`;
+    + `<div class="tile" aria-hidden="true"><div class="tsym"><span class="nums"><span class="sup">6</span><span class="sub">3</span></span><span class="sym">Fq</span></div><span class="nm">Física i química</span>
+      <svg class="ar ar-d" width="170" height="160" viewBox="0 0 170 160" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M16,10 L16,6 L152,6 L152,100 L162,100"/><path d="M16,92 L16,104 L142,104 L142,140 L162,140"/></g><path d="M16,17 l-5,-8 h10 z" fill="currentColor"/><path d="M16,85 l-5,8 h10 z" fill="currentColor"/></svg><svg class="ar ar-m" width="140" height="130" viewBox="0 0 140 130" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14,6 L14,3 L118,3 L118,78 L126,78"/><path d="M14,69 L14,82 L110,82 L110,108 L126,108"/></g><path d="M14,11 l-5,-8 h10 z" fill="currentColor"/><path d="M14,63 l-5,8 h10 z" fill="currentColor"/></svg><span class="note n1"><b><i>A</i> · nombre màssic</b><span>6 reptes per entendre el món</span></span><span class="note n2"><b><i>Z</i> · nombre atòmic</b><span>3r d'ESO</span></span></div>`;
   document.getElementById("cards").innerHTML = SDAS.map(s => {
     const when = s.meta.split(" · ")[0];
     return `<a class="scard" href="#sda${s.n}" style="--c:var(${s.c})" aria-label="SdA ${s.n}: ${esc(s.title)}">${art(s.n)}<span class="num"><small>SdA</small>${s.n}</span>
