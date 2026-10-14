@@ -639,7 +639,6 @@ function renderHome(){
   document.getElementById("cards").innerHTML = SDAS.map(s => {
     const when = s.meta.split(" · ")[0];
     return `<a class="scard" href="#sda${s.n}" style="--c:var(${s.c})" aria-label="SdA ${s.n}: ${esc(s.title)}">${art(s.n)}<span class="num"><small>SdA</small>${s.n}</span>
-      <span class="chip">${esc(s.title)}</span>
       <div class="sov" aria-hidden="true"><span class="smeta">SdA ${s.n} · ${esc(when)} · ${s.sessions ? s.sessions.length : 0} sessions</span><h3>${esc(s.title)}</h3><p>${esc(s.q)}</p><span class="sgo">Entra a la SdA →</span></div></a>`;
   }).join("");
   document.getElementById("rcards").innerHTML = SDAS.map(s => {
