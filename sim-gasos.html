@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Model cineticomolecular dels gasos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Simulador: cilindre amb èmbol i partícules (esquerra), controls i lectures (dreta), gràfiques i taula de mesures a sota */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5; --chip:#efece6;
+  --acc:#C9621C; --acc-soft:#FBEADD; --cold:#2f6db5; --hot:#c2413a; --wall:#3a3f47; --gas:#f3f7fb; --ok:#2e7d4f;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --wall:#c4cad3; --gas:#1a2129; --ok:#5fc08a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --wall:#c4cad3; --gas:#1a2129; --ok:#5fc08a; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1160px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:grid;gap:18px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+.top a{color:var(--acc);font-weight:700;text-decoration:none}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.1;margin:.15em 0 0;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.2rem;margin:0}
+.lead{color:var(--muted);max-width:72ch;margin:0}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+@media (max-width:900px){.sim{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px;min-width:0}
+.stage{position:relative}
+canvas{display:block;width:100%;height:auto;touch-action:none}
+#cv{border-radius:10px;cursor:default}
+.ctl{display:grid;gap:4px}
+.ctl .row{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.ctl label{font-weight:700;font-size:.92rem}
+.ctl output{font-variant-numeric:tabular-nums;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--acc);height:28px}
+input[type=range]:disabled{opacity:.45}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button,.btn{font:inherit;font-size:.86rem;font-weight:700;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn:focus-visible,.seg button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid color-mix(in srgb,var(--acc) 50%,transparent);outline-offset:2px}
+.read{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.read div{background:var(--chip);border-radius:10px;padding:8px 10px;display:grid;gap:0}
+.read span{font-size:.76rem;color:var(--muted);font-weight:700}
+.read b{font-size:1.25rem;font-variant-numeric:tabular-nums;font-family:var(--display)}
+.read .big{grid-column:1/-1;background:var(--acc-soft)}
+.read .big b{font-size:1.6rem}
+.hint{font-size:.85rem;color:var(--muted);margin:0}
+.chk{display:flex;gap:8px;align-items:center;font-size:.9rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:5px 8px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.axes{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.9rem}
+select{font:inherit;border:1.5px solid var(--line);border-radius:8px;padding:3px 6px;background:var(--surface);color:var(--fg)}
+.qs ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.qs li::marker{font-weight:700;color:var(--acc)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-2px;margin-right:4px}
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.85em;line-height:1.05}
+.frac>span:first-child{border-bottom:1px solid currentColor;padding:0 2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Física i química · 3r ESO · SdA 2 · El desodorant kamikaze</div>
+      <h1>El model cineticomolecular dels gasos</h1>
+    </div>
+    <a href="index.html">← Torna al llibre</a>
+  </div>
+  <p class="lead">Un gas és un munt de partícules que es mouen sense parar i xoquen entre elles i contra les parets. Canvia la temperatura, el volum (amb l'èmbol) o la quantitat de gas i observa com es mouen les partícules, quants xocs fan contra les parets cada segon i com canvia la pressió.</p>
+
+  <div class="sim">
+    <div class="card stage">
+      <canvas id="cv" width="760" height="640" role="img" aria-label="Cilindre tancat amb un èmbol a dalt. A dins, partícules de gas que es mouen i xoquen. Les partícules lentes són blaves i les ràpides, vermelles. Sota el cilindre hi ha una font de calor o de fred segons la temperatura."></canvas>
+      <div class="legend"><span><i class="sw" style="background:var(--cold)"></i>partícula lenta</span><span><i class="sw" style="background:#8c6bb1"></i>velocitat mitjana</span><span><i class="sw" style="background:var(--hot)"></i>partícula ràpida</span><span>Els flaixos a les parets són els xocs.</span></div>
+    </div>
+
+    <div class="card" aria-label="Controls i mesures">
+      <div class="ctl">
+        <div class="row"><label for="sT">Temperatura</label><output id="oT">300 K · 27 °C</output></div>
+        <input type="range" id="sT" min="100" max="700" step="5" value="300">
+      </div>
+      <div class="ctl">
+        <div class="row"><label for="sV">Volum (posició de l'èmbol)</label><output id="oV">1,00 L</output></div>
+        <input type="range" id="sV" min="0.3" max="2.2" step="0.01" value="1">
+        <p class="hint" id="hV">També pots arrossegar l'èmbol amb el ratolí o el dit.</p>
+      </div>
+      <div class="ctl">
+        <div class="row"><label for="sN">Quantitat de gas (partícules)</label><output id="oN">100</output></div>
+        <input type="range" id="sN" min="10" max="250" step="5" value="100">
+      </div>
+      <div class="ctl">
+        <label id="lMode">L'èmbol</label>
+        <div class="seg" role="group" aria-labelledby="lMode">
+          <button type="button" id="mFix" aria-pressed="true">Fix (el mous tu)</button>
+          <button type="button" id="mFree" aria-pressed="false">Lliure (pressió exterior 1 atm)</button>
+        </div>
+        <p class="hint" id="hMode">Amb l'èmbol fix, el volum no canvia tot i que canviï la temperatura.</p>
+      </div>
+      <div class="read" aria-live="polite">
+        <div class="big"><span>Pressió del gas</span><b id="rP">–</b></div>
+        <div><span>Xocs contra les parets</span><b id="rC">–</b></div>
+        <div><span>Velocitat mitjana (com el N₂)</span><b id="rS">–</b></div>
+        <div><span>Xocs per cm de paret i segon</span><b id="rCA">–</b></div>
+        <div><span>Xocs entre partícules</span><b id="rPP">–</b></div>
+      </div>
+      <label class="chk"><input type="checkbox" id="cTrace"> Segueix una partícula (deixa rastre)</label>
+      <label class="chk"><input type="checkbox" id="cPP"> Les partícules xoquen entre elles (gas real)</label>
+      <p class="hint" id="hPP">Ara les partícules són punts que no xoquen entre elles: és el model del gas ideal.</p>
+      <div class="seg">
+        <button type="button" class="btn pri" id="bSave">Desa la mesura</button>
+        <button type="button" class="btn" id="bPause">Pausa</button>
+        <button type="button" class="btn" id="bReset">Torna a començar</button>
+      </div>
+      <p class="hint">La pressió es calcula comptant la força dels xocs de les partícules contra les parets. Espera uns segons després de cada canvi perquè la lectura s'estabilitzi.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Pressió i xocs al llarg del temps</h2>
+      <canvas id="gt" width="560" height="230" role="img" aria-label="Gràfica de la pressió i dels xocs per segon dels darrers 30 segons."></canvas>
+      <div class="legend"><span><i class="sw" style="background:var(--acc)"></i>pressió (atm)</span><span><i class="sw" style="background:var(--muted)"></i>xocs per segon (escala de la dreta)</span></div>
+    </section>
+    <section class="card">
+      <h2>Quantes partícules van a cada velocitat?</h2>
+      <canvas id="gh" width="560" height="230" role="img" aria-label="Histograma de les velocitats de les partícules."></canvas>
+      <p class="hint">No totes les partícules van igual de de pressa. En escalfar el gas, la distribució s'eixampla i es desplaça cap a velocitats més grans.</p>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>Les teves mesures</h2>
+    <div class="tscroll"><table><thead><tr><th>#</th><th>T (K)</th><th>V (L)</th><th>Partícules</th><th>p (atm)</th><th>Xocs/s</th><th>p·V</th><th><span class="frac"><span>V</span><span>T</span></span></th><th><span class="frac"><span>p</span><span>T</span></span></th></tr></thead><tbody id="tb"><tr><td colspan="9" style="text-align:left;color:var(--muted)">Encara no has desat cap mesura. Prem «Desa la mesura».</td></tr></tbody></table></div>
+    <div class="axes"><label for="ax">Eix horitzontal</label><select id="ax"><option value="V">V (L)</option><option value="iV">1/V (L⁻¹)</option><option value="T">T (K)</option><option value="N">Partícules</option></select>
+      <label for="ay">Eix vertical</label><select id="ay"><option value="P">p (atm)</option><option value="V">V (L)</option><option value="C">Xocs/s</option></select>
+      <button type="button" class="btn" id="bClear">Esborra les mesures</button><button type="button" class="btn" id="bCsv">Descarrega (CSV)</button></div>
+    <canvas id="gs" width="900" height="300" role="img" aria-label="Gràfica de les mesures desades."></canvas>
+  </section>
+
+  <section class="card qs">
+    <h2>Investiga</h2>
+    <ol>
+      <li><b>Què és la pressió?</b> Amb l'èmbol fix, posa poques partícules i després moltes. Com canvien els xocs per segon i la pressió? Explica la pressió amb el model de partícules.</li>
+      <li><b>Llei de Boyle-Mariotte.</b> Deixa la temperatura a 300 K. Desa mesures amb volums diferents (0,5 L, 0,75 L, 1 L, 1,25 L, 1,5 L). Com és el producte p·V? Fes la gràfica p–V i després p–(1/V). Per què, si reduïm el volum, hi ha més xocs per cm de paret cada segon?</li>
+      <li><b>Llei de Gay-Lussac.</b> Amb l'èmbol fix, escalfa el gas de 200 K a 600 K i desa mesures. Com canvien la velocitat de les partícules i la pressió? Calcula p/T. Per què el desodorant al costat de l'estufa és perillós?</li>
+      <li><b>Llei de Charles.</b> Posa l'èmbol lliure (pressió exterior constant) i canvia la temperatura. Què fa l'èmbol? Calcula V/T per a cada mesura. Relaciona-ho amb el globus que vam posar al congelador.</li>
+      <li><b>Repte.</b> Amb l'èmbol fix, quina temperatura cal per doblar la pressió que hi ha a 300 K? Comprova la teva predicció amb el simulador. Per què cal fer servir l'escala Kelvin?</li>
+    </ol>
+    <p class="hint">El simulador és bidimensional i té poques partícules (un gas real en té uns 10²² en un litre), per això la pressió oscil·la. Els valors s'han ajustat perquè 100 partícules a 300 K en 1 L facin 1 atm.</p>
+  </section>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  const fmt = (x, d = 2) => Number.isFinite(x) ? x.toFixed(d).replace(".", ",") : "–";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- geometria del cilindre (px del canvas) ---------- */
+  const cv = $("cv"), ctx = cv.getContext("2d");
+  const W = cv.width, H = cv.height;
+  const X0 = 150, X1 = 610;            // parets laterals interiors
+  const YB = 520;                      // fons interior
+  const HREF = 180;                    // alçada interior per a 1 L
+  const VMIN = 0.3, VMAX = 2.2;
+  const R = 4;                         // radi de partícula
+  const yTop = (V) => YB - HREF * V - 2 * R; // cara inferior de l'èmbol (l'espai útil per als centres de les partícules és proporcional a V)
+  const WIDTH = X1 - X0;
+
+  /* unitats del model: massa 1; energia cinètica mitjana 2D = k·T amb k fixat per escala de velocitats */
+  const VSCALE = 150;                  // velocitat quadràtica mitjana (px/s) a 300 K
+  const vrms = (T) => VSCALE * Math.sqrt(T / 300);
+  // calibratge: 100 partícules, 300 K, 1 L -> 1 atm (gas ideal 2D: p·A = N·m·<v²>/2)
+  const PCAL = 1 / (100 * VSCALE * VSCALE / 2 / ((WIDTH - 2 * R) * HREF));
+  const PX_PER_CM = 46;                // escala del dibuix per comptar xocs per cm de paret
+  const MS300 = 515;                   // velocitat quadràtica mitjana del nitrogen a 300 K (m/s), per expressar la velocitat en m/s
+
+  let T = 300, V = 1, N = 100, free = false, paused = false, ppOn = false, trace = false;
+  let P = [], tSim = 0;
+  const PEXT = 1.0;                    // atm, per a l'èmbol lliure
+
+  function gauss() { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  function newParticle() {
+    const s = vrms(T) / Math.SQRT2; // cada component: sigma = vrms/√2 (2D)
+    return { x: X0 + R + Math.random() * (WIDTH - 2 * R), y: yTop(V) + R + Math.random() * (YB - yTop(V) - 2 * R), vx: gauss() * s, vy: gauss() * s };
+  }
+  function setN(n) { while (P.length < n) P.push(newParticle()); if (P.length > n) P.length = n; }
+  function reset() { P = []; setN(N); hist.length = 0; flashes.length = 0; trail.length = 0; acc.imp = 0; acc.hits = 0; acc.pp = 0; acc.t = 0; pSm = null; cSm = null; }
+
+  /* ---------- mesures ---------- */
+  const acc = { imp: 0, hits: 0, pp: 0, t: 0 };
+  let pSm = null, cSm = null, ppSm = null, lastWin = { p: NaN, c: NaN, pp: NaN };
+  const hist = []; // {t, p, c}
+  const flashes = []; // {x, y, a}
+  const trail = [];
+
+  function wallLength() { return 2 * HREF * V + 2 * (WIDTH - 2 * R); } // perímetre de la zona que recorren els centres (px)
+
+  /* ---------- física ---------- */
+  function step(dt) {
+    const top = yTop(V);
+    const n = P.length;
+    // moviment i xocs amb les parets
+    for (let i = 0; i < n; i++) {
+      const q = P[i];
+      q.x += q.vx * dt; q.y += q.vy * dt;
+      if (q.x < X0 + R) { q.x = 2 * (X0 + R) - q.x; acc.imp += 2 * Math.abs(q.vx); q.vx = Math.abs(q.vx); acc.hits++; flash(X0, q.y); }
+      else if (q.x > X1 - R) { q.x = 2 * (X1 - R) - q.x; acc.imp += 2 * Math.abs(q.vx); q.vx = -Math.abs(q.vx); acc.hits++; flash(X1, q.y); }
+      if (q.y > YB - R) { q.y = 2 * (YB - R) - q.y; acc.imp += 2 * Math.abs(q.vy); q.vy = -Math.abs(q.vy); acc.hits++; flash(q.x, YB); }
+      else if (q.y < top + R) { q.y = Math.max(top + R, 2 * (top + R) - q.y); acc.imp += 2 * Math.abs(q.vy); q.vy = Math.abs(q.vy); acc.hits++; flash(q.x, top); }
+      if (q.y > YB - R) q.y = YB - R;
+    }
+    // xocs elàstics entre partícules (masses iguals)
+    if (ppOn) {
+      const D = 2 * R, D2 = D * D;
+      for (let i = 0; i < n; i++) { const a = P[i];
+        for (let j = i + 1; j < n; j++) { const b = P[j];
+          const dx = b.x - a.x; if (dx > D || dx < -D) continue;
+          const dy = b.y - a.y; const d2 = dx * dx + dy * dy;
+          if (d2 < D2 && d2 > 1e-6) {
+            const d = Math.sqrt(d2), nx = dx / d, ny = dy / d;
+            const rel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+            if (rel > 0) { a.vx -= rel * nx; a.vy -= rel * ny; b.vx += rel * nx; b.vy += rel * ny; acc.pp++; }
+            const o = (D - d) / 2; a.x -= nx * o; a.y -= ny * o; b.x += nx * o; b.y += ny * o;
+          }
+        }
+      }
+    }
+    // termòstat suau: l'energia cinètica mitjana segueix la temperatura (el recipient és en contacte amb la font)
+    let ke = 0; for (const q of P) ke += q.vx * q.vx + q.vy * q.vy;
+    const target = vrms(T) ** 2 * n;
+    if (ke > 0) { const f = Math.sqrt(1 + (target / ke - 1) * Math.min(1, dt * 3)); for (const q of P) { q.vx *= f; q.vy *= f; } }
+    acc.t += dt; tSim += dt;
+    if (trace && P[0]) { trail.push([P[0].x, P[0].y]); if (trail.length > 600) trail.shift(); }
+  }
+  function flash(x, y) { if (flashes.length < 160) flashes.push({ x, y, a: 1 }); }
+
+  // finestra de mesura de 0,5 s, suavitzada
+  function measure() {
+    if (acc.t < 0.5) return;
+    // p (2D) = impuls total sobre les parets / (temps · perímetre); es passa a atm amb el calibratge del gas ideal
+    const p = acc.imp / (acc.t * wallLength()) * PCAL;
+    const c = acc.hits / acc.t, pp = acc.pp / acc.t;
+    const k = pSm == null ? 1 : 0.22;
+    pSm = pSm == null ? p : pSm + (p - pSm) * k;
+    cSm = cSm == null ? c : cSm + (c - cSm) * k;
+    ppSm = ppSm == null ? pp : ppSm + (pp - ppSm) * k;
+    lastWin = { p: pSm, c: cSm, pp: ppSm };
+    hist.push({ t: tSim, p: pSm, c: cSm }); while (hist.length && hist[0].t < tSim - 30) hist.shift();
+    acc.imp = 0; acc.hits = 0; acc.pp = 0; acc.t = 0;
+    if (free) { // l'èmbol es mou a poc a poc fins que la pressió interior iguala l'exterior
+      const nv = Math.min(VMAX, Math.max(VMIN, V * (1 + 0.3 * (p - PEXT) / PEXT)));
+      setV(nv, true);
+    }
+    readouts();
+  }
+
+  /* ---------- controls ---------- */
+  function setV(v, fromSim) {
+    v = Math.min(VMAX, Math.max(VMIN, v));
+    const oldTop = yTop(V); V = v; const top = yTop(V);
+    if (top > oldTop) for (const q of P) if (q.y < top + R) { q.y = top + R + Math.random() * 4; if (q.vy < 0) q.vy = -q.vy; } // l'èmbol empeny les partícules
+    $("sV").value = V.toFixed(2); $("oV").textContent = fmt(V) + " L";
+    if (!fromSim) { pSm = null; cSm = null; }
+  }
+  function setT(t) { T = t; $("oT").textContent = `${Math.round(T)} K · ${Math.round(T - 273)} °C`; pSm = null; cSm = null; }
+  $("sT").addEventListener("input", (e) => setT(+e.target.value));
+  $("sV").addEventListener("input", (e) => setV(+e.target.value));
+  $("sN").addEventListener("input", (e) => { N = +e.target.value; $("oN").textContent = N; setN(N); pSm = null; cSm = null; });
+  function setMode(f) {
+    free = f; $("mFix").setAttribute("aria-pressed", String(!f)); $("mFree").setAttribute("aria-pressed", String(f));
+    $("sV").disabled = f;
+    $("hMode").textContent = f ? "Amb l'èmbol lliure, la pressió del gas s'iguala amb la pressió exterior (1 atm): si canvies la temperatura o la quantitat de gas, canvia el volum." : "Amb l'èmbol fix, el volum no canvia tot i que canviï la temperatura.";
+    $("hV").textContent = f ? "Ara l'èmbol es mou sol." : "També pots arrossegar l'èmbol amb el ratolí o el dit.";
+  }
+  $("mFix").onclick = () => setMode(false); $("mFree").onclick = () => setMode(true);
+  $("bPause").onclick = () => { paused = !paused; $("bPause").textContent = paused ? "Continua" : "Pausa"; };
+  $("bReset").onclick = () => { T = 300; V = 1; N = 100; $("sT").value = 300; $("sN").value = 100; $("oN").textContent = 100; setT(300); setV(1); setMode(false); reset(); };
+  $("cTrace").onchange = (e) => { trace = e.target.checked; trail.length = 0; };
+  $("cPP").onchange = (e) => { ppOn = e.target.checked; pSm = null; cSm = null; $("hPP").textContent = ppOn ? "Les partícules ocupen espai i xoquen entre elles: la pressió surt una mica més alta que la del gas ideal, sobretot si el gas està molt comprimit." : "Ara les partícules són punts que no xoquen entre elles: és el model del gas ideal."; };
+
+  // arrossegar l'èmbol
+  let drag = false;
+  const toCanvas = (ev) => { const r = cv.getBoundingClientRect(); return { x: (ev.clientX - r.left) * W / r.width, y: (ev.clientY - r.top) * H / r.height }; };
+  cv.addEventListener("pointerdown", (ev) => { const p = toCanvas(ev); if (!free && p.x > X0 - 20 && p.x < X1 + 20 && Math.abs(p.y - (yTop(V) - 14)) < 34) { drag = true; cv.setPointerCapture(ev.pointerId); } });
+  cv.addEventListener("pointermove", (ev) => { const p = toCanvas(ev); if (drag) setV((YB - (p.y + 14)) / HREF); else cv.style.cursor = (!free && Math.abs(p.y - (yTop(V) - 14)) < 34 && p.x > X0 - 20 && p.x < X1 + 20) ? "ns-resize" : "default"; });
+  cv.addEventListener("pointerup", () => { drag = false; });
+  cv.addEventListener("pointercancel", () => { drag = false; });
+
+  /* ---------- lectures ---------- */
+  function readouts() {
+    const sp = P.length ? P.reduce((a, q) => a + Math.hypot(q.vx, q.vy), 0) / P.length : 0;
+    $("rP").textContent = fmt(lastWin.p) + " atm";
+    $("rC").textContent = Number.isFinite(lastWin.c) ? Math.round(lastWin.c) + " /s" : "–";
+    $("rS").textContent = sp > 0 ? Math.round(sp / VSCALE * MS300) + " m/s" : "–";
+    $("rCA").textContent = Number.isFinite(lastWin.c) ? fmt(lastWin.c / (wallLength() / PX_PER_CM), 1) : "–";
+    $("rPP").textContent = ppOn && Number.isFinite(lastWin.pp) ? Math.round(lastWin.pp) + " /s" : "–";
+  }
+
+  /* ---------- dibuix ---------- */
+  function speedColor(s) {
+    const u = Math.max(0, Math.min(1, s / (VSCALE * 2.2))); // color absolut: lent blau, ràpid vermell
+    const c1 = [47, 109, 181], c2 = [140, 107, 177], c3 = [194, 65, 58];
+    const mix = (a, b, k) => a.map((v, i) => Math.round(v + (b[i] - v) * k));
+    const c = u < .5 ? mix(c1, c2, u * 2) : mix(c2, c3, (u - .5) * 2);
+    return `rgb(${c[0]},${c[1]},${c[2]})`;
+  }
+  function draw() {
+    const fg = css("--fg"), wall = css("--wall"), gas = css("--gas"), muted = css("--muted"), acc_ = css("--acc"), line = css("--line"), surf = css("--surface");
+    ctx.clearRect(0, 0, W, H);
+    const top = yTop(V);
+    // font de calor o de fred
+    const heat = (T - 300) / 400;
+    const fx = (X0 + X1) / 2;
+    ctx.save();
+    if (heat > 0.02) {
+      const n = 7, k = Math.min(1, heat);
+      for (let i = 0; i < n; i++) { const x = X0 + 40 + i * (WIDTH - 80) / (n - 1); const h = 18 + 36 * k + (reduce ? 0 : Math.sin(tSim * 9 + i * 1.7) * 5);
+        const g = ctx.createLinearGradient(0, YB + 70, 0, YB + 70 - h); g.addColorStop(0, "rgba(255,170,40,.95)"); g.addColorStop(1, "rgba(220,60,40,.15)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x - 10, YB + 70); ctx.quadraticCurveTo(x - 12, YB + 70 - h * .6, x, YB + 70 - h); ctx.quadraticCurveTo(x + 12, YB + 70 - h * .6, x + 10, YB + 70); ctx.fill(); }
+      ctx.fillStyle = muted; ctx.fillRect(X0 + 10, YB + 70, WIDTH - 20, 8);
+      ctx.fillStyle = fg; ctx.font = "600 14px " + css("--body"); ctx.textAlign = "center"; ctx.fillText("Escalfem el gas", fx, YB + 100);
+    } else if (heat < -0.02) {
+      const k = Math.min(1, -heat);
+      ctx.fillStyle = `rgba(106,166,240,${0.25 + 0.5 * k})`; roundRect(X0 + 10, YB + 40, WIDTH - 20, 34, 8); ctx.fill();
+      ctx.fillStyle = fg; ctx.font = "600 14px " + css("--body"); ctx.textAlign = "center"; ctx.fillText("Refredem el gas", fx, YB + 100);
+      ctx.strokeStyle = "rgba(255,255,255,.85)"; ctx.lineWidth = 2;
+      for (let i = 0; i < 6; i++) { const x = X0 + 50 + i * (WIDTH - 100) / 5, y = YB + 57; for (let a = 0; a < 3; a++) { const an = a * Math.PI / 3; ctx.beginPath(); ctx.moveTo(x - 8 * Math.cos(an), y - 8 * Math.sin(an)); ctx.lineTo(x + 8 * Math.cos(an), y + 8 * Math.sin(an)); ctx.stroke(); } }
+    }
+    ctx.restore();
+    // gas
+    ctx.fillStyle = gas; ctx.fillRect(X0, top, WIDTH, YB - top);
+    // parets del cilindre
+    ctx.strokeStyle = wall; ctx.lineWidth = 8; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(X0 - 4, YB - HREF * VMAX - 26); ctx.lineTo(X0 - 4, YB + 4); ctx.lineTo(X1 + 4, YB + 4); ctx.lineTo(X1 + 4, YB - HREF * VMAX - 26); ctx.stroke();
+    // escala de volum
+    ctx.fillStyle = muted; ctx.font = "12px " + css("--body"); ctx.textAlign = "right"; ctx.lineWidth = 1; ctx.strokeStyle = line;
+    for (let v = 0.5; v <= VMAX + 1e-9; v += 0.25) { const y = yTop(v); ctx.beginPath(); ctx.moveTo(X0 - 22, y); ctx.lineTo(X0 - 10, y); ctx.strokeStyle = muted; ctx.stroke(); ctx.fillText(fmt(v) + " L", X0 - 26, y + 4); }
+    // rastre
+    if (trace && trail.length > 1) { ctx.strokeStyle = acc_; ctx.globalAlpha = .7; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(trail[0][0], trail[0][1]); for (const [x, y] of trail) ctx.lineTo(x, y); ctx.stroke(); ctx.globalAlpha = 1; }
+    // partícules
+    for (let i = 0; i < P.length; i++) { const q = P[i];
+      ctx.fillStyle = speedColor(Math.hypot(q.vx, q.vy)); ctx.beginPath(); ctx.arc(q.x, q.y, R, 0, 7); ctx.fill();
+      if (trace && i === 0) { ctx.strokeStyle = fg; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(q.x, q.y, R + 3, 0, 7); ctx.stroke(); } }
+    // xocs a les parets
+    for (const f of flashes) { ctx.fillStyle = `rgba(240,160,40,${f.a * .8})`; ctx.beginPath(); ctx.arc(f.x, f.y, 3 + 5 * (1 - f.a), 0, 7); ctx.fill(); f.a -= reduce ? 0.5 : 0.12; }
+    for (let i = flashes.length - 1; i >= 0; i--) if (flashes[i].a <= 0) flashes.splice(i, 1);
+    // èmbol
+    ctx.fillStyle = wall; roundRect(X0 + 1, top - 22, WIDTH - 2, 22, 4); ctx.fill();
+    ctx.fillRect(fx - 7, top - 22 - 70, 14, 70);
+    roundRect(fx - 48, top - 22 - 84, 96, 16, 6); ctx.fill();
+    ctx.fillStyle = surf; ctx.font = "700 12px " + css("--body"); ctx.textAlign = "center"; ctx.fillText(free ? "èmbol lliure" : "èmbol", fx, top - 7);
+    if (free) { // pressió exterior
+      ctx.strokeStyle = muted; ctx.fillStyle = muted; ctx.lineWidth = 2;
+      for (const x of [X0 + 60, X1 - 60]) { arrow(x, top - 96, x, top - 30); }
+      ctx.font = "12px " + css("--body"); ctx.fillText("pressió exterior 1 atm", fx, top - 112);
+    }
+    // termòmetre
+    const tx = X1 + 70, tyT = 120, tyB = YB - 10, tf = (T - 100) / 600;
+    ctx.strokeStyle = muted; ctx.lineWidth = 2; roundRect(tx - 9, tyT, 18, tyB - tyT, 9); ctx.stroke();
+    ctx.fillStyle = T > 300 ? css("--hot") : css("--cold");
+    const lvl = tyB - 10 - tf * (tyB - tyT - 24);
+    roundRect(tx - 5, lvl, 10, tyB - lvl - 4, 5); ctx.fill(); ctx.beginPath(); ctx.arc(tx, tyB + 6, 14, 0, 7); ctx.fill();
+    ctx.fillStyle = fg; ctx.textAlign = "left"; ctx.font = "700 14px " + css("--body"); ctx.fillText(`${Math.round(T)} K`, tx + 18, lvl + 5);
+    ctx.font = "12px " + css("--body"); ctx.fillStyle = muted; ctx.fillText(`${Math.round(T - 273)} °C`, tx + 18, lvl + 20);
+    // manòmetre
+    const mx = 64, my = 70, mr = 40;
+    ctx.strokeStyle = wall; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(mx, my, mr, 0, 7); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(mx, my + mr); ctx.lineTo(mx, YB - 30); ctx.lineTo(X0 - 6, YB - 30); ctx.stroke();
+    ctx.strokeStyle = muted; ctx.lineWidth = 1.5; ctx.font = "10px " + css("--body"); ctx.fillStyle = muted; ctx.textAlign = "center";
+    const pmax = 6;
+    for (let i = 0; i <= pmax; i++) { const an = Math.PI * (0.75 + 1.5 * i / pmax); ctx.beginPath(); ctx.moveTo(mx + (mr - 8) * Math.cos(an), my + (mr - 8) * Math.sin(an)); ctx.lineTo(mx + mr * Math.cos(an), my + mr * Math.sin(an)); ctx.stroke(); ctx.fillText(String(i), mx + (mr - 15) * Math.cos(an), my + (mr - 15) * Math.sin(an) + 3); }
+    const pv = Math.min(pmax, Math.max(0, lastWin.p || 0)), an = Math.PI * (0.75 + 1.5 * pv / pmax);
+    ctx.strokeStyle = css("--hot"); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(mx, my); ctx.lineTo(mx + (mr - 10) * Math.cos(an), my + (mr - 10) * Math.sin(an)); ctx.stroke();
+    ctx.fillStyle = fg; ctx.font = "700 12px " + css("--body"); ctx.fillText("atm", mx, my + 20);
+    ctx.font = "12px " + css("--body"); ctx.fillStyle = muted; ctx.fillText("manòmetre", mx, my - mr - 8);
+  }
+  function roundRect(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function arrow(x1, y1, x2, y2) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); const a = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - 9 * Math.cos(a - .4), y2 - 9 * Math.sin(a - .4)); ctx.lineTo(x2 - 9 * Math.cos(a + .4), y2 - 9 * Math.sin(a + .4)); ctx.closePath(); ctx.fill(); }
+
+  /* ---------- gràfica temporal ---------- */
+  const gt = $("gt"), gtx = gt.getContext("2d");
+  function drawTime() {
+    const w = gt.width, h = gt.height, L = 44, Rr = 50, Tp = 12, B = 28;
+    gtx.clearRect(0, 0, w, h);
+    const muted = css("--muted"), line = css("--line"), acc_ = css("--acc"), fg = css("--fg");
+    const pMax = Math.max(2, ...hist.map((d) => d.p * 1.15)), cMax = Math.max(200, ...hist.map((d) => d.c * 1.15));
+    gtx.font = "11px " + css("--body"); gtx.fillStyle = muted; gtx.strokeStyle = line; gtx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) { const y = Tp + (h - Tp - B) * i / 4; gtx.beginPath(); gtx.moveTo(L, y); gtx.lineTo(w - Rr, y); gtx.stroke();
+      gtx.textAlign = "right"; gtx.fillText(fmt(pMax * (1 - i / 4), 1), L - 6, y + 4); gtx.textAlign = "left"; gtx.fillText(String(Math.round(cMax * (1 - i / 4))), w - Rr + 6, y + 4); }
+    gtx.textAlign = "center"; gtx.fillText("temps (darrers 30 s)", (L + w - Rr) / 2, h - 8);
+    const x = (t) => L + (w - L - Rr) * (1 - (tSim - t) / 30);
+    const plot = (key, max, col, wdt) => { gtx.strokeStyle = col; gtx.lineWidth = wdt; gtx.beginPath(); hist.forEach((d, i) => { const y = Tp + (h - Tp - B) * (1 - d[key] / max); i ? gtx.lineTo(x(d.t), y) : gtx.moveTo(x(d.t), y); }); gtx.stroke(); };
+    plot("c", cMax, muted, 1.5); plot("p", pMax, acc_, 2.5);
+  }
+  /* ---------- histograma de velocitats ---------- */
+  const gh = $("gh"), ghx = gh.getContext("2d");
+  function drawHist() {
+    const w = gh.width, h = gh.height, L = 36, Tp = 10, B = 30, nb = 24, vmax = VSCALE * 3.2;
+    const bins = new Array(nb).fill(0);
+    for (const q of P) { const s = Math.hypot(q.vx, q.vy); const b = Math.min(nb - 1, Math.floor(s / vmax * nb)); bins[b]++; }
+    ghx.clearRect(0, 0, w, h);
+    const muted = css("--muted"), line = css("--line");
+    const m = Math.max(4, ...bins); const bw = (w - L - 10) / nb;
+    ghx.strokeStyle = line; ghx.beginPath(); ghx.moveTo(L, h - B); ghx.lineTo(w - 10, h - B); ghx.stroke();
+    bins.forEach((c, i) => { const bh = (h - Tp - B) * c / m; ghx.fillStyle = speedColor((i + .5) / nb * vmax); ghx.fillRect(L + i * bw + 1, h - B - bh, bw - 2, bh); });
+    ghx.fillStyle = muted; ghx.font = "11px " + css("--body"); ghx.textAlign = "center";
+    ghx.fillText("velocitat de les partícules → (més ràpides a la dreta)", (L + w) / 2, h - 8);
+    ghx.save(); ghx.translate(12, (h - B) / 2); ghx.rotate(-Math.PI / 2); ghx.fillText("nombre de partícules", 0, 0); ghx.restore();
+    // línia de la velocitat mitjana
+    const mean = P.length ? P.reduce((a, q) => a + Math.hypot(q.vx, q.vy), 0) / P.length : 0;
+    const xm = L + (w - L - 10) * mean / vmax; ghx.strokeStyle = css("--fg"); ghx.setLineDash([4, 4]); ghx.beginPath(); ghx.moveTo(xm, Tp); ghx.lineTo(xm, h - B); ghx.stroke(); ghx.setLineDash([]);
+    ghx.fillStyle = css("--fg"); ghx.textAlign = "left"; ghx.fillText("mitjana", Math.min(xm + 4, w - 60), Tp + 10);
+  }
+
+  /* ---------- mesures desades ---------- */
+  const rows = [];
+  $("bSave").onclick = () => {
+    if (!Number.isFinite(lastWin.p)) return;
+    rows.push({ T, V, N, P: lastWin.p, C: lastWin.c }); renderRows();
+  };
+  $("bClear").onclick = () => { rows.length = 0; renderRows(); };
+  $("ax").onchange = $("ay").onchange = () => drawScatter();
+  $("bCsv").onclick = () => {
+    const head = ["T (K)", "V (L)", "Particules", "p (atm)", "Xocs/s", "p·V", "V/T", "p/T"];
+    const csv = "﻿" + [head, ...rows.map((r) => [r.T, fmt(r.V), r.N, fmt(r.P), Math.round(r.C), fmt(r.P * r.V), fmt(r.V / r.T, 5), fmt(r.P / r.T, 5)])].map((r) => r.join(";")).join("\r\n");
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "mesures-gasos.csv"; document.body.appendChild(a); a.click(); a.remove();
+  };
+  function renderRows() {
+    $("tb").innerHTML = rows.length ? rows.map((r, i) => `<tr><td>${i + 1}</td><td>${Math.round(r.T)}</td><td>${fmt(r.V)}</td><td>${r.N}</td><td>${fmt(r.P)}</td><td>${Math.round(r.C)}</td><td>${fmt(r.P * r.V)}</td><td>${fmt(r.V / r.T * 1000, 2)}·10⁻³</td><td>${fmt(r.P / r.T * 1000, 2)}·10⁻³</td></tr>`).join("") : `<tr><td colspan="9" style="text-align:left;color:var(--muted)">Encara no has desat cap mesura. Prem «Desa la mesura».</td></tr>`;
+    drawScatter();
+  }
+  const gs = $("gs"), gsx = gs.getContext("2d");
+  const AXN = { V: "V (L)", iV: "1/V (L⁻¹)", T: "T (K)", N: "partícules", P: "p (atm)", C: "xocs/s" };
+  const val = (r, k) => k === "iV" ? 1 / r.V : r[k];
+  function drawScatter() {
+    const w = gs.width, h = gs.height, L = 60, Rr = 20, Tp = 16, B = 40, kx = $("ax").value, ky = $("ay").value;
+    gsx.clearRect(0, 0, w, h);
+    const muted = css("--muted"), line = css("--line"), acc_ = css("--acc");
+    const xs = rows.map((r) => val(r, kx)), ys = rows.map((r) => val(r, ky));
+    const xmax = Math.max(1e-9, ...xs) * 1.15 || 1, ymax = Math.max(1e-9, ...ys) * 1.15 || 1;
+    gsx.strokeStyle = line; gsx.fillStyle = muted; gsx.font = "12px " + css("--body"); gsx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) { const y = Tp + (h - Tp - B) * i / 5, x = L + (w - L - Rr) * i / 5;
+      gsx.beginPath(); gsx.moveTo(L, y); gsx.lineTo(w - Rr, y); gsx.stroke(); gsx.textAlign = "right"; gsx.fillText(rows.length ? fmt(ymax * (1 - i / 5), ymax < 10 ? 2 : 0) : "", L - 6, y + 4);
+      gsx.textAlign = "center"; gsx.fillText(rows.length ? fmt(xmax * i / 5, xmax < 10 ? 2 : 0) : "", x, h - B + 16); }
+    gsx.fillText(AXN[kx], (L + w) / 2, h - 6);
+    gsx.save(); gsx.translate(14, (h - B) / 2); gsx.rotate(-Math.PI / 2); gsx.fillText(AXN[ky], 0, 0); gsx.restore();
+    if (!rows.length) { gsx.fillText("Desa mesures per veure la gràfica.", (L + w) / 2, h / 2); return; }
+    gsx.fillStyle = acc_;
+    rows.forEach((r, i) => { const x = L + (w - L - Rr) * xs[i] / xmax, y = Tp + (h - Tp - B) * (1 - ys[i] / ymax); gsx.beginPath(); gsx.arc(x, y, 6, 0, 7); gsx.fill(); });
+  }
+
+  /* ---------- bucle ---------- */
+  let last = performance.now();
+  function frame(now) {
+    const dtReal = Math.min(0.05, (now - last) / 1000); last = now;
+    if (!paused) { const sub = 4; for (let i = 0; i < sub; i++) step(dtReal / sub); measure(); }
+    draw(); if (!paused) { drawTime(); drawHist(); }
+    requestAnimationFrame(frame);
+  }
+  reset(); setT(300); setV(1); readouts(); renderRows();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
