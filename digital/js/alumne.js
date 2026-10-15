@@ -68,13 +68,15 @@
     $("#wsPdf").href = "#doc-" + k;
     $("#wsHost").innerHTML = '<div class="spin" role="status" aria-label="Carregant la fitxa"></div>';
     const [answers, sub] = await Promise.all([S.loadResponses(k), S.getSubmission(k)]);
-    const fb = sub.status === "returned" ? await S.myFeedback(k) : [];
+    const fbAll = sub.status !== "draft" ? await S.myFeedback(k).catch(() => []) : [];
+    const auto = fbAll.filter((r) => String(r.item_id).startsWith("auto:"));
+    const fb = sub.status === "returned" ? fbAll.filter((r) => !String(r.item_id).startsWith("auto:")) : [];
     const ro = sub.status === "submitted" || sub.status === "returned";
     const st = $("#wsStat"); st.className = "wsstat" + (sub.status === "submitted" ? " sub" : sub.status === "returned" ? " ret" : "");
     st.textContent = sub.status === "submitted" ? "Lliurada" : sub.status === "returned" ? "Corregida" : "Esborrany";
     $("#wsSubmit").hidden = ro; $("#wsSubmit").dataset.confirm = ""; $("#wsSubmit").textContent = "Lliura la fitxa";
     const note = $("#wsNote");
-    if (sub.status === "submitted") { note.hidden = false; note.innerHTML = `Has lliurat aquesta fitxa${sub.submitted_at ? " el " + esc(fmtDate(sub.submitted_at)) : ""}. Ja no la pots modificar. Quan el professor la corregeixi, hi veuràs els comentaris.`; }
+    if (sub.status === "submitted") { note.hidden = false; note.innerHTML = `Has lliurat aquesta fitxa${sub.submitted_at ? " el " + esc(fmtDate(sub.submitted_at)) : ""}. Ja no la pots modificar. ${auto.length ? "A sota de cada pregunta tens la <b>correcció automàtica</b>. " : ""}Quan el professor la revisi, hi veuràs també els seus comentaris.`; }
     else if (sub.status === "returned") { note.hidden = false; note.innerHTML = `<b>El professor t'ha retornat la fitxa corregida.</b> Llegeix els comentaris de cada apartat.`; }
     else { note.hidden = false; note.innerHTML = `Les respostes es desen soles mentre escrius. ${settings.auto_calc && (spec.html || JSON.stringify(spec.blocks).match(/"type":"(chain|sci|math)"/)) ? "Els càlculs es fan automàticament perquè puguis comprovar-los." : ""} Quan acabis, prem <b>Lliura la fitxa</b>.`; }
     cur = window.FQFitxa.render($("#wsHost"), k, {
@@ -84,12 +86,32 @@
       onPhoto: async (item, file) => { st.textContent = "Pujant la foto…"; try { await S.addPhoto(k, item, await shrink(file)); await openWs(k); } catch (e) { st.textContent = "No s'ha pogut pujar la foto"; } },
       onRemovePhoto: async (path) => { await S.removePhoto(k, path); await openWs(k); },
     });
+    if (auto.length) window.FQFitxa.showAuto($("#wsHost"), auto);
+    else if (sub.status === "submitted" && !autoTried[k]) { autoTried[k] = 1; runAuto(k).then((ok) => ok && wsKey === k && openWs(k)); }
+  }
+  const autoTried = {};
+  /* correcció automàtica en lliurar la fitxa */
+  async function runAuto(k) {
+    const spec = F[k]; if (!spec) return false;
+    const st = $("#wsStat"); const prev = st ? st.textContent : "";
+    if (st) { st.textContent = "Corregint…"; st.className = "wsstat"; }
+    try {
+      const answers = await S.loadResponses(k);
+      const items = window.FQFitxa.buildItems(spec, answers);
+      await S.autoCorrect(k, spec.title, sdaOf(k), items);
+      return true;
+    } catch (e) { if (st) st.textContent = prev; return false; }
   }
   async function submitWs() {
     const b = $("#wsSubmit");
     if (b.dataset.confirm !== "1") { b.dataset.confirm = "1"; b.textContent = "Segur? Clica de nou per lliurar"; return; }
     b.disabled = true;
-    try { await S.submit(wsKey); await openWs(wsKey); window.scrollTo(0, 0); } catch { b.textContent = "No s'ha pogut lliurar. Torna-ho a provar."; }
+    try {
+      await S.submit(wsKey); const k = wsKey; autoTried[k] = 1;
+      b.textContent = "Corregint la fitxa…";
+      await runAuto(k);
+      await openWs(k); window.scrollTo(0, 0);
+    } catch { b.textContent = "No s'ha pogut lliurar. Torna-ho a provar."; }
     finally { b.disabled = false; }
   }
   /* redueix les fotos a 1600 px (JPEG) abans de pujar-les */

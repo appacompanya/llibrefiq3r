@@ -1034,7 +1034,9 @@ const EVAL = {
 const CRIT_NAMES = {"5.2":"Hàbits sostenibles","5.4":"Projectes que milloren la societat","6.2":"Solucions sostenibles i participació","2.2":"Dissenyar procediments","2.6":"Ciència i biaixos de gènere","3.1":"Dades de fonts diverses","4.2":"Argumentar en equip","4.3":"Informació fiable i fonts","5.1":"Preservar l'aigua, l'aire i el sòl","1.1":"Analitzar conceptes i processos","1.2":"Explicar fenòmens amb teories","1.3":"Aplicar-ho a problemes reals","2.1":"Formular hipòtesis","2.3":"Experimentar i interpretar","2.4":"Col·laborar","2.5":"Comunicar resultats","3.2":"Unitats i eines matemàtiques","3.3":"Seguretat al laboratori","4.1":"Comunicar amb entorns digitals","5.3":"Ciència, salut i sostenibilitat","6.1":"Perspectiva històrica"};
 const EXAMPLE_NAMES = ["Alumne/a 01 (exemple)","Alumne/a 02 (exemple)","Alumne/a 03 (exemple)","Alumne/a 04 (exemple)","Alumne/a 05 (exemple)","Alumne/a 06 (exemple)"];
 
-const AV = {ready:false, persistent:false, students:[], marks:{}, sel:null, sda:1};
+const AV = {ready:false, persistent:false, students:[], marks:{}, sel:null, sda:1, wf:0, dig:false};
+const DIG = () => window.FQDigitalData;
+function digOf(n, sid){ const s = AV.students.find(x => x.id === sid); return (AV.dig && s && s.did && DIG()) ? DIG().sda(s.did, n) : null; }
 let ST = null; // {db, uid}
 const saveTimers = {};
 
@@ -1052,7 +1054,10 @@ function summary(n, sid){
   });
   const critLv = {}; Object.entries(crit).forEach(([c,v]) => critLv[c] = lvFromAvg(v.reduce((a,b)=>a+b,0)/v.length));
   const complete = EVAL[n].every(ins => ins.items.every(it => m[it.id]));
-  return {crit:critLv, inst, nota: wsum ? nsum/wsum : null, complete};
+  let nota = wsum ? nsum/wsum : null;
+  const dig = digOf(n, sid), w = AV.wf/100;
+  if (w && dig && dig.lv && nota != null) nota = nota*(1-w) + NOTA[dig.lv]*w;
+  return {crit:critLv, inst, nota, complete, dig};
 }
 const chip = l => l ? `<span class="lv lv-${l}" title="${LVNAME[l]}">${l}</span>` : `<span class="lv lv-none">–</span>`;
 
@@ -1064,11 +1069,22 @@ async function initStore(){
     if (!db || !uid) throw 0;
     ST = {db, uid};
     const cls = await db.doc(`data/users/${uid}/fq3-classe`).get();
-    AV.students = (cls.exists && Array.isArray(cls.data().students)) ? cls.data().students.map(s => ({id:String(s.id), name:String(s.name)})) : [];
+    AV.students = (cls.exists && Array.isArray(cls.data().students)) ? cls.data().students.map(s => ({id:String(s.id), name:String(s.name), ...(s.did ? {did:String(s.did)} : {})})) : [];
     const ev = await db.doc(`data/users/${uid}/fq3-classe`).collection("aval").get();
     ev.docs.forEach(d => { const b = d.data(); if (b && b.sid && b.marks) { const n = (b.sda === 1 && !b.v2) ? 2 : b.sda; AV.marks[mk(n, b.sid)] = Object.assign({}, b.marks); } });
     AV.persistent = true;
   } catch(e) { ST = null; AV.persistent = false; }
+  // alumnat i fitxes del llibre digital
+  try {
+    if (DIG()) {
+      const ds = await DIG().load(); let changed = false;
+      ds.forEach(d => { const s = AV.students.find(x => x.did === d.id) || AV.students.find(x => !x.did && x.name.trim().toLowerCase() === String(d.display_name||"").trim().toLowerCase());
+        if (s) { if (s.did !== d.id) { s.did = d.id; changed = true; } } else { AV.students.push({id:d.id, name:String(d.display_name||"").slice(0,80), did:d.id}); changed = true; } });
+      AV.dig = true;
+      try { const st = await window.FQStore.getSettings(); AV.wf = Number(st.pes_fitxes) || 0; } catch(e) {}
+      if (changed) saveStudents();
+    }
+  } catch(e) { AV.dig = false; }
   AV.ready = true;
   if (AV.students.length && !AV.sel) AV.sel = AV.students[0].id;
   renderAval();
@@ -1109,21 +1125,37 @@ function renderAval(){
     const critHtml = crits.map(c => `<div class="crit"><span class="cc">${c}</span><span class="cn">${esc(CRIT_NAMES[c]||"")}</span>${chip(r.crit[c])}</div>`).join("");
     main = `<div class="avhead"><h4>${esc(st.name)}</h4><div class="nota">${r.nota!=null?`<b>${r.nota.toFixed(1)}</b><span>nota orientativa${r.complete?"":" · avaluació en curs"}</span>`:`<span>Sense avaluar</span>`}</div>
       <div class="acts"><button type="button" class="btn ghost" id="avclear">Esborra les marques</button><button type="button" class="btn ghost" id="avremove">Treu de la llista</button></div></div>
+      ${digHtml(n, st, r)}
       <p class="note">Clica el nivell assolit a cada aspecte. Torna-hi a clicar per desmarcar-lo.</p>
       ${insHtml}
       <h4 class="sub">Criteris d'avaluació de ${esc(st.name)}</h4><div class="crits">${critHtml}</div>`;
   } else if (AV.students.length) {
     main = `<p class="note">Tria un alumne de la llista.</p>`;
   }
-  const grid = AV.students.length ? `<div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${crits.map(c=>`<th title="${esc(CRIT_NAMES[c]||"")}">${c}</th>`).join("")}<th>Nota</th></tr></thead><tbody>${AV.students.map(s => { const r = summary(n, s.id); return `<tr><th scope="row">${esc(s.name)}</th>${crits.map(c=>`<td>${chip(r.crit[c])}</td>`).join("")}<td class="nt">${r.nota!=null?r.nota.toFixed(1):"–"}</td></tr>`; }).join("")}</tbody></table></div>
+  const grid = AV.students.length ? `<div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${crits.map(c=>`<th title="${esc(CRIT_NAMES[c]||"")}">${c}</th>`).join("")}${AV.dig?"<th>Fitxes</th>":""}<th>Nota</th></tr></thead><tbody>${AV.students.map(s => { const r = summary(n, s.id); return `<tr><th scope="row">${esc(s.name)}</th>${crits.map(c=>`<td>${chip(r.crit[c])}</td>`).join("")}${AV.dig?`<td>${chip(r.dig && r.dig.lv)}</td>`:""}<td class="nt">${r.nota!=null?r.nota.toFixed(1):"–"}</td></tr>`; }).join("")}</tbody></table></div>
     <div class="acts"><button type="button" class="btn" id="avcsv">${ICON_DL}Descarrega el resum (CSV)</button></div>` : "";
   host.innerHTML = `<h3 class="sec">Avaluació de la SdA ${n}</h3>
-    <p class="note">${note} Els nivells de cada criteri són la mitjana dels aspectes on apareix. La nota orientativa pondera els instruments segons els pesos de la SdA (la prova, entre el 30 % i el 35 %) amb NA = 3, AS = 5,5, AN = 7,5 i AE = 9,5.</p>
+    <p class="note">${note}${AV.dig ? " L'alumnat del llibre digital s'hi afegeix sol, amb el nivell de les seves fitxes digitals." : ""} Els nivells de cada criteri són la mitjana dels aspectes on apareix. La nota orientativa pondera els instruments segons els pesos de la SdA (la prova, entre el 30 % i el 35 %) amb NA = 3, AS = 5,5, AN = 7,5 i AE = 9,5.</p>
     <div class="avgrid"><aside class="stulist"><div class="stus">${list}</div>${empty}
       <label for="avnames" class="lbl">Afegeix alumnat (un nom per línia)</label><textarea id="avnames" rows="4" placeholder="Nom Cognom"></textarea><button type="button" class="btn ghost" id="avadd">Afegeix</button></aside>
       <div class="avmain">${main}</div></div>
     ${AV.students.length?`<h4 class="sub">Resum del grup</h4>`:""}${grid}`;
 }
+function digHtml(n, st, r){
+  if (!AV.dig) return "";
+  const sel = `<label class="w">Compta a la nota: <select id="avwf">${[0,10,15,20,25].map(v => `<option value="${v}"${v===AV.wf?" selected":""}>${v} %</option>`).join("")}</select></label>`;
+  if (!st.did) return `<div class="avdig"><b>Fitxes del llibre digital</b><span class="note">Aquest alumne no té compte al llibre digital (o el nom no coincideix amb el de «Alumnat i codis»).</span></div>`;
+  const d = r.dig || {lliurades:0, total:0, ws:[]};
+  const wsl = d.ws.filter(w => w.status && w.status !== "draft").map(w => `<button type="button" data-dws="${esc(w.ws)}" title="${esc(w.title)}">${w.L ? chip(w.L.lv) : chip(null)}<span>${esc(String(w.title).replace(/^SdA \d+ · /,"").slice(0,38))}</span></button>`).join("");
+  return `<div class="avdig"><div class="row" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>Fitxes del llibre digital</b>${chip(d.lv)}<span class="w">${d.lliurades}/${d.total} lliurades</span><span style="flex:1"></span>${sel}</div>
+    ${wsl ? `<div class="wsl">${wsl}</div>` : `<span class="note">Encara no ha lliurat cap fitxa digital d'aquesta SdA.</span>`}
+    <span class="note">Nivell de la correcció automàtica (o de la teva valoració, si ja has retornat la fitxa). Clica una fitxa per veure'n les respostes.${AV.wf ? ` Pesa un ${AV.wf} % a la nota orientativa.` : " Ara no compta a la nota orientativa."}</span></div>`;
+}
+document.addEventListener("change", async e => {
+  if (e.target.id !== "avwf") return;
+  AV.wf = Number(e.target.value) || 0; renderAval();
+  try { await window.FQStore.setSetting("pes_fitxes", AV.wf); toast(AV.wf ? `Les fitxes digitals compten un ${AV.wf} % a la nota orientativa.` : "Les fitxes digitals ja no compten a la nota."); } catch(er) { toast("No s'ha pogut desar el pes."); }
+});
 function addStudents(names){
   const fresh = names.map(s => s.trim()).filter(Boolean).filter(nm => !AV.students.some(s => s.name === nm)).map(nm => ({id: Date.now().toString(36) + Math.random().toString(36).slice(2,6), name: nm.slice(0,80)}));
   if (!fresh.length) return;
@@ -1133,8 +1165,8 @@ function addStudents(names){
 }
 async function exportCsv(){
   const n = AV.sda, crits = critList(n);
-  const head = ["Alumne/a", ...crits.map(c => "Criteri " + c), ...EVAL[n].map(i => i.l), "Nota orientativa"];
-  const rows = AV.students.map(s => { const r = summary(n, s.id); return [s.name, ...crits.map(c => r.crit[c]||""), ...EVAL[n].map(i => (r.inst[i.id]||{}).lv||""), r.nota!=null ? r.nota.toFixed(1).replace(".",",") : ""]; });
+  const head = ["Alumne/a", ...crits.map(c => "Criteri " + c), ...EVAL[n].map(i => i.l), ...(AV.dig ? ["Fitxes digitals"] : []), "Nota orientativa"];
+  const rows = AV.students.map(s => { const r = summary(n, s.id); return [s.name, ...crits.map(c => r.crit[c]||""), ...EVAL[n].map(i => (r.inst[i.id]||{}).lv||""), ...(AV.dig ? [(r.dig && r.dig.lv) || ""] : []), r.nota!=null ? r.nota.toFixed(1).replace(".",",") : ""]; });
   const csv = "﻿" + [head, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(";")).join("\r\n");
   const dl = await getDownloads();
   if (!dl) { toast("Per descarregar, obre aquesta pàgina des de claude.ai."); return; }
@@ -1144,6 +1176,7 @@ async function exportCsv(){
 document.addEventListener("click", e => {
   const host = document.getElementById("aval"); if (!host || !host.contains(e.target)) return;
   const stu = e.target.closest("[data-stu]"); if (stu){ AV.sel = stu.dataset.stu; renderAval(); return; }
+  const dws = e.target.closest("[data-dws]"); if (dws){ const s = AV.students.find(x => x.id === AV.sel); if (s && s.did && DIG()) DIG().open(s.did, dws.dataset.dws); return; }
   const cell = e.target.closest(".cell-lv");
   if (cell && AV.sel){
     const key = mk(AV.sda, AV.sel);

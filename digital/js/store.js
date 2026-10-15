@@ -55,8 +55,33 @@
       async feedbackFor(sid, ws) { return Object.entries(db.feedback).filter(([kk]) => kk.startsWith(k(sid, ws) + "|")).map(([kk, v]) => ({ item_id: kk.split("|")[2], ...v })); },
       async saveFeedback(sid, ws, rows) { rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = { ...(db.feedback[k(sid, ws, r.item_id)] || {}), ...r }; }); save(); },
       async release(sid, ws) { Object.entries(db.feedback).forEach(([kk, v]) => { if (kk.startsWith(k(sid, ws) + "|")) v.released = true; }); const s = db.submissions[k(sid, ws)] || { photos: [] }; s.status = "returned"; s.returned_at = new Date().toISOString(); db.submissions[k(sid, ws)] = s; save(); },
-      async reopen(sid, ws) { const s = db.submissions[k(sid, ws)]; if (s) { s.status = "draft"; save(); } },
+      async reopen(sid, ws) { const s = db.submissions[k(sid, ws)]; if (s) { s.status = "draft"; } Object.keys(db.feedback).forEach((kk) => { if (kk.startsWith(k(sid, ws) + "|auto:")) delete db.feedback[kk]; }); save(); },
       async proposeAI() { throw new Error("demo_no_ai"); },
+      // correcció automàtica (demostració: només amb la comprovació automàtica de la fitxa)
+      async autoCorrect(ws, title, sda, items, sid = me.id) {
+        const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
+        const now = new Date().toISOString(); const rows = [];
+        const errs = (x) => { const e = []; if (!x.answer || x.answer === "(sense resposta)") e.push("incompleta"); else if (x.score != null && x.score < 0.95) { if (/unitat/i.test(String(x.auto))) e.push("unitats"); else e.push(/V |F |tf/.test(x.answer) ? "conceptual" : "càlcul"); } return e; };
+        items.forEach((x) => { const lv = lvOf(x.score); const note = x.score == null ? (x.answer === "(sense resposta)" ? "No has respost aquesta pregunta." : "El professor revisarà aquesta resposta.") : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
+          rows.push({ item_id: "auto:" + x.id, level: lv, comment: note, released: true, updated_at: now });
+          const cur = db.feedback[k(sid, ws, x.id)] || { released: false }; db.feedback[k(sid, ws, x.id)] = { ...cur, proposal_level: lv, proposal_note: note }; });
+        const sc = items.map((x) => x.score).filter((v) => v != null); const avg = sc.length ? sc.reduce((a, b) => a + b, 0) / sc.length : null;
+        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
+        rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = r; });
+        db.kv = db.kv || {}; db.kv[`errors/${sid}/${ws}`] = { sda, at: now, items: items.map((x) => ({ id: x.id, level: lvOf(x.score), errors: errs(x) })), global: rows[rows.length - 1].comment };
+        save(); return rows;
+      },
+      async deleteAuto(sid, ws) { Object.keys(db.feedback).forEach((kk) => { if (kk.startsWith(k(sid, ws) + "|auto:")) delete db.feedback[kk]; }); save(); },
+      async allFeedback() { return Object.entries(db.feedback).map(([kk, v]) => { const [a, b, c] = kk.split("|"); return { student_id: a, worksheet_id: b, item_id: c, level: v.level || null, proposal_level: v.proposal_level || null, released: !!v.released }; }); },
+      async errorsAll() { return Object.entries(db.kv || {}).filter(([p]) => p.startsWith("errors/")).map(([p, d]) => ({ student_id: p.split("/")[1], worksheet_id: p.split("/")[2], ...d })); },
+      async getInforme(sid) { return (db.kv || {})["informe/" + sid] || null; },
+      async makeInforme(sid, data) {
+        const sd = data.sdas || []; const lv = sd.filter((x) => x.mitjana != null);
+        const top = Object.entries(data.errors || {}).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([e, n]) => `${e} (${n})`);
+        const tr = lv.length > 1 ? (lv[lv.length - 1].mitjana > lv[0].mitjana + 0.2 ? "millora" : lv[lv.length - 1].mitjana < lv[0].mitjana - 0.2 ? "empitjora" : "es manté estable") : null;
+        const rec = { resum: `Informe de demostració, calculat sense IA a partir de ${data.lliurades || 0} fitxes lliurades.`, fortaleses: lv.filter((x) => x.mitjana >= 3).map((x) => `SdA ${x.sda}: nivell mitjà alt`), errors: top.length ? ["Errors més freqüents: " + top.join(", ")] : ["Encara no hi ha prou dades."], progres: tr ? `D'una SdA a la següent, el nivell ${tr}.` : "Cal més d'una SdA per comparar el progrés.", propostes: ["Amb la connexió al servidor, aquest informe l'escriu la IA."], at: new Date().toISOString() };
+        db.kv = db.kv || {}; db.kv["informe/" + sid] = rec; save(); return rec;
+      },
       resetDemo() { try { localStorage.removeItem(KEY); sessionStorage.removeItem("fq3-demo-me"); } catch {} location.reload(); },
     };
   }
@@ -127,8 +152,14 @@
         must(await sb.from("feedback").update({ released: true }).eq("student_id", sid).eq("worksheet_id", ws));
         must(await sb.from("submissions").upsert({ student_id: sid, worksheet_id: ws, status: "returned", returned_at: new Date().toISOString() }));
       },
-      async reopen(sid, ws) { must(await sb.from("submissions").update({ status: "draft" }).eq("student_id", sid).eq("worksheet_id", ws)); },
+      async reopen(sid, ws) { must(await sb.from("submissions").update({ status: "draft" }).eq("student_id", sid).eq("worksheet_id", ws)); try { await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%"); } catch {} },
       async proposeAI(sid, ws, items) { return fn("corregeix", { student_id: sid, worksheet_id: ws, items }); },
+      async autoCorrect(ws, title, sda, items, sid) { return (await fn("autocorregeix", { worksheet_id: ws, title, sda, items, ...(sid ? { student_id: sid } : {}) })).rows || null; },
+      async deleteAuto(sid, ws) { must(await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%")); },
+      async allFeedback() { return must(await sb.from("feedback").select("student_id, worksheet_id, item_id, level, proposal_level, released")); },
+      async errorsAll() { const rows = must(await sb.from("kv").select("path, data").like("path", "errors/%")); return rows.map((r) => ({ student_id: r.path.split("/")[1], worksheet_id: r.path.split("/")[2], ...r.data })); },
+      async getInforme(sid) { const r = must(await sb.from("kv").select("data").eq("path", "informe/" + sid).maybeSingle()); return r ? r.data : null; },
+      async makeInforme(sid, data) { return (await fn("autocorregeix", { action: "informe", student_id: sid, data })).informe; },
     };
   }
 

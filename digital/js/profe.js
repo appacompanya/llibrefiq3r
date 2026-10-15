@@ -8,7 +8,7 @@
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const LV = ["NA", "AS", "AN", "AE"];
   const STATUS = { draft: ["Esborrany", "draft"], submitted: ["Lliurada", "sub"], returned: ["Retornada", "ret"] };
-  let tab = "fitxes", students = [], subs = [], respKeys = [], settings = {}, curWs = null, curStu = null;
+  let tab = "fitxes", students = [], subs = [], respKeys = [], settings = {}, curWs = null, curStu = null, curSda = null, fbAll = [], errAll = [], segStu = null;
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 3500); };
   const titleOf = (k) => (F[k] && F[k].title) || (DOCS[k] && `SdA ${DOCS[k].sda} · ${DOCS[k].l}`) || k;
   const sdaOf = (k) => (F[k] && F[k].sda) || (DOCS[k] && DOCS[k].sda) || 0;
@@ -27,16 +27,17 @@
   }
   async function boot() {
     [students, subs, respKeys, settings] = await Promise.all([S.listStudents(), S.listSubmissions(), S.listResponseKeys(), S.getSettings()]);
+    await loadSeg();
     shell();
   }
   function shell() {
     app.innerHTML = `<header class="top dtop"><div><div class="eyebrow">Zona del professorat · ${S.mode === "demo" ? "demostració" : "llibre digital"}</div><h2 class="dh">Llibre digital de l'alumnat</h2></div>
       <div class="row noprint">${EMBED ? '<a class="btn ghost" href="#inici">← Portada del professorat</a>' : ""}<a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a>${EMBED ? "" : '<button class="btn ghost" id="out">Surt</button>'}</div></header>
-      <nav class="tabs noprint" role="tablist">${[["fitxes", "Fitxes i lliuraments"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
+      <nav class="tabs noprint" role="tablist">${[["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
       <main id="main"></main>`;
     if ($("#out")) $("#out").onclick = async () => { await S.signOut(); loginView(); };
     app.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { tab = b.dataset.tab; curWs = null; curStu = null; shell(); }));
-    ({ fitxes: fitxesView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
+    ({ fitxes: fitxesView, seguiment: segView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
   }
 
   /* ---------- ajustos ---------- */
@@ -45,7 +46,7 @@
       <label class="switch"><input type="checkbox" id="ac"${settings.auto_calc !== false ? " checked" : ""}> Càlcul automàtic a les fitxes</label>
       <p class="note">Si està activat, quan l'alumne escriu números o factors de conversió, la fitxa li mostra el resultat del càlcul i si cada factor val 1. Desactiva-ho per a les activitats d'avaluació.</p></section>
       <section class="card" id="pdfp" hidden></section>
-      <section class="card"><h2>Correcció assistida</h2><p class="note">El botó «Proposta automàtica» de cada lliurament demana una proposta de nivell i comentari per a cada apartat. La proposta no la veu l'alumne: la revises, la modifiques si cal i decideixes quan retornar la fitxa.${S.mode === "demo" ? " En mode demostració, la proposta es basa només en la comprovació automàtica." : ""}</p></section>`;
+      <section class="card"><h2>Correcció automàtica</h2><p class="note">Quan l'alumne lliura una fitxa digital, rep de seguida una correcció automàtica de cada pregunta (nivell i comentari breu), feta amb els solucionaris del professorat. Tu reps la mateixa valoració com a proposta a cada apartat: la revises, la canvies si cal i decideixes quan retornar la fitxa amb la teva valoració. Els errors es classifiquen per tipus i els trobaràs a «Seguiment de l'alumnat».${S.mode === "demo" ? " En mode demostració, la correcció es basa només en la comprovació automàtica dels càlculs." : ""}</p></section>`;
     if (window.fqTeacherFiles && S.mode !== "demo") pdfPanel();
     $("#ac").onchange = async (e) => { try { await S.setSetting("auto_calc", e.target.checked); settings.auto_calc = e.target.checked; toast(e.target.checked ? "Càlcul automàtic activat." : "Càlcul automàtic desactivat."); } catch { toast("No s'ha pogut desar."); } };
   }
@@ -104,49 +105,47 @@
   function fitxesView() {
     if (curWs && curStu) return reviewView();
     const keys = new Set([...Object.keys(F), ...subs.map((s) => s.worksheet_id), ...respKeys.map((r) => r.worksheet_id)]);
-    const list = [...keys].sort((a, b) => sdaOf(a) - sdaOf(b) || a.localeCompare(b, undefined, { numeric: true }));
-    if (!curWs) curWs = list[0] || null;
+    const all = [...keys].sort((a, b) => sdaOf(a) - sdaOf(b) || a.localeCompare(b, undefined, { numeric: true }));
+    const sdas = [...new Set(all.map(sdaOf))].sort((a, b) => a - b);
+    if (curSda === null || !sdas.includes(curSda)) {
+      const pend = subs.find((s) => s.status === "submitted"); curSda = pend ? sdaOf(pend.worksheet_id) : (sdas.find((n) => n > 0) ?? sdas[0] ?? 1);
+    }
+    const list = all.filter((k) => sdaOf(k) === curSda);
+    if (!curWs || !list.includes(curWs)) curWs = list[0] || null;
+    const N = students.length;
     const subOf = (sid) => subs.find((s) => s.student_id === sid && s.worksheet_id === curWs);
     const started = (sid) => respKeys.some((r) => r.student_id === sid && r.worksheet_id === curWs);
     const counts = (k) => { const ss = subs.filter((s) => s.worksheet_id === k); return { sub: ss.filter((s) => s.status === "submitted").length, ret: ss.filter((s) => s.status === "returned").length }; };
-    $("#main").innerHTML = `<div class="grid2"><section class="card"><h2>Fitxes</h2><div class="tscroll"><table class="t"><thead><tr><th>Fitxa</th><th>Per corregir</th><th>Retornades</th></tr></thead><tbody>
-        ${list.map((k) => { const c = counts(k); return `<tr class="click" data-ws="${k}"${k === curWs ? ' style="background:var(--chip)"' : ""}><td>${F[k] ? '<span class="pill">digital</span> ' : '<span class="pill">foto</span> '}${esc(titleOf(k))}</td><td>${c.sub ? `<span class="pill sub">${c.sub}</span>` : "—"}</td><td>${c.ret || "—"}</td></tr>`; }).join("") || '<tr><td colspan="3" class="note">Encara no hi ha cap fitxa.</td></tr>'}
+    const sdaPend = (n) => subs.filter((s) => s.status === "submitted" && sdaOf(s.worksheet_id) === n).length;
+    const sdaName = (n) => { const x = (window.SDAS || []).find((y) => y.n === n); return n ? `SdA ${n}` + (x ? ` · ${x.title}` : "") : "Tot el curs"; };
+    $("#main").innerHTML = `<nav class="sdachips" aria-label="Situacions d'aprenentatge">${sdas.map((n) => `<button type="button" data-sda="${n}" class="${n === curSda ? "on" : ""}" style="--c:var(--s${n || 6})">${n ? "SdA " + n : "Curs"}${sdaPend(n) ? `<span class="dot">${sdaPend(n)}</span>` : ""}</button>`).join("")}</nav>
+      <div class="grid2"><section class="card"><h2>${esc(sdaName(curSda))}</h2><div class="tscroll"><table class="t"><thead><tr><th>Fitxa</th><th>Lliurades</th><th>Per corregir</th><th>Retornades</th></tr></thead><tbody>
+        ${list.map((k) => { const c = counts(k); const done = c.sub + c.ret; return `<tr class="click" data-ws="${k}"${k === curWs ? ' style="background:var(--chip)"' : ""}><td>${F[k] ? '<span class="pill">digital</span> ' : '<span class="pill">foto</span> '}${esc(titleOf(k))}</td><td><b>${done}</b>/${N}<div class="bar"><i style="width:${N ? Math.round(100 * done / N) : 0}%"></i></div></td><td>${c.sub ? `<span class="pill sub">${c.sub}</span>` : "—"}</td><td>${c.ret || "—"}</td></tr>`; }).join("") || '<tr><td colspan="4" class="note">Aquesta SdA no té fitxes digitals.</td></tr>'}
         </tbody></table></div></section>
-      <section class="card">${curWs ? `<h2>${esc(titleOf(curWs))}</h2><div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Grup</th><th>Estat</th><th>Lliurada</th></tr></thead><tbody>
+      <section class="card">${curWs ? `<h2>${esc(titleOf(curWs))}</h2><p class="note">Lliurades: <b>${counts(curWs).sub + counts(curWs).ret}/${N}</b></p><div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Grup</th><th>Estat</th><th>Nivell</th><th>Lliurada</th></tr></thead><tbody>
         ${students.map((s) => { const sb = subOf(s.id); const st = sb ? STATUS[sb.status] : started(s.id) ? STATUS.draft : null;
-          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="4" class="note">Encara no hi ha alumnat.</td></tr>'}
+          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${(() => { const L = wsLevel(s.id, curWs); return L ? chip(L.lv) + `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : ""; })()}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="5" class="note">Encara no hi ha alumnat.</td></tr>'}
         </tbody></table></div>` : '<p class="note">Tria una fitxa.</p>'}</section></div>`;
+    $("#main").querySelectorAll("[data-sda]").forEach((b) => (b.onclick = () => { curSda = +b.dataset.sda; curWs = null; fitxesView(); }));
     $("#main").querySelectorAll("[data-ws]").forEach((r) => (r.onclick = () => { curWs = r.dataset.ws; fitxesView(); }));
     $("#main").querySelectorAll("[data-stu]").forEach((r) => (r.onclick = () => { curStu = r.dataset.stu; reviewView(); window.scrollTo(0, 0); }));
-  }
-
-  function answerText(it, a) {
-    if (!a) return "(sense resposta)";
-    const U = window.FQUnits;
-    switch (it.type) {
-      case "text": case "number": return a.text || "";
-      case "sci": return `${a.m || "?"}·10^${a.e || "?"}`;
-      case "math": return `${a.latex || ""} → ${a.m || "?"}·10^${a.e || "?"}`;
-      case "chain": return `${it.start.v} ${it.start.u} ${(a.factors || []).map((f) => `· (${f.nv} ${f.nu})/(${f.dv} ${f.du})`).join(" ")} = ${a.v || "?"} ${a.u || ""}`;
-      case "tf": return it.statements.map((s, i) => `${i + 1}: ${(a.ans || {})[i] === true ? "T" : (a.ans || {})[i] === false ? "F" : "?"} ${(a.corr || {})[i] || ""}`).join(" | ");
-      case "table": return it.rows.map((r, ri) => r.label + ": " + r.cells.map((c, ci) => (a.cells || {})[`r${ri}c${ci}`] || "—").join(" / ")).join(" | ");
-      default: return JSON.stringify(a);
-    }
   }
 
   async function reviewView() {
     const stu = students.find((s) => s.id === curStu); const k = curWs; const spec = F[k];
     $("#main").innerHTML = '<div class="spin"></div>';
     const [answers, sub, fbRows] = await Promise.all([S.loadResponses(k, curStu), S.getSubmission(k, curStu), S.feedbackFor(curStu, k)]);
-    const fb = Object.fromEntries(fbRows.map((r) => [r.item_id, r]));
+    const autoRows = fbRows.filter((r) => String(r.item_id).startsWith("auto:"));
+    const fb = Object.fromEntries(fbRows.filter((r) => !String(r.item_id).startsWith("auto:")).map((r) => [r.item_id, r]));
     const st = STATUS[sub.status] || STATUS.draft;
     $("#main").innerHTML = `<div class="revhead"><button class="btn ghost" id="back">← Llista</button><h2>${esc(stu ? stu.display_name : "")} · ${esc(titleOf(k))}</h2><span class="pill ${st[1]}">${st[0]}</span>
-      <button class="btn ghost" id="ai">Proposta automàtica</button><button class="btn ghost" id="save">Desa</button><button class="btn" id="ret">Retorna a l'alumne</button>${sub.status !== "draft" ? '<button class="btn ghost" id="reopen">Deixa-la modificar</button>' : ""}</div>
+      <button class="btn ghost" id="ai">${autoRows.length ? "Torna a corregir automàticament" : "Correcció automàtica"}</button><button class="btn ghost" id="save">Desa</button><button class="btn" id="ret">Retorna a l'alumne</button>${sub.status !== "draft" ? '<button class="btn ghost" id="reopen">Deixa-la modificar</button>' : ""}</div>
       <div id="rev"></div>`;
     $("#back").onclick = () => { curStu = null; fitxesView(); };
     const host = $("#rev");
     if (spec) {
       FX.render(host, k, { answers, readonly: true, autoCalc: true, showCheck: true, photos: sub.photos || [], photoUrl: (p) => S.photoUrl(p) });
+      if (autoRows.length) FX.showAuto(host, autoRows);
     } else {
       const imgs = await Promise.all((sub.photos || []).map(async (p) => `<a href="${esc(await S.photoUrl(p.path))}" target="_blank" rel="noopener"><img src="${esc(await S.photoUrl(p.path))}" alt="Foto lliurada" style="max-width:100%;border-radius:10px;border:1px solid var(--line)"></a>`));
       host.innerHTML = `<div class="ws"><section class="ws-block"><b>Fotos lliurades</b>${imgs.join("") || '<p class="note">Sense fotos.</p>'}</section></div>`;
@@ -154,7 +153,7 @@
     // editors de retroacció
     const targets = spec && spec.html ? Object.keys(spec.qs) : spec ? [...FX.allItems(spec).filter((it) => !it.parent).map((it) => it.id), ...spec.blocks.filter((b) => b.type === "group").map((b) => b.id)] : [];
     const editor = (id, label) => { const f = fb[id] || {}; return `<div class="fbed" data-fb="${id}"><b>${esc(label)}</b><div class="lvs">${LV.map((l) => `<button type="button" data-lv="${l}" class="${f.level === l ? "on" : ""}">${l}</button>`).join("")}</div>
-      <textarea rows="2" placeholder="Comentari per a l'alumne">${esc(f.comment || "")}</textarea>${f.proposal_level || f.proposal_note ? `<div class="prop">Proposta: <b>${esc(f.proposal_level || "")}</b> ${esc(f.proposal_note || "")}<button type="button" data-accept>Fes-la servir</button></div>` : ""}</div>`; };
+      <textarea rows="2" placeholder="Comentari per a l'alumne">${esc(f.comment || "")}</textarea>${f.proposal_level || f.proposal_note ? `<div class="prop">Proposta automàtica: <b>${esc(f.proposal_level || "")}</b> ${esc(f.proposal_note || "")}<button type="button" data-accept>Fes-la servir</button></div>` : ""}</div>`; };
     targets.forEach((id) => {
       const el = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${id}"]`) || host.querySelector(`.ws-item[data-item="${id}"]`)?.closest(".ws-block");
       if (el) el.insertAdjacentHTML("beforeend", editor(id, id === "diana" ? "Valoració de la diana" : (spec.html ? "Valoració de la pregunta " : "Valoració de l'apartat ") + id));
@@ -168,31 +167,125 @@
     $("#save").onclick = async () => { try { await S.saveFeedback(curStu, k, collect()); toast("Valoració desada (l'alumne encara no la veu)."); } catch (e) { toast("Error: " + e.message); } };
     $("#ret").onclick = async (e) => {
       const b = e.target; if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? L'alumne veurà els comentaris"; return; }
-      try { await S.saveFeedback(curStu, k, collect()); await S.release(curStu, k); subs = await S.listSubmissions(); toast("Fitxa retornada."); reviewView(); } catch (er) { toast("Error: " + er.message); }
+      try { await S.saveFeedback(curStu, k, collect()); await S.release(curStu, k); subs = await S.listSubmissions(); await loadSeg(); toast("Fitxa retornada."); reviewView(); } catch (er) { toast("Error: " + er.message); }
     };
-    const ro = $("#reopen"); if (ro) ro.onclick = async () => { await S.reopen(curStu, k); subs = await S.listSubmissions(); toast("L'alumne ja pot tornar a modificar la fitxa."); reviewView(); };
+    const ro = $("#reopen"); if (ro) ro.onclick = async () => { await S.reopen(curStu, k); subs = await S.listSubmissions(); await loadSeg(); toast("L'alumne ja pot tornar a modificar la fitxa."); reviewView(); };
     $("#ai").onclick = async () => {
       if (!spec) { toast("Les fitxes en foto les has de valorar tu."); return; }
-      const b = $("#ai"); b.disabled = true; b.textContent = "Preparant la proposta…";
-      const strip = (h) => String(h || "").replace(/<[^>]+>/g, "");
-      const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
-      const items = spec.html ? FX.htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "Inclou un dibuix en foto: valora només el text i indica al professor que revisi la foto." : "", answer: x.answer, auto: null, score: null })) : spec.blocks.filter((b) => b.id).map((b) => {
-        if (b.type !== "group") { const r = FX.checkItem(b, answers[b.id]); return { id: b.id, prompt: strip(b.prompt), expected: expOf(b) || (b.type === "table" ? "taula: valors de referència" : ""), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
-        const parts = b.items.map((it) => ({ it, r: FX.checkItem(it, answers[it.id]) }));
-        const checked = parts.filter((x) => x.r.ok !== null); const good = checked.filter((x) => x.r.ok).length;
-        return { id: b.id, prompt: strip(b.prompt) + " " + b.items.map((it) => it.label).join(" · "), expected: b.items.map((it) => `${it.label}: ${expOf(it)}`).join(" · "), criteria: b.items.map((it) => it.criteria).filter(Boolean).join(" "),
-          answer: b.items.map((it) => `${it.label}: ${answerText(it, answers[it.id])}`).join(" | "), auto: checked.length ? `${good}/${checked.length} apartats correctes` : null, score: checked.length ? good / checked.length : null };
-      });
+      const b = $("#ai"); b.disabled = true; b.textContent = "Corregint…";
       try {
-        if (S.mode === "demo") {
-          const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
-          const rows = items.map((x) => ({ item_id: x.id, proposal_level: lvOf(x.score), proposal_note: x.score == null ? "Cal revisar-ho manualment." : x.score >= 0.95 ? "Correcte." : `Comprovació automàtica: ${x.auto}. Revisa els apartats marcats.` }));
-          await S.saveFeedback(curStu, k, rows.map((r) => ({ ...r })));
-        } else { await S.proposeAI(curStu, k, items); }
-        toast("Proposta preparada. Revisa-la abans de retornar."); reviewView();
-      } catch (e) { toast(e.message === "missing_api_key" ? "Falta configurar la clau de correcció al servidor." : "No s'ha pogut fer la proposta: " + e.message); b.disabled = false; b.textContent = "Proposta automàtica"; }
+        await S.autoCorrect(k, spec.title, sdaOf(k), FX.buildItems(spec, answers), curStu);
+        await loadSeg(); toast("Correcció automàtica feta. Revisa les propostes abans de retornar."); reviewView();
+      } catch (e) { toast(e.message === "missing_api_key" ? "Falta configurar la clau de correcció al servidor." : "No s'ha pogut corregir: " + e.message); b.disabled = false; b.textContent = "Correcció automàtica"; }
     };
   }
+
+  /* ---------- seguiment de l'alumnat: nivells, tipus d'error i progrés ---------- */
+  const LVN = { NA: 1, AS: 2, AN: 3, AE: 4 };
+  const LVNAME = { NA: "No assolit", AS: "Satisfactori", AN: "Notable", AE: "Excel·lent" };
+  const lvFrom = (v) => v == null ? null : LV[Math.min(3, Math.max(0, Math.round(v) - 1))];
+  const chip = (l, extra) => l ? `<span class="lvchip lv-${l}" title="${esc(LVNAME[l] + (extra ? " · " + extra : ""))}">${l}</span>` : '<span class="lvchip lv-none">–</span>';
+  const ERRN = { conceptual: "Conceptual", "càlcul": "Càlcul", unitats: "Unitats", "notació": "Notació i xifres", procediment: "Procediment", enunciat: "Comprensió de l'enunciat", "expressió": "Expressió científica", incompleta: "Incompleta" };
+  const avg = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
+  async function loadSeg() { try { [fbAll, errAll] = await Promise.all([S.allFeedback(), S.errorsAll()]); } catch { fbAll = []; errAll = []; } }
+  /* nivell d'una fitxa: valoració del professor si n'hi ha; si no, la correcció automàtica */
+  function wsLevel(sid, ws) {
+    const rows = fbAll.filter((r) => r.student_id === sid && r.worksheet_id === ws);
+    const g = rows.find((r) => r.item_id === "_global" && r.level);
+    if (g) return { lv: g.level, v: LVN[g.level], src: "prof" };
+    const teach = rows.filter((r) => !r.item_id.startsWith("auto:") && r.item_id !== "_global" && r.level).map((r) => LVN[r.level]);
+    if (teach.length) { const v = avg(teach); return { lv: lvFrom(v), v, src: "prof" }; }
+    const au = rows.filter((r) => r.item_id.startsWith("auto:") && r.item_id !== "auto:_global" && r.level).map((r) => LVN[r.level]);
+    if (au.length) { const v = avg(au); return { lv: lvFrom(v), v, src: "auto" }; }
+    return null;
+  }
+  function stuSummary(sid) {
+    const per = {};
+    for (const ws of Object.keys(F)) {
+      const n = sdaOf(ws); const p = per[n] = per[n] || { sda: n, total: 0, lliurades: 0, vals: [], ws: [], errors: {} };
+      p.total++;
+      const sb = subs.find((x) => x.student_id === sid && x.worksheet_id === ws);
+      if (sb && sb.status !== "draft") p.lliurades++;
+      const L = wsLevel(sid, ws); if (L) p.vals.push(L.v);
+      p.ws.push({ ws, status: sb ? sb.status : respKeys.some((r) => r.student_id === sid && r.worksheet_id === ws) ? "draft" : null, L });
+    }
+    errAll.filter((e) => e.student_id === sid && F[e.worksheet_id]).forEach((e) => { const p = per[e.sda || sdaOf(e.worksheet_id)]; if (!p) return; (e.items || []).forEach((it) => (it.errors || []).forEach((x) => (p.errors[x] = (p.errors[x] || 0) + 1))); });
+    return Object.values(per).sort((a, b) => a.sda - b.sda).map((p) => ({ ...p, mitjana: avg(p.vals) }));
+  }
+  const sdaTitle = (n) => { const x = (window.SDAS || []).find((y) => y.n === n); return x ? x.title : ""; };
+
+  function progressSvg(sm, groupMean) {
+    const pts = sm.filter((p) => p.sda > 0);
+    if (!pts.length) return "";
+    const W = 560, H = 190, L = 92, R = 16, T = 14, B = 30;
+    const x = (i) => L + (pts.length === 1 ? (W - L - R) / 2 : i * (W - L - R) / (pts.length - 1));
+    const y = (v) => T + (4 - v) / 3 * (H - T - B);
+    let g = "";
+    LV.forEach((l, i) => { const yy = y(i + 1); g += `<line x1="${L}" x2="${W - R}" y1="${yy}" y2="${yy}" class="gl"/><text x="${L - 8}" y="${yy + 4}" text-anchor="end" class="ax">${l} · ${LVNAME[l]}</text>`; });
+    pts.forEach((p, i) => { g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle" class="ax">SdA ${p.sda}</text>`; });
+    const line = (vals, cls) => { const P = vals.map((v, i) => v == null ? null : `${x(i).toFixed(1)},${y(v).toFixed(1)}`).filter(Boolean); return P.length > 1 ? `<polyline points="${P.join(" ")}" class="${cls}"/>` : ""; };
+    g += line(pts.map((p) => groupMean[p.sda] ?? null), "pl grp");
+    g += line(pts.map((p) => p.mitjana), "pl stu");
+    pts.forEach((p, i) => { if (groupMean[p.sda] != null) g += `<circle cx="${x(i)}" cy="${y(groupMean[p.sda])}" r="3.5" class="pt grp"/>`; if (p.mitjana != null) g += `<circle cx="${x(i)}" cy="${y(p.mitjana)}" r="5.5" class="pt stu"><title>SdA ${p.sda}: ${p.mitjana.toFixed(2)}</title></circle>`; });
+    return `<svg class="segchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Evolució del nivell mitjà per SdA">${g}</svg>
+      <p class="legend"><span class="k stu"></span>Alumne/a <span class="k grp"></span>Mitjana del grup</p>`;
+  }
+
+  function segView() {
+    if (!students.length) { $("#main").innerHTML = '<section class="card"><p class="note">Encara no hi ha alumnat. Crea els comptes a «Alumnat i codis».</p></section>'; return; }
+    if (!segStu || !students.some((s) => s.id === segStu)) segStu = students[0].id;
+    const sdas = [...new Set(Object.keys(F).map(sdaOf))].filter((n) => n > 0).sort((a, b) => a - b);
+    const sums = Object.fromEntries(students.map((s) => [s.id, stuSummary(s.id)]));
+    const groupMean = Object.fromEntries(sdas.map((n) => [n, avg(students.map((s) => (sums[s.id].find((p) => p.sda === n) || {}).mitjana).filter((v) => v != null))]));
+    const glob = (sid) => avg(sums[sid].map((p) => p.mitjana).filter((v) => v != null));
+    const stu = students.find((s) => s.id === segStu); const sm = sums[segStu];
+    const errTot = {}; sm.forEach((p) => Object.entries(p.errors).forEach(([e, c]) => (errTot[e] = (errTot[e] || 0) + c)));
+    const errKeys = Object.keys(ERRN).filter((e) => errTot[e]);
+    const maxE = Math.max(1, ...sm.flatMap((p) => Object.values(p.errors)));
+    const errTable = errKeys.length ? `<div class="tscroll"><table class="t errt"><thead><tr><th>Tipus d'error</th>${sdas.map((n) => `<th>SdA ${n}</th>`).join("")}<th>Total</th></tr></thead><tbody>
+      ${errKeys.sort((a, b) => errTot[b] - errTot[a]).map((e) => `<tr><td>${esc(ERRN[e])}</td>${sdas.map((n) => { const c = ((sm.find((p) => p.sda === n) || {}).errors || {})[e] || 0; return `<td style="--h:${(c / maxE).toFixed(2)}">${c || ""}</td>`; }).join("")}<td><b>${errTot[e]}</b></td></tr>`).join("")}</tbody></table></div>`
+      : `<p class="note">Encara no hi ha errors classificats. Es classifiquen automàticament quan l'alumne lliura una fitxa digital.</p>`;
+    const wsList = sm.filter((p) => p.sda > 0 || p.lliurades).map((p) => `<details class="segsda"${p.lliurades ? " open" : ""}><summary><b>SdA ${p.sda}</b> <span class="note">${esc(sdaTitle(p.sda))}</span><span class="sp"></span>${p.lliurades}/${p.total} lliurades ${chip(lvFrom(p.mitjana))}</summary>
+      <table class="t"><tbody>${p.ws.filter((w) => w.status).map((w) => { const st = w.status ? STATUS[w.status] : null; return `<tr${w.status ? ` class="click" data-open="${w.ws}"` : ""}><td>${esc(titleOf(w.ws))}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${w.L ? chip(w.L.lv, w.L.src === "auto" ? "correcció automàtica" : "valoració del professor") + `<span class="src">${w.L.src === "auto" ? "auto" : "prof."}</span>` : ""}</td><td>${w.status ? '<span class="lnk">Respostes →</span>' : ""}</td></tr>`; }).join("")}</tbody></table>${(() => { const ns = p.ws.filter((w) => !w.status); return ns.length ? `<p class="note">Sense començar (${ns.length}): ${ns.map((w) => esc(titleOf(w.ws))).join(" · ")}</p>` : ""; })()}</details>`).join("");
+    const lliurades = sm.reduce((a, p) => a + p.lliurades, 0);
+    $("#main").innerHTML = `<div class="seggrid"><section class="card"><h2>Grup</h2><div class="tscroll"><table class="t segtab"><thead><tr><th>Alumne/a</th>${sdas.map((n) => `<th title="${esc(sdaTitle(n))}">${n}</th>`).join("")}<th>Mitjana</th></tr></thead><tbody>
+        ${students.map((s) => `<tr class="click${s.id === segStu ? " on" : ""}" data-seg="${s.id}"><td>${esc(s.display_name)}</td>${sdas.map((n) => `<td>${chip(lvFrom((sums[s.id].find((p) => p.sda === n) || {}).mitjana))}</td>`).join("")}<td>${chip(lvFrom(glob(s.id)))}</td></tr>`).join("")}
+        </tbody></table></div><p class="note">Nivell mitjà de les fitxes digitals de cada SdA. Si has retornat la fitxa, compta la teva valoració; si no, la correcció automàtica.</p></section>
+      <section class="card segmain"><div class="row" style="justify-content:space-between"><h2>${esc(stu.display_name)}</h2><span class="note">${esc(stu.grup || "")} · ${lliurades} fitxes lliurades</span></div>
+        <h3>Progrés d'una SdA a la següent</h3>${progressSvg(sm, groupMean) || '<p class="note">Sense dades.</p>'}
+        <h3>Tipus d'error detectats</h3>${errTable}
+        <h3>Informe de la IA</h3><div id="inf"><p class="note">Carregant…</p></div>
+        <h3>Fitxes</h3>${wsList}</section></div>`;
+    $("#main").querySelectorAll("[data-seg]").forEach((r) => (r.onclick = () => { segStu = r.dataset.seg; segView(); }));
+    $("#main").querySelectorAll("[data-open]").forEach((r) => (r.onclick = () => { curWs = r.dataset.open; curSda = sdaOf(curWs); curStu = segStu; tab = "fitxes"; shell(); window.scrollTo(0, 0); }));
+    renderInforme(stu, sm, errTot, lliurades);
+  }
+
+  async function renderInforme(stu, sm, errTot, lliurades) {
+    const box = $("#inf"); if (!box) return;
+    let rec = null; try { rec = await S.getInforme(stu.id); } catch {}
+    if (segStu !== stu.id) return;
+    const li = (a) => (a || []).length ? `<ul>${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
+    box.innerHTML = (rec ? `<div class="inf"><p>${esc(rec.resum || "")}</p>${rec.fortaleses && rec.fortaleses.length ? `<b>Fortaleses</b>${li(rec.fortaleses)}` : ""}${rec.errors && rec.errors.length ? `<b>Errors recurrents</b>${li(rec.errors)}` : ""}${rec.progres ? `<b>Progrés</b><p>${esc(rec.progres)}</p>` : ""}${rec.propostes && rec.propostes.length ? `<b>Propostes</b>${li(rec.propostes)}` : ""}<p class="note">Generat el ${new Date(rec.at).toLocaleString("ca-ES", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}. Només el veu el professorat.</p></div>`
+      : `<p class="note">La IA analitza les fitxes lliurades, els tipus d'error i l'evolució entre SdA, i proposa com ajudar l'alumne. L'informe només el veus tu.</p>`)
+      + `<button class="btn ghost" id="mkinf"${lliurades ? "" : " disabled"}>${rec ? "Actualitza l'informe" : "Genera l'informe"}</button>`;
+    const b = $("#mkinf"); if (!b) return;
+    b.onclick = async () => {
+      b.disabled = true; b.textContent = "Analitzant…";
+      // no s'envia el nom de l'alumne: només les dades acadèmiques
+      const data = { lliurades, errors: errTot, sdas: sm.filter((p) => p.lliurades).map((p) => ({ sda: p.sda, titol: sdaTitle(p.sda), lliurades: p.lliurades, total: p.total, mitjana: p.mitjana == null ? null : +p.mitjana.toFixed(2), nivell: lvFrom(p.mitjana), errors: p.errors,
+        fitxes: p.ws.filter((w) => w.L).map((w) => ({ fitxa: titleOf(w.ws), nivell: w.L.lv, origen: w.L.src, comentari: ((errAll.find((e) => e.student_id === stu.id && e.worksheet_id === w.ws) || {}).global || "").slice(0, 300) })) })) };
+      try { await S.makeInforme(stu.id, data); renderInforme(stu, sm, errTot, lliurades); }
+      catch (e) { toast("No s'ha pogut fer l'informe: " + e.message); b.disabled = false; b.textContent = "Genera l'informe"; }
+    };
+  }
+
+  /* dades per al registre d'avaluació de cada SdA (profe.html) */
+  window.FQDigitalData = {
+    async load() { if (!students.length) [students, subs, respKeys] = await Promise.all([S.listStudents(), S.listSubmissions(), S.listResponseKeys()]); await loadSeg(); return students; },
+    sda(sid, n) { const p = stuSummary(sid).find((x) => x.sda === n); return p ? { lv: lvFrom(p.mitjana), mitjana: p.mitjana, lliurades: p.lliurades, total: p.total, ws: p.ws.map((w) => ({ ...w, title: titleOf(w.ws) })) } : null; },
+    open(sid, ws) { curWs = ws; curSda = sdaOf(ws); curStu = sid; tab = "fitxes"; const mounted = !!$("#main"); location.hash = "#digital"; if (mounted) setTimeout(() => { shell(); window.scrollTo(0, 0); }, 50); },
+  };
 
   window.FQDigital = { mount(el) { app = el; boot(); } };
   if (!EMBED) (async () => { let me = null; try { me = await S.init(); } catch {} if (me && me.role === "teacher") await boot(); else loginView(); })();

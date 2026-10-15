@@ -180,3 +180,8 @@ math-field.mf:focus-within{border-color:var(--acc)}
 .wsh .lvl+b{display:inline}
 .wsh .badge{display:inline-block;margin-left:8px;padding:1px 8px;border:1.5px solid currentColor;border-radius:8px;font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle}
 .ws table.ws-tab,.wsh table{width:100%!important;min-width:0!important;max-width:100%!important}
+
+.ws-auto{border:1.5px dashed color-mix(in srgb,var(--acc) 55%,var(--line));background:color-mix(in srgb,var(--acc) 6%,var(--surface));border-radius:12px;padding:10px 12px;display:grid;gap:4px;font-size:.93rem}
+.ws-auto-h{font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:color-mix(in srgb,var(--acc) 80%,var(--fg));display:flex;gap:8px;align-items:center}
+.ws-auto p{margin:0}
+.ws-auto-g .ws-auto{border-style:solid}

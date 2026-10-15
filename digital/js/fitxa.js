@@ -320,9 +320,49 @@
     });
   }
 
+  /* ---------- elements per a la correcció automàtica ---------- */
+  function answerText(it, a) {
+    if (!a) return "(sense resposta)";
+    switch (it.type) {
+      case "text": case "number": return a.text || "";
+      case "sci": return `${a.m || "?"}·10^${a.e || "?"}`;
+      case "math": return `${a.latex || ""} → ${a.m || "?"}·10^${a.e || "?"}`;
+      case "chain": return `${it.start.v} ${it.start.u} ${(a.factors || []).map((f) => `· (${f.nv} ${f.nu})/(${f.dv} ${f.du})`).join(" ")} = ${a.v || "?"} ${a.u || ""}`;
+      case "tf": return it.statements.map((st, i) => `${i + 1}: ${(a.ans || {})[i] === true ? "V" : (a.ans || {})[i] === false ? "F" : "?"} ${(a.corr || {})[i] || ""}`).join(" | ");
+      case "table": return it.rows.map((r, ri) => r.label + ": " + r.cells.map((c, ci) => (a.cells || {})[`r${ri}c${ci}`] || "—").join(" / ")).join(" | ");
+      default: return JSON.stringify(a);
+    }
+  }
+  function buildItems(spec, answers) {
+    const strip = (h) => String(h || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
+    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica en foto: valora només la part escrita i digues a l'alumne que el professor revisarà el dibuix." : "", answer: x.answer, auto: null, score: null }));
+    return spec.blocks.filter((b) => b.id).map((b) => {
+      if (b.type !== "group") { const r = checkItem(b, answers[b.id]); return { id: b.id, prompt: strip(b.prompt), expected: expOf(b), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
+      const parts = b.items.map((it) => ({ it, r: checkItem(it, answers[it.id]) }));
+      const checked = parts.filter((x) => x.r.ok !== null); const good = checked.filter((x) => x.r.ok).length;
+      return { id: b.id, prompt: strip(b.prompt) + " " + b.items.map((it) => it.label).join(" · "), expected: b.items.map((it) => `${it.label}: ${expOf(it)}`).join(" · "), criteria: b.items.map((it) => it.criteria).filter(Boolean).join(" "),
+        answer: b.items.map((it) => `${it.label}: ${answerText(it, answers[it.id])}`).join(" | "), auto: checked.length ? `${good}/${checked.length} apartats correctes` : null, score: checked.length ? good / checked.length : null };
+    });
+  }
+  /* mostra la correcció automàtica (files item_id = "auto:…") dins de la fitxa */
+  function showAuto(host, rows) {
+    const LVN = { NA: "No assolit", AS: "Satisfactori", AN: "Notable", AE: "Excel·lent" };
+    const box = (r) => `<div class="ws-auto"><div class="ws-auto-h">Correcció automàtica${r.level ? ` <span class="lvchip lv-${r.level}" title="${LVN[r.level] || ""}">${r.level}</span>` : ""}</div>${r.comment ? `<p>${esc(r.comment)}</p>` : ""}</div>`;
+    host.querySelectorAll(".ws-auto").forEach((e) => e.remove());
+    let glob = null;
+    (rows || []).forEach((r) => {
+      const id = String(r.item_id).replace(/^auto:/, "");
+      if (id === "_global") { glob = r; return; }
+      const el = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${CSS.escape(id)}"]`) || host.querySelector(`.ws-item[data-item="${CSS.escape(id)}"]`);
+      if (el) el.insertAdjacentHTML("beforeend", box(r));
+    });
+    const ws = host.querySelector(".ws"); if (glob && ws) ws.insertAdjacentHTML("afterbegin", `<section class="ws-block ws-auto-g">${box(glob).replace("Correcció automàtica", "Correcció automàtica de la fitxa")}</section>`);
+  }
+
   const ML = "https://cdn.jsdelivr.net/npm/mathlive@0.105.3/";
   function mlSetup() { if (G.MathfieldElement) { try { G.MathfieldElement.fontsDirectory = ML + "fonts"; G.MathfieldElement.soundsDirectory = null; } catch {} } }
   mlSetup(); G.addEventListener("DOMContentLoaded", mlSetup); G.addEventListener("load", mlSetup);
 
-  G.FQFitxa = { render, checkItem, allItems, sciVal, htmlItems };
+  G.FQFitxa = { render, checkItem, allItems, sciVal, htmlItems, buildItems, answerText, showAuto };
 })(window);
