@@ -755,7 +755,7 @@ async function openDoc(k){
   const back = backHash || (n ? "sda" + n : "inici");
   document.getElementById("vBackL").textContent = back.startsWith("sda") ? `Torna a la SdA ${back.slice(3)}` : "Torna a l'inici";
   document.getElementById("vDl").innerHTML = ICON_DL + "Descarrega";
-  { const g = document.getElementById("vDig"); const ok = DIGITAL.has(k) && !d.t; g.hidden = !ok; if (ok) g.href = "digital/#fitxa-" + k; }
+  { const g = document.getElementById("vDig"); const ok = DIGITAL.has(k) && !d.t; g.hidden = !ok; if (ok) g.href = "https://llibrefiq3r.cat/digital/#fitxa-" + k; }
   document.title = d.l + " · " + "Física i química 3r ESO";
   const host = document.getElementById("vPages");
   host.innerHTML = `<div class="spin" role="status" aria-label="S'està carregant el full"></div>`;
