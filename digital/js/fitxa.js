@@ -132,6 +132,7 @@
     html += `${fbHtml("_global")}</div>`;
     host.innerHTML = html;
     typeset(host);
+    try { (window.FQWidgets || []).forEach((fn) => fn(host)); } catch (e) { console.warn(e); }
 
     /* fotos: carrega miniatures */
     host.querySelectorAll("img[data-src]").forEach(async (img) => { try { img.src = await opts.photoUrl(img.dataset.src); } catch {} });
@@ -257,6 +258,7 @@
     wrap.querySelectorAll("[data-qblock]").forEach((b) => { const f = fb[b.dataset.qblock]; if (f && (f.level || f.comment)) b.insertAdjacentHTML("beforeend", `<div class="ws-fb">${f.level ? `<span class="lvchip lv-${f.level}">${f.level}</span>` : ""}<span>${esc(f.comment || "")}</span></div>`); });
     host.innerHTML = `<div class="ws wsh">${wrap.innerHTML}${fb._global && (fb._global.level || fb._global.comment) ? `<div class="ws-fb">${fb._global.level ? `<span class="lvchip lv-${fb._global.level}">${fb._global.level}</span>` : ""}<span>${esc(fb._global.comment || "")}</span></div>` : ""}</div>`;
     typeset(host);
+    try { (window.FQWidgets || []).forEach((fn) => fn(host)); } catch (e) { console.warn(e); }
     host.querySelectorAll("img[data-src]").forEach(async (img) => { try { img.src = await opts.photoUrl(img.dataset.src); } catch {} });
     drawRadar(host, spec, answers);
 

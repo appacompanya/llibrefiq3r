@@ -453,19 +453,20 @@ const D = {
   labc:   {f:"sda2-14-laboratori-corba-i-canvis-destat.pdf", l:"Full de laboratori"}
 };
 const L = {
+  inv: {u:"docs/sda6-00-plantilla-inventari-energetic.xlsx", l:"Plantilla d'Excel: inventari energètic i pla d'estalvi"},
   reecat: {u:"https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf", l:"Red Eléctrica: balanç elèctric de Catalunya 2024"},
   circuits: {u:"https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc", l:"Simulació: kit de construcció de circuits"},
   telkes: {u:"https://ethw.org/M%C3%A1ria_Telkes", l:"Mária Telkes, pionera de l'energia solar"},
   tmbh2: {u:"https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola", l:"Notícia: TMB rep el primer bus d'hidrogen (2021)"},
-  ajust: {u:"https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_ca.html", l:"Simulació: ajust d'equacions químiques"},
-  ferida: {u:"https://bbbc.broadinstitute.org/BBBC019", l:"Vídeos: una ferida que es tanca (migració col·lectiva)"},
-  metastasi: {u:"https://www.eurekalert.org/multimedia/893280", l:"Vídeo: una cèl·lula tumoral colonitza l'os"},
+  ajust: {u:"https://phet.colorado.edu/ca/simulations/balancing-chemical-equations", l:"Simulació: ajust d'equacions químiques"},
+  ferida: {u:"https://www.cellimagelibrary.org/images/44511", l:"Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)"},
+  metastasi: {u:"https://calisphere.org/item/ark:/20775/bb4990858p", l:"Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit"},
   cito: {u:"https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", l:"Imatge: el citoesquelet al microscopi de fluorescència"},
-  febre: {u:"https://www.nature.com/articles/s41598-022-10858-w", l:"Article citat a la fitxa 5 (Khachaturyan et al., 2022)"},
-  rogers: {u:"https://abakcus.com/video/white-blood-cell-chases-bacteria/", l:"Vídeo: un neutròfil persegueix un bacteri"},
-  difusio: {u:"https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_ca.html", l:"Simulació: difusió"},
+  febre: {u:"https://www.nature.com/articles/s41598-022-10858-w", l:"Article citat a la fitxa 6 (Khachaturyan et al., 2022)"},
+  rogers: {u:"https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria", l:"Vídeo: un neutròfil persegueix un bacteri (D. Rogers)"},
+  difusio: {u:"https://phet.colorado.edu/ca/simulations/diffusion", l:"Simulació: difusió"},
   irimia: {u:"https://www.cellimagelibrary.org/images/39519", l:"Vídeo real: neutròfils cap a l'fMLP"},
-  rutherford: {u:"https://phet.colorado.edu/sims/html/rutherford-scattering/latest/rutherford-scattering_ca.html", l:"Simulació: dispersió de Rutherford"},
+  rutherford: {u:"https://phet.colorado.edu/ca/simulations/rutherford-scattering", l:"Simulació: dispersió de Rutherford"},
   buildatom: {u:"https://phet.colorado.edu/ca/simulations/build-an-atom", l:"Simulació: construeix un àtom"},
   simbat: {u:"../sim-bateria.html", l:"Simulador: la bateria de liti per dins"},
   simgas: {u:"../sim-gasos.html", l:"Simulador: el model cineticomolecular dels gasos"},
@@ -592,11 +593,11 @@ const SDAS = [
    ]},
   {n:6, c:"--s6", title:"L'energia del nostre institut", q:"Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?", meta:"3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6", ready:true,
    sessions:[
-    {t:"Auditoria energètica de l'aula", ph:"Explorem", p:"La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (la plantilla te la dona el professor a l'aula virtual), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.", d:["d6ruta","d6repte","d6rub"], l:[], half:true},
+    {t:"Auditoria energètica de l'aula", ph:"Explorem", p:"La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.", d:["d6ruta","d6repte","d6rub"], l:["inv"], half:true},
     {t:"Energia, potència i consum", ph:"Aprenem", p:"Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.", d:["d6f1"], l:["telkes"], half:false},
-    {t:"Mesurem el consum real", ph:"Experimentem", p:"Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", d:["d6lab"], l:[], half:true},
+    {t:"Mesurem el consum real", ph:"Experimentem", p:"Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", d:["d6lab"], l:["inv"], half:true},
     {t:"D'on ve l'electricitat?", ph:"Investiguem", p:"Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.", d:["d6f2"], l:["reecat"], half:false},
-    {t:"El pla d'estalvi i el debat", ph:"Ho apliquem", p:"En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", d:["d6pla","d6repte","d6mapa"], l:[], half:true},
+    {t:"El pla d'estalvi i el debat", ph:"Ho apliquem", p:"En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", d:["d6pla","d6repte","d6mapa"], l:["inv"], half:true},
     {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", d:[], dt:["d6prova","d6solpr"], l:[], half:false},
     {t:"Corregeixo, votem i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", d:["d6diana","d6pla"], dt:["d6solpr"], l:[], half:true}
    ],
@@ -615,7 +616,7 @@ const SDAS = [
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
 function dlBtn(k, ghost){ const d = D[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#doc-${k}">${ICON_DOC}${esc(d.l)}</a>`; }
-function linkBtn(u, l){ const ext = /^https?:/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}>${ICON_LINK}${esc(l)}</a>`; }
+function linkBtn(u, l){ const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
 
 function renderTabs(cur){
   document.getElementById("tabs").innerHTML = SDAS.map(s =>
