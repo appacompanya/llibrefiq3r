@@ -103,6 +103,7 @@ h3.sec{font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin:0
 .avhead h4{margin:0;font-family:var(--font-display);font-size:1.25rem}
 .nota{display:flex;align-items:baseline;gap:6px;color:var(--muted);font-size:.85rem}
 .nota b{font-size:1.5rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.cechip{display:inline-flex;align-items:center;gap:4px;margin-right:8px;font-weight:700;color:var(--fg)}.cemini{display:inline-flex;gap:2px}.recsel{margin-left:4px;font-size:.75rem}
 .avhead .acts{margin-left:auto}
 .ins{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
 .ins summary{cursor:pointer;display:flex;align-items:center;gap:10px;font-weight:700;flex-wrap:wrap}
@@ -349,8 +350,8 @@ const D = {
   d5tfm:   {f:"sda5-12-forces-cellulars.pdf", l:"Full de forces cel·lulars"},
   d5lam:   {f:"sda5-13-lamines-forces-de-traccio.pdf", l:"Làmines A i B", t:1},
   d5rub:   {f:"sda5-14-rubriques.pdf", l:"Rúbriques"},
-  d5prova: {f:"sda5-15-prova.pdf", l:"Prova", t:1},
-  d5solpr: {f:"sda5-16-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  d5prova: {f:"sda5-15-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  d5solpr: {f:"sda5-16-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   d5solf:  {f:"sda5-17-solucionari-fitxes.pdf", l:"Solucionari de les fitxes", t:1},
   d5diana: {f:"sda5-18-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   d5mapa:  {f:"sda5-19-mapa-conceptual.pdf", l:"Mapa conceptual"},
@@ -366,8 +367,8 @@ const D = {
   d3dos:   {f:"sda3-10-dossier-incendis-i-elements-critics.pdf", l:"Dossier"},
   d3camp:  {f:"sda3-11-pla-de-campanya-punt-de-recollida.pdf", l:"Pla de campanya"},
   d3rub:   {f:"sda3-12-rubriques.pdf", l:"Rúbriques"},
-  d3prova: {f:"sda3-13-prova.pdf", l:"Prova", t:1},
-  d3solpr: {f:"sda3-14-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  d3prova: {f:"sda3-13-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  d3solpr: {f:"sda3-14-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   d3solf:  {f:"sda3-15-solucionari-fitxes.pdf", l:"Solucionari de les fitxes", t:1},
   d3diana: {f:"sda3-16-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   d3mapa:  {f:"sda3-17-mapa-conceptual.pdf", l:"Mapa conceptual"},
@@ -377,6 +378,8 @@ const D = {
   d2amp:   {f:"sda2-15-ampliacio.pdf", l:"Reptes d'ampliació"},
   d2solamp:{f:"sda2-16-solucionari-ampliacio.pdf", l:"Solucionari de l'ampliació", t:1},
   d2adap:  {f:"sda2-17-adaptada-nouvingut-glossari-visual.pdf", l:"Glossari visual i fitxa 1 · Nouvingut", t:1},
+  d2bas:   {f:"sda2-18-adaptada-continguts-basics-fitxa-1.pdf", l:"Fitxa 1 · Continguts bàsics", t:1},
+  d2coav:  {f:"sda2-19-avaluem-els-videos.pdf", l:"Avaluem els vídeos (auto i coavaluació)"},
   d3amp:   {f:"sda3-18-ampliacio.pdf", l:"Reptes d'ampliació"},
   d3solamp:{f:"sda3-19-solucionari-ampliacio.pdf", l:"Solucionari de l'ampliació", t:1},
   d3adap:  {f:"sda3-20-adaptada-pi-atom-i-taula-periodica.pdf", l:"Dins de l'àtom i la taula periòdica · PI (intensiva)", t:1},
@@ -392,7 +395,12 @@ const D = {
   dcF:     {f:"curs-04-formulari.pdf", l:"Formulari del curs"},
   dcG:     {f:"curs-05-glossari.pdf", l:"Glossari del curs"},
   dannex:  {f:"programacio-annexos.pdf", l:"Annexos de la programació", t:1},
-  d6recup: {f:"sda6-17-tasca-de-recuperacio.pdf", l:"Tasca de recuperació"},
+  dcR1: {f:"curs-06-recuperacio-ce1.pdf", l:"Recuperació CE1"},
+  dcR2: {f:"curs-07-recuperacio-ce2.pdf", l:"Recuperació CE2"},
+  dcR3: {f:"curs-08-recuperacio-ce3.pdf", l:"Recuperació CE3"},
+  dcR4: {f:"curs-09-recuperacio-ce4.pdf", l:"Recuperació CE4"},
+  dcR5: {f:"curs-10-recuperacio-ce5.pdf", l:"Recuperació CE5"},
+  dcR6: {f:"curs-11-recuperacio-ce6.pdf", l:"Recuperació CE6"},
   d6ruta:  {f:"sda6-01-full-de-ruta.pdf", l:"Full de ruta"},
   d6repte: {f:"sda6-02-full-del-repte.pdf", l:"Full del repte"},
   d6f1:    {f:"sda6-03-fitxa-1-energia-potencia-i-consum.pdf", l:"Fitxa 1"},
@@ -400,8 +408,8 @@ const D = {
   d6f2:    {f:"sda6-05-fitxa-2-don-ve-lelectricitat.pdf", l:"Fitxa 2"},
   d6pla:   {f:"sda6-06-pla-destalvi-i-debat.pdf", l:"Pla d'estalvi i debat"},
   d6rub:   {f:"sda6-07-rubriques.pdf", l:"Rúbriques"},
-  d6prova: {f:"sda6-08-prova.pdf", l:"Prova", t:1},
-  d6solpr: {f:"sda6-09-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  d6prova: {f:"sda6-08-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  d6solpr: {f:"sda6-09-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   d6solf:  {f:"sda6-10-solucionari-fitxes.pdf", l:"Solucionari de les fitxes i del laboratori", t:1},
   d6diana: {f:"sda6-11-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   d6mapa:  {f:"sda6-12-mapa-conceptual.pdf", l:"Mapa conceptual"},
@@ -415,8 +423,8 @@ const D = {
   d4f3:    {f:"sda4-08-fitxa-3-taller-de-problemes.pdf", l:"Fitxa 3"},
   d4dos:   {f:"sda4-09-dossier-hidrogen.pdf", l:"Dossier sobre l'hidrogen"},
   d4rub:   {f:"sda4-10-rubriques.pdf", l:"Rúbriques"},
-  d4prova: {f:"sda4-11-prova.pdf", l:"Prova", t:1},
-  d4solpr: {f:"sda4-12-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  d4prova: {f:"sda4-11-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  d4solpr: {f:"sda4-12-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   d4solf:  {f:"sda4-13-solucionari-fitxes.pdf", l:"Solucionari de les fitxes i dels laboratoris", t:1},
   d4diana: {f:"sda4-14-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   d4mapa:  {f:"sda4-15-mapa-conceptual.pdf", l:"Mapa conceptual"},
@@ -432,8 +440,8 @@ const D = {
   d1ellen: {f:"sda1-10-reading-ellen-swallow-richards.pdf", l:"Reading: Ellen Swallow Richards"},
   d1inf:   {f:"sda1-11-guio-informe-i-protocol.pdf", l:"Guió de l'informe i protocol"},
   d1rub:   {f:"sda1-12-rubriques.pdf", l:"Rúbriques"},
-  d1prova: {f:"sda1-13-prova.pdf", l:"Prova", t:1},
-  d1solpr: {f:"sda1-14-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  d1prova: {f:"sda1-13-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  d1solpr: {f:"sda1-14-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   d1solf:  {f:"sda1-15-solucionari-fitxes.pdf", l:"Solucionari de les fitxes i contingut dels pots", t:1},
   d1diana: {f:"sda1-16-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   d1mapa:  {f:"sda1-17-mapa-conceptual.pdf", l:"Mapa conceptual"},
@@ -446,8 +454,8 @@ const D = {
   inf:    {f:"sda2-07-guio-informe-de-practica.pdf", l:"Guió de l'informe"},
   video:  {f:"sda2-08-guio-del-video.pdf", l:"Guió del vídeo"},
   rub:    {f:"sda2-09-rubriques.pdf", l:"Rúbriques"},
-  prova:  {f:"sda2-10-prova.pdf", l:"Prova", t:1},
-  solpr:  {f:"sda2-11-solucionari-prova.pdf", l:"Solucionari de la prova", t:1},
+  prova:  {f:"sda2-10-demostracio-assoliment.pdf", l:"Activitat de demostració d\'assoliment", t:1},
+  solpr:  {f:"sda2-11-solucionari-demostracio.pdf", l:"Solucionari de l\'activitat de demostració", t:1},
   diana:  {f:"sda2-12-diana-autoavaluacio.pdf", l:"Diana d'autoavaluació"},
   mapa:   {f:"sda2-13-mapa-conceptual.pdf", l:"Mapa conceptual"},
   labc:   {f:"sda2-14-laboratori-corba-i-canvis-destat.pdf", l:"Full de laboratori"}
@@ -489,8 +497,8 @@ const SDAS = [
     {t:"Separem mescles", ph:"Experimentem", p:"Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.", d:["d1sep","d1ellen"], l:[]},
     {t:"La nota anònima", ph:"Ho apliquem", p:"Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.", d:["d1crom"], l:[]},
     {t:"Resolem el cas", ph:"Ho apliquem", p:"Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.", d:["d1inf","d1mapa"], l:[]},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], dt:["d1prova","d1solpr"], l:[]},
-    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d1diana"], dt:["d1solpr"], l:[]}
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], dt:["d1prova","d1solpr"], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d1diana"], dt:["d1solpr"], l:[]}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d1amp","d1solamp"]},
@@ -499,7 +507,7 @@ const SDAS = [
     {b:"Sessió 0 i sessió de tancament del curs", s:"Sessió 0 (abans de la SdA 1): sondeig d'idees prèvies de tot el curs i expectatives; no es qualifica i es guarda al portafoli. Sessió de tancament (després de la SdA 6): tornen a respondre el sondeig, el comparen, revisen les dianes i fan la reflexió final. Enquesta anònima de valoració.", d:["dc0","dcT","dcE"]},
     {b:"Plantilla de la SdA", s:"Identificació, context i contingut dels pots, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.", u:"https://claude.ai/code/artifact/45d696a9-8eda-468d-9f5a-99e0b167aa3d", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 9, solucionari amb criteris, solucionari de les fitxes i contingut real de cada pot.", d:["d1prova","d1solpr","d1solf"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris, solucionari de les fitxes i contingut real de cada pot.", d:["d1prova","d1solpr","d1solf"]},
     {b:"Rúbriques", s:"Informe del repte, posada en comú i protocol, i lectura en anglès.", d:["d1rub"]}
    ]},
   {n:2, c:"--s2", title:"El desodorant kamikaze", q:"Per què explota un desodorant dins d'un cotxe a l'agost?", meta:"1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE4", ready:true,
@@ -512,15 +520,16 @@ const SDAS = [
     {t:"Corba d'escalfament i canvis d'estat", ph:"Experimentem", p:"Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.", d:["labc","inf"], l:[]},
     {t:"Torno al repte", ph:"Ho apliquem", p:"Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.", d:["repte","video","mapa"], l:[]},
     {t:"Gravem el vídeo per a 1r", ph:"Ho apliquem", p:"Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.", d:["rub"], l:[]},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.", d:[], dt:["prova","solpr"], l:[]},
-    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo i el coavaluarem amb la rúbrica. Faràs la diana per valorar què has après.", d:["diana"], dt:["solpr"], l:[]}
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.", d:[], dt:["prova","solpr"], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem l'activitat de demostració entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo: t'avaluaràs, avaluaràs un company, avaluareu el vostre grup i un altre grup (full «Avaluem els vídeos»). Faràs la diana per valorar què has après.", d:["d2coav","diana"], dt:["solpr"], l:[]}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d2amp","d2solamp"]},
     {b:"Atenció a la diversitat · Nouvingut", s:"Glossari visual trilingüe amb columna per a la llengua familiar, banc de paraules i frases model per a la fitxa 1. Mesura addicional, coordinada amb l'aula d'acollida. Inclou una nota per al professorat a l'última pàgina.", d:["d2adap"]},
+    {b:"Atenció a la diversitat · Continguts bàsics", s:"Fitxa 1 amb els continguts essencials del model de partícules (banc de paraules, frases per completar, selecció i dibuixos model) per a l'alumnat amb retard en l'aprenentatge o nouvingut amb nivell inicial de lectura. Mateix criteri (1.2). Mesura addicional.", d:["d2bas"]},
     {b:"Plantilla de la SdA", s:"Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.", u:"https://claude.ai/code/artifact/351c682b-378f-4335-843c-b3a0c27a6d99", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 9, solucionari amb criteris i solucionari de la fitxa 2.", d:["prova","solpr","solf2"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de la fitxa 2.", d:["prova","solpr","solf2"]},
     {b:"Rúbriques", s:"Vídeo, informe de pràctica i explicació final del repte.", d:["rub"]}
    ]},
   {n:3, c:"--s3", title:"Què hi ha dins del meu mòbil?", q:"Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?", meta:"1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE5 i CE6", ready:true,
@@ -533,8 +542,8 @@ const SDAS = [
     {t:"L'enllaç químic", ph:"Aprenem", p:"Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.", d:["d3f5"], l:[]},
     {t:"Per què cremen les bateries?", ph:"Ho apliquem", p:"Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.", d:["d3dos"], l:["simbat"]},
     {t:"Posem en marxa el punt de recollida", ph:"Ho apliquem", p:"Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.", d:["d3camp","d3mapa"], l:[]},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Repassa les fitxes i el mapa conceptual.", d:[], dt:["d3prova","d3solpr"], l:[]},
-    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d3diana"], dt:["d3solpr"], l:[]}
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Repassa les fitxes i el mapa conceptual.", d:[], dt:["d3prova","d3solpr"], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d3diana"], dt:["d3solpr"], l:[]}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d3amp","d3solamp"]},
@@ -542,7 +551,7 @@ const SDAS = [
     {b:"Plantilla de la SdA", s:"Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.", u:"https://claude.ai/code/artifact/89fa6c85-6fc9-4921-b84f-beb3ec06f5a3", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
     {b:"Material per imprimir", s:"Model de mòbil desmuntable per plastificar (sessió 1) i targetes del camí del reciclatge (sessió 3).", d:["d3model","d3targ"]},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 9, solucionari amb criteris i solucionari de les fitxes i del laboratori.", d:["d3prova","d3solpr","d3solf"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de les fitxes i del laboratori.", d:["d3prova","d3solpr","d3solf"]},
     {b:"Rúbriques", s:"Campanya, presentació del reciclatge, laboratori i dossier.", d:["d3rub"]}
    ]},
   {n:4, c:"--s4", title:"Un cotxe que només allibera aigua?", q:"Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?", meta:"2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3", ready:true,
@@ -555,15 +564,15 @@ const SDAS = [
     {t:"Electròlisi: hidrogen verd", ph:"Experimentem", p:"Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.", d:["d4lab3"], l:[]},
     {t:"Taller de problemes", ph:"Practiquem", p:"Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d'una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d'ajust d'equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.", d:["d4f3","d4mapa"], l:["ajust"]},
     {t:"Per què no són tots així?", ph:"Ho apliquem", p:"Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.", d:["d4dos","d4repte"], l:[]},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.", d:[], dt:["d4prova","d4solpr"], l:[]},
-    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d4diana"], dt:["d4solpr"], l:[]}
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.", d:[], dt:["d4prova","d4solpr"], l:[]},
+    {t:"Corregeixo i reflexiono", ph:"Reflexionem", p:"Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d4diana"], dt:["d4solpr"], l:[]}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d4amp","d4solamp"]},
     {b:"Atenció a la diversitat · Discalcúlia", s:"Ajust d'equacions amb models de boles i càlculs de massa amb taules de proporcionalitat i calculadora. Mesura addicional. Inclou una nota per al professorat a l'última pàgina.", d:["d4adap"]},
     {b:"Plantilla de la SdA", s:"Identificació, context, elements curriculars, sessions, avaluació, diversitat, organització i seguretat, i materials.", u:"https://claude.ai/code/artifact/3ecfcc8c-4799-480d-a5da-d98b8ffa1c60", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 9, solucionari amb criteris i solucionari de les fitxes i dels tres laboratoris (amb notes de preparació).", d:["d4prova","d4solpr","d4solf"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de les fitxes i dels tres laboratoris (amb notes de preparació).", d:["d4prova","d4solpr","d4solf"]},
     {b:"Rúbriques", s:"Fulls de laboratori (Lavoisier i electròlisi) i dossier amb la resposta del grup.", d:["d4rub"]}
    ]},
   {n:5, c:"--s5", title:"Cèl·lules immunitàries a la caça dels patògens", q:"Com persegueix un neutròfil un bacteri sense veure'l?", meta:"2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1 i CE5", ready:true,
@@ -578,9 +587,9 @@ const SDAS = [
     {t:"Quimiotaxi i febre", ph:"Aprenem", p:"Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.", d:["d5f6q"], l:["rogers","febre"]},
     {t:"Les lleis de Newton", ph:"Aprenem", p:"Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s'atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.", d:["d5f6"], l:["cito"]},
     {t:"La llei de Hooke", ph:"Experimentem", p:"Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.", d:["d5hooke"], l:[]},
-    {t:"Les cèl·lules també fan forces", ph:"Ho apliquem", p:"Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar la prova.", d:["d5tfm","d5mapa"], dt:["d5lam"], l:[]},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], dt:["d5prova","d5solpr"], l:[]},
-    {t:"Responc el repte i reflexiono", ph:"Reflexionem", p:"Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d5diana"], dt:["d5solpr"], l:[]}
+    {t:"Les cèl·lules també fan forces", ph:"Ho apliquem", p:"Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar l'activitat de demostració d'assoliment.", d:["d5tfm","d5mapa"], dt:["d5lam"], l:[]},
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", d:[], dt:["d5prova","d5solpr"], l:[]},
+    {t:"Responc el repte i reflexiono", ph:"Reflexionem", p:"Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", d:["d5diana"], dt:["d5solpr"], l:[]}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d5amp","d5solamp"]},
@@ -588,7 +597,7 @@ const SDAS = [
     {b:"Plantilla de la SdA", s:"Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.", u:"https://claude.ai/code/artifact/0b9a0f3e-46e3-4ab7-8266-6bc37184e0f6", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
     {b:"Material per imprimir", s:"Làmina A (boletes fluorescents verdes, fons fosc) en paper i làmina B (boletes magenta i contorn de la cèl·lula) en acetat transparent, per a la microscòpia de forces de tracció (sessió 11), a escala 100 %.", d:["d5lam"]},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 12, solucionari amb criteris i solucionari de les fitxes, dels problemes i del laboratori.", d:["d5prova","d5solpr","d5solf"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 12, solucionari amb criteris i solucionari de les fitxes, dels problemes i del laboratori.", d:["d5prova","d5solpr","d5solf"]},
     {b:"Rúbriques", s:"Full de forces cel·lulars, gràfiques del patinet i experiment de difusió.", d:["d5rub"]}
    ]},
   {n:6, c:"--s6", title:"L'energia del nostre institut", q:"Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?", meta:"3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6", ready:true,
@@ -598,17 +607,17 @@ const SDAS = [
     {t:"Mesurem el consum real", ph:"Experimentem", p:"Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", d:["d6lab"], l:["inv"], half:true},
     {t:"D'on ve l'electricitat?", ph:"Investiguem", p:"Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.", d:["d6f2"], l:["reecat"], half:false},
     {t:"El pla d'estalvi i el debat", ph:"Ho apliquem", p:"En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", d:["d6pla","d6repte","d6mapa"], l:["inv"], half:true},
-    {t:"Prova", ph:"Avaluem", p:"Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", d:[], dt:["d6prova","d6solpr"], l:[], half:false},
-    {t:"Corregeixo, votem i reflexiono", ph:"Reflexionem", p:"Corregirem la prova entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", d:["d6diana","d6pla"], dt:["d6solpr"], l:[], half:true}
+    {t:"Demostració d'assoliment", ph:"Avaluem", p:"Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", d:[], dt:["d6prova","d6solpr"], l:[], half:false},
+    {t:"Corregeixo, votem i reflexiono", ph:"Reflexionem", p:"Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", d:["d6diana","d6pla"], dt:["d6solpr"], l:[], half:true}
    ],
    teacher:[
     {b:"Material multinivell · ampliació", s:"Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.", d:["d6amp","d6solamp"]},
     {b:"Atenció a la diversitat · TEA", s:"Anticipació de la sessió del debat: horari, rol, frases model, normes i targeta de pausa. Mesura addicional. Inclou una nota per al professorat a l'última pàgina.", d:["d6adap"]},
-    {b:"Tasca de recuperació CE4 i CE6", s:"Pòdcast o presentació narrada (bateries, hidrogen verd, solar fotovoltaica o l'estudi energètic de l'institut) amb cerca de fonts, canvi de coneixement, càlculs del tema, proposta sostenible, defensa oral i rúbrica. Es lliura a l'inici de la SdA 6 a qui ja té el 4.1 o el 6.1 no assolits i a la sessió 7 a la resta, i es tanca abans de l'avaluació final; el nivell substitueix l'anterior si és més alt.", d:["d6recup"]},
+    {b:"Tasques de recuperació (una per CE)", s:"Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.", d:["dcR1","dcR2","dcR3","dcR4","dcR5","dcR6"]},
     {b:"Sessió de tancament del curs", s:"Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre).", d:["dcT","dcE"]},
     {b:"Plantilla de la SdA", s:"Identificació, context, elements curriculars, sessions, avaluació, diversitat, organització i seguretat, i materials.", u:"https://claude.ai/code/artifact/f23639ea-f6d3-4b35-9773-ba40dc76dea1", ul:"Obre la plantilla"},
     {b:"Registre de competències", s:"Què es treballa a cada SdA i què queda pendent.", u:"https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc", ul:"Obre el registre"},
-    {b:"Prova i solucionaris", s:"Prova de la sessió 6, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.", d:["d6prova","d6solpr","d6solf"]},
+    {b:"Activitat de demostració i solucionaris", s:"Activitat de demostració d'assoliment de la sessió 6, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.", d:["d6prova","d6solpr","d6solf"]},
     {b:"Rúbriques", s:"Cerca d'informació, pla d'estalvi i debat.", d:["d6rub"]}
    ]}
 ];
@@ -652,7 +661,7 @@ function renderPanel(n){
     <h3 class="sec">Sessió a sessió</h3>
     <div class="sessions">${ses}</div>
     <h3 class="sec">Vols anar més enllà?</h3>
-    <div class="teacher"><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les proves) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div>${s.n===6?`<div class="tcard"><b>Tasca de recuperació</b><span>Si el professor t'ho indica, aquesta tasca et permet recuperar o millorar la nota de la SdA abans de l'avaluació final.</span><div class="acts">${dlBtn("d6recup",true)}</div></div>`:""}</div>
+    <div class="teacher"><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les activitats de demostració d'assoliment) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div><div class="tcard"><b>Tasques de recuperació</b><span>Si en acabar una competència específica no l'has assolida (NA), el professor t'indicarà la tasca de recuperació d'aquella competència. També la pots fer per millorar: si la fas millor, el nivell nou substitueix l'anterior.</span><div class="acts">${(s.meta.match(/CE\d/g)||[]).map(c => dlBtn("dcR"+c.slice(2),true)).join("")}</div></div></div>
     ${MODE==="profe" ? `<h3 class="sec">Material del professorat</h3><div class="teacher">${teach}</div><section class="aval" id="aval"></section>` : ""}</div>`;
   if (MODE==="profe") { AV.sda = s.n; renderAval(); }
 }
@@ -771,7 +780,7 @@ function renderHome(){
   if (MODE === "profe") {
     document.getElementById("profeBand").innerHTML = `<section class="profe-band" aria-label="Zona del professorat">
       <span class="warn">Només per al professorat</span><h2>Què hi ha en aquesta zona</h2>
-      <p>Cada SdA inclou, a més del material de l'alumnat, la prova i els solucionaris, les rúbriques, el material multinivell i, al final, l'eina d'avaluació per criteris de cada alumne. L'alumnat té el seu propi llibre, sense aquest material.</p>
+      <p>Cada SdA inclou, a més del material de l'alumnat, l'activitat de demostració d'assoliment i els solucionaris, les rúbriques, el material multinivell i, al final, l'eina d'avaluació per criteris de cada alumne. L'alumnat té el seu propi llibre, sense aquest material.</p>
       <div class="qlinks"><a class="btn" href="#digital" style="--acc:var(--s6)">Llibre digital: alumnat, codis i lliuraments</a>${SDAS.map(s => `<a class="btn ghost" href="#sda${s.n}" data-aval="1">Avaluació SdA ${s.n}</a>`).join("")}</div></section>`;
   }
   renderCta();
@@ -927,108 +936,109 @@ setZoom(1);
 /* ===== Avaluació (només zona del professorat) ===== */
 const LV = ["NA","AS","AN","AE"];
 const LVN = {NA:1, AS:2, AN:3, AE:4};
-const NOTA = {NA:3, AS:5.5, AN:7.5, AE:9.5};
+const CES = ["CE1","CE2","CE3","CE4","CE5","CE6"];
+const ceOf = c => "CE" + String(c).split(".")[0];
 const LVNAME = {NA:"No assolit", AS:"Satisfactori", AN:"Notable", AE:"Excel·lent"};
 const EVAL = {
  1: [
-  {id:"prova", l:"Prova escrita (sessions 9 i 10)", w:30, items:[
-    {id:"p1", l:"Ex. 1 · Canvis d'unitats i notació científica", c:["3.2"]},
-    {id:"p2", l:"Ex. 2 · Densitat i errors", c:["3.2"]},
-    {id:"p3", l:"Ex. 3 · Tres líquids incolors", c:["2.3"]},
-    {id:"p4", l:"Ex. 4 · Separació d'una mescla", c:["2.3"]},
-    {id:"p5", l:"Ex. 5 · El clau de ferro", c:["2.3"]},
-    {id:"p6", l:"Ex. 6 · Ellen Swallow Richards", c:["2.6"]}]},
-  {id:"inf", l:"Informe del repte (grup)", w:40, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 9 i 10)", items:[
+    {id:"p1", l:"Activitat 1 · Canvis d'unitats i notació científica", c:["3.2"]},
+    {id:"p2", l:"Activitat 2 · Densitat i errors", c:["3.2"]},
+    {id:"p3", l:"Activitat 3 · Tres líquids incolors", c:["2.3"]},
+    {id:"p4", l:"Activitat 4 · Separació d'una mescla", c:["2.3"]},
+    {id:"p5", l:"Activitat 5 · El clau de ferro", c:["2.3"]},
+    {id:"p6", l:"Activitat 6 · Ellen Swallow Richards", c:["2.6"]}]},
+  {id:"inf", l:"Informe del repte (grup)", items:[
     {id:"i1", l:"Hipòtesis", c:["2.1"], d:{AE:"Hipòtesis inicials per a tots els pots, justificades amb observacions", AN:"Hipòtesis per a la majoria de pots, justificades", AS:"Hipòtesis poc justificades", NA:"Sense hipòtesis"}},
     {id:"i2", l:"Procediments", c:["2.3"], d:{AE:"Explica cada prova i la propietat característica que mesura", AN:"Explica les proves, amb alguna imprecisió", AS:"Enumera les proves sense explicar-les", NA:"No descriu els procediments"}},
     {id:"i3", l:"Dades, unitats i errors", c:["3.2"], d:{AE:"Taules completes amb unitats; densitats i errors ben calculats", AN:"Taules completes amb algun error menor", AS:"Taules incompletes o errors d'unitats o de càlcul", NA:"Dades absents o sense unitats"}},
     {id:"i4", l:"Conclusions", c:["2.3"], d:{AE:"Assigna els dotze pots amb dues proves convergents per a cadascun", AN:"Assigna la majoria de pots amb proves convergents", AS:"Assigna els pots amb una sola prova", NA:"Assignacions sense justificar"}}]},
-  {id:"lab", l:"Laboratori i seguretat (observació)", w:20, items:[
+  {id:"lab", l:"Laboratori i seguretat (observació)", items:[
     {id:"l1", l:"Registre de dades al laboratori", c:["2.3"]},
     {id:"l2", l:"Normes de seguretat", c:["3.3"]}]},
-  {id:"ellen", l:"Lectura sobre Ellen Swallow Richards", w:10, items:[
+  {id:"ellen", l:"Lectura sobre Ellen Swallow Richards", items:[
     {id:"e1", l:"Reflexió", c:["2.6"], d:{AE:"Proposa raons diverses basades en el text i el context històric", AN:"Proposa raons basades en el text", AS:"Una raó sense justificar", NA:"No respon"}}]}
  ],
  2: [
-  {id:"prova", l:"Prova escrita (sessions 9 i 10)", w:30, items:[
-    {id:"p1", l:"Ex. 1 · La xeringa tapada", c:["1.1","1.2"]},
-    {id:"p2", l:"Ex. 2 · La bomba de la bicicleta", c:["1.2"]},
-    {id:"p3", l:"Ex. 3 · El globus del congelador", c:["1.2"]},
-    {id:"p4", l:"Ex. 4 · La laca al costat de l'estufa", c:["1.2"]},
-    {id:"p5", l:"Ex. 5 · La corba d'escalfament", c:["1.1"]},
-    {id:"p6", l:"Ex. 6 · L'Everest", c:["1.2"]}]},
-  {id:"video", l:"Vídeo per a 1r d'ESO", w:40, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 9 i 10)", items:[
+    {id:"p1", l:"Activitat 1 · La xeringa tapada", c:["1.1","1.2"]},
+    {id:"p2", l:"Activitat 2 · La bomba de la bicicleta", c:["1.2"]},
+    {id:"p3", l:"Activitat 3 · El globus del congelador", c:["1.2"]},
+    {id:"p4", l:"Activitat 4 · La laca al costat de l'estufa", c:["1.2"]},
+    {id:"p5", l:"Activitat 5 · La corba d'escalfament", c:["1.1"]},
+    {id:"p6", l:"Activitat 6 · L'Everest", c:["1.2"]}]},
+  {id:"video", l:"Vídeo per a 1r d'ESO", items:[
     {id:"v1", l:"Explicació científica", c:["1.2"], d:{AE:"Explica el fenomen amb el model i relaciona bé pressió, volum i temperatura", AN:"Explica el fenomen amb el model, amb alguna imprecisió", AS:"Descriu el fenomen amb un ús parcial del model", NA:"No fa servir el model o l'explicació és incorrecta"}},
     {id:"v2", l:"Adaptació al públic", c:["4.1"], d:{AE:"Llenguatge clar, exemples propers i suport visual", AN:"Llenguatge clar i algun suport visual", AS:"Llenguatge massa tècnic o poc suport visual", NA:"No s'entén per a un alumne de 1r"}},
     {id:"v3", l:"Recursos digitals", c:["4.1"], d:{AE:"Imatge i so clars, 2–3 minuts, muntatge i suport visual cuidats", AN:"Imatge i so correctes, durada adequada", AS:"Problemes de so o d'imatge, o durada inadequada", NA:"No es pot seguir el vídeo"}}]},
-  {id:"expl", l:"Explicació final del repte", w:30, items:[
+  {id:"expl", l:"Explicació final del repte", items:[
     {id:"e1", l:"Ús del model", c:["1.2"], d:{AE:"Explica l'augment de pressió amb el moviment i els xocs de les partícules; el dibuix ho representa bé", AN:"Explicació correcta, dibuix amb alguna imprecisió", AS:"Explicació parcial o dibuix que no la representa", NA:"Explicació sense model o incorrecta"}},
     {id:"e2", l:"Interpretació de l'etiqueta", c:["1.1"], d:{AE:"Interpreta l'avís i els pictogrames de l'etiqueta i en dedueix consells concrets", AN:"Interpreta l'avís de l'etiqueta", AS:"Esmenta l'avís sense interpretar-lo", NA:"No interpreta l'etiqueta"}}]}
  ],
  3: [
-  {id:"prova", l:"Prova escrita (sessions 9 i 10)", w:30, items:[
-    {id:"p1", l:"Ex. 1 · Models atòmics", c:["6.1"]},
-    {id:"p2", l:"Ex. 2 · Àtoms, ions i isòtops", c:["6.1"]},
-    {id:"p3", l:"Ex. 3 · La taula periòdica", c:["6.1"]},
-    {id:"p4", l:"Ex. 4 · El liti a la flama", c:["6.1"]},
-    {id:"p5", l:"Ex. 5 · El mòbil al contenidor", c:["5.1","5.2"]}]},
-  {id:"camp", l:"Campanya del punt de recollida (producte final)", w:35, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 9 i 10)", items:[
+    {id:"p1", l:"Activitat 1 · Models atòmics", c:["6.1"]},
+    {id:"p2", l:"Activitat 2 · Àtoms, ions i isòtops", c:["6.1"]},
+    {id:"p3", l:"Activitat 3 · La taula periòdica", c:["6.1"]},
+    {id:"p4", l:"Activitat 4 · El liti a la flama", c:["6.1"]},
+    {id:"p5", l:"Activitat 5 · El mòbil al contenidor", c:["5.1","5.2"]}]},
+  {id:"camp", l:"Campanya del punt de recollida (producte final)", items:[
     {id:"c1", l:"Projecte", c:["5.4"], d:{AE:"Objectiu mesurable, pla complet i assolit; registre setmanal i balanç amb gràfica", AN:"Pla complet i registre correcte; balanç sense analitzar", AS:"Pla incomplet o registre irregular", NA:"No hi ha pla ni registre"}},
     {id:"c2", l:"Arguments ambientals", c:["5.1"], d:{AE:"Justifica amb dades per què els residus electrònics contaminen el sòl i l'aigua i esgoten recursos", AN:"Justifica l'impacte ambiental amb algun argument científic", AS:"Esmenta l'impacte sense justificar-lo", NA:"No hi ha arguments ambientals"}},
     {id:"c3", l:"Hàbits sostenibles", c:["5.2"], d:{AE:"Proposa hàbits concrets i justificats per allargar la vida del mòbil", AN:"Proposa hàbits concrets", AS:"Proposa hàbits genèrics", NA:"No proposa hàbits"}}]},
-  {id:"dos", l:"Dossier: incendis i matèries primeres crítiques", w:25, items:[
+  {id:"dos", l:"Dossier: incendis i matèries primeres crítiques", items:[
     {id:"d1", l:"Risc i impacte ambiental", c:["5.1"], d:{AE:"Explica curtcircuit, escalfament i embalament tèrmic i les conseqüències per al medi", AN:"Explica la seqüència i alguna conseqüència", AS:"Explicació parcial", NA:"Explicació incorrecta"}},
     {id:"d2", l:"Matèries primeres crítiques i consum responsable", c:["5.2"], d:{AE:"Relaciona les matèries primeres crítiques amb la necessitat de reciclar i de consumir menys", AN:"Relaciona les matèries primeres crítiques amb el reciclatge", AS:"Identifica les matèries primeres crítiques sense relacionar-los", NA:"No ho relaciona"}}]},
-  {id:"fit", l:"Fitxa 2 · Evolució dels models atòmics", w:10, items:[
+  {id:"fit", l:"Fitxa 2 · Evolució dels models atòmics", items:[
     {id:"f2", l:"Línia del temps dels models i experiment de Rutherford", c:["6.1"]}]}
  ],
  4: [
-  {id:"prova", l:"Prova escrita (sessions 9 i 10)", w:30, items:[
-    {id:"p1", l:"Ex. 1 · Formulació", c:["3.2"]},
-    {id:"p2", l:"Ex. 2 · La llana d'acer", c:["2.2"]},
-    {id:"p3", l:"Ex. 3 · La bombona de butà", c:["3.2"]},
-    {id:"p4", l:"Ex. 4 · Una electròlisi", c:["2.5","3.2"]},
-    {id:"p5", l:"Ex. 5 · Zero emissions?", c:["3.1"]}]},
-  {id:"lab", l:"Fulls de laboratori: Lavoisier i electròlisi", w:40, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 9 i 10)", items:[
+    {id:"p1", l:"Activitat 1 · Formulació", c:["3.2"]},
+    {id:"p2", l:"Activitat 2 · La llana d'acer", c:["2.2"]},
+    {id:"p3", l:"Activitat 3 · La bombona de butà", c:["3.2"]},
+    {id:"p4", l:"Activitat 4 · Una electròlisi", c:["2.5","3.2"]},
+    {id:"p5", l:"Activitat 5 · Zero emissions?", c:["3.1"]}]},
+  {id:"lab", l:"Fulls de laboratori: Lavoisier i electròlisi", items:[
     {id:"l1", l:"Disseny del procediment", c:["2.2"], d:{AE:"Distingeix sistema obert i tancat, proposa un procediment que impedeix que s'escapi cap substància i el justifica", AN:"Proposa un procediment correcte amb alguna mancança", AS:"Procediment incomplet o poc justificat", NA:"No dissenya el procediment"}},
     {id:"l2", l:"Presentació dels resultats", c:["2.5"], d:{AE:"Taules completes amb magnituds i unitats, càlculs de volum complets i conclusions coherents amb les dades", AN:"Taules i càlculs correctes amb algun error menor", AS:"Taules incompletes o conclusions poc relacionades amb les dades", NA:"Sense taules o sense conclusions"}},
     {id:"l3", l:"Unitats i eines matemàtiques", c:["3.2"], d:{AE:"Fa servir correctament les unitats, la fórmula del volum i les fórmules químiques", AN:"Algun error menor d'unitats o de càlcul", AS:"Errors freqüents d'unitats o de càlcul", NA:"No aplica les unitats ni els càlculs"}}]},
-  {id:"dos", l:"Dossier i resposta del grup al repte (sessió 8)", w:30, items:[
+  {id:"dos", l:"Dossier i resposta del grup al repte (sessió 8)", items:[
     {id:"d1", l:"Dades de fonts diverses", c:["3.1"], d:{AE:"Fa servir com a mínim tres dades del dossier, en cita la font i les relaciona amb la química de la SdA", AN:"Fa servir dades del dossier i en cita la font", AS:"Fa servir alguna dada sense citar-ne la font", NA:"No fa servir dades"}},
     {id:"d2", l:"Treball en equip", c:["2.4"], d:{AE:"Cada membre fa el seu rol, explica el seu aspecte als altres i la resposta integra les aportacions de tots", AN:"Tots participen i compleixen el rol, amb alguna desigualtat", AS:"La feina recau en una part del grup", NA:"Un sol membre fa la feina"}}]}
  ],
  5: [
-  {id:"prova", l:"Prova escrita (sessions 12 i 13)", w:35, items:[
-    {id:"p1", l:"Ex. 1 · Un macròfag en moviment", c:["1.3"]},
-    {id:"p2", l:"Ex. 2 · La gràfica d'un patinet", c:["1.1"]},
-    {id:"p3", l:"Ex. 3 · Atrapa'l", c:["1.2"]},
-    {id:"p4", l:"Ex. 4 · La febre i els neutròfils", c:["1.1","5.3"]},
-    {id:"p5", l:"Ex. 5 · Les cèl·lules també fan forces", c:["1.2","5.3"]}]},
-  {id:"tfm", l:"Full de forces cel·lulars (grup)", w:30, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 12 i 13)", items:[
+    {id:"p1", l:"Activitat 1 · Un macròfag en moviment", c:["1.3"]},
+    {id:"p2", l:"Activitat 2 · La gràfica d'un patinet", c:["1.1"]},
+    {id:"p3", l:"Activitat 3 · Atrapa'l", c:["1.2"]},
+    {id:"p4", l:"Activitat 4 · La febre i els neutròfils", c:["1.1","5.3"]},
+    {id:"p5", l:"Activitat 5 · Les cèl·lules també fan forces", c:["1.2","5.3"]}]},
+  {id:"tfm", l:"Full de forces cel·lulars (grup)", items:[
     {id:"t1", l:"Mesura i càlcul de les forces", c:["1.3"], d:{AE:"Mesura els sis desplaçaments, aplica l'escala i F = k·Δx sense errors i dibuixa els vectors a escala", AN:"Mesures i càlculs correctes amb algun error menor", AS:"Mesures o càlculs amb errors importants", NA:"No aplica el procediment"}},
     {id:"t2", l:"Explicació amb les lleis de Newton", c:["1.2"], d:{AE:"Explica la direcció de les forces, l'equilibri (resultant nul·la) i com la cèl·lula avança amb la tercera llei", AN:"Explica la direcció i l'equilibri", AS:"Explicació parcial", NA:"No relaciona les forces amb les lleis de Newton"}},
     {id:"t3", l:"Ciència i salut", c:["5.3"], d:{AE:"Relaciona les forces cel·lulars amb la immunitat, la cicatrització i la metàstasi, i ho justifica", AN:"Relaciona les forces cel·lulars amb algun procés de salut", AS:"Esmenta la salut sense justificar-ho", NA:"No relaciona les forces amb la salut"}}]},
-  {id:"graf", l:"Gràfiques del patinet", w:20, items:[
+  {id:"graf", l:"Gràfiques del patinet", items:[
     {id:"g1", l:"Taula i gràfiques", c:["1.1"], d:{AE:"Taula completa; gràfiques amb magnituds, unitats, escala adequada i forma correcta de cada tram", AN:"Taula i gràfiques correctes amb algun element que falta", AS:"Errors d'escala, de forma o de càlcul", NA:"Sense taula o gràfiques"}},
     {id:"g2", l:"Interpretació dels pendents", c:["1.1"], d:{AE:"Calcula els pendents i els interpreta com a acceleració i velocitat", AN:"Calcula els pendents correctament", AS:"Calcula algun pendent", NA:"No calcula els pendents"}}]},
-  {id:"febre", l:"La febre i la migració (sessió 7)", w:15, items:[
+  {id:"febre", l:"La febre i la migració (sessió 7)", items:[
     {id:"f1", l:"Interpretació de la gràfica", c:["1.1"], d:{AE:"Llegeix la gràfica, calcula el pendent amb unitats i fa la predicció correctament", AN:"Calcula el pendent i fa la predicció amb algun error", AS:"Llegeix la gràfica però no calcula el pendent", NA:"No interpreta la gràfica"}},
     {id:"f2", l:"Febre i salut", c:["5.3"], d:{AE:"Explica que la febre accelera la migració i millora l'adhesió de les cèl·lules immunitàries, i distingeix aquest mecanisme de la difusió", AN:"Explica que la febre ajuda la defensa", AS:"Resposta parcial", NA:"No ho relaciona amb la salut"}}]}
  ],
  6: [
-  {id:"prova", l:"Prova escrita (sessions 6 i 7)", w:30, items:[
-    {id:"p1", l:"Ex. 1 · Els llums de l'aula", c:["6.2"]},
-    {id:"p2", l:"Ex. 2 · Sèrie o paral·lel?", c:["4.2"]},
-    {id:"p3", l:"Ex. 3 · Fonts fiables", c:["4.3"]},
-    {id:"p4", l:"Ex. 4 · L'electricitat de Catalunya", c:["4.2"]},
-    {id:"p5", l:"Ex. 5 · Plaques solars a l'institut", c:["6.2"]}]},
-  {id:"cerca", l:"Cerca d'informació (fitxa 2, part C)", w:20, items:[
+  {id:"prova", l:"Activitat de demostració d\'assoliment (sessions 6 i 7)", items:[
+    {id:"p1", l:"Activitat 1 · Els llums de l'aula", c:["6.2"]},
+    {id:"p2", l:"Activitat 2 · Sèrie o paral·lel?", c:["4.2"]},
+    {id:"p3", l:"Activitat 3 · Fonts fiables", c:["4.3"]},
+    {id:"p4", l:"Activitat 4 · L'electricitat de Catalunya", c:["4.2"]},
+    {id:"p5", l:"Activitat 5 · Plaques solars a l'institut", c:["6.2"]}]},
+  {id:"cerca", l:"Cerca d'informació (fitxa 2, part C)", items:[
     {id:"c1", l:"Informació fiable", c:["4.3"], d:{AE:"Fa servir dues fonts fiables o més, les contrasta i justifica la fiabilitat de cadascuna amb criteris", AN:"Fa servir dues fonts fiables i en justifica la fiabilitat", AS:"Una sola font fiable o sense justificar-ne la fiabilitat", NA:"Fonts no fiables o sense identificar"}},
     {id:"c2", l:"Cita de les fonts", c:["4.3"], d:{AE:"Cita totes les fonts amb autor, any, títol i adreça, i hi relaciona cada dada", AN:"Cita les fonts amb algun element que falta", AS:"Cita les fonts de manera incompleta", NA:"No cita les fonts"}}]},
-  {id:"pla", l:"Pla d'estalvi del grup", w:35, items:[
+  {id:"pla", l:"Pla d'estalvi del grup", items:[
     {id:"e1", l:"Mesures basades en dades", c:["6.2"], d:{AE:"Tres mesures de tipus diferents, amb l'estalvi calculat correctament i suposicions explícites", AN:"Tres mesures amb un càlcul correcte", AS:"Mesures poc concretes o sense càlcul", NA:"No proposa mesures"}},
     {id:"e2", l:"Implicació ciutadana i equitat", c:["6.2"], d:{AE:"Implica diversos col·lectius i reparteix les tasques sense estereotips de gènere, de manera justificada", AN:"Implica la comunitat i revisa el repartiment de tasques", AS:"Implicació poc concreta o repartiment no revisat", NA:"No hi ha implicació de la comunitat"}}]},
-  {id:"debat", l:"Debat del grup (observació)", w:15, items:[
+  {id:"debat", l:"Debat del grup (observació)", items:[
     {id:"b1", l:"Justificació de l'opinió", c:["4.2"], d:{AE:"Defensa la mesura amb dades i respon les objeccions amb arguments", AN:"Defensa la mesura amb alguna dada", AS:"Dona l'opinió sense justificar-la", NA:"No participa"}},
     {id:"b2", l:"Actitud inclusiva", c:["4.2"], d:{AE:"Reformula les idees dels altres, respecta els torns i incorpora altres punts de vista a l'acord", AN:"Respecta els torns i escolta", AS:"Interromp o no té en compte els altres", NA:"Actitud que exclou algun membre"}}]}
  ]
@@ -1043,24 +1053,34 @@ let ST = null; // {db, uid}
 const saveTimers = {};
 
 function critList(n){ const s = new Set(); EVAL[n].forEach(i => i.items.forEach(it => it.c.forEach(c => s.add(c)))); return [...s].sort((a,b)=>parseFloat(a)-parseFloat(b) || a.localeCompare(b,undefined,{numeric:true})); }
-function lvFromAvg(v){ if (v==null) return null; return LV[Math.min(3, Math.max(0, Math.round(v)-1))]; }
+function lvFromAvg(v){ if (v==null) return null; return LV[Math.min(3, Math.max(0, Math.ceil(v - 1e-9) - 1))]; }  // mitjana 1–4 arrodonida a l'alça
+const avgOf = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : null;
 const mk = (n, sid) => n + "|" + sid;
 function summary(n, sid){
   const m = (AV.marks[mk(n, sid)]||{});
-  const crit = {}, inst = {};
-  let wsum = 0, nsum = 0;
+  const crit = {}, inst = {}, ce = {};
   EVAL[n].forEach(ins => {
     const vals = [];
-    ins.items.forEach(it => { const l = m[it.id]; if (!l) return; vals.push(LVN[l]); it.c.forEach(c => (crit[c] = crit[c] || []).push(LVN[l])); });
-    if (vals.length){ const avg = vals.reduce((a,b)=>a+b,0)/vals.length; inst[ins.id] = {lv:lvFromAvg(avg), done:vals.length, total:ins.items.length}; wsum += ins.w; nsum += ins.w * NOTA[lvFromAvg(avg)]; }
+    ins.items.forEach(it => { const l = m[it.id]; if (!l) return; vals.push(LVN[l]); it.c.forEach(c => (crit[c] = crit[c] || []).push(LVN[l])); [...new Set(it.c.map(ceOf))].forEach(k => (ce[k] = ce[k] || []).push(LVN[l])); });
+    if (vals.length) inst[ins.id] = {lv:lvFromAvg(avgOf(vals)), done:vals.length, total:ins.items.length};
   });
-  const critLv = {}; Object.entries(crit).forEach(([c,v]) => critLv[c] = lvFromAvg(v.reduce((a,b)=>a+b,0)/v.length));
+  const dig = digOf(n, sid);
+  if (AV.wf && dig && dig.lv) Object.keys(ce).forEach(k => ce[k].push(LVN[dig.lv]));
+  const critLv = {}; Object.entries(crit).forEach(([c,v]) => critLv[c] = lvFromAvg(avgOf(v)));
+  const ceLv = {}; Object.entries(ce).forEach(([c,v]) => ceLv[c] = lvFromAvg(avgOf(v)));
   const complete = EVAL[n].every(ins => ins.items.every(it => m[it.id]));
-  let nota = wsum ? nsum/wsum : null;
-  const dig = digOf(n, sid), w = AV.wf/100;
-  if (w && dig && dig.lv && nota != null) nota = nota*(1-w) + NOTA[dig.lv]*w;
-  return {crit:critLv, inst, nota, complete, dig};
+  return {crit:critLv, ce:ceLv, ceRaw:ce, inst, complete, dig};
 }
+// assoliment de cada CE al llarg del curs (totes les SdA) i recuperació
+function course(sid){
+  const all = {};
+  Object.keys(EVAL).forEach(n => { const r = summary(Number(n), sid); Object.entries(r.ceRaw).forEach(([c,v]) => (all[c] = all[c] || []).push(...v)); });
+  const rec = AV.marks[mk("rec", sid)] || {};
+  const out = {};
+  CES.forEach(c => { const lv = all[c] ? lvFromAvg(avgOf(all[c])) : null; const r = rec[c]; out[c] = {lv, rec:r || null, fin: (r && (!lv || LVN[r] > LVN[lv])) ? r : lv}; });
+  return out;
+}
+const ceChips = (ce) => CES.filter(c => ce[c]).map(c => `<span class="cechip">${c} ${chip(ce[c])}</span>`).join("");
 const chip = l => l ? `<span class="lv lv-${l}" title="${LVNAME[l]}">${l}</span>` : `<span class="lv lv-none">–</span>`;
 
 async function initStore(){
@@ -1111,7 +1131,7 @@ function renderAval(){
   if (!AV.ready){ host.innerHTML = `<p class="note">Carregant l'avaluació…</p>`; return; }
   const crits = critList(n);
   const note = AV.persistent ? "Les dades es desen al teu compte i només les veus tu." : "No es poden desar dades en aquesta vista: el que marquis es perdrà en tancar la pàgina.";
-  const list = AV.students.map(s => `<button type="button" class="stu${s.id===AV.sel?' on':''}" data-stu="${s.id}"><span>${esc(s.name)}</span>${(() => { const r = summary(n, s.id); return r.nota!=null ? `<b>${r.nota.toFixed(1)}</b>` : ""; })()}</button>`).join("");
+  const list = AV.students.map(s => `<button type="button" class="stu${s.id===AV.sel?' on':''}" data-stu="${s.id}"><span>${esc(s.name)}</span>${(() => { const r = summary(n, s.id); return Object.keys(r.ce).length ? `<span class="cemini">${CES.filter(c => r.ce[c]).map(c => chip(r.ce[c])).join("")}</span>` : ""; })()}</button>`).join("");
   const empty = !AV.students.length ? `<p class="note">Encara no hi ha alumnat. Afegeix la llista del grup o prova l'eina amb alumnat d'exemple.</p><button type="button" class="btn ghost" id="avexample">Carrega alumnat d'exemple</button>` : "";
   let main = "";
   const st = AV.students.find(s => s.id === AV.sel);
@@ -1121,11 +1141,11 @@ function renderAval(){
     const insHtml = EVAL[n].map(ins => {
       const rows = ins.items.map(it => `<tr><th scope="row"><span class="asp">${esc(it.l)}</span>${it.c.length?`<span class="cr">${it.c.join(" · ")}</span>`:`<span class="cr">competència transversal</span>`}</th>${LV.slice().reverse().map(l => `<td><button type="button" class="cell-lv${m[it.id]===l?' on lv-'+l:''}" data-item="${it.id}" data-lv="${l}" aria-pressed="${m[it.id]===l}"><b>${l}</b>${it.d?`<span>${esc(it.d[l])}</span>`:`<span>${LVNAME[l]}</span>`}</button></td>`).join("")}</tr>`).join("");
       const ir = r.inst[ins.id];
-      return `<details class="ins" open><summary><span>${esc(ins.l)}</span><span class="w">pes ${ins.w} %</span>${ir?chip(ir.lv)+`<span class="w">${ir.done}/${ir.total}</span>`:chip(null)}</summary>
+      return `<details class="ins" open><summary><span>${esc(ins.l)}</span>${ir?chip(ir.lv)+`<span class="w">${ir.done}/${ir.total}</span>`:chip(null)}</summary>
         <div class="tscroll"><table class="rub"><thead><tr><th>Aspecte</th><th>AE</th><th>AN</th><th>AS</th><th>NA</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
     }).join("");
     const critHtml = crits.map(c => `<div class="crit"><span class="cc">${c}</span><span class="cn">${esc(CRIT_NAMES[c]||"")}</span>${chip(r.crit[c])}</div>`).join("");
-    main = `<div class="avhead"><h4>${esc(st.name)}</h4><div class="nota">${r.nota!=null?`<b>${r.nota.toFixed(1)}</b><span>nota orientativa${r.complete?"":" · avaluació en curs"}</span>`:`<span>Sense avaluar</span>`}</div>
+    main = `<div class="avhead"><h4>${esc(st.name)}</h4><div class="nota">${Object.keys(r.ce).length?`${ceChips(r.ce)}<span>assoliment de les competències d'aquesta SdA${r.complete?"":" · avaluació en curs"}</span>`:`<span>Sense avaluar</span>`}</div>
       <div class="acts"><button type="button" class="btn ghost" id="avclear">Esborra les marques</button><button type="button" class="btn ghost" id="avremove">Treu de la llista</button></div></div>
       ${digHtml(n, st, r)}
       <p class="note">Clica el nivell assolit a cada aspecte. Torna-hi a clicar per desmarcar-lo.</p>
@@ -1134,29 +1154,48 @@ function renderAval(){
   } else if (AV.students.length) {
     main = `<p class="note">Tria un alumne de la llista.</p>`;
   }
-  const grid = AV.students.length ? `<div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${crits.map(c=>`<th title="${esc(CRIT_NAMES[c]||"")}">${c}</th>`).join("")}${AV.dig?"<th>Fitxes</th>":""}<th>Nota</th></tr></thead><tbody>${AV.students.map(s => { const r = summary(n, s.id); return `<tr><th scope="row">${esc(s.name)}</th>${crits.map(c=>`<td>${chip(r.crit[c])}</td>`).join("")}${AV.dig?`<td>${chip(r.dig && r.dig.lv)}</td>`:""}<td class="nt">${r.nota!=null?r.nota.toFixed(1):"–"}</td></tr>`; }).join("")}</tbody></table></div>
+  const grid = AV.students.length ? `<div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${crits.map(c=>`<th title="${esc(CRIT_NAMES[c]||"")}">${c}</th>`).join("")}${AV.dig?"<th>Fitxes</th>":""}${sdaCes(n).map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${AV.students.map(s => { const r = summary(n, s.id); return `<tr><th scope="row">${esc(s.name)}</th>${crits.map(c=>`<td>${chip(r.crit[c])}</td>`).join("")}${AV.dig?`<td>${chip(r.dig && r.dig.lv)}</td>`:""}${sdaCes(n).map(c=>`<td>${chip(r.ce[c])}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>
     <div class="acts"><button type="button" class="btn" id="avcsv">${ICON_DL}Descarrega el resum (CSV)</button></div>` : "";
   host.innerHTML = `<h3 class="sec">Avaluació de la SdA ${n}</h3>
-    <p class="note">${note}${AV.dig ? " L'alumnat del llibre digital s'hi afegeix sol, amb el nivell de les seves fitxes digitals." : ""} Els nivells de cada criteri són la mitjana dels aspectes on apareix. La nota orientativa pondera els instruments segons els pesos de la SdA (la prova, entre el 30 % i el 35 %) amb NA = 3, AS = 5,5, AN = 7,5 i AE = 9,5.</p>
+    <p class="note">${note}${AV.dig ? " L'alumnat del llibre digital s'hi afegeix sol, amb el nivell de les seves fitxes digitals." : ""} No hi ha notes numèriques ni percentatges: cada aspecte es valora amb NA (1), AS (2), AN (3) o AE (4). El nivell de cada criteri i de cada competència específica és la mitjana dels aspectes on apareix, <b>arrodonida a l'alça</b> (2,3 → AN).</p>
     <div class="avgrid"><aside class="stulist"><div class="stus">${list}</div>${empty}
       <label for="avnames" class="lbl">Afegeix alumnat (un nom per línia)</label><textarea id="avnames" rows="4" placeholder="Nom Cognom"></textarea><button type="button" class="btn ghost" id="avadd">Afegeix</button></aside>
       <div class="avmain">${main}</div></div>
-    ${AV.students.length?`<h4 class="sub">Resum del grup</h4>`:""}${grid}`;
+    ${AV.students.length?`<h4 class="sub">Resum del grup</h4>`:""}${grid}${courseHtml()}`;
 }
+function sdaCes(n){ return [...new Set(critList(n).map(ceOf))].sort(); }
+const REC_DOC = {CE1:"dcR1", CE2:"dcR2", CE3:"dcR3", CE4:"dcR4", CE5:"dcR5", CE6:"dcR6"};
+function courseHtml(){
+  if (!AV.students.length) return "";
+  const rows = AV.students.map(s => { const c = course(s.id);
+    return `<tr><th scope="row">${esc(s.name)}</th>${CES.map(k => { const x = c[k];
+      const recSel = (x.lv === "NA" || x.rec) ? `<select class="recsel" data-rec="${k}" data-sid="${s.id}" title="Nivell de la tasca de recuperació"><option value="">recup.</option>${LV.map(l => `<option${x.rec===l?" selected":""}>${l}</option>`).join("")}</select>` : "";
+      return `<td>${chip(x.fin)}${x.rec && x.lv ? `<span class="w"> (abans ${x.lv})</span>` : ""}${recSel}</td>`; }).join("")}</tr>`; }).join("");
+  return `<h4 class="sub">Assoliment de les competències específiques al llarg del curs</h4>
+    <p class="note">Mitjana de totes les evidències de cada CE a les sis SdA, arrodonida a l'alça. Si una CE queda en NA, l'alumne fa la tasca de recuperació d'aquella CE (${CES.map(k => `<a href="#doc-${REC_DOC[k]}">${k}</a>`).join(" · ")}); marca'n el nivell al desplegable: si és més alt, substitueix l'anterior.</p>
+    <div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${CES.map(k=>`<th>${k}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+document.addEventListener("change", e => {
+  const sel = e.target.closest && e.target.closest(".recsel"); if (!sel) return;
+  const key = mk("rec", sel.dataset.sid); const m = AV.marks[key] = Object.assign({}, AV.marks[key]);
+  if (sel.value) m[sel.dataset.rec] = sel.value; else delete m[sel.dataset.rec];
+  renderAval();
+  if (ST) ST.db.doc(`data/users/${ST.uid}/fq3-classe`).collection("aval").doc(`rec-${sel.dataset.sid}`).set({sda:"rec", v2:true, sid:sel.dataset.sid, marks:m}).catch(() => toast("No s'ha pogut desar la recuperació."));
+});
 function digHtml(n, st, r){
   if (!AV.dig) return "";
-  const sel = `<label class="w">Compta a la nota: <select id="avwf">${[0,10,15,20,25].map(v => `<option value="${v}"${v===AV.wf?" selected":""}>${v} %</option>`).join("")}</select></label>`;
+  const sel = `<label class="w"><input type="checkbox" id="avwf"${AV.wf ? " checked" : ""}> Compten com una evidència més</label>`;
   if (!st.did) return `<div class="avdig"><b>Fitxes del llibre digital</b><span class="note">Aquest alumne no té compte al llibre digital (o el nom no coincideix amb el de «Alumnat i codis»).</span></div>`;
   const d = r.dig || {lliurades:0, total:0, ws:[]};
   const wsl = d.ws.filter(w => w.status && w.status !== "draft").map(w => `<button type="button" data-dws="${esc(w.ws)}" title="${esc(w.title)}">${w.L ? chip(w.L.lv) : chip(null)}<span>${esc(String(w.title).replace(/^SdA \d+ · /,"").slice(0,38))}</span></button>`).join("");
   return `<div class="avdig"><div class="row" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b>Fitxes del llibre digital</b>${chip(d.lv)}<span class="w">${d.lliurades}/${d.total} lliurades</span><span style="flex:1"></span>${sel}</div>
     ${wsl ? `<div class="wsl">${wsl}</div>` : `<span class="note">Encara no ha lliurat cap fitxa digital d'aquesta SdA.</span>`}
-    <span class="note">Nivell de la correcció automàtica (o de la teva valoració, si ja has retornat la fitxa). Clica una fitxa per veure'n les respostes.${AV.wf ? ` Pesa un ${AV.wf} % a la nota orientativa.` : " Ara no compta a la nota orientativa."}</span></div>`;
+    <span class="note">Nivell de la correcció automàtica (o de la teva valoració, si ja has retornat la fitxa). Clica una fitxa per veure'n les respostes.${AV.wf ? " El nivell de les fitxes entra com una evidència més a la mitjana de cada competència de la SdA." : " Ara és només informatiu: no entra a la mitjana de les competències."}</span></div>`;
 }
 document.addEventListener("change", async e => {
   if (e.target.id !== "avwf") return;
-  AV.wf = Number(e.target.value) || 0; renderAval();
-  try { await window.FQStore.setSetting("pes_fitxes", AV.wf); toast(AV.wf ? `Les fitxes digitals compten un ${AV.wf} % a la nota orientativa.` : "Les fitxes digitals ja no compten a la nota."); } catch(er) { toast("No s'ha pogut desar el pes."); }
+  AV.wf = e.target.checked ? 1 : 0; renderAval();
+  try { await window.FQStore.setSetting("pes_fitxes", AV.wf); toast(AV.wf ? "Les fitxes digitals compten com una evidència més." : "Les fitxes digitals ja no entren a la mitjana."); } catch(er) { toast("No s'ha pogut desar el pes."); }
 });
 function addStudents(names){
   const fresh = names.map(s => s.trim()).filter(Boolean).filter(nm => !AV.students.some(s => s.name === nm)).map(nm => ({id: Date.now().toString(36) + Math.random().toString(36).slice(2,6), name: nm.slice(0,80)}));
@@ -1167,8 +1206,8 @@ function addStudents(names){
 }
 async function exportCsv(){
   const n = AV.sda, crits = critList(n);
-  const head = ["Alumne/a", ...crits.map(c => "Criteri " + c), ...EVAL[n].map(i => i.l), ...(AV.dig ? ["Fitxes digitals"] : []), "Nota orientativa"];
-  const rows = AV.students.map(s => { const r = summary(n, s.id); return [s.name, ...crits.map(c => r.crit[c]||""), ...EVAL[n].map(i => (r.inst[i.id]||{}).lv||""), ...(AV.dig ? [(r.dig && r.dig.lv) || ""] : []), r.nota!=null ? r.nota.toFixed(1).replace(".",",") : ""]; });
+  const head = ["Alumne/a", ...crits.map(c => "Criteri " + c), ...EVAL[n].map(i => i.l), ...(AV.dig ? ["Fitxes digitals"] : []), ...sdaCes(n)];
+  const rows = AV.students.map(s => { const r = summary(n, s.id); return [s.name, ...crits.map(c => r.crit[c]||""), ...EVAL[n].map(i => (r.inst[i.id]||{}).lv||""), ...(AV.dig ? [(r.dig && r.dig.lv) || ""] : []), ...sdaCes(n).map(c => r.ce[c] || "")]; });
   const csv = "﻿" + [head, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(";")).join("\r\n");
   const dl = await getDownloads();
   if (!dl) { toast("Per descarregar, obre aquesta pàgina des de claude.ai."); return; }
