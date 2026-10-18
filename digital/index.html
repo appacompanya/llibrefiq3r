@@ -316,6 +316,7 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
       <div class="vtitle"><span><span class="vk" id="vKick"></span> <span id="vInfo"></span></span><b id="vName"></b></div>
       <div class="vtools">
         <div class="zoom" role="group" aria-label="Mida"><button type="button" id="zOut" aria-label="Redueix">−</button><output id="zLbl">100 %</output><button type="button" id="zIn" aria-label="Amplia">+</button></div>
+        <a class="btn ghost" id="vDig" hidden target="_blank" rel="noopener">Fes-la al llibre digital</a>
         <button type="button" class="btn" id="vDl"></button>
       </div>
     </div>
@@ -564,7 +565,7 @@ function renderPanel(n){
     const acts = docs + links;
     const fig = x.fig ? `<figure class="fig"><img src="${x.fig.src}" alt="${esc(x.fig.alt)}" loading="lazy"><figcaption>${esc(x.fig.cap)}</figcaption></figure>` : "";
     const pic = x.pic === false ? `<span class="pend">Il·lustració<br>pendent</span>` : `<img src="../img/sda${s.n}-s${i+1}.png" alt="" loading="lazy">`;
-    return `<article class="ses" tabindex="0" aria-expanded="false" data-ses="${i}"><div class="pic">${pic}</div>
+    return `<article class="ses" id="s${i+1}" tabindex="0" aria-expanded="false" data-ses="${i}"><div class="pic">${pic}</div>
       <div class="body"><div class="hd"><span class="badge">${i+1}</span><h4>${esc(x.t)}</h4><span class="phase">${esc(x.ph)}</span>${(x.half ?? ((i+1)%2===0))?`<span class="grp half" title="Sessió desdoblada: mig grup">Mig grup</span>`:`<span class="grp" title="Grup sencer">Grup sencer</span>`}</div>
       <p>${ufr(esc(x.p))}</p>${fig}${acts?`<div class="acts">${acts}</div>`:""}</div></article>`;
   }).join("");
@@ -723,6 +724,13 @@ function route(nav){
     if (viewName !== "doc") { backHash = viewName === "sda" ? "sda" + current : (viewName === "home" ? "inici" : null); fromNav = !!nav && !!backHash; }
     openDoc(m[1]); return;
   }
+  if ((m = /^sda([1-6])-s(\d+)$/.exec(h))) {
+    const n = +m[1], k = +m[2];
+    if (current !== n) select(n);
+    document.documentElement.style.setProperty("--acc", `var(${SDAS[n-1].c})`); setView("sda", "sda" + n); closeDoc();
+    setTimeout(() => { const a = document.getElementById("s" + k); if (a) { document.querySelectorAll(".ses.sel").forEach(x => { x.classList.remove("sel"); x.setAttribute("aria-expanded","false"); }); a.classList.add("sel"); a.setAttribute("aria-expanded","true"); a.scrollIntoView({block:"center"}); } }, 60);
+    return;
+  }
   if ((m = /^sda([1-6])$/.exec(h))) {
     const n = +m[1];
     if (current !== n) { select(n); setView("sda", h); window.scrollTo(0, 0); }
@@ -738,6 +746,7 @@ let toAval = false;
 document.addEventListener("click", e => { if (e.target.closest("[data-aval]")) toAval = true; });
 
 /* --- visor PDF --- */
+const DIGITAL = new Set(["d1f1", "d1f2", "d1ellen", "dc0", "dcT", "d5ruta", "d5repte", "d5f1", "d5f2", "d5f3", "d5f4", "d5f5", "d5f6q", "d5prob", "d5f6", "d5hooke", "d5tfm", "d5diana", "d3ruta", "d3f1", "d3f2", "d3f3", "d3lab", "d3f4", "d3f5", "d3dos", "d3camp", "d3diana", "d1amp", "d2amp", "d2coav", "d3amp", "d4amp", "d5amp", "d6amp", "dcR1", "dcR2", "dcR3", "dcR4", "dcR5", "dcR6", "d6ruta", "d6repte", "d6f1", "d6lab", "d6f2", "d6pla", "d6diana", "d4ruta", "d4repte", "d4lab1", "d4f1", "d4lab2", "d4f2", "d4lab3", "d4f3", "d4dos", "d4diana", "d1ruta", "d1reg", "d1seg", "d1dens", "d1prov", "d1sep", "d1crom", "d1inf", "d1diana", "ruta", "repte", "lab", "f1", "f2", "video", "diana", "labc"]);
 const pdfCache = {};
 const ZOOMS = [0.75, 1, 1.25, 1.5, 2];
 let zi = 1, docTok = 0, vPages = [], io = null, docKey = null;
@@ -758,6 +767,7 @@ async function openDoc(k){
   const back = backHash || (n ? "sda" + n : "inici");
   document.getElementById("vBackL").textContent = back.startsWith("sda") ? `Torna a la SdA ${back.slice(3)}` : "Torna a l'inici";
   document.getElementById("vDl").innerHTML = ICON_DL + "Descarrega";
+  { const g = document.getElementById("vDig"); const ok = DIGITAL.has(k) && !d.t; g.hidden = !ok; if (ok) g.href = "digital/#fitxa-" + k; }
   document.title = d.l + " · " + "Física i química 3r ESO";
   const host = document.getElementById("vPages");
   host.innerHTML = `<div class="spin" role="status" aria-label="S'està carregant el full"></div>`;
