@@ -417,20 +417,20 @@ const L = {
   inv: {u:"https://llibrefiq3r.cat/docs/sda6-00-plantilla-inventari-energetic.xlsx", l:"Plantilla d'Excel: inventari energètic i pla d'estalvi"},
   reecat: {u:"https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf", l:"Red Eléctrica: balanç elèctric de Catalunya 2024"},
   circuits: {u:"https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc", l:"Simulació: kit de construcció de circuits"},
-  telkes: {u:"https://ethw.org/M%C3%A1ria_Telkes", l:"Mária Telkes, pionera de l'energia solar"},
+  telkes: {u:"https://ethw.org/M%C3%A1ria_Telkes", l:"Mária Telkes, pionera de l'energia solar", fr:1},
   tmbh2: {u:"https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola", l:"Notícia: TMB rep el primer bus d'hidrogen (2021)"},
   ajust: {u:"https://phet.colorado.edu/ca/simulations/balancing-chemical-equations", l:"Simulació: ajust d'equacions químiques"},
   ferida: {u:"https://www.cellimagelibrary.org/images/44511", l:"Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)", v:"https://cildata.crbs.ucsd.edu/media/videos/44511/44511_web.mp4", cr:"Cèl·lules epitelials de ronyó (MDCK) tancant una ferida de 300 µm. Assaf Zaritsky i Doron Kaplan, Cell Image Library CIL:44511 (domini públic)."},
   metastasi: {u:"https://www.cellimagelibrary.org/images/42160", l:"Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit", v:"https://cildata.crbs.ucsd.edu/media/videos/42160/42160_web.mp4", cr:"Fragment de tumor de mama humà que envaeix una matriu (una imatge cada 20 minuts; barra: 50 µm). Andrew Ewald, PNAS 2012. Cell Image Library CIL:42160 (CC BY)."},
-  cito: {u:"https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", l:"Imatge: el citoesquelet al microscopi de fluorescència"},
+  cito: {u:"https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", l:"Imatge: el citoesquelet al microscopi de fluorescència", img:"https://upload.wikimedia.org/wikipedia/commons/0/09/FluorescentCells.jpg", alt:"Cèl·lules endotelials amb el nucli en blau, els microtúbuls en verd i els filaments d\'actina en vermell", cr:"Nucli en blau (DAPI), microtúbuls en verd (tubulina) i filaments d\'actina en vermell. Imatge de domini públic, Wikimedia Commons."},
   febre: {u:"https://www.nature.com/articles/s41598-022-10858-w", l:"Article citat a la fitxa 6 (Khachaturyan et al., 2022)"},
   rogers: {u:"https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria", l:"Vídeo: un neutròfil persegueix un bacteri (D. Rogers)", v:"https://embryology.med.unsw.edu.au/embryology/images/3/36/Neutrophil_chasing_bacteria_movie.mp4", cr:"Pel·lícula de David Rogers (Universitat Vanderbilt, anys cinquanta). Font: UNSW Embryology (Dr Mark Hill)."},
   difusio: {u:"https://phet.colorado.edu/ca/simulations/diffusion", l:"Simulació: difusió"},
 
   rutherford: {u:"https://phet.colorado.edu/ca/simulations/rutherford-scattering", l:"Simulació: dispersió de Rutherford"},
   buildatom: {u:"https://phet.colorado.edu/ca/simulations/build-an-atom", l:"Simulació: construeix un àtom"},
-  simbat: {u:"sim-bateria.html", l:"Simulador: la bateria de liti per dins"},
-  simgas: {u:"sim-gasos.html", l:"Simulador: el model cineticomolecular dels gasos"},
+  simbat: {u:"sim-bateria.html", l:"Simulador: la bateria de liti per dins", an:1},
+  simgas: {u:"sim-gasos.html", l:"Simulador: el model cineticomolecular dels gasos", an:1},
   anajust: {u:"sim-ajust.html", l:"Animació: com s'ajusta una equació química", an:1},
   anenllac: {u:"sim-enllac.html", l:"Animació: enllaç iònic, covalent i metàl·lic", an:1},
   ancol: {u:"sim-colisions.html", l:"Animació: teoria de col·lisions i velocitat de reacció", an:1},
@@ -438,7 +438,7 @@ const L = {
   anmrua: {u:"sim-mrua.html", l:"Animació: MRU i MRUA amb la gràfica velocitat–temps", an:1},
   phetforces: {u:"https://phet.colorado.edu/ca/simulations/forces-and-motion-basics", l:"Simulació: forces i moviment"},
   phetfaraday: {u:"https://phet.colorado.edu/ca/simulations/faradays-electromagnetic-lab", l:"Simulació: laboratori electromagnètic de Faraday"},
-  ptable: {u:"https://ptable.com/", l:"Taula periòdica interactiva"},
+  ptable: {u:"https://ptable.com/", l:"Taula periòdica interactiva", fr:1},
   density: {u:"https://phet.colorado.edu/ca/simulations/density", l:"Simulació: densitat"},
   sugarsalt: {u:"https://phet.colorado.edu/ca/simulations/sugar-and-salt-solutions", l:"Simulació: sucre i sal en dissolució"},
   gasprop: {u:"https://phet.colorado.edu/ca/simulations/gas-properties", l:"Simulació: propietats dels gasos"},
@@ -536,9 +536,13 @@ const SDAS = [
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
 function dlBtn(k, ghost){ const d = D[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#doc-${k}">${ICON_DOC}${esc(d.l)}</a>`; }
+// recursos que s'obren dins del llibre: vídeo (v), imatge (i), animació o simulador propi (a), web incrustable (f)
+const PHET_RE = /^https:\/\/phet\.colorado\.edu\/ca\/simulations\/([a-z0-9-]+)$/, PHET_NOFR = new Set(["sugar-and-salt-solutions"]);
+function inBook(k){ const x = L[k]; if (!x) return null; if (x.v) return "v"; if (x.img) return "i"; if (x.an) return "a"; if (x.fr) return "f";
+  const m = PHET_RE.exec(x.u || ""); return m && !PHET_NOFR.has(m[1]) ? "f" : null; }
+function inBookSrc(x){ if (x.an) return x.u + "?emb=1"; const m = PHET_RE.exec(x.u || ""); if (m) return `https://phet.colorado.edu/sims/html/${m[1]}/latest/${m[1]}_all.html?locale=ca`; return x.fr === 1 ? x.u : x.fr; }
 function linkBtn(u, l, k){
-  if (k && L[k] && L[k].an) return `<button type="button" class="btn link vid" data-anim="${k}">▶ ${esc(l)}</button>`;
-  if (k && L[k] && L[k].v) return `<button type="button" class="btn link vid" data-video="${k}">▶ ${esc(l)}</button>`; const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
+  if (k && inBook(k)) return `<button type="button" class="btn link vid" data-open="${k}">${inBook(k)==="i"?"🔍":"▶"} ${esc(l)}</button>`; const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
 
 function renderTabs(cur){
   document.getElementById("tabs").innerHTML = SDAS.map(s =>
@@ -854,34 +858,40 @@ setZoom(1);
 
 route();
 </script>
-<dialog id="vidDlg" aria-label="Vídeo">
+<dialog id="vidDlg" aria-labelledby="vidTitle">
   <div class="vd-head"><b id="vidTitle"></b><button type="button" class="btn ghost" id="vidClose">Tanca ✕</button></div>
-  <video id="vidEl" controls playsinline preload="metadata"></video>
-  <iframe id="vidFr" title="Animació" hidden></iframe>
-  <p class="vd-err" id="vidErr" hidden>No s'ha pogut carregar el vídeo aquí. <a id="vidSrc2" target="_blank" rel="noopener">Obre'l a la font original</a>.</p>
-  <p class="vd-cr"><span id="vidCr"></span> <a id="vidSrc" target="_blank" rel="noopener">Font original</a></p>
+  <video id="vidEl" controls playsinline preload="metadata" hidden></video>
+  <iframe id="vidFr" title="" hidden allow="fullscreen" allowfullscreen></iframe>
+  <figure id="vidFig" hidden><img id="vidImg" alt=""></figure>
+  <p class="vd-err" id="vidErr" hidden>No s'ha pogut carregar aquí. <a id="vidSrc2" target="_blank" rel="noopener">Obre-ho a la font original</a>.</p>
+  <p class="vd-cr"><span id="vidCr"></span> <a id="vidSrc" target="_blank" rel="noopener">Obre-ho en una pestanya nova ↗</a></p>
 </dialog>
 <style>
-#vidDlg{border:0;border-radius:14px;padding:14px;width:min(920px,94vw);max-height:92vh;background:#fff;color:#1f2328;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#vidDlg{border:0;border-radius:14px;padding:14px;width:min(920px,94vw);max-height:94vh;background:#fff;color:#1f2328;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 #vidDlg::backdrop{background:rgba(15,20,25,.72)}
 #vidDlg .vd-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
 #vidDlg video{width:100%;max-height:70vh;background:#000;border-radius:8px;display:block}
-#vidDlg.anim{width:min(1200px,96vw)}#vidDlg iframe{width:100%;height:min(80vh,700px);border:0;border-radius:8px;display:block;background:#f6f5f2}
+#vidDlg.wide{width:min(1200px,96vw)}#vidDlg iframe{width:100%;height:min(78vh,720px);border:0;border-radius:8px;display:block;background:#f6f5f2}
+#vidDlg figure{margin:0}#vidDlg img{display:block;max-width:100%;max-height:74vh;margin:0 auto;border-radius:8px}
 #vidDlg .vd-cr{font-size:13px;color:#5d646d;margin:8px 0 0}#vidDlg .vd-err{color:#B4570F}
 </style>
 <script>
 (function(){
-  const dlg=document.getElementById("vidDlg"), v=document.getElementById("vidEl");
-  function open(k){ const x=L[k]; document.getElementById("vidTitle").textContent=x.l.replace(/^Vídeo:\s*/,"");
-    document.getElementById("vidCr").textContent=x.cr||""; ["vidSrc","vidSrc2"].forEach(id=>document.getElementById(id).href=x.u);
-    document.getElementById("vidErr").hidden=true; dlg.classList.remove("anim"); fr.hidden=true; v.hidden=false; document.querySelector("#vidDlg .vd-cr").hidden=false; v.src=x.v; dlg.showModal(); v.play().catch(()=>{}); }
-  const fr=document.getElementById("vidFr");
-  function openAnim(k){ const x=L[k]; const tt=x.l.replace(/^Animació:\s*/,""); document.getElementById("vidTitle").textContent=tt.charAt(0).toUpperCase()+tt.slice(1);
-    v.hidden=true; document.getElementById("vidErr").hidden=true; document.querySelector("#vidDlg .vd-cr").hidden=true; dlg.classList.add("anim"); fr.hidden=false; fr.src=x.u+"?emb=1"; dlg.showModal(); setTimeout(()=>{try{fr.focus();}catch(e){}},300); }
-  v.addEventListener("error",()=>{document.getElementById("vidErr").hidden=false;});
-  document.addEventListener("click",e=>{const b=e.target.closest("[data-video]"); if(b){e.preventDefault(); open(b.dataset.video);} const a=e.target.closest("[data-anim]"); if(a){e.preventDefault(); openAnim(a.dataset.anim);}});
-  document.getElementById("vidClose").onclick=()=>dlg.close();
-  dlg.addEventListener("close",()=>{ if (dlg.open) return; v.pause(); v.removeAttribute("src"); v.load(); fr.removeAttribute("src");});
+  const $i=id=>document.getElementById(id);
+  const dlg=$i("vidDlg"), v=$i("vidEl"), fr=$i("vidFr"), fig=$i("vidFig"), img=$i("vidImg");
+  function open(k){ const x=L[k], t=inBook(k); if(!t) return;
+    let tt=x.l.replace(/^(Vídeo|Animació|Simulació|Simulador|Imatge):\s*/,""); tt=tt.charAt(0).toUpperCase()+tt.slice(1); $i("vidTitle").textContent=tt;
+    v.hidden=fr.hidden=fig.hidden=true; $i("vidErr").hidden=true;
+    $i("vidCr").textContent=x.cr||""; ["vidSrc","vidSrc2"].forEach(id=>$i(id).href=x.u); $i("vidSrc").hidden=!!x.an;
+    dlg.classList.toggle("wide", t==="a"||t==="f");
+    if(t==="v"){ v.hidden=false; v.src=x.v; dlg.showModal(); v.play().catch(()=>{}); return; }
+    if(t==="i"){ fig.hidden=false; img.alt=x.alt||tt; img.src=x.img; dlg.showModal(); return; }
+    fr.hidden=false; fr.title=tt; fr.src=inBookSrc(x); dlg.showModal(); setTimeout(()=>{try{fr.focus();}catch(e){}},300); }
+  v.addEventListener("error",()=>{ if(v.getAttribute("src")) $i("vidErr").hidden=false;});
+  img.addEventListener("error",()=>{ if(img.getAttribute("src")) $i("vidErr").hidden=false;});
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-open]"); if(b){e.preventDefault(); open(b.dataset.open);}});
+  $i("vidClose").onclick=()=>dlg.close();
+  dlg.addEventListener("close",()=>{ if (dlg.open) return; v.pause(); v.removeAttribute("src"); v.load(); fr.removeAttribute("src"); img.removeAttribute("src");});
   dlg.addEventListener("click",e=>{if(e.target===dlg) dlg.close();});
 })();
 </script>
