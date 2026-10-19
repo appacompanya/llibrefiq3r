@@ -431,13 +431,13 @@ const L = {
   telkes: {u:"https://ethw.org/M%C3%A1ria_Telkes", l:"Mária Telkes, pionera de l'energia solar"},
   tmbh2: {u:"https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola", l:"Notícia: TMB rep el primer bus d'hidrogen (2021)"},
   ajust: {u:"https://phet.colorado.edu/ca/simulations/balancing-chemical-equations", l:"Simulació: ajust d'equacions químiques"},
-  ferida: {u:"https://www.cellimagelibrary.org/images/44511", l:"Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)"},
-  metastasi: {u:"https://calisphere.org/item/ark:/20775/bb4990858p", l:"Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit"},
+  ferida: {u:"https://www.cellimagelibrary.org/images/44511", l:"Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)", v:"https://cildata.crbs.ucsd.edu/media/videos/44511/44511_web.mp4", cr:"Cèl·lules epitelials de ronyó (MDCK) tancant una ferida de 300 µm. Assaf Zaritsky i Doron Kaplan, Cell Image Library CIL:44511 (domini públic)."},
+  metastasi: {u:"https://www.cellimagelibrary.org/images/42160", l:"Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit", v:"https://cildata.crbs.ucsd.edu/media/videos/42160/42160_web.mp4", cr:"Fragment de tumor de mama humà que envaeix una matriu (una imatge cada 20 minuts; barra: 50 µm). Andrew Ewald, PNAS 2012. Cell Image Library CIL:42160 (CC BY)."},
   cito: {u:"https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", l:"Imatge: el citoesquelet al microscopi de fluorescència"},
   febre: {u:"https://www.nature.com/articles/s41598-022-10858-w", l:"Article citat a la fitxa 6 (Khachaturyan et al., 2022)"},
-  rogers: {u:"https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria", l:"Vídeo: un neutròfil persegueix un bacteri (D. Rogers)"},
+  rogers: {u:"https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria", l:"Vídeo: un neutròfil persegueix un bacteri (D. Rogers)", v:"https://embryology.med.unsw.edu.au/embryology/images/3/36/Neutrophil_chasing_bacteria_movie.mp4", cr:"Pel·lícula de David Rogers (Universitat Vanderbilt, anys cinquanta). Font: UNSW Embryology (Dr Mark Hill)."},
   difusio: {u:"https://phet.colorado.edu/ca/simulations/diffusion", l:"Simulació: difusió"},
-  irimia: {u:"https://www.cellimagelibrary.org/images/39519", l:"Vídeo real: neutròfils cap a l'fMLP"},
+
   rutherford: {u:"https://phet.colorado.edu/ca/simulations/rutherford-scattering", l:"Simulació: dispersió de Rutherford"},
   buildatom: {u:"https://phet.colorado.edu/ca/simulations/build-an-atom", l:"Simulació: construeix un àtom"},
   simbat: {u:"../sim-bateria.html", l:"Simulador: la bateria de liti per dins"},
@@ -540,7 +540,8 @@ const SDAS = [
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
 function dlBtn(k, ghost){ const d = D[k]; const dg = window.FITXES && window.FITXES[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#${dg ? "fitxa" : "doc"}-${k}">${ICON_DOC}${esc(d.l)}${dg ? '<span class="dig">digital</span>' : ""}</a>`; }
-function linkBtn(u, l){ const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
+function linkBtn(u, l, k){
+  if (k && L[k] && L[k].v) return `<button type="button" class="btn link vid" data-video="${k}">▶ ${esc(l)}</button>`; const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
 
 function renderTabs(cur){
   document.getElementById("tabs").innerHTML = SDAS.map(s =>
@@ -561,7 +562,7 @@ function renderPanel(n){
   }
   const ses = s.sessions.map((x,i) => {
     const docs = x.d.map(k => dlBtn(k)).join("") + (MODE==="profe" ? (x.dt||[]).map(k => dlBtn(k)).join("") : "");
-    const links = x.l.map(k => linkBtn(L[k].u, L[k].l)).join("");
+    const links = x.l.map(k => linkBtn(L[k].u, L[k].l, k)).join("");
     const acts = docs + links;
     const fig = x.fig ? `<figure class="fig"><img src="${x.fig.src}" alt="${esc(x.fig.alt)}" loading="lazy"><figcaption>${esc(x.fig.cap)}</figcaption></figure>` : "";
     const pic = x.pic === false ? `<span class="pend">Il·lustració<br>pendent</span>` : `<img src="../img/sda${s.n}-s${i+1}.png" alt="" loading="lazy">`;
@@ -858,6 +859,32 @@ setZoom(1);
 window.SDAS = SDAS; window.D = D;
 window.FQShowView = (n) => setView(n, location.hash.slice(1));
 route();
+</script>
+<dialog id="vidDlg" aria-label="Vídeo">
+  <div class="vd-head"><b id="vidTitle"></b><button type="button" class="btn ghost" id="vidClose">Tanca ✕</button></div>
+  <video id="vidEl" controls playsinline preload="metadata"></video>
+  <p class="vd-err" id="vidErr" hidden>No s'ha pogut carregar el vídeo aquí. <a id="vidSrc2" target="_blank" rel="noopener">Obre'l a la font original</a>.</p>
+  <p class="vd-cr"><span id="vidCr"></span> <a id="vidSrc" target="_blank" rel="noopener">Font original</a></p>
+</dialog>
+<style>
+#vidDlg{border:0;border-radius:14px;padding:14px;width:min(920px,94vw);max-height:92vh;background:#fff;color:#1f2328;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#vidDlg::backdrop{background:rgba(15,20,25,.72)}
+#vidDlg .vd-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+#vidDlg video{width:100%;max-height:70vh;background:#000;border-radius:8px;display:block}
+#vidDlg .vd-cr{font-size:13px;color:#5d646d;margin:8px 0 0}#vidDlg .vd-err{color:#B4570F}
+</style>
+<script>
+(function(){
+  const dlg=document.getElementById("vidDlg"), v=document.getElementById("vidEl");
+  function open(k){ const x=L[k]; document.getElementById("vidTitle").textContent=x.l.replace(/^Vídeo:\s*/,"");
+    document.getElementById("vidCr").textContent=x.cr||""; ["vidSrc","vidSrc2"].forEach(id=>document.getElementById(id).href=x.u);
+    document.getElementById("vidErr").hidden=true; v.src=x.v; dlg.showModal(); v.play().catch(()=>{}); }
+  v.addEventListener("error",()=>{document.getElementById("vidErr").hidden=false;});
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-video]"); if(b){e.preventDefault(); open(b.dataset.video);}});
+  document.getElementById("vidClose").onclick=()=>dlg.close();
+  dlg.addEventListener("close",()=>{v.pause(); v.removeAttribute("src"); v.load();});
+  dlg.addEventListener("click",e=>{if(e.target===dlg) dlg.close();});
+})();
 </script>
 <script src="js/alumne.js"></script>
 </body>
