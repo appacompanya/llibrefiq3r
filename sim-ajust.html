@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ajust d'equacions químiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Animació pas a pas: escena (esquerra) i explicació amb botons (dreta) */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5; --chip:#efece6;
+  --acc:#C9621C; --acc-soft:#FBEADD; --cold:#2f6db5; --hot:#c2413a; --ok:#2e7d4f; --stage:#fbfaf8;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --ok:#5fc08a; --stage:#191c22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --ok:#5fc08a; --stage:#191c22; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1160px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px));display:grid;gap:16px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+.top a{color:var(--acc);font-weight:700;text-decoration:none}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1;margin:.15em 0 0;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.2rem;line-height:1.2;margin:0;text-wrap:balance}
+.lead{color:var(--muted);max-width:72ch;margin:0}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:900px){.sim{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px;min-width:0}
+canvas{display:block;width:100%;height:auto;background:var(--stage);border-radius:10px}
+.pas{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dots button{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line);background:var(--chip);padding:0;cursor:pointer}
+.dots button[aria-current=step]{background:var(--acc);border-color:var(--acc)}
+.dots button.vist{background:var(--acc-soft);border-color:var(--acc)}
+.txt{font-size:1.02rem;display:grid;gap:8px}
+.txt p{margin:0}
+.txt b{color:var(--acc)}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-size:.95rem;font-weight:700;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:8px 14px;cursor:pointer;min-height:44px}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,.dots button:focus-visible{outline:3px solid color-mix(in srgb,var(--acc) 50%,transparent);outline-offset:2px}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-2px;margin-right:4px;border:1px solid #0003}
+.hint{font-size:.85rem;color:var(--muted);margin:0}
+table.cnt{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+table.cnt th,table.cnt td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:center}
+table.cnt th{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+table.cnt td:first-child,table.cnt th:first-child{text-align:left}
+.si{color:var(--ok);font-weight:800}.no{color:var(--hot);font-weight:800}
+.read{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.read div{background:var(--chip);border-radius:10px;padding:7px 10px;display:grid}
+.read span{font-size:.76rem;color:var(--muted);font-weight:700}
+.read b{font-size:1.2rem;font-variant-numeric:tabular-nums;font-family:var(--display)}
+.eqs{display:grid;gap:6px;font-size:.95rem}
+.eqs div{background:var(--chip);border-radius:10px;padding:6px 10px;border:1.5px solid transparent}
+.eqs div.on{border-color:var(--acc);background:var(--acc-soft)}
+.eqs span{display:block;font-size:.74rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+body.emb .top,body.emb .lead{display:none}
+body.emb .wrap{padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Física i química · 3r ESO · SdA 4 · Un cotxe que només allibera aigua?</div>
+      <h1>Com s'ajusta una equació química</h1>
+    </div>
+    <a href="index.html" id="tornar">← Torna al llibre</a>
+  </div>
+  <p class="lead">Animació pas a pas amb models de boles: comptem els àtoms de cada element i ajustem l'equació canviant només els coeficients.</p>
+  <div class="sim">
+    <div class="card">
+      <canvas id="cv" role="img" aria-label=""></canvas>
+      <div class="legend"><span><i class="sw" style="background:#ffffff"></i>hidrogen (H)</span><span><i class="sw" style="background:#ee5a4e"></i>oxigen (O)</span><span><i class="sw" style="background:#5b616b"></i>carboni (C)</span></div>
+    </div>
+    <div class="card" aria-label="Explicació pas a pas">
+      <div class="pas"><span id="pas"></span><div class="dots" id="dots"></div></div>
+      <h2 id="tit"></h2>
+      <div id="txt" class="txt" aria-live="polite"></div>
+      <div class="ctrls">
+        <button type="button" class="btn" id="prev">◀ Anterior</button>
+        <button type="button" class="btn" id="rep">↺ Repeteix</button>
+        <button type="button" class="btn pri" id="next">Següent ▶</button>
+      </div>
+      <div id="extra"></div>
+      <p class="hint">Animació sense so. També pots avançar amb les fletxes del teclat.</p>
+    </div>
+  </div>
+</div>
+<script>
+"use strict";
+const $=s=>document.querySelector(s);
+const root=document.documentElement;
+if (window.self!==window.top || /[?&]emb=1/.test(location.search)) document.body.classList.add("emb");
+let C={};
+function readColors(){const cs=getComputedStyle(root);for(const k of ["bg","surface","fg","muted","line","chip","acc","acc-soft","cold","hot","ok","stage"])C[k]=cs.getPropertyValue("--"+k).trim();}
+readColors();
+const FONT='"Atkinson Hyperlegible",system-ui,sans-serif', DFONT='"Bricolage Grotesque",Georgia,serif';
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const pop=t=>t<=0?0:t>=1?1:1+2.2*Math.pow(t-1,3)+1.2*Math.pow(t-1,2);
+const fmt=(n,d=1)=>{const s=n.toFixed(d);return (/^-0[.,]?0*$/.test(s)?s.slice(1):s).replace(".",",").replace("-","−");};
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+let ctx;
+function T(s,x,y,o={}){ctx.save();ctx.font=(o.w||600)+" "+(o.s||16)+"px "+(o.f||FONT);ctx.fillStyle=o.c||C.fg;ctx.textAlign=o.a||"center";ctx.textBaseline=o.b||"middle";if(o.al!=null)ctx.globalAlpha*=o.al;ctx.fillText(s,x,y);ctx.restore();}
+function WR(s,x,y,mw,lh,o={}){ctx.save();ctx.font=(o.w||400)+" "+(o.s||15)+"px "+(o.f||FONT);ctx.fillStyle=o.c||C.fg;ctx.textAlign=o.a||"left";ctx.textBaseline="top";if(o.al!=null)ctx.globalAlpha*=o.al;let line="",yy=y;for(const w of s.split(" ")){const tst=line?line+" "+w:w;if(ctx.measureText(tst).width>mw&&line){ctx.fillText(line,x,yy);line=w;yy+=lh}else line=tst}if(line)ctx.fillText(line,x,yy);ctx.restore();return yy+lh;}
+function RR(x,y,w,h,r){ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x,y,w,h,r);else ctx.rect(x,y,w,h);}
+function ARROW(x1,y1,x2,y2,o={}){const a=Math.atan2(y2-y1,x2-x1),h=o.h||12;ctx.save();ctx.strokeStyle=ctx.fillStyle=o.c||C.fg;ctx.lineWidth=o.lw||3;ctx.lineCap="round";if(o.al!=null)ctx.globalAlpha*=o.al;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2-Math.cos(a)*h*.6,y2-Math.sin(a)*h*.6);ctx.stroke();ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-Math.cos(a-.45)*h,y2-Math.sin(a-.45)*h);ctx.lineTo(x2-Math.cos(a+.45)*h,y2-Math.sin(a+.45)*h);ctx.closePath();ctx.fill();ctx.restore();}
+function BALL(x,y,r,fill,edge,o={}){if(r<=.3)return;ctx.save();if(o.al!=null)ctx.globalAlpha*=o.al;const g=ctx.createRadialGradient(x-r*.35,y-r*.4,r*.08,x,y,r);g.addColorStop(0,"#ffffff");g.addColorStop(.32,fill);g.addColorStop(1,edge);ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();ctx.lineWidth=1.2;ctx.strokeStyle=o.s||"rgba(0,0,0,.35)";ctx.stroke();if(o.l&&r>7)T(o.l,x,y+.5,{s:Math.round(r*(o.ls||.9)),w:700,c:o.lc||"#fff"});ctx.restore();}
+</script>
+<script>
+// Ajust d'equacions químiques amb models de boles
+const K=1.45;
+const ATOM={H:{r:13*K,f:"#ffffff",e:"#c9d0d7",lc:"#1f2328"},O:{r:21*K,f:"#ee5a4e",e:"#a8251b",lc:"#fff"},C:{r:21*K,f:"#5b616b",e:"#24282e",lc:"#fff"}};
+const MOL={
+  H2:[["H",-11,0],["H",11,0]],
+  O2:[["O",-17,0],["O",17,0]],
+  H2O:[["H",-21,11],["H",21,11],["O",0,-5]],
+  H2O2:[["H",-38,-17],["H",38,17],["O",-15,0],["O",15,0]],
+  CH4:[["H",0,-27],["H",0,27],["H",-27,0],["H",27,0],["C",0,0]],
+  CO2:[["O",-36,0],["O",36,0],["C",0,0]]
+};
+for(const k in MOL)MOL[k]=MOL[k].map(([e,x,y])=>[e,x*K,y*K]);
+const NAME={H2:"H₂",O2:"O₂",H2O:"H₂O",H2O2:"H₂O₂",CH4:"CH₄",CO2:"CO₂"};
+const CY=185, ZL=[24,420], ZR=[540,936];
+function layout(side,z){const n=side.length,pw=40,cw=(z[1]-z[0]-pw*(n-1))/n;const mols=[],plus=[];
+  side.forEach(([sp,k],c)=>{const cx=z[0]+c*(cw+pw)+cw/2,gap=124,y0=CY-(k-1)*gap/2;for(let j=0;j<k;j++)mols.push({sp,j,c,x:cx,y:y0+j*gap});if(c<n-1)plus.push(cx+cw/2+pw/2);});
+  return {mols,plus};}
+function atomsOf(lay){const out=[];for(const m of lay.mols)for(const [el,dx,dy] of MOL[m.sp])out.push({el,x:m.x+dx,y:m.y+dy,cx:m.x,cy:m.y});return out;}
+function drawAtom(a,sc,al,hl,sec){const A=ATOM[a.el];BALL(a.x,a.y,A.r*sc,A.f,A.e,{l:a.el,lc:A.lc,al});
+  if(hl&&sc>.5){ctx.save();ctx.globalAlpha=.55+.45*Math.sin(sec*5);ctx.strokeStyle=C.acc;ctx.lineWidth=3;ctx.beginPath();ctx.arc(a.x,a.y,A.r*sc+5,0,7);ctx.stroke();ctx.restore();}}
+function drawMol(m,sc,al,hl,sec){for(const [el,dx,dy] of MOL[m.sp])drawAtom({el,x:m.x+dx*sc,y:m.y+dy*sc},sc,al,hl===el,sec);}
+function count(scene){const r={L:{H:0,O:0,C:0},R:{H:0,O:0,C:0}};for(const s of ["L","R"])for(const [sp,k] of scene[s])for(const [el] of MOL[sp])r[s][el]+=k;return r;}
+function arrow(){ARROW(448,CY,512,CY,{c:C.fg,lw:4,h:16});}
+function plusSigns(lay){for(const x of lay.plus)T("+",x,CY,{s:34,w:700,c:C.muted});}
+function equation(scene,al=1){const segs=[];const side=(arr)=>arr.forEach(([sp,k],c)=>{if(c)segs.push([" + ",0]);if(k>1)segs.push([k+" ",1]);segs.push([NAME[sp],0]);});
+  side(scene.L);segs.push(["  →  ",0]);side(scene.R);
+  ctx.save();ctx.font="700 32px "+FONT;let w=0;for(const [s] of segs)w+=ctx.measureText(s).width;let x=480-w/2;ctx.textBaseline="middle";ctx.globalAlpha=al;
+  for(const [s,a] of segs){ctx.fillStyle=a?C.acc:C.fg;ctx.fillText(s,x,372);x+=ctx.measureText(s).width;}ctx.restore();}
+function labels(){T("REACTIUS",222,40,{s:13,w:700,c:C.muted});T("PRODUCTES",738,40,{s:13,w:700,c:C.muted});}
+function prevScene(){const k=SIM.steps.indexOf(SIM.cur);for(let j=k-1;j>=0;j--){const s=SIM.steps[j];if(s.sc)return s.sc;}return null;}
+function drawScene(s,t,sec){const sc=s.sc,show=s.show||sc,pv=s.fresh?null:prevScene();
+  labels();arrow();
+  for(const side of ["L","R"]){const lay=layout(show[side],side==="L"?ZL:ZR);plusSigns(lay);
+    for(const m of lay.mols){const had=pv&&pv[side].some(([sp,k])=>sp===m.sp&&k>m.j)&&!(s.show&&side==="R");
+      const p=had?1:pop(ease(clamp(t*1.25)));drawMol(m,p,1,s.hl,sec);}}
+  if(s.show){ctx.save();ctx.strokeStyle=C.hot;ctx.lineWidth=7;ctx.lineCap="round";const k=ease(seg(t,.35,.75));
+    ctx.beginPath();ctx.moveTo(680,130);ctx.lineTo(lerp(680,800,k),lerp(130,270,k));ctx.stroke();
+    if(k>=1){ctx.beginPath();ctx.moveTo(800,130);ctx.lineTo(680,270);ctx.stroke();}ctx.restore();
+    T("H₂O₂ és aigua oxigenada: una altra substància!",738,306,{s:16,w:700,c:C.hot,al:seg(t,.6,1)});}
+  equation(show);}
+function drawReact(s,t,sec){const sc=s.sc;labels();arrow();
+  const la=layout(sc.L,ZL),ra=layout(sc.R,ZR);const A=atomsOf(la),B=atomsOf(ra);
+  const pairs=[];for(const el of ["C","O","H"]){const a=A.filter(z=>z.el===el).sort((p,q)=>p.y-q.y||p.x-q.x),b=B.filter(z=>z.el===el).sort((p,q)=>p.y-q.y||p.x-q.x);a.forEach((z,k)=>pairs.push([z,b[k]]));}
+  const s1=ease(seg(t,0,.18)),p=ease(seg(t,.22,.86));
+  if(t<.2)plusSigns(la);
+  if(t>.86)plusSigns(ra);
+  // les boles es dibuixen H primer perquè quedin darrere
+  const pos=pairs.map(([a,b])=>{let x=a.x+(a.x-a.cx)*.7*s1,y=a.y+(a.y-a.cy)*.7*s1+Math.sin(sec*30+a.x)*1.5*s1*(1-p);
+    if(p>0){x=lerp(x,b.x,p);y=lerp(y,b.y,p)-Math.sin(Math.PI*p)*46;}return {el:a.el,x,y};}).sort((u,v)=>(u.el==="H"?0:1)-(v.el==="H"?0:1));
+  for(const a of pos)drawAtom(a,1,1,null,sec);
+  T("Es trenquen enllaços…",222,320,{s:15,w:700,c:C.muted,al:seg(t,.05,.2)*(1-seg(t,.5,.7))});
+  T("…i els àtoms es reorganitzen",738,320,{s:15,w:700,c:C.muted,al:seg(t,.75,.95)});
+  equation(sc,seg(t,.8,1));}
+const H2O_1={L:[["H2",1],["O2",1]],R:[["H2O",1]]};
+const H2O_2={L:[["H2",1],["O2",1]],R:[["H2O",2]]};
+const H2O_3={L:[["H2",2],["O2",1]],R:[["H2O",2]]};
+const CH_1={L:[["CH4",1],["O2",1]],R:[["CO2",1],["H2O",1]]};
+const CH_2={L:[["CH4",1],["O2",1]],R:[["CO2",1],["H2O",2]]};
+const CH_3={L:[["CH4",1],["O2",2]],R:[["CO2",1],["H2O",2]]};
+const st=(o)=>Object.assign({d:1300,draw(t,sec){SIM.cur=this;(this.react?drawReact:drawScene)(this,t,sec);}},o);
+const SIM={W:960,H:420,cur:null,steps:[
+  st({t:"Hidrogen + oxigen → aigua",sc:H2O_1,fresh:true,x:"<p>Als autobusos d'hidrogen, dins la pila de combustible, l'hidrogen reacciona amb l'oxigen i es forma aigua. Primer escrivim les fórmules de reactius i productes: <b>H₂ + O₂ → H₂O</b>.</p><p>Cada bola és un àtom: blanca, hidrogen; vermella, oxigen.</p>"}),
+  st({t:"Comptem els àtoms",sc:H2O_1,hl:"O",loop:true,x:"<p>Comptem els àtoms de cada element a banda i banda (taula de sota). Hidrogen: 2 i 2. Oxigen: 2 a l'esquerra però només 1 a la dreta.</p><p>En una reacció els àtoms no es creen ni es destrueixen (<b>llei de Lavoisier</b>). L'equació encara <b>no està ajustada</b>.</p>"}),
+  st({t:"Error típic: canviar la fórmula",sc:H2O_1,show:{L:H2O_1.L,R:[["H2O2",1]]},d:1800,x:"<p>Si escrivíssim H₂O₂ els comptes quadrarien… però H₂O₂ és <b>aigua oxigenada</b>, una substància diferent!</p><p>Mai no canviem els subíndexs d'una fórmula. Només podem canviar <b>quantes molècules</b> hi ha: els <b>coeficients</b>.</p>"}),
+  st({t:"Coeficient 2 davant de l'aigua",sc:H2O_2,hl:"H",loop:true,x:"<p>Hi posem una molècula d'aigua més: <b>2 H₂O</b>. Ara l'oxigen quadra (2 i 2), però l'hidrogen no: 2 a l'esquerra i 4 a la dreta.</p>"}),
+  st({t:"Coeficient 2 davant de l'hidrogen",sc:H2O_3,x:"<p>Hi posem una molècula d'hidrogen més: <b>2 H₂</b>. Hidrogen: 4 i 4. Oxigen: 2 i 2. Ja està ajustada:</p><p><b>2 H₂ + O₂ → 2 H₂O</b></p><p>El coeficient 1 no s'escriu.</p>"}),
+  st({t:"Què passa de debò?",sc:H2O_3,react:true,d:3400,x:"<p>Es trenquen els enllaços de les molècules de reactius i els àtoms es <b>reorganitzen</b> per formar les molècules de producte.</p><p>Són els mateixos 6 àtoms abans i després: per això la massa es conserva.</p>"}),
+  st({t:"Un altre: la combustió del metà",sc:CH_1,fresh:true,x:"<p>El metà (CH₄) és el gas natural. Quan crema amb oxigen es formen diòxid de carboni i aigua: <b>CH₄ + O₂ → CO₂ + H₂O</b>. La bola gris és el carboni.</p><p>Carboni: 1 i 1. Hidrogen: 4 i 2. Oxigen: 2 i 3. Truc: deixem per al final l'element que surt en més substàncies (aquí, l'oxigen).</p>"}),
+  st({t:"Primer, l'hidrogen",sc:CH_2,hl:"O",loop:true,x:"<p>Per tenir 4 hidrògens a la dreta calen <b>2 H₂O</b>. Hidrogen: 4 i 4.</p><p>Ara l'oxigen: 2 a l'esquerra; a la dreta, 2 (del CO₂) + 2 (de les dues H₂O) = 4.</p>"}),
+  st({t:"Per acabar, l'oxigen",sc:CH_3,x:"<p>Per tenir 4 oxígens a l'esquerra calen <b>2 O₂</b>. Ara tot quadra:</p><p><b>CH₄ + 2 O₂ → CO₂ + 2 H₂O</b></p>"}),
+  st({t:"Els àtoms es reorganitzen",sc:CH_3,react:true,d:3600,x:"<p>Compta les boles de cada color abans i després: 1 de carboni, 4 d'hidrogen i 4 d'oxigen a cada banda.</p>"}),
+  st({t:"Com s'ajusta una equació",sc:CH_3,x:"<p>1. Escriu bé les fórmules de reactius i productes.</p><p>2. Compta els àtoms de cada element a cada banda.</p><p>3. Canvia només els <b>coeficients</b>, mai els subíndexs.</p><p>4. Comença pels elements que surten en una sola substància a cada banda; deixa per al final els que surten en moltes (sovint O i H).</p><p>5. Torna-ho a comptar tot.</p>"})
+],
+panel0(s){const c=count(s.show||s.sc);const els=["H","O","C"].filter(e=>c.L[e]||c.R[e]);const nm={H:"Hidrogen (H)",O:"Oxigen (O)",C:"Carboni (C)"};
+  $("#extra").innerHTML='<table class="cnt"><tr><th>Element</th><th>Reactius</th><th>Productes</th><th></th></tr>'+els.map(e=>`<tr><td>${nm[e]}</td><td>${c.L[e]}</td><td>${c.R[e]}</td><td>${c.L[e]===c.R[e]?'<span class="si">✓</span>':'<span class="no">✗</span>'}</td></tr>`).join("")+"</table>";}
+};
+
+</script>
+<script>
+(function(){
+const cv=$("#cv");ctx=cv.getContext("2d");
+const W=SIM.W,H=SIM.H;
+function fit(){const d=Math.min(2,window.devicePixelRatio||1);cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);}
+fit();
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const S=SIM.steps;let i=0,t0=0,raf=0,last=0;const vist=new Set();
+const dots=$("#dots");
+S.forEach((s,k)=>{const b=document.createElement("button");b.type="button";b.setAttribute("aria-label","Pas "+(k+1)+": "+s.t);b.onclick=()=>go(k);dots.appendChild(b);});
+function ui(){vist.add(i);$("#pas").textContent="Pas "+(i+1)+" de "+S.length;$("#tit").textContent=S[i].t;$("#txt").innerHTML=S[i].x;$("#prev").disabled=i===0;$("#next").disabled=i===S.length-1;
+  [...dots.children].forEach((b,k)=>{if(k===i)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");b.classList.toggle("vist",vist.has(k)&&k!==i);});
+  cv.setAttribute("aria-label",S[i].t+". "+$("#txt").textContent);
+  if(SIM.panel0)SIM.panel0(S[i],i);}
+function go(n){i=clamp(n,0,S.length-1);t0=performance.now();last=t0;if(S[i].init)S[i].init();ui();cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);}
+function tick(now){const s=S[i];const el=now-t0;const dt=Math.min(.04,Math.max(0,(now-last)/1000));last=now;
+  const t=reduce&&!s.loop?1:clamp(el/(s.d||1600));
+  ctx.clearRect(0,0,W,H);s.draw(t,el/1000,dt);if(SIM.panel)SIM.panel(s,t,el/1000);
+  if(t<1||s.loop)raf=requestAnimationFrame(tick);}
+function redraw(){cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);}
+$("#prev").onclick=()=>go(i-1);$("#next").onclick=()=>go(i+1);$("#rep").onclick=()=>go(i);
+document.addEventListener("keydown",e=>{if(e.target.closest&&e.target.closest("input,select,textarea"))return;if(e.key==="ArrowRight"){go(i+1);e.preventDefault();}else if(e.key==="ArrowLeft"){go(i-1);e.preventDefault();}});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{readColors();redraw();});
+new MutationObserver(()=>{readColors();redraw();}).observe(root,{attributes:true,attributeFilter:["data-theme"]});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(redraw);
+go(0);
+})();
+</script>
+</body>
+</html>
