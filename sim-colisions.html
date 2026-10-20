@@ -80,7 +80,7 @@ body.emb .wrap{padding-top:12px}
   <div class="sim">
     <div class="card">
       <canvas id="cv" role="img" aria-label=""></canvas>
-      <div class="legend"><span><i class="sw" style="background:#2f6db5"></i>partícula de reactiu A</span><span><i class="sw" style="background:#e08a2c"></i>partícula de reactiu B</span><span><i class="sw" style="background:#2e9d5b"></i>producte</span><span>Estrella groga: xoc eficaç.</span></div>
+      <div class="legend"><span><i class="sw" style="background:#2f6db5"></i>partícula de reactiu A</span><span><i class="sw" style="background:#e08a2c"></i>partícula de reactiu B</span><span><i class="sw" style="background:#2e9d5b"></i>producte</span><span>Estrella groga: xoc A–B eficaç. Cercle gris: xoc A–B que rebota.</span></div>
     </div>
     <div class="card" aria-label="Explicació pas a pas">
       <div class="pas"><span id="pas"></span><div class="dots" id="dots"></div></div>
@@ -132,7 +132,7 @@ Box.prototype.step=function(dt,showReb){const P=this.P,o=this.o;
   for(const p of P){if(p.fix)continue;p.x+=p.vx*dt;p.y+=p.vy*dt;
     if(p.x<this.x+p.r){p.x=this.x+p.r;p.vx=Math.abs(p.vx);}if(p.x>this.x+this.w-p.r){p.x=this.x+this.w-p.r;p.vx=-Math.abs(p.vx);}
     if(p.y<this.y+p.r){p.y=this.y+p.r;p.vy=Math.abs(p.vy);}if(p.y>this.y+this.h-p.r){p.y=this.y+this.h-p.r;p.vy=-Math.abs(p.vy);}}
-  for(let i=0;i<P.length;i++){const a=P[i];if(a.dead)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.dead||(a.fix&&b.fix))continue;if(a.k==="P"||b.k==="P")continue;
+  for(let i=0;i<P.length;i++){const a=P[i];if(a.dead)continue;for(let j=i+1;j<P.length;j++){const b=P[j];if(b.dead||(a.fix&&b.fix))continue;if(a.k==="P"||b.k==="P")continue;if(a.k===b.k)continue; // dues partícules del mateix reactiu no reaccionen: aquí es travessen
     const dx=b.x-a.x,dy=b.y-a.y,d2=dx*dx+dy*dy,rr=a.r+b.r;if(d2>=rr*rr||d2===0)continue;const d=Math.sqrt(d2),nx=dx/d,ny=dy/d;
     const rvx=b.vx-a.vx,rvy=b.vy-a.vy,vn=rvx*nx+rvy*ny;if(vn>=0)continue;
     const ab=(a.k==="A"&&(b.k==="B"||b.k==="S"))||(b.k==="A"&&(a.k==="B"||a.k==="S"));
@@ -151,21 +151,21 @@ Box.prototype.draw=function(){ctx.save();ctx.fillStyle=C.surface;ctx.strokeStyle
   if(this.title)T(this.title,this.x+this.w/2,this.y-20,{s:17,w:700});
   for(const p of this.P){const c=COLS[p.k];BALL(p.x,p.y,p.r,c[0],c[1]);}
   for(const f of this.fx){const k=f.a/.7;ctx.save();ctx.globalAlpha=1-k;if(f.ok){ctx.fillStyle="#f5c242";ctx.strokeStyle="#a87a00";ctx.lineWidth=1.5;star(f.x,f.y,10+22*k);ctx.fill();ctx.stroke();}
-    else{ctx.strokeStyle=C.muted;ctx.lineWidth=2;ctx.beginPath();ctx.arc(f.x,f.y,6+12*k,0,7);ctx.stroke();}ctx.restore();}
+    else{ctx.strokeStyle=C.muted;ctx.lineWidth=2.5;ctx.setLineDash([4,3]);ctx.beginPath();ctx.arc(f.x,f.y,10+14*k,0,7);ctx.stroke();ctx.setLineDash([]);ctx.font="700 12px "+FONT;ctx.fillStyle=C.muted;ctx.textAlign="center";ctx.fillText("rebot",f.x,f.y-30);}ctx.restore();}
   const lbl=`Producte format: ${this.n.p}`;T(lbl,this.x+this.w/2,this.y+this.h+22,{s:16,w:700,c:"#2e9d5b"});};
 function star(x,y,r){ctx.beginPath();for(let k=0;k<10;k++){const a=-Math.PI/2+k*Math.PI/5,rr=k%2?r*.45:r;ctx.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a));}ctx.closePath();}
 let BX=[];
 function run(dt,reb){const sub=3;for(let s=0;s<sub;s++)for(const b of BX)b.step(dt/sub,reb);for(const b of BX)b.draw();}
-const one=()=>[new Box(40,40,880,330,{seed:3,nA:14,nB:14,sig:90,vth:200})];
+const one=()=>[new Box(40,40,880,330,{seed:3,nA:14,nB:14,sig:90,vth:300})];
 const SIM={W:960,H:430,steps:[
   {t:"Per reaccionar, cal xocar",loop:true,init(){BX=one();},x:"<p>Les partícules dels reactius es mouen sense parar. Perquè reaccionin, s'han de <b>trobar i xocar</b>.</p><p>Aquí hi ha dos reactius: partícules blaves (A) i taronges (B). Quan un xoc entre A i B funciona, es forma una partícula de <b>producte</b> (verda).</p>",
     draw(t,sec,dt){run(dt,false);}},
-  {t:"No tots els xocs són eficaços",loop:true,init(){BX=one();},x:"<p>La majoria de xocs no fan res: les partícules <b>reboten</b> (cercle gris). Només reaccionen si xoquen amb prou energia per trencar enllaços: l'<b>energia d'activació</b>. També cal que xoquin amb l'orientació adequada.</p><p>Compara els xocs totals amb els xocs eficaços (estrella groga).</p>",
+  {t:"No tots els xocs són eficaços",loop:true,init(){BX=one();},x:"<p>La majoria de xocs no fan res: les partícules <b>reboten</b> (cercle gris). Només reaccionen si xoquen amb prou energia per trencar enllaços: l'<b>energia d'activació</b>. També cal que xoquin amb l'orientació adequada.</p><p>Compara els xocs A–B totals amb els xocs eficaços (estrella groga). Dues partícules del mateix reactiu (A amb A, o B amb B) no poden reaccionar: en aquest model es travessen i no compten.</p>",
     draw(t,sec,dt){run(dt,true);}},
-  {t:"Factor 1: la temperatura",loop:true,init(){BX=[new Box(30,50,430,320,{seed:5,nA:12,nB:12,sig:60,vth:200,title:"Freda"}),new Box(500,50,430,320,{seed:5,nA:12,nB:12,sig:125,vth:200,title:"Calenta"})];},
+  {t:"Factor 1: la temperatura",loop:true,init(){BX=[new Box(30,50,430,320,{seed:5,nA:12,nB:12,sig:60,vth:280,title:"Freda"}),new Box(500,50,430,320,{seed:5,nA:12,nB:12,sig:125,vth:280,title:"Calenta"})];},
     x:"<p>A més temperatura, les partícules es mouen <b>més de pressa</b>: xoquen més sovint i, sobretot, amb <b>més energia</b>. Molts més xocs superen l'energia d'activació.</p><p>Per això els aliments es conserven millor a la nevera: les reaccions que els fan malbé van més a poc a poc.</p>",
     draw(t,sec,dt){run(dt,true);}},
-  {t:"Factor 2: la concentració",loop:true,init(){BX=[new Box(30,50,430,320,{seed:8,nA:7,nB:7,sig:95,vth:200,title:"Diluïda"}),new Box(500,50,430,320,{seed:8,nA:24,nB:24,sig:95,vth:200,title:"Concentrada"})];},
+  {t:"Factor 2: la concentració",loop:true,init(){BX=[new Box(30,50,430,320,{seed:8,nA:7,nB:7,sig:95,vth:280,title:"Diluïda"}),new Box(500,50,430,320,{seed:8,nA:24,nB:24,sig:95,vth:280,title:"Concentrada"})];},
     x:"<p>Amb més partícules en el mateix volum (<b>més concentració</b>), es troben més sovint: hi ha més xocs cada segon i, per tant, més xocs eficaços.</p><p>Per exemple, un tros de fusta encès crema molt més de pressa en oxigen pur que a l'aire, que només en té un 21 %.</p>",
     draw(t,sec,dt){run(dt,true);}},
   {t:"Factor 3: la superfície de contacte",loop:true,init(){const b1=[[168,112,6]],b2=[];for(const bx of [60,196,332])for(const by of [45,141,237])b2.push([bx,by,2]);

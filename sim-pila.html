@@ -80,7 +80,7 @@ body.emb .wrap{padding-top:12px}
   <div class="sim">
     <div class="card">
       <canvas id="cv" role="img" aria-label=""></canvas>
-      <div class="legend"><span><i class="sw" style="background:#ffffff"></i>hidrogen</span><span><i class="sw" style="background:#ee5a4e"></i>oxigen</span><span><i class="sw" style="background:#e0453a"></i>ió H⁺</span><span><i class="sw" style="background:#2f6db5"></i>electró e⁻</span></div>
+      <div class="legend"><span><i class="sw" style="background:#ffffff"></i>hidrogen</span><span><i class="sw" style="background:#ee5a4e"></i>oxigen</span><span><i class="sw" style="background:#b44fd6;width:16px;height:16px;color:#fff;font:800 12px/14px system-ui;text-align:center;font-style:normal">+</i>ió H⁺</span><span><i class="sw" style="background:#2f6db5;width:16px;height:16px;color:#fff;font:800 12px/14px system-ui;text-align:center;font-style:normal">−</i>electró e⁻</span></div>
     </div>
     <div class="card" aria-label="Explicació pas a pas">
       <div class="pas"><span id="pas"></span><div class="dots" id="dots"></div></div>
@@ -128,7 +128,7 @@ function along(pts,f){let L=0;const seg2=[];for(let k=1;k<pts.length;k++){const 
 function H2(x,y,al=1,sep=0){BALL(x-9-sep,y,11,"#ffffff","#c9d0d7",{l:"H",lc:"#1f2328",al});BALL(x+9+sep,y,11,"#ffffff","#c9d0d7",{l:"H",lc:"#1f2328",al});}
 function O2(x,y,al=1){BALL(x-13,y,16,"#ee5a4e","#a8251b",{l:"O",al});BALL(x+13,y,16,"#ee5a4e","#a8251b",{l:"O",al});}
 function H2O(x,y,al=1,sc=1){BALL(x-15*sc,y+9*sc,11*sc,"#ffffff","#c9d0d7",{l:"H",lc:"#1f2328",al});BALL(x+15*sc,y+9*sc,11*sc,"#ffffff","#c9d0d7",{l:"H",lc:"#1f2328",al});BALL(x,y-4*sc,16*sc,"#ee5a4e","#a8251b",{l:"O",al});}
-function Hp(x,y,al=1){BALL(x,y,10,"#e0453a","#8f1d16",{l:"+",ls:1.2,al});}
+function Hp(x,y,al=1){BALL(x,y,10.5,"#b44fd6","#6a1f86",{l:"+",ls:1.3,al});}
 function El(x,y,al=1){BALL(x,y,7.5,"#4a8ad8","#1d4f91",{l:"−",ls:1.3,al});}
 function cell(glow,hl){ctx.save();
   ctx.fillStyle="rgba(120,170,230,.16)";ctx.fillRect(28,Y0+10,XA0-28,Y1-Y0-20);
