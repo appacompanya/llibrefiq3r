@@ -91,14 +91,14 @@
         const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
         const now = new Date().toISOString(); const rows = []; const review = [];
         const errs = (x) => { const e = []; if (!x.answer || x.answer === "(sense resposta)") e.push("incompleta"); else if (x.score != null && x.score < 0.95) { if (/unitat/i.test(String(x.auto))) e.push("unitats"); else e.push(/V |F |tf/.test(x.answer) ? "conceptual" : "càlcul"); } return e; };
-        items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && (x.score == null || x.photos)) review.push(x.id);
-          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "El professor revisarà aquesta resposta." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
+        items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && x.score == null) review.push(x.id);
+          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "Aquesta resposta la corregirà el professor (en mode demostració no hi ha IA)." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
           rows.push({ item_id: "auto:" + x.id, level: lv, comment: note, released: true, updated_at: now });
           const cur = db.feedback[k(sid, ws, x.id)] || { released: false }; db.feedback[k(sid, ws, x.id)] = { ...cur, proposal_level: lv, proposal_note: note }; });
         const sc = items.map((x) => x.score).filter((v) => v != null); const avg = sc.length ? sc.reduce((a, b) => a + b, 0) / sc.length : null;
-        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: review.length ? `Hi ha ${review.length === 1 ? "una pregunta" : review.length + " preguntes"} que revisarà el professor.` : avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
+        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: review.length ? `Hi ha ${review.length === 1 ? "una pregunta" : review.length + " preguntes"} que corregirà el professor.` : avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
         rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = r; });
-        const s = sub(sid, ws); if (s && s.status === "submitted") { s.review = review.length ? "pending" : "auto"; s.review_items = review; }
+        const s = sub(sid, ws); if (s && s.status === "submitted") { s.review = "pending"; s.review_items = review; }
         db.kv = db.kv || {}; db.kv[`errors/${sid}/${ws}`] = { sda, at: now, items: items.map((x) => ({ id: x.id, level: lvOf(x.score), errors: errs(x) })), global: rows[rows.length - 1].comment };
         save(); return rows;
       },

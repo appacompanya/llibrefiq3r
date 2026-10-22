@@ -318,7 +318,7 @@
   function htmlItems(spec, answers) {
     return Object.entries(spec.qs).map(([q, prompt]) => {
       const fids = Object.keys(spec.fields).filter((k) => spec.fields[k].q === q);
-      return { id: q, prompt, answer: fids.map((k) => answerSummary(spec, k, answers[k])).filter(Boolean).join(" · ") || "(sense resposta)", photos: fids.filter((k) => spec.fields[k].k === "photo").length };
+      return { id: q, prompt, answer: fids.map((k) => answerSummary(spec, k, answers[k])).filter(Boolean).join(" · ") || "(sense resposta)", photos: fids.filter((k) => spec.fields[k].k === "photo").length, photo_ids: fids.filter((k) => spec.fields[k].k === "photo") };
     });
   }
 
@@ -338,12 +338,12 @@
   function buildItems(spec, answers) {
     const strip = (h) => String(h || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
-    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica en foto: valora només la part escrita i digues a l'alumne que el professor revisarà el dibuix." : "", answer: x.answer, auto: null, score: null, photos: x.photos }));
+    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica que l'alumne adjunta en foto." : "", answer: x.answer, auto: null, score: null, photos: x.photos, photo_ids: x.photo_ids }));
     return spec.blocks.filter((b) => b.id).map((b) => {
-      if (b.type !== "group") { const r = checkItem(b, answers[b.id]); return { id: b.id, prompt: strip(b.prompt), expected: expOf(b), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
+      if (b.type !== "group") { const r = checkItem(b, answers[b.id]); return { photos: b.photo ? 1 : 0, photo_ids: b.photo ? [b.id] : [], id: b.id, prompt: strip(b.prompt), expected: expOf(b), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
       const parts = b.items.map((it) => ({ it, r: checkItem(it, answers[it.id]) }));
       const checked = parts.filter((x) => x.r.ok !== null); const good = checked.filter((x) => x.r.ok).length;
-      return { id: b.id, prompt: strip(b.prompt) + " " + b.items.map((it) => it.label).join(" · "), expected: b.items.map((it) => `${it.label}: ${expOf(it)}`).join(" · "), criteria: b.items.map((it) => it.criteria).filter(Boolean).join(" "),
+      return { photos: b.photo ? 1 : 0, photo_ids: b.photo ? [b.id] : [], id: b.id, prompt: strip(b.prompt) + " " + b.items.map((it) => it.label).join(" · "), expected: b.items.map((it) => `${it.label}: ${expOf(it)}`).join(" · "), criteria: b.items.map((it) => it.criteria).filter(Boolean).join(" "),
         answer: b.items.map((it) => `${it.label}: ${answerText(it, answers[it.id])}`).join(" | "), auto: checked.length ? `${good}/${checked.length} apartats correctes` : null, score: checked.length ? good / checked.length : null };
     });
   }
