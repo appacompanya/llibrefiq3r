@@ -1,73 +1,104 @@
-/* Capa de dades: Supabase (si config.js té URL i clau pública) o mode demostració (dades al navegador). */
+/* Capa de dades: Supabase (si config.js té URL i clau pública) o mode demostració (dades al navegador).
+   Rols: alumne (student), docent (teacher) i administrador (admin, també és docent).
+   Cada docent té cursos (2n, 3r o 4t d'ESO) i cada alumne és d'un curs. */
 (function (G) {
   "use strict";
   const CFG = G.FQ_CONFIG || {};
   const EMAIL_DOMAIN = "alumnes.llibrefq3.app";
   const normCode = (c) => String(c || "").toUpperCase().replace(/[^A-Z0-9]/g, "").replace(/^(.{4})(.{4})$/, "$1-$2");
+  const isStaff = (p) => !!p && (p.role === "teacher" || p.role === "admin");
+  const LEVELS = ["2n", "3r", "4t"];
+  /* curs triat a la zona del professorat (es recorda en aquest navegador) */
+  const CUR_KEY = "fq-curs";
+  const getCur = () => { try { return localStorage.getItem(CUR_KEY) || null; } catch { return null; } };
+  const setCur = (id) => { try { id ? localStorage.setItem(CUR_KEY, id) : localStorage.removeItem(CUR_KEY); } catch {} };
+  const month = () => new Date().toISOString().slice(0, 7);
 
   /* ---------------- Mode demostració ---------------- */
   function demoStore() {
-    const KEY = "fq3-demo-db-v1";
+    const KEY = "fq3-demo-db-v2";
     const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; } };
     let db = load();
     if (!db) {
-      db = { settings: { auto_calc: true }, students: [], responses: {}, submissions: {}, feedback: {}, photos: {} };
+      db = { settings: { auto_calc: true }, teachers: [{ id: "teacher", role: "admin", display_name: "Professor (demostració)", username: "docent" }],
+        courses: [{ id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } }],
+        students: [], responses: {}, submissions: {}, feedback: {}, photos: {} };
       ["Alumne/a 01 (exemple)", "Alumne/a 02 (exemple)", "Alumne/a 03 (exemple)"].forEach((n, i) =>
-        db.students.push({ id: "demo" + (i + 1), display_name: n, grup: "3r A", code: "DEMO-000" + (i + 1), role: "student" }));
+        db.students.push({ id: "demo" + (i + 1), display_name: n, grup: "3r A (exemple)", code: "DEMO-000" + (i + 1), role: "student", course_id: "c-demo" }));
     }
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch {} };
     let me = null; try { me = JSON.parse(sessionStorage.getItem("fq3-demo-me")); } catch {}
     const setMe = (p) => { me = p; try { p ? sessionStorage.setItem("fq3-demo-me", JSON.stringify(p)) : sessionStorage.removeItem("fq3-demo-me"); } catch {} };
     const k = (...a) => a.join("|");
+    const rid = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    const newCode = () => { const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let c = ""; for (let i = 0; i < 8; i++) c += A[Math.floor(Math.random() * A.length)]; return c.slice(0, 4) + "-" + c.slice(4); };
+    const course = (id) => db.courses.find((c) => c.id === id);
+    const mine = () => db.courses.filter((c) => me && (me.role === "admin" || c.teacher_id === me.id));
+    const sub = (sid, ws) => db.submissions[k(sid, ws)];
     return {
       mode: "demo", client: null,
       async init() { return me; },
       async signInStudent(code) { const s = db.students.find((x) => x.code === normCode(code)); if (!s) throw new Error("bad_code"); setMe(s); return s; },
-      async signInTeacher(user, pw) { if (String(user).trim().toLowerCase() !== "docent" || pw !== "docent") throw new Error("bad_login"); const t = { id: "teacher", role: "teacher", display_name: "Professor (demostració)" }; setMe(t); return t; },
+      async signInTeacher(user, pw) {
+        const t = db.teachers.find((x) => x.username === String(user).trim().toLowerCase());
+        if (!t || pw !== (t.password || "docent")) throw new Error("bad_login");
+        setMe(t); return t;
+      },
       async signOut() { setMe(null); },
       me: () => me,
-      async getSettings() { return { ...db.settings }; },
-      async setSetting(key, value) { db.settings[key] = value; save(); },
+      // cursos
+      curCourse: () => { const c = getCur(); return mine().some((x) => x.id === c) ? c : null; },
+      setCourse: setCur,
+      async listCourses() { return mine().map((c) => ({ ...c, teacher_name: (db.teachers.find((t) => t.id === c.teacher_id) || {}).display_name || "" })); },
+      async createCourse(name, level) { const c = { id: rid("c"), name: String(name).slice(0, 60), level, teacher_id: me.id, settings: { auto_calc: true } }; db.courses.push(c); save(); return c; },
+      async renameCourse(id, name) { const c = course(id); if (c) { c.name = String(name).slice(0, 60); db.students.filter((s) => s.course_id === id).forEach((s) => (s.grup = c.name)); save(); } },
+      async deleteCourse(id) { if (db.students.some((s) => s.course_id === id)) throw new Error("has_students"); db.courses = db.courses.filter((c) => c.id !== id); save(); },
+      async getSettings() {
+        const cid = me && me.role === "student" ? me.course_id : this.curCourse();
+        return { ...db.settings, ...((course(cid) || {}).settings || {}) };
+      },
+      async setSetting(key, value) { const c = course(this.curCourse()); if (c) { c.settings = { ...c.settings, [key]: value }; save(); } else { db.settings[key] = value; save(); } },
       async loadResponses(ws, sid = me.id) { const o = {}; for (const [kk, v] of Object.entries(db.responses)) { const [s, w, it] = kk.split("|"); if (s === sid && w === ws) o[it] = v; } return o; },
       async saveResponse(ws, item, answer) { db.responses[k(me.id, ws, item)] = answer; save(); },
-      async getSubmission(ws, sid = me.id) { return db.submissions[k(sid, ws)] || { status: "draft", photos: [] }; },
-      async submit(ws) { const s = db.submissions[k(me.id, ws)] || { photos: [] }; s.status = "submitted"; s.submitted_at = new Date().toISOString(); db.submissions[k(me.id, ws)] = s; save(); },
+      async getSubmission(ws, sid = me.id) { return sub(sid, ws) || { status: "draft", photos: [] }; },
+      async submit(ws) { const s = sub(me.id, ws) || { photos: [] }; s.status = "submitted"; s.submitted_at = new Date().toISOString(); s.review = null; s.review_items = []; db.submissions[k(me.id, ws)] = s; save(); },
       async addPhoto(ws, item, file) {
         const data = await new Promise((res) => { const r = new FileReader(); r.onload = () => res(r.result); r.readAsDataURL(file); });
         const path = `${me.id}/${ws}/${item || "full"}/${Date.now()}`; db.photos[path] = data;
-        const s = db.submissions[k(me.id, ws)] || { status: "draft", photos: [] }; s.photos = [...(s.photos || []), { path, item }]; db.submissions[k(me.id, ws)] = s; save(); return path;
+        const s = sub(me.id, ws) || { status: "draft", photos: [] }; s.photos = [...(s.photos || []), { path, item }]; db.submissions[k(me.id, ws)] = s; save(); return path;
       },
-      async removePhoto(ws, path) { delete db.photos[path]; const s = db.submissions[k(me.id, ws)]; if (s) s.photos = s.photos.filter((p) => p.path !== path); save(); },
+      async removePhoto(ws, path) { delete db.photos[path]; const s = sub(me.id, ws); if (s) s.photos = s.photos.filter((p) => p.path !== path); save(); },
       async photoUrl(path) { return db.photos[path] || ""; },
       async myFeedback(ws) { return Object.entries(db.feedback).filter(([kk, v]) => kk.startsWith(k(me.id, ws) + "|") && v.released).map(([kk, v]) => ({ item_id: kk.split("|")[2], ...v })); },
       // professorat
-      async listStudents() { return db.students.map((s) => ({ ...s })); },
-      async createStudents(names, grup) {
-        const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; const out = [];
-        for (const n of names) { let c = ""; for (let i = 0; i < 8; i++) c += A[Math.floor(Math.random() * A.length)]; c = c.slice(0, 4) + "-" + c.slice(4);
-          const s = { id: "s" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), display_name: n, grup, code: c, role: "student" }; db.students.push(s); out.push(s); }
+      async listStudents(cid = this.curCourse()) { const ids = new Set(mine().map((c) => c.id)); return db.students.filter((s) => cid ? s.course_id === cid : ids.has(s.course_id)).map((s) => ({ ...s })); },
+      async createStudents(names, cid = this.curCourse()) {
+        const c = course(cid); if (!c) throw new Error("bad_course"); const out = [];
+        for (const n of names) { const s = { id: rid("s"), display_name: n, grup: c.name, code: newCode(), role: "student", course_id: c.id }; db.students.push(s); out.push(s); }
         save(); return out;
       },
-      async resetCode(id) { const s = db.students.find((x) => x.id === id); const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let c = ""; for (let i = 0; i < 8; i++) c += A[Math.floor(Math.random() * A.length)]; s.code = c.slice(0, 4) + "-" + c.slice(4); save(); return s.code; },
+      async resetCode(id) { const s = db.students.find((x) => x.id === id); s.code = newCode(); save(); return s.code; },
       async deleteStudent(id) { db.students = db.students.filter((x) => x.id !== id); save(); },
       async listSubmissions() { return Object.entries(db.submissions).map(([kk, v]) => ({ student_id: kk.split("|")[0], worksheet_id: kk.split("|")[1], ...v })); },
       async listResponseKeys() { const s = new Set(); Object.keys(db.responses).forEach((kk) => { const [a, b] = kk.split("|"); s.add(a + "|" + b); }); return [...s].map((x) => ({ student_id: x.split("|")[0], worksheet_id: x.split("|")[1] })); },
       async feedbackFor(sid, ws) { return Object.entries(db.feedback).filter(([kk]) => kk.startsWith(k(sid, ws) + "|")).map(([kk, v]) => ({ item_id: kk.split("|")[2], ...v })); },
       async saveFeedback(sid, ws, rows) { rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = { ...(db.feedback[k(sid, ws, r.item_id)] || {}), ...r }; }); save(); },
-      async release(sid, ws) { Object.entries(db.feedback).forEach(([kk, v]) => { if (kk.startsWith(k(sid, ws) + "|")) v.released = true; }); const s = db.submissions[k(sid, ws)] || { photos: [] }; s.status = "returned"; s.returned_at = new Date().toISOString(); db.submissions[k(sid, ws)] = s; save(); },
-      async reopen(sid, ws) { const s = db.submissions[k(sid, ws)]; if (s) { s.status = "draft"; } Object.keys(db.feedback).forEach((kk) => { if (kk.startsWith(k(sid, ws) + "|auto:")) delete db.feedback[kk]; }); save(); },
-      async proposeAI() { throw new Error("demo_no_ai"); },
-      // correcció automàtica (demostració: només amb la comprovació automàtica de la fitxa)
+      async release(sid, ws) { Object.entries(db.feedback).forEach(([kk, v]) => { if (kk.startsWith(k(sid, ws) + "|")) v.released = true; }); const s = sub(sid, ws) || { photos: [] }; s.status = "returned"; s.returned_at = new Date().toISOString(); s.review = "done"; db.submissions[k(sid, ws)] = s; save(); },
+      async reopen(sid, ws) { const s = sub(sid, ws); if (s) { s.status = "draft"; s.review = null; s.review_items = []; } Object.keys(db.feedback).forEach((kk) => { if (kk.startsWith(k(sid, ws) + "|auto:")) delete db.feedback[kk]; }); save(); },
+      async markReviewed(sid, ws) { const s = sub(sid, ws); if (s) { s.review = "done"; save(); } },
+      // correcció automàtica (demostració: només amb la comprovació automàtica de la fitxa, sense IA)
       async autoCorrect(ws, title, sda, items, sid = me.id) {
         const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
-        const now = new Date().toISOString(); const rows = [];
+        const now = new Date().toISOString(); const rows = []; const review = [];
         const errs = (x) => { const e = []; if (!x.answer || x.answer === "(sense resposta)") e.push("incompleta"); else if (x.score != null && x.score < 0.95) { if (/unitat/i.test(String(x.auto))) e.push("unitats"); else e.push(/V |F |tf/.test(x.answer) ? "conceptual" : "càlcul"); } return e; };
-        items.forEach((x) => { const lv = lvOf(x.score); const note = x.score == null ? (x.answer === "(sense resposta)" ? "No has respost aquesta pregunta." : "El professor revisarà aquesta resposta.") : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
+        items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && (x.score == null || x.photos)) review.push(x.id);
+          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "El professor revisarà aquesta resposta." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
           rows.push({ item_id: "auto:" + x.id, level: lv, comment: note, released: true, updated_at: now });
           const cur = db.feedback[k(sid, ws, x.id)] || { released: false }; db.feedback[k(sid, ws, x.id)] = { ...cur, proposal_level: lv, proposal_note: note }; });
         const sc = items.map((x) => x.score).filter((v) => v != null); const avg = sc.length ? sc.reduce((a, b) => a + b, 0) / sc.length : null;
-        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
+        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: review.length ? `Hi ha ${review.length === 1 ? "una pregunta" : review.length + " preguntes"} que revisarà el professor.` : avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
         rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = r; });
+        const s = sub(sid, ws); if (s && s.status === "submitted") { s.review = review.length ? "pending" : "auto"; s.review_items = review; }
         db.kv = db.kv || {}; db.kv[`errors/${sid}/${ws}`] = { sda, at: now, items: items.map((x) => ({ id: x.id, level: lvOf(x.score), errors: errs(x) })), global: rows[rows.length - 1].comment };
         save(); return rows;
       },
@@ -82,6 +113,16 @@
         const rec = { resum: `Informe de demostració, calculat sense IA a partir de ${data.lliurades || 0} fitxes lliurades.`, fortaleses: lv.filter((x) => x.mitjana >= 3).map((x) => `SdA ${x.sda}: nivell mitjà alt`), errors: top.length ? ["Errors més freqüents: " + top.join(", ")] : ["Encara no hi ha prou dades."], progres: tr ? `D'una SdA a la següent, el nivell ${tr}.` : "Cal més d'una SdA per comparar el progrés.", propostes: ["Amb la connexió al servidor, aquest informe l'escriu la IA."], at: new Date().toISOString() };
         db.kv = db.kv || {}; db.kv["informe/" + sid] = rec; save(); return rec;
       },
+      async usage() { return { month: month(), calls: 0, usd: 0 }; },
+      // docents (només administrador)
+      async listTeachers() { return db.teachers.map((t) => ({ ...t, courses: db.courses.filter((c) => c.teacher_id === t.id).map((c) => ({ ...c, n: db.students.filter((s) => s.course_id === c.id).length })) })); },
+      async createTeacher({ username, name, password }) {
+        const u = String(username).trim().toLowerCase(); if (!/^[a-z0-9][a-z0-9._-]{2,29}$/.test(u)) throw new Error("bad_username"); if (String(password).length < 8) throw new Error("weak_password");
+        if (db.teachers.some((t) => t.username === u)) throw new Error("username_taken");
+        const t = { id: rid("t"), role: "teacher", display_name: name, username: u, password }; db.teachers.push(t); save(); return t;
+      },
+      async setTeacherPassword(id, password) { if (String(password).length < 8) throw new Error("weak_password"); const t = db.teachers.find((x) => x.id === id); if (t) { t.password = password; save(); } },
+      async deleteTeacher(id) { const ids = db.courses.filter((c) => c.teacher_id === id).map((c) => c.id); if (db.students.some((s) => ids.includes(s.course_id))) throw new Error("has_students"); db.teachers = db.teachers.filter((t) => t.id !== id); db.courses = db.courses.filter((c) => c.teacher_id !== id); save(); },
       resetDemo() { try { localStorage.removeItem(KEY); sessionStorage.removeItem("fq3-demo-me"); } catch {} location.reload(); },
     };
   }
@@ -89,21 +130,27 @@
   /* ---------------- Supabase ---------------- */
   function supaStore() {
     const sb = G.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY, { auth: { persistSession: true, storageKey: "fq3-auth" } });
-    let me = null;
+    let me = null, courses = null;
     const must = ({ data, error }) => { if (error) throw error; return data; };
     async function loadProfile() {
       const { data: u } = await sb.auth.getUser(); if (!u?.user) { me = null; return null; }
-      const { data } = await sb.from("profiles").select("id, role, display_name, grup").eq("id", u.user.id).maybeSingle();
-      me = data || null; return me;
+      const { data } = await sb.from("profiles").select("id, role, display_name, grup, username, course_id").eq("id", u.user.id).maybeSingle();
+      me = data || null; courses = null; return me;
     }
     async function fn(name, body) {
       const { data, error } = await sb.functions.invoke(name, { body });
       if (error) { let msg = error.message; try { msg = (await error.context.json()).error || msg; } catch {} throw new Error(msg); }
       return data;
     }
+    async function myCourses() {
+      if (courses) return courses;
+      let q = sb.from("courses").select("id, name, level, teacher_id, settings, created_at").order("level").order("name");
+      if (me && me.role !== "admin") q = q.eq("teacher_id", me.id);
+      courses = must(await q); return courses;
+    }
     return {
       mode: "supabase", client: sb,
-      async init() { return loadProfile(); },
+      async init() { const p = await loadProfile(); if (isStaff(p)) await myCourses(); return p; },
       async signInStudent(code) {
         const c = normCode(code);
         const { error } = await sb.auth.signInWithPassword({ email: `${c.toLowerCase()}@${EMAIL_DOMAIN}`, password: c });
@@ -114,12 +161,51 @@
         const u = String(user || "").trim().toLowerCase();
         const email = u.includes("@") ? u : `${u}@professorat.llibrefq3.app`;
         const { error } = await sb.auth.signInWithPassword({ email, password }); if (error) throw new Error("bad_login");
-        const p = await loadProfile(); if (p?.role !== "teacher") { await sb.auth.signOut(); throw new Error("not_teacher"); } return p;
+        const p = await loadProfile(); if (!isStaff(p)) { await sb.auth.signOut(); throw new Error("not_teacher"); }
+        await myCourses(); return p;
       },
-      async signOut() { await sb.auth.signOut(); me = null; },
+      async signOut() { await sb.auth.signOut(); me = null; courses = null; },
       me: () => me,
-      async getSettings() { const rows = must(await sb.from("settings").select("key, value")); return Object.fromEntries(rows.map((r) => [r.key, r.value])); },
-      async setSetting(key, value) { must(await sb.from("settings").upsert({ key, value, updated_at: new Date().toISOString() })); },
+      // cursos
+      curCourse() { const c = getCur(); return (courses || []).some((x) => x.id === c) ? c : null; },
+      setCourse: setCur,
+      async listCourses() {
+        const cs = await myCourses();
+        if (me.role !== "admin") return cs.map((c) => ({ ...c, teacher_name: me.display_name }));
+        const ids = [...new Set(cs.map((c) => c.teacher_id))];
+        const ts = ids.length ? must(await sb.from("profiles").select("id, display_name").in("id", ids)) : [];
+        return cs.map((c) => ({ ...c, teacher_name: (ts.find((t) => t.id === c.teacher_id) || {}).display_name || "" }));
+      },
+      async createCourse(name, level) {
+        if (!LEVELS.includes(level)) throw new Error("bad_level");
+        const c = must(await sb.from("courses").insert({ name: String(name).trim().slice(0, 60), level, teacher_id: me.id, settings: { auto_calc: true } }).select().single());
+        courses = null; return c;
+      },
+      async renameCourse(id, name) {
+        const n = String(name).trim().slice(0, 60);
+        must(await sb.from("courses").update({ name: n }).eq("id", id));
+        must(await sb.from("profiles").update({ grup: n.slice(0, 20) }).eq("course_id", id));
+        courses = null;
+      },
+      async deleteCourse(id) {
+        const { count } = await sb.from("profiles").select("id", { count: "exact", head: true }).eq("course_id", id);
+        if (count) throw new Error("has_students");
+        must(await sb.from("courses").delete().eq("id", id)); courses = null;
+      },
+      async getSettings() {
+        const glob = Object.fromEntries(must(await sb.from("settings").select("key, value")).map((r) => [r.key, r.value]));
+        let cs = {};
+        if (me && me.role === "student" && me.course_id) { const r = must(await sb.from("courses").select("settings").eq("id", me.course_id).maybeSingle()); cs = (r && r.settings) || {}; }
+        else if (isStaff(me)) { const c = (await myCourses()).find((x) => x.id === this.curCourse()); cs = (c && c.settings) || {}; }
+        return { ...glob, ...cs };
+      },
+      async setSetting(key, value) {
+        const id = this.curCourse(); if (!id) throw new Error("no_course");
+        const r = must(await sb.from("courses").select("settings").eq("id", id).single());
+        const settings = { ...(r.settings || {}), [key]: value };
+        must(await sb.from("courses").update({ settings }).eq("id", id));
+        const c = (courses || []).find((x) => x.id === id); if (c) c.settings = settings;
+      },
       async loadResponses(ws, sid = me.id) { const rows = must(await sb.from("responses").select("item_id, answer").eq("student_id", sid).eq("worksheet_id", ws)); return Object.fromEntries(rows.map((r) => [r.item_id, r.answer])); },
       async saveResponse(ws, item, answer) { must(await sb.from("responses").upsert({ student_id: me.id, worksheet_id: ws, item_id: item, answer, updated_at: new Date().toISOString() })); },
       async getSubmission(ws, sid = me.id) { const r = must(await sb.from("submissions").select("*").eq("student_id", sid).eq("worksheet_id", ws).maybeSingle()); return r || { status: "draft", photos: [] }; },
@@ -139,9 +225,13 @@
       },
       async photoUrl(path) { const { data } = await sb.storage.from("fotos").createSignedUrl(path, 3600); return data?.signedUrl || ""; },
       async myFeedback(ws) { return must(await sb.from("feedback").select("item_id, level, comment").eq("student_id", me.id).eq("worksheet_id", ws).eq("released", true)); },
-      // professorat
-      async listStudents() { return must(await sb.from("profiles").select("id, display_name, grup, code, role").eq("role", "student").order("grup").order("display_name")); },
-      async createStudents(names, grup) { return (await fn("alumnes", { names, grup })).students.map((s) => ({ id: s.id, display_name: s.name, grup, code: s.code })); },
+      // professorat (les regles de la base de dades ja limiten a l'alumnat dels cursos del docent)
+      async listStudents(cid = this.curCourse()) {
+        let q = sb.from("profiles").select("id, display_name, grup, code, role, course_id").eq("role", "student");
+        if (cid) q = q.eq("course_id", cid); else { const ids = (await myCourses()).map((c) => c.id); if (!ids.length) return []; q = q.in("course_id", ids); }
+        return must(await q.order("display_name"));
+      },
+      async createStudents(names, cid = this.curCourse()) { return (await fn("alumnes", { names, course_id: cid })).students.map((s) => ({ id: s.id, display_name: s.name, code: s.code, course_id: cid })); },
       async resetCode(id) { return (await fn("alumnes", { action: "reset", id })).code; },
       async deleteStudent(id) { await fn("alumnes", { action: "delete", id }); },
       async listSubmissions() { return must(await sb.from("submissions").select("*")); },
@@ -150,9 +240,10 @@
       async saveFeedback(sid, ws, rows) { must(await sb.from("feedback").upsert(rows.map((r) => ({ student_id: sid, worksheet_id: ws, ...r, updated_at: new Date().toISOString() })))); },
       async release(sid, ws) {
         must(await sb.from("feedback").update({ released: true }).eq("student_id", sid).eq("worksheet_id", ws));
-        must(await sb.from("submissions").upsert({ student_id: sid, worksheet_id: ws, status: "returned", returned_at: new Date().toISOString() }));
+        must(await sb.from("submissions").upsert({ student_id: sid, worksheet_id: ws, status: "returned", returned_at: new Date().toISOString(), review: "done" }));
       },
-      async reopen(sid, ws) { must(await sb.from("submissions").update({ status: "draft" }).eq("student_id", sid).eq("worksheet_id", ws)); try { await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%"); } catch {} },
+      async reopen(sid, ws) { must(await sb.from("submissions").update({ status: "draft", review: null, review_items: [] }).eq("student_id", sid).eq("worksheet_id", ws)); try { await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%"); } catch {} },
+      async markReviewed(sid, ws) { must(await sb.from("submissions").update({ review: "done" }).eq("student_id", sid).eq("worksheet_id", ws)); },
       async proposeAI(sid, ws, items) { return fn("corregeix", { student_id: sid, worksheet_id: ws, items }); },
       async autoCorrect(ws, title, sda, items, sid) { return (await fn("autocorregeix", { worksheet_id: ws, title, sda, items, ...(sid ? { student_id: sid } : {}) })).rows || null; },
       async deleteAuto(sid, ws) { must(await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%")); },
@@ -160,9 +251,22 @@
       async errorsAll() { const rows = must(await sb.from("kv").select("path, data").like("path", "errors/%")); return rows.map((r) => ({ student_id: r.path.split("/")[1], worksheet_id: r.path.split("/")[2], ...r.data })); },
       async getInforme(sid) { const r = must(await sb.from("kv").select("data").eq("path", "informe/" + sid).maybeSingle()); return r ? r.data : null; },
       async makeInforme(sid, data) { return (await fn("autocorregeix", { action: "informe", student_id: sid, data })).informe; },
+      async usage() { const m = month(); const r = must(await sb.from("kv").select("data").eq("path", "usage/" + m).maybeSingle()); return { month: m, calls: 0, usd: 0, ...((r && r.data) || {}) }; },
+      // docents (només administrador)
+      async listTeachers() {
+        const ts = must(await sb.from("profiles").select("id, role, display_name, username, created_at").in("role", ["teacher", "admin"]).order("display_name"));
+        const cs = must(await sb.from("courses").select("id, name, level, teacher_id"));
+        const st = must(await sb.from("profiles").select("course_id").eq("role", "student"));
+        return ts.map((t) => ({ ...t, courses: cs.filter((c) => c.teacher_id === t.id).map((c) => ({ ...c, n: st.filter((s) => s.course_id === c.id).length })) }));
+      },
+      async createTeacher({ username, name, password }) { return fn("docents", { username, name, password }); },
+      async setTeacherPassword(id, password) { return fn("docents", { action: "password", id, password }); },
+      async deleteTeacher(id) { return fn("docents", { action: "delete", id }); },
     };
   }
 
   G.FQStore = (CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && G.supabase) ? supaStore() : demoStore();
   G.FQStore.normCode = normCode;
+  G.FQStore.isStaff = isStaff;
+  G.FQStore.LEVELS = LEVELS;
 })(window);

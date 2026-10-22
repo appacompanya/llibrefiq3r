@@ -1270,7 +1270,7 @@ async function fqStart(){
 }
 (async () => {
   let me = null; try { me = await window.FQStore.init(); } catch(e) {}
-  if (me && me.role === "teacher") return fqStart();
+  if (window.FQStore.isStaff(me)) return fqStart();
   document.getElementById("tlf").addEventListener("submit", async (e) => {
     e.preventDefault(); const b = e.target.querySelector("button"); b.disabled = true; document.getElementById("tle").textContent = "";
     try { await window.FQStore.signInTeacher(document.getElementById("tlu").value, document.getElementById("tlp").value); await fqStart(); }

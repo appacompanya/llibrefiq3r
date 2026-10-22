@@ -1,4 +1,5 @@
 -- Versió aplicada al projecte Supabase «llibre-fq3» (migració llibre_fq3_schema, 14/10/2026).
+-- Ampliada amb cursos, docents i cua de revisió: vegeu migrations/20261022_cursos_i_docents.sql.
 -- Llibre digital de FQ 3r ESO · base de dades (Supabase / Postgres)
 -- Executa-ho una sola vegada al SQL Editor del projecte (o amb el connector).
 
