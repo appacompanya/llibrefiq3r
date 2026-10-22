@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Zona docent · Física i química</title>
+<link rel="stylesheet" href="../digital/css/fitxa.css">
+<link rel="stylesheet" href="../digital/css/profe.css">
+<script src="../digital/js/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="../digital/js/store.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5; --chip:#efece6;
+  --ok:#1f7a4a; --warn:#9a5b00;
+  --l2:#D14B66; --l3:#2F8F95; --l4:#6C5CC9;
+  --acc:var(--l3); --ink:#1d2a3a; --ink-fg:#f3f1ec;
+  --font-body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+  --font-display:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171b; --surface:#1d2026; --fg:#eceef1; --muted:#a3aab4; --line:#2f333b; --chip:#272b32; --ok:#5fd394; --warn:#f0b45c; --ink:#0f1620; --ink-fg:#eceef1; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15171b; --surface:#1d2026; --fg:#eceef1; --muted:#a3aab4; --line:#2f333b; --chip:#272b32; --ok:#5fd394; --warn:#f0b45c; --ink:#0f1620; --ink-fg:#eceef1; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px));display:grid;gap:22px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.05;margin:0}
+h2{font-family:var(--font-display);font-weight:800;font-size:1.25rem;margin:0}
+h3{font-size:1rem;margin:0}
+a{color:inherit}
+.btn{font:inherit;font-size:.86rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;border:1.5px solid var(--acc);background:var(--acc);color:#fff;text-decoration:none;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--acc)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.levels{display:grid;gap:18px}
+.lvl{display:grid;gap:10px}
+.lvl > h2{display:flex;gap:10px;align-items:center}
+.lvl > h2 .tag{background:var(--c);color:#fff;border-radius:10px;padding:0 10px;font-size:1rem}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.course{border:1px solid var(--line);border-top:5px solid var(--c);background:var(--surface);border-radius:14px;padding:14px;display:grid;gap:8px;align-content:start}
+.course b{font-size:1.15rem;font-family:var(--font-display)}
+.course .acts{display:flex;gap:6px;flex-wrap:wrap}
+.course .who{font-size:.8rem;color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;border:2px solid var(--c);color:var(--c);border-radius:999px;padding:5px 16px;font-weight:800}
+.chips input:checked + span{background:var(--c);color:#fff}
+.chips input:focus-visible + span{outline:2px solid var(--fg);outline-offset:2px}
+.newc{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+.newc label.f{min-width:180px}
+.pw{display:flex;gap:6px;flex-wrap:wrap}
+.pw input{width:150px}
+@media print{.wrap > *:not(#printArea){display:none!important}#printArea{display:grid!important}}
+</style>
+</head>
+<body>
+<div class="tlogin" id="login" hidden><form id="lf"><div class="eyebrow">Física i química · 2n, 3r i 4t d'ESO</div><h1>Zona docent</h1>
+  <p class="note" id="demoNote" hidden><b>Mode demostració.</b> Usuari <code>docent</code>, contrasenya <code>docent</code>. Les dades es guarden només en aquest navegador.</p>
+  <label>Usuari<input id="lu" autocomplete="username" required></label><label>Contrasenya<input id="lp" type="password" autocomplete="current-password" required></label>
+  <p class="err" id="le"></p><button class="btn" type="submit">Entra</button></form></div>
+<div class="wrap" id="app" hidden></div>
+<section class="codes" id="printArea" hidden></section>
+<div class="toast" id="toast" hidden role="status"></div>
+<script>
+(function () {
+  "use strict";
+  const S = window.FQStore;
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const toast = (t) => { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 3500); };
+  const LV = { "2n": { n: "2n d'ESO", c: "var(--l2)", book: "../2n/", zone: null }, "3r": { n: "3r d'ESO", c: "var(--l3)", book: "../", zone: "../digital/profe.html#digital" }, "4t": { n: "4t d'ESO", c: "var(--l4)", book: "../4t/", zone: null } };
+  const ERR = { has_students: "Primer cal esborrar o moure l'alumnat d'aquest curs.", bad_username: "L'usuari ha de tenir entre 3 i 30 caràcters: lletres minúscules, números, punts o guions.", weak_password: "La contrasenya ha de tenir com a mínim 8 caràcters.", username_taken: "Aquest usuari ja existeix.", bad_name: "Escriu el nom del docent.", self: "No et pots esborrar a tu mateix." };
+  const msg = (e) => ERR[e && e.message] || ("Error: " + (e && e.message || e));
+  const want = (new URLSearchParams(location.search).get("nivell") || "").toLowerCase();
+  let me = null, courses = [], open = null, students = [], teachers = null, created = null;
+
+  function loginView() {
+    $("#app").hidden = true; $("#login").hidden = false; $("#demoNote").hidden = S.mode !== "demo";
+    $("#lf").onsubmit = async (e) => {
+      e.preventDefault(); const b = e.target.querySelector("button"); b.disabled = true; $("#le").textContent = "";
+      try { me = await S.signInTeacher($("#lu").value, $("#lp").value); await start(); }
+      catch (err) { $("#le").textContent = err.message === "not_teacher" ? "Aquest compte no és de professorat." : "Usuari o contrasenya incorrectes."; }
+      finally { b.disabled = false; }
+    };
+  }
+  async function start() {
+    $("#login").hidden = true; $("#app").hidden = false;
+    courses = await S.listCourses();
+    if (me.role === "admin") teachers = await S.listTeachers().catch(() => null);
+    render();
+  }
+
+  function courseCard(c) {
+    const L = LV[c.level];
+    const n = (teachers ? (teachers.find((t) => t.id === c.teacher_id)?.courses.find((x) => x.id === c.id) || {}).n : null);
+    return `<article class="course" style="--c:${L.c}" data-c="${c.id}"><b>${esc(c.name)}</b>
+      <span class="who">${esc(L.n)}${me.role === "admin" ? ` · ${esc(c.teacher_name)}` : ""}${n != null ? ` · ${n} alumnes` : ""}</span>
+      <div class="acts">${L.zone ? `<button class="btn" data-zone>Zona del professorat</button>` : ""}<button class="btn ghost" data-stu>Alumnat i codis</button><a class="btn ghost" href="${L.book}" target="_blank" rel="noopener">Llibre</a></div>
+      ${L.zone ? "" : `<span class="note">El llibre digital de ${esc(L.n)} encara no està fet: ja pots preparar el curs i els codis de l'alumnat.</span>`}
+      <div class="acts"><button class="btn ghost" data-ren>Canvia el nom</button><button class="btn ghost" data-del>Esborra el curs</button></div></article>`;
+  }
+
+  function render() {
+    const levels = ["2n", "3r", "4t"].filter((l) => !want || !LV[want] || l === want || courses.some((c) => c.level === l));
+    const pre = LV[want] ? want : "3r";
+    $("#app").innerHTML = `<header class="dtop"><div><div class="eyebrow">Física i química · zona docent${S.mode === "demo" ? " · demostració" : ""}</div><h1>Hola, ${esc(me.display_name || me.username || "")}</h1></div>
+        <div class="row"><a class="btn ghost" href="../">Llibre de 3r</a><a class="btn ghost" href="../2n/">Llibre de 2n</a><a class="btn ghost" href="../4t/">Llibre de 4t</a><button class="btn ghost" id="out">Surt</button></div></header>
+      <section class="card"><h2>Crea un curs</h2><p class="note">Tria el nivell i posa-li el nom del grup (per exemple, «3r B»). Després hi afegeixes l'alumnat i cada alumne rep un codi d'accés.</p>
+        <form class="newc" id="nc"><div class="chips" role="radiogroup" aria-label="Nivell">${Object.entries(LV).map(([k, L]) => `<label style="--c:${L.c}"><input type="radio" name="lv" value="${k}"${k === pre ? " checked" : ""}><span>${k}</span></label>`).join("")}</div>
+          <label class="f">Nom del curs<input id="cn" maxlength="60" required placeholder="3r B"></label><button class="btn" type="submit">Crea el curs</button></form></section>
+      <div class="levels">${levels.map((l) => { const cs = courses.filter((c) => c.level === l); return `<section class="lvl" style="--c:${LV[l].c}"><h2><span class="tag">${l}</span>${esc(LV[l].n)}</h2>
+        ${cs.length ? `<div class="cgrid">${cs.map(courseCard).join("")}</div>` : `<p class="note">Encara no tens cap curs de ${esc(LV[l].n)}.</p>`}</section>`; }).join("")}</div>
+      <section class="card" id="stuPanel" hidden></section>
+      ${teachers ? teachersHtml() : ""}`;
+    $("#out").onclick = async () => { await S.signOut(); me = null; loginView(); };
+    $("#nc").onsubmit = async (e) => {
+      e.preventDefault(); const lv = (e.target.querySelector("[name=lv]:checked") || {}).value; const name = $("#cn").value.trim(); if (!lv || !name) return;
+      try { const c = await S.createCourse(name, lv); courses = await S.listCourses(); if (teachers) teachers = await S.listTeachers(); toast(`Curs «${name}» creat.`); render(); showStudents(c.id); }
+      catch (er) { toast(msg(er)); }
+    };
+    $("#app").querySelectorAll("[data-c]").forEach((card) => {
+      const id = card.dataset.c; const c = courses.find((x) => x.id === id);
+      const z = card.querySelector("[data-zone]"); if (z) z.onclick = () => { S.setCourse(id); location.href = LV[c.level].zone; };
+      card.querySelector("[data-stu]").onclick = () => showStudents(id);
+      card.querySelector("[data-ren]").onclick = async () => { const n = prompt("Nou nom del curs", c.name); if (!n || !n.trim()) return; try { await S.renameCourse(id, n); courses = await S.listCourses(); render(); } catch (er) { toast(msg(er)); } };
+      card.querySelector("[data-del]").onclick = async (e) => { const b = e.target; if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? Clica de nou"; return; }
+        try { await S.deleteCourse(id); courses = await S.listCourses(); if (teachers) teachers = await S.listTeachers(); toast("Curs esborrat."); render(); } catch (er) { toast(msg(er)); b.dataset.c = ""; b.textContent = "Esborra el curs"; } };
+    });
+    if (teachers) bindTeachers();
+    if (open) showStudents(open, true);
+  }
+
+  /* ---------- alumnat i codis d'un curs ---------- */
+  async function showStudents(id, keep) {
+    open = id; const c = courses.find((x) => x.id === id); const box = $("#stuPanel"); if (!c) { box.hidden = true; return; }
+    box.hidden = false; if (!keep) box.innerHTML = '<div class="spin"></div>';
+    students = await S.listStudents(id);
+    const base = location.origin + (c.level === "3r" ? "/digital/" : LV[c.level].book.replace("..", ""));
+    box.innerHTML = `<div class="row" style="justify-content:space-between"><h2>Alumnat de ${esc(c.name)} (${students.length})</h2><div class="row"><button class="btn ghost" id="csv">Descarrega els codis (CSV)</button><button class="btn ghost" id="prn">Imprimeix targetes</button><button class="btn ghost" id="close">Tanca</button></div></div>
+      ${created ? `<p class="note" style="color:var(--ok)"><b>Comptes creats:</b> ${created}. Ja els tens a la llista.</p>` : ""}
+      <div class="grid2"><div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Codi</th><th></th></tr></thead><tbody>
+        ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn ghost" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="3" class="note">Encara no hi ha alumnat en aquest curs.</td></tr>`}
+      </tbody></table></div>
+      <div style="display:grid;gap:8px;align-content:start"><label class="f">Afegeix alumnat (un nom per línia)<textarea id="names" rows="7" placeholder="Nom Cognom"></textarea></label><button class="btn" id="add" style="justify-self:start">Crea els comptes</button>
+        <p class="note">Cada alumne rep un codi d'accés de 8 caràcters ${c.level === "3r" ? `per entrar al llibre digital (${esc(base)})` : "per entrar al llibre digital quan estigui fet"}.</p></div></div>`;
+    created = null;
+    $("#close").onclick = () => { open = null; box.hidden = true; };
+    $("#add").onclick = async () => {
+      const names = $("#names").value.split("\n").map((x) => x.trim()).filter(Boolean); if (!names.length) return;
+      const b = $("#add"); b.disabled = true; b.textContent = "Creant…";
+      try { const out = await S.createStudents(names, id); created = out.length; if (teachers) teachers = await S.listTeachers(); render(); }
+      catch (e) { toast("No s'han pogut crear els comptes: " + e.message); b.disabled = false; b.textContent = "Crea els comptes"; }
+    };
+    box.querySelectorAll("[data-reset]").forEach((b) => (b.onclick = async () => {
+      if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? El codi antic deixarà de funcionar"; return; }
+      try { await S.resetCode(b.closest("tr").dataset.id); toast("Codi nou creat."); showStudents(id, true); } catch (e) { toast(msg(e)); }
+    }));
+    box.querySelectorAll("[data-del]").forEach((b) => (b.onclick = async () => {
+      if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? S'esborren totes les respostes"; return; }
+      try { await S.deleteStudent(b.closest("tr").dataset.id); toast("Alumne esborrat."); if (teachers) teachers = await S.listTeachers(); showStudents(id, true); } catch (e) { toast(msg(e)); }
+    }));
+    $("#csv").onclick = () => {
+      const rows = [["Nom", "Curs", "Codi"], ...students.map((s) => [s.display_name, c.name, s.code || ""])];
+      const csv = "﻿" + rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\r\n");
+      const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = `codis-${c.name.replace(/[^\w-]+/g, "-")}.csv`; a.click();
+    };
+    $("#prn").onclick = () => {
+      const pa = $("#printArea"); pa.innerHTML = students.map((s) => `<div class="codecard"><span>Física i química · ${esc(LV[c.level].n)} · ${esc(c.name)}</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(base)}</span></div>`).join("");
+      pa.hidden = false; window.print(); setTimeout(() => (pa.hidden = true), 500);
+    };
+    if (!keep) box.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* ---------- docents (només administrador) ---------- */
+  function teachersHtml() {
+    return `<section class="card" id="docents"><h2>Docents</h2><p class="note">Com a administrador, pots donar d'alta docents. Cada docent entra a aquesta mateixa pàgina amb el seu usuari i contrasenya, crea els seus cursos i només veu el seu alumnat.</p>
+      <div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Usuari</th><th>Cursos</th><th>Contrasenya</th><th></th></tr></thead><tbody>
+        ${teachers.map((t) => `<tr data-t="${t.id}"><td>${esc(t.display_name)}${t.role === "admin" ? ' <span class="pill">administrador</span>' : ""}</td><td><code class="c">${esc(t.username || "")}</code></td>
+          <td>${t.courses.map((c) => `${esc(c.name)} <span class="note">(${c.n})</span>`).join(" · ") || '<span class="note">cap</span>'}</td>
+          <td><div class="pw"><input type="password" placeholder="Nova contrasenya" autocomplete="new-password" data-pw><button class="btn ghost" data-setpw>Canvia</button></div></td>
+          <td>${t.id !== me.id && t.role !== "admin" ? '<button class="btn ghost" data-tdel>Esborra</button>' : ""}</td></tr>`).join("")}
+      </tbody></table></div>
+      <form class="newc" id="nt"><label class="f">Nom i cognoms<input id="tn" required maxlength="80" placeholder="Nom Cognom"></label><label class="f">Usuari<input id="tu" required pattern="[a-z0-9][a-z0-9._\\-]{2,29}" placeholder="nomcognom" autocomplete="off"></label><label class="f">Contrasenya<input id="tp" required minlength="8" type="password" autocomplete="new-password"></label><button class="btn" type="submit">Dona d'alta</button></form>
+      <p class="note">L'usuari ha de ser en minúscules, sense espais ni accents. Comunica-li la contrasenya en persona; després la pots canviar aquí.</p></section>`;
+  }
+  function bindTeachers() {
+    $("#nt").onsubmit = async (e) => {
+      e.preventDefault();
+      try { await S.createTeacher({ username: $("#tu").value.trim().toLowerCase(), name: $("#tn").value.trim(), password: $("#tp").value }); teachers = await S.listTeachers(); toast("Docent donat d'alta."); render(); $("#docents").scrollIntoView(); }
+      catch (er) { toast(msg(er)); }
+    };
+    $("#docents").querySelectorAll("[data-setpw]").forEach((b) => (b.onclick = async () => {
+      const tr = b.closest("tr"); const pw = tr.querySelector("[data-pw]").value;
+      try { await S.setTeacherPassword(tr.dataset.t, pw); tr.querySelector("[data-pw]").value = ""; toast("Contrasenya canviada."); } catch (er) { toast(msg(er)); }
+    }));
+    $("#docents").querySelectorAll("[data-tdel]").forEach((b) => (b.onclick = async () => {
+      if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? Clica de nou"; return; }
+      try { await S.deleteTeacher(b.closest("tr").dataset.t); teachers = await S.listTeachers(); courses = await S.listCourses(); toast("Docent esborrat."); render(); } catch (er) { toast(msg(er)); b.dataset.c = ""; b.textContent = "Esborra"; }
+    }));
+  }
+
+  (async () => { try { me = await S.init(); } catch (e) { me = null; } if (S.isStaff(me)) start(); else loginView(); })();
+})();
+</script>
+</body>
+</html>

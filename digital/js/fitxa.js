@@ -338,7 +338,7 @@
   function buildItems(spec, answers) {
     const strip = (h) => String(h || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
-    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica en foto: valora només la part escrita i digues a l'alumne que el professor revisarà el dibuix." : "", answer: x.answer, auto: null, score: null }));
+    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica en foto: valora només la part escrita i digues a l'alumne que el professor revisarà el dibuix." : "", answer: x.answer, auto: null, score: null, photos: x.photos }));
     return spec.blocks.filter((b) => b.id).map((b) => {
       if (b.type !== "group") { const r = checkItem(b, answers[b.id]); return { id: b.id, prompt: strip(b.prompt), expected: expOf(b), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
       const parts = b.items.map((it) => ({ it, r: checkItem(it, answers[it.id]) }));

@@ -1,7 +1,8 @@
-// Edge Function «alumnes»: el professorat crea comptes d'alumne amb un codi d'accés.
-// Crida: POST { names: ["Nom Cognom", ...], grup: "3r A" }  -> { students: [{name, code}] }
-//        POST { action: "reset", id: "<uuid>" }               -> { code }
-//        POST { action: "delete", id: "<uuid>" }              -> { ok: true }
+// Edge Function «alumnes»: el docent crea comptes d'alumne amb un codi d'accés dins d'un dels seus cursos.
+// Crida: POST { names: ["Nom Cognom", ...], course_id }  -> { students: [{id, name, code}] }
+//        POST { action: "reset", id: "<uuid>" }          -> { code }
+//        POST { action: "delete", id: "<uuid>" }         -> { ok: true }
+// Un docent només pot tocar l'alumnat dels seus cursos; l'administrador, el de tots.
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
 
 const EMAIL_DOMAIN = "alumnes.llibrefq3.app";
@@ -33,11 +34,26 @@ Deno.serve(async (req) => {
   if (!me?.user) return json({ error: "no_auth" }, 401);
   const admin = createClient(url, service);
   const { data: prof } = await admin.from("profiles").select("role").eq("id", me.user.id).single();
-  if (prof?.role !== "teacher") return json({ error: "forbidden" }, 403);
+  if (prof?.role !== "teacher" && prof?.role !== "admin") return json({ error: "forbidden" }, 403);
+  const isAdmin = prof.role === "admin";
+
+  // el curs és del docent que crida?
+  const ownCourse = async (cid: string) => {
+    const { data } = await admin.from("courses").select("id, name, teacher_id").eq("id", cid).maybeSingle();
+    return data && (isAdmin || data.teacher_id === me.user.id) ? data : null;
+  };
+  // l'alumne és d'un curs del docent que crida?
+  const ownStudent = async (sid: string) => {
+    const { data } = await admin.from("profiles").select("id, role, course_id").eq("id", sid).maybeSingle();
+    if (!data || data.role !== "student") return false;
+    if (isAdmin) return true;
+    return !!(data.course_id && (await ownCourse(data.course_id)));
+  };
 
   const body = await req.json().catch(() => ({}));
 
   if (body.action === "reset" && body.id) {
+    if (!(await ownStudent(String(body.id)))) return json({ error: "forbidden" }, 403);
     const code = newCode();
     const { error } = await admin.auth.admin.updateUserById(body.id, { email: emailFor(code), password: code, email_confirm: true });
     if (error) return json({ error: error.message }, 400);
@@ -45,19 +61,26 @@ Deno.serve(async (req) => {
     return json({ code });
   }
   if (body.action === "delete" && body.id) {
+    if (!(await ownStudent(String(body.id)))) return json({ error: "forbidden" }, 403);
     const { error } = await admin.auth.admin.deleteUser(body.id);
     if (error) return json({ error: error.message }, 400);
     return json({ ok: true });
   }
 
+  // compatibilitat amb la zona del professorat antiga (sense cursos): si el docent només té un curs, és aquest
+  if (!body.course_id) {
+    const { data: cs } = await admin.from("courses").select("id").eq("teacher_id", me.user.id);
+    if (cs && cs.length === 1) body.course_id = cs[0].id;
+  }
+  const course = await ownCourse(String(body.course_id ?? ""));
+  if (!course) return json({ error: "bad_course" }, 400);
   const names: string[] = (body.names ?? []).map((n: string) => String(n).trim()).filter(Boolean).slice(0, 60);
-  const grup = String(body.grup ?? "").slice(0, 20);
   const out: { id: string; name: string; code: string }[] = [];
   for (const name of names) {
     const code = newCode();
     const { data, error } = await admin.auth.admin.createUser({ email: emailFor(code), password: code, email_confirm: true });
     if (error || !data.user) return json({ error: error?.message ?? "create_failed", created: out }, 400);
-    await admin.from("profiles").insert({ id: data.user.id, role: "student", display_name: name.slice(0, 80), grup, code });
+    await admin.from("profiles").insert({ id: data.user.id, role: "student", display_name: name.slice(0, 80), grup: course.name.slice(0, 20), code, course_id: course.id });
     out.push({ id: data.user.id, name, code });
   }
   return json({ students: out });
