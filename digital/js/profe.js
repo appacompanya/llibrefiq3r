@@ -68,7 +68,7 @@
       <p class="note">Si està activat, quan l'alumne escriu números o factors de conversió, la fitxa li mostra el resultat del càlcul i si cada factor val 1. Desactiva-ho per a les activitats d'avaluació. Aquest ajust només afecta aquest curs.</p></section>
       <section class="card" id="pdfp" hidden></section>
       <section class="card"><h2>Correcció automàtica</h2><p class="note">Quan l'alumne lliura una fitxa digital, rep de seguida la correcció de cada pregunta (nivell i comentari breu):</p>
-        <ul class="note"><li>Els càlculs, les taules i les preguntes tancades es corregeixen sols, sense IA.</li><li>Les respostes raonades les corregeix una IA econòmica (OpenAI gpt-5.4-nano) amb els solucionaris del professorat.</li><li>Els dibuixos en foto també els mira la IA, en baixa resolució perquè costi poc.</li><li>L'alumne veu de seguida la correcció de tota la fitxa. Totes les fitxes corregides van a <b>Per revisar</b>, per si vols comprovar-les; les preguntes on la IA dubta surten marcades. Les fitxes en paper les valores tu.</li></ul>
+        <ul class="note"><li>Els càlculs, les taules i les preguntes tancades es corregeixen sols, sense IA.</li><li>Les respostes raonades les corregeix una IA econòmica (OpenAI gpt-5.4-nano) amb els solucionaris del professorat.</li><li>Els dibuixos en foto també els mira la IA, en baixa resolució perquè costi poc.</li><li>També valora l'ortografia en català i en corregeix algun exemple a l'alumne.</li><li>Indici de text copiat d'una IA: la IA en valora l'estil i el llibre compta els caràcters que l'alumne ha enganxat a cada resposta. Només ho veus tu, a «Per revisar». És un indici per comprovar, no una prova.</li><li>L'alumne veu de seguida la correcció de tota la fitxa. Totes les fitxes corregides van a <b>Per revisar</b>, per si vols comprovar-les; les preguntes on la IA dubta surten marcades. Les fitxes en paper les valores tu.</li></ul>
         <p class="note">Tu reps la mateixa valoració com a proposta a cada apartat: la pots canviar i decideixes quan retornar la fitxa amb la teva valoració. Els errors es classifiquen per tipus a «Seguiment de l'alumnat».${S.mode === "demo" ? " En mode demostració, la correcció es basa només en la comprovació automàtica dels càlculs." : ""}</p>
         <p class="note" id="usage"></p></section>`;
     S.usage().then((u) => { const el = $("#usage"); if (el && S.mode !== "demo") el.innerHTML = `Despesa aproximada de la IA aquest mes (tots els cursos): <b>${(u.usd || 0).toLocaleString("ca-ES", { style: "currency", currency: "USD", maximumFractionDigits: 2 })}</b> en ${u.calls || 0} correccions.`; }).catch(() => {});
@@ -147,7 +147,7 @@
         </tbody></table></div></section>
       <section class="card">${curWs ? `<h2>${esc(titleOf(curWs))}</h2><p class="note">Lliurades: <b>${counts(curWs).sub + counts(curWs).ret}/${N}</b></p><div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Grup</th><th>Estat</th><th>Nivell</th><th>Lliurada</th></tr></thead><tbody>
         ${students.map((s) => { const sb = subOf(s.id); const st = sb ? STATUS[sb.status] : started(s.id) ? STATUS.draft : null;
-          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${(() => { const L = wsLevel(s.id, curWs); return L ? chip(L.lv) + `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : ""; })()}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="5" class="note">Encara no hi ha alumnat.</td></tr>'}
+          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${levelHtml(s.id, curWs, true)}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="5" class="note">Encara no hi ha alumnat.</td></tr>'}
         </tbody></table></div>` : '<p class="note">Tria una fitxa.</p>'}</section></div>`;
     $("#main").querySelectorAll("[data-sda]").forEach((b) => (b.onclick = () => { curSda = +b.dataset.sda; curWs = null; fitxesView(); }));
     $("#main").querySelectorAll("[data-ws]").forEach((r) => (r.onclick = () => { curWs = r.dataset.ws; fitxesView(); }));
@@ -156,6 +156,9 @@
 
   /* ---------- per revisar: fitxes ja corregides per la IA que el docent pot comprovar una a una ---------- */
   const qKey = (x) => x.student_id + "|" + x.worksheet_id;
+  /* preguntes amb indici de text copiat d'una IA (estil del text segons la IA i caràcters enganxats); només ho veu el docent */
+  const iaSusp = (sid, ws) => ((errAll.find((e) => e.student_id === sid && e.worksheet_id === ws) || {}).items || [])
+    .filter((it) => it.ia === "alta" || (it.ia === "mitjana" && (it.enganxat || 0) >= 40) || (it.enganxat || 0) >= 150);
   function queueView() {
     if (curWs && curStu) return reviewView();
     const list = pending(); queue = list.map(qKey);
@@ -164,11 +167,11 @@
       if (!F[x.worksheet_id]) return ["Fitxa en paper: valora-la tu", "sub"];
       if (!x.review) return ["Encara sense correcció", "sub"];
       return n ? [`Corregida · la IA dubta en ${n === 1 ? "1 pregunta" : n + " preguntes"}`, "sub"] : ["Corregida per la IA", "ret"]; };
-    const lvOfWs = (x) => { const L = wsLevel(x.student_id, x.worksheet_id); return L ? chip(L.lv) : ""; };
+    const lvOfWs = (x) => levelHtml(x.student_id, x.worksheet_id);
     $("#main").innerHTML = `<section class="card"><div class="row" style="justify-content:space-between"><h2>Per revisar (${list.length})</h2>${list.length ? '<button class="btn" id="qstart">Comença per la primera</button>' : ""}</div>
       <p class="note">Quan l'alumnat lliura una fitxa, la IA la corregeix sencera i l'alumne en veu el resultat de seguida. Aquí pots mirar què ha posat cada alumne i comprovar que la IA no s'ha equivocat. Si tot és correcte, prem <b>Bé, següent</b>; si vols canviar alguna cosa, posa-hi el teu nivell o comentari i prem <b>Retorna amb canvis</b>. Les preguntes on la IA dubta surten marcades en groc.</p>
       ${list.length ? `<div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Fitxa</th><th>Nivell</th><th>Estat</th><th>Lliurada</th></tr></thead><tbody>
-        ${list.map((x, i) => { const [w, c] = why(x); return `<tr class="click" data-q="${i}"><td>${esc(nameOf(x.student_id))}</td><td>${esc(titleOf(x.worksheet_id))}</td><td>${lvOfWs(x)}</td><td><span class="pill ${c}">${esc(w)}</span></td><td>${x.submitted_at ? new Date(x.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("")}
+        ${list.map((x, i) => { const [w, c] = why(x); const ia = iaSusp(x.student_id, x.worksheet_id).length; return `<tr class="click" data-q="${i}"><td>${esc(nameOf(x.student_id))}</td><td>${esc(titleOf(x.worksheet_id))}</td><td>${lvOfWs(x)}</td><td><span class="pill ${c}">${esc(w)}</span>${ia ? ` <span class="pill ia" title="Possible text copiat d'una IA">Possible IA en ${ia === 1 ? "1 pregunta" : ia + " preguntes"}</span>` : ""}</td><td>${x.submitted_at ? new Date(x.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("")}
         </tbody></table></div>` : '<p class="note" style="color:var(--ok)"><b>Ho tens tot revisat.</b> Quan l\'alumnat lliuri fitxes noves, apareixeran aquí.</p>'}</section>`;
     const open = (i) => { const [sid, ws] = queue[i].split("|"); curStu = sid; curWs = ws; reviewView(); window.scrollTo(0, 0); };
     $("#main").querySelectorAll("[data-q]").forEach((r) => (r.onclick = () => open(+r.dataset.q)));
@@ -210,6 +213,7 @@
     // preguntes que la correcció automàtica ha deixat per al docent
     const need = (sub.review_items || []).map(String); let first = null;
     need.forEach((id) => { const box = host.querySelector(`.fbed[data-fb="${CSS.escape(id)}"]`); if (!box) return; box.classList.add("need"); box.insertAdjacentHTML("afterbegin", '<span class="needtag">La IA dubta</span>'); first = first || box; });
+    iaSusp(curStu, k).forEach((it) => { const box = host.querySelector(`.fbed[data-fb="${CSS.escape(String(it.id))}"]`); if (!box) return; box.classList.add("need"); box.insertAdjacentHTML("afterbegin", `<span class="needtag ia">Possible text d'IA${it.ia ? ` · estil ${esc(it.ia)}` : ""}${it.enganxat ? ` · ${it.enganxat} caràcters enganxats` : ""}</span>`); first = first || box; });
     if (first && inQ) setTimeout(() => first.scrollIntoView({ block: "center", behavior: "smooth" }), 150);
     host.addEventListener("click", (e) => {
       const b = e.target.closest("[data-lv]"); if (b) { const box = b.closest(".fbed"); const was = b.classList.contains("on"); box.querySelectorAll("[data-lv]").forEach((x) => x.classList.remove("on")); if (!was) b.classList.add("on"); return; }
@@ -244,7 +248,7 @@
   const LVNAME = { NA: "No assolit", AS: "Satisfactori", AN: "Notable", AE: "Excel·lent" };
   const lvFrom = (v) => v == null ? null : LV[Math.min(3, Math.max(0, Math.round(v) - 1))];
   const chip = (l, extra) => l ? `<span class="lvchip lv-${l}" title="${esc(LVNAME[l] + (extra ? " · " + extra : ""))}">${l}</span>` : '<span class="lvchip lv-none">–</span>';
-  const ERRN = { conceptual: "Conceptual", "càlcul": "Càlcul", unitats: "Unitats", "notació": "Notació i xifres", procediment: "Procediment", enunciat: "Comprensió de l'enunciat", "expressió": "Expressió científica", incompleta: "Incompleta" };
+  const ERRN = { conceptual: "Conceptual", "càlcul": "Càlcul", unitats: "Unitats", "notació": "Notació i xifres", procediment: "Procediment", enunciat: "Comprensió de l'enunciat", "expressió": "Expressió científica", ortografia: "Ortografia", incompleta: "Incompleta" };
   const avg = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
   async function loadSeg() { try { [fbAll, errAll] = await Promise.all([S.allFeedback(), S.errorsAll()]); } catch { fbAll = []; errAll = []; } }
   /* nivell d'una fitxa: valoració del professor si n'hi ha; si no, la correcció automàtica */
@@ -257,7 +261,21 @@
     const au = rows.filter((r) => r.item_id.startsWith("auto:") && r.item_id !== "auto:_global" && r.level).map((r) => LVN[r.level]);
     if (au.length) { const v = avg(au); return { lv: lvFrom(v), v, src: "auto" }; }
     return null;
+  }  /* nivell si les preguntes amb indici d'IA compten com a NA (null si no n'hi ha cap) */
+  function wsLevelIA(sid, ws) {
+    const sus = new Set(iaSusp(sid, ws).map((it) => String(it.id))); if (!sus.size) return null;
+    const rows = fbAll.filter((r) => r.student_id === sid && r.worksheet_id === ws);
+    const teach = Object.fromEntries(rows.filter((r) => !r.item_id.startsWith("auto:") && r.item_id !== "_global" && r.level).map((r) => [r.item_id, r.level]));
+    const vals = rows.filter((r) => r.item_id.startsWith("auto:") && r.item_id !== "auto:_global").map((r) => { const id = r.item_id.slice(5); const l = teach[id] || r.level; return sus.has(id) ? 1 : l ? LVN[l] : null; }).filter((v) => v != null);
+    return vals.length ? lvFrom(avg(vals)) : null;
   }
+  /* qualificació de la fitxa + avís d'IA + qualificació si les preguntes amb IA són NA */
+  function levelHtml(sid, ws, src) {
+    const L = wsLevel(sid, ws); if (!L) return "";
+    const li = wsLevelIA(sid, ws);
+    return chip(L.lv) + (src ? `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : "") + (li ? ` <span class="pill ia" title="Possible text copiat d'una IA (${iaSusp(sid, ws).length === 1 ? "1 pregunta" : iaSusp(sid, ws).length + " preguntes"})">IA</span> <span class="iaalt" title="Nivell si les preguntes amb indici d'IA compten com a NA">amb NA: ${chip(li)}</span>` : "");
+  }
+
   function stuSummary(sid) {
     const per = {};
     for (const ws of Object.keys(F)) {
@@ -305,7 +323,7 @@
       ${errKeys.sort((a, b) => errTot[b] - errTot[a]).map((e) => `<tr><td>${esc(ERRN[e])}</td>${sdas.map((n) => { const c = ((sm.find((p) => p.sda === n) || {}).errors || {})[e] || 0; return `<td style="--h:${(c / maxE).toFixed(2)}">${c || ""}</td>`; }).join("")}<td><b>${errTot[e]}</b></td></tr>`).join("")}</tbody></table></div>`
       : `<p class="note">Encara no hi ha errors classificats. Es classifiquen automàticament quan l'alumne lliura una fitxa digital.</p>`;
     const wsList = sm.filter((p) => p.sda > 0 || p.lliurades).map((p) => `<details class="segsda"${p.lliurades ? " open" : ""}><summary><b>SdA ${p.sda}</b> <span class="note">${esc(sdaTitle(p.sda))}</span><span class="sp"></span>${p.lliurades}/${p.total} lliurades ${chip(lvFrom(p.mitjana))}</summary>
-      <table class="t"><tbody>${p.ws.filter((w) => w.status).map((w) => { const st = w.status ? STATUS[w.status] : null; return `<tr${w.status ? ` class="click" data-open="${w.ws}"` : ""}><td>${esc(titleOf(w.ws))}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${w.L ? chip(w.L.lv, w.L.src === "auto" ? "correcció automàtica" : "valoració del professor") + `<span class="src">${w.L.src === "auto" ? "auto" : "prof."}</span>` : ""}</td><td>${w.status ? '<span class="lnk">Respostes →</span>' : ""}</td></tr>`; }).join("")}</tbody></table>${(() => { const ns = p.ws.filter((w) => !w.status); return ns.length ? `<p class="note">Sense començar (${ns.length}): ${ns.map((w) => esc(titleOf(w.ws))).join(" · ")}</p>` : ""; })()}</details>`).join("");
+      <table class="t"><tbody>${p.ws.filter((w) => w.status).map((w) => { const st = w.status ? STATUS[w.status] : null; return `<tr${w.status ? ` class="click" data-open="${w.ws}"` : ""}><td>${esc(titleOf(w.ws))}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${w.L ? levelHtml(segStu, w.ws, true) : ""}</td><td>${w.status ? '<span class="lnk">Respostes →</span>' : ""}</td></tr>`; }).join("")}</tbody></table>${(() => { const ns = p.ws.filter((w) => !w.status); return ns.length ? `<p class="note">Sense començar (${ns.length}): ${ns.map((w) => esc(titleOf(w.ws))).join(" · ")}</p>` : ""; })()}</details>`).join("");
     const lliurades = sm.reduce((a, p) => a + p.lliurades, 0);
     $("#main").innerHTML = `<div class="seggrid"><section class="card"><h2>Grup</h2><div class="tscroll"><table class="t segtab"><thead><tr><th>Alumne/a</th>${sdas.map((n) => `<th title="${esc(sdaTitle(n))}">${n}</th>`).join("")}<th>Mitjana</th></tr></thead><tbody>
         ${students.map((s) => `<tr class="click${s.id === segStu ? " on" : ""}" data-seg="${s.id}"><td>${esc(s.display_name)}</td>${sdas.map((n) => `<td>${chip(lvFrom((sums[s.id].find((p) => p.sda === n) || {}).mitjana))}</td>`).join("")}<td>${chip(lvFrom(glob(s.id)))}</td></tr>`).join("")}
@@ -347,5 +365,7 @@
   };
 
   window.FQDigital = { mount(el) { app = el; boot(); } };
+  // si la portada del professorat ja ha arrencat abans que es carregués aquest fitxer, munta ara el llibre digital
+  if (EMBED && window.FQ_READY && location.hash === "#digital" && typeof window.route === "function") window.route();
   if (!EMBED) (async () => { let me = null; try { me = await S.init(); } catch {} if (S.isStaff(me)) await boot(); else loginView(); })();
 })();
