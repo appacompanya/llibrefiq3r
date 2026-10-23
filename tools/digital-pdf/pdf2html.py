@@ -1,6 +1,6 @@
-"""Reconstrueix l'HTML dels fulls de l'alumnat de 2n d'ESO a partir dels PDF (2n/docs/*.pdf).
+"""Reconstrueix l'HTML dels fulls de l'alumnat de 2n o 4t d'ESO a partir dels PDF (<nivell>/docs/*.pdf).
 
-Els fulls de 2n es van generar amb el mateix tipus de generador que els de 3r (HTML + Chromium → PDF), però
+Els fulls de 2n i 4t es van generar amb el mateix tipus de generador que els de 3r (HTML + Chromium → PDF), però
 l'HTML original no es va conservar. Aquest script en refà un HTML equivalent, amb les mateixes peces que feien
 servir els generadors de 3r, perquè després build_fitxes.py el converteixi en fitxes digitals:
 
@@ -16,18 +16,17 @@ servir els generadors de 3r, perquè després build_fitxes.py el converteixi en 
   unitats en fracció  → g/cm³ (unitfrac.py ho apila)
   figures i imatges   → <img src="fimg/…"> retallades del PDF
 
-Ús: python3 pdf2html.py  (escriu _html/<clau>.html i ../../2n/digital/fimg/*.webp)
+Ús: python3 pdf2html.py 2n|4t [claus]  (escriu _html/<nivell>/<clau>.html i ../../<nivell>/digital/fimg/*.webp)
 """
 import os, re, sys, json, io, html as H
 import fitz
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
-DOCS = os.path.join(ROOT, "2n", "docs")
-OUTHTML = os.path.join(HERE, "_html")
-IMGDIR = os.path.join(ROOT, "2n", "digital", "fimg")
 sys.path.insert(0, HERE)
+from nivell import LEVEL, ROOT, TMP as OUTHTML, IMGPFX
+DOCS = os.path.join(ROOT, LEVEL, "docs")
+IMGDIR = os.path.join(ROOT, LEVEL, "digital", "fimg")
 import unitfrac
 
 INK = (0.12, 0.14, 0.16)
@@ -823,7 +822,7 @@ def ruta_html(d, key, sda, acc, acc_hex):
             nl = len([r for r in dot_rows(C["dots"]) if b.r.y0 < r[0] < b.r.y1 and r[1] < b.r.x0 + b.r.width * 0.6 and r[1] > b.r.x0 + b.r.width * 0.2])
             L = '<div class="l"></div>' * max(2, nl)
             img = f"../img/sda{sda}-s{n}.webp"
-            if not os.path.exists(os.path.join(ROOT, "2n", "img", f"sda{sda}-s{n}.webp")): img = ""
+            if not os.path.exists(os.path.join(ROOT, LEVEL, "img", f"sda{sda}-s{n}.webp")): img = ""
             cards.append(f'<div class="c"><div class="t"><span class="b">{esc(n)}</span><h3>{esc(" ".join(s.t for s in ttl).strip())}</h3>'
                          f'<span class="tag">{esc(" ".join(s.t for s in tag).strip())}</span><span class="ck"></span></div>'
                          f'<div class="im">{f"<img src={chr(34)}{img}{chr(34)} alt={chr(34)}{chr(34)}>" if img else ""}</div>'
@@ -876,14 +875,14 @@ def finish(h, state):
 SKIP = re.compile(r"rubriques|mapa-conceptual|adaptada|equivalencies")
 
 def main(only=None):
-    os.makedirs(OUTHTML, exist_ok=True)
-    tpl = open(os.path.join(ROOT, "2n", "index.html"), encoding="utf-8").read()
+    os.makedirs(OUTHTML, exist_ok=True); os.makedirs(IMGDIR, exist_ok=True)
+    tpl = open(os.path.join(ROOT, LEVEL, "index.html"), encoding="utf-8").read()
     D = json.loads(re.search(r"^const D = (\{.*?\});$", tpl, re.M).group(1))
     for k, v in D.items():
         if v.get("t") or SKIP.search(v["f"]): continue
         if only and k not in only: continue
         try:
-            h = convert(os.path.join(DOCS, v["f"]), "n2" + k)
+            h = convert(os.path.join(DOCS, v["f"]), IMGPFX + k)
         except Exception as e:
             import traceback; traceback.print_exc(); print("ERR", k, e); continue
         open(os.path.join(OUTHTML, k + ".html"), "w", encoding="utf-8").write(h)

@@ -1,16 +1,17 @@
-"""Controls automàtics de les fitxes de 2n reconstruïdes (per trobar-hi errors de conversió)."""
-import os, re, json, glob
+"""Controls automàtics de les fitxes de 2n o 4t reconstruïdes (per trobar-hi errors de conversió)."""
+import os, re, sys, json, glob
 import fitz
 from bs4 import BeautifulSoup
-HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
-tpl = open(os.path.join(ROOT, "2n", "index.html"), encoding="utf-8").read()
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+from nivell import LEVEL, ROOT, TMP
+tpl = open(os.path.join(ROOT, LEVEL, "index.html"), encoding="utf-8").read()
 D = json.loads(re.search(r"^const D = (\{.*?\});$", tpl, re.M).group(1))
-for f in sorted(glob.glob(os.path.join(HERE, "_html", "*.html"))):
+for f in sorted(glob.glob(os.path.join(TMP, "*.html"))):
     k = os.path.basename(f)[:-5]
     soup = BeautifulSoup(open(f).read(), "html.parser")
     probs = []
     # preguntes: les del PDF (números blancs dins d'insígnies) i les reconstruïdes
-    d = fitz.open(os.path.join(ROOT, "2n", "docs", D[k]["f"]))
+    d = fitz.open(os.path.join(ROOT, LEVEL, "docs", D[k]["f"]))
     nq_pdf = sum(1 for p in d for b in p.get_text("dict")["blocks"] if b["type"] == 0 for l in b["lines"] for s in l["spans"] if s["color"] == 0xffffff and s["text"].strip().isdigit())
     nq = len(soup.select(".q > .n")) + len(soup.select(".list .c .b"))
     if nq != nq_pdf: probs.append(f"preguntes {nq}/{nq_pdf}")

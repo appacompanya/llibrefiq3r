@@ -1,16 +1,17 @@
-"""Converteix l'HTML reconstruït dels fulls de 2n (pdf2html.py → _html/) en fitxes digitals.
+"""Converteix l'HTML reconstruït dels fulls de 2n o 4t (pdf2html.py → _html/<nivell>/) en fitxes digitals.
 Adaptació de build_fitxes_auto.py del llibre de 3r: mateixes regles (línies → resposta, cel·les buides → camps,
 requadres de dibuix → foto, caselles → checkbox, diana → valoració 1-4).
-Sortida: ../../2n/digital/js/fitxes-auto.js
-Ús: python3 pdf2html.py && python3 build_fitxes.py"""
+Sortida: ../../<nivell>/digital/js/fitxes-auto.js
+Ús: python3 pdf2html.py 2n && python3 build_fitxes.py 2n"""
 import os, re, sys, json
 from bs4 import BeautifulSoup, NavigableString
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
-OUTJS = os.path.join(ROOT, "2n", "digital", "js", "fitxes-auto.js")
-TMP = os.path.join(HERE, "_html")
-tpl = open(os.path.join(ROOT, "2n", "index.html"), encoding="utf-8").read()
+sys.path.insert(0, HERE)
+from nivell import LEVEL, ROOT, TMP
+OUTJS = os.path.join(ROOT, LEVEL, "digital", "js", "fitxes-auto.js")
+os.makedirs(os.path.dirname(OUTJS), exist_ok=True)
+tpl = open(os.path.join(ROOT, LEVEL, "index.html"), encoding="utf-8").read()
 DD = json.loads(re.search(r"^const D = (\{.*?\});$", tpl, re.M).group(1))
 D = {k: (v["f"], bool(v.get("t"))) for k, v in DD.items()}
 SKIP_KEYS = set()

@@ -16,18 +16,21 @@
 
   /* ---------------- Mode demostració ---------------- */
   function demoStore() {
-    const KEY = "fq3-demo-db-v3";
+    const KEY = "fq3-demo-db-v4";
     const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; } };
     let db = load();
     if (!db) {
       db = { settings: { auto_calc: true }, teachers: [{ id: "teacher", role: "admin", display_name: "Professor (demostració)", username: "docent" }],
         courses: [{ id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } },
-                  { id: "c-demo2", name: "2n A (exemple)", level: "2n", teacher_id: "teacher", settings: { auto_calc: true } }],
+                  { id: "c-demo2", name: "2n A (exemple)", level: "2n", teacher_id: "teacher", settings: { auto_calc: true } },
+                  { id: "c-demo4", name: "4t A (exemple)", level: "4t", teacher_id: "teacher", settings: { auto_calc: true } }],
         students: [], responses: {}, submissions: {}, feedback: {}, photos: {} };
       ["Alumne/a 01 (exemple)", "Alumne/a 02 (exemple)", "Alumne/a 03 (exemple)"].forEach((n, i) =>
         db.students.push({ id: "demo" + (i + 1), display_name: n, grup: "3r A (exemple)", code: "DEMO-000" + (i + 1), role: "student", course_id: "c-demo" }));
       ["Alumne/a 2n 01 (exemple)", "Alumne/a 2n 02 (exemple)"].forEach((n, i) =>
         db.students.push({ id: "demo2n" + (i + 1), display_name: n, grup: "2n A (exemple)", code: "DEMO-200" + (i + 1), role: "student", course_id: "c-demo2" }));
+      ["Alumne/a 4t 01 (exemple)", "Alumne/a 4t 02 (exemple)"].forEach((n, i) =>
+        db.students.push({ id: "demo4t" + (i + 1), display_name: n, grup: "4t A (exemple)", code: "DEMO-400" + (i + 1), role: "student", course_id: "c-demo4" }));
     }
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch {} };
     let me = null; try { me = JSON.parse(sessionStorage.getItem("fq3-demo-me")); } catch {}

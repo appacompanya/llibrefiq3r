@@ -1,17 +1,18 @@
-"""Construeix el llibre digital de 2n (/2n/digital/) a partir del llibre web de 2n (/2n/index.html).
+"""Construeix el llibre digital de 2n o 4t (/<nivell>/digital/) a partir del llibre web (/<nivell>/index.html).
 Fa el mateix que build_digital.py de 3r, però amb el codi compartit de /digital/js/ i /digital/css/:
-  - 2n/digital/index.html  llibre de l'alumnat amb accés per codi i fitxes interactives
-  - 2n/digital/profe.html  zona del professorat de 2n (fitxes, «Per revisar», seguiment, alumnat)
-  - 2n/digital/js/docs.js i js/sdas.js  dades de 2n per a la zona del professorat
-  - 2n/index.html          marca quines fitxes tenen versió digital
-Les fitxes (2n/digital/js/fitxes-auto.js) les fan pdf2html.py i build_fitxes.py.
-Ús: python3 build_digital.py"""
-import os, re, json
+  - <nivell>/digital/index.html  llibre de l'alumnat amb accés per codi i fitxes interactives
+  - <nivell>/digital/profe.html  zona del professorat del nivell (fitxes, «Per revisar», seguiment, alumnat)
+  - <nivell>/digital/js/docs.js i js/sdas.js  dades del nivell per a la zona del professorat
+  - <nivell>/index.html          marca quines fitxes tenen versió digital
+Les fitxes (<nivell>/digital/js/fitxes-auto.js) les fan pdf2html.py i build_fitxes.py.
+Ús: python3 build_digital.py 2n|4t"""
+import os, re, sys, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.normpath(os.path.join(HERE, "..", ".."))
-SRC = os.path.join(ROOT, "2n", "index.html")
-OUTDIR = os.path.join(ROOT, "2n", "digital")
+sys.path.insert(0, HERE)
+from nivell import LEVEL, ROOT
+SRC = os.path.join(ROOT, LEVEL, "index.html")
+OUTDIR = os.path.join(ROOT, LEVEL, "digital")
 s = open(SRC, encoding="utf-8").read()
 
 def rep(old, new, count=1):
@@ -30,7 +31,7 @@ web = re.sub(r"const DIGITAL = new Set\(\[[^\]]*\]\);", "const DIGITAL = new Set
 open(SRC, "w", encoding="utf-8").write(web)
 s = web
 
-# 2) rutes relatives des de /2n/digital/
+# 2) rutes relatives des de /<nivell>/digital/
 s = s.replace('u:"docs/', 'u:"../docs/')
 s = s.replace('"docs/" +', '"../docs/" +').replace('url: "docs/" +', 'url: "../docs/" +')
 s = re.sub(r'src="img/', 'src="../img/', s)
@@ -38,12 +39,12 @@ s = s.replace('`img/sda${s.n}-s${i+1}.webp`', '`../img/sda${s.n}-s${i+1}.webp`')
 s = s.replace('"../lib/pdf.worker.min.js"', '"../../lib/pdf.worker.min.js"')
 s = s.replace('"../sim-', '"../../sim-').replace("u:\"../sim-", "u:\"../../sim-")
 s = re.sub(r'"(img/(?:portada|coberta)[^"]+)"', r'"../\1"', s)
-rep("<title>Física i química 2n ESO</title>", "<title>Física i química 2n ESO · Llibre digital</title>")
+s = re.sub(r"<title>([^<]*)</title>", r"<title>\1 · Llibre digital</title>", s, count=1)
 rep('<meta name="description" content="', '<meta name="robots" content="noindex">\n<meta name="description" content="') if '<meta name="description" content="' in s else None
 
 # 3) llibreries de la versió digital (codi compartit amb 3r)
 head_add = """<link rel="stylesheet" href="../../digital/css/fitxa.css">
-<script>window.FQ_LEVEL = "2n"; window.FQ_WSPREFIX = "2n:";</script>
+<script>window.FQ_LEVEL = "{LEVEL}"; window.FQ_WSPREFIX = "{LEVEL}:";</script>
 <script src="../../digital/js/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.105.3/mathlive.min.js"></script>
@@ -52,7 +53,7 @@ head_add = """<link rel="stylesheet" href="../../digital/css/fitxa.css">
 <script src="../../digital/js/store.js"></script>
 <script src="../../digital/js/fitxa.js"></script>
 """
-rep("</head>", head_add + "</head>")
+rep("</head>", head_add.replace("{LEVEL}", LEVEL) + "</head>")
 
 # 4) vista de fitxa interactiva i rutes
 rep('  <section class="viewer" id="vDoc" hidden', '  <section class="wsview" id="vWs" hidden></section>\n  <section class="viewer" id="vDoc" hidden')
@@ -63,7 +64,7 @@ rep("function route(nav){\n  const h = location.hash.slice(1);", "function route
 rep("\nroute();\n", "\nwindow.SDAS = SDAS; window.D = D;\nwindow.FQShowView = (n) => setView(n, location.hash.slice(1));\nroute();\n")
 rep("</body>", '<script src="../../digital/js/alumne.js"></script>\n</body>')
 # l'enllaç del visor a la fitxa digital, dins del mateix llibre
-s = s.replace('g.href = "https://llibrefiq3r.cat/2n/digital/#fitxa-" + k;', 'g.href = "#fitxa-" + k;')
+s = s.replace('g.href = "https://llibrefiq3r.cat/' + LEVEL + '/digital/#fitxa-" + k;', 'g.href = "#fitxa-" + k;')
 
 os.makedirs(os.path.join(OUTDIR, "js"), exist_ok=True)
 open(os.path.join(OUTDIR, "index.html"), "w", encoding="utf-8").write(s)
@@ -75,10 +76,10 @@ open(os.path.join(OUTDIR, "js", "docs.js"), "w", encoding="utf-8").write("window
 m = re.search(r"^const SDAS = (\[.*?\]);$", web, re.M | re.S)
 sdas = json.loads(m.group(1)) if m and m.group(1).strip().startswith("[{\"") else None
 if sdas is None:
-    raise SystemExit("No he pogut llegir SDAS de 2n/index.html")
+    raise SystemExit(f"No he pogut llegir SDAS de {LEVEL}/index.html")
 open(os.path.join(OUTDIR, "js", "sdas.js"), "w", encoding="utf-8").write("window.SDAS = " + json.dumps([{"n": x["n"], "title": x["title"], "c": x.get("c")} for x in sdas], ensure_ascii=False) + ";\n")
 
-# 6) zona del professorat de 2n: el tauler del llibre digital (profe.js) en una pàgina pròpia
+# 6) zona del professorat del nivell: el tauler del llibre digital (profe.js) en una pàgina pròpia
 css_vars = re.search(r":root\{[^}]*\}", web).group(0)
 profe = f"""<!doctype html>
 <html lang="ca">
@@ -86,7 +87,7 @@ profe = f"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Zona del professorat · FQ 2n ESO</title>
+<title>Zona del professorat · FQ {LEVEL} ESO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
 <link rel="stylesheet" href="../../digital/css/fitxa.css">
@@ -104,7 +105,7 @@ h1,h2{{font-family:var(--font-display);font-weight:800;margin:0}}
 .login{{max-width:420px;margin:8vh auto 0}}
 .spin{{width:28px;height:28px;border:3px solid var(--line);border-top-color:var(--acc,var(--s1));border-radius:50%;animation:sp 1s linear infinite;margin:30px auto}}@keyframes sp{{to{{transform:rotate(360deg)}}}}
 </style>
-<script>window.FQ_LEVEL = "2n"; window.FQ_WSPREFIX = "2n:"; window.FQ_DOCENT_URL = "../../docent/";</script>
+<script>window.FQ_LEVEL = "{LEVEL}"; window.FQ_WSPREFIX = "{LEVEL}:"; window.FQ_DOCENT_URL = "../../docent/";</script>
 <script src="../../digital/js/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.105.3/mathlive.min.js"></script>
@@ -123,4 +124,4 @@ h1,h2{{font-family:var(--font-display);font-weight:800;margin:0}}
 </html>
 """
 open(os.path.join(OUTDIR, "profe.html"), "w", encoding="utf-8").write(profe)
-print("2n/digital:", len(keys), "fitxes digitals")
+print(LEVEL + "/digital:", len(keys), "fitxes digitals")
