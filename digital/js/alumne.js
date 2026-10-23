@@ -5,6 +5,7 @@
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   let settings = { auto_calc: true }, me = null, wsKey = null, wsBack = null, wsFromNav = false, cur = null;
+  const LEVEL = window.FQ_LEVEL || "3r";
 
   /* ---------- accés ---------- */
   function showLogin(msg) {
@@ -12,13 +13,13 @@
     if (!el) { el = document.createElement("div"); el.id = "fqLogin"; el.className = "login"; document.body.appendChild(el); }
     el.innerHTML = `<img class="login-bg" src="../img/portada.webp" alt="Quatre alumnes fent experiments al laboratori de ciències">
     <form class="card" id="fqLoginForm" autocomplete="off">
-      <div class="login-head"><span class="fq-tile" aria-hidden="true"><b>Fq</b></span><div><div class="eyebrow">3r d'ESO · Llibre digital</div>
+      <div class="login-head"><span class="fq-tile" aria-hidden="true"><b>Fq</b></span><div><div class="eyebrow">${LEVEL} d'ESO · Llibre digital</div>
       <h1>Física i química per entendre el món</h1></div></div>
       <label for="fqCode">Escriu el teu codi d'accés</label>
       <input id="fqCode" name="code" placeholder="XXXX-XXXX" maxlength="9" autocapitalize="characters" spellcheck="false" required>
       <p class="err" id="fqErr">${esc(msg || "")}</p>
       <button class="btn" type="submit">Entra</button>
-      ${S.mode === "demo" ? `<p class="demo"><b>Mode demostració.</b> Prova amb el codi <b>DEMO-0001</b>, DEMO-0002 o DEMO-0003. Les respostes només es desen en aquest navegador.</p>` : `<p class="demo">El codi te'l dona el professor. Si l'has perdut, demana-li'n un de nou.</p>`}
+      ${S.mode === "demo" ? `<p class="demo"><b>Mode demostració.</b> Prova amb el codi ${LEVEL === "2n" ? "<b>DEMO-2001</b> o DEMO-2002" : "<b>DEMO-0001</b>, DEMO-0002 o DEMO-0003"}. Les respostes només es desen en aquest navegador.</p>` : `<p class="demo">El codi te'l dona el professor. Si l'has perdut, demana-li'n un de nou.</p>`}
     </form>`;
     el.hidden = false;
     $("#fqCode").addEventListener("input", (e) => { let v = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ""); if (v.length > 4) v = v.slice(0, 4) + "-" + v.slice(4, 8); e.target.value = v; });
@@ -31,6 +32,16 @@
     setTimeout(() => $("#fqCode") && $("#fqCode").focus(), 50);
   }
   async function afterLogin() {
+    // un alumne d'un curs d'un altre nivell va al seu llibre
+    try {
+      const lv = S.myLevel ? await S.myLevel() : null;
+      if (lv && lv !== LEVEL) {
+        const url = lv === "3r" ? "/digital/" : `/${lv}/digital/`;
+        await S.signOut(); me = null;
+        showLogin(""); $("#fqErr").innerHTML = `Aquest codi és d'un curs de ${lv} d'ESO. Entra al teu llibre: <a href="${url}">llibrefiq3r.cat${url}</a>`;
+        return;
+      }
+    } catch {}
     const el = $("#fqLogin"); if (el) el.hidden = true;
     try { settings = { auto_calc: true, ...(await S.getSettings()) }; } catch {}
     renderUserBar();

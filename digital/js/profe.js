@@ -12,7 +12,7 @@
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 3500); };
   const titleOf = (k) => (F[k] && F[k].title) || (DOCS[k] && `SdA ${DOCS[k].sda} · ${DOCS[k].l}`) || k;
   const sdaOf = (k) => (F[k] && F[k].sda) || (DOCS[k] && DOCS[k].sda) || 0;
-  const DOCENT_URL = "../docent/";
+  const DOCENT_URL = window.FQ_DOCENT_URL || "../docent/";
   const curName = () => (courses.find((c) => c.id === S.curCourse()) || {}).name || "";
   /* lliuraments que el docent encara no ha revisat (ja corregits per la IA o pendents), del més antic al més nou */
   const pending = () => subs.filter((x) => x.status === "submitted" && x.review !== "done")
@@ -20,7 +20,7 @@
 
   /* ---------- accés ---------- */
   function loginView(msg) {
-    app.innerHTML = `<form class="card login" id="lf"><div class="eyebrow">Física i química · 3r d'ESO</div><h1>Zona del professorat</h1>
+    app.innerHTML = `<form class="card login" id="lf"><div class="eyebrow">Física i química · ${LEVEL} d'ESO</div><h1>Zona del professorat</h1>
       ${S.mode === "demo" ? `<p class="note"><b>Mode demostració.</b> Les dades es guarden només en aquest navegador.</p><label class="f">Usuari<input id="le" required></label><label class="f">Contrasenya<input type="password" id="lp" required></label>` :
       `<label class="f">Usuari<input id="le" autocomplete="username" required></label><label class="f">Contrasenya<input type="password" id="lp" autocomplete="current-password" required></label>`}
       <p class="err" id="lerr">${esc(msg || "")}</p><button class="btn" type="submit">Entra</button></form>`;
@@ -30,8 +30,8 @@
       catch (err) { $("#lerr").textContent = err.message === "not_teacher" ? "Aquest compte no és de professorat." : "Usuari o contrasenya incorrectes."; }
     };
   }
-  /* aquest llibre digital és el de 3r: s'hi treballa amb els cursos de 3r del docent */
-  const LEVEL = "3r";
+  /* cada llibre digital treballa amb els cursos del seu nivell (3r per defecte; 2n posa window.FQ_LEVEL) */
+  const LEVEL = window.FQ_LEVEL || "3r";
   async function loadCourses() {
     courses = (await S.listCourses()).filter((c) => c.level === LEVEL);
     if (!courses.some((c) => c.id === S.curCourse())) S.setCourse(courses[0] ? courses[0].id : null);
@@ -53,7 +53,7 @@
     app.innerHTML = `<header class="top dtop"><div><div class="eyebrow">Zona del professorat · ${S.mode === "demo" ? "demostració" : "llibre digital"} · ${esc(me.display_name || "")}</div><h2 class="dh">Llibre digital de l'alumnat</h2></div>
       <div class="row noprint">${courseSel}<a class="btn ghost" href="${DOCENT_URL}">Els meus cursos</a>${EMBED ? '<a class="btn ghost" href="#inici">← Portada del professorat</a>' : ""}<a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a>${EMBED ? "" : '<button class="btn ghost" id="out">Surt</button>'}</div></header>
       ${cur ? `<nav class="tabs noprint" role="tablist">${[["revisar", `Per revisar${nq ? ` <span class="qn">${nq}</span>` : ""}`], ["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
-      <main id="main"></main>` : `<section class="card"><h2>Encara no tens cap curs de 3r d'ESO</h2><p class="note">Crea'l a <a href="${DOCENT_URL}">Els meus cursos</a>: tria el nivell, posa-li nom i afegeix-hi l'alumnat.</p></section>`}`;
+      <main id="main"></main>` : `<section class="card"><h2>Encara no tens cap curs de ${LEVEL} d'ESO</h2><p class="note">Crea'l a <a href="${DOCENT_URL}">Els meus cursos</a>: tria el nivell, posa-li nom i afegeix-hi l'alumnat.</p></section>`}`;
     if ($("#out")) $("#out").onclick = async () => { await S.signOut(); loginView(); };
     if ($("#curs")) $("#curs").onchange = async (e) => { S.setCourse(e.target.value); curWs = null; curStu = null; queue = null; $("#main").innerHTML = '<div class="spin"></div>'; await loadData(); shell(); };
     if (!cur) return;
@@ -101,7 +101,7 @@
         <div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Grup</th><th>Codi</th><th class="noprint"></th></tr></thead><tbody>
         ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td class="noprint"><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn danger" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="4" class="note">Encara no hi ha alumnat. Afegeix-lo amb el formulari.</td></tr>`}
         </tbody></table></div></section></div>
-      <section class="codes" id="cards" hidden>${students.map((s) => `<div class="codecard"><span>Física i química · 3r d'ESO · llibre digital</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(location.origin + location.pathname.replace(/profe\.html$/, ""))}</span></div>`).join("")}</section>`;
+      <section class="codes" id="cards" hidden>${students.map((s) => `<div class="codecard"><span>Física i química · ${LEVEL} d'ESO · llibre digital</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(location.origin + location.pathname.replace(/profe\.html$/, ""))}</span></div>`).join("")}</section>`;
     $("#add").onclick = async () => {
       const names = $("#names").value.split("\n").map((x) => x.trim()).filter(Boolean); if (!names.length) return;
       const b = $("#add"); b.disabled = true; b.textContent = "Creant…";

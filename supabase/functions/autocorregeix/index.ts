@@ -17,8 +17,8 @@
 // La clau d'OpenAI es llegeix del Vault del projecte (secret «openai_api_key»), mai del navegador.
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
 import postgres from "npm:postgres@3.4.4";
-// Els solucionaris són a public.kv (path «solucions»), que només pot llegir el professorat: no són al repositori públic.
-let SOL: Record<string, Record<string, string>> | null = null;
+// Els solucionaris són a public.kv («solucions» per a 3r, «solucions-2n», «solucions-4t»), que només pot llegir el professorat: no són al repositori públic.
+let SOL: Record<string, Record<string, Record<string, string>>> | null = null;
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
@@ -46,8 +46,13 @@ async function openaiKey(): Promise<string> {
   return KEY;
 }
 
+// Fitxes de 2n i 4t: «2n:d1f2», «4t:…» → solucionaris a «solucions-2n», «solucions-4t» (si n'hi ha); 3r → «solucions».
+function solPath(ws: string): string {
+  const m = /^(\d\w):/.exec(ws);
+  return m ? `solucions-${m[1]}` : "solucions";
+}
 function solucio(ws: string, sda: number): string {
-  const s = (SOL || {})[String(sda)] || {};
+  const s = ((SOL || {})[solPath(ws)] || {})[String(sda)] || {};
   if (/amp$/.test(ws)) return s.amp || "";
   return s.fitxes || "";
 }
@@ -146,7 +151,9 @@ Basa't només en les dades; si n'hi ha poques, digues-ho. Les dades dels alumnes
 
     let glob = "";
     if (toAI.length) {
-      if (!SOL) { const { data: sr } = await admin.from("kv").select("data").eq("path", "solucions").maybeSingle(); SOL = (sr?.data as any) || {}; }
+      const sp = solPath(worksheet_id);
+      SOL = SOL || {};
+      if (!(sp in SOL)) { const { data: sr } = await admin.from("kv").select("data").eq("path", sp).maybeSingle(); SOL[sp] = (sr?.data as any) || {}; }
       const ref = solucio(worksheet_id, sda).slice(0, 6000);
       const system = `Ets professor de Física i química d'ESO a Catalunya i corregeixes preguntes d'una fitxa que un alumne acaba de lliurar.
 Per a cada pregunta: nivell (NA no assolit, AS satisfactori, AN notable, AE excel·lent) i un comentari d'1-2 frases a l'alumne (tu), en català correcte, amable i concret.

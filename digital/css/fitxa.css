@@ -185,3 +185,4 @@ math-field.mf:focus-within{border-color:var(--acc)}
 .ws-auto-h{font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:color-mix(in srgb,var(--acc) 80%,var(--fg));display:flex;gap:8px;align-items:center}
 .ws-auto p{margin:0}
 .ws-auto-g .ws-auto{border-style:solid}
+.ws .chip{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:0 9px;margin:2px 1px;font-size:.88em;font-weight:600}
