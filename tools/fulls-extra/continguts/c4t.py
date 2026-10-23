@@ -10,7 +10,6 @@ def mes(*qs):
     return renumber("".join(qs))
 
 PHET = "https://phet.colorado.edu/ca/"
-VIQUI = "https://ca.wikipedia.org"
 BOX = lambda h: f'<div class="box" style="min-height:{h}mm"></div>'
 
 EXTRA = {}

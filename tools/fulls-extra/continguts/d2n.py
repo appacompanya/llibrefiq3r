@@ -5,8 +5,7 @@ Les dades que no surten als fulls del curs són de llibre de text o s'indiquen c
 from estil import rep, tip, table, graf, resources, h2, DOSSIER_INTRO
 
 PHET = "https://phet.colorado.edu/ca/"
-VIQUI = "https://ca.wikipedia.org"
-REC = '<p class="intro">Recursos per continuar aprenent. Entra a l\'adreça i cerca el títol entre cometes.</p>'
+REC = '<p class="intro">Recursos per continuar aprenent: institucions científiques, museus i simulacions. Si al costat de l\'adreça hi ha un títol entre cometes, cerca\'l a la pàgina.</p>'
 BOX = lambda h: f'<div class="box" style="min-height:{h}mm"></div>'
 
 
@@ -60,10 +59,8 @@ DOSSIER["sda1-19-ampliacio.pdf"] = dossier([
         'Compara-ho amb els 110 L per persona i dia de la fitxa 5.</p><p>c) Per què creus que el tercer trimestre és el que gasta més? '
         'Proposa dues maneres d\'estalviar i calcula quant estalviarien en un any.</p></div>' + '<div class="l"></div>' * 6),
 ], [
-    ("El Sistema Internacional d'Unitats", "Viquipèdia en català: història del sistema mètric i definició actual de les set unitats bàsiques", VIQUI + " · «Sistema Internacional d'Unitats»"),
+    ("Història del Sistema Internacional", "Oficina Internacional de Pesos i Mesures (BIPM): d'on surten el metre, el quilogram i les set unitats bàsiques", "https://www.bipm.org/en/history-si/"),
     ("The International System of Units (SI)", "Oficina Internacional de Pesos i Mesures (BIPM): el document oficial del SI, en anglès i francès", "https://www.bipm.org · «SI Brochure»"),
-    ("Unitats de mesura tradicionals catalanes", "Viquipèdia en català: cana, pam, quartera, lliura… i com es passen al sistema mètric", VIQUI + " · «Unitats de mesura catalanes»"),
-    ("Notació científica", "Viquipèdia en català: com s'escriuen i es calculen nombres molt grans i molt petits", VIQUI + " · «Notació científica»"),
     ("L'aigua a Catalunya en dades", "Agència Catalana de l'Aigua: consums, embassaments i estat dels rius", "https://aca.gencat.cat"),
     ("Població de Catalunya", "Institut d'Estadística de Catalunya (Idescat): dades oficials per fer estimacions", "https://www.idescat.cat"),
 ])
@@ -117,10 +114,9 @@ DOSSIER["sda2-19-ampliacio.pdf"] = dossier([
 ], [
     ("Densitat", "Simulació PhET: compara masses i volums de blocs de materials diferents i descobreix quins suren", PHET + " · «Densitat» (Density)"),
     ("Flotabilitat", "Simulació PhET: l'empenta, el pes i per què uns objectes suren i d'altres no", PHET + " · «Flotabilitat» (Buoyancy)"),
-    ("Principi d'Arquimedes", "Viquipèdia en català: l'enunciat, la història de la corona i aplicacions", VIQUI + " · «Principi d'Arquimedes»"),
-    ("Hipàtia d'Alexandria", "Viquipèdia en català: la vida i l'obra de la matemàtica i astrònoma", VIQUI + " · «Hipàtia d'Alexandria»"),
-    ("Marie Tharp", "Viquipèdia en català: la geòloga que va cartografiar el fons de l'oceà", VIQUI + " · «Marie Tharp»"),
-    ("Densímetre", "Viquipèdia en català: com funciona i on es fa servir (vi, llet, bateries, aigua de mar)", VIQUI + " · «Densímetre»"),
+    ("Les balances hidrostàtiques", "Museo Galileo (Florència): la balança d'Arquimedes i la corona de Hieró, i la bilancetta de Galileu", "https://catalogue.museogalileo.it/indepth/WeighingInstruments.html"),
+    ("Hipàcia d'Alexandria", "Gran Enciclopèdia Catalana: la vida i l'obra de la matemàtica i astrònoma", "https://www.enciclopedia.cat/gran-enciclopedia-catalana/hipacia"),
+    ("Marie Tharp i el mapa del fons de l'oceà", "Biblioteca del Congrés dels EUA (en anglès): el mapa del fons de l'oceà i la seva autora", "https://www.loc.gov/loc/lcib/0211/tharp.html"),
 ])
 
 # ================================================================== SdA 3 · La pilota que no bota
@@ -169,9 +165,8 @@ DOSSIER["sda3-21-ampliacio.pdf"] = dossier([
 ], [
     ("Propietats dels gasos", "Simulació PhET: canvia la temperatura, el volum i el nombre de partícules i mira què passa amb la pressió", PHET + " · «Propietats dels gasos» (Gas Properties)"),
     ("Estats de la matèria: conceptes bàsics", "Simulació PhET: escalfa i refreda aigua, neó o oxigen i observa les partícules", PHET + " · «Estats de la matèria: conceptes bàsics»"),
-    ("Zero absolut", "Viquipèdia en català: què vol dir −273,15 °C i com ens hi hem acostat", VIQUI + " · «Zero absolut»"),
-    ("Evangelista Torricelli", "Viquipèdia en català: el baròmetre de mercuri i la pressió atmosfèrica", VIQUI + " · «Evangelista Torricelli»"),
-    ("Llei dels gasos ideals", "Viquipèdia en català: les lleis de Boyle, Charles i Gay-Lussac en una sola equació", VIQUI + " · «Llei dels gasos ideals»"),
+    ("La llei de Charles i Gay-Lussac", "NASA, Centre de Recerca Glenn (en anglès): el volum i la temperatura d'un gas, amb animacions", "https://www.grc.nasa.gov/www/k-12/airplane/glussac.html"),
+    ("La llei de Boyle", "NASA, Centre de Recerca Glenn (en anglès): la pressió i el volum d'un gas, amb una animació", "https://www.grc.nasa.gov/www/k-12/airplane/aboyle.html"),
     ("La pressió atmosfèrica avui", "Servei Meteorològic de Catalunya: dades de pressió de les estacions i mapes del temps", "https://www.meteo.cat"),
 ])
 
@@ -215,8 +210,8 @@ DOSSIER["sda4-20-ampliacio.pdf"] = dossier([
     ("Concentració", "Simulació PhET: afegeix solut, evapora aigua i observa quan la dissolució queda saturada", PHET + " · «Concentració» (Concentration)"),
     ("Agència Catalana de l'Aigua", "Estat dels rius i embassaments de Catalunya i dades de la sequera", "https://aca.gencat.cat"),
     ("Aigües de Barcelona", "Com es potabilitza l'aigua i anàlisi de la qualitat de l'aigua per adreça", "https://www.aiguesdebarcelona.cat"),
-    ("Cromatografia", "Viquipèdia en català: el mètode de Mikhaïl Tsvet i els tipus de cromatografia", VIQUI + " · «Cromatografia»"),
-    ("Dessalinització", "Viquipèdia en català: com es treu la sal de l'aigua de mar (osmosi inversa, destil·lació)", VIQUI + " · «Dessalinització»"),
+    ("Cromatografia en paper", "Royal Society of Chemistry (en anglès): vídeo i fitxes per separar els colorants de les tintes", "https://edu.rsc.org/resources/paper-chromatography-practical-videos-14-16-students/4011446.article"),
+    ("Fàbriques d'aigua per salvar-nos de la sequera", "3Cat: com funcionen la dessalinitzadora del Llobregat i la regeneració d'aigua", "https://www.3cat.cat/3catinfo/fabriques-daigua-per-salvar-nos-de-la-sequera/noticia/3230125/"),
     ("Water Footprint Network", "La petjada hídrica de centenars d'aliments i productes (en anglès)", "https://www.waterfootprint.org · «Product gallery»"),
 ])
 
@@ -258,10 +253,7 @@ DOSSIER["sda5-20-ampliacio.pdf"] = dossier([
         "Fes un cartell petit per a la cuina de casa amb tres consells i el perquè científic."], 6),
 ], [
     ("Reactius, productes i sobrants", "Simulació PhET: fes reaccions i descobreix quin reactiu s'acaba primer", PHET + " · «Reactants, Products and Leftovers»"),
-    ("Antoine Lavoisier", "Viquipèdia en català: la conservació de la massa i el treball amb Marie-Anne Paulze", VIQUI + " · «Antoine Lavoisier»"),
-    ("Reacció de Maillard", "Viquipèdia en català: la química del pa torrat, la carn a la planxa i el cafè", VIQUI + " · «Reacció de Maillard»"),
     ("Acrilamida", "Autoritat Europea de Seguretat Alimentària (EFSA): què és i com reduir-la a casa", "https://www.efsa.europa.eu · «Acrylamide»"),
-    ("Enzim", "Viquipèdia en català: què són els enzims i com acceleren les reaccions dels éssers vius", VIQUI + " · «Enzim»"),
     ("Seguretat alimentària a casa", "Agència Catalana de Seguretat Alimentària: conservació dels aliments i consells", "https://acsa.gencat.cat"),
 ])
 
@@ -304,8 +296,7 @@ DOSSIER["sda6-20-ampliacio.pdf"] = dossier([
 ], [
     ("Formes d'energia i canvis", "Simulació PhET: escalfa i refreda materials i segueix les transformacions d'energia", PHET + " · «Formes d'energia i canvis» (Energy Forms and Changes)"),
     ("Institut Català d'Energia", "Consells d'estalvi energètic a casa i dades de l'energia a Catalunya", "https://icaen.gencat.cat"),
-    ("James Prescott Joule", "Viquipèdia en català: l'experiment de les paletes i la conservació de l'energia", VIQUI + " · «James Prescott Joule»"),
-    ("Passivhaus", "Viquipèdia en català: les cases de consum gairebé nul i com s'aïllen", VIQUI + " · «Passivhaus»"),
-    ("Termo (ampolla de Dewar)", "Viquipèdia en català: l'invent de James Dewar i com evita les tres formes de propagació", VIQUI + " · «Ampolla de Dewar»"),
+    ("Passive House", "Govern d'Austràlia, Your Home (en anglès): com s'aïlla una casa que gairebé no necessita calefacció", "https://yourhome.gov.au/passive-design/passive-house"),
+    ("James Dewar i el termo", "Royal Institution (en anglès): l'inventor de l'ampolla de buit, que va crear el 1892", "https://www.rigb.org/explore-science/explore/person/james-dewar-1842-1923"),
     ("Museu de la Ciència i de la Tècnica de Catalunya", "A Terrassa: màquines de vapor, energia i la història industrial de Catalunya", "https://mnactec.cat"),
 ])

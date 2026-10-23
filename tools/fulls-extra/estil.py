@@ -50,6 +50,15 @@ ul,ol{margin:0 0 2mm;padding-left:6mm}li{margin-bottom:1mm}
 .rq .rh{break-inside:avoid}
 .parts{margin:1.5mm 0 1mm}
 .parts p{margin:0 0 1mm}
+.hd{display:grid;grid-template-columns:1fr 52mm;gap:6mm;align-items:end;border-bottom:1.5pt solid var(--acc);padding-bottom:2.5mm;margin-bottom:4mm}
+.hd .kick{font-size:9pt;font-weight:700;color:var(--acc);letter-spacing:.02em;margin-bottom:1mm}
+.hd h1{font-size:18pt;margin:0;line-height:1.15}
+.hd .badge{display:inline-block;vertical-align:middle;font-size:8pt;border:1pt solid var(--acc);color:var(--acc);border-radius:2mm;padding:.2mm 1.6mm;margin-left:2mm}
+.ngd{display:grid;grid-template-columns:auto 1fr;gap:3mm 2mm;font-size:9.5pt;align-items:end}
+.ngd i{border-bottom:.75pt solid var(--ink);height:4mm}
+.crit{font-size:8pt;color:var(--muted);font-weight:400}
+.sol{background:var(--soft);border-left:1.5mm solid var(--acc);border-radius:1.5mm;padding:2mm 3mm;margin:1mm 0 2mm;font-size:10pt}
+.sol p{margin:0 0 1mm}
 .font{font-size:8.5pt;color:var(--muted);margin-top:3mm}
 .katex{font-size:1.08em}
 """
@@ -65,6 +74,22 @@ def page(level, sda, body, top=None):
     first = f"@page:first{{margin-top:{top:.1f}pt}}" if top is not None else ""
     return (f'<!doctype html><html lang="ca"><head><meta charset="utf-8"><style>{CSS % {"f": FONT, "c": c, "t": t}}{first}</style>'
             f'{KATEX_HEAD}</head><body>{body}</body></html>')
+
+
+def header(level, sda, title, badge=""):
+    """Capçalera com la dels fulls del curs: SdA, títol, nom, grup i data, i la línia de color."""
+    kick = f"Física i química · {level} ESO · SdA {sda} · {SDA[level][sda][0]}".upper()
+    b = f' <span class="badge">{badge}</span>' if badge else ""
+    return ('<header class="hd"><div><div class="kick">' + html.escape(kick) + '</div><h1>' + html.escape(title) + b + '</h1></div>'
+            '<div class="ngd"><span>Nom</span><i></i><span>Grup</span><i></i><span>Data</span><i></i></div></header>')
+
+
+def footer_num(level, sda):
+    """Peu amb el número de pàgina (per als documents sencers)."""
+    title = SDA[level][sda][0]
+    return ('<div style="font-family:\'DejaVu Sans\',sans-serif;font-size:8pt;color:#24272c;width:100%;padding:0 14mm;display:flex;'
+            f'justify-content:space-between"><span>Física i química · {level} ESO · SdA {sda} · {html.escape(title)}</span>'
+            '<span><span class="pageNumber"></span>/<span class="totalPages"></span></span></div>')
 
 
 def footer(level, sda):

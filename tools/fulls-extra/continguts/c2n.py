@@ -11,7 +11,6 @@ def mes(*qs):
     return renumber("".join(qs))
 
 PHET = "https://phet.colorado.edu/ca/"
-VIQUI = "https://ca.wikipedia.org"
 
 EXTRA = {}
 

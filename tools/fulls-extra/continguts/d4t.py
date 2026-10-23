@@ -5,8 +5,7 @@ referència (NOAA, IUPAC, OMS…) o s'indiquen com a suposició."""
 from estil import rep, tip, table, graf, resources, h2, DOSSIER_INTRO
 
 PHET = "https://phet.colorado.edu/ca/"
-VIQUI = "https://ca.wikipedia.org"
-REC = '<p class="intro">Recursos per continuar aprenent. Entra a l\'adreça i cerca el títol entre cometes.</p>'
+REC = '<p class="intro">Recursos per continuar aprenent: institucions científiques, museus i simulacions. Si al costat de l\'adreça hi ha un títol entre cometes, cerca\'l a la pàgina.</p>'
 BOX = lambda h: f'<div class="box" style="min-height:{h}mm"></div>'
 
 
@@ -62,8 +61,8 @@ DOSSIER["sda1-21-ampliacio.pdf"] = dossier([
     ("Construeix un àtom", "Simulació PhET: afegeix protons, neutrons i electrons i mira com canvien l'element, la càrrega i la massa", PHET + " · «Construeix un àtom» (Build an Atom)"),
     ("Isòtops i massa atòmica", "Simulació PhET: barreja isòtops i calcula la massa atòmica mitjana", PHET + " · «Isòtops i massa atòmica» (Isotopes and Atomic Mass)"),
     ("Models de l'àtom d'hidrogen", "Simulació PhET: compara els models de Thomson, Rutherford i Bohr amb els espectres", PHET + " · «Models of the Hydrogen Atom»"),
-    ("Cecilia Payne-Gaposchkin", "Viquipèdia en català: la vida de l'astrònoma que va descobrir de què estan fets els estels", VIQUI + " · «Cecilia Payne-Gaposchkin»"),
-    ("Heli", "Viquipèdia en català: el descobriment a l'espectre del Sol i les propietats de l'element", VIQUI + " · «Heli»"),
+    ("Cecilia Payne-Gaposchkin", "Enciclopèdia (Divulcat): l'astrònoma que va descobrir de què estan fets els estels", "https://www.enciclopedia.cat/divulcat/Cecilia-Payne-Gaposchkin"),
+    ("Taula periòdica de la Royal Society of Chemistry", "Element per element (en anglès), amb la història del descobriment: cerca «Helium»", "https://periodic-table.rsc.org"),
     ("Taula periòdica de la IUPAC", "Unió Internacional de Química Pura i Aplicada: la taula oficial amb les masses atòmiques actuals", "https://iupac.org · «Periodic Table of Elements»"),
 ])
 
@@ -106,8 +105,8 @@ DOSSIER["sda2-21-ampliacio.pdf"] = dossier([
     ("Concentració", "Simulació PhET: dissolucions, saturació i mesura de la concentració", PHET + " · «Concentració» (Concentration)"),
     ("Reial decret 3/2023 (qualitat de l'aigua de consum)", "Butlletí Oficial de l'Estat: els valors paramètrics de cada substància", "https://www.boe.es · «Real Decreto 3/2023»"),
     ("Qualitat de l'aigua per adreça", "Aigües de Barcelona: l'anàlisi de l'aigua del teu barri", "https://www.aiguesdebarcelona.cat"),
-    ("Osmosi", "Viquipèdia en català: el pas de l'aigua a través de membranes i les dissolucions isotòniques", VIQUI + " · «Osmosi»"),
-    ("Efecte Tyndall", "Viquipèdia en català: per què veiem els raigs de llum en un col·loide", VIQUI + " · «Efecte Tyndall»"),
+    ("Laboratori virtual d'osmosi", "LabXchange, Universitat Harvard (en anglès): simulació de l'osmosi amb un ou i cèl·lules", "https://about.labxchange.org/featured/osmosis-lab"),
+    ("Per què el cel és blau?", "Royal Museums Greenwich (en anglès): la dispersió de la llum, la mateixa idea que l'efecte Tyndall", "https://www.rmg.co.uk/discover/explore/why-is-the-sky-blue"),
 ])
 
 # ================================================================== SdA 3 · Quant CO₂ costa venir a l'institut?
@@ -149,7 +148,7 @@ DOSSIER["sda3-22-ampliacio.pdf"] = dossier([
     ("Reactius, productes i sobrants", "Simulació PhET: el reactiu limitant amb sandvitxos i molècules", PHET + " · «Reactants, Products and Leftovers»"),
     ("Factors d'emissió", "Ministeri per a la Transició Ecològica: com es calcula la petjada de carboni", "https://www.miteco.gob.es · «Huella de carbono»"),
     ("Diòxid de carboni a l'atmosfera", "Laboratori de Monitoratge Global de la NOAA: la corba del CO₂ mesurat a Mauna Loa", "https://gml.noaa.gov · «Trends in CO₂»"),
-    ("Corba de Keeling", "Viquipèdia en català: la història de les mesures de Charles David Keeling", VIQUI + " · «Corba de Keeling»"),
+    ("La corba de Keeling", "Institut d'Oceanografia Scripps (en anglès): la mesura diària del CO₂ a Mauna Loa", "https://keelingcurve.ucsd.edu"),
     ("Qualitat de l'aire a Barcelona", "Agència de Salut Pública de Barcelona: informes anuals i dades de les estacions", "https://www.aspb.cat"),
 ])
 
@@ -196,10 +195,8 @@ DOSSIER["sda4-20-ampliacio.pdf"] = dossier([
         "Quina mesura faries servir com a «velocitat» de la reacció?"], 6),
 ], [
     ("Escala de pH", "Simulació PhET: mesura el pH de productes de casa i mira què passa quan els dilueixes", PHET + " · «Escala de pH» (pH Scale)"),
-    ("Pluja àcida", "Viquipèdia en català: com es forma i com afecta els monuments i els boscos", VIQUI + " · «Pluja àcida»"),
-    ("Pila de Daniell", "Viquipèdia en català: la pila de zinc i coure i el pont salí", VIQUI + " · «Pila Daniell»"),
+    ("Què és la pluja àcida?", "Agència de Protecció del Medi Ambient dels EUA (en anglès): causes i efectes", "https://www.epa.gov/acidrain/what-acid-rain"),
     ("Velocitat de reacció", "Simulació PhET: temperatura, concentració i energia d'activació amb partícules que xoquen", PHET + " · «Reactions & Rates»"),
-    ("Agnes Pockels", "Viquipèdia en català: la científica que va estudiar les superfícies a la pica de la cuina", VIQUI + " · «Agnes Pockels»"),
     ("Qualitat de l'aire a Barcelona", "Agència de Salut Pública de Barcelona: diòxid de sofre i de nitrogen a les estacions", "https://www.aspb.cat"),
 ])
 
@@ -283,8 +280,6 @@ DOSSIER["sda6-19-ampliacio.pdf"] = dossier([
 ], [
     ("Sota pressió", "Simulació PhET: pressió en líquids diferents, a la Terra i en altres planetes", PHET + " · «Sota pressió» (Under Pressure)"),
     ("Flotabilitat", "Simulació PhET: empenta, densitat i flotació amb blocs de materials diferents", PHET + " · «Flotabilitat» (Buoyancy)"),
-    ("Narcís Monturiol", "Viquipèdia en català: la vida de l'inventor i la història dels Ictineos", VIQUI + " · «Narcís Monturiol i Estarriol»"),
-    ("Fossa de les Mariannes", "Viquipèdia en català: el punt més profund dels oceans i les immersions que hi han arribat", VIQUI + " · «Fossa de les Mariannes»"),
-    ("Museu Marítim de Barcelona", "Història de la navegació, la construcció naval i el port de Barcelona", "https://www.mmb.cat"),
-    ("Principi de Pascal", "Viquipèdia en català: la premsa hidràulica, els frens i altres aplicacions", VIQUI + " · «Principi de Pascal»"),
+    ("Narcís Monturiol i Estarriol", "Institut d'Estudis Catalans, Científics catalans: la vida de l'inventor dels Ictineos", "https://scbcientifics.iec.cat/en/cientifics/monturiol-estarriol-narcis"),
+    ("La navegació submarina", "Museu Marítim de Barcelona: la col·lecció sobre Monturiol i els Ictineos", "https://mmb.cat/en/colleccions/underwater-navigation"),
 ])
