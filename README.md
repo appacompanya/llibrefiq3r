@@ -42,11 +42,15 @@ Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fi
 - Si es canvien preguntes d'una fitxa que l'alumnat ja ha respost, les respostes es guarden per número de
   camp: cal evitar canviar l'ordre de les preguntes a mig curs.
 
-## Pàgines afegides i correccions dels fulls de 2n i 4t (`tools/fulls-extra/`)
+## Activitats afegides i correccions dels fulls de 2n i 4t (`tools/fulls-extra/`)
 
-- `continguts/c2n.py` i `c4t.py`: pàgines «Més pràctica» de cada fitxa i «Més reptes» i «Recursos» de
-  l'ampliació. `continguts/fixes.py`: correccions de text fetes directament als PDF.
-- `npm install` i després `python3 build.py 2n|4t` (o amb un nom de fitxer per fer-ne només un). Les pàgines
-  afegides se substitueixen cada vegada (no s'acumulen) i els peus de pàgina es tornen a numerar; les
-  correccions s'apliquen una sola vegada (el PDF en guarda el registre).
+- `continguts/c2n.py` i `c4t.py`: preguntes afegides a la fitxa de cada sessió i reptes i «Recursos» afegits
+  al full d'ampliació de cada SdA. No són fulls a part: continuen el mateix full (i la numeració) just després
+  de l'última pregunta, a l'espai lliure de l'última pàgina i, si cal, en pàgines noves.
+  `continguts/fixes.py`: correccions de text fetes directament als PDF.
+- `npm install` i després `python3 build.py 2n|4t` (o amb un nom de fitxer per fer-ne només un). L'última
+  pàgina original es guarda dins del PDF, així que les activitats afegides se substitueixen cada vegada (no
+  s'acumulen) i els peus de pàgina es tornen a numerar; les correccions s'apliquen una sola vegada.
+- Si substitueixes un PDF per una versió nova feta de zero, torna a executar `build.py` per afegir-hi les
+  activitats.
 - Després de fer push, l'acció de GitHub actualitza les fitxes digitals.
