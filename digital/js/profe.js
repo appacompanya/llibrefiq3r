@@ -52,13 +52,58 @@
     const courseSel = courses.length ? `<label class="cursel">Curs <select id="curs">${courses.map((c) => `<option value="${c.id}"${c.id === cur ? " selected" : ""}>${esc(c.name)}${me.role === "admin" && c.teacher_id !== me.id ? ` · ${esc(c.teacher_name)}` : ""}</option>`).join("")}</select></label>` : "";
     app.innerHTML = `<header class="top dtop"><div><div class="eyebrow">Zona del professorat · ${S.mode === "demo" ? "demostració" : "llibre digital"} · ${esc(me.display_name || "")}</div><h2 class="dh">Llibre digital de l'alumnat</h2></div>
       <div class="row noprint">${courseSel}<a class="btn ghost" href="${DOCENT_URL}">Els meus cursos</a>${EMBED ? '<a class="btn ghost" href="#inici">← Portada del professorat</a>' : ""}<a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a>${EMBED ? "" : '<button class="btn ghost" id="out">Surt</button>'}</div></header>
-      ${cur ? `<nav class="tabs noprint" role="tablist">${[["revisar", `Per revisar${nq ? ` <span class="qn">${nq}</span>` : ""}`], ["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
+      ${cur ? `<nav class="tabs noprint" role="tablist">${[["revisar", `Per revisar${nq ? ` <span class="qn">${nq}</span>` : ""}`], ["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ...(window.FQ_MATERIAL ? [["material", "Material"]] : []), ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
       <main id="main"></main>` : `<section class="card"><h2>Encara no tens cap curs de ${LEVEL} d'ESO</h2><p class="note">Crea'l a <a href="${DOCENT_URL}">Els meus cursos</a>: tria el nivell, posa-li nom i afegeix-hi l'alumnat.</p></section>`}`;
     if ($("#out")) $("#out").onclick = async () => { await S.signOut(); loginView(); };
     if ($("#curs")) $("#curs").onchange = async (e) => { S.setCourse(e.target.value); curWs = null; curStu = null; queue = null; $("#main").innerHTML = '<div class="spin"></div>'; await loadData(); shell(); };
     if (!cur) return;
     app.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { tab = b.dataset.tab; curWs = null; curStu = null; queue = null; shell(); }));
-    ({ revisar: queueView, fitxes: fitxesView, seguiment: segView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
+    ({ revisar: queueView, fitxes: fitxesView, seguiment: segView, alumnat: alumnatView, material: materialView, ajustos: ajustosView })[tab]();
+  }
+
+  /* ---------- material del professorat (2n i 4t): PDF xifrats que només pot obrir el professorat ----------
+     La clau és SHA-256(A^b mod p): A és públic (material.js) i b és a la taula kv («clau-material»), que només pot
+     llegir el professorat. Vegeu tools/material/build.py. */
+  const MODP = "FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129024E088A67CC74020BBEA63B139B22514A08798E3404DDEF9519B3CD3A431B302B0A6DF25F14374FE1356D6D51C245E485B576625E7EC6F44C42E9A637ED6B0BFF5CB6F406B7EDEE386BFB5A899FA5AE9F24117C4B1FE649286651ECE45B3DC2007CB8A163BF0598DA48361C55D39A69163FA8FD24CF5F83655D23DCA3AD961C62F356208552BB9ED529077096966D670C354E4ABC9804F1746C08CA18217C32905E462E36CE3BE39E772C180E86039B2783A2EC07A28FB5C55DF06F4C52C9DE2BCBF6955817183995497CEA956AE515D2261898FA051015728E5A8AACAA68FFFFFFFFFFFFFFFF";
+  async function matKey() {
+    if (matKey.k) return matKey.k;
+    const { data, error } = await S.client.from("kv").select("data").eq("path", "clau-material").maybeSingle();
+    if (error || !data) throw new Error("no_key");
+    const p = BigInt("0x" + MODP), b = BigInt(data.data.b);
+    let r = 1n, base = BigInt(window.FQ_MATERIAL_A) % p, e = b;
+    while (e > 0n) { if (e & 1n) r = (r * base) % p; e >>= 1n; base = (base * base) % p; }
+    const bytes = new Uint8Array(256); for (let i = 255; i >= 0; i--) { bytes[i] = Number(r & 255n); r >>= 8n; }
+    matKey.k = await crypto.subtle.importKey("raw", await crypto.subtle.digest("SHA-256", bytes), "AES-GCM", false, ["decrypt"]);
+    return matKey.k;
+  }
+  async function matPdf(d) {
+    const k = await matKey();
+    const res = await fetch("../material/" + d.f, { cache: "no-cache" }); if (!res.ok) throw new Error("fetch");
+    const buf = new Uint8Array(await res.arrayBuffer());
+    const pdf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: buf.slice(0, 12) }, k, buf.slice(12));
+    return URL.createObjectURL(new Blob([pdf], { type: "application/pdf" }));
+  }
+  function materialView() {
+    const M = window.FQ_MATERIAL, sdas = [...new Set(M.map((d) => d.sda))];
+    $("#main").innerHTML = `<section class="card"><h2>Material del professorat</h2>
+      <p class="note">Activitat de demostració d'assoliment de cada SdA, amb el solucionari amb criteris, i solucionari dels reptes d'ampliació. Només el pot obrir el professorat: els fitxers estan xifrats i es desxifren en aquest navegador.</p>
+      ${S.mode === "demo" ? '<p class="note"><b>Mode demostració:</b> el material només es pot obrir amb un compte de professorat.</p>' : ""}
+      <div class="tscroll"><table class="t"><thead><tr><th>SdA</th><th>Document</th><th class="noprint"></th></tr></thead><tbody>
+      ${sdas.map((n) => M.filter((d) => d.sda === n).map((d, i) => `<tr>${i ? "" : `<td rowspan="${M.filter((x) => x.sda === n).length}"><b>SdA ${n}</b><br><span class="note">${esc((window.SDAS || []).find((x) => x.n === n)?.title || "")}</span></td>`}<td>${esc(d.l)}</td>
+        <td class="noprint"><div class="row"><button class="btn ghost" data-open="${esc(d.f)}">Obre</button><button class="btn ghost" data-dl="${esc(d.f)}">Descarrega</button></div></td></tr>`).join("")).join("")}
+      </tbody></table></div></section>`;
+    const get = (f) => M.find((d) => d.f === f);
+    $("#main").querySelectorAll("[data-open]").forEach((b) => (b.onclick = async () => {
+      if (S.mode === "demo") return toast("Cal un compte de professorat.");
+      const w = window.open("", "_blank");
+      try { const u = await matPdf(get(b.dataset.open)); if (w) w.location = u; else location.href = u; }
+      catch (e) { if (w) w.close(); toast(e.message === "no_key" ? "Aquest compte no pot obrir el material." : "No s'ha pogut obrir el document."); }
+    }));
+    $("#main").querySelectorAll("[data-dl]").forEach((b) => (b.onclick = async () => {
+      if (S.mode === "demo") return toast("Cal un compte de professorat.");
+      try { const d = get(b.dataset.dl), u = await matPdf(d); const a = document.createElement("a"); a.href = u; a.download = d.nom; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 60000); }
+      catch (e) { toast(e.message === "no_key" ? "Aquest compte no pot obrir el material." : "No s'ha pogut descarregar el document."); }
+    }));
   }
 
   /* ---------- ajustos ---------- */

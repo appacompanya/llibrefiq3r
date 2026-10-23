@@ -58,3 +58,17 @@ Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fi
 - Si substitueixes un PDF per una versió nova feta de zero, torna a executar `build.py` per afegir-hi les
   activitats.
 - Després de fer push, l'acció de GitHub actualitza les fitxes digitals.
+
+## Material del professorat de 2n i 4t (`tools/material/`)
+
+- Activitat de demostració d'assoliment de cada SdA, el seu solucionari amb criteris i el solucionari dels reptes
+  d'ampliació. A la zona del professorat de cada nivell hi ha la pestanya «Material», on es poden obrir o descarregar.
+- El repositori és públic: els PDF es publiquen xifrats (AES-256) a `2n/material/` i `4t/material/`, i les fonts
+  també ho estan (`tools/material/fonts-privades.bin`). La clau surt d'un intercanvi Diffie-Hellman: el secret és a la
+  taula `kv` de Supabase (camí `clau-material`), que només pot llegir el professorat, i la part pública és a
+  `tools/material/clau-publica.json`. El navegador del docent calcula la clau i desxifra el PDF.
+- Per modificar-lo: copia el secret `b` de la taula `kv` (només un administrador), exporta'l com a `FQ_MATERIAL_B` i fes
+  `python3 tools/material/build.py --extreu carpeta`, edita les fonts i torna a fer
+  `python3 tools/material/build.py --fonts carpeta`. Els textos dels solucionaris de l'ampliació també es desen a la taula
+  `kv` (`solucions-2n`, `solucions-4t`), que fa servir la correcció automàtica.
+- El material de 3r és a l'espai privat «professorat» de Supabase i s'obre des de la zona del professorat de 3r.
