@@ -287,6 +287,16 @@ def merge_fraction_chars(chars, bars):
                     if abs(c.by - hi.by) < 1.6 or ((c.c in "²³⁻¹" or (c.font.startswith("KaTeX") and c.size < hi.size * 0.85)) and abs(c.by - hi.by) < 6):
                         if -1.5 <= c.r.x0 - hi.r.x1 < 2.2 or -1.5 <= lo.r.x0 - c.r.x1 < 1.6:
                             grp.append(c); grow = True; break
+        # exponents i subíndexs petits dins del numerador o del denominador (2 r² Δρ g)
+        for grp in (up, dn):
+            ink = [c for c in grp if c.c.strip()]
+            if not ink: continue
+            gx0 = min(c.r.x0 for c in ink); gx1 = max(c.r.x1 for c in ink)
+            gy0 = min(c.r.y0 for c in ink); gy1 = max(c.r.y1 for c in ink)
+            for c in chars:
+                if c.used or c in grp or not c.c.strip() or not c.font.startswith("KaTeX"): continue
+                if c.size < max(x.size for x in ink) * 0.85 and gx0 <= (c.r.x0 + c.r.x1) / 2 <= gx1 and gy0 - 4 <= (c.r.y0 + c.r.y1) / 2 <= gy1 + 3:
+                    grp.append(c)
         if not [c for c in up if c.c.strip()] or not [c for c in dn if c.c.strip()]: continue
         # cada costat ha de ser una sola tira seguida (si no, són línies veïnes)
         def one_run(g):

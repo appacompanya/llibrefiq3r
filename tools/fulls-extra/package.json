@@ -1,0 +1,9 @@
+{
+  "name": "fulls-extra",
+  "private": true,
+  "description": "Pàgines d'activitats addicionals dels fulls de 2n i 4t (tipografia i fórmules)",
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "5.0.18",
+    "katex": "0.16.11"
+  }
+}

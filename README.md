@@ -29,3 +29,24 @@ Quan l'alumne lliura una fitxa, la funció `autocorregeix` la corregeix sencera 
 4. També valora l'ortografia en català (etiqueta «ortografia») i dona un indici de text copiat d'una IA: l'estil de la resposta segons la IA i els caràcters que l'alumne hi ha enganxat. Només ho veu el docent: al costat de la qualificació surt «IA» i la qualificació que tindria si aquelles preguntes comptessin com a NA.
 
 La despesa aproximada del mes es desa a `kv` (`usage/AAAA-MM`) i es veu a «Ajustos». La clau d'OpenAI és al Vault de Supabase (`openai_api_key`).
+
+## Llibres digitals de 2n i 4t (`/2n/digital/`, `/4t/digital/`)
+
+Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fitxes de cada nivell amb prefix
+(`2n:`, `4t:`). Les fitxes digitals es generen a partir dels PDF de `2n/docs` i `4t/docs`, de manera que
+**el llibre normal i el digital sempre van acoblats**:
+
+- `tools/digital-pdf/build.py 2n|4t` reconstrueix el llibre digital d'un nivell a partir dels PDF.
+- L'acció de GitHub `.github/workflows/llibre-digital.yml` ho fa sola cada vegada que canvia un PDF de
+  `2n/docs` o `4t/docs` (o el llibre web) a `main`, i en desa el resultat.
+- Si es canvien preguntes d'una fitxa que l'alumnat ja ha respost, les respostes es guarden per número de
+  camp: cal evitar canviar l'ordre de les preguntes a mig curs.
+
+## Pàgines afegides i correccions dels fulls de 2n i 4t (`tools/fulls-extra/`)
+
+- `continguts/c2n.py` i `c4t.py`: pàgines «Més pràctica» de cada fitxa i «Més reptes» i «Recursos» de
+  l'ampliació. `continguts/fixes.py`: correccions de text fetes directament als PDF.
+- `npm install` i després `python3 build.py 2n|4t` (o amb un nom de fitxer per fer-ne només un). Les pàgines
+  afegides se substitueixen cada vegada (no s'acumulen) i els peus de pàgina es tornen a numerar; les
+  correccions s'apliquen una sola vegada (el PDF en guarda el registre).
+- Després de fer push, l'acció de GitHub actualitza les fitxes digitals.
