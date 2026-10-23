@@ -21,10 +21,11 @@ Un sol accés per al professorat dels tres llibres, amb usuari i contrasenya.
 
 ## Correcció de les fitxes digitals
 
-Quan l'alumne lliura una fitxa, la funció `autocorregeix` la corregeix de seguida:
+Quan l'alumne lliura una fitxa, la funció `autocorregeix` la corregeix sencera i l'alumne en veu el resultat de seguida:
 
 1. Respostes buides i apartats que la fitxa comprova sola (càlculs, taules, V/F) es corregeixen sense IA.
-2. Les respostes raonades i les errònies les corregeix OpenAI `gpt-5.4-nano` amb el solucionari de la SdA. Si falla, prova `gpt-5.4-mini`.
-3. Els dibuixos i les fotos, les respostes on la IA dubta i les fitxes en paper van a la pestanya **Per corregir**: el docent les revisa una a una (anterior, següent, «Retorna i següent») amb les preguntes marcades.
+2. Les respostes raonades, les errònies i els dibuixos en foto (en baixa resolució) els corregeix OpenAI `gpt-5.4-nano` amb el solucionari de la SdA. Si falla, prova `gpt-5.4-mini`.
+3. Totes les fitxes corregides van a la pestanya **Per revisar**: el docent hi pot mirar què ha posat cada alumne i comprovar la IA, una a una («Bé, següent» o «Retorna amb canvis»). Les preguntes on la IA dubta surten marcades. Les fitxes en paper les valora el docent.
+4. També valora l'ortografia en català (etiqueta «ortografia») i dona un indici de text copiat d'una IA: l'estil de la resposta segons la IA i els caràcters que l'alumne hi ha enganxat. Només ho veu el docent: al costat de la qualificació surt «IA» i la qualificació que tindria si aquelles preguntes comptessin com a NA.
 
 La despesa aproximada del mes es desa a `kv` (`usage/AAAA-MM`) i es veu a «Ajustos». La clau d'OpenAI és al Vault de Supabase (`openai_api_key`).

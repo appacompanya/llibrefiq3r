@@ -16,15 +16,21 @@
 
   /* ---------------- Mode demostració ---------------- */
   function demoStore() {
-    const KEY = "fq3-demo-db-v2";
+    const KEY = "fq3-demo-db-v4";
     const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; } };
     let db = load();
     if (!db) {
       db = { settings: { auto_calc: true }, teachers: [{ id: "teacher", role: "admin", display_name: "Professor (demostració)", username: "docent" }],
-        courses: [{ id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } }],
+        courses: [{ id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } },
+                  { id: "c-demo2", name: "2n A (exemple)", level: "2n", teacher_id: "teacher", settings: { auto_calc: true } },
+                  { id: "c-demo4", name: "4t A (exemple)", level: "4t", teacher_id: "teacher", settings: { auto_calc: true } }],
         students: [], responses: {}, submissions: {}, feedback: {}, photos: {} };
       ["Alumne/a 01 (exemple)", "Alumne/a 02 (exemple)", "Alumne/a 03 (exemple)"].forEach((n, i) =>
         db.students.push({ id: "demo" + (i + 1), display_name: n, grup: "3r A (exemple)", code: "DEMO-000" + (i + 1), role: "student", course_id: "c-demo" }));
+      ["Alumne/a 2n 01 (exemple)", "Alumne/a 2n 02 (exemple)"].forEach((n, i) =>
+        db.students.push({ id: "demo2n" + (i + 1), display_name: n, grup: "2n A (exemple)", code: "DEMO-200" + (i + 1), role: "student", course_id: "c-demo2" }));
+      ["Alumne/a 4t 01 (exemple)", "Alumne/a 4t 02 (exemple)"].forEach((n, i) =>
+        db.students.push({ id: "demo4t" + (i + 1), display_name: n, grup: "4t A (exemple)", code: "DEMO-400" + (i + 1), role: "student", course_id: "c-demo4" }));
     }
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch {} };
     let me = null; try { me = JSON.parse(sessionStorage.getItem("fq3-demo-me")); } catch {}
@@ -53,6 +59,7 @@
       async createCourse(name, level) { const c = { id: rid("c"), name: String(name).slice(0, 60), level, teacher_id: me.id, settings: { auto_calc: true } }; db.courses.push(c); save(); return c; },
       async renameCourse(id, name) { const c = course(id); if (c) { c.name = String(name).slice(0, 60); db.students.filter((s) => s.course_id === id).forEach((s) => (s.grup = c.name)); save(); } },
       async deleteCourse(id) { if (db.students.some((s) => s.course_id === id)) throw new Error("has_students"); db.courses = db.courses.filter((c) => c.id !== id); save(); },
+      async myLevel() { return me && me.course_id ? ((course(me.course_id) || {}).level || null) : null; },
       async getSettings() {
         const cid = me && me.role === "student" ? me.course_id : this.curCourse();
         return { ...db.settings, ...((course(cid) || {}).settings || {}) };
@@ -91,14 +98,14 @@
         const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
         const now = new Date().toISOString(); const rows = []; const review = [];
         const errs = (x) => { const e = []; if (!x.answer || x.answer === "(sense resposta)") e.push("incompleta"); else if (x.score != null && x.score < 0.95) { if (/unitat/i.test(String(x.auto))) e.push("unitats"); else e.push(/V |F |tf/.test(x.answer) ? "conceptual" : "càlcul"); } return e; };
-        items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && (x.score == null || x.photos)) review.push(x.id);
-          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "El professor revisarà aquesta resposta." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
+        items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && x.score == null) review.push(x.id);
+          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "Aquesta resposta la corregirà el professor (en mode demostració no hi ha IA)." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
           rows.push({ item_id: "auto:" + x.id, level: lv, comment: note, released: true, updated_at: now });
           const cur = db.feedback[k(sid, ws, x.id)] || { released: false }; db.feedback[k(sid, ws, x.id)] = { ...cur, proposal_level: lv, proposal_note: note }; });
         const sc = items.map((x) => x.score).filter((v) => v != null); const avg = sc.length ? sc.reduce((a, b) => a + b, 0) / sc.length : null;
-        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: review.length ? `Hi ha ${review.length === 1 ? "una pregunta" : review.length + " preguntes"} que revisarà el professor.` : avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
+        rows.push({ item_id: "auto:_global", level: lvOf(avg), comment: review.length ? `Hi ha ${review.length === 1 ? "una pregunta" : review.length + " preguntes"} que corregirà el professor.` : avg == null ? "Aquesta fitxa la corregirà el professor." : `Has encertat aproximadament el ${Math.round(avg * 100)} % dels apartats que es poden comprovar automàticament.`, released: true, updated_at: now });
         rows.forEach((r) => { db.feedback[k(sid, ws, r.item_id)] = r; });
-        const s = sub(sid, ws); if (s && s.status === "submitted") { s.review = review.length ? "pending" : "auto"; s.review_items = review; }
+        const s = sub(sid, ws); if (s && s.status === "submitted") { s.review = "pending"; s.review_items = review; }
         db.kv = db.kv || {}; db.kv[`errors/${sid}/${ws}`] = { sda, at: now, items: items.map((x) => ({ id: x.id, level: lvOf(x.score), errors: errs(x) })), global: rows[rows.length - 1].comment };
         save(); return rows;
       },
@@ -192,6 +199,7 @@
         if (count) throw new Error("has_students");
         must(await sb.from("courses").delete().eq("id", id)); courses = null;
       },
+      async myLevel() { if (!me || !me.course_id) return null; const r = must(await sb.from("courses").select("level").eq("id", me.course_id).maybeSingle()); return r ? r.level : null; },
       async getSettings() {
         const glob = Object.fromEntries(must(await sb.from("settings").select("key, value")).map((r) => [r.key, r.value]));
         let cs = {};
@@ -265,7 +273,28 @@
     };
   }
 
-  G.FQStore = (CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && G.supabase) ? supaStore() : demoStore();
+  /* Cada llibre desa les fitxes amb un prefix propi (2n → «2n:d1f1»), perquè no es barregin amb les de 3r
+     (sense prefix). Les pàgines de 2n posen window.FQ_WSPREFIX = "2n:" abans de carregar aquest fitxer. */
+  function prefixed(st, P) {
+    const W = (ws) => P + ws;
+    const mine = (id) => P ? String(id).startsWith(P) : !String(id).includes(":");
+    const un = (rows) => (rows || []).filter((r) => mine(r.worksheet_id)).map((r) => ({ ...r, worksheet_id: String(r.worksheet_id).slice(P.length) }));
+    const o = Object.create(st);
+    ["loadResponses", "saveResponse", "getSubmission", "submit", "addPhoto", "removePhoto", "myFeedback", "autoCorrect"].forEach((m) => {
+      o[m] = (ws, ...a) => st[m].call(o, W(ws), ...a);
+    });
+    ["feedbackFor", "saveFeedback", "release", "reopen", "markReviewed", "deleteAuto", "proposeAI"].forEach((m) => {
+      o[m] = (sid, ws, ...a) => st[m].call(o, sid, W(ws), ...a);
+    });
+    ["listSubmissions", "listResponseKeys", "allFeedback", "errorsAll"].forEach((m) => {
+      o[m] = async (...a) => un(await st[m].call(o, ...a));
+    });
+    // getSubmission i addPhoto es criden entre ells amb l'identificador ja prefixat
+    o.getSubmission = (ws, ...a) => st.getSubmission.call(st, String(ws).startsWith(P) && P ? ws : W(ws), ...a);
+    return o;
+  }
+  const base = (CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && G.supabase) ? supaStore() : demoStore();
+  G.FQStore = prefixed(base, G.FQ_WSPREFIX || "");
   G.FQStore.normCode = normCode;
   G.FQStore.isStaff = isStaff;
   G.FQStore.LEVELS = LEVELS;

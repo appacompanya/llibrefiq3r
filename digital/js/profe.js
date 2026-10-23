@@ -8,19 +8,19 @@
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   const LV = ["NA", "AS", "AN", "AE"];
   const STATUS = { draft: ["Esborrany", "draft"], submitted: ["Lliurada", "sub"], returned: ["Retornada", "ret"] };
-  let tab = "corregir", students = [], subs = [], respKeys = [], settings = {}, curWs = null, curStu = null, curSda = null, fbAll = [], errAll = [], segStu = null, courses = [], queue = null;
+  let tab = "revisar", students = [], subs = [], respKeys = [], settings = {}, curWs = null, curStu = null, curSda = null, fbAll = [], errAll = [], segStu = null, courses = [], queue = null;
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 3500); };
   const titleOf = (k) => (F[k] && F[k].title) || (DOCS[k] && `SdA ${DOCS[k].sda} · ${DOCS[k].l}`) || k;
   const sdaOf = (k) => (F[k] && F[k].sda) || (DOCS[k] && DOCS[k].sda) || 0;
-  const DOCENT_URL = "../docent/";
+  const DOCENT_URL = window.FQ_DOCENT_URL || "../docent/";
   const curName = () => (courses.find((c) => c.id === S.curCourse()) || {}).name || "";
-  /* lliuraments que el docent ha de revisar: no corregits del tot automàticament ni retornats, del més antic al més nou */
-  const pending = () => subs.filter((x) => x.status === "submitted" && x.review !== "auto" && x.review !== "done")
+  /* lliuraments que el docent encara no ha revisat (ja corregits per la IA o pendents), del més antic al més nou */
+  const pending = () => subs.filter((x) => x.status === "submitted" && x.review !== "done")
     .sort((a, b) => String(a.submitted_at || "").localeCompare(String(b.submitted_at || "")));
 
   /* ---------- accés ---------- */
   function loginView(msg) {
-    app.innerHTML = `<form class="card login" id="lf"><div class="eyebrow">Física i química · 3r d'ESO</div><h1>Zona del professorat</h1>
+    app.innerHTML = `<form class="card login" id="lf"><div class="eyebrow">Física i química · ${LEVEL} d'ESO</div><h1>Zona del professorat</h1>
       ${S.mode === "demo" ? `<p class="note"><b>Mode demostració.</b> Les dades es guarden només en aquest navegador.</p><label class="f">Usuari<input id="le" required></label><label class="f">Contrasenya<input type="password" id="lp" required></label>` :
       `<label class="f">Usuari<input id="le" autocomplete="username" required></label><label class="f">Contrasenya<input type="password" id="lp" autocomplete="current-password" required></label>`}
       <p class="err" id="lerr">${esc(msg || "")}</p><button class="btn" type="submit">Entra</button></form>`;
@@ -30,8 +30,8 @@
       catch (err) { $("#lerr").textContent = err.message === "not_teacher" ? "Aquest compte no és de professorat." : "Usuari o contrasenya incorrectes."; }
     };
   }
-  /* aquest llibre digital és el de 3r: s'hi treballa amb els cursos de 3r del docent */
-  const LEVEL = "3r";
+  /* cada llibre digital treballa amb els cursos del seu nivell (3r per defecte; 2n posa window.FQ_LEVEL) */
+  const LEVEL = window.FQ_LEVEL || "3r";
   async function loadCourses() {
     courses = (await S.listCourses()).filter((c) => c.level === LEVEL);
     if (!courses.some((c) => c.id === S.curCourse())) S.setCourse(courses[0] ? courses[0].id : null);
@@ -52,13 +52,13 @@
     const courseSel = courses.length ? `<label class="cursel">Curs <select id="curs">${courses.map((c) => `<option value="${c.id}"${c.id === cur ? " selected" : ""}>${esc(c.name)}${me.role === "admin" && c.teacher_id !== me.id ? ` · ${esc(c.teacher_name)}` : ""}</option>`).join("")}</select></label>` : "";
     app.innerHTML = `<header class="top dtop"><div><div class="eyebrow">Zona del professorat · ${S.mode === "demo" ? "demostració" : "llibre digital"} · ${esc(me.display_name || "")}</div><h2 class="dh">Llibre digital de l'alumnat</h2></div>
       <div class="row noprint">${courseSel}<a class="btn ghost" href="${DOCENT_URL}">Els meus cursos</a>${EMBED ? '<a class="btn ghost" href="#inici">← Portada del professorat</a>' : ""}<a class="btn ghost" href="./" target="_blank" rel="noopener">Obre el llibre de l'alumnat</a>${EMBED ? "" : '<button class="btn ghost" id="out">Surt</button>'}</div></header>
-      ${cur ? `<nav class="tabs noprint" role="tablist">${[["corregir", `Per corregir${nq ? ` <span class="qn">${nq}</span>` : ""}`], ["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
-      <main id="main"></main>` : `<section class="card"><h2>Encara no tens cap curs de 3r d'ESO</h2><p class="note">Crea'l a <a href="${DOCENT_URL}">Els meus cursos</a>: tria el nivell, posa-li nom i afegeix-hi l'alumnat.</p></section>`}`;
+      ${cur ? `<nav class="tabs noprint" role="tablist">${[["revisar", `Per revisar${nq ? ` <span class="qn">${nq}</span>` : ""}`], ["fitxes", "Fitxes i lliuraments"], ["seguiment", "Seguiment de l'alumnat"], ["alumnat", "Alumnat i codis"], ["ajustos", "Ajustos"]].map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join("")}</nav>
+      <main id="main"></main>` : `<section class="card"><h2>Encara no tens cap curs de ${LEVEL} d'ESO</h2><p class="note">Crea'l a <a href="${DOCENT_URL}">Els meus cursos</a>: tria el nivell, posa-li nom i afegeix-hi l'alumnat.</p></section>`}`;
     if ($("#out")) $("#out").onclick = async () => { await S.signOut(); loginView(); };
     if ($("#curs")) $("#curs").onchange = async (e) => { S.setCourse(e.target.value); curWs = null; curStu = null; queue = null; $("#main").innerHTML = '<div class="spin"></div>'; await loadData(); shell(); };
     if (!cur) return;
     app.querySelectorAll("[data-tab]").forEach((b) => (b.onclick = () => { tab = b.dataset.tab; curWs = null; curStu = null; queue = null; shell(); }));
-    ({ corregir: queueView, fitxes: fitxesView, seguiment: segView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
+    ({ revisar: queueView, fitxes: fitxesView, seguiment: segView, alumnat: alumnatView, ajustos: ajustosView })[tab]();
   }
 
   /* ---------- ajustos ---------- */
@@ -68,7 +68,7 @@
       <p class="note">Si està activat, quan l'alumne escriu números o factors de conversió, la fitxa li mostra el resultat del càlcul i si cada factor val 1. Desactiva-ho per a les activitats d'avaluació. Aquest ajust només afecta aquest curs.</p></section>
       <section class="card" id="pdfp" hidden></section>
       <section class="card"><h2>Correcció automàtica</h2><p class="note">Quan l'alumne lliura una fitxa digital, rep de seguida la correcció de cada pregunta (nivell i comentari breu):</p>
-        <ul class="note"><li>Els càlculs, les taules i les preguntes tancades es corregeixen sols, sense IA.</li><li>Les respostes raonades les corregeix una IA econòmica (OpenAI gpt-5.4-nano) amb els solucionaris del professorat.</li><li>Els dibuixos i les fotos, les respostes on la IA dubta i les fitxes en paper van a <b>Per corregir</b>, perquè les revisis tu.</li></ul>
+        <ul class="note"><li>Els càlculs, les taules i les preguntes tancades es corregeixen sols, sense IA.</li><li>Les respostes raonades les corregeix una IA econòmica (OpenAI gpt-5.4-nano) amb els solucionaris del professorat.</li><li>Els dibuixos en foto també els mira la IA, en baixa resolució perquè costi poc.</li><li>També valora l'ortografia en català i en corregeix algun exemple a l'alumne.</li><li>Indici de text copiat d'una IA: la IA en valora l'estil i el llibre compta els caràcters que l'alumne ha enganxat a cada resposta. Només ho veus tu, a «Per revisar». És un indici per comprovar, no una prova.</li><li>L'alumne veu de seguida la correcció de tota la fitxa. Totes les fitxes corregides van a <b>Per revisar</b>, per si vols comprovar-les; les preguntes on la IA dubta surten marcades. Les fitxes en paper les valores tu.</li></ul>
         <p class="note">Tu reps la mateixa valoració com a proposta a cada apartat: la pots canviar i decideixes quan retornar la fitxa amb la teva valoració. Els errors es classifiquen per tipus a «Seguiment de l'alumnat».${S.mode === "demo" ? " En mode demostració, la correcció es basa només en la comprovació automàtica dels càlculs." : ""}</p>
         <p class="note" id="usage"></p></section>`;
     S.usage().then((u) => { const el = $("#usage"); if (el && S.mode !== "demo") el.innerHTML = `Despesa aproximada de la IA aquest mes (tots els cursos): <b>${(u.usd || 0).toLocaleString("ca-ES", { style: "currency", currency: "USD", maximumFractionDigits: 2 })}</b> en ${u.calls || 0} correccions.`; }).catch(() => {});
@@ -101,7 +101,7 @@
         <div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Grup</th><th>Codi</th><th class="noprint"></th></tr></thead><tbody>
         ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td class="noprint"><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn danger" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="4" class="note">Encara no hi ha alumnat. Afegeix-lo amb el formulari.</td></tr>`}
         </tbody></table></div></section></div>
-      <section class="codes" id="cards" hidden>${students.map((s) => `<div class="codecard"><span>Física i química · 3r d'ESO · llibre digital</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(location.origin + location.pathname.replace(/profe\.html$/, ""))}</span></div>`).join("")}</section>`;
+      <section class="codes" id="cards" hidden>${students.map((s) => `<div class="codecard"><span>Física i química · ${LEVEL} d'ESO · llibre digital</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(location.origin + location.pathname.replace(/profe\.html$/, ""))}</span></div>`).join("")}</section>`;
     $("#add").onclick = async () => {
       const names = $("#names").value.split("\n").map((x) => x.trim()).filter(Boolean); if (!names.length) return;
       const b = $("#add"); b.disabled = true; b.textContent = "Creant…";
@@ -142,30 +142,37 @@
     const sdaPend = (n) => subs.filter((s) => s.status === "submitted" && sdaOf(s.worksheet_id) === n).length;
     const sdaName = (n) => { const x = (window.SDAS || []).find((y) => y.n === n); return n ? `SdA ${n}` + (x ? ` · ${x.title}` : "") : "Tot el curs"; };
     $("#main").innerHTML = `<nav class="sdachips" aria-label="Situacions d'aprenentatge">${sdas.map((n) => `<button type="button" data-sda="${n}" class="${n === curSda ? "on" : ""}" style="--c:var(--s${n || 6})">${n ? "SdA " + n : "Curs"}${sdaPend(n) ? `<span class="dot">${sdaPend(n)}</span>` : ""}</button>`).join("")}</nav>
-      <div class="grid2"><section class="card"><h2>${esc(sdaName(curSda))}</h2><div class="tscroll"><table class="t"><thead><tr><th>Fitxa</th><th>Lliurades</th><th>Per corregir</th><th>Retornades</th></tr></thead><tbody>
+      <div class="grid2"><section class="card"><h2>${esc(sdaName(curSda))}</h2><div class="tscroll"><table class="t"><thead><tr><th>Fitxa</th><th>Lliurades</th><th>Per revisar</th><th>Retornades</th></tr></thead><tbody>
         ${list.map((k) => { const c = counts(k); const done = c.sub + c.ret; return `<tr class="click" data-ws="${k}"${k === curWs ? ' style="background:var(--chip)"' : ""}><td>${F[k] ? '<span class="pill">digital</span> ' : '<span class="pill">foto</span> '}${esc(titleOf(k))}</td><td><b>${done}</b>/${N}<div class="bar"><i style="width:${N ? Math.round(100 * done / N) : 0}%"></i></div></td><td>${c.sub ? `<span class="pill sub">${c.sub}</span>` : "—"}</td><td>${c.ret || "—"}</td></tr>`; }).join("") || '<tr><td colspan="4" class="note">Aquesta SdA no té fitxes digitals.</td></tr>'}
         </tbody></table></div></section>
       <section class="card">${curWs ? `<h2>${esc(titleOf(curWs))}</h2><p class="note">Lliurades: <b>${counts(curWs).sub + counts(curWs).ret}/${N}</b></p><div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Grup</th><th>Estat</th><th>Nivell</th><th>Lliurada</th></tr></thead><tbody>
         ${students.map((s) => { const sb = subOf(s.id); const st = sb ? STATUS[sb.status] : started(s.id) ? STATUS.draft : null;
-          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${(() => { const L = wsLevel(s.id, curWs); return L ? chip(L.lv) + `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : ""; })()}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="5" class="note">Encara no hi ha alumnat.</td></tr>'}
+          return `<tr class="click" data-stu="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${levelHtml(s.id, curWs, true)}</td><td>${sb && sb.submitted_at ? new Date(sb.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("") || '<tr><td colspan="5" class="note">Encara no hi ha alumnat.</td></tr>'}
         </tbody></table></div>` : '<p class="note">Tria una fitxa.</p>'}</section></div>`;
     $("#main").querySelectorAll("[data-sda]").forEach((b) => (b.onclick = () => { curSda = +b.dataset.sda; curWs = null; fitxesView(); }));
     $("#main").querySelectorAll("[data-ws]").forEach((r) => (r.onclick = () => { curWs = r.dataset.ws; fitxesView(); }));
     $("#main").querySelectorAll("[data-stu]").forEach((r) => (r.onclick = () => { curStu = r.dataset.stu; reviewView(); window.scrollTo(0, 0); }));
   }
 
-  /* ---------- per corregir: cua de lliuraments que necessiten la mirada del docent ---------- */
+  /* ---------- per revisar: fitxes ja corregides per la IA que el docent pot comprovar una a una ---------- */
   const qKey = (x) => x.student_id + "|" + x.worksheet_id;
+  /* preguntes amb indici de text copiat d'una IA (estil del text segons la IA i caràcters enganxats); només ho veu el docent */
+  const iaSusp = (sid, ws) => ((errAll.find((e) => e.student_id === sid && e.worksheet_id === ws) || {}).items || [])
+    .filter((it) => it.ia === "alta" || (it.ia === "mitjana" && (it.enganxat || 0) >= 40) || (it.enganxat || 0) >= 150);
   function queueView() {
     if (curWs && curStu) return reviewView();
     const list = pending(); queue = list.map(qKey);
     const nameOf = (sid) => (students.find((s) => s.id === sid) || {}).display_name || "";
-    const why = (x) => !F[x.worksheet_id] ? "Fitxa en paper (fotos)" : !x.review ? "Sense correcció automàtica" : `${(x.review_items || []).length || "Alguna"} ${(x.review_items || []).length === 1 ? "pregunta" : "preguntes"} per revisar`;
-    $("#main").innerHTML = `<section class="card"><div class="row" style="justify-content:space-between"><h2>Per corregir (${list.length})</h2>${list.length ? '<button class="btn" id="qstart">Comença per la primera</button>' : ""}</div>
-      <p class="note">Aquí hi ha les fitxes que la correcció automàtica no ha pogut tancar: dibuixos i fotos, respostes on la IA dubta, fitxes en paper i lliuraments sense correcció. Les preguntes que has de mirar surten marcades en groc. Les fitxes corregides del tot automàticament no hi surten (les tens a «Fitxes i lliuraments»).</p>
-      ${list.length ? `<div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Fitxa</th><th>Què cal revisar</th><th>Lliurada</th></tr></thead><tbody>
-        ${list.map((x, i) => `<tr class="click" data-q="${i}"><td>${esc(nameOf(x.student_id))}</td><td>${esc(titleOf(x.worksheet_id))}</td><td><span class="pill sub">${esc(why(x))}</span></td><td>${x.submitted_at ? new Date(x.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`).join("")}
-        </tbody></table></div>` : '<p class="note" style="color:var(--ok)"><b>No hi ha res per corregir.</b> Quan l\'alumnat lliuri fitxes que necessitin la teva revisió, apareixeran aquí.</p>'}</section>`;
+    const why = (x) => { const n = (x.review_items || []).length;
+      if (!F[x.worksheet_id]) return ["Fitxa en paper: valora-la tu", "sub"];
+      if (!x.review) return ["Encara sense correcció", "sub"];
+      return n ? [`Corregida · la IA dubta en ${n === 1 ? "1 pregunta" : n + " preguntes"}`, "sub"] : ["Corregida per la IA", "ret"]; };
+    const lvOfWs = (x) => levelHtml(x.student_id, x.worksheet_id);
+    $("#main").innerHTML = `<section class="card"><div class="row" style="justify-content:space-between"><h2>Per revisar (${list.length})</h2>${list.length ? '<button class="btn" id="qstart">Comença per la primera</button>' : ""}</div>
+      <p class="note">Quan l'alumnat lliura una fitxa, la IA la corregeix sencera i l'alumne en veu el resultat de seguida. Aquí pots mirar què ha posat cada alumne i comprovar que la IA no s'ha equivocat. Si tot és correcte, prem <b>Bé, següent</b>; si vols canviar alguna cosa, posa-hi el teu nivell o comentari i prem <b>Retorna amb canvis</b>. Les preguntes on la IA dubta surten marcades en groc.</p>
+      ${list.length ? `<div class="tscroll"><table class="t"><thead><tr><th>Alumne/a</th><th>Fitxa</th><th>Nivell</th><th>Estat</th><th>Lliurada</th></tr></thead><tbody>
+        ${list.map((x, i) => { const [w, c] = why(x); const ia = iaSusp(x.student_id, x.worksheet_id).length; return `<tr class="click" data-q="${i}"><td>${esc(nameOf(x.student_id))}</td><td>${esc(titleOf(x.worksheet_id))}</td><td>${lvOfWs(x)}</td><td><span class="pill ${c}">${esc(w)}</span>${ia ? ` <span class="pill ia" title="Possible text copiat d'una IA">Possible IA en ${ia === 1 ? "1 pregunta" : ia + " preguntes"}</span>` : ""}</td><td>${x.submitted_at ? new Date(x.submitted_at).toLocaleDateString("ca-ES") : ""}</td></tr>`; }).join("")}
+        </tbody></table></div>` : '<p class="note" style="color:var(--ok)"><b>Ho tens tot revisat.</b> Quan l\'alumnat lliuri fitxes noves, apareixeran aquí.</p>'}</section>`;
     const open = (i) => { const [sid, ws] = queue[i].split("|"); curStu = sid; curWs = ws; reviewView(); window.scrollTo(0, 0); };
     $("#main").querySelectorAll("[data-q]").forEach((r) => (r.onclick = () => open(+r.dataset.q)));
     if ($("#qstart")) $("#qstart").onclick = () => open(0);
@@ -173,7 +180,7 @@
 
   async function reviewView() {
     const stu = students.find((s) => s.id === curStu); const k = curWs; const spec = F[k];
-    const inQ = tab === "corregir" && queue && queue.includes(curStu + "|" + k);
+    const inQ = tab === "revisar" && queue && queue.includes(curStu + "|" + k);
     const qi = inQ ? queue.indexOf(curStu + "|" + k) : -1;
     const go = (i) => { if (i < 0 || i >= queue.length) { curStu = null; curWs = null; queueView(); return; } [curStu, curWs] = queue[i].split("|"); reviewView(); window.scrollTo(0, 0); };
     $("#main").innerHTML = '<div class="spin"></div>';
@@ -181,8 +188,8 @@
     const autoRows = fbRows.filter((r) => String(r.item_id).startsWith("auto:"));
     const fb = Object.fromEntries(fbRows.filter((r) => !String(r.item_id).startsWith("auto:")).map((r) => [r.item_id, r]));
     const st = STATUS[sub.status] || STATUS.draft;
-    $("#main").innerHTML = `<div class="revhead"><button class="btn ghost" id="back">← ${inQ ? "Per corregir" : "Llista"}</button>${inQ ? `<span class="qnav"><button class="btn ghost" id="qprev"${qi > 0 ? "" : " disabled"} aria-label="Anterior">←</button><b>${qi + 1} de ${queue.length}</b><button class="btn ghost" id="qnext"${qi < queue.length - 1 ? "" : " disabled"} aria-label="Següent">→</button></span>` : ""}<h2>${esc(stu ? stu.display_name : "")} · ${esc(titleOf(k))}</h2><span class="pill ${st[1]}">${st[0]}</span>
-      <button class="btn ghost" id="ai">${autoRows.length ? "Torna a corregir automàticament" : "Correcció automàtica"}</button><button class="btn ghost" id="save">Desa</button><button class="btn" id="ret">${inQ ? "Retorna i següent" : "Retorna a l'alumne"}</button>${sub.status !== "draft" ? '<button class="btn ghost" id="reopen">Deixa-la modificar</button>' : ""}</div>
+    $("#main").innerHTML = `<div class="revhead"><button class="btn ghost" id="back">← ${inQ ? "Per revisar" : "Llista"}</button>${inQ ? `<span class="qnav"><button class="btn ghost" id="qprev"${qi > 0 ? "" : " disabled"} aria-label="Anterior">←</button><b>${qi + 1} de ${queue.length}</b><button class="btn ghost" id="qnext"${qi < queue.length - 1 ? "" : " disabled"} aria-label="Següent">→</button></span>` : ""}<h2>${esc(stu ? stu.display_name : "")} · ${esc(titleOf(k))}</h2><span class="pill ${st[1]}">${st[0]}</span>
+      <button class="btn ghost" id="ai">${autoRows.length ? "Torna a corregir automàticament" : "Correcció automàtica"}</button><button class="btn ghost" id="save">Desa</button>${inQ ? '<button class="btn" id="ok">Bé, següent</button>' : ""}<button class="btn${inQ ? " ghost" : ""}" id="ret">${inQ ? "Retorna amb canvis" : "Retorna a l'alumne"}</button>${sub.status !== "draft" ? '<button class="btn ghost" id="reopen">Deixa-la modificar</button>' : ""}</div>
       <div id="rev"></div>`;
     $("#back").onclick = () => { curStu = null; curWs = null; inQ ? queueView() : fitxesView(); };
     if (inQ) { $("#qprev").onclick = () => go(qi - 1); $("#qnext").onclick = () => go(qi + 1); }
@@ -205,7 +212,8 @@
     host.insertAdjacentHTML("beforeend", `<div class="ws" style="margin-top:14px"><section class="ws-block">${editor("_global", "Valoració global de la fitxa")}</section></div>`);
     // preguntes que la correcció automàtica ha deixat per al docent
     const need = (sub.review_items || []).map(String); let first = null;
-    need.forEach((id) => { const box = host.querySelector(`.fbed[data-fb="${CSS.escape(id)}"]`); if (!box) return; box.classList.add("need"); box.insertAdjacentHTML("afterbegin", '<span class="needtag">Revisa-ho</span>'); first = first || box; });
+    need.forEach((id) => { const box = host.querySelector(`.fbed[data-fb="${CSS.escape(id)}"]`); if (!box) return; box.classList.add("need"); box.insertAdjacentHTML("afterbegin", '<span class="needtag">La IA dubta</span>'); first = first || box; });
+    iaSusp(curStu, k).forEach((it) => { const box = host.querySelector(`.fbed[data-fb="${CSS.escape(String(it.id))}"]`); if (!box) return; box.classList.add("need"); box.insertAdjacentHTML("afterbegin", `<span class="needtag ia">Possible text d'IA${it.ia ? ` · estil ${esc(it.ia)}` : ""}${it.enganxat ? ` · ${it.enganxat} caràcters enganxats` : ""}</span>`); first = first || box; });
     if (first && inQ) setTimeout(() => first.scrollIntoView({ block: "center", behavior: "smooth" }), 150);
     host.addEventListener("click", (e) => {
       const b = e.target.closest("[data-lv]"); if (b) { const box = b.closest(".fbed"); const was = b.classList.contains("on"); box.querySelectorAll("[data-lv]").forEach((x) => x.classList.remove("on")); if (!was) b.classList.add("on"); return; }
@@ -220,6 +228,8 @@
         if (inQ) { queue.splice(qi, 1); go(qi); } else reviewView();
       } catch (er) { toast("Error: " + er.message); }
     };
+    // revisada sense canvis: l'alumne es queda amb la correcció de la IA
+    if ($("#ok")) $("#ok").onclick = async () => { try { await S.markReviewed(curStu, k); await refreshSubs(); toast("Revisada."); queue.splice(qi, 1); go(qi); } catch (er) { toast("Error: " + er.message); } };
     const ro = $("#reopen"); if (ro) ro.onclick = async () => { await S.reopen(curStu, k); await refreshSubs(); await loadSeg(); toast("L'alumne ja pot tornar a modificar la fitxa."); if (inQ) { queue.splice(qi, 1); go(qi); } else reviewView(); };
     $("#ai").onclick = async () => {
       if (!spec) { toast("Les fitxes en foto les has de valorar tu."); return; }
@@ -238,7 +248,7 @@
   const LVNAME = { NA: "No assolit", AS: "Satisfactori", AN: "Notable", AE: "Excel·lent" };
   const lvFrom = (v) => v == null ? null : LV[Math.min(3, Math.max(0, Math.round(v) - 1))];
   const chip = (l, extra) => l ? `<span class="lvchip lv-${l}" title="${esc(LVNAME[l] + (extra ? " · " + extra : ""))}">${l}</span>` : '<span class="lvchip lv-none">–</span>';
-  const ERRN = { conceptual: "Conceptual", "càlcul": "Càlcul", unitats: "Unitats", "notació": "Notació i xifres", procediment: "Procediment", enunciat: "Comprensió de l'enunciat", "expressió": "Expressió científica", incompleta: "Incompleta" };
+  const ERRN = { conceptual: "Conceptual", "càlcul": "Càlcul", unitats: "Unitats", "notació": "Notació i xifres", procediment: "Procediment", enunciat: "Comprensió de l'enunciat", "expressió": "Expressió científica", ortografia: "Ortografia", incompleta: "Incompleta" };
   const avg = (a) => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
   async function loadSeg() { try { [fbAll, errAll] = await Promise.all([S.allFeedback(), S.errorsAll()]); } catch { fbAll = []; errAll = []; } }
   /* nivell d'una fitxa: valoració del professor si n'hi ha; si no, la correcció automàtica */
@@ -251,7 +261,21 @@
     const au = rows.filter((r) => r.item_id.startsWith("auto:") && r.item_id !== "auto:_global" && r.level).map((r) => LVN[r.level]);
     if (au.length) { const v = avg(au); return { lv: lvFrom(v), v, src: "auto" }; }
     return null;
+  }  /* nivell si les preguntes amb indici d'IA compten com a NA (null si no n'hi ha cap) */
+  function wsLevelIA(sid, ws) {
+    const sus = new Set(iaSusp(sid, ws).map((it) => String(it.id))); if (!sus.size) return null;
+    const rows = fbAll.filter((r) => r.student_id === sid && r.worksheet_id === ws);
+    const teach = Object.fromEntries(rows.filter((r) => !r.item_id.startsWith("auto:") && r.item_id !== "_global" && r.level).map((r) => [r.item_id, r.level]));
+    const vals = rows.filter((r) => r.item_id.startsWith("auto:") && r.item_id !== "auto:_global").map((r) => { const id = r.item_id.slice(5); const l = teach[id] || r.level; return sus.has(id) ? 1 : l ? LVN[l] : null; }).filter((v) => v != null);
+    return vals.length ? lvFrom(avg(vals)) : null;
   }
+  /* qualificació de la fitxa + avís d'IA + qualificació si les preguntes amb IA són NA */
+  function levelHtml(sid, ws, src) {
+    const L = wsLevel(sid, ws); if (!L) return "";
+    const li = wsLevelIA(sid, ws);
+    return chip(L.lv) + (src ? `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : "") + (li ? ` <span class="pill ia" title="Possible text copiat d'una IA (${iaSusp(sid, ws).length === 1 ? "1 pregunta" : iaSusp(sid, ws).length + " preguntes"})">IA</span> <span class="iaalt" title="Nivell si les preguntes amb indici d'IA compten com a NA">amb NA: ${chip(li)}</span>` : "");
+  }
+
   function stuSummary(sid) {
     const per = {};
     for (const ws of Object.keys(F)) {
@@ -299,7 +323,7 @@
       ${errKeys.sort((a, b) => errTot[b] - errTot[a]).map((e) => `<tr><td>${esc(ERRN[e])}</td>${sdas.map((n) => { const c = ((sm.find((p) => p.sda === n) || {}).errors || {})[e] || 0; return `<td style="--h:${(c / maxE).toFixed(2)}">${c || ""}</td>`; }).join("")}<td><b>${errTot[e]}</b></td></tr>`).join("")}</tbody></table></div>`
       : `<p class="note">Encara no hi ha errors classificats. Es classifiquen automàticament quan l'alumne lliura una fitxa digital.</p>`;
     const wsList = sm.filter((p) => p.sda > 0 || p.lliurades).map((p) => `<details class="segsda"${p.lliurades ? " open" : ""}><summary><b>SdA ${p.sda}</b> <span class="note">${esc(sdaTitle(p.sda))}</span><span class="sp"></span>${p.lliurades}/${p.total} lliurades ${chip(lvFrom(p.mitjana))}</summary>
-      <table class="t"><tbody>${p.ws.filter((w) => w.status).map((w) => { const st = w.status ? STATUS[w.status] : null; return `<tr${w.status ? ` class="click" data-open="${w.ws}"` : ""}><td>${esc(titleOf(w.ws))}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${w.L ? chip(w.L.lv, w.L.src === "auto" ? "correcció automàtica" : "valoració del professor") + `<span class="src">${w.L.src === "auto" ? "auto" : "prof."}</span>` : ""}</td><td>${w.status ? '<span class="lnk">Respostes →</span>' : ""}</td></tr>`; }).join("")}</tbody></table>${(() => { const ns = p.ws.filter((w) => !w.status); return ns.length ? `<p class="note">Sense començar (${ns.length}): ${ns.map((w) => esc(titleOf(w.ws))).join(" · ")}</p>` : ""; })()}</details>`).join("");
+      <table class="t"><tbody>${p.ws.filter((w) => w.status).map((w) => { const st = w.status ? STATUS[w.status] : null; return `<tr${w.status ? ` class="click" data-open="${w.ws}"` : ""}><td>${esc(titleOf(w.ws))}</td><td>${st ? `<span class="pill ${st[1]}">${st[0]}</span>` : '<span class="note">Sense començar</span>'}</td><td>${w.L ? levelHtml(segStu, w.ws, true) : ""}</td><td>${w.status ? '<span class="lnk">Respostes →</span>' : ""}</td></tr>`; }).join("")}</tbody></table>${(() => { const ns = p.ws.filter((w) => !w.status); return ns.length ? `<p class="note">Sense començar (${ns.length}): ${ns.map((w) => esc(titleOf(w.ws))).join(" · ")}</p>` : ""; })()}</details>`).join("");
     const lliurades = sm.reduce((a, p) => a + p.lliurades, 0);
     $("#main").innerHTML = `<div class="seggrid"><section class="card"><h2>Grup</h2><div class="tscroll"><table class="t segtab"><thead><tr><th>Alumne/a</th>${sdas.map((n) => `<th title="${esc(sdaTitle(n))}">${n}</th>`).join("")}<th>Mitjana</th></tr></thead><tbody>
         ${students.map((s) => `<tr class="click${s.id === segStu ? " on" : ""}" data-seg="${s.id}"><td>${esc(s.display_name)}</td>${sdas.map((n) => `<td>${chip(lvFrom((sums[s.id].find((p) => p.sda === n) || {}).mitjana))}</td>`).join("")}<td>${chip(lvFrom(glob(s.id)))}</td></tr>`).join("")}
@@ -341,5 +365,7 @@
   };
 
   window.FQDigital = { mount(el) { app = el; boot(); } };
+  // si la portada del professorat ja ha arrencat abans que es carregués aquest fitxer, munta ara el llibre digital
+  if (EMBED && window.FQ_READY && location.hash === "#digital" && typeof window.route === "function") window.route();
   if (!EMBED) (async () => { let me = null; try { me = await S.init(); } catch {} if (S.isStaff(me)) await boot(); else loginView(); })();
 })();

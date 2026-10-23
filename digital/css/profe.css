@@ -98,3 +98,6 @@ code.c{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;letter-
 .needtag{grid-column:1/-1;justify-self:start;background:#c98a16;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:1px 9px}
 .revhead h2{flex:1 1 100%;order:-1;font-size:1.1rem}
 .fbed.need{scroll-margin-top:150px}
+.pill.ia{background:#7a3fb5;color:#fff}
+.needtag.ia{background:#7a3fb5}
+.iaalt{font-size:.78rem;color:var(--muted);white-space:nowrap}
