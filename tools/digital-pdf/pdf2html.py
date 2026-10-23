@@ -216,6 +216,8 @@ def classify(p, acc):
         if near(x.stroke, GRID) and x.w < 1.0 and (r.width < 1.6 or r.height < 1.6): out["grid"].append(x); continue
         if near(x.fill, acc) and r.height < 3.5 and r.width > 300: out["rule"].append(x); continue
         if (near(x.fill, INK) or near(x.fill, acc)) and r.height < 1.6 and r.width > 3: out["bars"].append(x); continue
+        # etiqueta de tipus de repte dels dossiers d'ampliació («Càlcul», «Dades»…): píndola de color amb text blanc
+        if near(x.fill, acc) and 7 < r.height < 14 and r.height * 1.8 < r.width < 90: out["chips"].append(x); continue
         if near(x.fill, acc) and 10 < r.width < 26 and 10 < r.height < 26 and x.n > 8: out["badges"].append(x); continue
         if near(x.fill, acc) and r.height < 3.5 and r.width > 300: out["rule"].append(x); continue
         if near(x.fill, WHITE) and near(x.stroke, INK) and r.width > 30 and r.height > 25: out["boxes"].append(x); continue
@@ -963,6 +965,8 @@ def convert(path, key):
 
 def finish(h, state):
     h = fix_blanks(h)
+    # línies de resposta que continuen a la pàgina següent: un sol camp
+    h = re.sub(r'(<div class="lines">(?:<div class="l"></div>)+)</div>((?:</div>)*)<div class="lines">((?:<div class="l"></div>)+)</div>', r'\1\3</div>\2', h)
     h = unitfrac.frac_units(h)
     return f'<!doctype html><html lang="ca"><head><meta charset="utf-8"></head><body>{h}</body></html>'
 
