@@ -1,18 +1,17 @@
-"""Pàgines afegides als fulls de 2n ESO: «Més pràctica» a les fitxes i més reptes i recursos a l'ampliació.
+"""Activitats afegides als fulls de 2n ESO: més preguntes a les fitxes (continuen la numeració
+de la fitxa, no són un full a part) i més reptes i recursos a l'ampliació.
 Cada pregunta es pot resoldre amb la informació del full (i del full d'equivalències). Les dades són les
 dels mateixos fulls o dades de llibre de text (densitats, calors específiques, temperatures de canvi d'estat)."""
 from estil import q, h2, tip, table, resources
 from .fixes import FIXES_2N as FIXES
 
-MES = '<p class="intro">Més pràctica per consolidar el que has après. Fes-la quan acabis la fitxa o a casa.</p>'
-AMP = '<p class="intro">Més reptes per a qui vulgui anar més enllà. Treballa\'ls al teu ritme i demana el solucionari quan acabis.</p>'
 REC = '<p class="intro">Recursos per continuar aprenent. Entra a l\'adreça i cerca el títol entre cometes.</p>'
 
 def mes(*qs):
-    return h2("+", "Més pràctica") + MES + "".join(qs)
+    return "".join(qs)
 
 def amp(reptes, recursos):
-    return h2("+", "Més reptes") + AMP + "".join(reptes) + h2("R", "Recursos per anar més enllà") + REC + resources(recursos)
+    return "".join(reptes) + h2("R", "Recursos per anar més enllà") + REC + resources(recursos)
 
 PHET = "https://phet.colorado.edu/ca/"
 VIQUI = "https://ca.wikipedia.org"

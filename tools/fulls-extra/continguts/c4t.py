@@ -1,17 +1,16 @@
-"""Pàgines afegides als fulls de 4t ESO: «Més pràctica» a les fitxes i més reptes i recursos a l'ampliació.
+"""Activitats afegides als fulls de 4t ESO: més preguntes a les fitxes (continuen la numeració
+de la fitxa, no són un full a part) i més reptes i recursos a l'ampliació.
 Cada pregunta es pot resoldre amb la informació del full; quan cal una dada que no hi és, la pregunta la dona."""
 from estil import q, h2, table, resources
 from .fixes import FIXES_4T as FIXES
 
-MES = '<p class="intro">Més pràctica per consolidar el que has après. Fes-la quan acabis la fitxa o a casa.</p>'
-AMP = '<p class="intro">Més reptes per a qui vulgui anar més enllà. Treballa\'ls al teu ritme i demana el solucionari quan acabis.</p>'
 REC = '<p class="intro">Recursos per continuar aprenent. Entra a l\'adreça i cerca el títol entre cometes.</p>'
 
 def mes(*qs):
-    return h2("+", "Més pràctica") + MES + "".join(qs)
+    return "".join(qs)
 
 def amp(reptes, recursos):
-    return h2("+", "Més reptes") + AMP + "".join(reptes) + h2("R", "Recursos per anar més enllà") + REC + resources(recursos)
+    return "".join(reptes) + h2("R", "Recursos per anar més enllà") + REC + resources(recursos)
 
 PHET = "https://phet.colorado.edu/ca/"
 VIQUI = "https://ca.wikipedia.org"
@@ -296,6 +295,12 @@ EXTRA["sda5-03-fitxa-1-vectors.pdf"] = mes(
     q(8, "<b>De A a B.</b> Un mòbil passa del punt A(2, 3) m al punt B(6, −1) m. Escriu el vector desplaçament i calcula'n el mòdul.", 2),
     q(9, "<b>Suma de vectors.</b> Suma (3, 0) m + (0, 4) m + (−1, 2) m. Calcula el mòdul del resultat i dibuixa la suma a la quadrícula.", 2, BOX(28)),
     q(10, "<b>Una volta a la pista.</b> Una atleta fa una volta a una pista de 400 m en 80 s i acaba on ha començat. Quina és la seva rapidesa mitjana? I el mòdul de la velocitat mitjana? Per què?", 2),
+)
+
+EXTRA["sda5-04-fitxa-2-el-front-avanca.pdf"] = mes(
+    q(7, "<b>L'àrea sota la gràfica v–t.</b> Amb la teva gràfica, calcula quants µm avança el front durant l'altiplà, de les 8 h a les 12 h. Per què l'àrea sota la gràfica v–t és la distància recorreguda?", 3),
+    q(8, "<b>Model i dades reals.</b> Compara la velocitat de la vora esquerra que has calculat a l'activitat 3 amb les velocitats que va mesurar l'equip de Gundiah. Són del mateix ordre de magnitud? Quina hipòtesi del model de la part A no es compleix a la realitat?", 3),
+    q(9, "<b>Un centímetre de ferida.</b> Passa 10,94 µm/h a m/s en notació científica. Si el front anés sempre a aquesta velocitat, quants dies trigaria a avançar 1 cm? Creus que una ferida de debò es tanca només perquè es mouen les cèl·lules de la vora? Què més hi pot ajudar?", 4),
 )
 
 EXTRA["sda5-05-fitxa-3-mrua-amb-rigor.pdf"] = mes(

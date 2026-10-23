@@ -54,9 +54,11 @@ KATEX_HEAD = (f'<link rel="stylesheet" href="{KX}/katex.min.css"><script src="{K
               '<script>document.addEventListener("DOMContentLoaded",()=>{renderMathInElement(document.body,{delimiters:[{left:"\\\\(",right:"\\\\)",display:false}]});document.body.dataset.math="ok";});</script>')
 
 
-def page(level, sda, body):
+def page(level, sda, body, top=None):
+    """Pàgina HTML; amb top (pt), la primera pàgina comença més avall per continuar l'última pàgina del full."""
     _, c, t = SDA[level][sda]
-    return (f'<!doctype html><html lang="ca"><head><meta charset="utf-8"><style>{CSS % {"f": FONT, "c": c, "t": t}}</style>'
+    first = f"@page:first{{margin-top:{top:.1f}pt}}" if top is not None else ""
+    return (f'<!doctype html><html lang="ca"><head><meta charset="utf-8"><style>{CSS % {"f": FONT, "c": c, "t": t}}{first}</style>'
             f'{KATEX_HEAD}</head><body>{body}</body></html>')
 
 
