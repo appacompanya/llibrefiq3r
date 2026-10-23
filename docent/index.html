@@ -73,7 +73,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const toast = (t) => { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 3500); };
-  const LV = { "2n": { n: "2n d'ESO", c: "var(--l2)", book: "../2n/", zone: "../2n/digital/profe.html", app: "/2n/digital/" }, "3r": { n: "3r d'ESO", c: "var(--l3)", book: "../", zone: "../digital/profe.html#digital", app: "/digital/" }, "4t": { n: "4t d'ESO", c: "var(--l4)", book: "../4t/", zone: null } };
+  const LV = { "2n": { n: "2n d'ESO", c: "var(--l2)", book: "../2n/", zone: "../2n/digital/profe.html", app: "/2n/digital/" }, "3r": { n: "3r d'ESO", c: "var(--l3)", book: "../", zone: "../digital/profe.html#digital", app: "/digital/" }, "4t": { n: "4t d'ESO", c: "var(--l4)", book: "../4t/", zone: "../4t/digital/profe.html", app: "/4t/digital/" } };
   const ERR = { has_students: "Primer cal esborrar o moure l'alumnat d'aquest curs.", bad_username: "L'usuari ha de tenir entre 3 i 30 caràcters: lletres minúscules, números, punts o guions.", weak_password: "La contrasenya ha de tenir com a mínim 8 caràcters.", username_taken: "Aquest usuari ja existeix.", bad_name: "Escriu el nom del docent.", self: "No et pots esborrar a tu mateix." };
   const msg = (e) => ERR[e && e.message] || ("Error: " + (e && e.message || e));
   const want = (new URLSearchParams(location.search).get("nivell") || "").toLowerCase();
