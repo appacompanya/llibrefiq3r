@@ -45,6 +45,11 @@ td.e{height:9mm}
 ul,ol{margin:0 0 2mm;padding-left:6mm}li{margin-bottom:1mm}
 .ri{padding-left:4mm;text-indent:-4mm;margin:0 0 4.5mm;break-inside:avoid}
 .ri .u{font-size:9pt;color:var(--muted);word-break:break-all}
+.tag{display:inline-block;background:var(--acc);color:#fff;border-radius:1.4mm;padding:0 1.6mm;font-size:8pt;font-weight:700;vertical-align:1px;margin-right:1mm}
+.rq{break-inside:auto;margin-bottom:6mm}
+.rq .rh{break-inside:avoid}
+.parts{margin:1.5mm 0 1mm}
+.parts p{margin:0 0 1mm}
 .font{font-size:8.5pt;color:var(--muted);margin-top:3mm}
 .katex{font-size:1.08em}
 """
@@ -73,8 +78,17 @@ def lines(n):
     return '<div class="l"></div>' * n
 
 
-def q(n, body, nlines=0, extra=""):
-    return f'<div class="q"><span class="n">{n}</span><div>{body}{lines(nlines)}{extra}</div></div>'
+def renumber(html_):
+    """Numera les preguntes seguides a partir del número de la primera (per poder treure'n sense renumerar a mà)."""
+    import re
+    m = re.search(r'<span class="n">(\d+)</span>', html_)
+    if not m: return html_
+    it = iter(range(int(m.group(1)), 10**4))
+    return re.sub(r'<span class="n">\d+</span>', lambda _: f'<span class="n">{next(it)}</span>', html_)
+
+
+def q(n, body, nlines=0, extra="", cls="q"):
+    return f'<div class="{cls}"><span class="n">{n}</span><div>{body}{lines(nlines)}{extra}</div></div>'
 
 
 def h2(k, title):
@@ -95,6 +109,45 @@ def table(head, rows, empty_cols=(), widths=None):
     return f"<table>{('<colgroup>' + cg + '</colgroup>') if cg else ''}{h}{b}</table>"
 
 
-def resources(items):
-    """Llista de recursos: (títol, descripció, enllaç)."""
+def graf(xr, yr, xlab, ylab, w=150, h=62):
+    """Quadrícula per fer una gràfica: xr i yr = (mínim, màxim, pas entre etiquetes); mides en mm."""
+    (x0, x1, dx), (y0, y1, dy) = xr, yr
+    W, H, L, B = w * 4, h * 4, 46, 30          # unitats SVG (4 per mm), marge esquerre i inferior
+    pw, ph = W - L - 10, H - B - 10
+    X = lambda v: L + (v - x0) / (x1 - x0) * pw
+    Y = lambda v: 10 + ph - (v - y0) / (y1 - y0) * ph
+    fmt = lambda v: f"{v:g}".replace(".", ",").replace("-", "−")
+    g = []
+    nx, ny = round((x1 - x0) / dx) * 2, round((y1 - y0) / dy) * 2
+    for i in range(nx + 1):
+        v = x0 + i * dx / 2
+        g.append(f'<line x1="{X(v):.1f}" y1="10" x2="{X(v):.1f}" y2="{10 + ph}" stroke="#c9cdd2" stroke-width="{1.2 if i % 2 == 0 else .6}"/>')
+        if i % 2 == 0: g.append(f'<text x="{X(v):.1f}" y="{10 + ph + 16}" text-anchor="middle">{fmt(v)}</text>')
+    for i in range(ny + 1):
+        v = y0 + i * dy / 2
+        g.append(f'<line x1="{L}" y1="{Y(v):.1f}" x2="{L + pw}" y2="{Y(v):.1f}" stroke="#c9cdd2" stroke-width="{1.2 if i % 2 == 0 else .6}"/>')
+        if i % 2 == 0: g.append(f'<text x="{L - 6}" y="{Y(v) + 4:.1f}" text-anchor="end">{fmt(v)}</text>')
+    g.append(f'<text x="{L + pw}" y="{H - 2}" text-anchor="end">{xlab}</text>')
+    g.append(f'<text x="12" y="{10 + ph / 2:.1f}" text-anchor="middle" transform="rotate(-90 12 {10 + ph / 2:.1f})">{ylab}</text>')
+    return (f'<svg class="graf" viewBox="0 0 {W} {H}" style="width:{w}mm;height:{h}mm;display:block;margin:2mm 0 3mm;font-size:13px;fill:#5d646d">'
+            + "".join(g) + "</svg>")
+
+
+def rep(n, tag, title, text, parts=(), nlines=6, extra="", after=""):
+    """Repte del dossier d'ampliació (com els de 3r): etiqueta, títol, enunciat, material (taula, requadre,
+    quadrícula), apartats a), b), c)… i línies per respondre."""
+    ps = "".join(f"<p>{chr(97 + i)}) {p}</p>" for i, p in enumerate(parts))
+    head = f'<span class="tag">{tag}</span> <b>{title}</b> {text}{extra}' + (f'<div class="parts">{ps}</div>' if ps else "") + after
+    return (f'<div class="q rq"><span class="n">{n}</span><div><div class="rh">{head}</div>{lines(nlines)}</div></div>')
+
+
+DOSSIER_INTRO = ('<p class="intro">Aquests reptes amplien el que treballem a classe. Tria\'n els que vulguis: no cal fer-los tots '
+                 'ni en ordre. Les etiquetes indiquen el tipus de repte. Escriu sempre les dades, el raonament i el resultat amb '
+                 'unitats. Quan acabis un repte, demana el solucionari al professor o professora i corregeix-lo amb bolígraf verd.</p>')
+
+
+def resources(items, head=""):
+    """Llista de recursos: (títol, descripció, enllaç). La capçalera (head) va enganxada al primer recurs."""
+    if head:
+        return f'<div style="break-inside:avoid">{head}{resources(items[:1])}</div>' + resources(items[1:])
     return "".join(f'<p class="ri">•&nbsp;<b>{t}.</b> {d}<br><span class="u">{u}</span></p>' for t, d, u in items)

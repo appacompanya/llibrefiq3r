@@ -2,12 +2,14 @@
 
 - Correccions (continguts/<nivell>.py, FIXES): canvis de text petits fets directament al PDF, amb la mateixa
   tipografia (errades, frases poc precises). S'apliquen una sola vegada: el PDF en guarda el registre.
-- Activitats afegides (continguts/<nivell>.py, EXTRA): més preguntes a les fitxes i més reptes i recursos als
-  materials d'ampliació. No són un full a part: continuen la fitxa just després de l'última pregunta, a l'espai
-  que queda lliure a l'última pàgina, i si no hi caben segueixen en pàgines noves. Es generen en HTML amb el
-  mateix estil (estil.py) i es passen a PDF amb Chromium (render.js). L'última pàgina original es guarda dins
-  del PDF (fitxer adjunt), de manera que si es torna a executar es restaura i res no s'acumula. Els peus de
-  pàgina es tornen a numerar («1/2», «2/2»…).
+- Dossiers d'ampliació (continguts/d<nivell>.py, DOSSIER): substitueixen tot el contingut del full d'ampliació de
+  cada SdA, menys la capçalera de la primera pàgina (títol, SdA, nom, grup i data).
+- Activitats afegides (continguts/<nivell>.py, EXTRA): més preguntes a la fitxa de cada sessió. No són un full a
+  part: continuen la fitxa just després de l'última pregunta, a l'espai que queda lliure a l'última pàgina, i si no
+  hi caben segueixen en pàgines noves.
+Tot es genera en HTML amb el mateix estil (estil.py) i es passa a PDF amb Chromium (render.js). Les pàgines
+originals que es modifiquen es guarden dins del PDF (fitxer adjunt): si es torna a executar, es restauren i res no
+s'acumula. Els peus de pàgina es tornen a numerar («1/2», «2/2»…).
 
 Després, l'acció de GitHub «Regenera el llibre digital» actualitza les fitxes digitals a partir dels PDF.
 Ús: python3 build.py 2n|4t [fitxers…]   (cal haver fet «npm install» en aquesta carpeta)"""
@@ -153,14 +155,29 @@ MIN_FREE = 70     # si queda menys espai lliure, les activitats comencen en una 
 
 def restore(doc, m):
     """Deixa el PDF com era abans d'afegir-hi activitats (amb les correccions ja fetes)."""
-    if doc.page_count > m["orig"]:
-        doc.delete_pages(from_page=m["orig"], to_page=doc.page_count - 1)
     if BACKUP in doc.embfile_names():
         b = pymupdf.open("pdf", doc.embfile_get(BACKUP))
-        last = m["orig"] - 1
-        doc.delete_page(last)
-        doc.insert_pdf(b, start_at=last)
+        bk = m.get("bk", m["orig"] - 1)
+        doc.delete_pages(from_page=bk, to_page=doc.page_count - 1)
+        doc.insert_pdf(b)
         doc.embfile_del(BACKUP)
+    elif doc.page_count > m["orig"]:
+        doc.delete_pages(from_page=m["orig"], to_page=doc.page_count - 1)
+    m.pop("bk", None)
+
+
+def backup(doc, m, bk):
+    """Guarda dins del PDF les pàgines originals que es modificaran (de bk fins al final)."""
+    src = pymupdf.open(); src.insert_pdf(doc, from_page=bk, to_page=m["orig"] - 1)
+    doc.embfile_add(BACKUP, src.tobytes(), desc="Pàgines originals (per a build.py)")
+    m["bk"] = bk
+
+
+def header_bottom(page):
+    """Coordenada y de la línia de color que tanca la capçalera (títol, nom, grup i data)."""
+    rules = [d["rect"] for d in page.get_drawings() if d["rect"].width > 400 and d["rect"].height < 3 and 60 < d["rect"].y0 < 160]
+    if not rules: raise SystemExit("No trobo la línia de la capçalera")
+    return min(r.y1 for r in rules)
 
 
 def content_bottom(page):
@@ -179,7 +196,7 @@ def main():
     C = importlib.import_module(f"continguts.c{level}")
     only = set(args)
     docs = os.path.join(ROOT, level, "docs")
-    files = sorted(set(C.EXTRA) | {f["file"] for f in C.FIXES})
+    files = sorted(set(C.EXTRA) | set(C.DOSSIER) | {f["file"] for f in C.FIXES})
     if only: files = [f for f in files if f in only or any(o in f for o in only)]
     tmp = tempfile.mkdtemp(prefix="fulls-extra-")
     opened, jobs = {}, []
@@ -190,14 +207,26 @@ def main():
         for f in [f for f in C.FIXES if f["file"] == fn]:
             if f["id"] in m["fixes"]: continue
             apply_fix(doc, f); m["fixes"].append(f["id"])
-        top = None
-        if fn in C.EXTRA:
+        top, body = None, C.EXTRA.get(fn) or C.DOSSIER.get(fn)
+        if fn in C.DOSSIER:
+            # dossier d'ampliació: es conserva la capçalera de la primera pàgina i se substitueix tota la resta
+            backup(doc, m, 0)
+            if doc.page_count > 1: doc.delete_pages(from_page=1, to_page=doc.page_count - 1)
+            p = doc[0]
+            y = header_bottom(p)
+            p.add_redact_annot(pymupdf.Rect(0, y + 1, p.rect.width, p.rect.height - 43))
+            p.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_REMOVE, graphics=pymupdf.PDF_REDACT_LINE_ART_REMOVE_IF_COVERED)
+            top = y + 10
+        elif fn in C.EXTRA:
             last = doc[m["orig"] - 1]
             y = content_bottom(last) + GAP
-            if last.rect.height - 43 - y >= MIN_FREE: top = y
+            if last.rect.height - 43 - y >= MIN_FREE:
+                top = y
+                backup(doc, m, m["orig"] - 1)
+        if body:
             sda = int(re.match(r"sda(\d)", fn).group(1))
             hp = os.path.join(tmp, fn.replace(".pdf", ".html"))
-            open(hp, "w", encoding="utf-8").write(estil.page(level, sda, C.EXTRA[fn], top))
+            open(hp, "w", encoding="utf-8").write(estil.page(level, sda, body, top))
             jobs.append({"html": hp, "pdf": hp.replace(".html", ".pdf"), "footer": estil.footer(level, sda)})
         opened[fn] = (doc, m, top)
     if jobs:
@@ -207,30 +236,28 @@ def main():
         doc, m, top = opened[fn]
         path = os.path.join(docs, fn)
         extra = 0
-        if fn in C.EXTRA:
+        if fn in C.EXTRA or fn in C.DOSSIER:
             e = pymupdf.open(os.path.join(tmp, fn))
             first = 0
             if top is not None:
                 # la primera pàgina generada continua l'última pàgina del full: s'hi superposa (sense el peu)
-                last = doc[m["orig"] - 1]
-                src = pymupdf.open(); src.insert_pdf(last.parent, from_page=last.number, to_page=last.number)
-                doc.embfile_add(BACKUP, src.tobytes(), desc="Última pàgina original (per a build.py)")
+                last = doc[doc.page_count - 1]
                 if e[0].get_text().strip():
-                    W, H = last.rect.width, last.rect.height
-                    r = pymupdf.Rect(0, top - 4, W, H - 43)
+                    r = pymupdf.Rect(0, top - 4, last.rect.width, last.rect.height - 43)
                     last.show_pdf_page(r, e, 0, clip=r)
                 first = 1
             if e.page_count > first:
                 doc.insert_pdf(e, from_page=first, to_page=e.page_count - 1)
                 extra = e.page_count - first
-        if fn in C.EXTRA or m.get("extra"):
+        if fn in C.EXTRA or fn in C.DOSSIER or m.get("extra"):
             footer_numbers(doc)
         m["extra"] = extra
         meta_set(doc, m)
         out = path + ".tmp"
         doc.save(out, garbage=3, deflate=True); doc.close()
         os.replace(out, path)
-        print(f"{level}/{fn}: {m['orig']} + {extra} pàgines{' (continua a la pàg. ' + str(m['orig']) + ')' if top is not None else ''}, {len(m['fixes'])} correccions")
+        kind = "dossier" if fn in C.DOSSIER else (f"continua a la pàg. {m['orig']}" if top is not None else "")
+        print(f"{level}/{fn}: {m['orig']} pàg. originals + {extra} noves{' (' + kind + ')' if kind else ''}, {len(m['fixes'])} correccions")
 
 
 if __name__ == "__main__":
