@@ -54,19 +54,20 @@ def center_in(r, box, pad=1.0):
 
 # ---------------------------------------------------------------- spans de text
 class Span:
-    __slots__ = ("r", "t", "font", "size", "color", "bold", "math", "used", "y", "raw", "chip")
+    __slots__ = ("r", "t", "font", "size", "color", "bold", "math", "used", "y", "raw", "chip", "sq", "vec")
     def __init__(self, r, t, font, size, color):
         self.r = r; self.t = t; self.font = font; self.size = size; self.color = color
         self.bold = "Bold" in font or "Bol" in font
         self.math = font.startswith("KaTeX")
-        self.used = False; self.raw = False; self.chip = False
+        self.used = False; self.raw = False; self.chip = False; self.sq = None; self.vec = False
         self.y = (r.y0 + r.y1) / 2
 
 
 class Ch:
-    __slots__ = ("r", "c", "font", "size", "color", "used", "by")
+    __slots__ = ("r", "c", "font", "size", "color", "used", "by", "sq", "vec", "brk")
     def __init__(self, r, c, font, size, color, by=None):
         self.r = r; self.c = c; self.font = font; self.size = size; self.color = color; self.used = False
+        self.sq = None; self.vec = False; self.brk = False
         self.by = by if by is not None else r.y1
 
 
@@ -78,8 +79,11 @@ def page_chars(p):
             for s in l["spans"]:
                 font = s["font"].split("+")[-1]
                 if (font.startswith("Type3") and s["bbox"][1] > 800) or s["size"] <= 1.5: continue      # peu de pàgina i separadors de KaTeX
-                for c in s["chars"]:
+                cs = s["chars"]
+                for i, c in enumerate(cs):
                     if c["c"] == "\u200b": continue
+                    # «n\'ha» als PDF: barra d'escapament que s'hi va colar
+                    if c["c"] == "\\" and not font.startswith("KaTeX") and i + 1 < len(cs) and cs[i + 1]["c"] in "'’": continue
                     out.append(Ch(fitz.Rect(c["bbox"]), c["c"], font, s["size"], s["color"], c["origin"][1]))
     # accents dibuixats a part (KaTeX): s'uneixen a la vocal de sota
     import unicodedata
@@ -100,7 +104,8 @@ def spans_from(chars):
         if t.strip():
             ink = [c for c in cur if c.c.strip()] or cur          # la caixa, sense els espais dels extrems
             r = fitz.Rect(ink[0].r); [r.include_rect(c.r) for c in ink]
-            out.append(Span(r, t, cur[0].font, cur[0].size, cur[0].color))
+            sp = Span(r, t, cur[0].font, cur[0].size, cur[0].color); sp.sq = cur[0].sq; sp.vec = cur[0].vec
+            out.append(sp)
     for c in chars:
         if c.used: continue
         if cur:
@@ -109,7 +114,7 @@ def spans_from(chars):
             gap = c.r.x0 - a.r.x1
             ya, yc = (a.r.y0 + a.r.y1) / 2, (c.r.y0 + c.r.y1) / 2
             kxs = a.font.startswith("KaTeX")
-            if not same or (kxs and a.c == " " and c.c != " ") or gap > a.size * (0.25 if kxs else 0.9) or gap < -a.size * (0.15 if kxs else 0.5) or abs(ya - yc) > a.size * 0.35:
+            if not same or c.sq != a.sq or c.vec or a.vec or c.brk or (kxs and a.c == " " and c.c != " ") or gap > a.size * (0.25 if kxs else 0.9) or gap < -a.size * (0.15 if kxs else 0.5) or abs(ya - yc) > a.size * 0.35:
                 flush(); cur = []
         cur.append(c)
     flush()
@@ -136,8 +141,50 @@ def merge_accents(spans):
     return [s for s in spans if not s.used]
 
 
-def page_spans(p, bars=()):
+def mark_roots(chars, sqrts, vecs):
+    """Arrels quadrades i fletxes de vector de KaTeX (dibuixades): marca els caràcters afectats."""
+    kx_ = [c for c in chars if c.font.startswith("KaTeX") and c.c.strip()]
+    for n, q in enumerate(sqrts):
+        r = q.r
+        cand = sorted([c for c in kx_ if r.y0 - 1 <= (c.r.y0 + c.r.y1) / 2 <= r.y1 + 3 and c.r.x0 >= r.x0 + 4], key=lambda c: c.r.x0)
+        if not cand or cand[0].r.x0 > r.x0 + 16: continue
+        run = [cand[0]]
+        for c in cand[1:]:
+            if c.c in ".,;" or c.r.x0 - max(x.r.x1 for x in run) > run[-1].size * 0.45: break
+            run.append(c)
+        for c in run: c.sq = n + 1
+        x0 = min(c.r.x0 for c in run); x1 = max(c.r.x1 for c in run)
+        for c in chars:
+            if not c.c.strip() and c.font.startswith("KaTeX") and x0 <= c.r.x0 and c.r.x1 <= x1 + 1 and r.y0 - 1 <= (c.r.y0 + c.r.y1) / 2 <= r.y1 + 3: c.sq = n + 1
+    for v in vecs:
+        cx = (v.r.x0 + v.r.x1) / 2
+        under = [c for c in kx_ if c.r.x0 - 1 <= cx <= c.r.x1 + 1 and v.r.y1 - 2 <= c.r.y0 + c.size * 0.45 and c.r.y0 - 5 <= v.r.y1]
+        under = [c for c in under if c.c not in "∣|()[]"] or under
+        if under: min(under, key=lambda c: abs((c.r.x0 + c.r.x1) / 2 - cx)).vec = True
+
+
+def mark_breaks(chars):
+    """Forats al text normal on hi ha una fórmula de KaTeX («Si a i v tenen»): el tros de text s'hi talla."""
+    kx_ = [c for c in chars if c.font.startswith("KaTeX") and c.c.strip()]
+    if not kx_: return
+    for a, c in zip(chars, chars[1:]):
+        if a.font.startswith("KaTeX") or c.font.startswith("KaTeX") or c.r.x0 - a.r.x1 < 1.5: continue
+        cy = (c.r.y0 + c.r.y1) / 2
+        if any(a.r.x1 - 0.5 < (k.r.x0 + k.r.x1) / 2 < c.r.x0 + 0.5 and abs((k.r.y0 + k.r.y1) / 2 - cy) < c.size * 0.7 for k in kx_):
+            c.brk = True
+    # un espai del text que ocupa el lloc d'una fórmula: talla abans i després
+    for i, c in enumerate(chars):
+        if c.c == " " and not c.font.startswith("KaTeX") and c.r.width > 2:
+            cy = (c.r.y0 + c.r.y1) / 2
+            if any(c.r.x0 - 0.5 < (k.r.x0 + k.r.x1) / 2 < c.r.x1 + 0.5 and abs((k.r.y0 + k.r.y1) / 2 - cy) < c.size * 0.7 for k in kx_):
+                c.brk = True
+                if i + 1 < len(chars): chars[i + 1].brk = True
+
+
+def page_spans(p, bars=(), sqrts=(), vecs=()):
     chars = page_chars(p)
+    mark_breaks(chars)
+    mark_roots(chars, sqrts, vecs)
     extra = merge_fraction_chars(chars, bars)
     return spans_from(chars) + extra
 
@@ -151,9 +198,12 @@ class Draw:
 
 def classify(p, acc):
     D = [Draw(d) for d in p.get_drawings()]
-    out = {"dots": [], "grid": [], "bars": [], "badges": [], "fills": [], "boxes": [], "checks": [], "rule": [], "frames": [], "chips": [], "other": []}
+    out = {"dots": [], "grid": [], "bars": [], "badges": [], "fills": [], "boxes": [], "checks": [], "rule": [], "frames": [], "chips": [], "other": [], "sqrt": [], "vec": []}
     for x in D:
         r = x.r
+        # arrel quadrada de KaTeX (camí retallat, molt ample) i fletxa de vector (\vec)
+        if near(x.fill, INK) and r.width > 700 and 8 < r.height < 60: out["sqrt"].append(x); continue
+        if near(x.fill, INK) and 3.5 < r.width < 9.5 and 1 < r.height < 3.6 and x.n > 15: out["vec"].append(x); continue
         if near(x.fill, DOT) and (r.height < 1.6): out["dots"].append(x); continue
         if near(x.fill, DOT) and x.n > 50 and r.width > 100:
             # zona de línies de punts dibuixada en un sol camí: una fila per cada altura
@@ -172,10 +222,13 @@ def classify(p, acc):
         # xips: requadres petits amb vora i text a dins («fusió», «solidificació»…)
         if x.stroke and x.fill in (None, WHITE) and 9 < r.height < 24 and 14 < r.width < 160 and sum(1 for i in x.d["items"] if i[0] == "c") >= 4:
             out["chips"].append(x); continue
+        # cercles plens (àtoms, boles): són dibuix, no notes de color
+        if x.fill and not near(x.fill, acc) and not near(x.fill, WHITE) and abs(r.width - r.height) < 2 and 8 < r.width < 120 and not any(i[0] == "l" for i in x.d["items"]) and sum(1 for i in x.d["items"] if i[0] == "c") >= 4:
+            out["other"].append(x); continue
         if x.fill and r.width > 25 and r.height > 12 and x.n > 8 and not near(x.fill, (0, 0, 0)): out["fills"].append(x); continue
         if near(x.stroke, INK) and r.width > 30 and r.height > 25 and x.w >= 0.6 and x.fill is None: out["boxes"].append(x); continue
         # requadre de color (p. ex. «Seguretat» en vermell): nota amb vora
-        if x.stroke and not near(x.stroke, INK) and x.fill is None and r.width > 120 and r.height > 30 and x.w >= 0.9 and sum(1 for i in x.d["items"] if i[0] == "c") >= 4:
+        if x.stroke and not near(x.stroke, INK) and x.fill is None and r.width > 120 and r.height > 30 and (x.w >= 0.9 or (x.w >= 0.7 and max(x.stroke) - min(x.stroke) > 0.3)) and sum(1 for i in x.d["items"] if i[0] == "c") >= 4:
             out["frames"].append(x); continue
         if x.stroke and 7 < r.width < 18 and 7 < r.height < 18 and abs(r.width - r.height) < 2 and x.fill is None: out["checks"].append(x); continue
         out["other"].append(x)
@@ -197,8 +250,8 @@ def dot_rows(dots, pad=2):
 
 
 # ---------------------------------------------------------------- fórmules i fraccions
-KX_MAP = {"⋅": r"\cdot ", "×": r"\times ", "−": "-", "→": r"\rightarrow ", "≈": r"\approx ", "Δ": r"\Delta ", "ρ": r"\rho ",
-          "°": r"^{\circ}", "π": r"\pi ", "≤": r"\le ", "≥": r"\ge ", "·": r"\cdot ", "µ": r"\mu ", "∆": r"\Delta ", "→": r"\to "}
+KX_MAP = {"%": r"\%", "⋅": r"\cdot ", "×": r"\times ", "−": "-", "→": r"\rightarrow ", "≈": r"\approx ", "Δ": r"\Delta{}", "ρ": r"\rho{}",
+          "°": r"^{\circ}", "π": r"\pi{}", "≤": r"\le ", "≥": r"\ge ", "·": r"\cdot ", "µ": r"\mu{}", "∆": r"\Delta{}", "→": r"\to "}
 
 def kx(t):
     o = ""
@@ -242,6 +295,9 @@ def merge_fraction_chars(chars, bars):
         if not one_run(up) or not one_run(dn): continue
         up.sort(key=lambda c: c.r.x0); dn.sort(key=lambda c: c.r.x0)
         math = any(c.font.startswith("KaTeX") for c in up + dn)
+        sqs = {c.sq for c in up + dn if c.c.strip()}
+        if len(sqs) == 1:                     # arrel de tota la fracció: l'arrel va a fora
+            for c in up + dn: c.sq = None
         su = spans_from(up); sd = spans_from(dn)
         for c in up + dn: c.used = True
         b.used = True
@@ -254,6 +310,7 @@ def merge_fraction_chars(chars, bars):
         f0 = (up + dn)[0]
         sp = Span(r, t, "KaTeX_Main-Regular" if math else f0.font, max(c.size for c in up + dn) * (1 if math else 1.12), f0.color)
         sp.math = math; sp.raw = math
+        if len(sqs) == 1: sp.sq = sqs.pop()
         out.append(sp)
     return out
 
@@ -263,7 +320,19 @@ def kxjoin(ss):
     if not ss: return ""
     base = max(s.size for s in ss)
     o = ""
+    pend = {"_": "", "^": ""}          # subíndexs i exponents seguits d'una mateixa base (E°càtode, ⁸⁸₃₈Sr)
+    def flush():
+        nonlocal o
+        if (pend["_"] or pend["^"]) and (not o or o[-1] in " =+-(,"): o += "{}"      # índexs a l'esquerra (ᴬ_Z X)
+        for k in ("_", "^"):
+            if pend[k]: o += k + "{" + pend[k] + "}"; pend[k] = ""
+    open_sq = None
     for s in ss:
+        if s.sq != open_sq:
+            flush()
+            if open_sq: o = re.sub(r"(\\ |\s)+$", "", o) + "}"
+            if s.sq: o += r"\sqrt{"
+            open_sq = s.sq
         if s.raw:
             t = s.t
         elif s.math and "Main" in s.font and re.search(r"[^\W\d_]", s.t):
@@ -276,13 +345,17 @@ def kxjoin(ss):
             t = re.sub(r"(\\[a-zA-Z]+)\\ ", r"\1 ", t)
         else:
             t = s.t
-        if s.size < base * 0.8 and s.math:
+        if s.vec: t = r"\vec{" + t.strip() + "}"
+        if s.size < base * 0.8 and s.math and not s.raw:
             big = [x for x in ss if x.size >= base * 0.95]
             bc = sum((x.r.y0 + x.r.y1) / 2 for x in big) / len(big) if big else s.y
-            o = re.sub(r"(\\ |\s)+$", "", o)
-            o += ("_{" if (s.r.y0 + s.r.y1) / 2 > bc else "^{") + t.strip() + "}"
+            if not pend["_"] and not pend["^"]: o = re.sub(r"(\\ |\s)+$", "", o)
+            pend["_" if (s.r.y0 + s.r.y1) / 2 > bc else "^"] += re.sub(r"^(?:\\ |\s)+|(?:\\ |\s)+$", "", t)
         else:
+            flush()
             o += t
+    flush()
+    if open_sq: o = re.sub(r"(\\ |\s)+$", "", o) + "}"
     o = re.sub(r"(\d)\\ (?=\d{3}\b)", r"\1\\,", o)      # 1 000 000 → 1\,000\,000
     o = re.sub(r"\\ ([=+\-]|\\cdot|\\times|\\rightarrow|\\to|\\approx)", r" \1", o)
     o = re.sub(r"([=+]|\\cdot |\\times |\\rightarrow |\\to |\\approx )\\ ", r"\1 ", o)
@@ -299,7 +372,8 @@ def lines_of(spans):
     rows = []
     for s in ss:
         for row in rows:
-            if abs(row["y"] - s.y) <= max(3.2, s.size * 0.6) or (s.math and abs(row["y"] - s.y) <= s.size * 0.7):
+            if abs(row["y"] - s.y) <= max(3.2, s.size * 0.6) or (s.math and abs(row["y"] - s.y) <= s.size * 0.7) or \
+               (s.math and any(x.math and x.size > s.size * 1.2 and abs(x.y - s.y) <= x.size * 0.7 for x in row["s"])):
                 row["s"].append(s); break
         else:
             rows.append({"y": s.y, "s": [s]})
@@ -361,6 +435,9 @@ def paragraphs(rows, acc_hex):
             cur = {"t": t, "y0": r["y0"], "y1": r["y1"], "x0": r["x0"], "size": r["size"], "li": False, "hard": True, "math": allmath}
             paras.append(cur); continue
         bullet = re.match(r"^(•|·|–|-)\s+", re.sub(r"<[^>]+>", "", t))
+        # «· Na 23,0» a l'inici d'una línia que continua el paràgraf (llista de dades separada per «·»): no és un pic
+        if bullet and bullet.group(1) == "·" and cur and not cur.get("li") and r["y0"] - cur["y1"] < cur["size"] * 0.95 and abs(r["x0"] - cur["x0"]) < 4:
+            bullet = None
         if cur and not bullet and r["y0"] - cur["y1"] < cur["size"] * 0.95 and abs(r["x0"] - cur["x0"]) < 30 and not cur.get("hard"):
             cur["t"] += " " + t; cur["y1"] = r["y1"]; continue
         if cur and cur.get("li") and not bullet and r["y0"] - cur["y1"] < cur["size"] * 0.95 and r["x0"] > cur["x0"] + 2:
@@ -476,7 +553,7 @@ class El:
 
 def page_elements(p, key, acc, acc_hex, state, first, plain_figs=True):
     C = classify(p, acc)
-    spans = merge_accents(page_spans(p, C["bars"]))
+    spans = merge_accents(page_spans(p, C["bars"], C["sqrt"], C["vec"]))
     for c in C["chips"]:
         for s in spans:
             if center_in(s.r, c.r, 1): s.chip = True
@@ -571,6 +648,8 @@ def page_elements(p, key, acc, acc_hex, state, first, plain_figs=True):
 
     # figures: la resta de dibuixos i les imatges
     figr = [x.r for x in C["other"] if x.r.y0 >= top and x.r.y1 < 805 and x.r.width + x.r.height > 4 and not any(inside(x.r, t, 2) for t in tables)]
+    # línies horitzontals soltes d'un diagrama (nivells d'energia…): una mica de marge perquè s'agrupin
+    figr = [fitz.Rect(r.x0, r.y0 - 5, r.x1, r.y1 + 5) if r.height < 2 and r.width > 30 else r for r in figr]
     # eixos de gràfiques (línies llargues o verticals d'inxa)
     figr += [b.r for b in C["bars"] if not b.used and b.r.y0 >= top and (b.r.width > 260)]
     figr += [x.r for x in C["other"] if near(x.stroke, INK) and x.r.height > 40 and x.r.width < 2]
@@ -590,6 +669,12 @@ def page_elements(p, key, acc, acc_hex, state, first, plain_figs=True):
                 txt_between = any(not s.used and s.size >= 9 and s.r.y0 < max(a.y1, b.y1) and s.r.y1 > min(a.y0, b.y0) and min(a.x1, b.x1) < s.r.x0 < max(a.x0, b.x0) and len(s.t.strip()) > 14 for s in spans)
                 if ov > 0.5 * min(a.height, b.height) and gap < 160 and not txt_between:
                     frs[i] = fitz.Rect(a).include_rect(b); frs.pop(j); merged = True; break
+                # figures apilades amb la mateixa amplada (franges d'espectre, nivells…) → una sola figura
+                xov = min(a.x1, b.x1) - max(a.x0, b.x0)
+                vgap = max(a.y0, b.y0) - min(a.y1, b.y1)
+                txt_v = any(not s.used and s.r.x0 < min(a.x1, b.x1) and s.r.x1 > max(a.x0, b.x0) and min(a.y1, b.y1) - 1 < (s.r.y0 + s.r.y1) / 2 < max(a.y0, b.y0) + 1 and len(s.t.strip()) > 14 for s in spans)
+                if xov > 0.8 * min(a.width, b.width) and 0 <= vgap < 18 and not txt_v:
+                    frs[i] = fitz.Rect(a).include_rect(b); frs.pop(j); merged = True; break
             if merged: break
     for fr in frs:
         if fr.width * fr.height < 500 or fr.width < 14 or fr.height < 14: continue
@@ -607,14 +692,14 @@ def page_elements(p, key, acc, acc_hex, state, first, plain_figs=True):
         for b in blanks: fr.include_rect(b.r); b.used = True
         tipz = [f.r for f in fills if not getattr(f, "infig", False) and not near(f.fill, WHITE) and not inside(fr, f.r, 2)]
         # etiquetes petites dins de la figura (o enganxades) en formen part
-        lab = [s for s in spans if not s.used and not any(center_in(s.r, t) for t in tipz) and ((((not s.bold and s.size < 10) or s.size < 7 or (s.size < 9 and len(s.t.strip()) <= 24)) and inside(s.r, fitz.Rect(fr.x0 - 42, fr.y0 - 10, fr.x1 + 60, fr.y1 + 16))) or
+        lab = [s for s in spans if not s.used and not any(center_in(s.r, t) for t in tipz) and ((((not s.bold and s.size < 10) or s.size < 7 or (s.size < 9 and len(s.t.strip()) <= 24)) and inside(s.r, fitz.Rect(fr.x0 - 42, fr.y0 - 14, fr.x1 + 60, fr.y1 + 16))) or
                                                (len(s.t.strip()) <= 14 and inside(s.r, fitz.Rect(fr.x0 - 6, fr.y0 - 6, fr.x1 + 6, fr.y1 + 6))) or
                                                (len(s.t.strip()) <= 3 and inside(s.r, fitz.Rect(fr.x0 - 6, fr.y0 - 6, fr.x1 + 6, fr.y1 + 22))) or
                                                (not s.bold and len(s.t.strip()) <= 12 and inside(s.r, fitz.Rect(fr.x0 - 42, fr.y0 - 10, fr.x1 + 60, fr.y1 + 26))))]
         r = fitz.Rect(fr)
         for s in lab: r.include_rect(s.r); s.used = True
         for s in spans:
-            if not s.used and center_in(s.r, r, 0): s.used = True
+            if not s.used and center_in(s.r, r, 0): s.used = True; r.include_rect(s.r)
         els.append(El("fig", r, src=None, blanks=[fitz.Rect(b.r.x0, b.r.y1 - 2, b.r.x1, b.r.y1) for b in sorted(blanks, key=lambda b: (round(b.r.y0 / 8), b.r.x0))]))
     # espais en blanc dins del text (línia fina d'inxa d'uns quants mm)
     for b in C["bars"]:

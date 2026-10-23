@@ -1,0 +1,43 @@
+# Manté acoblats el llibre normal i el llibre digital de 2n i 4t:
+# quan canvia un full en PDF (o el llibre web), es tornen a generar les fitxes digitals.
+name: Regenera el llibre digital
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "2n/docs/**"
+      - "2n/index.html"
+      - "4t/docs/**"
+      - "4t/index.html"
+      - "tools/digital-pdf/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: llibre-digital
+  cancel-in-progress: false
+
+jobs:
+  regenera:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Dependències
+        run: pip install "pymupdf==2.0" "pillow==12.3.0" "beautifulsoup4==4.15.0"
+      - name: Llibre digital de 2n
+        run: python3 tools/digital-pdf/build.py 2n
+      - name: Llibre digital de 4t
+        run: python3 tools/digital-pdf/build.py 4t
+      - name: Desa els canvis
+        run: |
+          git add 2n/digital 2n/index.html 4t/digital 4t/index.html
+          if git diff --cached --quiet; then echo "Res a actualitzar"; exit 0; fi
+          git -c user.name="Macià Esteve Pallarès" -c user.email="qtb7dvrt76@privaterelay.appleid.com" \
+            commit -m "Llibre digital regenerat a partir dels PDF"
+          git push

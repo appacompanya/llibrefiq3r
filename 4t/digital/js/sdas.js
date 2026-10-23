@@ -1,0 +1,1 @@
+window.SDAS = [{"n": 1, "title": "Els colors de la Mercè", "c": "--s1"}, {"n": 2, "title": "Aixeta o ampolla?", "c": "--s2"}, {"n": 3, "title": "Quant CO₂ costa venir a l'institut?", "c": "--s3"}, {"n": 4, "title": "El patrimoni que es desfà", "c": "--s4"}, {"n": 5, "title": "Com es tanca una ferida?", "c": "--s5"}, {"n": 6, "title": "L'Ictineo de Monturiol", "c": "--s6"}];
