@@ -2,107 +2,107 @@
  "crit.1.1": {
   "ce": "CE1",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.1.2": {
   "ce": "CE1",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.1.3": {
   "ce": "CE1",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.1": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.2": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.3": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.4": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.5": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.2.6": {
   "ce": "CE2",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.3.1": {
   "ce": "CE3",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.3.2": {
   "ce": "CE3",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.3.3": {
   "ce": "CE3",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.4.1": {
   "ce": "CE4",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.4.2": {
   "ce": "CE4",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.4.3": {
   "ce": "CE4",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.5.1": {
   "ce": "CE5",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.5.2": {
   "ce": "CE5",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.5.3": {
   "ce": "CE5",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.5.4": {
   "ce": "CE5",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.6.1": {
   "ce": "CE6",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "crit.6.2": {
   "ce": "CE6",
   "tipus": "criteri",
-  "versio": 1
+  "versio": 2
  },
  "d1adap": {
   "sda": null,
@@ -13555,11 +13555,20 @@
  "s1.ellen": {
   "sda": 1,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s1.ellen.e1": {
   "criteris": [
    "2.6"
+  ],
+  "evidencia": "s1.ellen",
+  "sda": 1,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s1.ellen.e2": {
+  "criteris": [
+   "5.1"
   ],
   "evidencia": "s1.ellen",
   "sda": 1,
@@ -13708,6 +13717,29 @@
    "1.1"
   ],
   "evidencia": "s2.expl",
+  "sda": 2,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s2.labc": {
+  "sda": 2,
+  "tipus": "evidencia",
+  "versio": 1
+ },
+ "s2.labc.k1": {
+  "criteris": [
+   "2.3"
+  ],
+  "evidencia": "s2.labc",
+  "sda": 2,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s2.labc.k2": {
+  "criteris": [
+   "2.3"
+  ],
+  "evidencia": "s2.labc",
   "sda": 2,
   "tipus": "item_avaluacio",
   "versio": 1
@@ -13876,7 +13908,7 @@
  "s3.prova": {
   "sda": 3,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s3.prova.p1": {
   "criteris": [
@@ -13889,30 +13921,30 @@
  },
  "s3.prova.p2": {
   "criteris": [
-   "6.1"
+   "1.1"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s3.prova.p3": {
   "criteris": [
-   "6.1"
+   "1.2"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s3.prova.p4": {
   "criteris": [
-   "6.1"
+   "1.2"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s3.prova.p5": {
   "criteris": [
@@ -13982,7 +14014,7 @@
  "s4.prova": {
   "sda": 4,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s4.prova.p1": {
   "criteris": [
@@ -13995,12 +14027,13 @@
  },
  "s4.prova.p2": {
   "criteris": [
-   "2.2"
+   "2.2",
+   "1.2"
   ],
   "evidencia": "s4.prova",
   "sda": 4,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s4.prova.p3": {
   "criteris": [
@@ -14027,6 +14060,29 @@
   ],
   "evidencia": "s4.prova",
   "sda": 4,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s5.difu": {
+  "sda": 5,
+  "tipus": "evidencia",
+  "versio": 1
+ },
+ "s5.difu.x1": {
+  "criteris": [
+   "2.2"
+  ],
+  "evidencia": "s5.difu",
+  "sda": 5,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s5.difu.x2": {
+  "criteris": [
+   "2.3"
+  ],
+  "evidencia": "s5.difu",
+  "sda": 5,
   "tipus": "item_avaluacio",
   "versio": 1
  },
@@ -14232,7 +14288,7 @@
  "s6.prova": {
   "sda": 6,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s6.prova.p1": {
   "criteris": [
@@ -14245,12 +14301,12 @@
  },
  "s6.prova.p2": {
   "criteris": [
-   "4.2"
+   "1.2"
   ],
   "evidencia": "s6.prova",
   "sda": 6,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s6.prova.p3": {
   "criteris": [

@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 4
-versio: 1
+versio: 2
 color: --s4
 titol: Un cotxe que només allibera aigua?
 repte: Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?
-meta: '2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3'
+meta: '2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3'
 publicada: true
 ce_aprovades:
 - CE1
@@ -993,7 +993,7 @@ documents:
 evidencies:
 - uid: s4.prova
   id: prova
-  versio: 1
+  versio: 2
   titol: Activitat de demostració d'assoliment (sessions 9 i 10)
   instruments:
   - d4prova
@@ -1007,10 +1007,11 @@ evidencies:
     - '3.2'
   - uid: s4.prova.p2
     id: p2
-    versio: 1
+    versio: 2
     titol: Activitat 2 · La llana d'acer
     criteris:
     - '2.2'
+    - '1.2'
   - uid: s4.prova.p3
     id: p3
     versio: 1
@@ -1030,6 +1031,7 @@ evidencies:
     titol: Activitat 5 · Zero emissions?
     criteris:
     - '3.1'
+  pes: 30
 - uid: s4.lab
   id: lab
   versio: 1
@@ -1069,6 +1071,7 @@ evidencies:
       AN: Algun error menor d'unitats o de càlcul
       AS: Errors freqüents d'unitats o de càlcul
       NA: No aplica les unitats ni els càlculs
+  pes: 40
 - uid: s4.dos
   id: dos
   versio: 1
@@ -1098,3 +1101,4 @@ evidencies:
       AN: Tots participen i compleixen el rol, amb alguna desigualtat
       AS: La feina recau en una part del grup
       NA: Un sol membre fa la feina
+  pes: 30

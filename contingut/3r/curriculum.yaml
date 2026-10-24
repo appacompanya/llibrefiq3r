@@ -1,6 +1,6 @@
 # Font única del currículum de 3r. No inventis textos: han de ser literals del decret.
 font: Decret 175/2022, annex 3 (Física i química, 1r a 3r d'ESO). Textos copiats de la programació (tools/3r/dades/full.md); noms curts de CRIT_NAMES (digital/profe.html).
-versio: 1
+versio: 2
 competencies:
 - id: CE1
   text: Interpretar fenòmens de la naturalesa, predient i argumentant-ne el comportament a partir de models, lleis i teories propis de la física i química per apropiar-se de conceptes i processos propis de la ciència.
@@ -34,8 +34,8 @@ competencies:
     text: Presentar els resultats i les conclusions obtingudes mitjançant l'experimentació i l'observació de camp utilitzant el format adequat (taules, gràfics, informes, etc.) i, quan sigui necessari, eines digitals.
   - id: '2.6'
     nom_curt: Ciència i biaixos de gènere
-    text: Valorar la contribució de la ciència a la societat i la tasca de les persones que s'hi han dedicat, reflexionant sobre els biaixos de gènere en les ciències i la tecnologia, i entenent la recerca com una tasca
-    pendent: 'Text tallat a la programació (full.md): cal completar-lo amb el literal del Decret 175/2022.'
+    text: Valorar la contribució de la ciència a la societat i la tasca de les persones que s'hi han dedicat, reflexionant sobre els biaixos de gènere en les ciències i la tecnologia, i entenent la recerca com una tasca col·lectiva i interdisciplinària en constant evolució, influïda pel context polític i els recursos econòmics.
+    font_text: Completat amb el literal del Decret 175/2022 (xtec.gencat.cat, Física i Química, criteri 2.6 de 1r-3r)
 - id: CE3
   text: Generar, interpretar i validar dades i informació en diferents formats i fonts, fent servir de manera adient el llenguatge científic específic de la física i la química, i usar de manera responsable i segura el material de laboratori, per valorar el llenguatge científic com a eina universal de comunicació i intercanvi de coneixement.
   criteris:

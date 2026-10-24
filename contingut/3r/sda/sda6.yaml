@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 6
-versio: 1
+versio: 2
 color: --s6
 titol: L'energia del nostre institut
 repte: Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?
-meta: '3r trimestre · 7 sessions · Producte final: pla d''estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6'
+meta: '3r trimestre · 7 sessions · Producte final: pla d''estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6'
 publicada: true
 ce_aprovades:
 - CE1
@@ -747,7 +747,7 @@ documents:
 evidencies:
 - uid: s6.prova
   id: prova
-  versio: 1
+  versio: 2
   titol: Activitat de demostració d'assoliment (sessions 6 i 7)
   instruments:
   - d6prova
@@ -761,10 +761,10 @@ evidencies:
     - '6.2'
   - uid: s6.prova.p2
     id: p2
-    versio: 1
+    versio: 2
     titol: Activitat 2 · Sèrie o paral·lel?
     criteris:
-    - '4.2'
+    - '1.2'
   - uid: s6.prova.p3
     id: p3
     versio: 1
@@ -783,6 +783,7 @@ evidencies:
     titol: Activitat 5 · Plaques solars a l'institut
     criteris:
     - '6.2'
+  pes: 30
 - uid: s6.cerca
   id: cerca
   versio: 1
@@ -811,6 +812,7 @@ evidencies:
       AN: Cita les fonts amb algun element que falta
       AS: Cita les fonts de manera incompleta
       NA: No cita les fonts
+  pes: 20
 - uid: s6.pla
   id: pla
   versio: 1
@@ -840,6 +842,7 @@ evidencies:
       AN: Implica la comunitat i revisa el repartiment de tasques
       AS: Implicació poc concreta o repartiment no revisat
       NA: No hi ha implicació de la comunitat
+  pes: 35
 - uid: s6.debat
   id: debat
   versio: 1
@@ -868,3 +871,4 @@ evidencies:
       AN: Respecta els torns i escolta
       AS: Interromp o no té en compte els altres
       NA: Actitud que exclou algun membre
+  pes: 15

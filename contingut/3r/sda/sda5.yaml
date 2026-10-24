@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 5
-versio: 1
+versio: 2
 color: --s5
 titol: Cèl·lules immunitàries a la caça dels patògens
 repte: Com persegueix un neutròfil un bacteri sense veure'l?
-meta: '2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1 i CE5'
+meta: '2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5'
 publicada: true
 ce_aprovades:
 - CE1
@@ -1321,6 +1321,7 @@ evidencies:
     criteris:
     - '1.2'
     - '5.3'
+  pes: 30
 - uid: s5.tfm
   id: tfm
   versio: 1
@@ -1361,6 +1362,7 @@ evidencies:
       AN: Relaciona les forces cel·lulars amb algun procés de salut
       AS: Esmenta la salut sense justificar-ho
       NA: No relaciona les forces amb la salut
+  pes: 30
 - uid: s5.graf
   id: graf
   versio: 1
@@ -1389,6 +1391,7 @@ evidencies:
       AN: Calcula els pendents correctament
       AS: Calcula algun pendent
       NA: No calcula els pendents
+  pes: 15
 - uid: s5.febre
   id: febre
   versio: 1
@@ -1417,3 +1420,34 @@ evidencies:
       AN: Explica que la febre ajuda la defensa
       AS: Resposta parcial
       NA: No ho relaciona amb la salut
+  pes: 10
+- uid: s5.difu
+  id: difu
+  versio: 1
+  titol: Laboratori de difusió (fitxa 5, sessió 7)
+  instruments:
+  - d5f5
+  items:
+  - uid: s5.difu.x1
+    id: x1
+    versio: 1
+    titol: Disseny de l'experiment
+    criteris:
+    - '2.2'
+    descriptors:
+      AE: Formula una pregunta i una hipòtesi contrastables, identifica la variable independent, la dependent i les controlades i escriu un procediment on només varia la temperatura
+      AN: Identifica les variables i escriu un procediment amb algun control que falta
+      AS: Procediment incomplet o variables confoses
+      NA: No dissenya l'experiment
+  - uid: s5.difu.x2
+    id: x2
+    versio: 1
+    titol: Conclusions i límits
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Treu una conclusió coherent amb les dades, diu si es confirma la hipòtesi i proposa una millora tenint en compte els límits (la tinta també cau per gravetat)
+      AN: Treu una conclusió coherent i diu si es confirma la hipòtesi
+      AS: Conclusió poc relacionada amb les dades
+      NA: Sense conclusió
+  pes: 15

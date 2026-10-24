@@ -1206,7 +1206,7 @@ window.FQ3_DADES = {
    "c": "--s1",
    "title": "Detectius de la matèria",
    "q": "Com podem identificar dotze substàncies que han perdut l'etiqueta?",
-   "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2 i CE3",
+   "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5",
    "ready": true,
    "sessions": [
     {
@@ -1386,7 +1386,7 @@ window.FQ3_DADES = {
    "c": "--s2",
    "title": "El desodorant kamikaze",
    "q": "Per què explota un desodorant dins d'un cotxe a l'agost?",
-   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE4",
+   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1, CE2 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -1554,7 +1554,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -1732,7 +1732,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3",
    "ready": true,
    "sessions": [
     {
@@ -1896,7 +1896,7 @@ window.FQ3_DADES = {
    "c": "--s5",
    "title": "Cèl·lules immunitàries a la caça dels patògens",
    "q": "Com persegueix un neutròfil un bacteri sense veure'l?",
-   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1 i CE5",
+   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5",
    "ready": true,
    "sessions": [
     {
@@ -2107,7 +2107,7 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6",
+   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -2275,7 +2275,7 @@ window.FQ3_DADES = {
    "c": "--s1",
    "title": "Detectius de la matèria",
    "q": "Com podem identificar dotze substàncies que han perdut l'etiqueta?",
-   "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2 i CE3",
+   "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5",
    "ready": true,
    "sessions": [
     {
@@ -2383,7 +2383,7 @@ window.FQ3_DADES = {
    "c": "--s2",
    "title": "El desodorant kamikaze",
    "q": "Per què explota un desodorant dins d'un cotxe a l'agost?",
-   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE4",
+   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1, CE2 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -2493,7 +2493,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -2606,7 +2606,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3",
    "ready": true,
    "sessions": [
     {
@@ -2719,7 +2719,7 @@ window.FQ3_DADES = {
    "c": "--s5",
    "title": "Cèl·lules immunitàries a la caça dels patògens",
    "q": "Com persegueix un neutròfil un bacteri sense veure'l?",
-   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1 i CE5",
+   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5",
    "ready": true,
    "sessions": [
     {
@@ -2869,7 +2869,7 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6",
+   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -3104,6 +3104,19 @@ window.FQ3_DADES = {
        "AS": "Una raó sense justificar",
        "NA": "No respon"
       }
+     },
+     {
+      "id": "e2",
+      "l": "Aigua i salut",
+      "c": [
+       "5.1"
+      ],
+      "d": {
+       "AE": "Justifica amb arguments científics per què cal controlar la qualitat de l'aigua i relaciona els ions mesurats amb la salut de les persones i del medi",
+       "AN": "Justifica la importància de les normes de qualitat de l'aigua amb algun argument científic",
+       "AS": "Diu que l'aigua ha de ser de qualitat sense justificar-ho",
+       "NA": "No respon o la resposta no té relació amb la qualitat de l'aigua"
+      }
      }
     ]
    }
@@ -3234,6 +3247,38 @@ window.FQ3_DADES = {
       }
      }
     ]
+   },
+   {
+    "id": "labc",
+    "l": "Laboratori de la corba d'escalfament i informe de pràctica (sessió 6)",
+    "items": [
+     {
+      "id": "k1",
+      "l": "Execució i registre de dades",
+      "c": [
+       "2.3"
+      ],
+      "d": {
+       "AE": "Mesura la temperatura cada 2 minuts amb el termòmetre ben col·locat, registra totes les dades amb unitats i fa la gràfica temperatura-temps amb escala i eixos correctes",
+       "AN": "Registra les dades amb unitats i fa la gràfica amb algun error menor d'escala o d'eixos",
+       "AS": "Registre incomplet o gràfica amb errors d'escala o sense unitats",
+       "NA": "No registra les dades o no fa la gràfica"
+      }
+     },
+     {
+      "id": "k2",
+      "l": "Interpretació dels resultats",
+      "c": [
+       "2.3"
+      ],
+      "d": {
+       "AE": "Identifica el tram on la temperatura es manté constant, l'explica amb el model de partícules i compara la predicció amb el resultat",
+       "AN": "Identifica el tram constant i l'explica amb alguna imprecisió",
+       "AS": "Descriu la gràfica sense interpretar-la",
+       "NA": "No interpreta els resultats"
+      }
+     }
+    ]
    }
   ],
   "3": [
@@ -3252,21 +3297,21 @@ window.FQ3_DADES = {
       "id": "p2",
       "l": "Activitat 2 · Àtoms, ions i isòtops",
       "c": [
-       "6.1"
+       "1.1"
       ]
      },
      {
       "id": "p3",
       "l": "Activitat 3 · La taula periòdica",
       "c": [
-       "6.1"
+       "1.2"
       ]
      },
      {
       "id": "p4",
       "l": "Activitat 4 · El liti a la flama",
       "c": [
-       "6.1"
+       "1.2"
       ]
      },
      {
@@ -3386,7 +3431,8 @@ window.FQ3_DADES = {
       "id": "p2",
       "l": "Activitat 2 · La llana d'acer",
       "c": [
-       "2.2"
+       "2.2",
+       "1.2"
       ]
      },
      {
@@ -3643,6 +3689,38 @@ window.FQ3_DADES = {
       }
      }
     ]
+   },
+   {
+    "id": "difu",
+    "l": "Laboratori de difusió (fitxa 5, sessió 7)",
+    "items": [
+     {
+      "id": "x1",
+      "l": "Disseny de l'experiment",
+      "c": [
+       "2.2"
+      ],
+      "d": {
+       "AE": "Formula una pregunta i una hipòtesi contrastables, identifica la variable independent, la dependent i les controlades i escriu un procediment on només varia la temperatura",
+       "AN": "Identifica les variables i escriu un procediment amb algun control que falta",
+       "AS": "Procediment incomplet o variables confoses",
+       "NA": "No dissenya l'experiment"
+      }
+     },
+     {
+      "id": "x2",
+      "l": "Conclusions i límits",
+      "c": [
+       "2.3"
+      ],
+      "d": {
+       "AE": "Treu una conclusió coherent amb les dades, diu si es confirma la hipòtesi i proposa una millora tenint en compte els límits (la tinta també cau per gravetat)",
+       "AN": "Treu una conclusió coherent i diu si es confirma la hipòtesi",
+       "AS": "Conclusió poc relacionada amb les dades",
+       "NA": "Sense conclusió"
+      }
+     }
+    ]
    }
   ],
   "6": [
@@ -3661,7 +3739,7 @@ window.FQ3_DADES = {
       "id": "p2",
       "l": "Activitat 2 · Sèrie o paral·lel?",
       "c": [
-       "4.2"
+       "1.2"
       ]
      },
      {

@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 3
-versio: 1
+versio: 2
 color: --s3
 titol: Què hi ha dins del meu mòbil?
 repte: Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?
-meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l''institut · Competències específiques avaluades: CE5 i CE6'
+meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l''institut · Competències específiques avaluades: CE1, CE5 i CE6'
 publicada: true
 ce_aprovades:
 - CE1
@@ -1081,7 +1081,7 @@ documents:
 evidencies:
 - uid: s3.prova
   id: prova
-  versio: 1
+  versio: 2
   titol: Activitat de demostració d'assoliment (sessions 9 i 10)
   instruments:
   - d3prova
@@ -1095,22 +1095,22 @@ evidencies:
     - '6.1'
   - uid: s3.prova.p2
     id: p2
-    versio: 1
+    versio: 2
     titol: Activitat 2 · Àtoms, ions i isòtops
     criteris:
-    - '6.1'
+    - '1.1'
   - uid: s3.prova.p3
     id: p3
-    versio: 1
+    versio: 2
     titol: Activitat 3 · La taula periòdica
     criteris:
-    - '6.1'
+    - '1.2'
   - uid: s3.prova.p4
     id: p4
-    versio: 1
+    versio: 2
     titol: Activitat 4 · El liti a la flama
     criteris:
-    - '6.1'
+    - '1.2'
   - uid: s3.prova.p5
     id: p5
     versio: 1
@@ -1118,6 +1118,7 @@ evidencies:
     criteris:
     - '5.1'
     - '5.2'
+  pes: 30
 - uid: s3.camp
   id: camp
   versio: 1
@@ -1158,6 +1159,7 @@ evidencies:
       AN: Proposa hàbits concrets
       AS: Proposa hàbits genèrics
       NA: No proposa hàbits
+  pes: 35
 - uid: s3.dos
   id: dos
   versio: 1
@@ -1187,6 +1189,7 @@ evidencies:
       AN: Relaciona les matèries primeres crítiques amb el reciclatge
       AS: Identifica les matèries primeres crítiques sense relacionar-los
       NA: No ho relaciona
+  pes: 25
 - uid: s3.fit
   id: fit
   versio: 1
@@ -1199,3 +1202,4 @@ evidencies:
     titol: Línia del temps dels models i experiment de Rutherford
     criteris:
     - '6.1'
+  pes: 10

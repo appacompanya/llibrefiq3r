@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 1
-versio: 1
+versio: 2
 color: --s1
 titol: Detectius de la matèria
 repte: Com podem identificar dotze substàncies que han perdut l'etiqueta?
-meta: '1r trimestre · 10 sessions · Producte final: informe del grup i protocol d''identificació de substàncies · Competències específiques avaluades: CE2 i CE3'
+meta: '1r trimestre · 10 sessions · Producte final: informe del grup i protocol d''identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5'
 publicada: true
 ce_aprovades:
 - CE2
@@ -1224,6 +1224,7 @@ evidencies:
     titol: Activitat 6 · Ellen Swallow Richards
     criteris:
     - '2.6'
+  pes: 30
 - uid: s1.inf
   id: inf
   versio: 1
@@ -1275,6 +1276,7 @@ evidencies:
       AN: Assigna la majoria de pots amb proves convergents
       AS: Assigna els pots amb una sola prova
       NA: Assignacions sense justificar
+  pes: 40
 - uid: s1.lab
   id: lab
   versio: 1
@@ -1293,9 +1295,10 @@ evidencies:
     titol: Normes de seguretat
     criteris:
     - '3.3'
+  pes: 20
 - uid: s1.ellen
   id: ellen
-  versio: 1
+  versio: 2
   titol: Lectura sobre Ellen Swallow Richards
   instruments:
   - d1ellen
@@ -1311,3 +1314,15 @@ evidencies:
       AN: Proposa raons basades en el text
       AS: Una raó sense justificar
       NA: No respon
+  - uid: s1.ellen.e2
+    id: e2
+    versio: 1
+    titol: Aigua i salut
+    criteris:
+    - '5.1'
+    descriptors:
+      AE: Justifica amb arguments científics per què cal controlar la qualitat de l'aigua i relaciona els ions mesurats amb la salut de les persones i del medi
+      AN: Justifica la importància de les normes de qualitat de l'aigua amb algun argument científic
+      AS: Diu que l'aigua ha de ser de qualitat sense justificar-ho
+      NA: No respon o la resposta no té relació amb la qualitat de l'aigua
+  pes: 10

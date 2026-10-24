@@ -3,11 +3,11 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 2
-versio: 1
+versio: 2
 color: --s2
 titol: El desodorant kamikaze
 repte: Per què explota un desodorant dins d'un cotxe a l'agost?
-meta: '1r trimestre · 10 sessions · Producte final: un vídeo per a l''alumnat de 1r d''ESO · Competències específiques avaluades: CE1 i CE4'
+meta: '1r trimestre · 10 sessions · Producte final: un vídeo per a l''alumnat de 1r d''ESO · Competències específiques avaluades: CE1, CE2 i CE4'
 publicada: true
 ce_aprovades:
 - CE1
@@ -992,6 +992,7 @@ evidencies:
     titol: Activitat 6 · L'Everest
     criteris:
     - '1.2'
+  pes: 25
 - uid: s2.video
   id: video
   versio: 1
@@ -1032,6 +1033,7 @@ evidencies:
       AN: Imatge i so correctes, durada adequada
       AS: Problemes de so o d'imatge, o durada inadequada
       NA: No es pot seguir el vídeo
+  pes: 35
 - uid: s2.expl
   id: expl
   versio: 1
@@ -1060,3 +1062,35 @@ evidencies:
       AN: Interpreta l'avís de l'etiqueta
       AS: Esmenta l'avís sense interpretar-lo
       NA: No interpreta l'etiqueta
+  pes: 25
+- uid: s2.labc
+  id: labc
+  versio: 1
+  titol: Laboratori de la corba d'escalfament i informe de pràctica (sessió 6)
+  instruments:
+  - labc
+  - inf
+  items:
+  - uid: s2.labc.k1
+    id: k1
+    versio: 1
+    titol: Execució i registre de dades
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Mesura la temperatura cada 2 minuts amb el termòmetre ben col·locat, registra totes les dades amb unitats i fa la gràfica temperatura-temps amb escala i eixos correctes
+      AN: Registra les dades amb unitats i fa la gràfica amb algun error menor d'escala o d'eixos
+      AS: Registre incomplet o gràfica amb errors d'escala o sense unitats
+      NA: No registra les dades o no fa la gràfica
+  - uid: s2.labc.k2
+    id: k2
+    versio: 1
+    titol: Interpretació dels resultats
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Identifica el tram on la temperatura es manté constant, l'explica amb el model de partícules i compara la predicció amb el resultat
+      AN: Identifica el tram constant i l'explica amb alguna imprecisió
+      AS: Descriu la gràfica sense interpretar-la
+      NA: No interpreta els resultats
+  pes: 15

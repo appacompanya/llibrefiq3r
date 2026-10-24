@@ -159,6 +159,39 @@ def orphans(dirpath, U, docs):
     return res
 
 
+def mapa(cur, sdas, docs):
+    """Mapa final SdA → evidències → instruments → criteris → CE (per a qui escriu la programació)."""
+    key = lambda x: [int(y) for y in x.split(".")]
+    crit = {c["id"]: {"ce": ce["id"], "nom_curt": c["nom_curt"], "text": c["text"]} for ce in cur["competencies"] for c in ce["criteris"]}
+    out = {"generat_per": "tools/3r/build_dades.py --mapa", "font": "contingut/3r (font única)",
+           "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; "
+                           "l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar.",
+           "competencies": {ce["id"]: ce["text"] for ce in cur["competencies"]}, "criteris": crit, "sda": []}
+    cov = {}
+    for s in sdas:
+        evs = []
+        for e in s["evidencies"]:
+            cs = sorted({c for i in e["items"] for c in i["criteris"]}, key=key)
+            for c in cs: cov.setdefault(c, []).append(s["sda"])
+            evs.append({"uid": e["uid"], "titol": e["titol"], "versio": e["versio"], "tipus": "qualificadora", "pes_percent": e.get("pes"),
+                        "instruments": [{"uid": k, "fitxer": docs[k]["fitxer"], "titol": docs[k]["titol"],
+                                         "on": "bucket professorat" if docs[k].get("professorat") else "docs/ (alumnat)"} for k in e.get("instruments", [])],
+                        "criteris": cs, "ce": sorted({crit[c]["ce"] for c in cs}),
+                        "items": [{"uid": i["uid"], "titol": i["titol"], "criteris": i["criteris"], "versio": i["versio"]} for i in e["items"]]})
+        cs = sorted({c for e in evs for c in e["criteris"]}, key=key)
+        out["sda"].append({"sda": s["sda"], "titol": s["titol"], "repte": s["repte"], "ce": sorted({crit[c]["ce"] for c in cs}),
+                           "ce_aprovades": s["ce_aprovades"], "criteris": cs, "pes_total": sum(e["pes_percent"] or 0 for e in evs), "evidencies": evs})
+    # taules 10 (CE × SdA) i 11 (SdA × CE)
+    t10 = {ce["id"]: {str(s["sda"]): sorted([c for c in s["criteris"] if crit[c]["ce"] == ce["id"]], key=key) for s in out["sda"]} for ce in cur["competencies"]}
+    out["taula10_ce_x_sda"] = t10
+    out["taula11_sda_x_ce"] = {str(s["sda"]): {ce: [c for c in s["criteris"] if crit[c]["ce"] == ce] for ce in out["competencies"]} for s in out["sda"]}
+    out["resum"] = {"evidencies": sum(len(s["evidencies"]) for s in out["sda"]),
+                    "criteris_coberts": f"{len(cov)}/{len(crit)}",
+                    "criteris_una_sola_sda": [c for c in sorted(cov, key=key) if len(set(cov[c])) == 1],
+                    "sda_per_criteri": {c: sorted(set(v)) for c, v in sorted(cov.items(), key=lambda x: key(x[0]))}}
+    return out
+
+
 def js_out(o):
     return ("/* Generat per tools/3r/build_dades.py a partir de contingut/3r/*.yaml. No l'editis a mà:\n"
             "   edita el YAML i torna a executar l'script. */\n"
@@ -203,6 +236,12 @@ def main():
         for x in r:
             st = "IDÈNTIC" if x["identic_amb_ordre"] else ("EQUIVALENT (només canvia l'ordre de claus)" if x["equivalent"] else "DIFERENT")
             print(f"  {x['pagina']:20} {x['bloc']:10} ← {x['generat']:12} {st}")
+    M = mapa(cur, sdas, docs)
+    json.dump(M, open(os.path.join(C, "generat", "mapa_ce.json"), "w"), ensure_ascii=False, indent=1)
+    print(f"Mapa de CE: contingut/3r/generat/mapa_ce.json ({M['resum']['evidencies']} evidències, criteris {M['resum']['criteris_coberts']})")
+    if "--mapa" in a:
+        dst = a[a.index("--mapa") + 1]; os.makedirs(os.path.dirname(dst), exist_ok=True)
+        json.dump(M, open(dst, "w"), ensure_ascii=False, indent=1); print(f"  i còpia a {dst}")
     if "--estricte" in a and W: sys.exit(1)
 
 
