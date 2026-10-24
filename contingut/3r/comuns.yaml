@@ -1,0 +1,999 @@
+# Documents del curs (sessió 0, tancament, enquesta, recuperacions, annexos) i enllaços (L).
+# ordre_documents: ordre de D a les pàgines (els documents nous que no hi siguin s'afegeixen al final).
+# enllacos_url_arrel: URL diferent a /index.html (les pàgines de /digital/ hi afegeixen ../).
+versio: 1
+ordre_documents:
+- dc0
+- dcT
+- dcE
+- d5ruta
+- d5repte
+- d5f1
+- d5f2
+- d5f3
+- d5f4
+- d5f5
+- d5f6q
+- d5prob
+- d5f6
+- d5hooke
+- d5tfm
+- d5lam
+- d5rub
+- d5prova
+- d5solpr
+- d5solf
+- d5diana
+- d5mapa
+- d3ruta
+- d3model
+- d3f1
+- d3f2
+- d3f3
+- d3targ
+- d3lab
+- d3f4
+- d3f5
+- d3dos
+- d3camp
+- d3rub
+- d3prova
+- d3solpr
+- d3solf
+- d3diana
+- d3mapa
+- d1amp
+- d1solamp
+- d1adap
+- d2amp
+- d2solamp
+- d2adap
+- d2bas
+- d2coav
+- d3amp
+- d3solamp
+- d3adap
+- d4amp
+- d4solamp
+- d4adap
+- d5amp
+- d5solamp
+- d5adap
+- d6amp
+- d6solamp
+- d6adap
+- dcF
+- dcG
+- dannex
+- dcR1
+- dcR2
+- dcR3
+- dcR4
+- dcR5
+- dcR6
+- d6ruta
+- d6repte
+- d6f1
+- d6lab
+- d6f2
+- d6pla
+- d6rub
+- d6prova
+- d6solpr
+- d6solf
+- d6diana
+- d6mapa
+- d4ruta
+- d4repte
+- d4lab1
+- d4f1
+- d4lab2
+- d4f2
+- d4lab3
+- d4f3
+- d4dos
+- d4rub
+- d4prova
+- d4solpr
+- d4solf
+- d4diana
+- d4mapa
+- d1ruta
+- d1reg
+- d1seg
+- d1f1
+- d1f2
+- d1dens
+- d1prov
+- d1sep
+- d1crom
+- d1ellen
+- d1inf
+- d1rub
+- d1prova
+- d1solpr
+- d1solf
+- d1diana
+- d1mapa
+- ruta
+- repte
+- lab
+- f1
+- f2
+- solf2
+- inf
+- video
+- rub
+- prova
+- solpr
+- diana
+- mapa
+- labc
+enllacos:
+  inv:
+    u: https://llibrefiq3r.cat/docs/sda6-00-plantilla-inventari-energetic.xlsx
+    l: 'Plantilla d''Excel: inventari energètic i pla d''estalvi'
+  reecat:
+    u: https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf
+    l: 'Red Eléctrica: balanç elèctric de Catalunya 2024'
+  circuits:
+    u: https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc
+    l: 'Simulació: kit de construcció de circuits'
+  telkes:
+    u: https://ethw.org/M%C3%A1ria_Telkes
+    l: Mária Telkes, pionera de l'energia solar
+    fr: 1
+  tmbh2:
+    u: https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola
+    l: 'Notícia: TMB rep el primer bus d''hidrogen (2021)'
+  ajust:
+    u: https://phet.colorado.edu/ca/simulations/balancing-chemical-equations
+    l: 'Simulació: ajust d''equacions químiques'
+  ferida:
+    u: https://www.cellimagelibrary.org/images/44511
+    l: 'Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)'
+    v: https://cildata.crbs.ucsd.edu/media/videos/44511/44511_web.mp4
+    cr: Cèl·lules epitelials de ronyó (MDCK) tancant una ferida de 300 µm. Assaf Zaritsky i Doron Kaplan, Cell Image Library CIL:44511 (domini públic).
+  metastasi:
+    u: https://www.cellimagelibrary.org/images/42160
+    l: 'Vídeo: cèl·lules d''un tumor de mama envaeixen el teixit'
+    v: https://cildata.crbs.ucsd.edu/media/videos/42160/42160_web.mp4
+    cr: 'Fragment de tumor de mama humà que envaeix una matriu (una imatge cada 20 minuts; barra: 50 µm). Andrew Ewald, PNAS 2012. Cell Image Library CIL:42160 (CC BY).'
+  cito:
+    u: https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg
+    l: 'Imatge: el citoesquelet al microscopi de fluorescència'
+    img: https://upload.wikimedia.org/wikipedia/commons/0/09/FluorescentCells.jpg
+    alt: Cèl·lules endotelials amb el nucli en blau, els microtúbuls en verd i els filaments d'actina en vermell
+    cr: Nucli en blau (DAPI), microtúbuls en verd (tubulina) i filaments d'actina en vermell. Imatge de domini públic, Wikimedia Commons.
+  febre:
+    u: https://www.nature.com/articles/s41598-022-10858-w
+    l: Article citat a la fitxa 6 (Khachaturyan et al., 2022)
+  rogers:
+    u: https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria
+    l: 'Vídeo: un neutròfil persegueix un bacteri (D. Rogers)'
+    v: https://embryology.med.unsw.edu.au/embryology/images/3/36/Neutrophil_chasing_bacteria_movie.mp4
+    cr: 'Pel·lícula de David Rogers (Universitat Vanderbilt, anys cinquanta). Font: UNSW Embryology (Dr Mark Hill).'
+  difusio:
+    u: https://phet.colorado.edu/ca/simulations/diffusion
+    l: 'Simulació: difusió'
+  rutherford:
+    u: https://phet.colorado.edu/ca/simulations/rutherford-scattering
+    l: 'Simulació: dispersió de Rutherford'
+  buildatom:
+    u: https://phet.colorado.edu/ca/simulations/build-an-atom
+    l: 'Simulació: construeix un àtom'
+  simbat:
+    u: ../sim-bateria.html
+    l: 'Simulador: la bateria de liti per dins'
+    an: 1
+  simgas:
+    u: ../sim-gasos.html
+    l: 'Simulador: el model cineticomolecular dels gasos'
+    an: 1
+  anajust:
+    u: ../sim-ajust.html
+    l: 'Animació: com s''ajusta una equació química'
+    an: 1
+  anenllac:
+    u: ../sim-enllac.html
+    l: 'Animació: enllaç iònic, covalent i metàl·lic'
+    an: 1
+  ancol:
+    u: ../sim-colisions.html
+    l: 'Animació: teoria de col·lisions i velocitat de reacció'
+    an: 1
+  anpila:
+    u: ../sim-pila.html
+    l: 'Animació: com funciona una pila de combustible'
+    an: 1
+  anmrua:
+    u: ../sim-mrua.html
+    l: 'Animació: MRU i MRUA amb la gràfica velocitat–temps'
+    an: 1
+  labmru:
+    u: ../sim-lab-mru.html
+    l: 'Simulador: laboratori del MRU (tria la velocitat)'
+    an: 1
+  labmrua:
+    u: ../sim-lab-mrua.html
+    l: 'Simulador: laboratori del MRUA (tria la velocitat inicial i l''acceleració)'
+    an: 1
+  phetforces:
+    u: https://phet.colorado.edu/ca/simulations/forces-and-motion-basics
+    l: 'Simulació: forces i moviment'
+  phetfaraday:
+    u: https://phet.colorado.edu/ca/simulations/faradays-electromagnetic-lab
+    l: 'Simulació: laboratori electromagnètic de Faraday'
+  ptable:
+    u: https://ptable.com/
+    l: Taula periòdica interactiva
+    fr: 1
+  density:
+    u: https://phet.colorado.edu/ca/simulations/density
+    l: 'Simulació: densitat'
+  sugarsalt:
+    u: https://phet.colorado.edu/ca/simulations/sugar-and-salt-solutions
+    l: 'Simulació: sucre i sal en dissolució'
+  gasprop:
+    u: https://phet.colorado.edu/ca/simulations/gas-properties
+    l: 'Simulació: propietats dels gasos'
+  gasintro:
+    u: https://phet.colorado.edu/ca/simulations/gases-intro
+    l: 'Simulació: introducció als gasos'
+  states:
+    u: https://phet.colorado.edu/ca/simulations/states-of-matter-basics
+    l: 'Simulació: estats de la matèria'
+enllacos_url_arrel:
+  simbat: sim-bateria.html
+  simgas: sim-gasos.html
+  anajust: sim-ajust.html
+  anenllac: sim-enllac.html
+  ancol: sim-colisions.html
+  anpila: sim-pila.html
+  anmrua: sim-mrua.html
+  labmru: sim-lab-mru.html
+  labmrua: sim-lab-mrua.html
+documents:
+  dc0:
+    uid: dc0
+    versio: 1
+    fitxer: curs-01-sessio-0-sondeig-idees-previes.pdf
+    titol: 'Sessió 0: sondeig d''idees prèvies'
+    digital:
+      origen: auto
+      titol: Sessió 0 · Què en sé de física i química?
+      sda: 0
+      preguntes:
+      - uid: dc0.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Dos líquids transparents. Tens dos gots amb un líquid transparent: un és aigua i l''altr…'
+        criteris: []
+        camps:
+        - dc0.a1
+        - dc0.a2
+        - dc0.a3
+        - dc0.a4
+      - uid: dc0.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El globus al congelador. Poses un globus inflat al congelador durant una hora. Què li p…
+        criteris: []
+        camps:
+        - dc0.a5
+        - dc0.a6
+        - dc0.a7
+        - dc0.a8
+        - dc0.a9
+      - uid: dc0.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Com és un àtom? De què està fet un àtom? Dibuixa com te l'imagines i posa nom a les par…
+        criteris: []
+        camps:
+        - dc0.a10
+        - dc0.a11
+        - dc0.a12
+        - dc0.a13
+        - dc0.a14
+      - uid: dc0.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Cremem paper. Cremem un full de paper dins d'un pot de vidre ben tancat. La massa total…
+        criteris: []
+        camps:
+        - dc0.a15
+        - dc0.a16
+        - dc0.a17
+        - dc0.a18
+      - uid: dc0.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 La pilota. Llances una pilota cap amunt. Mentre puja, quines forces actuen sobre la pil…
+        criteris: []
+        camps:
+        - dc0.a19
+        - dc0.a20
+        - dc0.a21
+        - dc0.a22
+        - dc0.a23
+      - uid: dc0.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 La bombeta. Quan una bombeta fa llum, l'energia es gasta? On va a parar?
+        criteris: []
+        camps:
+        - dc0.a24
+        - dc0.a25
+        - dc0.a26
+        - dc0.a27
+      - uid: dc0.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Què creus que aprendràs aquest curs a Física i química?
+        criteris: []
+        camps:
+        - dc0.a28
+      - uid: dc0.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Què t'agradaria aprendre? Escriu una pregunta sobre el món que t'agradaria poder respon…
+        criteris: []
+        camps:
+        - dc0.a29
+      - uid: dc0.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: 9 Una cosa que vulguis que el professor sàpiga sobre com aprens millor (per exemple, si t…
+        criteris: []
+        camps:
+        - dc0.a46
+        - dc0.a47
+      - uid: dc0._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - dc0.a30
+        - dc0.a31
+        - dc0.a32
+        - dc0.a33
+        - dc0.a34
+        - dc0.a35
+        - dc0.a36
+        - dc0.a37
+        - dc0.a38
+        - dc0.a39
+        - dc0.a40
+        - dc0.a41
+        - dc0.a42
+        - dc0.a43
+        - dc0.a44
+        - dc0.a45
+  dcT:
+    uid: dcT
+    versio: 1
+    fitxer: curs-02-sessio-de-tancament.pdf
+    titol: Sessió de tancament
+    digital:
+      origen: auto
+      titol: Sessió de tancament · Què he après?
+      sda: 0
+      preguntes:
+      - uid: dcT.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Dos líquids transparents. Tens dos gots amb un líquid transparent: un és aigua i l''altr…'
+        criteris: []
+        camps:
+        - dcT.a1
+        - dcT.a2
+        - dcT.a3
+        - dcT.a4
+      - uid: dcT.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El globus al congelador. Poses un globus inflat al congelador durant una hora. Què li p…
+        criteris: []
+        camps:
+        - dcT.a5
+        - dcT.a6
+        - dcT.a7
+        - dcT.a8
+        - dcT.a9
+      - uid: dcT.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Com és un àtom? De què està fet un àtom? Dibuixa com te l'imagines i posa nom a les par…
+        criteris: []
+        camps:
+        - dcT.a10
+        - dcT.a11
+        - dcT.a12
+        - dcT.a13
+        - dcT.a14
+      - uid: dcT.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Cremem paper. Cremem un full de paper dins d'un pot de vidre ben tancat. La massa total…
+        criteris: []
+        camps:
+        - dcT.a15
+        - dcT.a16
+        - dcT.a17
+        - dcT.a18
+      - uid: dcT.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 La pilota. Llances una pilota cap amunt. Mentre puja, quines forces actuen sobre la pil…
+        criteris: []
+        camps:
+        - dcT.a19
+        - dcT.a20
+        - dcT.a21
+        - dcT.a22
+        - dcT.a23
+      - uid: dcT.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 La bombeta. Quan una bombeta fa llum, l'energia es gasta? On va a parar?
+        criteris: []
+        camps:
+        - dcT.a24
+        - dcT.a25
+        - dcT.a26
+        - dcT.a27
+      - uid: dcT.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: '7 On has canviat més d''idea? Tria una pregunta: què pensaves al setembre i què en saps ar…'
+        criteris: []
+        camps:
+        - dcT.a28
+      - uid: dcT.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 El que esperava i el que he après. Rellegeix què creies que aprendries i què t'agradari…
+        criteris: []
+        camps:
+        - dcT.a29
+      - uid: dcT.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: 9 Mira les dianes de les sis SdA. En quin aspecte has millorat més durant el curs? Quin e…
+        criteris: []
+        camps:
+        - dcT.a30
+      - uid: dcT.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: 10 Compara-ho amb la sessió 0. Ha canviat la teva relació amb la ciència? Per què?
+        criteris: []
+        camps:
+        - dcT.a47
+      - uid: dcT.11
+        id: '11'
+        versio: 1
+        tipus: auto
+        etiqueta: 11 Tres coses que m'emporto d'aquesta matèria (coneixements, maneres de treballar o actit…
+        criteris: []
+        camps:
+        - dcT.a48
+      - uid: dcT._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - dcT.a31
+        - dcT.a32
+        - dcT.a33
+        - dcT.a34
+        - dcT.a35
+        - dcT.a36
+        - dcT.a37
+        - dcT.a38
+        - dcT.a39
+        - dcT.a40
+        - dcT.a41
+        - dcT.a42
+        - dcT.a43
+        - dcT.a44
+        - dcT.a45
+        - dcT.a46
+  dcE:
+    uid: dcE
+    versio: 1
+    fitxer: curs-03-enquesta-de-valoracio.pdf
+    titol: Enquesta de valoració (anònima)
+  dcF:
+    uid: dcF
+    versio: 1
+    fitxer: curs-04-formulari.pdf
+    titol: Formulari del curs
+  dcG:
+    uid: dcG
+    versio: 1
+    fitxer: curs-05-glossari.pdf
+    titol: Glossari del curs
+  dannex:
+    uid: dannex
+    versio: 1
+    fitxer: programacio-annexos.pdf
+    titol: Annexos de la programació
+    professorat: true
+  dcR1:
+    uid: dcR1
+    versio: 1
+    fitxer: curs-06-recuperacio-ce1.pdf
+    titol: Recuperació CE1
+    digital:
+      origen: auto
+      titol: Explica un fenomen amb la física i la química
+      sda: 0
+      preguntes:
+      - uid: dcR1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Tema A. Hem mesurat la pressió de l''aire d''una roda tancada a diferents temperatures: T…'
+        criteris: []
+        camps:
+        - dcR1.a1
+        - dcR1.a2
+        - dcR1.a3
+        - dcR1.a4
+        - dcR1.a5
+        - dcR1.a6
+        - dcR1.a7
+        - dcR1.a8
+        - dcR1.a9
+      - uid: dcR1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: '2 Tema B. Un patinet frena en línia recta. Aquesta és la seva velocitat cada segon: t (s)…'
+        criteris: []
+        camps:
+        - dcR1.a10
+        - dcR1.a11
+      - uid: dcR1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Explica el fenomen del teu tema amb el model. Tema A: dibuixa les partícules de l''aire…'
+        criteris: []
+        camps:
+        - dcR1.a12
+        - dcR1.a13
+        - dcR1.a14
+      - uid: dcR1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Prediu. Tema A: quina pressió tindrà la roda a 60 °C (l''asfalt a l''agost)? Tema B: quin…'
+        criteris: []
+        camps:
+        - dcR1.a15
+      - uid: dcR1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Tema A. El fabricant de la roda recomana no passar de 2,8 bar. Algú l'infla a 2,40 bar…
+        criteris: []
+        camps:
+        - dcR1.a16
+      - uid: dcR1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: '6 Fes la infografia o el vídeo per a 1r d''ESO. Ha de tenir: el fenomen, el model (amb un…'
+        criteris: []
+        camps:
+        - dcR1.a17
+        - dcR1.a18
+  dcR2:
+    uid: dcR2
+    versio: 1
+    fitxer: curs-07-recuperacio-ce2.pdf
+    titol: Recuperació CE2
+    digital:
+      origen: auto
+      titol: Una petita recerca a casa
+      sda: 0
+      preguntes:
+      - uid: dcR2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Escriu la pregunta d'investigació i una hipòtesi que es pugui comprovar. Justifica la h…
+        criteris: []
+        camps:
+        - dcR2.a1
+      - uid: dcR2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Completa la taula de variables i escriu els passos de manera que una altra persona pugu…
+        criteris: []
+        camps:
+        - dcR2.a2
+        - dcR2.a3
+        - dcR2.a4
+        - dcR2.a5
+      - uid: dcR2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Anota les mesures i calcula la mitjana. Després fes la gràfica adequada i interpreta-la…
+        criteris: []
+        camps:
+        - dcR2.a6
+        - dcR2.a7
+        - dcR2.a8
+        - dcR2.a9
+        - dcR2.a10
+        - dcR2.a11
+        - dcR2.a12
+        - dcR2.a13
+        - dcR2.a14
+        - dcR2.a15
+        - dcR2.a16
+        - dcR2.a17
+        - dcR2.a18
+        - dcR2.a19
+        - dcR2.a20
+        - dcR2.a21
+        - dcR2.a22
+        - dcR2.a23
+        - dcR2.a24
+        - dcR2.a25
+        - dcR2.a26
+        - dcR2.a27
+        - dcR2.a28
+        - dcR2.a29
+        - dcR2.a30
+        - dcR2.a31
+        - dcR2.a32
+      - uid: dcR2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Explica com us heu repartit la feina (qui ha mesurat, qui ha anotat, qui ha fet la gràf…
+        criteris: []
+        camps:
+        - dcR2.a33
+      - uid: dcR2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Tria una científica relacionada amb la teva recerca o amb una SdA del curs (per exemple…
+        criteris: []
+        camps:
+        - dcR2.a34
+      - uid: dcR2.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Presenta la recerca en un informe de dues pàgines o en un vídeo de 3 minuts amb aquest…
+        criteris: []
+        camps:
+        - dcR2.a35
+  dcR3:
+    uid: dcR3
+    versio: 1
+    fitxer: curs-08-recuperacio-ce3.pdf
+    titol: Recuperació CE3
+    digital:
+      origen: auto
+      titol: Dades, unitats i seguretat dels productes de casa
+      sda: 0
+      preguntes:
+      - uid: dcR3.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Per a cada producte, copia els pictogrames, la paraula d'avís (Perill o Atenció) i dues…
+        criteris: []
+        camps:
+        - dcR3.a1
+        - dcR3.a2
+        - dcR3.a3
+        - dcR3.a4
+        - dcR3.a5
+        - dcR3.a6
+        - dcR3.a7
+        - dcR3.a8
+      - uid: dcR3.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Al laboratori. Escriu quatre normes del decàleg de seguretat de la classe relacionades…
+        criteris: []
+        camps:
+        - dcR3.a9
+      - uid: dcR3.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Fes els càlculs amb factors de conversió i escriu el resultat amb unitats. Una ampolla…
+        criteris: []
+        camps:
+        - dcR3.a10
+      - uid: dcR3.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Escriu el nom o la fórmula d''aquestes substàncies, que trobem a casa o a l''entorn: Fórm…'
+        criteris: []
+        camps:
+        - dcR3.a11
+        - dcR3.a12
+        - dcR3.a13
+        - dcR3.a14
+        - dcR3.a15
+        - dcR3.a16
+        - dcR3.a17
+        - dcR3.a18
+      - uid: dcR3.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Un grup ha mesurat quant triga a dissoldre's una pastilla efervescent en aigua a difere…
+        criteris: []
+        camps:
+        - dcR3.a19
+        - dcR3.a20
+      - uid: dcR3.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: '6 Fes una fitxa resum (un full) dels dos productes per penjar a la classe: pictogrames i…'
+        criteris: []
+        camps:
+        - dcR3.a21
+  dcR4:
+    uid: dcR4
+    versio: 1
+    fitxer: curs-09-recuperacio-ce4.pdf
+    titol: Recuperació CE4
+    digital:
+      origen: auto
+      titol: Un pòdcast per defensar una idea
+      sda: 0
+      preguntes:
+      - uid: dcR4.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Fes servir com a mínim tres fonts de tipus diferent (una institució pública o una unive…
+        criteris: []
+        camps:
+        - dcR4.a1
+        - dcR4.a2
+        - dcR4.a3
+        - dcR4.a4
+        - dcR4.a5
+        - dcR4.a6
+        - dcR4.a7
+        - dcR4.a8
+        - dcR4.a9
+        - dcR4.a10
+        - dcR4.a11
+        - dcR4.a12
+        - dcR4.a13
+        - dcR4.a14
+        - dcR4.a15
+      - uid: dcR4.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Escriu la teva opinió en una frase. Després dona'n tres arguments basats en dades de le…
+        criteris: []
+        camps:
+        - dcR4.a16
+      - uid: dcR4.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Escolta altres veus. Pregunta l'opinió a dues persones diferents (de la família, del ba…
+        criteris: []
+        camps:
+        - dcR4.a17
+      - uid: dcR4.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Grava el pòdcast o la presentació narrada (3–4 minuts). Ha d'incloure la pregunta, la t…
+        criteris: []
+        camps:
+        - dcR4.a18
+      - uid: dcR4.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Defensa oral (3 minuts). Respondràs dues preguntes i una objecció del professor amb arg…
+        criteris: []
+        camps:
+        - dcR4.a19
+  dcR5:
+    uid: dcR5
+    versio: 1
+    fitxer: curs-10-recuperacio-ce5.pdf
+    titol: Recuperació CE5
+    digital:
+      origen: auto
+      titol: Un hàbit més sostenible i saludable a casa
+      sda: 0
+      preguntes:
+      - uid: dcR5.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Recull les dades de casa durant una setmana en una taula (què, quant, quan). Quin és el…
+        criteris: []
+        camps:
+        - dcR5.a1
+        - dcR5.a2
+        - dcR5.a3
+        - dcR5.a4
+        - dcR5.a5
+        - dcR5.a6
+        - dcR5.a7
+        - dcR5.a8
+        - dcR5.a9
+        - dcR5.a10
+        - dcR5.a11
+        - dcR5.a12
+        - dcR5.a13
+        - dcR5.a14
+        - dcR5.a15
+        - dcR5.a16
+        - dcR5.a17
+        - dcR5.a18
+        - dcR5.a19
+        - dcR5.a20
+        - dcR5.a21
+        - dcR5.a22
+        - dcR5.a23
+        - dcR5.a24
+        - dcR5.a25
+        - dcR5.a26
+        - dcR5.a27
+        - dcR5.a28
+      - uid: dcR5.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Justifica amb la física i la química com afecta aquest hàbit l'aire, l'aigua o el sòl (…
+        criteris: []
+        camps:
+        - dcR5.a29
+      - uid: dcR5.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Fes el càlcul. A: si a casa hi ha 10 aparells en espera de 2 W durant 20 h al dia, quan…'
+        criteris: []
+        camps:
+        - dcR5.a30
+      - uid: dcR5.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Explica una manera en què els coneixements de física i química ajuden a millorar aquest…
+        criteris: []
+        camps:
+        - dcR5.a31
+      - uid: dcR5.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: '5 Planifica el canvi amb la família: objectiu mesurable, accions concretes, qui fa cada c…'
+        criteris: []
+        camps:
+        - dcR5.a32
+        - dcR5.a33
+        - dcR5.a34
+        - dcR5.a35
+        - dcR5.a36
+        - dcR5.a37
+      - uid: dcR5.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Compara les dades d'abans i de després. Heu assolit l'objectiu? Què ha costat més? Quin…
+        criteris: []
+        camps:
+        - dcR5.a38
+  dcR6:
+    uid: dcR6
+    versio: 1
+    fitxer: curs-11-recuperacio-ce6.pdf
+    titol: Recuperació CE6
+    digital:
+      origen: auto
+      titol: La història d'una idea i el seu futur
+      sda: 0
+      preguntes:
+      - uid: dcR6.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Escriu com a mínim cinc fites en ordre: any, qui hi va treballar (homes i dones), què v…'
+        criteris: []
+        camps:
+        - dcR6.a1
+        - dcR6.a2
+        - dcR6.a3
+        - dcR6.a4
+        - dcR6.a5
+        - dcR6.a6
+        - dcR6.a7
+        - dcR6.a8
+        - dcR6.a9
+        - dcR6.a10
+        - dcR6.a11
+        - dcR6.a12
+        - dcR6.a13
+        - dcR6.a14
+        - dcR6.a15
+        - dcR6.a16
+        - dcR6.a17
+        - dcR6.a18
+        - dcR6.a19
+        - dcR6.a20
+      - uid: dcR6.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Explica una repercussió d'aquesta idea en la tecnologia, una en la societat i una en el…
+        criteris: []
+        camps:
+        - dcR6.a21
+      - uid: dcR6.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Detecta una necessitat de l'institut o del barri relacionada amb el teu tema (energia,…
+        criteris: []
+        camps:
+        - dcR6.a22
+      - uid: dcR6.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Sense biaixos. Revisa la proposta: es reparteixen les tasques sense estereotips de gène…'
+        criteris: []
+        camps:
+        - dcR6.a23
+      - uid: dcR6.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Presenta la línia del temps i la proposta en un cartell A3 o en una presentació digital…
+        criteris: []
+        camps:
+        - dcR6.a24

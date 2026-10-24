@@ -1,0 +1,870 @@
+# SdA 6: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 6
+versio: 1
+color: --s6
+titol: L'energia del nostre institut
+repte: Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?
+meta: '3r trimestre · 7 sessions · Producte final: pla d''estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4 i CE6'
+publicada: true
+ce_aprovades:
+- CE1
+- CE4
+- CE6
+sessions:
+- titol: Auditoria energètica de l'aula
+  fase: Explorem
+  text: 'La direcció ens demana propostes per reduir el consum d''electricitat de l''institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l''inventari a l''Excel (baixa la plantilla amb el botó d''aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l''energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.'
+  docs:
+  - d6ruta
+  - d6repte
+  - d6rub
+  enllacos:
+  - inv
+  mitja: true
+- titol: Energia, potència i consum
+  fase: Aprenem
+  text: Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.
+  docs:
+  - d6f1
+  enllacos:
+  - telkes
+  mitja: false
+- titol: Mesurem el consum real
+  fase: Experimentem
+  text: Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.
+  docs:
+  - d6lab
+  enllacos:
+  - inv
+  mitja: true
+- titol: D'on ve l'electricitat?
+  fase: Investiguem
+  text: Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.
+  docs:
+  - d6f2
+  enllacos:
+  - reecat
+  - phetfaraday
+  mitja: false
+- titol: El pla d'estalvi i el debat
+  fase: Ho apliquem
+  text: 'En grups de tres, elaborareu el pla d''estalvi de l''institut amb tres mesures: una d''hàbits sostenibles, una d''eficiència i una de generació renovable, amb l''estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.'
+  docs:
+  - d6pla
+  - d6repte
+  - d6mapa
+  enllacos:
+  - inv
+  mitja: true
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - d6prova
+  - d6solpr
+  enllacos: []
+  mitja: false
+- titol: Corregeixo, votem i reflexiono
+  fase: Reflexionem
+  text: Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.
+  docs:
+  - d6diana
+  - d6pla
+  docs_professorat:
+  - d6solpr
+  enllacos: []
+  mitja: true
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d6amp
+  - d6solamp
+- bloc: Atenció a la diversitat · TEA
+  text: 'Anticipació de la sessió del debat: horari, rol, frases model, normes i targeta de pausa. Mesura addicional. Inclou una nota per al professorat a l''última pàgina.'
+  docs:
+  - d6adap
+- bloc: Tasques de recuperació (una per CE)
+  text: Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.
+  docs:
+  - dcR1
+  - dcR2
+  - dcR3
+  - dcR4
+  - dcR5
+  - dcR6
+- bloc: Sessió de tancament del curs
+  text: Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre).
+  docs:
+  - dcT
+  - dcE
+- bloc: Plantilla de la SdA
+  text: Identificació, context, elements curriculars, sessions, avaluació, diversitat, organització i seguretat, i materials.
+  url: https://claude.ai/code/artifact/f23639ea-f6d3-4b35-9773-ba40dc76dea1
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 6, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.
+  docs:
+  - d6prova
+  - d6solpr
+  - d6solf
+- bloc: Rúbriques
+  text: Cerca d'informació, pla d'estalvi i debat.
+  docs:
+  - d6rub
+documents:
+  d6amp:
+    uid: d6amp
+    versio: 1
+    fitxer: sda6-14-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 6
+      preguntes:
+      - uid: d6amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Càlcul Una cadena de rendiments. Una central tèrmica té un rendiment del 40 %; la xarxa…
+        criteris: []
+        camps:
+        - d6amp.a1
+        - d6amp.a2
+      - uid: d6amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Càlcul Plaques solars al terrat. Volem posar 200 m² de plaques solars al terrat de l'in…
+        criteris: []
+        camps:
+        - d6amp.a3
+      - uid: d6amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Càlcul Una bateria d''aigua: el bombament. Una central hidroelèctrica reversible puja ai…'
+        criteris: []
+        camps:
+        - d6amp.a4
+      - uid: d6amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Raonament Dues bombetes en sèrie. Tenim dues bombetes iguals de 60 W (per a 230 V). Sup…
+        criteris: []
+        camps:
+        - d6amp.a5
+      - uid: d6amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Càlcul L'endoll sobrecarregat. Una regleta té un fusible de 10 A. Hi volem connectar un…
+        criteris: []
+        camps:
+        - d6amp.a6
+      - uid: d6amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Dades El CO₂ del nostre pla d'estalvi. Suposa que cada kWh consumit a la xarxa elèctric…
+        criteris: []
+        camps:
+        - d6amp.a7
+      - uid: d6amp.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Raonament El Sankey d'un cotxe. De cada 100 J d'energia química de la gasolina, un cotx…
+        criteris: []
+        camps:
+        - d6amp.a8
+        - d6amp.a9
+  d6solamp:
+    uid: d6solamp
+    versio: 1
+    fitxer: sda6-15-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d6adap:
+    uid: d6adap
+    versio: 1
+    fitxer: sda6-16-adaptada-tea-guio-del-debat.pdf
+    titol: Guió anticipat del debat · TEA
+    professorat: true
+  d6ruta:
+    uid: d6ruta
+    versio: 1
+    fitxer: sda6-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · L'energia del nostre institut
+      sda: 6
+      preguntes:
+      - uid: d6ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: Auditoria energètica de l'aula
+        criteris: []
+        camps:
+        - d6ruta.a1
+        - d6ruta.a2
+        - d6ruta.a3
+      - uid: d6ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: Energia, potència i consum
+        criteris: []
+        camps:
+        - d6ruta.a4
+        - d6ruta.a5
+        - d6ruta.a6
+      - uid: d6ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: Mesurem el consum real
+        criteris: []
+        camps:
+        - d6ruta.a7
+        - d6ruta.a8
+        - d6ruta.a9
+      - uid: d6ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: D'on ve l'electricitat?
+        criteris: []
+        camps:
+        - d6ruta.a10
+        - d6ruta.a11
+        - d6ruta.a12
+      - uid: d6ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: El pla d'estalvi i el debat
+        criteris: []
+        camps:
+        - d6ruta.a13
+        - d6ruta.a14
+        - d6ruta.a15
+      - uid: d6ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d\'assoliment
+        criteris: []
+        camps:
+        - d6ruta.a16
+        - d6ruta.a17
+        - d6ruta.a18
+      - uid: d6ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: Corregeixo, votem i reflexiono
+        criteris: []
+        camps:
+        - d6ruta.a19
+        - d6ruta.a20
+        - d6ruta.a21
+  d6repte:
+    uid: d6repte
+    versio: 1
+    fitxer: sda6-02-full-del-repte.pdf
+    titol: Full del repte
+    digital:
+      origen: auto
+      titol: Full del repte · L'energia del nostre institut
+      sda: 6
+      preguntes:
+      - uid: d6repte.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Què en penses? Mira al teu voltant. Quins aparells de l'aula creus que consumeixen més…
+        criteris: []
+        camps:
+        - d6repte.a1
+      - uid: d6repte.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: '2 Abans de mesurar. Poseu en comú les vostres idees i escriviu la hipòtesi del grup: Crei…'
+        criteris: []
+        camps:
+        - d6repte.a2
+      - uid: d6repte.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Comprova el full de càlcul. Escriu la fórmula que has fet servir a la columna de l'ener…
+        criteris: []
+        camps:
+        - d6repte.a3
+        - d6repte.a4
+        - d6repte.a5
+      - uid: d6repte.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Les dades confirmen la hipòtesi? Quin aparell consumeix més energia cada dia? Coincidei…
+        criteris: []
+        camps:
+        - d6repte.a6
+      - uid: d6repte.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 De l'aula a l'institut. Si l'institut té 30 aules com aquesta, quina energia consumeixe…
+        criteris: []
+        camps:
+        - d6repte.a7
+      - uid: d6repte.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Esmena la hipòtesi. Compara la hipòtesi del grup amb el que has après sobre la potència…
+        criteris: []
+        camps:
+        - d6repte.a8
+  d6f1:
+    uid: d6f1
+    versio: 1
+    fitxer: sda6-03-fitxa-1-energia-potencia-i-consum.pdf
+    titol: Fitxa 1
+    digital:
+      origen: auto
+      titol: Fitxa 1 · Energia, potència i consum
+      sda: 6
+      preguntes:
+      - uid: d6f1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Llegeix el diagrama. a) Quina transformació d'energia té lloc a la bombeta? b) Es compl…
+        criteris: []
+        camps:
+        - d6f1.a1
+      - uid: d6f1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Una bombeta LED. Una bombeta LED de 8 W fa la mateixa llum que la bombeta d'incandescèn…
+        criteris: []
+        camps:
+        - d6f1.a2
+        - d6f1.a3
+      - uid: d6f1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Transformacions. Indica la transformació principal d''energia: a) un ventilador · b) una…'
+        criteris: []
+        camps:
+        - d6f1.a4
+      - uid: d6f1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 En joules. Quina energia, en joules, transforma la bombeta de 60 W en 1 hora? Expressa-…
+        criteris: []
+        camps:
+        - d6f1.a5
+      - uid: d6f1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Incandescència o LED? Una bombeta està encesa 5 hores cada dia. Calcula l'energia que c…
+        criteris: []
+        camps:
+        - d6f1.a6
+      - uid: d6f1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 El mode d'espera. Un televisor consumeix 1 W en mode d'espera (amb el llum vermell encè…
+        criteris: []
+        camps:
+        - d6f1.a7
+      - uid: d6f1.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Les científiques de l'energia. Per què creus que la majoria de la gent no coneix Mária…
+        criteris: []
+        camps:
+        - d6f1.a8
+  d6lab:
+    uid: d6lab
+    versio: 1
+    fitxer: sda6-04-laboratori-consum-real.pdf
+    titol: 'Laboratori: mesurem el consum real'
+    digital:
+      origen: auto
+      titol: Laboratori · Mesurem el consum real
+      sda: 6
+      preguntes:
+      - uid: d6lab.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El bullidor (demostració). El professor posa en marxa el bullidor durant 1 minut exacte…
+        criteris: []
+        camps:
+        - d6lab.a37
+      - uid: d6lab.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Etiqueta o realitat? Compara la potència del portàtil que vas calcular amb la sortida d…
+        criteris: []
+        camps:
+        - d6lab.a38
+      - uid: d6lab.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 LED o halògena? Calcula quants diners s'estalviarien en un curs (175 dies, 6 h al dia)…
+        criteris: []
+        camps:
+        - d6lab.a39
+      - uid: d6lab.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 El consum fantasma. Quins aparells consumeixen energia encara que no els fem servir? Si…
+        criteris: []
+        camps:
+        - d6lab.a40
+      - uid: d6lab.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Per al pla d'estalvi. A partir de les vostres mesures, quines dues mesures d'estalvi pr…
+        criteris: []
+        camps:
+        - d6lab.a41
+      - uid: d6lab.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Sèrie o paral·lel? La instal·lació de l'institut està en sèrie o en paral·lel? Justific…
+        criteris: []
+        camps:
+        - d6lab.a42
+      - uid: d6lab.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Seguretat. Per què és perillós connectar molts aparells de molta potència a un sol endo…
+        criteris: []
+        camps:
+        - d6lab.a43
+      - uid: d6lab._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d6lab.a1
+        - d6lab.a2
+        - d6lab.a3
+        - d6lab.a4
+        - d6lab.a5
+        - d6lab.a6
+        - d6lab.a7
+        - d6lab.a8
+        - d6lab.a9
+        - d6lab.a10
+        - d6lab.a11
+        - d6lab.a12
+        - d6lab.a13
+        - d6lab.a14
+        - d6lab.a15
+        - d6lab.a16
+        - d6lab.a17
+        - d6lab.a18
+        - d6lab.a19
+        - d6lab.a20
+        - d6lab.a21
+        - d6lab.a22
+        - d6lab.a23
+        - d6lab.a24
+        - d6lab.a25
+        - d6lab.a26
+        - d6lab.a27
+        - d6lab.a28
+        - d6lab.a29
+        - d6lab.a30
+        - d6lab.a31
+        - d6lab.a32
+        - d6lab.a33
+        - d6lab.a34
+        - d6lab.a35
+        - d6lab.a36
+  d6f2:
+    uid: d6f2
+    versio: 1
+    fitxer: sda6-05-fitxa-2-don-ve-lelectricitat.pdf
+    titol: Fitxa 2
+    digital:
+      origen: auto
+      titol: Fitxa 2 · D'on ve l'electricitat?
+      sda: 6
+      preguntes:
+      - uid: d6f2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Cadena de transformacions. Escriu la cadena de transformacions d'energia en una central…
+        criteris: []
+        camps:
+        - d6f2.a1
+      - uid: d6f2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Llegeix el gràfic. a) Quina tecnologia genera més electricitat a Catalunya? b) Classifi…
+        criteris: []
+        camps:
+        - d6f2.a2
+      - uid: d6f2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Generem prou electricitat? Les renovables van generar 7 160 GWh, que són el 19,1 % de t…
+        criteris: []
+        camps:
+        - d6f2.a3
+      - uid: d6f2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Les fonts. Cita les dues fonts que heu fet servir i explica, per a cadascuna, per què é…
+        criteris: []
+        camps:
+        - d6f2.a10
+      - uid: d6f2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: '5 Fiable o no? Valora la fiabilitat de cada font i justifica-ho: a) un vídeo d''un usuari…'
+        criteris: []
+        camps:
+        - d6f2.a11
+      - uid: d6f2._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d6f2.a4
+        - d6f2.a5
+        - d6f2.a6
+        - d6f2.a7
+        - d6f2.a8
+        - d6f2.a9
+  d6pla:
+    uid: d6pla
+    versio: 1
+    fitxer: sda6-06-pla-destalvi-i-debat.pdf
+    titol: Pla d'estalvi i debat
+    digital:
+      origen: auto
+      titol: Pla d'estalvi energètic de l'institut
+      sda: 6
+      preguntes:
+      - uid: d6pla.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Punt de partida. Recolliu les dades que teniu: el consum de l''aula al full del repte, l…'
+        criteris: []
+        camps:
+        - d6pla.a4
+      - uid: d6pla.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El càlcul. Calculeu l'estalvi de les tres mesures al full «Pla d'estalvi» de la plantil…
+        criteris: []
+        camps:
+        - d6pla.a17
+      - uid: d6pla.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Equitat. Reviseu el repartiment de tasques de la taula: s''assignen les tasques sense es…'
+        criteris: []
+        camps:
+        - d6pla.a18
+      - uid: d6pla.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 La meva mesura. Escriu la mesura que defensaràs i la dada que la justifica.
+        criteris: []
+        camps:
+        - d6pla.a19
+      - uid: d6pla.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Escolto. Quin argument d'un company o companya t'ha fet canviar d'opinió o t'ha fet pen…
+        criteris: []
+        camps:
+        - d6pla.a20
+      - uid: d6pla.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 L'acord del grup. Quina mesura és la prioritària per al grup? Justifiqueu-ho amb dades…
+        criteris: []
+        camps:
+        - d6pla.a21
+      - uid: d6pla.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Votem. Després d'escoltar els portaveus, quin pla votes per presentar a la direcció (no…
+        criteris: []
+        camps:
+        - d6pla.a22
+      - uid: d6pla._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d6pla.a1
+        - d6pla.a2
+        - d6pla.a3
+        - d6pla.a5
+        - d6pla.a6
+        - d6pla.a7
+        - d6pla.a8
+        - d6pla.a9
+        - d6pla.a10
+        - d6pla.a11
+        - d6pla.a12
+        - d6pla.a13
+        - d6pla.a14
+        - d6pla.a15
+        - d6pla.a16
+  d6rub:
+    uid: d6rub
+    versio: 1
+    fitxer: sda6-07-rubriques.pdf
+    titol: Rúbriques
+  d6prova:
+    uid: d6prova
+    versio: 1
+    fitxer: sda6-08-demostracio-assoliment.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  d6solpr:
+    uid: d6solpr
+    versio: 1
+    fitxer: sda6-09-solucionari-demostracio.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  d6solf:
+    uid: d6solf
+    versio: 1
+    fitxer: sda6-10-solucionari-fitxes.pdf
+    titol: Solucionari de les fitxes i del laboratori
+    professorat: true
+  d6diana:
+    uid: d6diana
+    versio: 1
+    fitxer: sda6-11-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 6
+      preguntes:
+      - uid: d6diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - d6diana.a8
+      - uid: d6diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Quina mesura d'estalvi aplicaré a casa a partir d'ara?
+        criteris: []
+        camps:
+        - d6diana.a9
+      - uid: d6diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Mirant tot el curs, la SdA en què més he après ha estat… perquè…
+        criteris: []
+        camps:
+        - d6diana.a10
+      - uid: d6diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - d6diana.a1
+        - d6diana.a2
+        - d6diana.a3
+        - d6diana.a4
+        - d6diana.a5
+        - d6diana.a6
+        - d6diana.a7
+  d6mapa:
+    uid: d6mapa
+    versio: 1
+    fitxer: sda6-12-mapa-conceptual.pdf
+    titol: Mapa conceptual
+evidencies:
+- uid: s6.prova
+  id: prova
+  versio: 1
+  titol: Activitat de demostració d'assoliment (sessions 6 i 7)
+  instruments:
+  - d6prova
+  - d6solpr
+  items:
+  - uid: s6.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · Els llums de l'aula
+    criteris:
+    - '6.2'
+  - uid: s6.prova.p2
+    id: p2
+    versio: 1
+    titol: Activitat 2 · Sèrie o paral·lel?
+    criteris:
+    - '4.2'
+  - uid: s6.prova.p3
+    id: p3
+    versio: 1
+    titol: Activitat 3 · Fonts fiables
+    criteris:
+    - '4.3'
+  - uid: s6.prova.p4
+    id: p4
+    versio: 1
+    titol: Activitat 4 · L'electricitat de Catalunya
+    criteris:
+    - '4.2'
+  - uid: s6.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · Plaques solars a l'institut
+    criteris:
+    - '6.2'
+- uid: s6.cerca
+  id: cerca
+  versio: 1
+  titol: Cerca d'informació (fitxa 2, part C)
+  instruments: []
+  items:
+  - uid: s6.cerca.c1
+    id: c1
+    versio: 1
+    titol: Informació fiable
+    criteris:
+    - '4.3'
+    descriptors:
+      AE: Fa servir dues fonts fiables o més, les contrasta i justifica la fiabilitat de cadascuna amb criteris
+      AN: Fa servir dues fonts fiables i en justifica la fiabilitat
+      AS: Una sola font fiable o sense justificar-ne la fiabilitat
+      NA: Fonts no fiables o sense identificar
+  - uid: s6.cerca.c2
+    id: c2
+    versio: 1
+    titol: Cita de les fonts
+    criteris:
+    - '4.3'
+    descriptors:
+      AE: Cita totes les fonts amb autor, any, títol i adreça, i hi relaciona cada dada
+      AN: Cita les fonts amb algun element que falta
+      AS: Cita les fonts de manera incompleta
+      NA: No cita les fonts
+- uid: s6.pla
+  id: pla
+  versio: 1
+  titol: Pla d'estalvi del grup
+  instruments:
+  - d6pla
+  items:
+  - uid: s6.pla.e1
+    id: e1
+    versio: 1
+    titol: Mesures basades en dades
+    criteris:
+    - '6.2'
+    descriptors:
+      AE: Tres mesures de tipus diferents, amb l'estalvi calculat correctament i suposicions explícites
+      AN: Tres mesures amb un càlcul correcte
+      AS: Mesures poc concretes o sense càlcul
+      NA: No proposa mesures
+  - uid: s6.pla.e2
+    id: e2
+    versio: 1
+    titol: Implicació ciutadana i equitat
+    criteris:
+    - '6.2'
+    descriptors:
+      AE: Implica diversos col·lectius i reparteix les tasques sense estereotips de gènere, de manera justificada
+      AN: Implica la comunitat i revisa el repartiment de tasques
+      AS: Implicació poc concreta o repartiment no revisat
+      NA: No hi ha implicació de la comunitat
+- uid: s6.debat
+  id: debat
+  versio: 1
+  titol: Debat del grup (observació)
+  instruments: []
+  items:
+  - uid: s6.debat.b1
+    id: b1
+    versio: 1
+    titol: Justificació de l'opinió
+    criteris:
+    - '4.2'
+    descriptors:
+      AE: Defensa la mesura amb dades i respon les objeccions amb arguments
+      AN: Defensa la mesura amb alguna dada
+      AS: Dona l'opinió sense justificar-la
+      NA: No participa
+  - uid: s6.debat.b2
+    id: b2
+    versio: 1
+    titol: Actitud inclusiva
+    criteris:
+    - '4.2'
+    descriptors:
+      AE: Reformula les idees dels altres, respecta els torns i incorpora altres punts de vista a l'acord
+      AN: Respecta els torns i escolta
+      AS: Interromp o no té en compte els altres
+      NA: Actitud que exclou algun membre

@@ -1,0 +1,1313 @@
+# SdA 1: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 1
+versio: 1
+color: --s1
+titol: Detectius de la matèria
+repte: Com podem identificar dotze substàncies que han perdut l'etiqueta?
+meta: '1r trimestre · 10 sessions · Producte final: informe del grup i protocol d''identificació de substàncies · Competències específiques avaluades: CE2 i CE3'
+publicada: true
+ce_aprovades:
+- CE2
+- CE3
+- CE5
+sessions:
+- titol: El repte i la seguretat
+  fase: Explorem
+  text: Al laboratori hi ha dotze pots sense etiqueta i tenim la llista de les dotze etiquetes possibles. Observarem els pots sense obrir-los i farem les primeres hipòtesis. Abans de tocar res, buscarem els errors d'un laboratori on tothom fa alguna cosa perillosa i farem el nostre decàleg de seguretat.
+  docs:
+  - d1ruta
+  - d1reg
+  - d1seg
+  - d1rub
+  enllacos: []
+- titol: Unitats i notació científica
+  fase: Recordem
+  text: Recordarem què és una magnitud, les unitats del Sistema Internacional i com es canvien les unitats de massa, longitud i volum. Veurem que els prefixos són potències de 10 i aprendrem a escriure i operar nombres molt grans i molt petits amb la notació científica.
+  docs:
+  - d1f1
+  enllacos: []
+- titol: Factors de conversió
+  fase: Recordem
+  text: Farem canvis d'unitats encadenats, també amb unitats compostes com la densitat. A casa buscaràs la densitat de les substàncies possibles en fonts fiables i en citaràs la font.
+  docs:
+  - d1f2
+  enllacos: []
+- titol: Densitat dels pots enigma
+  fase: Experimentem
+  text: Pesarem els nou pots que contenen líquids i en calcularem la densitat. La compararem amb els valors que has trobat i calcularem l'error absolut i l'error relatiu. Ja podrem assignar les primeres etiquetes!
+  docs:
+  - d1dens
+  docs_professorat:
+  - d1solf
+  enllacos:
+  - density
+- titol: Conductivitat i el clau de ferro
+  fase: Aprenem
+  text: 'Repassarem què són les substàncies pures i les mescles. El professor farà dues demostracions i tu en registraràs els resultats: quins líquids condueixen el corrent elèctric i per què, i què passa quan posem un clau de ferro en els tres líquids blaus. Prepararem la separació de la sessió següent.'
+  docs:
+  - d1prov
+  enllacos:
+  - sugarsalt
+- titol: Separem mescles
+  fase: Experimentem
+  text: Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.
+  docs:
+  - d1sep
+  - d1ellen
+  enllacos: []
+- titol: La nota anònima
+  fase: Ho apliquem
+  text: Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.
+  docs:
+  - d1crom
+  enllacos: []
+- titol: Resolem el cas
+  fase: Ho apliquem
+  text: Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.
+  docs:
+  - d1inf
+  - d1mapa
+  enllacos: []
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - d1prova
+  - d1solpr
+  enllacos: []
+- titol: Corregeixo i reflexiono
+  fase: Reflexionem
+  text: Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.
+  docs:
+  - d1diana
+  docs_professorat:
+  - d1solpr
+  enllacos: []
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d1amp
+  - d1solamp
+- bloc: Atenció a la diversitat · Dislèxia
+  text: Fitxa 1 amb format per a dislèxia (lletra gran, interlineat ampli, fons crema), exemples resolts i menys ítems. Mesura addicional. Inclou una nota per al professorat a l'última pàgina.
+  docs:
+  - d1adap
+- bloc: Programació didàctica del curs
+  text: 'La versió final és en Word (format de l''annex 4: Arial 11, interlineat 1,5, taules a 9 punts). Aquí tens els annexos (20 pàgines, Arial, text d''11 punts i taules de 9 com a mínim): fitxa resum de cada SdA, full de ruta en blanc, sondeig, full de tancament, formulari, glossari, rúbriques, un material adaptat i la tasca de recuperació.'
+  url: https://claude.ai/code/artifact/21782c55-98bc-4930-b757-230697ea6cd7
+  url_text: Obre la programació
+  docs:
+  - dannex
+- bloc: Sessió 0 i sessió de tancament del curs
+  text: 'Sessió 0 (abans de la SdA 1): sondeig d''idees prèvies de tot el curs i expectatives; no es qualifica i es guarda al portafoli. Sessió de tancament (després de la SdA 6): tornen a respondre el sondeig, el comparen, revisen les dianes i fan la reflexió final. Enquesta anònima de valoració.'
+  docs:
+  - dc0
+  - dcT
+  - dcE
+- bloc: Plantilla de la SdA
+  text: Identificació, context i contingut dels pots, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.
+  url: https://claude.ai/code/artifact/45d696a9-8eda-468d-9f5a-99e0b167aa3d
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris, solucionari de les fitxes i contingut real de cada pot.
+  docs:
+  - d1prova
+  - d1solpr
+  - d1solf
+- bloc: Rúbriques
+  text: Informe del repte, posada en comú i protocol, i lectura en anglès.
+  docs:
+  - d1rub
+documents:
+  d1amp:
+    uid: d1amp
+    versio: 1
+    fitxer: sda1-18-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 1
+      preguntes:
+      - uid: d1amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Càlcul La corona del rei Hieró. Segons la llegenda, Arquimedes havia de descobrir si la…
+        criteris: []
+        camps:
+        - d1amp.a1
+      - uid: d1amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Fermi Quantes gotes hi ha en un embassament? Un embassament conté 165 hm³ d'aigua. Amb…
+        criteris: []
+        camps:
+        - d1amp.a2
+      - uid: d1amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Dades Dos líquids misteriosos. Al laboratori hem mesurat la massa de diferents volums d…
+        criteris: []
+        camps:
+        - d1amp.a3
+        - d1amp.a4
+      - uid: d1amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Disseny Una mescla de quatre components. Tens una mescla de sorra, sal, llimadures de f…
+        criteris: []
+        camps:
+        - d1amp.a5
+      - uid: d1amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Càlcul Sèrum fisiològic. El sèrum fisiològic és una dissolució de clorur de sodi en aig…
+        criteris: []
+        camps:
+        - d1amp.a6
+      - uid: d1amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Raonament Cromatografia i factor de retenció. En una cromatografia d'un retolador negre…
+        criteris: []
+        camps:
+        - d1amp.a7
+      - uid: d1amp.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Raonament Com de precisa és la mesura? Un grup mesura la densitat d'un cilindre d'alumi…
+        criteris: []
+        camps:
+        - d1amp.a8
+  d1solamp:
+    uid: d1solamp
+    versio: 1
+    fitxer: sda1-19-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d1adap:
+    uid: d1adap
+    versio: 1
+    fitxer: sda1-20-adaptada-dislexia-fitxa-1.pdf
+    titol: Fitxa 1 adaptada · Dislèxia
+    professorat: true
+  d1ruta:
+    uid: d1ruta
+    versio: 1
+    fitxer: sda1-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · Detectius de la matèria
+      sda: 1
+      preguntes:
+      - uid: d1ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: El repte i la seguretat
+        criteris: []
+        camps:
+        - d1ruta.a1
+        - d1ruta.a2
+        - d1ruta.a3
+      - uid: d1ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: Unitats i notació científica
+        criteris: []
+        camps:
+        - d1ruta.a4
+        - d1ruta.a5
+        - d1ruta.a6
+      - uid: d1ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: Factors de conversió
+        criteris: []
+        camps:
+        - d1ruta.a7
+        - d1ruta.a8
+        - d1ruta.a9
+      - uid: d1ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: Densitat dels pots enigma
+        criteris: []
+        camps:
+        - d1ruta.a10
+        - d1ruta.a11
+        - d1ruta.a12
+      - uid: d1ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: Conductivitat i el clau de ferro
+        criteris: []
+        camps:
+        - d1ruta.a13
+        - d1ruta.a14
+        - d1ruta.a15
+      - uid: d1ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: Separem mescles
+        criteris: []
+        camps:
+        - d1ruta.a16
+        - d1ruta.a17
+        - d1ruta.a18
+      - uid: d1ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: La nota anònima
+        criteris: []
+        camps:
+        - d1ruta.a19
+        - d1ruta.a20
+        - d1ruta.a21
+      - uid: d1ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Resolem el cas
+        criteris: []
+        camps:
+        - d1ruta.a22
+        - d1ruta.a23
+        - d1ruta.a24
+      - uid: d1ruta.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d\'assoliment
+        criteris: []
+        camps:
+        - d1ruta.a25
+        - d1ruta.a26
+        - d1ruta.a27
+      - uid: d1ruta.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: Corregeixo i reflexiono
+        criteris: []
+        camps:
+        - d1ruta.a28
+        - d1ruta.a29
+        - d1ruta.a30
+  d1reg:
+    uid: d1reg
+    versio: 1
+    fitxer: sda1-02-registre-del-detectiu.pdf
+    titol: Registre del detectiu
+    digital:
+      origen: auto
+      titol: Registre del detectiu
+      sda: 1
+      preguntes:
+      - uid: d1reg._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d1reg.a1
+        - d1reg.a2
+        - d1reg.a3
+        - d1reg.a4
+        - d1reg.a5
+        - d1reg.a6
+        - d1reg.a7
+        - d1reg.a8
+        - d1reg.a9
+        - d1reg.a10
+        - d1reg.a11
+        - d1reg.a12
+        - d1reg.a13
+        - d1reg.a14
+        - d1reg.a15
+        - d1reg.a16
+        - d1reg.a17
+        - d1reg.a18
+        - d1reg.a19
+        - d1reg.a20
+        - d1reg.a21
+        - d1reg.a22
+        - d1reg.a23
+        - d1reg.a24
+        - d1reg.a25
+        - d1reg.a26
+        - d1reg.a27
+        - d1reg.a28
+        - d1reg.a29
+        - d1reg.a30
+        - d1reg.a31
+        - d1reg.a32
+        - d1reg.a33
+        - d1reg.a34
+        - d1reg.a35
+        - d1reg.a36
+        - d1reg.a37
+        - d1reg.a38
+        - d1reg.a39
+        - d1reg.a40
+        - d1reg.a41
+        - d1reg.a42
+        - d1reg.a43
+        - d1reg.a44
+        - d1reg.a45
+        - d1reg.a46
+        - d1reg.a47
+        - d1reg.a48
+        - d1reg.a49
+        - d1reg.a50
+        - d1reg.a51
+        - d1reg.a52
+        - d1reg.a53
+        - d1reg.a54
+        - d1reg.a55
+        - d1reg.a56
+        - d1reg.a57
+        - d1reg.a58
+        - d1reg.a59
+        - d1reg.a60
+        - d1reg.a61
+        - d1reg.a62
+        - d1reg.a63
+        - d1reg.a64
+        - d1reg.a65
+        - d1reg.a66
+        - d1reg.a67
+        - d1reg.a68
+        - d1reg.a69
+        - d1reg.a70
+        - d1reg.a71
+        - d1reg.a72
+  d1seg:
+    uid: d1seg
+    versio: 1
+    fitxer: sda1-03-seguretat-al-laboratori.pdf
+    titol: Seguretat al laboratori
+    digital:
+      origen: auto
+      titol: Seguretat al laboratori
+      sda: 1
+      preguntes:
+      - uid: d1seg.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1'
+        criteris: []
+        camps:
+        - d1seg.a33
+      - uid: d1seg.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: '2'
+        criteris: []
+        camps:
+        - d1seg.a34
+      - uid: d1seg.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3'
+        criteris: []
+        camps:
+        - d1seg.a35
+      - uid: d1seg.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4'
+        criteris: []
+        camps:
+        - d1seg.a36
+      - uid: d1seg.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: '5'
+        criteris: []
+        camps:
+        - d1seg.a37
+      - uid: d1seg.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: '6'
+        criteris: []
+        camps:
+        - d1seg.a38
+      - uid: d1seg.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: '7'
+        criteris: []
+        camps:
+        - d1seg.a39
+      - uid: d1seg.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: '8'
+        criteris: []
+        camps:
+        - d1seg.a40
+      - uid: d1seg.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: '9'
+        criteris: []
+        camps:
+        - d1seg.a41
+      - uid: d1seg.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: '10'
+        criteris: []
+        camps:
+        - d1seg.a42
+      - uid: d1seg._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d1seg.a1
+        - d1seg.a2
+        - d1seg.a3
+        - d1seg.a4
+        - d1seg.a5
+        - d1seg.a6
+        - d1seg.a7
+        - d1seg.a8
+        - d1seg.a9
+        - d1seg.a10
+        - d1seg.a11
+        - d1seg.a12
+        - d1seg.a13
+        - d1seg.a14
+        - d1seg.a15
+        - d1seg.a16
+        - d1seg.a17
+        - d1seg.a18
+        - d1seg.a19
+        - d1seg.a20
+        - d1seg.a21
+        - d1seg.a22
+        - d1seg.a23
+        - d1seg.a24
+        - d1seg.a25
+        - d1seg.a26
+        - d1seg.a27
+        - d1seg.a28
+        - d1seg.a29
+        - d1seg.a30
+        - d1seg.a31
+        - d1seg.a32
+  d1f1:
+    uid: d1f1
+    versio: 1
+    fitxer: sda1-04-fitxa-1-magnituds-i-unitats.pdf
+    titol: Fitxa 1
+    digital:
+      origen: manual
+      titol: Fitxa 1 · Magnituds, unitats i notació científica
+      sda: 1
+      preguntes:
+      - uid: d1f1.1
+        id: '1'
+        versio: 1
+        tipus: table
+        etiqueta: Fonamental o derivada? Classifica aquestes magnituds i escriu la unitat del SI de cadascu…
+        criteris: []
+        camps:
+        - d1f1.1
+      - uid: d1f1.2
+        id: '2'
+        versio: 1
+        tipus: table
+        etiqueta: Els prefixos. Completa la taula amb el símbol, l'equivalència respecte de la unitat i la…
+        criteris: []
+        camps:
+        - d1f1.2
+      - uid: d1f1.3
+        id: '3'
+        versio: 1
+        tipus: group
+        etiqueta: Conversions simples. Fes aquests canvis d'unitats amb un factor de conversió. Escriu el f…
+        criteris: []
+        camps:
+        - d1f1.3a
+        - d1f1.3b
+        - d1f1.3c
+        - d1f1.3d
+        - d1f1.3e
+        - d1f1.3f
+        - d1f1.3g
+        - d1f1.3h
+      - uid: d1f1.4
+        id: '4'
+        versio: 1
+        tipus: group
+        etiqueta: Escriu en notació científica.
+        criteris: []
+        camps:
+        - d1f1.4a
+        - d1f1.4b
+        - d1f1.4c
+        - d1f1.4d
+        - d1f1.4e
+        - d1f1.4f
+      - uid: d1f1.5
+        id: '5'
+        versio: 1
+        tipus: group
+        etiqueta: Escriu en forma decimal.
+        criteris: []
+        camps:
+        - d1f1.5a
+        - d1f1.5b
+        - d1f1.5c
+        - d1f1.5d
+      - uid: d1f1.6
+        id: '6'
+        versio: 1
+        tipus: group
+        etiqueta: Opera i dona el resultat en notació científica. Escriu l'operació amb l'editor (fes servi…
+        criteris: []
+        camps:
+        - d1f1.6a
+        - d1f1.6b
+        - d1f1.6c
+        - d1f1.6d
+      - uid: d1f1.7
+        id: '7'
+        versio: 1
+        tipus: text
+        etiqueta: Ordre de magnitud. Ordena de més petit a més gran i escriu-los en metres i en notació cie…
+        criteris: []
+        camps:
+        - d1f1.7
+  d1f2:
+    uid: d1f2
+    versio: 1
+    fitxer: sda1-05-fitxa-2-factors-de-conversio.pdf
+    titol: Fitxa 2 i cerca de densitats
+    digital:
+      origen: manual
+      titol: Fitxa 2 · Factors de conversió
+      sda: 1
+      preguntes:
+      - uid: d1f2.1
+        id: '1'
+        versio: 1
+        tipus: group
+        etiqueta: Densitats.
+        criteris: []
+        camps:
+        - d1f2.1a
+        - d1f2.1b
+        - d1f2.1c
+        - d1f2.1d
+      - uid: d1f2.2
+        id: '2'
+        versio: 1
+        tipus: group
+        etiqueta: Velocitats.
+        criteris: []
+        camps:
+        - d1f2.2a
+        - d1f2.2b
+      - uid: d1f2.3
+        id: '3'
+        versio: 1
+        tipus: group
+        etiqueta: Concentracions.
+        criteris: []
+        camps:
+        - d1f2.3a
+        - d1f2.3b
+      - uid: d1f2.4
+        id: '4'
+        versio: 1
+        tipus: chain
+        etiqueta: Cabal. Una aixeta aboca 0,5 L/min. Expressa-ho en mL/s.
+        criteris: []
+        camps:
+        - d1f2.4
+      - uid: d1f2.B
+        id: B
+        versio: 1
+        tipus: table
+        etiqueta: Busca la densitat a 20 °C de cada substància en fonts fiables (manuals de dades, webs d'u…
+        criteris: []
+        camps:
+        - d1f2.B
+      - uid: d1f2.5
+        id: '5'
+        versio: 1
+        tipus: text
+        etiqueta: Fiabilitat. Has trobat valors diferents per a una mateixa substància? Per què creus que p…
+        criteris: []
+        camps:
+        - d1f2.5
+  d1dens:
+    uid: d1dens
+    versio: 1
+    fitxer: sda1-06-laboratori-densitat.pdf
+    titol: Laboratori de densitat
+    digital:
+      origen: auto
+      titol: 'Laboratori: la densitat dels pots enigma'
+      sda: 1
+      preguntes:
+      - uid: d1dens.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Mesures i càlculs. Pesa cada pot i calcula la densitat en g mL i en kg m³ . La balança…
+        criteris: []
+        camps:
+        - d1dens.a1
+        - d1dens.a2
+        - d1dens.a3
+        - d1dens.a4
+        - d1dens.a5
+        - d1dens.a6
+        - d1dens.a7
+        - d1dens.a8
+        - d1dens.a9
+        - d1dens.a10
+        - d1dens.a11
+        - d1dens.a12
+        - d1dens.a13
+        - d1dens.a14
+        - d1dens.a15
+        - d1dens.a16
+        - d1dens.a17
+        - d1dens.a18
+        - d1dens.a19
+        - d1dens.a20
+        - d1dens.a21
+        - d1dens.a22
+        - d1dens.a23
+        - d1dens.a24
+        - d1dens.a25
+        - d1dens.a26
+        - d1dens.a27
+        - d1dens.a28
+        - d1dens.a29
+        - d1dens.a30
+        - d1dens.a31
+        - d1dens.a32
+        - d1dens.a33
+        - d1dens.a34
+        - d1dens.a35
+        - d1dens.a36
+        - d1dens.a37
+        - d1dens.a38
+        - d1dens.a39
+        - d1dens.a40
+        - d1dens.a41
+        - d1dens.a42
+        - d1dens.a43
+        - d1dens.a44
+        - d1dens.a45
+        - d1dens.a46
+        - d1dens.a47
+        - d1dens.a48
+        - d1dens.a49
+        - d1dens.a50
+        - d1dens.a51
+        - d1dens.a52
+        - d1dens.a53
+        - d1dens.a54
+      - uid: d1dens.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Agrupa els pots per densitat. Quins pots tenen una densitat semblant? Fes grups i anota…
+        criteris: []
+        camps:
+        - d1dens.a55
+      - uid: d1dens.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Primeres assignacions. Amb les densitats de referència que vas buscar a casa, quins pot…
+        criteris: []
+        camps:
+        - d1dens.a56
+        - d1dens.a57
+        - d1dens.a58
+        - d1dens.a59
+        - d1dens.a60
+        - d1dens.a61
+        - d1dens.a62
+        - d1dens.a63
+        - d1dens.a64
+        - d1dens.a65
+        - d1dens.a66
+        - d1dens.a67
+        - d1dens.a68
+        - d1dens.a69
+        - d1dens.a70
+        - d1dens.a71
+        - d1dens.a72
+        - d1dens.a73
+        - d1dens.a74
+        - d1dens.a75
+        - d1dens.a76
+        - d1dens.a77
+        - d1dens.a78
+        - d1dens.a79
+      - uid: d1dens.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Interpretació de l'error. Un dels pots conté «etanol 96 %», que és el que es ven a les…
+        criteris: []
+        camps:
+        - d1dens.a80
+      - uid: d1dens.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Límits de la densitat. Quins pots no podeu distingir només amb la densitat? Quina altra…
+        criteris: []
+        camps:
+        - d1dens.a81
+  d1prov:
+    uid: d1prov
+    versio: 1
+    fitxer: sda1-07-proves-conductivitat-i-ferro.pdf
+    titol: Full de proves
+    digital:
+      origen: auto
+      titol: 'Proves: conductivitat elèctrica i reacció amb el ferro'
+      sda: 1
+      preguntes:
+      - uid: d1prov.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Classifica cada contingut de la llista d'etiquetes com a substància pura (element o com…
+        criteris: []
+        camps:
+        - d1prov.a1
+      - uid: d1prov.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Resultats. Anota si el LED s'encén (sí, no o feble) amb cada líquid.
+        criteris: []
+        camps:
+        - d1prov.a2
+        - d1prov.a3
+        - d1prov.a4
+        - d1prov.a5
+        - d1prov.a6
+        - d1prov.a7
+        - d1prov.a8
+        - d1prov.a9
+        - d1prov.a10
+        - d1prov.a11
+        - d1prov.a12
+        - d1prov.a13
+        - d1prov.a14
+        - d1prov.a15
+        - d1prov.a16
+        - d1prov.a17
+        - d1prov.a18
+        - d1prov.a19
+      - uid: d1prov.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Interpretació. Quins pots has pogut distingir amb aquesta prova que no podies distingir…
+        criteris: []
+        camps:
+        - d1prov.a20
+      - uid: d1prov.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Canvi físic o químic? És un canvi físic o químic? Quina evidència ho demostra?
+        criteris: []
+        camps:
+        - d1prov.a24
+      - uid: d1prov.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Disseny d'una separació. A la sessió 6 haureu de separar una mescla de sorra, llimadure…
+        criteris: []
+        camps:
+        - d1prov.a25
+        - d1prov.a26
+        - d1prov.a27
+        - d1prov.a28
+        - d1prov.a29
+        - d1prov.a30
+        - d1prov.a31
+        - d1prov.a32
+        - d1prov.a33
+        - d1prov.a34
+        - d1prov.a35
+        - d1prov.a36
+      - uid: d1prov._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d1prov.a21
+        - d1prov.a22
+        - d1prov.a23
+  d1sep:
+    uid: d1sep
+    versio: 1
+    fitxer: sda1-08-laboratori-separacio.pdf
+    titol: Laboratori de separació
+    digital:
+      origen: auto
+      titol: 'Laboratori: separem mescles'
+      sda: 1
+      preguntes:
+      - uid: d1sep.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Miscibilitat. En dos tubs d'assaig amb 5 mL d'aigua cadascun, afegiu 2 mL del pot que c…
+        criteris: []
+        camps:
+        - d1sep.a1
+        - d1sep.a2
+        - d1sep.a3
+        - d1sep.a4
+        - d1sep.a5
+        - d1sep.a6
+      - uid: d1sep.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Decantació. Aboqueu la mescla d'oli i aigua en un embut de decantació, deixeu-la reposa…
+        criteris: []
+        camps:
+        - d1sep.a7
+      - uid: d1sep.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Conclusió. Aquesta prova confirma o desmenteix les vostres hipòtesis sobre els pots 8 i…
+        criteris: []
+        camps:
+        - d1sep.a8
+      - uid: d1sep.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Registre de la separació.
+        criteris: []
+        camps:
+        - d1sep.a9
+        - d1sep.a10
+        - d1sep.a11
+        - d1sep.a12
+        - d1sep.a13
+        - d1sep.a14
+        - d1sep.a15
+        - d1sep.a16
+        - d1sep.a17
+        - d1sep.a18
+        - d1sep.a19
+        - d1sep.a20
+        - d1sep.a21
+        - d1sep.a22
+        - d1sep.a23
+        - d1sep.a24
+      - uid: d1sep.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 L'evaporació. L'aigua salada filtrada es deixa en una càpsula de porcellana fins a la s…
+        criteris: []
+        camps:
+        - d1sep.a25
+  d1crom:
+    uid: d1crom
+    versio: 1
+    fitxer: sda1-09-cromatografia.pdf
+    titol: Cromatografia
+    digital:
+      origen: auto
+      titol: 'La nota anònima: cromatografia en paper'
+      sda: 1
+      preguntes:
+      - uid: d1crom.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Procediment. Talleu una tira de paper de filtre de cada nota, amb una taca de la tinta…
+        criteris: []
+        camps:
+        - d1crom.a1
+      - uid: d1crom.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Resultats. Dibuixa o enganxa els cromatogrames de les tres notes i dels tres retoladors…
+        criteris: []
+        camps:
+        - d1crom.a2
+        - d1crom.a3
+        - d1crom.a4
+        - d1crom.a5
+        - d1crom.a6
+        - d1crom.a7
+      - uid: d1crom.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Veredicte. Quin retolador s'ha fet servir per escriure cada nota? Justifica-ho comparan…
+        criteris: []
+        camps:
+        - d1crom.a8
+      - uid: d1crom.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Per pensar. Si totes tres tintes són negres, per què donen cromatogrames diferents? La…
+        criteris: []
+        camps:
+        - d1crom.a9
+      - uid: d1crom.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 L'evaporació de la sessió 6. Observa la càpsula. Què hi ha quedat? Descriu la forma del…
+        criteris: []
+        camps:
+        - d1crom.a10
+  d1ellen:
+    uid: d1ellen
+    versio: 1
+    fitxer: sda1-10-reading-ellen-swallow-richards.pdf
+    titol: 'Reading: Ellen Swallow Richards'
+    digital:
+      origen: manual
+      titol: 'Reading: the woman who tested the water'
+      sda: 1
+      preguntes:
+      - uid: d1ellen.1
+        id: '1'
+        versio: 1
+        tipus: tf
+        etiqueta: True or false? Correct the false sentences.
+        criteris: []
+        camps:
+        - d1ellen.1
+      - uid: d1ellen.2
+        id: '2'
+        versio: 1
+        tipus: group
+        etiqueta: Answer in English with short sentences.
+        criteris: []
+        camps:
+        - d1ellen.2a
+        - d1ellen.2b
+        - d1ellen.2c
+      - uid: d1ellen.3
+        id: '3'
+        versio: 1
+        tipus: text
+        etiqueta: L'ió clorur. D'on prové el clorur de l'aigua? Quin pot del nostre repte en conté? Com el…
+        criteris: []
+        camps:
+        - d1ellen.3
+      - uid: d1ellen.4
+        id: '4'
+        versio: 1
+        tipus: text
+        etiqueta: Mostra i referència. Ellen comparava cada mostra amb un valor normal. Quan nosaltres hem…
+        criteris: []
+        camps:
+        - d1ellen.4
+      - uid: d1ellen.5
+        id: '5'
+        versio: 1
+        tipus: text
+        etiqueta: Aigua i salut. Per què és important que hi hagi normes de qualitat de l'aigua de l'aixeta…
+        criteris: []
+        camps:
+        - d1ellen.5
+      - uid: d1ellen.6
+        id: '6'
+        versio: 1
+        tipus: text
+        etiqueta: Una científica poc coneguda. El treball d'Ellen va millorar la salut de milions de person…
+        criteris: []
+        camps:
+        - d1ellen.6
+  d1inf:
+    uid: d1inf
+    versio: 1
+    fitxer: sda1-11-guio-informe-i-protocol.pdf
+    titol: Guió de l'informe i protocol
+    digital:
+      origen: auto
+      titol: Guió de l'informe del repte
+      sda: 1
+      preguntes:
+      - uid: d1inf._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d1inf.a1
+        - d1inf.a2
+        - d1inf.a3
+        - d1inf.a4
+        - d1inf.a5
+        - d1inf.a6
+  d1rub:
+    uid: d1rub
+    versio: 1
+    fitxer: sda1-12-rubriques.pdf
+    titol: Rúbriques
+  d1prova:
+    uid: d1prova
+    versio: 1
+    fitxer: sda1-13-demostracio-assoliment.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  d1solpr:
+    uid: d1solpr
+    versio: 1
+    fitxer: sda1-14-solucionari-demostracio.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  d1solf:
+    uid: d1solf
+    versio: 1
+    fitxer: sda1-15-solucionari-fitxes.pdf
+    titol: Solucionari de les fitxes i contingut dels pots
+    professorat: true
+  d1diana:
+    uid: d1diana
+    versio: 1
+    fitxer: sda1-16-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 1
+      preguntes:
+      - uid: d1diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - d1diana.a7
+      - uid: d1diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El pot que més m'ha costat d'identificar ha estat… perquè…
+        criteris: []
+        camps:
+        - d1diana.a8
+      - uid: d1diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Per a la propera SdA, em comprometo a…
+        criteris: []
+        camps:
+        - d1diana.a9
+      - uid: d1diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - d1diana.a1
+        - d1diana.a2
+        - d1diana.a3
+        - d1diana.a4
+        - d1diana.a5
+        - d1diana.a6
+  d1mapa:
+    uid: d1mapa
+    versio: 1
+    fitxer: sda1-17-mapa-conceptual.pdf
+    titol: Mapa conceptual
+evidencies:
+- uid: s1.prova
+  id: prova
+  versio: 1
+  titol: Activitat de demostració d'assoliment (sessions 9 i 10)
+  instruments:
+  - d1prova
+  - d1solpr
+  items:
+  - uid: s1.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · Canvis d'unitats i notació científica
+    criteris:
+    - '3.2'
+  - uid: s1.prova.p2
+    id: p2
+    versio: 1
+    titol: Activitat 2 · Densitat i errors
+    criteris:
+    - '3.2'
+  - uid: s1.prova.p3
+    id: p3
+    versio: 1
+    titol: Activitat 3 · Tres líquids incolors
+    criteris:
+    - '2.3'
+  - uid: s1.prova.p4
+    id: p4
+    versio: 1
+    titol: Activitat 4 · Separació d'una mescla
+    criteris:
+    - '2.3'
+  - uid: s1.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · El clau de ferro
+    criteris:
+    - '2.3'
+  - uid: s1.prova.p6
+    id: p6
+    versio: 1
+    titol: Activitat 6 · Ellen Swallow Richards
+    criteris:
+    - '2.6'
+- uid: s1.inf
+  id: inf
+  versio: 1
+  titol: Informe del repte (grup)
+  instruments:
+  - d1inf
+  items:
+  - uid: s1.inf.i1
+    id: i1
+    versio: 1
+    titol: Hipòtesis
+    criteris:
+    - '2.1'
+    descriptors:
+      AE: Hipòtesis inicials per a tots els pots, justificades amb observacions
+      AN: Hipòtesis per a la majoria de pots, justificades
+      AS: Hipòtesis poc justificades
+      NA: Sense hipòtesis
+  - uid: s1.inf.i2
+    id: i2
+    versio: 1
+    titol: Procediments
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Explica cada prova i la propietat característica que mesura
+      AN: Explica les proves, amb alguna imprecisió
+      AS: Enumera les proves sense explicar-les
+      NA: No descriu els procediments
+  - uid: s1.inf.i3
+    id: i3
+    versio: 1
+    titol: Dades, unitats i errors
+    criteris:
+    - '3.2'
+    descriptors:
+      AE: Taules completes amb unitats; densitats i errors ben calculats
+      AN: Taules completes amb algun error menor
+      AS: Taules incompletes o errors d'unitats o de càlcul
+      NA: Dades absents o sense unitats
+  - uid: s1.inf.i4
+    id: i4
+    versio: 1
+    titol: Conclusions
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Assigna els dotze pots amb dues proves convergents per a cadascun
+      AN: Assigna la majoria de pots amb proves convergents
+      AS: Assigna els pots amb una sola prova
+      NA: Assignacions sense justificar
+- uid: s1.lab
+  id: lab
+  versio: 1
+  titol: Laboratori i seguretat (observació)
+  instruments: []
+  items:
+  - uid: s1.lab.l1
+    id: l1
+    versio: 1
+    titol: Registre de dades al laboratori
+    criteris:
+    - '2.3'
+  - uid: s1.lab.l2
+    id: l2
+    versio: 1
+    titol: Normes de seguretat
+    criteris:
+    - '3.3'
+- uid: s1.ellen
+  id: ellen
+  versio: 1
+  titol: Lectura sobre Ellen Swallow Richards
+  instruments:
+  - d1ellen
+  items:
+  - uid: s1.ellen.e1
+    id: e1
+    versio: 1
+    titol: Reflexió
+    criteris:
+    - '2.6'
+    descriptors:
+      AE: Proposa raons diverses basades en el text i el context històric
+      AN: Proposa raons basades en el text
+      AS: Una raó sense justificar
+      NA: No respon

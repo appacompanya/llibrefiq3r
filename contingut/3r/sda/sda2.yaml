@@ -1,0 +1,1062 @@
+# SdA 2: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 2
+versio: 1
+color: --s2
+titol: El desodorant kamikaze
+repte: Per què explota un desodorant dins d'un cotxe a l'agost?
+meta: '1r trimestre · 10 sessions · Producte final: un vídeo per a l''alumnat de 1r d''ESO · Competències específiques avaluades: CE1 i CE4'
+publicada: true
+ce_aprovades:
+- CE1
+- CE2
+- CE4
+sessions:
+- titol: El repte
+  fase: Explorem
+  text: Veurem què pot passar quan un esprai es queda dins d'un cotxe a l'estiu i llegirem l'etiqueta d'un aerosol. Dibuixaràs com t'imagines les partícules del gas de l'interior de la llauna i, en grup, formulareu hipòtesis sobre per què pot rebentar.
+  docs:
+  - ruta
+  - repte
+  - rub
+  enllacos: []
+- titol: Els globus al fred i a la calor
+  fase: Experimentem
+  text: Mesurarem el perímetre de dos globus i en calcularem el volum suposant que són esfèrics. Després en deixarem un 20 minuts al congelador i l'altre damunt d'un vas amb aigua calenta, i calcularem en quin percentatge ha variat el volum de cadascun. Mentre esperem, farem prediccions.
+  docs:
+  - lab
+  enllacos: []
+- titol: El model de partícules
+  fase: Aprenem
+  text: 'Descobrirem com és la matèria a escala de partícules: partícules en moviment constant i buit entre elles. Amb una simulació veurem que la pressió d''un gas és el resultat dels xocs de les partícules contra les parets del recipient, i entendrem per què ha variat el volum dels globus.'
+  docs:
+  - f1
+  enllacos:
+  - simgas
+  - gasprop
+  - states
+- titol: Les lleis dels gasos
+  fase: Aprenem
+  text: Corregirem la fitxa 1. Estudiarem els estats d'agregació i les tres lleis dels gasos, i aprendrem a fer servir l'escala Kelvin.
+  docs: []
+  enllacos:
+  - simgas
+  - gasintro
+- titol: Exercicis de gasos
+  fase: Practiquem
+  text: Resoldrem problemes de gasos, primer junts i després en parelles. La fitxa 2 l'acabaràs a casa.
+  docs:
+  - f2
+  enllacos: []
+- titol: Corba d'escalfament i canvis d'estat
+  fase: Experimentem
+  text: Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.
+  docs:
+  - labc
+  - inf
+  enllacos: []
+- titol: Torno al repte
+  fase: Ho apliquem
+  text: Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.
+  docs:
+  - repte
+  - video
+  - mapa
+  enllacos: []
+- titol: Gravem el vídeo per a 1r
+  fase: Ho apliquem
+  text: Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.
+  docs:
+  - rub
+  enllacos: []
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - prova
+  - solpr
+  enllacos: []
+- titol: Corregeixo i reflexiono
+  fase: Reflexionem
+  text: 'Corregirem l''activitat de demostració entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo: t''avaluaràs, avaluaràs un company, avaluareu el vostre grup i un altre grup (full «Avaluem els vídeos»). Faràs la diana per valorar què has après.'
+  docs:
+  - d2coav
+  - diana
+  docs_professorat:
+  - solpr
+  enllacos: []
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d2amp
+  - d2solamp
+- bloc: Atenció a la diversitat · Nouvingut
+  text: Glossari visual trilingüe amb columna per a la llengua familiar, banc de paraules i frases model per a la fitxa 1. Mesura addicional, coordinada amb l'aula d'acollida. Inclou una nota per al professorat a l'última pàgina.
+  docs:
+  - d2adap
+- bloc: Atenció a la diversitat · Continguts bàsics
+  text: Fitxa 1 amb els continguts essencials del model de partícules (banc de paraules, frases per completar, selecció i dibuixos model) per a l'alumnat amb retard en l'aprenentatge o nouvingut amb nivell inicial de lectura. Mateix criteri (1.2). Mesura addicional.
+  docs:
+  - d2bas
+- bloc: Plantilla de la SdA
+  text: Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.
+  url: https://claude.ai/code/artifact/351c682b-378f-4335-843c-b3a0c27a6d99
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de la fitxa 2.
+  docs:
+  - prova
+  - solpr
+  - solf2
+- bloc: Rúbriques
+  text: Vídeo, informe de pràctica i explicació final del repte.
+  docs:
+  - rub
+documents:
+  d2amp:
+    uid: d2amp
+    versio: 1
+    fitxer: sda2-15-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 2
+      preguntes:
+      - uid: d2amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Càlcul El globus sonda. Un globus meteorològic té un volum de 4,0 m³ a nivell del mar,…
+        criteris: []
+        camps:
+        - d2amp.a1
+      - uid: d2amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Raonament El desodorant, més a fons. A dins d'un esprai hi ha butà en estat líquid i en…
+        criteris: []
+        camps:
+        - d2amp.a2
+      - uid: d2amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Dades A la recerca del zero absolut. Escalfem una xeringa tancada (a pressió constant)…
+        criteris: []
+        camps:
+        - d2amp.a3
+        - d2amp.a4
+      - uid: d2amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Càlcul De gel a vapor. Volem convertir 200 g de gel a −10 °C en vapor a 100 °C amb un f…
+        criteris: []
+        camps:
+        - d2amp.a5
+        - d2amp.a6
+      - uid: d2amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Dades La llei de Boyle amb una xeringa. Un grup comprimeix l'aire d'una xeringa a tempe…
+        criteris: []
+        camps:
+        - d2amp.a7
+        - d2amp.a8
+        - d2amp.a9
+        - d2amp.a10
+        - d2amp.a11
+        - d2amp.a12
+        - d2amp.a13
+        - d2amp.a14
+        - d2amp.a15
+        - d2amp.a16
+        - d2amp.a17
+      - uid: d2amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Raonament L'olla a pressió. A la muntanya, a 3000 m, l'aigua bull a uns 90 °C; en una o…
+        criteris: []
+        camps:
+        - d2amp.a18
+  d2solamp:
+    uid: d2solamp
+    versio: 1
+    fitxer: sda2-16-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d2adap:
+    uid: d2adap
+    versio: 1
+    fitxer: sda2-17-adaptada-nouvingut-glossari-visual.pdf
+    titol: Glossari visual i fitxa 1 · Nouvingut
+    professorat: true
+  d2bas:
+    uid: d2bas
+    versio: 1
+    fitxer: sda2-18-adaptada-continguts-basics-fitxa-1.pdf
+    titol: Fitxa 1 · Continguts bàsics
+    professorat: true
+  d2coav:
+    uid: d2coav
+    versio: 1
+    fitxer: sda2-19-avaluem-els-videos.pdf
+    titol: Avaluem els vídeos (auto i coavaluació)
+    digital:
+      origen: auto
+      titol: Avaluem els vídeos
+      sda: 2
+      preguntes:
+      - uid: d2coav._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d2coav.a1
+        - d2coav.a2
+        - d2coav.a3
+        - d2coav.a4
+        - d2coav.a5
+        - d2coav.a6
+        - d2coav.a7
+        - d2coav.a8
+        - d2coav.a9
+        - d2coav.a10
+        - d2coav.a11
+        - d2coav.a12
+        - d2coav.a13
+        - d2coav.a14
+        - d2coav.a15
+        - d2coav.a16
+        - d2coav.a17
+        - d2coav.a18
+        - d2coav.a19
+        - d2coav.a20
+        - d2coav.a21
+        - d2coav.a22
+        - d2coav.a23
+        - d2coav.a24
+        - d2coav.a25
+        - d2coav.a26
+        - d2coav.a27
+        - d2coav.a28
+        - d2coav.a29
+        - d2coav.a30
+        - d2coav.a31
+        - d2coav.a32
+        - d2coav.a33
+        - d2coav.a34
+        - d2coav.a35
+        - d2coav.a36
+        - d2coav.a37
+        - d2coav.a38
+        - d2coav.a39
+        - d2coav.a40
+        - d2coav.a41
+        - d2coav.a42
+        - d2coav.a43
+        - d2coav.a44
+        - d2coav.a45
+        - d2coav.a46
+        - d2coav.a47
+        - d2coav.a48
+        - d2coav.a49
+        - d2coav.a50
+  ruta:
+    uid: ruta
+    versio: 1
+    fitxer: sda2-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · El desodorant kamikaze
+      sda: 2
+      preguntes:
+      - uid: ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: El repte
+        criteris: []
+        camps:
+        - ruta.a1
+        - ruta.a2
+        - ruta.a3
+      - uid: ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: Els globus al fred i a la calor
+        criteris: []
+        camps:
+        - ruta.a4
+        - ruta.a5
+        - ruta.a6
+      - uid: ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: El model de partícules
+        criteris: []
+        camps:
+        - ruta.a7
+        - ruta.a8
+        - ruta.a9
+      - uid: ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: Les lleis dels gasos
+        criteris: []
+        camps:
+        - ruta.a10
+        - ruta.a11
+        - ruta.a12
+      - uid: ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: Exercicis de gasos
+        criteris: []
+        camps:
+        - ruta.a13
+        - ruta.a14
+        - ruta.a15
+      - uid: ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: Corba d'escalfament i canvis d'estat
+        criteris: []
+        camps:
+        - ruta.a16
+        - ruta.a17
+        - ruta.a18
+      - uid: ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: Torno al repte
+        criteris: []
+        camps:
+        - ruta.a19
+        - ruta.a20
+        - ruta.a21
+      - uid: ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Gravem el vídeo per a 1r
+        criteris: []
+        camps:
+        - ruta.a22
+        - ruta.a23
+        - ruta.a24
+      - uid: ruta.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d\'assoliment
+        criteris: []
+        camps:
+        - ruta.a25
+        - ruta.a26
+        - ruta.a27
+      - uid: ruta.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: Corregeixo i reflexiono
+        criteris: []
+        camps:
+        - ruta.a28
+        - ruta.a29
+        - ruta.a30
+  repte:
+    uid: repte
+    versio: 1
+    fitxer: sda2-02-full-del-repte.pdf
+    titol: Full del repte
+    digital:
+      origen: auto
+      titol: Full del repte
+      sda: 2
+      preguntes:
+      - uid: repte.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Què diu l'etiqueta? Llegeix l'etiqueta de l'esprai. Quin avís hi ha sobre la temperatur…
+        criteris: []
+        camps:
+        - repte.a1
+      - uid: repte.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El meu dibuix inicial. Imagina que tens unes ulleres màgiques per veure el gas de l'int…
+        criteris: []
+        camps:
+        - repte.a2
+        - repte.a3
+      - uid: repte.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 La meva explicació inicial. Per què creus que un desodorant pot explotar dins d'un cotx…
+        criteris: []
+        camps:
+        - repte.a4
+      - uid: repte.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Hipòtesi del grup. Després de parlar-ne en grup, escriviu la vostra hipòtesi: Creiem qu…'
+        criteris: []
+        camps:
+        - repte.a5
+      - uid: repte.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 La meva explicació final. Segueix la base d'orientació.
+        criteris: []
+        camps:
+        - repte.a6
+      - uid: repte.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 El meu dibuix final. Torna a dibuixar les partícules del gas de l'interior de la llauna…
+        criteris: []
+        camps:
+        - repte.a7
+        - repte.a8
+      - uid: repte.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Detecto els meus errors. Compara el teu dibuix i la teva explicació inicials amb els fi…
+        criteris: []
+        camps:
+        - repte.a9
+        - repte.a10
+  lab:
+    uid: lab
+    versio: 1
+    fitxer: sda2-03-laboratori-globus.pdf
+    titol: Full de laboratori
+    digital:
+      origen: auto
+      titol: 'Laboratori: els globus al fred i a la calor'
+      sda: 2
+      preguntes:
+      - uid: lab.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Mesures inicials (0–10 min). Infleu dos globus de manera semblant i lligueu-los. Mesure…
+        criteris: []
+        camps:
+        - lab.a1
+        - lab.a2
+        - lab.a3
+      - uid: lab.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Predicció (mentre esperem). Com creieu que variarà el volum de cada globus? Augmentarà…
+        criteris: []
+        camps:
+        - lab.a4
+      - uid: lab.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Volum inicial. Aïlleu el radi de la fórmula del perímetre i calculeu-lo. Després, calcu…
+        criteris: []
+        camps:
+        - lab.a5
+        - lab.a6
+        - lab.a7
+        - lab.a8
+        - lab.a9
+        - lab.a10
+        - lab.a11
+        - lab.a12
+        - lab.a13
+        - lab.a14
+      - uid: lab.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Mesures finals i volum final (al cap de 20 min). Traieu els globus i torneu a mesurar e…
+        criteris: []
+        camps:
+        - lab.a15
+        - lab.a16
+        - lab.a17
+        - lab.a18
+        - lab.a19
+        - lab.a20
+        - lab.a21
+        - lab.a22
+        - lab.a23
+        - lab.a24
+      - uid: lab.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Resultat. S'ha complert la vostra predicció? En quin dels dos globus la variació de vol…
+        criteris: []
+        camps:
+        - lab.a25
+      - uid: lab.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Limitacions de la mesura. Per què el volum que heu calculat és només una aproximació? P…
+        criteris: []
+        camps:
+        - lab.a26
+      - uid: lab.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Pregunta per pensar. Què ha passat amb les partícules d'aire de l'interior del globus p…
+        criteris: []
+        camps:
+        - lab.a27
+  f1:
+    uid: f1
+    versio: 1
+    fitxer: sda2-04-fitxa-1-model-cineticomolecular.pdf
+    titol: Fitxa 1
+    digital:
+      origen: auto
+      titol: Fitxa 1 · El model cineticomolecular
+      sda: 2
+      preguntes:
+      - uid: f1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Completa els postulats del model cineticomolecular. La matèria està formada per molt pe…
+        criteris: []
+        camps:
+        - f1.a1
+        - f1.a2
+        - f1.a3
+        - f1.a4
+        - f1.a5
+      - uid: f1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Dibuixa les partícules d'un sòlid, un líquid i un gas. Indica amb fletxes com es mouen.
+        criteris: []
+        camps:
+        - f1.a6
+        - f1.a7
+        - f1.a8
+      - uid: f1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Vertader o fals? Marca V o F i justifica-ho amb el model.
+        criteris: []
+        camps:
+        - f1.a9
+        - f1.a10
+        - f1.a11
+        - f1.a12
+        - f1.a13
+        - f1.a14
+        - f1.a15
+        - f1.a16
+      - uid: f1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 El globus del congelador. A la sessió 2, el volum del globus que vam posar al congelado…
+        criteris: []
+        camps:
+        - f1.a17
+        - f1.a18
+        - f1.a19
+      - uid: f1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 El perfum. Algú ruixa perfum en un racó de l'aula i, al cap d'una estona, se'n sent l'o…
+        criteris: []
+        camps:
+        - f1.a20
+      - uid: f1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 La xeringa tapada. Per què es pot comprimir l'aire d'una xeringa tapada però no l'aigua…
+        criteris: []
+        camps:
+        - f1.a21
+      - uid: f1.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 La pilota d'hivern. A l'hivern, una pilota de bàsquet que s'ha quedat al pati bota meny…
+        criteris: []
+        camps:
+        - f1.a22
+  f2:
+    uid: f2
+    versio: 1
+    fitxer: sda2-05-fitxa-2-lleis-dels-gasos.pdf
+    titol: Fitxa 2
+    digital:
+      origen: auto
+      titol: Fitxa 2 · Les lleis dels gasos
+      sda: 2
+      preguntes:
+      - uid: f2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Escalfem motors. Passa a kelvin: 0 °C · 25 °C · −40 °C. Passa a graus Celsius: 373 K.'
+        criteris: []
+        camps:
+        - f2.a1
+      - uid: f2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Quina llei és? Indica quina llei explica cada situació i què es manté constant. Una xer…
+        criteris: []
+        camps:
+        - f2.a2
+      - uid: f2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 La xeringa. Una xeringa tapada conté 40 mL d'aire a una pressió d'1 atm. Empenyem l'èmb…
+        criteris: []
+        camps:
+        - f2.a3
+      - uid: f2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 La bombolla del submarinista. A 20 m de fondària, on la pressió és de 3 atm, un submari…
+        criteris: []
+        camps:
+        - f2.a4
+      - uid: f2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 El globus del congelador. Un globus té un volum de 2,0 L a 27 °C. El posem en un congel…
+        criteris: []
+        camps:
+        - f2.a5
+      - uid: f2.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 El globus del cotxe. Un globus que té un volum de 3,0 L a 20 °C es queda dins d'un cotx…
+        criteris: []
+        camps:
+        - f2.a6
+      - uid: f2.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 La roda de la bici. A l'hivern, a 10 °C, inflem la roda d'una bicicleta fins que l'aire…
+        criteris: []
+        camps:
+        - f2.a7
+      - uid: f2.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 El desodorant kamikaze. El gas de l'interior d'un desodorant es troba a una pressió de…
+        criteris: []
+        camps:
+        - f2.a8
+  solf2:
+    uid: solf2
+    versio: 1
+    fitxer: sda2-06-solucionari-fitxa-2.pdf
+    titol: Solucionari fitxa 2
+    professorat: true
+  inf:
+    uid: inf
+    versio: 1
+    fitxer: sda2-07-guio-informe-de-practica.pdf
+    titol: Guió de l'informe
+  video:
+    uid: video
+    versio: 1
+    fitxer: sda2-08-guio-del-video.pdf
+    titol: Guió del vídeo
+    digital:
+      origen: auto
+      titol: Guió del vídeo per a 1r d'ESO
+      sda: 2
+      preguntes:
+      - uid: video.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Triem el fenomen. Idees: l''olla a pressió, l''aigua que bull per sota de 100 °C al cim d…'
+        criteris: []
+        camps:
+        - video.a1
+        - video.a2
+      - uid: video.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Rols del grup.
+        criteris: []
+        camps:
+        - video.a3
+        - video.a4
+        - video.a5
+        - video.a6
+      - uid: video.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Storyboard. Dibuixeu i descriviu les 4 escenes del vídeo.
+        criteris: []
+        camps:
+        - video.a7
+        - video.a8
+        - video.a9
+        - video.a10
+        - video.a11
+      - uid: video._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - video.a12
+        - video.a13
+        - video.a14
+        - video.a15
+        - video.a16
+  rub:
+    uid: rub
+    versio: 1
+    fitxer: sda2-09-rubriques.pdf
+    titol: Rúbriques
+  prova:
+    uid: prova
+    versio: 1
+    fitxer: sda2-10-demostracio-assoliment.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  solpr:
+    uid: solpr
+    versio: 1
+    fitxer: sda2-11-solucionari-demostracio.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  diana:
+    uid: diana
+    versio: 1
+    fitxer: sda2-12-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 2
+      preguntes:
+      - uid: diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - diana.a7
+      - uid: diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El que més m'ha agradat ha estat…
+        criteris: []
+        camps:
+        - diana.a8
+      - uid: diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Per a la propera SdA, em comprometo a…
+        criteris: []
+        camps:
+        - diana.a9
+      - uid: diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - diana.a1
+        - diana.a2
+        - diana.a3
+        - diana.a4
+        - diana.a5
+        - diana.a6
+  mapa:
+    uid: mapa
+    versio: 1
+    fitxer: sda2-13-mapa-conceptual.pdf
+    titol: Mapa conceptual
+  labc:
+    uid: labc
+    versio: 1
+    fitxer: sda2-14-laboratori-corba-i-canvis-destat.pdf
+    titol: Full de laboratori
+    digital:
+      origen: auto
+      titol: Laboratori · La corba d'escalfament i els canvis d'estat
+      sda: 2
+      preguntes:
+      - uid: labc.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 A quina temperatura bull l'aigua? Es manté constant mentre bull? Per què creus que no a…
+        criteris: []
+        camps:
+        - labc.a34
+      - uid: labc.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: '2 Posa nom a les fletxes. Escriu el nom de cada canvi d''estat al costat del seu número: f…'
+        criteris: []
+        camps:
+        - labc.a35
+        - labc.a36
+        - labc.a37
+        - labc.a38
+        - labc.a39
+        - labc.a40
+      - uid: labc.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 Absorbeix o desprèn energia? Indica-ho per a cada canvi: fusió ________ · solidificació…'
+        criteris: []
+        camps:
+        - labc.a41
+        - labc.a42
+        - labc.a43
+        - labc.a44
+      - uid: labc.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Quin canvi d'estat és? a) Un glaçó es converteix en aigua dins d'un got. b) El mirall d…
+        criteris: []
+        camps:
+        - labc.a45
+      - uid: labc.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Evaporació o ebullició? La roba estesa s'asseca a 20 °C, però l'aigua de l'olla no bull…
+        criteris: []
+        camps:
+        - labc.a46
+      - uid: labc.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Explica-ho amb el model. Mentre l'aigua bull, continuem escalfant-la, però la temperatu…
+        criteris: []
+        camps:
+        - labc.a47
+        - labc.a48
+        - labc.a49
+      - uid: labc.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Aigua que bull a 50 °C. El professor posa aigua a uns 50 °C en una xeringa, la tapa i e…
+        criteris: []
+        camps:
+        - labc.a50
+      - uid: labc.P
+        id: P
+        versio: 1
+        tipus: auto
+        etiqueta: P Predicció (abans d'encendre). Dibuixa com creus que serà la gràfica temperatura–temps d…
+        criteris: []
+        camps:
+        - labc.a1
+        - labc.a2
+        - labc.a3
+        - labc.a4
+        - labc.a5
+        - labc.a6
+        - labc.a7
+        - labc.a8
+        - labc.a9
+        - labc.a10
+        - labc.a11
+        - labc.a12
+        - labc.a13
+        - labc.a14
+        - labc.a15
+        - labc.a16
+        - labc.a17
+        - labc.a18
+        - labc.a19
+        - labc.a20
+        - labc.a21
+        - labc.a22
+        - labc.a23
+        - labc.a24
+        - labc.a25
+        - labc.a26
+        - labc.a27
+        - labc.a28
+        - labc.a29
+        - labc.a30
+        - labc.a31
+        - labc.a32
+        - labc.a33
+evidencies:
+- uid: s2.prova
+  id: prova
+  versio: 1
+  titol: Activitat de demostració d'assoliment (sessions 9 i 10)
+  instruments:
+  - prova
+  - solpr
+  items:
+  - uid: s2.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · La xeringa tapada
+    criteris:
+    - '1.1'
+    - '1.2'
+  - uid: s2.prova.p2
+    id: p2
+    versio: 1
+    titol: Activitat 2 · La bomba de la bicicleta
+    criteris:
+    - '1.2'
+  - uid: s2.prova.p3
+    id: p3
+    versio: 1
+    titol: Activitat 3 · El globus del congelador
+    criteris:
+    - '1.2'
+  - uid: s2.prova.p4
+    id: p4
+    versio: 1
+    titol: Activitat 4 · La laca al costat de l'estufa
+    criteris:
+    - '1.2'
+  - uid: s2.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · La corba d'escalfament
+    criteris:
+    - '1.1'
+  - uid: s2.prova.p6
+    id: p6
+    versio: 1
+    titol: Activitat 6 · L'Everest
+    criteris:
+    - '1.2'
+- uid: s2.video
+  id: video
+  versio: 1
+  titol: Vídeo per a 1r d'ESO
+  instruments:
+  - video
+  items:
+  - uid: s2.video.v1
+    id: v1
+    versio: 1
+    titol: Explicació científica
+    criteris:
+    - '1.2'
+    descriptors:
+      AE: Explica el fenomen amb el model i relaciona bé pressió, volum i temperatura
+      AN: Explica el fenomen amb el model, amb alguna imprecisió
+      AS: Descriu el fenomen amb un ús parcial del model
+      NA: No fa servir el model o l'explicació és incorrecta
+  - uid: s2.video.v2
+    id: v2
+    versio: 1
+    titol: Adaptació al públic
+    criteris:
+    - '4.1'
+    descriptors:
+      AE: Llenguatge clar, exemples propers i suport visual
+      AN: Llenguatge clar i algun suport visual
+      AS: Llenguatge massa tècnic o poc suport visual
+      NA: No s'entén per a un alumne de 1r
+  - uid: s2.video.v3
+    id: v3
+    versio: 1
+    titol: Recursos digitals
+    criteris:
+    - '4.1'
+    descriptors:
+      AE: Imatge i so clars, 2–3 minuts, muntatge i suport visual cuidats
+      AN: Imatge i so correctes, durada adequada
+      AS: Problemes de so o d'imatge, o durada inadequada
+      NA: No es pot seguir el vídeo
+- uid: s2.expl
+  id: expl
+  versio: 1
+  titol: Explicació final del repte
+  instruments: []
+  items:
+  - uid: s2.expl.e1
+    id: e1
+    versio: 1
+    titol: Ús del model
+    criteris:
+    - '1.2'
+    descriptors:
+      AE: Explica l'augment de pressió amb el moviment i els xocs de les partícules; el dibuix ho representa bé
+      AN: Explicació correcta, dibuix amb alguna imprecisió
+      AS: Explicació parcial o dibuix que no la representa
+      NA: Explicació sense model o incorrecta
+  - uid: s2.expl.e2
+    id: e2
+    versio: 1
+    titol: Interpretació de l'etiqueta
+    criteris:
+    - '1.1'
+    descriptors:
+      AE: Interpreta l'avís i els pictogrames de l'etiqueta i en dedueix consells concrets
+      AN: Interpreta l'avís de l'etiqueta
+      AS: Esmenta l'avís sense interpretar-lo
+      NA: No interpreta l'etiqueta
