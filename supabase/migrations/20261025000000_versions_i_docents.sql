@@ -1,5 +1,5 @@
 -- =====================================================================================
--- PREPARADA · NO APLICADA. Cal revisió i aprovació explícita abans d'executar-la.
+-- APLICADA el 24/10/2026 (migració versions_i_docents), amb l'aprovació de l'usuari.
 -- Fase 2 de l'arquitectura de dades del llibre de 3r (llibre-fq3).
 --
 -- Decisió de l'usuari (24/10/2026): VARIANT A.
