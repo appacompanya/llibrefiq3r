@@ -1,0 +1,1205 @@
+# SdA 3: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 3
+versio: 2
+color: --s3
+titol: Què hi ha dins del meu mòbil?
+repte: Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?
+meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l''institut · Competències específiques avaluades: CE1, CE5 i CE6'
+publicada: true
+ce_aprovades:
+- CE1
+- CE5
+- CE6
+sessions:
+- titol: Desmuntem el mòbil
+  fase: Explorem
+  text: 'Desmuntarem un model de mòbil peça a peça i, a partir de les etiquetes tècniques, trobarem quins elements químics conté. Farem una hipòtesi: què passaria si el llencéssim al contenidor de rebuig? Presentarem el repte: un punt de recollida de mòbils a l''institut.'
+  docs:
+  - d3ruta
+  - d3f1
+  - d3rub
+  docs_professorat:
+  - d3model
+  enllacos: []
+- titol: De Dalton a Bohr
+  fase: Aprenem
+  text: Veurem com ha canviat la idea d'àtom, des de Dalton fins a Bohr. Amb els simuladors reproduirem l'experiment de Rutherford i construirem àtoms per entendre el nombre atòmic, el nombre màssic i els isòtops.
+  docs:
+  - d3f2
+  enllacos:
+  - rutherford
+  - buildatom
+- titol: Ions i el camí del reciclatge
+  fase: Aprenem
+  text: Recordarem què és un ió i veurem, amb el nostre simulador, com es mouen els ions de liti dins de la bateria. Després cada grup explicarà una etapa del camí que fa un mòbil quan es recicla.
+  docs:
+  - d3f3
+  docs_professorat:
+  - d3targ
+  enllacos:
+  - simbat
+- titol: El liti a la flama
+  fase: Experimentem
+  text: 'Començarem amb 15 minuts per recordar el que vam fer abans de les vacances. Primer veurem com es distribueixen els electrons per capes segons el model de Bohr. Després comprovarem que una sal conté liti amb l''assaig a la flama i un espectroscopi: cada element emet uns colors propis, i ho explicarem amb el model de Bohr.'
+  docs:
+  - d3lab
+  enllacos: []
+- titol: La taula periòdica
+  fase: Aprenem
+  text: Veurem com Mendeléiev va ordenar els elements i va predir-ne de nous. Situarem a la taula els elements del mòbil i descobrirem per què els elements d'un mateix grup s'assemblen.
+  docs:
+  - d3f4
+  enllacos:
+  - ptable
+- titol: L'enllaç químic
+  fase: Aprenem
+  text: Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.
+  docs:
+  - d3f5
+  enllacos:
+  - anenllac
+- titol: Per què cremen les bateries?
+  fase: Ho apliquem
+  text: Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.
+  docs:
+  - d3dos
+  enllacos:
+  - simbat
+- titol: Posem en marxa el punt de recollida
+  fase: Ho apliquem
+  text: 'Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.'
+  docs:
+  - d3camp
+  - d3mapa
+  enllacos: []
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Repassa les fitxes i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - d3prova
+  - d3solpr
+  enllacos: []
+- titol: Corregeixo i reflexiono
+  fase: Reflexionem
+  text: Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.
+  docs:
+  - d3diana
+  docs_professorat:
+  - d3solpr
+  enllacos: []
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d3amp
+  - d3solamp
+- bloc: Atenció a la diversitat · Suport manipulatiu
+  text: 'Fitxa per a l''alumnat amb NESE que necessita suport manipulatiu i visual: models de Bohr per comptar, taula periòdica simplificada i rol de registre a la campanya. Mesura addicional, amb els mateixos criteris. Inclou una nota per al professorat a l''última pàgina.'
+  docs:
+  - d3adap
+- bloc: Plantilla de la SdA
+  text: Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.
+  url: https://claude.ai/code/artifact/89fa6c85-6fc9-4921-b84f-beb3ec06f5a3
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Material per imprimir
+  text: Model de mòbil desmuntable per plastificar (sessió 1) i targetes del camí del reciclatge (sessió 3).
+  docs:
+  - d3model
+  - d3targ
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de les fitxes i del laboratori.
+  docs:
+  - d3prova
+  - d3solpr
+  - d3solf
+- bloc: Rúbriques
+  text: Campanya, presentació del reciclatge, laboratori i dossier.
+  docs:
+  - d3rub
+documents:
+  d3ruta:
+    uid: d3ruta
+    versio: 1
+    fitxer: sda3-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · Què hi ha dins del meu mòbil?
+      sda: 3
+      preguntes:
+      - uid: d3ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: Desmuntem el mòbil
+        criteris: []
+        camps:
+        - d3ruta.a1
+        - d3ruta.a2
+        - d3ruta.a3
+      - uid: d3ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: De Dalton a Bohr
+        criteris: []
+        camps:
+        - d3ruta.a4
+        - d3ruta.a5
+        - d3ruta.a6
+      - uid: d3ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: Ions i el camí del reciclatge
+        criteris: []
+        camps:
+        - d3ruta.a7
+        - d3ruta.a8
+        - d3ruta.a9
+      - uid: d3ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: El liti a la flama
+        criteris: []
+        camps:
+        - d3ruta.a10
+        - d3ruta.a11
+        - d3ruta.a12
+      - uid: d3ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: La taula periòdica
+        criteris: []
+        camps:
+        - d3ruta.a13
+        - d3ruta.a14
+        - d3ruta.a15
+      - uid: d3ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: L'enllaç químic
+        criteris: []
+        camps:
+        - d3ruta.a16
+        - d3ruta.a17
+        - d3ruta.a18
+      - uid: d3ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: Per què cremen les bateries?
+        criteris: []
+        camps:
+        - d3ruta.a19
+        - d3ruta.a20
+        - d3ruta.a21
+      - uid: d3ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Posem en marxa el punt de recollida
+        criteris: []
+        camps:
+        - d3ruta.a22
+        - d3ruta.a23
+        - d3ruta.a24
+      - uid: d3ruta.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d'assoliment
+        criteris: []
+        camps:
+        - d3ruta.a25
+        - d3ruta.a26
+        - d3ruta.a27
+      - uid: d3ruta.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: Corregeixo i reflexiono
+        criteris: []
+        camps:
+        - d3ruta.a28
+        - d3ruta.a29
+        - d3ruta.a30
+  d3model:
+    uid: d3model
+    versio: 1
+    fitxer: sda3-02-model-de-mobil-per-plastificar.pdf
+    titol: Model de mòbil per plastificar
+    professorat: true
+  d3f1:
+    uid: d3f1
+    versio: 1
+    fitxer: sda3-03-fitxa-1-desmuntem-el-mobil.pdf
+    titol: Fitxa 1
+    digital:
+      origen: auto
+      titol: Fitxa 1 · Desmuntem el mòbil
+      sda: 3
+      preguntes:
+      - uid: d3f1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Recompte. Quants elements diferents hi ha en total al mòbil? Quin element apareix a més…
+        criteris: []
+        camps:
+        - d3f1.a9
+      - uid: d3f1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Metalls i no metalls. Escriu cinc elements que siguin metalls i tres que siguin no meta…
+        criteris: []
+        camps:
+        - d3f1.a10
+      - uid: d3f1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 La bateria. Quin element dona nom a la bateria? Quines advertències porta l'etiqueta i…
+        criteris: []
+        camps:
+        - d3f1.a11
+      - uid: d3f1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Com ho podem saber? L'etiqueta diu que la bateria té liti, però no la podem obrir. Prop…
+        criteris: []
+        camps:
+        - d3f1.a15
+      - uid: d3f1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 El nostre repte. Escriviu una frase per explicar a la resta de l'institut per què val l…
+        criteris: []
+        camps:
+        - d3f1.a16
+      - uid: d3f1._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d3f1.a1
+        - d3f1.a2
+        - d3f1.a3
+        - d3f1.a4
+        - d3f1.a5
+        - d3f1.a6
+        - d3f1.a7
+        - d3f1.a8
+        - d3f1.a12
+        - d3f1.a13
+        - d3f1.a14
+  d3f2:
+    uid: d3f2
+    versio: 1
+    fitxer: sda3-04-fitxa-2-models-atomics-i-isotops.pdf
+    titol: Fitxa 2
+    digital:
+      origen: auto
+      titol: Fitxa 2 · De Dalton a Bohr
+      sda: 3
+      preguntes:
+      - uid: d3f2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 L'experiment de Rutherford. Obre la simulació «Dispersió de Rutherford». Primer tria el…
+        criteris: []
+        camps:
+        - d3f2.a13
+      - uid: d3f2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Construeix un àtom. Amb la simulació «Construeix un àtom», construeix aquests àtoms neu…
+        criteris: []
+        camps:
+        - d3f2.a23
+        - d3f2.a24
+        - d3f2.a25
+        - d3f2.a26
+        - d3f2.a27
+        - d3f2.a28
+        - d3f2.a29
+        - d3f2.a30
+        - d3f2.a31
+        - d3f2.a32
+        - d3f2.a33
+        - d3f2.a34
+        - d3f2.a35
+        - d3f2.a36
+        - d3f2.a37
+        - d3f2.a38
+        - d3f2.a39
+        - d3f2.a40
+        - d3f2.a41
+        - d3f2.a42
+        - d3f2.a43
+        - d3f2.a44
+        - d3f2.a45
+        - d3f2.a46
+        - d3f2.a47
+        - d3f2.a48
+        - d3f2.a49
+        - d3f2.a50
+        - d3f2.a51
+        - d3f2.a52
+        - d3f2.a53
+        - d3f2.a54
+        - d3f2.a55
+        - d3f2.a56
+        - d3f2.a57
+        - d3f2.a58
+      - uid: d3f2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Isòtops del liti. Quantes partícules de cada tipus té \({}^{6}_{3}\mathrm{Li}\)? En què…
+        criteris: []
+        camps:
+        - d3f2.a59
+      - uid: d3f2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Són isòtops? Indica quines parelles són isòtops i justifica-ho: a) \({}^{12}_{6}\mathrm…'
+        criteris: []
+        camps:
+        - d3f2.a60
+      - uid: d3f2._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d3f2.a1
+        - d3f2.a2
+        - d3f2.a3
+        - d3f2.a4
+        - d3f2.a5
+        - d3f2.a6
+        - d3f2.a7
+        - d3f2.a8
+        - d3f2.a9
+        - d3f2.a10
+        - d3f2.a11
+        - d3f2.a12
+        - d3f2.a14
+        - d3f2.a15
+        - d3f2.a16
+        - d3f2.a17
+        - d3f2.a18
+        - d3f2.a19
+        - d3f2.a20
+        - d3f2.a21
+        - d3f2.a22
+  d3f3:
+    uid: d3f3
+    versio: 1
+    fitxer: sda3-05-fitxa-3-ions-i-bateria.pdf
+    titol: Fitxa 3
+    digital:
+      origen: auto
+      titol: Fitxa 3 · Ions i la bateria de liti
+      sda: 3
+      preguntes:
+      - uid: d3f3.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Completa la taula.
+        criteris: []
+        camps:
+        - d3f3.a1
+        - d3f3.a2
+        - d3f3.a3
+        - d3f3.a4
+        - d3f3.a5
+        - d3f3.a6
+        - d3f3.a7
+        - d3f3.a8
+        - d3f3.a9
+        - d3f3.a10
+        - d3f3.a11
+        - d3f3.a12
+        - d3f3.a13
+        - d3f3.a14
+        - d3f3.a15
+        - d3f3.a16
+        - d3f3.a17
+        - d3f3.a18
+        - d3f3.a19
+        - d3f3.a20
+        - d3f3.a21
+        - d3f3.a22
+        - d3f3.a23
+        - d3f3.a24
+        - d3f3.a25
+        - d3f3.a26
+        - d3f3.a27
+        - d3f3.a28
+        - d3f3.a29
+        - d3f3.a30
+        - d3f3.a31
+        - d3f3.a32
+        - d3f3.a33
+        - d3f3.a34
+        - d3f3.a35
+      - uid: d3f3.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El simulador de la bateria. Prem «Fes servir el mòbil» i després «Carrega'l». Quan fas…
+        criteris: []
+        camps:
+        - d3f3.a36
+      - uid: d3f3.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 L'equació. Completa l'equació de la reacció que té lloc a l'ànode quan fem servir el mò…
+        criteris: []
+        camps:
+        - d3f3.a37
+        - d3f3.a38
+        - d3f3.a39
+      - uid: d3f3.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Durant les presentacions. Escriu una frase sobre cada etapa que expliquin els altres gr…
+        criteris: []
+        camps:
+        - d3f3.a45
+        - d3f3.a46
+        - d3f3.a47
+        - d3f3.a48
+        - d3f3.a49
+        - d3f3.a50
+      - uid: d3f3._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d3f3.a40
+        - d3f3.a41
+        - d3f3.a42
+        - d3f3.a43
+        - d3f3.a44
+  d3targ:
+    uid: d3targ
+    versio: 1
+    fitxer: sda3-06-targetes-cami-del-reciclatge.pdf
+    titol: Targetes del reciclatge
+    professorat: true
+  d3lab:
+    uid: d3lab
+    versio: 1
+    fitxer: sda3-07-laboratori-assaig-a-la-flama.pdf
+    titol: 'Laboratori: assaig a la flama'
+    digital:
+      origen: auto
+      titol: Laboratori · El liti a la flama
+      sda: 3
+      preguntes:
+      - uid: d3lab.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Dibuixa els àtoms. Dibuixa el model de Bohr del liti (Z = 3), de l'oxigen (Z = 8) i del…
+        criteris: []
+        camps:
+        - d3lab.a15
+        - d3lab.a16
+        - d3lab.a17
+        - d3lab.a18
+      - uid: d3lab.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Una pregunta per pensar. El liti i el sodi tenen 1 electró a l'última capa. Què creus q…
+        criteris: []
+        camps:
+        - d3lab.a19
+      - uid: d3lab.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 La mostra X. Quin element conté? Justifica-ho amb el color de la flama i amb les línies…
+        criteris: []
+        camps:
+        - d3lab.a20
+      - uid: d3lab.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Liti o estronci? Les flames del liti i de l'estronci són vermelles i s'assemblen molt.…
+        criteris: []
+        camps:
+        - d3lab.a21
+      - uid: d3lab.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Explica-ho amb el model. Fes un dibuix del model de Bohr per explicar per què la flama…
+        criteris: []
+        camps:
+        - d3lab.a22
+        - d3lab.a23
+      - uid: d3lab.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Elements a la flama. El liti de la sal i el de la bateria són el mateix element, encara…
+        criteris: []
+        camps:
+        - d3lab.a24
+      - uid: d3lab.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Ciència i història. Entre el 1860 i el 1861, Robert Bunsen i Gustav Kirchhoff van desco…
+        criteris: []
+        camps:
+        - d3lab.a25
+      - uid: d3lab._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d3lab.a1
+        - d3lab.a2
+        - d3lab.a3
+        - d3lab.a4
+        - d3lab.a5
+        - d3lab.a6
+        - d3lab.a7
+        - d3lab.a8
+        - d3lab.a9
+        - d3lab.a10
+        - d3lab.a11
+        - d3lab.a12
+        - d3lab.a13
+        - d3lab.a14
+  d3f4:
+    uid: d3f4
+    versio: 1
+    fitxer: sda3-08-fitxa-4-taula-periodica.pdf
+    titol: Fitxa 4
+    digital:
+      origen: auto
+      titol: Fitxa 4 · La taula periòdica
+      sda: 3
+      preguntes:
+      - uid: d3f4.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Pinta la taula. Pinta de blau els metalls, de groc els no metalls, de verd els semimeta…
+        criteris: []
+        camps:
+        - d3f4.a1
+        - d3f4.a2
+      - uid: d3f4.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 On són? Completa la taula.
+        criteris: []
+        camps:
+        - d3f4.a3
+        - d3f4.a4
+        - d3f4.a5
+        - d3f4.a6
+        - d3f4.a7
+        - d3f4.a8
+        - d3f4.a9
+        - d3f4.a10
+        - d3f4.a11
+        - d3f4.a12
+        - d3f4.a13
+        - d3f4.a14
+        - d3f4.a15
+        - d3f4.a16
+        - d3f4.a17
+        - d3f4.a18
+        - d3f4.a19
+        - d3f4.a20
+        - d3f4.a21
+        - d3f4.a22
+        - d3f4.a23
+        - d3f4.a24
+        - d3f4.a25
+        - d3f4.a26
+        - d3f4.a27
+        - d3f4.a28
+        - d3f4.a29
+        - d3f4.a30
+        - d3f4.a31
+        - d3f4.a32
+        - d3f4.a33
+        - d3f4.a34
+        - d3f4.a35
+        - d3f4.a36
+        - d3f4.a37
+        - d3f4.a38
+        - d3f4.a39
+        - d3f4.a40
+        - d3f4.a41
+        - d3f4.a42
+        - d3f4.a43
+        - d3f4.a44
+      - uid: d3f4.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Endevina l'element. Escriu el nom i el símbol. Soc al període 2 i al grup 1, i dono nom…
+        criteris: []
+        camps:
+        - d3f4.a45
+      - uid: d3f4.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 La família del liti. El liti (Li), el sodi (Na) i el potassi (K) són al grup 1. Escriu…
+        criteris: []
+        camps:
+        - d3f4.a46
+      - uid: d3f4.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: '5 Prediu l''ió. Mirant el grup, indica quin ió tendeix a formar cada element i per què: ma…'
+        criteris: []
+        camps:
+        - d3f4.a47
+  d3f5:
+    uid: d3f5
+    versio: 1
+    fitxer: sda3-09-fitxa-5-enllac-quimic.pdf
+    titol: Fitxa 5
+    digital:
+      origen: auto
+      titol: Fitxa 5 · L'enllaç químic
+      sda: 3
+      preguntes:
+      - uid: d3f5.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Un enllaç iònic pas a pas. El fluorur de liti (LiF) és un compost iònic. Escriu la dist…
+        criteris: []
+        camps:
+        - d3f5.a1
+        - d3f5.a2
+      - uid: d3f5.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Enllaços del mòbil. Indica el tipus d'enllaç de cada substància i una propietat que ho…
+        criteris: []
+        camps:
+        - d3f5.a3
+        - d3f5.a4
+        - d3f5.a5
+        - d3f5.a6
+        - d3f5.a7
+        - d3f5.a8
+        - d3f5.a9
+        - d3f5.a10
+        - d3f5.a11
+        - d3f5.a12
+        - d3f5.a13
+        - d3f5.a14
+        - d3f5.a15
+        - d3f5.a16
+      - uid: d3f5.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Raona-ho. Per què els cables i les pistes dels circuits són de coure i no de vidre? I p…
+        criteris: []
+        camps:
+        - d3f5.a17
+      - uid: d3f5.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Un cas curiós. El grafit és carboni amb enllaços covalents i, tot i això, condueix el c…
+        criteris: []
+        camps:
+        - d3f5.a18
+  d3dos:
+    uid: d3dos
+    versio: 1
+    fitxer: sda3-10-dossier-incendis-i-elements-critics.pdf
+    titol: Dossier
+    digital:
+      origen: auto
+      titol: Dossier · Per què cremen les bateries?
+      sda: 3
+      preguntes:
+      - uid: d3dos.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Analitzem les fonts. Quin tipus de font és cadascuna (oficial, organització, premsa)? Q…
+        criteris: []
+        camps:
+        - d3dos.a1
+      - uid: d3dos.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Expliqueu-ho. Amb aquesta seqüència i el que vau veure al simulador, expliqueu per què…
+        criteris: []
+        camps:
+        - d3dos.a2
+      - uid: d3dos.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Interpreteu la taula. Per què creieu que la Unió Europea considera crítics aquests mate…
+        criteris: []
+        camps:
+        - d3dos.a3
+      - uid: d3dos.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Mineria i persones. L'extracció de cobalt i de coltan a la República Democràtica del Co…
+        criteris: []
+        camps:
+        - d3dos.a4
+      - uid: d3dos.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Tres raons. Escriviu tres raons científiques, una de seguretat, una ambiental i una de…
+        criteris: []
+        camps:
+        - d3dos.a5
+  d3camp:
+    uid: d3camp
+    versio: 1
+    fitxer: sda3-11-pla-de-campanya-punt-de-recollida.pdf
+    titol: Pla de campanya
+    digital:
+      origen: auto
+      titol: Pla de campanya · Punt de recollida de mòbils
+      sda: 3
+      preguntes:
+      - uid: d3camp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Objectiu mesurable. Quants mòbils volem recollir? En quines dates? Amb quina entitat el…
+        criteris: []
+        camps:
+        - d3camp.a1
+      - uid: d3camp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: '2 Missatge. El cartell ha d''explicar en poques paraules per què cal portar el mòbil: feu…'
+        criteris: []
+        camps:
+        - d3camp.a6
+        - d3camp.a7
+      - uid: d3camp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Difusió digital. Escriviu el text (màxim 400 caràcters) que publicarem a la web o a les…
+        criteris: []
+        camps:
+        - d3camp.a8
+      - uid: d3camp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Resultats. Hem assolit l'objectiu? Representeu els mòbils recollits cada setmana en una…
+        criteris: []
+        camps:
+        - d3camp.a29
+        - d3camp.a30
+      - uid: d3camp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Hàbits. Reciclar és l'última opció. Proposeu tres hàbits que facin que un mòbil duri mé…
+        criteris: []
+        camps:
+        - d3camp.a31
+      - uid: d3camp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Millores. Què milloraríeu si el curs vinent tornéssim a organitzar la campanya? Com hi…
+        criteris: []
+        camps:
+        - d3camp.a32
+      - uid: d3camp._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d3camp.a2
+        - d3camp.a3
+        - d3camp.a4
+        - d3camp.a5
+        - d3camp.a9
+        - d3camp.a10
+        - d3camp.a11
+        - d3camp.a12
+        - d3camp.a13
+        - d3camp.a14
+        - d3camp.a15
+        - d3camp.a16
+        - d3camp.a17
+        - d3camp.a18
+        - d3camp.a19
+        - d3camp.a20
+        - d3camp.a21
+        - d3camp.a22
+        - d3camp.a23
+        - d3camp.a24
+        - d3camp.a25
+        - d3camp.a26
+        - d3camp.a27
+        - d3camp.a28
+  d3rub:
+    uid: d3rub
+    versio: 1
+    fitxer: sda3-12-rubriques.pdf
+    titol: Rúbriques
+  d3prova:
+    uid: d3prova
+    versio: 1
+    fitxer: sda3-13-prova.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  d3solpr:
+    uid: d3solpr
+    versio: 1
+    fitxer: sda3-14-solucionari-prova.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  d3solf:
+    uid: d3solf
+    versio: 1
+    fitxer: sda3-15-solucionari-fitxes.pdf
+    titol: Solucionari de les fitxes
+    professorat: true
+  d3diana:
+    uid: d3diana
+    versio: 1
+    fitxer: sda3-16-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 3
+      preguntes:
+      - uid: d3diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - d3diana.a7
+      - uid: d3diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 La meva aportació a la campanya de recollida ha estat…
+        criteris: []
+        camps:
+        - d3diana.a8
+      - uid: d3diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Per a la propera SdA, em comprometo a…
+        criteris: []
+        camps:
+        - d3diana.a9
+      - uid: d3diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - d3diana.a1
+        - d3diana.a2
+        - d3diana.a3
+        - d3diana.a4
+        - d3diana.a5
+        - d3diana.a6
+  d3mapa:
+    uid: d3mapa
+    versio: 1
+    fitxer: sda3-17-mapa-conceptual.pdf
+    titol: Mapa conceptual
+  d3amp:
+    uid: d3amp
+    versio: 1
+    fitxer: sda3-18-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 3
+      preguntes:
+      - uid: d3amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Càlcul La massa atòmica del liti. El liti natural és una mescla de dos isòtops: el liti…'
+        criteris: []
+        camps:
+        - d3amp.a1
+      - uid: d3amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Fermi Un àtom de la mida d'un estadi. El diàmetre d'un àtom és d'uns \(10^{-10}\ \mathr…
+        criteris: []
+        camps:
+        - d3amp.a2
+      - uid: d3amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Raonament Ions de la bateria i de la pantalla. Completa la taula i justifica, a partir…
+        criteris: []
+        camps:
+        - d3amp.a3
+        - d3amp.a4
+        - d3amp.a5
+        - d3amp.a6
+        - d3amp.a7
+        - d3amp.a8
+        - d3amp.a9
+        - d3amp.a10
+        - d3amp.a11
+        - d3amp.a12
+        - d3amp.a13
+        - d3amp.a14
+        - d3amp.a15
+        - d3amp.a16
+        - d3amp.a17
+        - d3amp.a18
+        - d3amp.a19
+        - d3amp.a20
+        - d3amp.a21
+        - d3amp.a22
+        - d3amp.a23
+        - d3amp.a24
+        - d3amp.a25
+      - uid: d3amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Raonament Capes d'electrons. En el model de Bohr, els electrons s'organitzen en capes:…
+        criteris: []
+        camps:
+        - d3amp.a26
+      - uid: d3amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Raonament Quin enllaç té cada material del mòbil? Per a cada material, indica el tipus…
+        criteris: []
+        camps:
+        - d3amp.a27
+        - d3amp.a28
+        - d3amp.a29
+        - d3amp.a30
+        - d3amp.a31
+        - d3amp.a32
+        - d3amp.a33
+        - d3amp.a34
+        - d3amp.a35
+      - uid: d3amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Dades Mineria urbana. Suposa que un mòbil té una massa de 150 g i conté 0,034 g d'or, i…
+        criteris: []
+        camps:
+        - d3amp.a36
+      - uid: d3amp.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Càlcul Quanta energia guarda la bateria? La bateria d'un mòbil té una capacitat de 4000…
+        criteris: []
+        camps:
+        - d3amp.a37
+  d3solamp:
+    uid: d3solamp
+    versio: 1
+    fitxer: sda3-19-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d3adap:
+    uid: d3adap
+    versio: 1
+    fitxer: sda3-20-adaptada-pi-atom-i-taula-periodica.pdf
+    titol: Dins de l'àtom i la taula periòdica · suport manipulatiu
+    professorat: true
+evidencies:
+- uid: s3.prova
+  id: prova
+  versio: 2
+  titol: Activitat de demostració d'assoliment (sessió 9)
+  instruments:
+  - d3prova
+  - d3solpr
+  items:
+  - uid: s3.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · Models atòmics
+    criteris:
+    - '6.1'
+  - uid: s3.prova.p2
+    id: p2
+    versio: 2
+    titol: Activitat 2 · Àtoms, ions i isòtops
+    criteris:
+    - '1.1'
+  - uid: s3.prova.p3
+    id: p3
+    versio: 2
+    titol: Activitat 3 · La taula periòdica
+    criteris:
+    - '1.2'
+  - uid: s3.prova.p4
+    id: p4
+    versio: 2
+    titol: Activitat 4 · El liti a la flama
+    criteris:
+    - '1.2'
+  - uid: s3.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · El mòbil al contenidor
+    criteris:
+    - '5.1'
+    - '5.2'
+  pes: 30
+- uid: s3.camp
+  id: camp
+  versio: 1
+  titol: Campanya del punt de recollida (producte final)
+  instruments:
+  - d3camp
+  items:
+  - uid: s3.camp.c1
+    id: c1
+    versio: 1
+    titol: Projecte
+    criteris:
+    - '5.4'
+    descriptors:
+      AE: Objectiu mesurable, pla complet i assolit; registre setmanal i balanç amb gràfica
+      AN: Pla complet i registre correcte; balanç sense analitzar
+      AS: Pla incomplet o registre irregular
+      NA: No hi ha pla ni registre
+  - uid: s3.camp.c2
+    id: c2
+    versio: 1
+    titol: Arguments ambientals
+    criteris:
+    - '5.1'
+    descriptors:
+      AE: Justifica amb dades per què els residus electrònics contaminen el sòl i l'aigua i esgoten recursos
+      AN: Justifica l'impacte ambiental amb algun argument científic
+      AS: Esmenta l'impacte sense justificar-lo
+      NA: No hi ha arguments ambientals
+  - uid: s3.camp.c3
+    id: c3
+    versio: 1
+    titol: Hàbits sostenibles
+    criteris:
+    - '5.2'
+    descriptors:
+      AE: Proposa hàbits concrets i justificats per allargar la vida del mòbil
+      AN: Proposa hàbits concrets
+      AS: Proposa hàbits genèrics
+      NA: No proposa hàbits
+  pes: 35
+- uid: s3.dos
+  id: dos
+  versio: 1
+  titol: 'Dossier: incendis i matèries primeres crítiques'
+  instruments:
+  - d3dos
+  items:
+  - uid: s3.dos.d1
+    id: d1
+    versio: 1
+    titol: Risc i impacte ambiental
+    criteris:
+    - '5.1'
+    descriptors:
+      AE: Explica curtcircuit, escalfament i embalament tèrmic i les conseqüències per al medi
+      AN: Explica la seqüència i alguna conseqüència
+      AS: Explicació parcial
+      NA: Explicació incorrecta
+  - uid: s3.dos.d2
+    id: d2
+    versio: 1
+    titol: Matèries primeres crítiques i consum responsable
+    criteris:
+    - '5.2'
+    descriptors:
+      AE: Relaciona les matèries primeres crítiques amb la necessitat de reciclar i de consumir menys
+      AN: Relaciona les matèries primeres crítiques amb el reciclatge
+      AS: Identifica les matèries primeres crítiques sense relacionar-los
+      NA: No ho relaciona
+  pes: 25
+- uid: s3.fit
+  id: fit
+  versio: 1
+  titol: Fitxa 2 · Evolució dels models atòmics
+  instruments: []
+  items:
+  - uid: s3.fit.f2
+    id: f2
+    versio: 1
+    titol: Línia del temps dels models i experiment de Rutherford
+    criteris:
+    - '6.1'
+  pes: 10

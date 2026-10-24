@@ -1,0 +1,12 @@
+--- functions/autocorregeix/index.ts	2026-10-24 17:51:36.440595343 +0000
++++ pending-functions/autocorregeix/index.ts	2026-10-24 20:24:08.315532964 +0000
+@@ -105,7 +105,8 @@
+       // el docent només pot corregir l'alumnat dels seus cursos
+       const { data: st } = await admin.from("profiles").select("course_id").eq("id", student_id).maybeSingle();
+       const { data: c } = st?.course_id ? await admin.from("courses").select("teacher_id").eq("id", st.course_id).maybeSingle() : { data: null };
+-      if (prof?.role !== "admin" && c?.teacher_id !== me.user.id) return json({ error: "forbidden" }, 403);
++      // variant A (PENDENT): sense excepció per a l'administrador; cal que l'alumne sigui d'un curs propi
++      if (!c || c.teacher_id !== me.user.id) return json({ error: "forbidden" }, 403);
+     }
+     if (body.action === "informe") {
+       if (!teacher || !body.student_id) return json({ error: "forbidden" }, 403);

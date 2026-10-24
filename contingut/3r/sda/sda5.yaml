@@ -1,0 +1,1453 @@
+# SdA 5: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 5
+versio: 2
+color: --s5
+titol: Cèl·lules immunitàries a la caça dels patògens
+repte: Com persegueix un neutròfil un bacteri sense veure'l?
+meta: '2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5'
+publicada: true
+ce_aprovades:
+- CE1
+- CE2
+- CE5
+sessions:
+- titol: La persecució
+  fase: Explorem
+  text: 'Veurem un vídeo real d''un neutròfil que persegueix un bacteri. Veurem també per què és tan important que les cèl·lules migrin: per defensar-nos de les infeccions, per tancar les ferides i, malauradament, en la metàstasi d''un càncer. En grup, farem una hipòtesi sobre com es mou, si fa força i com sap on és el bacteri. Rebràs les rúbriques de la SdA.'
+  docs:
+  - d5ruta
+  - d5repte
+  - d5rub
+  enllacos:
+  - rogers
+  - ferida
+  - metastasi
+- titol: El moviment uniforme (MRU)
+  fase: Aprenem
+  text: Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.
+  docs:
+  - d5f1
+  enllacos:
+  - labmru
+- titol: El moviment accelerat (MRUA)
+  fase: Aprenem
+  text: 'Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l''acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d''un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.'
+  docs:
+  - d5f2
+  enllacos:
+  - anmrua
+  - labmrua
+- titol: Les gràfiques del patinet
+  fase: Ho apliquem
+  text: Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.
+  docs:
+  - d5f3
+  enllacos:
+  - anmrua
+  - labmru
+  - labmrua
+- titol: Trajectòria i desplaçament
+  fase: Aprenem
+  text: Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell (eritròcit, 7,5 µm de diàmetre) com a escala de referència i calcularem l'augment del dibuix. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.
+  docs:
+  - d5f4
+  enllacos: []
+- titol: Problemes de moviment
+  fase: Ho apliquem
+  text: 'Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.'
+  docs:
+  - d5prob
+  enllacos: []
+- titol: Difusió i gradient
+  fase: Experimentem
+  text: 'Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l''experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l''observarem amb una simulació.'
+  docs:
+  - d5f5
+  enllacos:
+  - difusio
+- titol: Quimiotaxi i febre
+  fase: Aprenem
+  text: Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.
+  docs:
+  - d5f6q
+  enllacos:
+  - rogers
+  - febre
+- titol: Les lleis de Newton
+  fase: Aprenem
+  text: 'Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s''atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.'
+  docs:
+  - d5f6
+  enllacos:
+  - cito
+  - phetforces
+- titol: La llei de Hooke
+  fase: Experimentem
+  text: Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.
+  docs:
+  - d5hooke
+  enllacos: []
+- titol: Les cèl·lules també fan forces
+  fase: Ho apliquem
+  text: Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar l'activitat de demostració d'assoliment.
+  docs:
+  - d5tfm
+  - d5mapa
+  docs_professorat:
+  - d5lam
+  enllacos: []
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - d5prova
+  - d5solpr
+  enllacos: []
+- titol: Responc el repte i reflexiono
+  fase: Reflexionem
+  text: Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.
+  docs:
+  - d5diana
+  docs_professorat:
+  - d5solpr
+  enllacos: []
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d5amp
+  - d5solamp
+- bloc: Atenció a la diversitat · TDAH
+  text: Problemes fragmentats en targetes amb temps orientatiu, llista de passos, barra de progrés i pausa activa. Mesura addicional. Inclou una nota per al professorat a l'última pàgina.
+  docs:
+  - d5adap
+- bloc: Plantilla de la SdA
+  text: Identificació, context, elements curriculars, sessions, avaluació, diversitat, metodologia i materials.
+  url: https://claude.ai/code/artifact/0b9a0f3e-46e3-4ab7-8266-6bc37184e0f6
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Material per imprimir
+  text: Làmina A (boletes fluorescents verdes, fons fosc) en paper i làmina B (boletes magenta i contorn de la cèl·lula) en acetat transparent, per a la microscòpia de forces de tracció (sessió 11), a escala 100 %.
+  docs:
+  - d5lam
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 12, solucionari amb criteris i solucionari de les fitxes, dels problemes i del laboratori.
+  docs:
+  - d5prova
+  - d5solpr
+  - d5solf
+- bloc: Rúbriques
+  text: Full de forces cel·lulars, gràfiques del patinet i experiment de difusió.
+  docs:
+  - d5rub
+documents:
+  d5ruta:
+    uid: d5ruta
+    versio: 1
+    fitxer: sda5-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · Cèl·lules a la caça dels patògens
+      sda: 5
+      preguntes:
+      - uid: d5ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: La persecució
+        criteris: []
+        camps:
+        - d5ruta.a1
+        - d5ruta.a2
+        - d5ruta.a3
+      - uid: d5ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: El moviment uniforme (MRU)
+        criteris: []
+        camps:
+        - d5ruta.a4
+        - d5ruta.a5
+        - d5ruta.a6
+      - uid: d5ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: El moviment accelerat (MRUA)
+        criteris: []
+        camps:
+        - d5ruta.a7
+        - d5ruta.a8
+        - d5ruta.a9
+      - uid: d5ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: Les gràfiques del patinet
+        criteris: []
+        camps:
+        - d5ruta.a10
+        - d5ruta.a11
+        - d5ruta.a12
+      - uid: d5ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: Trajectòria i desplaçament
+        criteris: []
+        camps:
+        - d5ruta.a13
+        - d5ruta.a14
+        - d5ruta.a15
+      - uid: d5ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: Problemes de moviment
+        criteris: []
+        camps:
+        - d5ruta.a16
+        - d5ruta.a17
+        - d5ruta.a18
+      - uid: d5ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: Difusió i gradient
+        criteris: []
+        camps:
+        - d5ruta.a19
+        - d5ruta.a20
+        - d5ruta.a21
+      - uid: d5ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Quimiotaxi i febre
+        criteris: []
+        camps:
+        - d5ruta.a22
+        - d5ruta.a23
+        - d5ruta.a24
+      - uid: d5ruta.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: Les lleis de Newton
+        criteris: []
+        camps:
+        - d5ruta.a25
+        - d5ruta.a26
+        - d5ruta.a27
+      - uid: d5ruta.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: La llei de Hooke
+        criteris: []
+        camps:
+        - d5ruta.a28
+        - d5ruta.a29
+        - d5ruta.a30
+      - uid: d5ruta.11
+        id: '11'
+        versio: 1
+        tipus: auto
+        etiqueta: Les cèl·lules també fan forces
+        criteris: []
+        camps:
+        - d5ruta.a31
+        - d5ruta.a32
+        - d5ruta.a33
+      - uid: d5ruta.12
+        id: '12'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d'assoliment
+        criteris: []
+        camps:
+        - d5ruta.a34
+        - d5ruta.a35
+        - d5ruta.a36
+      - uid: d5ruta.13
+        id: '13'
+        versio: 1
+        tipus: auto
+        etiqueta: Responc el repte i reflexiono
+        criteris: []
+        camps:
+        - d5ruta.a37
+        - d5ruta.a38
+        - d5ruta.a39
+  d5repte:
+    uid: d5repte
+    versio: 1
+    fitxer: sda5-02-full-del-repte.pdf
+    titol: Full del repte
+    digital:
+      origen: auto
+      titol: Full del repte · La persecució
+      sda: 5
+      preguntes:
+      - uid: d5repte.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Primeres impressions. Descriu el que fa la cèl·lula gran (el neutròfil) i el que fa el…
+        criteris: []
+        camps:
+        - d5repte.a1
+      - uid: d5repte.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Discutiu-ho en grup. Una cèl·lula no té potes, ni aletes, ni ulls. Parleu d'aquestes tr…
+        criteris: []
+        camps:
+        - d5repte.a8
+      - uid: d5repte.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 La persecució explicada amb física. Fes servir tres idees de la SdA: la velocitat del n…'
+        criteris: []
+        camps:
+        - d5repte.a9
+      - uid: d5repte._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d5repte.a2
+        - d5repte.a3
+        - d5repte.a4
+        - d5repte.a5
+        - d5repte.a6
+        - d5repte.a7
+  d5f1:
+    uid: d5f1
+    versio: 1
+    fitxer: sda5-03-fitxa-1-mru.pdf
+    titol: Fitxa 1
+    digital:
+      origen: auto
+      titol: Fitxa 1 · El moviment rectilini uniforme (MRU)
+      sda: 5
+      preguntes:
+      - uid: d5f1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El cotxe. a) Quina distància recorre cada segon? b) Calcula la velocitat en m s i en km…
+        criteris: []
+        camps:
+        - d5f1.a1
+        - d5f1.a2
+      - uid: d5f1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 La moto. Compara-la amb el cotxe. La distància que recorre cada segon és sempre la mate…
+        criteris: []
+        camps:
+        - d5f1.a3
+      - uid: d5f1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 El patinet. Un patinet circula a 18 km h . a) Expressa la velocitat en m s . b) Quina d…
+        criteris: []
+        camps:
+        - d5f1.a4
+      - uid: d5f1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 L'equació de posició. Un autobús passa pel punt x = 50 m a 36 km h i manté la velocitat…
+        criteris: []
+        camps:
+        - d5f1.a5
+      - uid: d5f1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Moto o cotxe? Una moto a 72 km h i un cotxe a 54 km h han de recórrer 3 km per una carr…
+        criteris: []
+        camps:
+        - d5f1.a6
+      - uid: d5f1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Llegeix la gràfica. La gràfica mostra la posició de tres vehicles, A, B i C. a) Quin va…
+        criteris: []
+        camps:
+        - d5f1.a7
+  d5f2:
+    uid: d5f2
+    versio: 1
+    fitxer: sda5-04-fitxa-2-mrua.pdf
+    titol: Fitxa 2
+    digital:
+      origen: auto
+      titol: Fitxa 2 · El moviment rectilini uniformement accelerat (MRUA)
+      sda: 5
+      preguntes:
+      - uid: d5f2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 La moto del semàfor. Una moto surt del repòs quan el semàfor es posa verd, amb una acce…
+        criteris: []
+        camps:
+        - d5f2.a1
+      - uid: d5f2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Una gràfica velocitat-temps. La gràfica mostra la velocitat d'un cotxe que surt d'un pà…
+        criteris: []
+        camps:
+        - d5f2.a2
+      - uid: d5f2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Frenada. Un patinet que va a 6 m s frena i s'atura en 3 s. a) Calcula l'acceleració. Pe…
+        criteris: []
+        camps:
+        - d5f2.a3
+      - uid: d5f2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Per què 30 km h a prop de les escoles? Un cotxe frena amb una acceleració de −5 m s² .…
+        criteris: []
+        camps:
+        - d5f2.a4
+      - uid: d5f2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: '5 Quin moviment és? Indica si cada situació és un MRU, un MRUA o cap dels dos: a) un pati…'
+        criteris: []
+        camps:
+        - d5f2.a5
+  d5f3:
+    uid: d5f3
+    versio: 1
+    fitxer: sda5-05-fitxa-3-grafiques-del-patinet.pdf
+    titol: 'Fitxa 3: gràfiques'
+    digital:
+      origen: auto
+      titol: Fitxa 3 · Les gràfiques del patinet
+      sda: 5
+      preguntes:
+      - uid: d5f3.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Velocitat al final del tram 1 i temps de frenada del tram 3. Quant dura el trajecte sen…
+        criteris: []
+        camps:
+        - d5f3.a1
+      - uid: d5f3.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Completa la taula. Fes servir l'equació adequada a cada tram. En el tram 3, compta el t…
+        criteris: []
+        camps:
+        - d5f3.a2
+        - d5f3.a3
+        - d5f3.a4
+        - d5f3.a5
+        - d5f3.a6
+        - d5f3.a7
+        - d5f3.a8
+        - d5f3.a9
+        - d5f3.a10
+        - d5f3.a11
+        - d5f3.a12
+        - d5f3.a13
+        - d5f3.a14
+        - d5f3.a15
+        - d5f3.a16
+        - d5f3.a17
+        - d5f3.a18
+        - d5f3.a19
+      - uid: d5f3.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Gràfica posició-temps. Tria l'escala de l'eix vertical, posa-hi els valors i dibuixa la…
+        criteris: []
+        camps:
+        - d5f3.a20
+      - uid: d5f3.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Gràfica velocitat-temps. Dibuixa la gràfica v–t.
+        criteris: []
+        camps:
+        - d5f3.a21
+      - uid: d5f3.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Els pendents. Calcula el pendent de la gràfica v–t en cada tram. Quina magnitud represe…
+        criteris: []
+        camps:
+        - d5f3.a22
+      - uid: d5f3.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Interpreta. Per què la gràfica x–t és una corba en els trams 1 i 3 i una recta en el tr…
+        criteris: []
+        camps:
+        - d5f3.a23
+  d5f4:
+    uid: d5f4
+    versio: 1
+    fitxer: sda5-06-fitxa-4-trajectoria.pdf
+    titol: Fitxa 4
+    digital:
+      origen: auto
+      titol: Fitxa 4 · La mida de les cèl·lules i la trajectòria del neutròfil
+      sda: 5
+      preguntes:
+      - uid: d5f4.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Quina mida tenen? Aquest és un esquema d'una extensió de sang vista al microscopi. Dada…
+        criteris: []
+        camps:
+        - d5f4.a1
+        - d5f4.a2
+        - d5f4.a3
+        - d5f4.a4
+        - d5f4.a5
+        - d5f4.a6
+        - d5f4.a7
+        - d5f4.a8
+      - uid: d5f4.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 L'escala. Mesura la barra d'escala amb el regle. Quants µm representa 1 mm de la imatge?
+        criteris: []
+        camps:
+        - d5f4.a9
+      - uid: d5f4.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 La trajectòria. Uneix les creus amb segments rectes, en ordre. Mesura cada segment en m…
+        criteris: []
+        camps:
+        - d5f4.a10
+        - d5f4.a11
+        - d5f4.a12
+        - d5f4.a13
+        - d5f4.a14
+        - d5f4.a15
+        - d5f4.a16
+        - d5f4.a17
+        - d5f4.a18
+        - d5f4.a19
+        - d5f4.a20
+        - d5f4.a21
+      - uid: d5f4.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 El desplaçament. Dibuixa amb un altre color el vector desplaçament entre t = 0 i t = 5…
+        criteris: []
+        camps:
+        - d5f4.a22
+        - d5f4.a23
+      - uid: d5f4.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Rapidesa i velocitat mitjanes. Calcula la rapidesa mitjana i el mòdul de la velocitat m…
+        criteris: []
+        camps:
+        - d5f4.a24
+      - uid: d5f4.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 En quin interval s'ha mogut més de pressa? Com ho saps?
+        criteris: []
+        camps:
+        - d5f4.a25
+      - uid: d5f4.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Quant triga? Si el bacteri és a 120 µm i el neutròfil s'hi dirigeix en línia recta a la…
+        criteris: []
+        camps:
+        - d5f4.a26
+      - uid: d5f4.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Model o realitat? El moviment del neutròfil és un MRU o un MRUA? Justifica-ho amb les t…
+        criteris: []
+        camps:
+        - d5f4.a27
+  d5f5:
+    uid: d5f5
+    versio: 1
+    fitxer: sda5-07-fitxa-5-difusio-i-gradient.pdf
+    titol: 'Fitxa 5: difusió i gradient'
+    digital:
+      origen: auto
+      titol: Fitxa 5 · Difusió i gradient
+      sda: 5
+      preguntes:
+      - uid: d5f5.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Pregunta i hipòtesi. Quina pregunta volem respondre? Quin resultat esperes i per què? F…
+        criteris: []
+        camps:
+        - d5f5.a1
+      - uid: d5f5.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Variables. Completa la taula.
+        criteris: []
+        camps:
+        - d5f5.a2
+        - d5f5.a3
+        - d5f5.a4
+      - uid: d5f5.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Procediment. Escriu els passos de manera que només variï la temperatura (variable indep…
+        criteris: []
+        camps:
+        - d5f5.a5
+        - d5f5.a6
+        - d5f5.a7
+        - d5f5.a8
+        - d5f5.a9
+        - d5f5.a10
+        - d5f5.a11
+        - d5f5.a12
+        - d5f5.a13
+        - d5f5.a14
+      - uid: d5f5.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Conclusió i límits. Es confirma la hipòtesi? La tinta, a més de difondre's, cau perquè…
+        criteris: []
+        camps:
+        - d5f5.a15
+      - uid: d5f5.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Calcula un gradient. Un grup de bacteris allibera pèptids que es difonen. Aquesta taula…
+        criteris: []
+        camps:
+        - d5f5.a16
+      - uid: d5f5.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 La simulació. Obre la simulació PhET «Difusió». Posa partícules només a la meitat esque…
+        criteris: []
+        camps:
+        - d5f5.a17
+  d5f6q:
+    uid: d5f6q
+    versio: 1
+    fitxer: sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf
+    titol: 'Fitxa 6: quimiotaxi, febre i salut'
+    digital:
+      origen: auto
+      titol: Fitxa 6 · Quimiotaxi, febre i salut
+      sda: 5
+      preguntes:
+      - uid: d5f6q.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Respon la pregunta del títol. Com sap el neutròfil on és el bacteri, si no té ulls?
+        criteris: []
+        camps:
+        - d5f6q.a1
+      - uid: d5f6q.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Tornem a mirar el vídeo. Mireu una altra vegada el vídeo de la sessió 1 (el neutròfil q…
+        criteris: []
+        camps:
+        - d5f6q.a2
+      - uid: d5f6q.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Llegeix la gràfica. Quina velocitat tenen les cèl·lules a 35 °C i a 39 °C? Calcula el p…
+        criteris: []
+        camps:
+        - d5f6q.a3
+      - uid: d5f6q.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Prediu. Amb febre, la temperatura del cos pot passar de 37 °C a 39,5 °C. Quant augmenta…
+        criteris: []
+        camps:
+        - d5f6q.a4
+      - uid: d5f6q.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 La febre i la salut. Explica dues maneres en què la febre ajuda les cèl·lules immunitàr…
+        criteris: []
+        camps:
+        - d5f6q.a5
+      - uid: d5f6q.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: '6 Causa o conseqüència? Un company diu: «Estic malalt perquè tinc febre.» Té raó? La febr…'
+        criteris: []
+        camps:
+        - d5f6q.a6
+      - uid: d5f6q.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Fisiològic o patològic? Explica amb les teves paraules la diferència entre les condicio…
+        criteris: []
+        camps:
+        - d5f6q.a7
+      - uid: d5f6q.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Malaltia o símptoma? Marca amb una creu. Situació Malaltia Símptoma Grip Febre Tos Pneu…
+        criteris: []
+        camps:
+        - d5f6q.a8
+        - d5f6q.a9
+        - d5f6q.a10
+        - d5f6q.a11
+        - d5f6q.a12
+        - d5f6q.a13
+        - d5f6q.a14
+        - d5f6q.a15
+        - d5f6q.a16
+        - d5f6q.a17
+        - d5f6q.a18
+        - d5f6q.a19
+      - uid: d5f6q.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: 9 Ampliació (opcional). Compte amb les comparacions. A la fitxa 5, la tinta es difon més…
+        criteris: []
+        camps:
+        - d5f6q.a20
+  d5prob:
+    uid: d5prob
+    versio: 1
+    fitxer: sda5-09-problemes-de-moviment.pdf
+    titol: Problemes
+    digital:
+      origen: auto
+      titol: Problemes de moviment · MRU i MRUA
+      sda: 5
+      preguntes:
+      - uid: d5prob.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El carril bici. Un patinet circula a 5 m s . Quina distància recorre en 3 minuts? Quant…
+        criteris: []
+        camps:
+        - d5prob.a1
+      - uid: d5prob.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Trobada. Dos patinets surten alhora de dos punts separats 300 m i van l'un cap a l'altr…
+        criteris: []
+        camps:
+        - d5prob.a2
+      - uid: d5prob.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 L'autobús i la bicicleta. Un autobús passa per una parada a 10 m s constants. En aquell…
+        criteris: []
+        camps:
+        - d5prob.a3
+      - uid: d5prob.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 El metro arrenca. Un tren de metro surt de l'estació amb una acceleració d'1 m s² fins…
+        criteris: []
+        camps:
+        - d5prob.a4
+      - uid: d5prob.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 El metro frena. El mateix tren va a 20 m s i s'atura a la següent estació en 25 s. a) C…
+        criteris: []
+        camps:
+        - d5prob.a5
+      - uid: d5prob.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Una gràfica. Un patinet passa de 0 a 4 m s en 2 s, manté aquesta velocitat 6 s i frena…
+        criteris: []
+        camps:
+        - d5prob.a6
+        - d5prob.a7
+      - uid: d5prob.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 La persecució. Un neutròfil és a 120 µm d'un bacteri i s'hi dirigeix en línia recta a 1…
+        criteris: []
+        camps:
+        - d5prob.a8
+      - uid: d5prob.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Repte. Un neutròfil persegueix un bacteri que s'allunya a 2 µm min . El neutròfil va a…
+        criteris: []
+        camps:
+        - d5prob.a9
+  d5f6:
+    uid: d5f6
+    versio: 1
+    fitxer: sda5-10-fitxa-7-newton-i-citoesquelet.pdf
+    titol: Fitxa 7 · Newton i citoesquelet
+    digital:
+      origen: auto
+      titol: Fitxa 7 · Les lleis de Newton i el citoesquelet
+      sda: 5
+      preguntes:
+      - uid: d5f6.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Quina llei és? Indica quina llei explica cada situació: a) quan el patinet frena de cop…'
+        criteris: []
+        camps:
+        - d5f6.a1
+      - uid: d5f6.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 La força de frenada. Un patinet i el seu conductor tenen una massa total de 80 kg i fre…
+        criteris: []
+        camps:
+        - d5f6.a2
+      - uid: d5f6.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Acció i reacció a la cèl·lula. Dibuixa un neutròfil sobre una superfície. Representa am…
+        criteris: []
+        camps:
+        - d5f6.a3
+        - d5f6.a4
+      - uid: d5f6.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Accelerar. Un patinet amb el conductor (80 kg en total) passa de 0 a 6 m s en 4 s. a) C…
+        criteris: []
+        camps:
+        - d5f6.a5
+      - uid: d5f6.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Per què la cèl·lula s'atura de cop? Quan un patinet deixa d'impulsar-se, continua avanç…
+        criteris: []
+        camps:
+        - d5f6.a6
+      - uid: d5f6.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Relaciona cada component amb la seva funció. Escriu la lletra al costat del número. Com…
+        criteris: []
+        camps:
+        - d5f6.a7
+        - d5f6.a8
+        - d5f6.a9
+        - d5f6.a10
+      - uid: d5f6.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Acció i reacció a l'adhesió focal. Observa la vista lateral. Quina estructura de la cèl…
+        criteris: []
+        camps:
+        - d5f6.a11
+      - uid: d5f6.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Unitat estructural i funcional. Diem que la cèl·lula és la unitat estructural i funcion…
+        criteris: []
+        camps:
+        - d5f6.a12
+  d5hooke:
+    uid: d5hooke
+    versio: 1
+    fitxer: sda5-11-laboratori-llei-de-hooke.pdf
+    titol: Laboratori de Hooke
+    digital:
+      origen: auto
+      titol: Laboratori · La llei de Hooke
+      sda: 5
+      preguntes:
+      - uid: d5hooke.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Dades de la demostració. Copia les masses penjades i els allargaments que anotem a la p…
+        criteris: []
+        camps:
+        - d5hooke.a1
+        - d5hooke.a2
+        - d5hooke.a3
+        - d5hooke.a4
+        - d5hooke.a5
+        - d5hooke.a6
+        - d5hooke.a7
+        - d5hooke.a8
+        - d5hooke.a9
+        - d5hooke.a10
+        - d5hooke.a11
+        - d5hooke.a12
+        - d5hooke.a13
+        - d5hooke.a14
+        - d5hooke.a15
+        - d5hooke.a16
+        - d5hooke.a17
+        - d5hooke.a18
+        - d5hooke.a19
+        - d5hooke.a20
+        - d5hooke.a21
+        - d5hooke.a22
+        - d5hooke.a23
+        - d5hooke.a24
+        - d5hooke.a25
+        - d5hooke.a26
+        - d5hooke.a27
+        - d5hooke.a28
+        - d5hooke.a29
+        - d5hooke.a30
+      - uid: d5hooke.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 La gràfica. Representa la força (eix vertical) en funció de l'allargament (eix horitzon…
+        criteris: []
+        camps:
+        - d5hooke.a31
+      - uid: d5hooke.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 La constant elàstica. Quina forma té la gràfica? Calcula''n el pendent: és la constant e…'
+        criteris: []
+        camps:
+        - d5hooke.a32
+      - uid: d5hooke.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Una força desconeguda. Pengem un objecte a la molla i s'allarga _____ cm. Quin pes té?…
+        criteris: []
+        camps:
+        - d5hooke.a33
+        - d5hooke.a34
+      - uid: d5hooke.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Límits. Què passaria si hi pengéssim una massa molt gran? La llei de Hooke es compliria…
+        criteris: []
+        camps:
+        - d5hooke.a35
+      - uid: d5hooke.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Cap a la sessió 11. Si posem una cèl·lula damunt d'un gel molt tou que es comporta com…
+        criteris: []
+        camps:
+        - d5hooke.a36
+  d5tfm:
+    uid: d5tfm
+    versio: 1
+    fitxer: sda5-12-forces-cellulars.pdf
+    titol: Full de forces cel·lulars
+    digital:
+      origen: auto
+      titol: Les cèl·lules també fan forces
+      sda: 5
+      preguntes:
+      - uid: d5tfm.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Superposa les làmines. Posa l'acetat (B, boletes magenta) damunt del paper (A, boletes…
+        criteris: []
+        camps:
+        - d5tfm.a1
+      - uid: d5tfm.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Mesura els desplaçaments. Dibuixa a l'acetat, amb retolador permanent, una fletxa des d…
+        criteris: []
+        camps:
+        - d5tfm.a2
+        - d5tfm.a3
+        - d5tfm.a4
+        - d5tfm.a5
+        - d5tfm.a6
+        - d5tfm.a7
+        - d5tfm.a8
+        - d5tfm.a9
+        - d5tfm.a10
+        - d5tfm.a11
+        - d5tfm.a12
+        - d5tfm.a13
+        - d5tfm.a14
+        - d5tfm.a15
+        - d5tfm.a16
+        - d5tfm.a17
+        - d5tfm.a18
+        - d5tfm.a19
+        - d5tfm.a20
+        - d5tfm.a21
+        - d5tfm.a22
+        - d5tfm.a23
+        - d5tfm.a24
+        - d5tfm.a25
+        - d5tfm.a26
+        - d5tfm.a27
+        - d5tfm.a28
+        - d5tfm.a29
+        - d5tfm.a30
+        - d5tfm.a31
+        - d5tfm.a32
+      - uid: d5tfm.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Els vectors. Dibuixa a escala, sobre l'esquema, el vector força que fa la cèl·lula a ca…
+        criteris: []
+        camps:
+        - d5tfm.a33
+        - d5tfm.a34
+      - uid: d5tfm.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 La força resultant. Suma gràficament els sis vectors (col·loca'ls un a continuació de l…
+        criteris: []
+        camps:
+        - d5tfm.a35
+      - uid: d5tfm.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Acció i reacció. La cèl·lula estira el gel cap a ella. Segons la tercera llei de Newton…
+        criteris: []
+        camps:
+        - d5tfm.a36
+      - uid: d5tfm.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Petit però molt. Suma els mòduls de les sis forces. Quantes cèl·lules com aquesta caldr…
+        criteris: []
+        camps:
+        - d5tfm.a37
+      - uid: d5tfm.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Ciència i salut. Recorda els tres vídeos de la sessió 1. Per a cada procés, explica per…
+        criteris: []
+        camps:
+        - d5tfm.a38
+  d5lam:
+    uid: d5lam
+    versio: 1
+    fitxer: sda5-13-lamines-forces-de-traccio.pdf
+    titol: Làmines A i B
+    professorat: true
+  d5rub:
+    uid: d5rub
+    versio: 1
+    fitxer: sda5-14-rubriques.pdf
+    titol: Rúbriques
+  d5prova:
+    uid: d5prova
+    versio: 1
+    fitxer: sda5-15-prova.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  d5solpr:
+    uid: d5solpr
+    versio: 1
+    fitxer: sda5-16-solucionari-prova.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  d5solf:
+    uid: d5solf
+    versio: 1
+    fitxer: sda5-17-solucionari-fitxes.pdf
+    titol: Solucionari de les fitxes
+    professorat: true
+  d5diana:
+    uid: d5diana
+    versio: 1
+    fitxer: sda5-18-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 5
+      preguntes:
+      - uid: d5diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - d5diana.a7
+      - uid: d5diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Una cosa que m'ha sorprès de les cèl·lules és…
+        criteris: []
+        camps:
+        - d5diana.a8
+      - uid: d5diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Per a la propera SdA, em comprometo a…
+        criteris: []
+        camps:
+        - d5diana.a9
+      - uid: d5diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - d5diana.a1
+        - d5diana.a2
+        - d5diana.a3
+        - d5diana.a4
+        - d5diana.a5
+        - d5diana.a6
+  d5mapa:
+    uid: d5mapa
+    versio: 1
+    fitxer: sda5-19-mapa-conceptual.pdf
+    titol: Mapa conceptual
+  d5amp:
+    uid: d5amp
+    versio: 1
+    fitxer: sda5-20-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 5
+      preguntes:
+      - uid: d5amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Càlcul Trobada a la carretera. Un cotxe surt del poble A a 72 km h en direcció al poble…
+        criteris: []
+        camps:
+        - d5amp.a1
+        - d5amp.a2
+      - uid: d5amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Càlcul La persecució microscòpica. Un neutròfil es mou a 14 µm min cap a un bacteri que…
+        criteris: []
+        camps:
+        - d5amp.a3
+      - uid: d5amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Càlcul Distància d'aturada i mòbil al volant. En un MRUA també es compleix \(v^{2} = v_…
+        criteris: []
+        camps:
+        - d5amp.a4
+      - uid: d5amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Càlcul Caiguda lliure. Deixem caure una pilota des d'una finestra a 20 m d'altura. Negl…
+        criteris: []
+        camps:
+        - d5amp.a5
+      - uid: d5amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Càlcul La segona llei de Newton en un cotxe. Un cotxe de 1200 kg passa de 0 a 100 km h…
+        criteris: []
+        camps:
+        - d5amp.a6
+      - uid: d5amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Raonament Molles en sèrie i en paral·lel. Tenim dues molles iguals de constant \(k = 40…
+        criteris: []
+        camps:
+        - d5amp.a7
+      - uid: d5amp.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Dades Microscòpia de forces de tracció. Una cèl·lula estira un gel tou on hi ha boletes…
+        criteris: []
+        camps:
+        - d5amp.a8
+      - uid: d5amp.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Dades L'àrea sota la gràfica. La gràfica mostra la velocitat d'un patinet. En una gràfi…
+        criteris: []
+        camps:
+        - d5amp.a9
+  d5solamp:
+    uid: d5solamp
+    versio: 1
+    fitxer: sda5-21-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d5adap:
+    uid: d5adap
+    versio: 1
+    fitxer: sda5-22-adaptada-tdah-problemes-de-moviment.pdf
+    titol: Problemes de moviment un a un · TDAH
+    professorat: true
+evidencies:
+- uid: s5.prova
+  id: prova
+  versio: 1
+  titol: Activitat de demostració d'assoliment (sessió 12)
+  instruments:
+  - d5prova
+  - d5solpr
+  items:
+  - uid: s5.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · Un macròfag en moviment
+    criteris:
+    - '1.3'
+  - uid: s5.prova.p2
+    id: p2
+    versio: 1
+    titol: Activitat 2 · La gràfica d'un patinet
+    criteris:
+    - '1.1'
+  - uid: s5.prova.p3
+    id: p3
+    versio: 1
+    titol: Activitat 3 · Atrapa'l
+    criteris:
+    - '1.2'
+  - uid: s5.prova.p4
+    id: p4
+    versio: 1
+    titol: Activitat 4 · La febre i els neutròfils
+    criteris:
+    - '1.1'
+    - '5.3'
+  - uid: s5.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · Les cèl·lules també fan forces
+    criteris:
+    - '1.2'
+    - '5.3'
+  pes: 30
+- uid: s5.tfm
+  id: tfm
+  versio: 1
+  titol: Full de forces cel·lulars (grup)
+  instruments:
+  - d5tfm
+  items:
+  - uid: s5.tfm.t1
+    id: t1
+    versio: 1
+    titol: Mesura i càlcul de les forces
+    criteris:
+    - '1.3'
+    descriptors:
+      AE: Mesura els sis desplaçaments, aplica l'escala i F = k·Δx sense errors i dibuixa els vectors a escala
+      AN: Mesures i càlculs correctes amb algun error menor
+      AS: Mesures o càlculs amb errors importants
+      NA: No aplica el procediment
+  - uid: s5.tfm.t2
+    id: t2
+    versio: 1
+    titol: Explicació amb les lleis de Newton
+    criteris:
+    - '1.2'
+    descriptors:
+      AE: Explica la direcció de les forces, l'equilibri (resultant nul·la) i com la cèl·lula avança amb la tercera llei
+      AN: Explica la direcció i l'equilibri
+      AS: Explicació parcial
+      NA: No relaciona les forces amb les lleis de Newton
+  - uid: s5.tfm.t3
+    id: t3
+    versio: 1
+    titol: Ciència i salut
+    criteris:
+    - '5.3'
+    descriptors:
+      AE: Relaciona les forces cel·lulars amb la immunitat, la cicatrització i la metàstasi, i ho justifica
+      AN: Relaciona les forces cel·lulars amb algun procés de salut
+      AS: Esmenta la salut sense justificar-ho
+      NA: No relaciona les forces amb la salut
+  pes: 30
+- uid: s5.graf
+  id: graf
+  versio: 1
+  titol: Gràfiques del patinet (fitxa 3, sessió 4)
+  instruments: []
+  items:
+  - uid: s5.graf.g1
+    id: g1
+    versio: 1
+    titol: Taula i gràfiques
+    criteris:
+    - '1.1'
+    descriptors:
+      AE: Taula completa; gràfiques amb magnituds, unitats, escala adequada i forma correcta de cada tram
+      AN: Taula i gràfiques correctes amb algun element que falta
+      AS: Errors d'escala, de forma o de càlcul
+      NA: Sense taula o gràfiques
+  - uid: s5.graf.g2
+    id: g2
+    versio: 1
+    titol: Interpretació dels pendents
+    criteris:
+    - '1.1'
+    descriptors:
+      AE: Calcula els pendents i els interpreta com a acceleració i velocitat
+      AN: Calcula els pendents correctament
+      AS: Calcula algun pendent
+      NA: No calcula els pendents
+  pes: 15
+- uid: s5.febre
+  id: febre
+  versio: 1
+  titol: La febre i la migració (fitxa 6, sessió 8)
+  instruments: []
+  items:
+  - uid: s5.febre.f1
+    id: f1
+    versio: 1
+    titol: Interpretació de la gràfica
+    criteris:
+    - '1.1'
+    descriptors:
+      AE: Llegeix la gràfica, calcula el pendent amb unitats i fa la predicció correctament
+      AN: Calcula el pendent i fa la predicció amb algun error
+      AS: Llegeix la gràfica però no calcula el pendent
+      NA: No interpreta la gràfica
+  - uid: s5.febre.f2
+    id: f2
+    versio: 1
+    titol: Febre i salut
+    criteris:
+    - '5.3'
+    descriptors:
+      AE: Explica que la febre accelera la migració i millora l'adhesió de les cèl·lules immunitàries, i distingeix aquest mecanisme de la difusió
+      AN: Explica que la febre ajuda la defensa
+      AS: Resposta parcial
+      NA: No ho relaciona amb la salut
+  pes: 10
+- uid: s5.difu
+  id: difu
+  versio: 1
+  titol: Laboratori de difusió (fitxa 5, sessió 7)
+  instruments:
+  - d5f5
+  items:
+  - uid: s5.difu.x1
+    id: x1
+    versio: 1
+    titol: Disseny de l'experiment
+    criteris:
+    - '2.2'
+    descriptors:
+      AE: Formula una pregunta i una hipòtesi contrastables, identifica la variable independent, la dependent i les controlades i escriu un procediment on només varia la temperatura
+      AN: Identifica les variables i escriu un procediment amb algun control que falta
+      AS: Procediment incomplet o variables confoses
+      NA: No dissenya l'experiment
+  - uid: s5.difu.x2
+    id: x2
+    versio: 1
+    titol: Conclusions i límits
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Treu una conclusió coherent amb les dades, diu si es confirma la hipòtesi i proposa una millora tenint en compte els límits (la tinta també cau per gravetat)
+      AN: Treu una conclusió coherent i diu si es confirma la hipòtesi
+      AS: Conclusió poc relacionada amb les dades
+      NA: Sense conclusió
+  pes: 15

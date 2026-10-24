@@ -1,0 +1,1748 @@
+{
+ "generat_per": "tools/3r/build_dades.py --mapa",
+ "font": "contingut/3r (font única)",
+ "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar.",
+ "competencies": {
+  "CE1": "Interpretar fenòmens de la naturalesa, predient i argumentant-ne el comportament a partir de models, lleis i teories propis de la física i química per apropiar-se de conceptes i processos propis de la ciència.",
+  "CE2": "Dissenyar, desenvolupar i comunicar el plantejament i les conclusions de recerques incloent la formulació de preguntes i d'hipòtesis i la seva contrastació experimental, dins de l'àmbit escolar, seguint els passos de les metodologies pròpies de la ciència, com l'experimentació i la cerca d'evidències, i del pensament computacional cooperant, quan calgui, per indagar en aspectes relacionats amb la física i la química.",
+  "CE3": "Generar, interpretar i validar dades i informació en diferents formats i fonts, fent servir de manera adient el llenguatge científic específic de la física i la química, i usar de manera responsable i segura el material de laboratori, per valorar el llenguatge científic com a eina universal de comunicació i intercanvi de coneixement.",
+  "CE4": "Utilitzar de forma crítica i eficient plataformes tecnològiques i recursos variats, tant per al treball individual com en equip, per a la cerca d'informació, la creació de materials i la comunicació fonamentada en coneixements de la física i la química, entorn de fenòmens i qüestions ecosocialment rellevants.",
+  "CE5": "Analitzar els efectes de determinades accions sobre el medi ambient i la salut, basant-se en els fonaments de les ciències físiques i químiques, per fer propostes d'acció per decidir de manera informada en problemàtiques actuals i adoptar hàbits que minimitzin els impactes mediambientals, que siguin compatibles amb un desenvolupament sostenible i que permetin mantenir i millorar la salut individual i col·lectiva.",
+  "CE6": "Interpretar i valorar la ciència com una construcció col·lectiva en continu canvi i evolució, que requereix la interacció amb la resta de la societat per generar millores que repercuteixin en l'avenç tecnològic, econòmic, ambiental i social."
+ },
+ "criteris": {
+  "1.1": {
+   "ce": "CE1",
+   "nom_curt": "Analitzar conceptes i processos",
+   "text": "Analitzar conceptes, fenòmens i processos relacionats amb els sabers de la física i la química interpretant informació en diferents formats (models, gràfics, taules, diagrames, fórmules, esquemes, símbols, pàgines web…), mantenint una actitud crítica i obtenint conclusions fonamentades en raons científiques."
+  },
+  "1.2": {
+   "ce": "CE1",
+   "nom_curt": "Explicar fenòmens amb teories",
+   "text": "Interpretar i predir el comportament de fenòmens quotidians rellevants, relacionant-lo amb models, lleis i teories adequades de la física i la química."
+  },
+  "1.3": {
+   "ce": "CE1",
+   "nom_curt": "Aplicar-ho a problemes reals",
+   "text": "Identificar els conceptes relacionats amb situacions problemàtiques reals de caràcter científic i proporcionar possibles solucions."
+  },
+  "2.1": {
+   "ce": "CE2",
+   "nom_curt": "Formular hipòtesis",
+   "text": "Plantejar preguntes sobre fenòmens quotidians i formular hipòtesis que puguin ser respostes o contrastades en el context escolar a través de l'experimentació, la presa de dades i l'anàlisi de fenòmens físics i químics."
+  },
+  "2.2": {
+   "ce": "CE2",
+   "nom_curt": "Dissenyar procediments",
+   "text": "Dissenyar, fent servir metodologies pròpies de la ciència, procediments de recerca que impliquin l'ús de la deducció, el treball experimental i el raonament logicomatemàtic."
+  },
+  "2.3": {
+   "ce": "CE2",
+   "nom_curt": "Experimentar i interpretar",
+   "text": "Portar a terme dissenys experimentals fent servir els instruments, les eines o les tècniques adequades amb correcció i interpretar-ne els resultats utilitzant, quan sigui necessari, eines matemàtiques i tecnològiques."
+  },
+  "2.4": {
+   "ce": "CE2",
+   "nom_curt": "Col·laborar",
+   "text": "Cooperar en un projecte científic assumint responsablement una funció concreta, utilitzant espais virtuals quan sigui necessari, respectant la diversitat i afavorint la inclusió."
+  },
+  "2.5": {
+   "ce": "CE2",
+   "nom_curt": "Comunicar resultats",
+   "text": "Presentar els resultats i les conclusions obtingudes mitjançant l'experimentació i l'observació de camp utilitzant el format adequat (taules, gràfics, informes, etc.) i, quan sigui necessari, eines digitals."
+  },
+  "2.6": {
+   "ce": "CE2",
+   "nom_curt": "Ciència i biaixos de gènere",
+   "text": "Valorar la contribució de la ciència a la societat i la tasca de les persones que s'hi han dedicat, reflexionant sobre els biaixos de gènere en les ciències i la tecnologia, i entenent la recerca com una tasca col·lectiva i interdisciplinària en constant evolució, influïda pel context polític i els recursos econòmics."
+  },
+  "3.1": {
+   "ce": "CE3",
+   "nom_curt": "Dades de fonts diverses",
+   "text": "Generar i usar dades de fonts i formats diversos (textos, taules, gràfiques, diagrames, etc.) per interpretar, validar i comunicar informació relativa a un procés físic o químic concret, mitjançant la selecció crítica d'allò més rellevant per a la resolució del problema."
+  },
+  "3.2": {
+   "ce": "CE3",
+   "nom_curt": "Unitats i eines matemàtiques",
+   "text": "Utilitzar adequadament les regles bàsiques de la física i la química, incloent-hi l'ús d'unitats de mesura, les eines matemàtiques i la formulació i nomenclatura IUPAC, com a elements bàsics del llenguatge científic i d'una comunicació efectiva per a l'intercanvi de coneixement entre la comunitat científica."
+  },
+  "3.3": {
+   "ce": "CE3",
+   "nom_curt": "Seguretat al laboratori",
+   "text": "Utilitzar de manera pràctica i responsable les normes d'ús dels espais específics de ciència, com el laboratori de física i química, com a mitjà per preservar la salut pròpia i col·lectiva, la conservació sostenible del medi ambient i el respecte per les instal·lacions."
+  },
+  "4.1": {
+   "ce": "CE4",
+   "nom_curt": "Comunicar amb entorns digitals",
+   "text": "Utilitzar de forma crítica, creativa i eficient entorns digitals i diferents recursos en formats diversos per defensar el punt de vista propi sobre fenòmens i qüestions ecosocialment rellevants."
+  },
+  "4.2": {
+   "ce": "CE4",
+   "nom_curt": "Argumentar en equip",
+   "text": "Justificar el punt de vista propi sobre qüestions ecosocialment rellevants, utilitzant tant el treball individual com en equip, respectant les aportacions de tothom i promovent la inclusió de gènere i social."
+  },
+  "4.3": {
+   "ce": "CE4",
+   "nom_curt": "Informació fiable i fonts",
+   "text": "Cercar i analitzar informació amb mitjans convencionals i digitals i crear continguts relacionats amb la física i la química, seleccionant amb criteri les fonts més fiables i organitzant informació mitjançant l'ús i la citació correctes de diferents fonts."
+  },
+  "5.1": {
+   "ce": "CE5",
+   "nom_curt": "Preservar l'aigua, l'aire i el sòl",
+   "text": "Justificar amb fonaments científics la importància de la preservació dels sistemes fisicoquímics de l'entorn (qualitat de l'aire, de l'aigua, del sòl)."
+  },
+  "5.2": {
+   "ce": "CE5",
+   "nom_curt": "Hàbits sostenibles",
+   "text": "Justificar la necessitat de tenir hàbits sostenibles, analitzant d'una manera crítica les activitats pròpies i alienes i basant-se en els raonaments propis, els coneixements adquirits i la informació disponible."
+  },
+  "5.3": {
+   "ce": "CE5",
+   "nom_curt": "Ciència, salut i sostenibilitat",
+   "text": "Identificar algunes situacions en què els coneixements derivats de la física i la química poden contribuir a millorar la sostenibilitat ambiental i la salut individual i col·lectiva."
+  },
+  "5.4": {
+   "ce": "CE5",
+   "nom_curt": "Projectes que milloren la societat",
+   "text": "Emprendre, de manera guiada i amb la metodologia adequada, projectes científics relacionats amb la millora de la societat i que afavoreixin el creixement entre iguals com a base d'una comunitat científica escolar crítica i ètica."
+  },
+  "6.1": {
+   "ce": "CE6",
+   "nom_curt": "Perspectiva històrica",
+   "text": "Interpretar la ciència com un procés en construcció, a través de l'anàlisi amb perspectiva històrica dels avenços científics dels homes i dones que hi van participar, i valorar les repercussions mútues de la ciència actual amb la tecnologia, la societat i el medi ambient."
+  },
+  "6.2": {
+   "ce": "CE6",
+   "nom_curt": "Solucions sostenibles i participació",
+   "text": "Raonar la capacitat de la ciència per proposar, mitjançant la implicació ciutadana, solucions sostenibles per a les necessitats tecnològiques, ambientals, econòmiques i socials, detectades en l'entorn, sense biaixos de gènere."
+  }
+ },
+ "sda": [
+  {
+   "sda": 1,
+   "titol": "Detectius de la matèria",
+   "repte": "Com podem identificar dotze substàncies que han perdut l'etiqueta?",
+   "ce": [
+    "CE2",
+    "CE3",
+    "CE5"
+   ],
+   "ce_aprovades": [
+    "CE2",
+    "CE3",
+    "CE5"
+   ],
+   "criteris": [
+    "2.1",
+    "2.3",
+    "2.6",
+    "3.2",
+    "3.3",
+    "5.1"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s1.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d1prova",
+       "fitxer": "sda1-13-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "d1solpr",
+       "fitxer": "sda1-14-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "2.3",
+      "2.6",
+      "3.2"
+     ],
+     "ce": [
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s1.prova.p1",
+       "titol": "Activitat 1 · Canvis d'unitats i notació científica",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.prova.p2",
+       "titol": "Activitat 2 · Densitat i errors",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.prova.p3",
+       "titol": "Activitat 3 · Tres líquids incolors",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.prova.p4",
+       "titol": "Activitat 4 · Separació d'una mescla",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.prova.p5",
+       "titol": "Activitat 5 · El clau de ferro",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.prova.p6",
+       "titol": "Activitat 6 · Ellen Swallow Richards",
+       "criteris": [
+        "2.6"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s1.inf",
+     "titol": "Informe del repte (grup)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 40,
+     "instruments": [
+      {
+       "uid": "d1inf",
+       "fitxer": "sda1-11-guio-informe-i-protocol.pdf",
+       "titol": "Guió de l'informe i protocol",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "2.1",
+      "2.3",
+      "3.2"
+     ],
+     "ce": [
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s1.inf.i1",
+       "titol": "Hipòtesis",
+       "criteris": [
+        "2.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.inf.i2",
+       "titol": "Procediments",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.inf.i3",
+       "titol": "Dades, unitats i errors",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.inf.i4",
+       "titol": "Conclusions",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s1.lab",
+     "titol": "Laboratori i seguretat (observació)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 20,
+     "instruments": [],
+     "criteris": [
+      "2.3",
+      "3.3"
+     ],
+     "ce": [
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s1.lab.l1",
+       "titol": "Registre de dades al laboratori",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.lab.l2",
+       "titol": "Normes de seguretat",
+       "criteris": [
+        "3.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s1.ellen",
+     "titol": "Lectura sobre Ellen Swallow Richards",
+     "versio": 2,
+     "tipus": "qualificadora",
+     "pes_percent": 10,
+     "instruments": [
+      {
+       "uid": "d1ellen",
+       "fitxer": "sda1-10-reading-ellen-swallow-richards.pdf",
+       "titol": "Reading: Ellen Swallow Richards",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "2.6",
+      "5.1"
+     ],
+     "ce": [
+      "CE2",
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s1.ellen.e1",
+       "titol": "Reflexió",
+       "criteris": [
+        "2.6"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s1.ellen.e2",
+       "titol": "Aigua i salut",
+       "criteris": [
+        "5.1"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sda": 2,
+   "titol": "El desodorant kamikaze",
+   "repte": "Per què explota un desodorant dins d'un cotxe a l'agost?",
+   "ce": [
+    "CE1",
+    "CE2",
+    "CE4"
+   ],
+   "ce_aprovades": [
+    "CE1",
+    "CE2",
+    "CE4"
+   ],
+   "criteris": [
+    "1.1",
+    "1.2",
+    "2.3",
+    "4.1"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s2.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 25,
+     "instruments": [
+      {
+       "uid": "prova",
+       "fitxer": "sda2-10-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "solpr",
+       "fitxer": "sda2-11-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "1.1",
+      "1.2"
+     ],
+     "ce": [
+      "CE1"
+     ],
+     "items": [
+      {
+       "uid": "s2.prova.p1",
+       "titol": "Activitat 1 · La xeringa tapada",
+       "criteris": [
+        "1.1",
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.prova.p2",
+       "titol": "Activitat 2 · La bomba de la bicicleta",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.prova.p3",
+       "titol": "Activitat 3 · El globus del congelador",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.prova.p4",
+       "titol": "Activitat 4 · La laca al costat de l'estufa",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.prova.p5",
+       "titol": "Activitat 5 · La corba d'escalfament",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.prova.p6",
+       "titol": "Activitat 6 · L'Everest",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s2.video",
+     "titol": "Vídeo per a 1r d'ESO",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 35,
+     "instruments": [
+      {
+       "uid": "video",
+       "fitxer": "sda2-08-guio-del-video.pdf",
+       "titol": "Guió del vídeo",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "1.2",
+      "4.1"
+     ],
+     "ce": [
+      "CE1",
+      "CE4"
+     ],
+     "items": [
+      {
+       "uid": "s2.video.v1",
+       "titol": "Explicació científica",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.video.v2",
+       "titol": "Adaptació al públic",
+       "criteris": [
+        "4.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.video.v3",
+       "titol": "Recursos digitals",
+       "criteris": [
+        "4.1"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s2.expl",
+     "titol": "Explicació final del repte",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 25,
+     "instruments": [],
+     "criteris": [
+      "1.1",
+      "1.2"
+     ],
+     "ce": [
+      "CE1"
+     ],
+     "items": [
+      {
+       "uid": "s2.expl.e1",
+       "titol": "Ús del model",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.expl.e2",
+       "titol": "Interpretació de l'etiqueta",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s2.labc",
+     "titol": "Laboratori de la corba d'escalfament i informe de pràctica (sessió 6)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 15,
+     "instruments": [
+      {
+       "uid": "labc",
+       "fitxer": "sda2-14-laboratori-corba-i-canvis-destat.pdf",
+       "titol": "Full de laboratori",
+       "on": "docs/ (alumnat)"
+      },
+      {
+       "uid": "inf",
+       "fitxer": "sda2-07-guio-informe-de-practica.pdf",
+       "titol": "Guió de l'informe",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "2.3"
+     ],
+     "ce": [
+      "CE2"
+     ],
+     "items": [
+      {
+       "uid": "s2.labc.k1",
+       "titol": "Execució i registre de dades",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s2.labc.k2",
+       "titol": "Interpretació dels resultats",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sda": 3,
+   "titol": "Què hi ha dins del meu mòbil?",
+   "repte": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
+   "ce": [
+    "CE1",
+    "CE5",
+    "CE6"
+   ],
+   "ce_aprovades": [
+    "CE1",
+    "CE5",
+    "CE6"
+   ],
+   "criteris": [
+    "1.1",
+    "1.2",
+    "5.1",
+    "5.2",
+    "5.4",
+    "6.1"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s3.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
+     "versio": 2,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d3prova",
+       "fitxer": "sda3-13-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "d3solpr",
+       "fitxer": "sda3-14-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "1.1",
+      "1.2",
+      "5.1",
+      "5.2",
+      "6.1"
+     ],
+     "ce": [
+      "CE1",
+      "CE5",
+      "CE6"
+     ],
+     "items": [
+      {
+       "uid": "s3.prova.p1",
+       "titol": "Activitat 1 · Models atòmics",
+       "criteris": [
+        "6.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s3.prova.p2",
+       "titol": "Activitat 2 · Àtoms, ions i isòtops",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 2
+      },
+      {
+       "uid": "s3.prova.p3",
+       "titol": "Activitat 3 · La taula periòdica",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 2
+      },
+      {
+       "uid": "s3.prova.p4",
+       "titol": "Activitat 4 · El liti a la flama",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 2
+      },
+      {
+       "uid": "s3.prova.p5",
+       "titol": "Activitat 5 · El mòbil al contenidor",
+       "criteris": [
+        "5.1",
+        "5.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s3.camp",
+     "titol": "Campanya del punt de recollida (producte final)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 35,
+     "instruments": [
+      {
+       "uid": "d3camp",
+       "fitxer": "sda3-11-pla-de-campanya-punt-de-recollida.pdf",
+       "titol": "Pla de campanya",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "5.1",
+      "5.2",
+      "5.4"
+     ],
+     "ce": [
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s3.camp.c1",
+       "titol": "Projecte",
+       "criteris": [
+        "5.4"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s3.camp.c2",
+       "titol": "Arguments ambientals",
+       "criteris": [
+        "5.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s3.camp.c3",
+       "titol": "Hàbits sostenibles",
+       "criteris": [
+        "5.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s3.dos",
+     "titol": "Dossier: incendis i matèries primeres crítiques",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 25,
+     "instruments": [
+      {
+       "uid": "d3dos",
+       "fitxer": "sda3-10-dossier-incendis-i-elements-critics.pdf",
+       "titol": "Dossier",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "5.1",
+      "5.2"
+     ],
+     "ce": [
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s3.dos.d1",
+       "titol": "Risc i impacte ambiental",
+       "criteris": [
+        "5.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s3.dos.d2",
+       "titol": "Matèries primeres crítiques i consum responsable",
+       "criteris": [
+        "5.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s3.fit",
+     "titol": "Fitxa 2 · Evolució dels models atòmics",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 10,
+     "instruments": [],
+     "criteris": [
+      "6.1"
+     ],
+     "ce": [
+      "CE6"
+     ],
+     "items": [
+      {
+       "uid": "s3.fit.f2",
+       "titol": "Línia del temps dels models i experiment de Rutherford",
+       "criteris": [
+        "6.1"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sda": 4,
+   "titol": "Un cotxe que només allibera aigua?",
+   "repte": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
+   "ce": [
+    "CE1",
+    "CE2",
+    "CE3"
+   ],
+   "ce_aprovades": [
+    "CE1",
+    "CE2",
+    "CE3"
+   ],
+   "criteris": [
+    "1.2",
+    "2.2",
+    "2.4",
+    "2.5",
+    "3.1",
+    "3.2"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s4.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
+     "versio": 2,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d4prova",
+       "fitxer": "sda4-11-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "d4solpr",
+       "fitxer": "sda4-12-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "1.2",
+      "2.2",
+      "2.5",
+      "3.1",
+      "3.2"
+     ],
+     "ce": [
+      "CE1",
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s4.prova.p1",
+       "titol": "Activitat 1 · Formulació",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.prova.p2",
+       "titol": "Activitat 2 · La llana d'acer",
+       "criteris": [
+        "2.2",
+        "1.2"
+       ],
+       "versio": 2
+      },
+      {
+       "uid": "s4.prova.p3",
+       "titol": "Activitat 3 · La bombona de butà",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.prova.p4",
+       "titol": "Activitat 4 · Una electròlisi",
+       "criteris": [
+        "2.5",
+        "3.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.prova.p5",
+       "titol": "Activitat 5 · Zero emissions?",
+       "criteris": [
+        "3.1"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s4.lab",
+     "titol": "Fulls de laboratori: Lavoisier i electròlisi",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 40,
+     "instruments": [],
+     "criteris": [
+      "2.2",
+      "2.5",
+      "3.2"
+     ],
+     "ce": [
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s4.lab.l1",
+       "titol": "Disseny del procediment",
+       "criteris": [
+        "2.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.lab.l2",
+       "titol": "Presentació dels resultats",
+       "criteris": [
+        "2.5"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.lab.l3",
+       "titol": "Unitats i eines matemàtiques",
+       "criteris": [
+        "3.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s4.dos",
+     "titol": "Dossier i resposta del grup al repte (sessió 8)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d4dos",
+       "fitxer": "sda4-09-dossier-hidrogen.pdf",
+       "titol": "Dossier sobre l'hidrogen",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "2.4",
+      "3.1"
+     ],
+     "ce": [
+      "CE2",
+      "CE3"
+     ],
+     "items": [
+      {
+       "uid": "s4.dos.d1",
+       "titol": "Dades de fonts diverses",
+       "criteris": [
+        "3.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s4.dos.d2",
+       "titol": "Treball en equip",
+       "criteris": [
+        "2.4"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sda": 5,
+   "titol": "Cèl·lules immunitàries a la caça dels patògens",
+   "repte": "Com persegueix un neutròfil un bacteri sense veure'l?",
+   "ce": [
+    "CE1",
+    "CE2",
+    "CE5"
+   ],
+   "ce_aprovades": [
+    "CE1",
+    "CE2",
+    "CE5"
+   ],
+   "criteris": [
+    "1.1",
+    "1.2",
+    "1.3",
+    "2.2",
+    "2.3",
+    "5.3"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s5.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 12)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d5prova",
+       "fitxer": "sda5-15-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "d5solpr",
+       "fitxer": "sda5-16-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "1.1",
+      "1.2",
+      "1.3",
+      "5.3"
+     ],
+     "ce": [
+      "CE1",
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s5.prova.p1",
+       "titol": "Activitat 1 · Un macròfag en moviment",
+       "criteris": [
+        "1.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.prova.p2",
+       "titol": "Activitat 2 · La gràfica d'un patinet",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.prova.p3",
+       "titol": "Activitat 3 · Atrapa'l",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.prova.p4",
+       "titol": "Activitat 4 · La febre i els neutròfils",
+       "criteris": [
+        "1.1",
+        "5.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.prova.p5",
+       "titol": "Activitat 5 · Les cèl·lules també fan forces",
+       "criteris": [
+        "1.2",
+        "5.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s5.tfm",
+     "titol": "Full de forces cel·lulars (grup)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d5tfm",
+       "fitxer": "sda5-12-forces-cellulars.pdf",
+       "titol": "Full de forces cel·lulars",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "1.2",
+      "1.3",
+      "5.3"
+     ],
+     "ce": [
+      "CE1",
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s5.tfm.t1",
+       "titol": "Mesura i càlcul de les forces",
+       "criteris": [
+        "1.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.tfm.t2",
+       "titol": "Explicació amb les lleis de Newton",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.tfm.t3",
+       "titol": "Ciència i salut",
+       "criteris": [
+        "5.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s5.graf",
+     "titol": "Gràfiques del patinet (fitxa 3, sessió 4)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 15,
+     "instruments": [],
+     "criteris": [
+      "1.1"
+     ],
+     "ce": [
+      "CE1"
+     ],
+     "items": [
+      {
+       "uid": "s5.graf.g1",
+       "titol": "Taula i gràfiques",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.graf.g2",
+       "titol": "Interpretació dels pendents",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s5.febre",
+     "titol": "La febre i la migració (fitxa 6, sessió 8)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 10,
+     "instruments": [],
+     "criteris": [
+      "1.1",
+      "5.3"
+     ],
+     "ce": [
+      "CE1",
+      "CE5"
+     ],
+     "items": [
+      {
+       "uid": "s5.febre.f1",
+       "titol": "Interpretació de la gràfica",
+       "criteris": [
+        "1.1"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.febre.f2",
+       "titol": "Febre i salut",
+       "criteris": [
+        "5.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s5.difu",
+     "titol": "Laboratori de difusió (fitxa 5, sessió 7)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 15,
+     "instruments": [
+      {
+       "uid": "d5f5",
+       "fitxer": "sda5-07-fitxa-5-difusio-i-gradient.pdf",
+       "titol": "Fitxa 5: difusió i gradient",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "2.2",
+      "2.3"
+     ],
+     "ce": [
+      "CE2"
+     ],
+     "items": [
+      {
+       "uid": "s5.difu.x1",
+       "titol": "Disseny de l'experiment",
+       "criteris": [
+        "2.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s5.difu.x2",
+       "titol": "Conclusions i límits",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sda": 6,
+   "titol": "L'energia del nostre institut",
+   "repte": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
+   "ce": [
+    "CE1",
+    "CE4",
+    "CE6"
+   ],
+   "ce_aprovades": [
+    "CE1",
+    "CE4",
+    "CE6"
+   ],
+   "criteris": [
+    "1.2",
+    "4.2",
+    "4.3",
+    "6.2"
+   ],
+   "pes_total": 100,
+   "evidencies": [
+    {
+     "uid": "s6.prova",
+     "titol": "Activitat de demostració d'assoliment (sessió 6)",
+     "versio": 2,
+     "tipus": "qualificadora",
+     "pes_percent": 30,
+     "instruments": [
+      {
+       "uid": "d6prova",
+       "fitxer": "sda6-08-prova.pdf",
+       "titol": "Activitat de demostració d'assoliment",
+       "on": "bucket professorat"
+      },
+      {
+       "uid": "d6solpr",
+       "fitxer": "sda6-09-solucionari-prova.pdf",
+       "titol": "Solucionari de l'activitat de demostració",
+       "on": "bucket professorat"
+      }
+     ],
+     "criteris": [
+      "1.2",
+      "4.2",
+      "4.3",
+      "6.2"
+     ],
+     "ce": [
+      "CE1",
+      "CE4",
+      "CE6"
+     ],
+     "items": [
+      {
+       "uid": "s6.prova.p1",
+       "titol": "Activitat 1 · Els llums de l'aula",
+       "criteris": [
+        "6.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.prova.p2",
+       "titol": "Activitat 2 · Sèrie o paral·lel?",
+       "criteris": [
+        "1.2"
+       ],
+       "versio": 2
+      },
+      {
+       "uid": "s6.prova.p3",
+       "titol": "Activitat 3 · Fonts fiables",
+       "criteris": [
+        "4.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.prova.p4",
+       "titol": "Activitat 4 · L'electricitat de Catalunya",
+       "criteris": [
+        "4.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.prova.p5",
+       "titol": "Activitat 5 · Plaques solars a l'institut",
+       "criteris": [
+        "6.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s6.cerca",
+     "titol": "Cerca d'informació (fitxa 2, part C)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 20,
+     "instruments": [],
+     "criteris": [
+      "4.3"
+     ],
+     "ce": [
+      "CE4"
+     ],
+     "items": [
+      {
+       "uid": "s6.cerca.c1",
+       "titol": "Informació fiable",
+       "criteris": [
+        "4.3"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.cerca.c2",
+       "titol": "Cita de les fonts",
+       "criteris": [
+        "4.3"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s6.pla",
+     "titol": "Pla d'estalvi del grup",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 35,
+     "instruments": [
+      {
+       "uid": "d6pla",
+       "fitxer": "sda6-06-pla-destalvi-i-debat.pdf",
+       "titol": "Pla d'estalvi i debat",
+       "on": "docs/ (alumnat)"
+      }
+     ],
+     "criteris": [
+      "6.2"
+     ],
+     "ce": [
+      "CE6"
+     ],
+     "items": [
+      {
+       "uid": "s6.pla.e1",
+       "titol": "Mesures basades en dades",
+       "criteris": [
+        "6.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.pla.e2",
+       "titol": "Implicació ciutadana i equitat",
+       "criteris": [
+        "6.2"
+       ],
+       "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s6.debat",
+     "titol": "Debat del grup (observació)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "pes_percent": 15,
+     "instruments": [],
+     "criteris": [
+      "4.2"
+     ],
+     "ce": [
+      "CE4"
+     ],
+     "items": [
+      {
+       "uid": "s6.debat.b1",
+       "titol": "Justificació de l'opinió",
+       "criteris": [
+        "4.2"
+       ],
+       "versio": 1
+      },
+      {
+       "uid": "s6.debat.b2",
+       "titol": "Actitud inclusiva",
+       "criteris": [
+        "4.2"
+       ],
+       "versio": 1
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "taula10_ce_x_sda": {
+  "CE1": {
+   "1": [],
+   "2": [
+    "1.1",
+    "1.2"
+   ],
+   "3": [
+    "1.1",
+    "1.2"
+   ],
+   "4": [
+    "1.2"
+   ],
+   "5": [
+    "1.1",
+    "1.2",
+    "1.3"
+   ],
+   "6": [
+    "1.2"
+   ]
+  },
+  "CE2": {
+   "1": [
+    "2.1",
+    "2.3",
+    "2.6"
+   ],
+   "2": [
+    "2.3"
+   ],
+   "3": [],
+   "4": [
+    "2.2",
+    "2.4",
+    "2.5"
+   ],
+   "5": [
+    "2.2",
+    "2.3"
+   ],
+   "6": []
+  },
+  "CE3": {
+   "1": [
+    "3.2",
+    "3.3"
+   ],
+   "2": [],
+   "3": [],
+   "4": [
+    "3.1",
+    "3.2"
+   ],
+   "5": [],
+   "6": []
+  },
+  "CE4": {
+   "1": [],
+   "2": [
+    "4.1"
+   ],
+   "3": [],
+   "4": [],
+   "5": [],
+   "6": [
+    "4.2",
+    "4.3"
+   ]
+  },
+  "CE5": {
+   "1": [
+    "5.1"
+   ],
+   "2": [],
+   "3": [
+    "5.1",
+    "5.2",
+    "5.4"
+   ],
+   "4": [],
+   "5": [
+    "5.3"
+   ],
+   "6": []
+  },
+  "CE6": {
+   "1": [],
+   "2": [],
+   "3": [
+    "6.1"
+   ],
+   "4": [],
+   "5": [],
+   "6": [
+    "6.2"
+   ]
+  }
+ },
+ "taula11_sda_x_ce": {
+  "1": {
+   "CE1": [],
+   "CE2": [
+    "2.1",
+    "2.3",
+    "2.6"
+   ],
+   "CE3": [
+    "3.2",
+    "3.3"
+   ],
+   "CE4": [],
+   "CE5": [
+    "5.1"
+   ],
+   "CE6": []
+  },
+  "2": {
+   "CE1": [
+    "1.1",
+    "1.2"
+   ],
+   "CE2": [
+    "2.3"
+   ],
+   "CE3": [],
+   "CE4": [
+    "4.1"
+   ],
+   "CE5": [],
+   "CE6": []
+  },
+  "3": {
+   "CE1": [
+    "1.1",
+    "1.2"
+   ],
+   "CE2": [],
+   "CE3": [],
+   "CE4": [],
+   "CE5": [
+    "5.1",
+    "5.2",
+    "5.4"
+   ],
+   "CE6": [
+    "6.1"
+   ]
+  },
+  "4": {
+   "CE1": [
+    "1.2"
+   ],
+   "CE2": [
+    "2.2",
+    "2.4",
+    "2.5"
+   ],
+   "CE3": [
+    "3.1",
+    "3.2"
+   ],
+   "CE4": [],
+   "CE5": [],
+   "CE6": []
+  },
+  "5": {
+   "CE1": [
+    "1.1",
+    "1.2",
+    "1.3"
+   ],
+   "CE2": [
+    "2.2",
+    "2.3"
+   ],
+   "CE3": [],
+   "CE4": [],
+   "CE5": [
+    "5.3"
+   ],
+   "CE6": []
+  },
+  "6": {
+   "CE1": [
+    "1.2"
+   ],
+   "CE2": [],
+   "CE3": [],
+   "CE4": [
+    "4.2",
+    "4.3"
+   ],
+   "CE5": [],
+   "CE6": [
+    "6.2"
+   ]
+  }
+ },
+ "resum": {
+  "evidencies": 24,
+  "criteris_coberts": "21/21",
+  "criteris_una_sola_sda": [
+   "1.3",
+   "2.1",
+   "2.4",
+   "2.5",
+   "2.6",
+   "3.1",
+   "3.3",
+   "4.1",
+   "4.2",
+   "4.3",
+   "5.2",
+   "5.3",
+   "5.4",
+   "6.1",
+   "6.2"
+  ],
+  "sda_per_criteri": {
+   "1.1": [
+    2,
+    3,
+    5
+   ],
+   "1.2": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "1.3": [
+    5
+   ],
+   "2.1": [
+    1
+   ],
+   "2.2": [
+    4,
+    5
+   ],
+   "2.3": [
+    1,
+    2,
+    5
+   ],
+   "2.4": [
+    4
+   ],
+   "2.5": [
+    4
+   ],
+   "2.6": [
+    1
+   ],
+   "3.1": [
+    4
+   ],
+   "3.2": [
+    1,
+    4
+   ],
+   "3.3": [
+    1
+   ],
+   "4.1": [
+    2
+   ],
+   "4.2": [
+    6
+   ],
+   "4.3": [
+    6
+   ],
+   "5.1": [
+    1,
+    3
+   ],
+   "5.2": [
+    3
+   ],
+   "5.3": [
+    5
+   ],
+   "5.4": [
+    3
+   ],
+   "6.1": [
+    3
+   ],
+   "6.2": [
+    6
+   ]
+  }
+ }
+}

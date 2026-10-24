@@ -1,0 +1,92 @@
+SABERS DE FÍSICA I QUÍMICA (1r a 3r d'ESO)
+Decret 175/2022, annex 3. Text oficial. Els codis (HC1, M1...) no són oficials: són els de la programació.
+
+HABILITATS CIENTÍFIQUES BÀSIQUES
+HC1. Utilització de metodologies pròpies de la investigació científica per a la identificació i la formulació de qüestions, l'elaboració d'hipòtesis i el seu contrast experimental.
+HC2. Disseny i realització de treball experimental i emprenedoria de projectes de recerca per a la resolució de problemes mitjançant l'ús de l'experimentació, la indagació, la deducció, la recerca d'evidències o el raonament logicomatemàtic per fer inferències vàlides a partir de les observacions i l'elaboració de conclusions pertinents i generals que vagin més enllà de les condicions experimentals, per aplicar-les a nous escenaris.
+HC3. Ús de diversos entorns i recursos d'aprenentatge científic, com ara el laboratori o els entorns virtuals, utilitzant de forma correcta els materials, els productes i les eines tecnològiques i atenent les normes d'ús de cada espai per assegurar la conservació de la salut pròpia i comunitària, la seguretat en xarxes i el respecte al medi ambient.
+HC4. Ús del llenguatge científic, incloent-hi l'ús adequat de representacions, sistemes d'unitats i eines matemàtiques, per aconseguir una comunicació argumentada en diferents entorns científics i d'aprenentatge.
+HC5. Interpretació i producció d'informació científica en diferents formats i amb diferents mitjans per desenvolupar un criteri propi basat en allò que el pensament científic aporta a la millora de la societat.
+HC6. Valoració de la cultura científica i del paper de les científiques i els científics en les principals fites històriques i actuals de la física i la química, posant de manifest referents femenins invisibilitzats, per a l'avenç i la millora d'una societat equitativa i plural.
+
+LA MATÈRIA
+M1. Aplicació del model cinètic de la matèria i la teoria cineticomolecular a partir d'observacions sobre la matèria per explicar-ne les propietats, els estats d'agregació i els canvis d'estat, i la formació de barreges i dissolucions.
+M2. Realització d'experiments relacionats amb els sistemes materials per conèixer-ne i descriure'n les propietats, la composició i la classificació.
+M3. Diferenciació de substàncies i mescles per les seves propietats, i de substàncies elementals i compostes.
+M4. Identificació dels criteris d'ordenació dels elements en la taula periòdica i la seva utilitat.
+M5. Aplicació dels coneixements sobre l'estructura atòmica de la matèria per entendre la formació de ions, l'existència d'isòtops i les seves propietats, el desenvolupament històric del model atòmic i la seva contribució a l'ordenació dels elements a la taula periòdica.
+M6. Relació entre les propietats físiques i químiques de les substàncies elementals i la situació dels corresponents elements a la taula periòdica.
+M7. Valoració de les aplicacions dels principals compostos químics, la seva formació i les seves propietats físiques i químiques, així com l'expressió de la quantitat de matèria.
+M8. Ús adequat d'un llenguatge científic comú i universal a través de la formulació i la nomenclatura de substàncies simples, ions monoatòmics i compostos binaris més freqüents mitjançant les regles de nomenclatura de la IUPAC.
+
+L'ENERGIA
+E1. Formulació de qüestions i hipòtesis sobre l'energia, les manifestacions i les propietats per a l'elaboració d'explicacions amb relació als processos de canvi.
+E2. Raonament dels aspectes energètics associats a canvis físics i els canvis químics i la seva identificació en fenòmens quotidians.
+E3. Experimentació amb materials d'ús quotidià de fenòmens de transferència d'energia en forma de llum i so.
+E4. Representació i interpretació de gràfics de temperatura, temps en processos d'escalfament i refredament i en els canvis d'estat.
+E5. Disseny i comprovació experimental d'hipòtesis relacionades amb l'ús domèstic i industrial de l'energia en les diferents formes i les seves transferències i transformacions.
+E6. Elaboració fonamentada d'hipòtesis sobre el medi ambient i la sostenibilitat a partir de les diferències entre fonts d'energia renovables i no renovables i el seu contrast amb dades reals i la presa argumentada de decisions.
+E7. Anàlisi i aplicació dels mecanismes i efectes de la transferència i conducció de calor sobre els sistemes materials (fluids i sòlids), l'assoliment de l'equilibri tèrmic, en situacions quotidianes i de rellevància ambiental i social.
+E8. Realització d'experiments relacionats amb la naturalesa elèctrica de la matèria, i comprovació i interpretació de les propietats conductores dels materials.
+E9. Disseny, muntatge i anàlisi de circuits elèctrics elementals, tant en un entorn físic com simulat.
+E10. Anàlisi crítica dels diferents processos d'obtenció d'energia elèctrica, per desenvolupar consciència sobre la necessitat de l'estalvi energètic i la conservació sostenible del medi ambient i la societat.
+
+INTERACCIÓ
+I1. Predicció de les característiques fonamentals del moviment dels objectes a partir dels conceptes de la cinemàtica, per formular hipòtesis sobre valors futurs d'aquestes magnituds, mitjançant l'ús del càlcul numèric elemental, la interpretació de gràfiques i el disseny, muntatge i anàlisi d'activitats experimentals com a eines de contrast de les hipòtesis relacionades amb el moviment dels objectes.
+I2. Diferenciació dels efectes de les forces, com a agents del canvi tant a l'estat de moviment o de repòs d'un cos, així com productores de deformacions, amb els canvis que produeixen en els sistemes sobre els quals actuen.
+I3. Descripció dels efectes de les forces a partir d'observacions de fenòmens quotidians o de situacions simulades en el laboratori.
+I4. Aplicació de les lleis de Newton per entendre com es comporten els sistemes materials davant l'acció de les forces i predir-ne els efectes en situacions quotidianes i de seguretat viària.
+I5. Identificació i comparació de les propietats elàstiques dels materials i relació amb la seva utilització.
+
+EL CANVI
+C1. Anàlisi dels diferents tipus de canvis que experimenten els sistemes materials per relacionar-los amb les causes que els produeixen i amb les conseqüències que tenen.
+C2. Diferenciació de canvis físics i canvis químics basant-se en evidències experimentals i en el concepte de substància.
+C3. Interpretació de les reaccions químiques a escala macroscòpica i submicroscòpica per explicar les relacions de la química amb el medi ambient, la tecnologia i la societat.
+C4. Cerca de similituds i diferències entre processos en els quals intervenen àcids i bases, oxidacions i formacions de precipitats i interpretació de les propietats de les substàncies que intervenen en contextos quotidians i d'actualitat.
+C5. Aplicació de la llei de conservació de la massa i de la llei de les proporcions definides, per utilitzar-les com a evidències experimentals, i interpretació sobre la base del model atomicomolecular de la matèria.
+C6. Anàlisi dels factors que afecten les reaccions químiques per predir-ne l'evolució de forma qualitativa i valoració de la contribució de diversos àmbits de la química en la resolució de problemes actuals, al desenvolupament sostenible, a la salut i el benestar i als productes quotidians.
+
+
+RESUM PER RECORDAR-LOS (codi i idea clau)
+Habilitats científiques bàsiques:
+HC1 – Metodologia científica: preguntes, hipòtesis i contrast experimental.
+HC2 – Disseny experimental, indagació i conclusions.
+HC3 – Laboratori i entorns virtuals amb normes d'ús i seguretat.
+HC4 – Llenguatge científic: representacions, unitats i eines matemàtiques.
+HC5 – Interpretar i produir informació científica.
+HC6 – Cultura científica i referents femenins.
+La matèria:
+M1 – Model cineticomolecular: estats, canvis d'estat i dissolucions.
+M2 – Experiments amb sistemes materials.
+M3 – Substàncies i mescles; elementals i compostes.
+M4 – Criteris d'ordenació de la taula periòdica.
+M5 – Estructura atòmica: ions, isòtops i història del model atòmic.
+M6 – Propietats de les substàncies i posició a la taula.
+M7 – Compostos químics i quantitat de matèria.
+M8 – Formulació i nomenclatura IUPAC.
+L'energia:
+E1 – Hipòtesis sobre l'energia.
+E2 – Energia en els canvis físics i químics.
+E3 – Energia en forma de llum i so.
+E4 – Gràfics temperatura–temps.
+E5 – Ús domèstic i industrial de l'energia.
+E6 – Fonts renovables i no renovables.
+E7 – Transferència de calor i equilibri tèrmic.
+E8 – Naturalesa elèctrica de la matèria i conductors.
+E9 – Circuits elèctrics elementals.
+E10 – Obtenció d'electricitat i estalvi energètic.
+Interacció:
+I1 – Cinemàtica: predir el moviment.
+I2 – Efectes de les forces.
+I3 – Observar els efectes de les forces.
+I4 – Lleis de Newton i seguretat viària.
+I5 – Propietats elàstiques dels materials.
+El canvi:
+C1 – Tipus de canvis: causes i conseqüències.
+C2 – Canvis físics i canvis químics.
+C3 – Reaccions químiques a escala macro i submicroscòpica.
+C4 – Àcids i bases, oxidacions i precipitats.
+C5 – Conservació de la massa i proporcions definides.
+C6 – Factors de la velocitat de reacció i química sostenible.
+
+Truc: cinc blocs, de 1r a 3r d'ESO: habilitats científiques (com treballa la ciència), la matèria (de què està fet tot), l'energia (què fa canviar les coses), la interacció (forces i moviment) i el canvi (reaccions químiques).

@@ -1,0 +1,3601 @@
+{
+ "artefactes": {
+  "digital/d1amp": {
+   "depen_de": [
+    "d1amp@1",
+    "d1amp.1@1",
+    "d1amp.2@1",
+    "d1amp.3@1",
+    "d1amp.4@1",
+    "d1amp.5@1",
+    "d1amp.6@1",
+    "d1amp.7@1"
+   ],
+   "document": "d1amp",
+   "empremta": "a1ce56b84fede4e97415b02b673b4a6cd4d86874b3d229546ccbf4c8ddc132e8",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "37ceb466c7db52cbb0bde3e9ea87db65c8d081b8dbe7683bea19bf0e1529439d",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1crom": {
+   "depen_de": [
+    "d1crom@1",
+    "d1crom.1@1",
+    "d1crom.2@1",
+    "d1crom.3@1",
+    "d1crom.4@1",
+    "d1crom.5@1"
+   ],
+   "document": "d1crom",
+   "empremta": "372f51ae33dd41a9296c8187c99711abdd4bf09c3d4e3260ade3b021e7f0c33b",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "e12af741f923ef9a6e02cfaba88c7dc89d2c3022073db23ce1e2a93c87cdb577",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1dens": {
+   "depen_de": [
+    "d1dens@1",
+    "d1dens.1@1",
+    "d1dens.2@1",
+    "d1dens.3@1",
+    "d1dens.4@1",
+    "d1dens.5@1"
+   ],
+   "document": "d1dens",
+   "empremta": "feb5cffb7cfe6ee0937e82dfc4a37a368a536ddaa6883cb16a1c29ee2edf0aa0",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "6ad04b2cce28c6098a7a3563ce10b4ada84af6d92aa3e273e6e6ed4ea146ca00",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1diana": {
+   "depen_de": [
+    "d1diana@1",
+    "d1diana.1@1",
+    "d1diana.2@1",
+    "d1diana.3@1",
+    "d1diana.diana@1"
+   ],
+   "document": "d1diana",
+   "empremta": "4a2e7965896282b0611f5118b95ad3dd871c6f5e372276e493f84ea653fa9ce8",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "ecac11a6112097f5c55e0d39f30d2a9462c3288755be5ae9ee7f417f9bd72d3f",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1ellen": {
+   "depen_de": [
+    "d1ellen@1",
+    "d1ellen.1@1",
+    "d1ellen.2@1",
+    "d1ellen.3@1",
+    "d1ellen.4@1",
+    "d1ellen.5@1",
+    "d1ellen.6@1"
+   ],
+   "document": "d1ellen",
+   "empremta": "39f6f6b3b13bea9eb249eb64838355b71920e0e1638bc8340d9dc3b9322b2f00",
+   "generador": "digital/js/fitxes.js (escrita a mà)",
+   "hash": "06ab9dde03ccb44ba101506983da8d674f4505599be806942a4bef72f92bf5c0",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1f1": {
+   "depen_de": [
+    "d1f1@1",
+    "d1f1.1@1",
+    "d1f1.2@1",
+    "d1f1.3@1",
+    "d1f1.4@1",
+    "d1f1.5@1",
+    "d1f1.6@1",
+    "d1f1.7@1"
+   ],
+   "document": "d1f1",
+   "empremta": "d65980cd5db6e12ccdfbb58f433818e1f3594ec59ad1cc27638fd763f74aaae7",
+   "generador": "digital/js/fitxes.js (escrita a mà)",
+   "hash": "615d5f88e89ca0ad9ec16be8008f3d9dfa4673f95025df5b85c11889c89e4387",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1f2": {
+   "depen_de": [
+    "d1f2@1",
+    "d1f2.1@1",
+    "d1f2.2@1",
+    "d1f2.3@1",
+    "d1f2.4@1",
+    "d1f2.B@1",
+    "d1f2.5@1"
+   ],
+   "document": "d1f2",
+   "empremta": "1eba87462a00df9baf93bf828f243bf3817d1d1a232ae02c5ee91925f65d41de",
+   "generador": "digital/js/fitxes.js (escrita a mà)",
+   "hash": "62dac372315e8212d10514f59f802fbfe1f8ba2e9838c6456aff886ef222600e",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1inf": {
+   "depen_de": [
+    "d1inf@1",
+    "d1inf._@1"
+   ],
+   "document": "d1inf",
+   "empremta": "b0b5f2db15954ad30f1fcb21ffd53f2b77f9cd7ff6485af369cd0a8606964f12",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "8ab33a826254b2db753badd4b4be979e75f4071bb4ee74a882ee7c7e6e1d0f1a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1prov": {
+   "depen_de": [
+    "d1prov@1",
+    "d1prov.1@1",
+    "d1prov.2@1",
+    "d1prov.3@1",
+    "d1prov.4@1",
+    "d1prov.5@1",
+    "d1prov._@1"
+   ],
+   "document": "d1prov",
+   "empremta": "bf3c772bc046b11450b4cddc40847382800832f08071ed84c642647e1dad8466",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "4ed2f088d79641c7db1e9157b930b0f5ef514501d836c2ee48f95f70115058cf",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1reg": {
+   "depen_de": [
+    "d1reg@1",
+    "d1reg._@1"
+   ],
+   "document": "d1reg",
+   "empremta": "ff3be87f11dcad0822b46a0a4e8fc67469324b79c94434d1d6d1707c79f3cbe6",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "a8357d0f0c7bf6eb49d1f5b39819a3e7667f262636faaaf59f8002b77aa1996a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1ruta": {
+   "depen_de": [
+    "d1ruta@1",
+    "d1ruta.1@1",
+    "d1ruta.2@1",
+    "d1ruta.3@1",
+    "d1ruta.4@1",
+    "d1ruta.5@1",
+    "d1ruta.6@1",
+    "d1ruta.7@1",
+    "d1ruta.8@1",
+    "d1ruta.9@1",
+    "d1ruta.10@1"
+   ],
+   "document": "d1ruta",
+   "empremta": "e8901446c0f5235aee38166f71804525284454b03d3a27081635f9cf1681974f",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "42e18b243dfeafe2d966609879c3c2f4a536a21916af45e0dee1121aa90ab4b7",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1seg": {
+   "depen_de": [
+    "d1seg@1",
+    "d1seg.1@1",
+    "d1seg.2@1",
+    "d1seg.3@1",
+    "d1seg.4@1",
+    "d1seg.5@1",
+    "d1seg.6@1",
+    "d1seg.7@1",
+    "d1seg.8@1",
+    "d1seg.9@1",
+    "d1seg.10@1",
+    "d1seg._@1"
+   ],
+   "document": "d1seg",
+   "empremta": "6c7ba4133801b5c4e171e1d9321548c15c2c63e27e95a4b32995921d0ad678d1",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c833bbc2b3de406d2ba3576523bff28a6fbae79e584b9ce0934e527742c7ca1f",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d1sep": {
+   "depen_de": [
+    "d1sep@1",
+    "d1sep.1@1",
+    "d1sep.2@1",
+    "d1sep.3@1",
+    "d1sep.4@1",
+    "d1sep.5@1"
+   ],
+   "document": "d1sep",
+   "empremta": "64071306370ab87e0b510162e82d0293f72fefaeb786da455c935acaca711e8c",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "25818e2608cf6029fcbeea095a8c69872774777122880fb2bb6ef821e32f7b23",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d2amp": {
+   "depen_de": [
+    "d2amp@1",
+    "d2amp.1@1",
+    "d2amp.2@1",
+    "d2amp.3@1",
+    "d2amp.4@1",
+    "d2amp.5@1",
+    "d2amp.6@1"
+   ],
+   "document": "d2amp",
+   "empremta": "1147255bdae769b5c9e4eeba411b6458b0cbeb40f7bd5106ee23accfa66d4a95",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "d39478544d64d0c47f2cd0e083e76cd5a6fb7d47836eb5e3d12520226e28bc5d",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d2coav": {
+   "depen_de": [
+    "d2coav@1",
+    "d2coav._@1"
+   ],
+   "document": "d2coav",
+   "empremta": "1e4055818e81218166eceedb4f9746f39b08198d302ee3e457c475d87ad4d5bb",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "3b595c2009c198aaee8998ed28e9260b4e531133aed913f45051b979cdc96bf8",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3amp": {
+   "depen_de": [
+    "d3amp@1",
+    "d3amp.1@1",
+    "d3amp.2@1",
+    "d3amp.3@1",
+    "d3amp.4@1",
+    "d3amp.5@1",
+    "d3amp.6@1",
+    "d3amp.7@1"
+   ],
+   "document": "d3amp",
+   "empremta": "0eae2b05dcf15f19b59ca108fad4b2dbb4272ab55c674b9e025dfda91b18c1b0",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "f5e68e3db3c5a65a204c721142bf8f92f6aa9b4f18831b84b206aa4b5ba54d06",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3camp": {
+   "depen_de": [
+    "d3camp@1",
+    "d3camp.1@1",
+    "d3camp.2@1",
+    "d3camp.3@1",
+    "d3camp.4@1",
+    "d3camp.5@1",
+    "d3camp.6@1",
+    "d3camp._@1"
+   ],
+   "document": "d3camp",
+   "empremta": "5b7b90ee7e4dc54ea12620139b0729bd371df7cb428e6ad8f8fd043feea6eb11",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c2c25ba967f12a1e5b54732024241134636ecc87d4ca1cdf59d02ad129ef4e5e",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3diana": {
+   "depen_de": [
+    "d3diana@1",
+    "d3diana.1@1",
+    "d3diana.2@1",
+    "d3diana.3@1",
+    "d3diana.diana@1"
+   ],
+   "document": "d3diana",
+   "empremta": "de7e1efe8df9cdda051c3c33fc621ed12173abb49e6bd9a6fdb3b82d07c10ce1",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "3042caac1cc23548e0870bbaa30a6af05f76c125fce8684afce46df2fd081483",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3dos": {
+   "depen_de": [
+    "d3dos@1",
+    "d3dos.1@1",
+    "d3dos.2@1",
+    "d3dos.3@1",
+    "d3dos.4@1",
+    "d3dos.5@1"
+   ],
+   "document": "d3dos",
+   "empremta": "bea35cb6561924b227db2354801af16947ffd720d890a5735774878e462a8b25",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "ea6053b797fc5cf5c322ad067170cfc512ecd2f23924c499b2c939de34dda0d1",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3f1": {
+   "depen_de": [
+    "d3f1@1",
+    "d3f1.1@1",
+    "d3f1.2@1",
+    "d3f1.3@1",
+    "d3f1.4@1",
+    "d3f1.5@1",
+    "d3f1._@1"
+   ],
+   "document": "d3f1",
+   "empremta": "c0ced3e3a15b1b9299b1bbe55d6db4298c5f42aaf1838b8895af8836e55fa433",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "15f32e953141f2f7aed67c3fcbc98732c5101f9ffacc044894d74ad0d96468b8",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3f2": {
+   "depen_de": [
+    "d3f2@1",
+    "d3f2.1@1",
+    "d3f2.2@1",
+    "d3f2.3@1",
+    "d3f2.4@1",
+    "d3f2._@1"
+   ],
+   "document": "d3f2",
+   "empremta": "e813cd8fa76d85a88269e74b48bc9b7249b518473c615e9a91c427209f31cc45",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "190c15dbde7bc6baa0d9db4db2e07af2adb909bc57cb9eb203fe4379686d9c33",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3f3": {
+   "depen_de": [
+    "d3f3@1",
+    "d3f3.1@1",
+    "d3f3.2@1",
+    "d3f3.3@1",
+    "d3f3.4@1",
+    "d3f3._@1"
+   ],
+   "document": "d3f3",
+   "empremta": "a689095fa7e5a82e2a5bdef27283193162d2b80b0d4056337f207ce9cbb2561f",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "43b03f0f26a1d99a37c1fe49a8db89814f82fa3f8ebe134014038e04a9e72456",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3f4": {
+   "depen_de": [
+    "d3f4@1",
+    "d3f4.1@1",
+    "d3f4.2@1",
+    "d3f4.3@1",
+    "d3f4.4@1",
+    "d3f4.5@1"
+   ],
+   "document": "d3f4",
+   "empremta": "c2ca1f4f70263eddd9da022814a904ff8a71085ea527e718621d61092cf655e7",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "f921a88523082789d9797eccddf7fbb349b0ce2d71385de168ed6f217e36f55a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3f5": {
+   "depen_de": [
+    "d3f5@1",
+    "d3f5.1@1",
+    "d3f5.2@1",
+    "d3f5.3@1",
+    "d3f5.4@1"
+   ],
+   "document": "d3f5",
+   "empremta": "ec0b341c5848a7485e32534964324345842a7c058826150341d18d875c82fa29",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "3df72b4ef66105c68977f507e5a14fe9ad2900d27ec38f966df06eae864e1d82",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3lab": {
+   "depen_de": [
+    "d3lab@1",
+    "d3lab.1@1",
+    "d3lab.2@1",
+    "d3lab.3@1",
+    "d3lab.4@1",
+    "d3lab.5@1",
+    "d3lab.6@1",
+    "d3lab.7@1",
+    "d3lab._@1"
+   ],
+   "document": "d3lab",
+   "empremta": "e69c05902e4ae97fa6dcd2e66f309822d97630bb8c5478532804f2e45d9764bc",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "9bd11a508f673d78b88cb6e55137cb1bf64a9b8d50af9b457285ec9dbb70134a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d3ruta": {
+   "depen_de": [
+    "d3ruta@1",
+    "d3ruta.1@1",
+    "d3ruta.2@1",
+    "d3ruta.3@1",
+    "d3ruta.4@1",
+    "d3ruta.5@1",
+    "d3ruta.6@1",
+    "d3ruta.7@1",
+    "d3ruta.8@1",
+    "d3ruta.9@1",
+    "d3ruta.10@1"
+   ],
+   "document": "d3ruta",
+   "empremta": "1c8fc49dbd3c2d413e7dbb194c4736c519d0b8442c2c6dc0cca2be51025a7c0a",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "290adafeeb246648a0dab7a7f7f68f1e2c164bf433519b67ecc8ae24fe44c3c0",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4amp": {
+   "depen_de": [
+    "d4amp@1",
+    "d4amp.1@1",
+    "d4amp.2@1",
+    "d4amp.3@1",
+    "d4amp.4@1",
+    "d4amp.5@1",
+    "d4amp.6@1",
+    "d4amp.7@1"
+   ],
+   "document": "d4amp",
+   "empremta": "e10a971bdc99730863d73e1cee930a9bc3d1f430adeacaba4434a55d44d49ca9",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "94bc30f174183909da2af9bdc81da369de14312d4f448b6dfbf0bfab59b89aac",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4diana": {
+   "depen_de": [
+    "d4diana@1",
+    "d4diana.1@1",
+    "d4diana.2@1",
+    "d4diana.3@1",
+    "d4diana.diana@1"
+   ],
+   "document": "d4diana",
+   "empremta": "9f7ca20c6d291af92035487bf7e691a3baea28086f5beacd071d7335f0e9cdeb",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "6f6083710c8bb9383123097517f2455a40ea635798add33563e3343903353ac2",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4dos": {
+   "depen_de": [
+    "d4dos@1",
+    "d4dos.1@1",
+    "d4dos.2@1",
+    "d4dos.3@1",
+    "d4dos.4@1",
+    "d4dos._@1"
+   ],
+   "document": "d4dos",
+   "empremta": "d2c0124dac6267f28a2a416dfe688dffdf6043755758b480795ec1be6cd4e218",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "5147753364648f22cb69f538ff51845a3d434635df1b8f4eb30c5bc642ceac10",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4f1": {
+   "depen_de": [
+    "d4f1@1",
+    "d4f1.1@1",
+    "d4f1.2@1",
+    "d4f1.3@1",
+    "d4f1.4@1",
+    "d4f1.5@1",
+    "d4f1.6@1"
+   ],
+   "document": "d4f1",
+   "empremta": "9f0159d1e7c31d43596f3517a8fedf93a7c7cc33e070ea1ded1f6e4aef8470ef",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "cf10281adcff9e69f913e60ef52d5254a80ec0f5c03a87b6bc916330fac6f218",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4f2": {
+   "depen_de": [
+    "d4f2@1",
+    "d4f2.1@1",
+    "d4f2.2@1",
+    "d4f2.3@1",
+    "d4f2.4@1",
+    "d4f2.5@1",
+    "d4f2.6@1",
+    "d4f2.7@1"
+   ],
+   "document": "d4f2",
+   "empremta": "fa719f73e61128a3bba86d7ebff5930bfc5d8e94e83baa151692ee4669bd928d",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c76f6e72dac421252276875b279f1307eb93fcb7c5e2b553188b53b6ccde1997",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4f3": {
+   "depen_de": [
+    "d4f3@1",
+    "d4f3.1@1",
+    "d4f3.2@1",
+    "d4f3.3@1",
+    "d4f3.4@1",
+    "d4f3.5@1",
+    "d4f3.6@1",
+    "d4f3.7@1",
+    "d4f3.8@1",
+    "d4f3.9@1",
+    "d4f3.10@1",
+    "d4f3._@1"
+   ],
+   "document": "d4f3",
+   "empremta": "8b35603d70d989f05ae0ec81779c9102b828ded244f534dd1008c1eb289766a6",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "736cd96abfac16747f6c868eed483f4e99b96e0dbd67586aa794905c68c83104",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4lab1": {
+   "depen_de": [
+    "d4lab1@1",
+    "d4lab1.1@1",
+    "d4lab1.2@1",
+    "d4lab1.3@1",
+    "d4lab1.4@1",
+    "d4lab1.5@1",
+    "d4lab1.6@1",
+    "d4lab1._@1"
+   ],
+   "document": "d4lab1",
+   "empremta": "795844120126671eab61799c10d289f37d966fe888d101638244d82ae6784362",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "a5acaa7e868bc765a4373a9936199079beca380be15a5ced39aae19583083020",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4lab2": {
+   "depen_de": [
+    "d4lab2@1",
+    "d4lab2.1@1",
+    "d4lab2.2@1",
+    "d4lab2.3@1",
+    "d4lab2.4@1",
+    "d4lab2.5@1",
+    "d4lab2._@1"
+   ],
+   "document": "d4lab2",
+   "empremta": "dde85e923ef086b658e8886e8d82cbddaffa02055b70dcd58babd65193d75fa8",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "9a2fe8b1b96fe8ee01b08f78dfd2f12c413692e377460131b083d37ec6c5cd23",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4lab3": {
+   "depen_de": [
+    "d4lab3@1",
+    "d4lab3.1@1",
+    "d4lab3.2@1",
+    "d4lab3.3@1",
+    "d4lab3.4@1",
+    "d4lab3.5@1",
+    "d4lab3.6@1",
+    "d4lab3._@1"
+   ],
+   "document": "d4lab3",
+   "empremta": "3e3ccb510142976a8a9c9a116e6bd937cb846443d4aea4a89e04c249696cb3eb",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "2e61ebf3b058740aa42f864d3ed6a7fc34b442697b653cf44b2b3cd5872d0df5",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4repte": {
+   "depen_de": [
+    "d4repte@1",
+    "d4repte.1@1",
+    "d4repte.2@1",
+    "d4repte.3@1",
+    "d4repte.4@1",
+    "d4repte.5@1",
+    "d4repte._@1"
+   ],
+   "document": "d4repte",
+   "empremta": "f211c018c1cd481d52ec7f7f40aaa53d73b4b407a11711aeb4d68b878edddf41",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c0c4306259f2bc8047bbc8ccb0aadf13d851cbc38d6f1d7671ea4afd9895bf1c",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d4ruta": {
+   "depen_de": [
+    "d4ruta@1",
+    "d4ruta.1@1",
+    "d4ruta.2@1",
+    "d4ruta.3@1",
+    "d4ruta.4@1",
+    "d4ruta.5@1",
+    "d4ruta.6@1",
+    "d4ruta.7@1",
+    "d4ruta.8@1",
+    "d4ruta.9@1",
+    "d4ruta.10@1"
+   ],
+   "document": "d4ruta",
+   "empremta": "65dc51fd33bc6f2fbda1770f161f6dcefe72d00ab551e6430d557f0070d7f161",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "2a2536cc291d6725922bc404286e36d7606b160757624d6634c3113593119512",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5amp": {
+   "depen_de": [
+    "d5amp@1",
+    "d5amp.1@1",
+    "d5amp.2@1",
+    "d5amp.3@1",
+    "d5amp.4@1",
+    "d5amp.5@1",
+    "d5amp.6@1",
+    "d5amp.7@1",
+    "d5amp.8@1"
+   ],
+   "document": "d5amp",
+   "empremta": "efeb66c5188f9f22a8fa5cfd51435bba4176d238c1911860ef1bfaebc844ca83",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "dc28c0667cf7c494a8181d9f96ec750105e7e863e13d395782477e63cc7eb71c",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5diana": {
+   "depen_de": [
+    "d5diana@1",
+    "d5diana.1@1",
+    "d5diana.2@1",
+    "d5diana.3@1",
+    "d5diana.diana@1"
+   ],
+   "document": "d5diana",
+   "empremta": "5608a40c4461e065a969a80d7031ebc97259f565dabcf0aafa938153edcf435f",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "b74192198888c5e472df0217128f38c09b0a3ff544896a25f5a4188a85bed8ab",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f1": {
+   "depen_de": [
+    "d5f1@1",
+    "d5f1.1@1",
+    "d5f1.2@1",
+    "d5f1.3@1",
+    "d5f1.4@1",
+    "d5f1.5@1",
+    "d5f1.6@1"
+   ],
+   "document": "d5f1",
+   "empremta": "368b37266141a3d1eae9b39e166ff5e339d71ece94cf1085f5d246058d93189f",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "acf192668c184c4c7fe14d2ec1279bac64a6eeb1acfcd6df30ce0de560946f47",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f2": {
+   "depen_de": [
+    "d5f2@1",
+    "d5f2.1@1",
+    "d5f2.2@1",
+    "d5f2.3@1",
+    "d5f2.4@1",
+    "d5f2.5@1"
+   ],
+   "document": "d5f2",
+   "empremta": "cfe93c93cee22e03ab24c9dbb8c414cb77044e5ebfc7ba8e49d67febc1141c8a",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "577ce44c0a84d04261aeb1283cd0144fb1df2ac62dbe6dee8be830cd6bf91cce",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f3": {
+   "depen_de": [
+    "d5f3@1",
+    "d5f3.1@1",
+    "d5f3.2@1",
+    "d5f3.3@1",
+    "d5f3.4@1",
+    "d5f3.5@1",
+    "d5f3.6@1"
+   ],
+   "document": "d5f3",
+   "empremta": "26d78e9db8f45a2fb4fd1ae1bb532ce1ec01c2fe5cb33058bb269424e88771c0",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "2d00dbf654dddfa491902c4b649c73c732741880ddf8d4f6a3a9a864276d6916",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f4": {
+   "depen_de": [
+    "d5f4@1",
+    "d5f4.1@1",
+    "d5f4.2@1",
+    "d5f4.3@1",
+    "d5f4.4@1",
+    "d5f4.5@1",
+    "d5f4.6@1",
+    "d5f4.7@1",
+    "d5f4.8@1"
+   ],
+   "document": "d5f4",
+   "empremta": "a0b95c3454281b27a6996434cf5f6581091dc9691b729748fc25b87e8c873c74",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c678fea6437316749c1bd4c63e01f163f3b4c2824b2826b79ed86a9fde2c8715",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f5": {
+   "depen_de": [
+    "d5f5@1",
+    "d5f5.1@1",
+    "d5f5.2@1",
+    "d5f5.3@1",
+    "d5f5.4@1",
+    "d5f5.5@1",
+    "d5f5.6@1"
+   ],
+   "document": "d5f5",
+   "empremta": "8f4da3d2bb156775babc2d5c92124af55e59f40b39cf0239caed4d1bfa58278a",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "710fa083b1837b4ab2d7f3f81d7d3455f8ececc8489acacca2f9ca62f51dc292",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f6": {
+   "depen_de": [
+    "d5f6@1",
+    "d5f6.1@1",
+    "d5f6.2@1",
+    "d5f6.3@1",
+    "d5f6.4@1",
+    "d5f6.5@1",
+    "d5f6.6@1",
+    "d5f6.7@1",
+    "d5f6.8@1"
+   ],
+   "document": "d5f6",
+   "empremta": "172e00658137ff26bd86dbe6f6b5141f5114378f9228a37a92003db078e17a0d",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "eceb70587eb1675e2f1e18594a27acc5a2f64f298d841d106619aea70f5013a8",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5f6q": {
+   "depen_de": [
+    "d5f6q@1",
+    "d5f6q.1@1",
+    "d5f6q.2@1",
+    "d5f6q.3@1",
+    "d5f6q.4@1",
+    "d5f6q.5@1",
+    "d5f6q.6@1",
+    "d5f6q.7@1",
+    "d5f6q.8@1",
+    "d5f6q.9@1"
+   ],
+   "document": "d5f6q",
+   "empremta": "a3ae731e1b46601c2e6d1411fe633db2462edb370b8f4d254513f28da7be7280",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "38b0e2aa169ca30a3bde56159533dab1002746497fc4e018b8fdf3f03e5a25e7",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5hooke": {
+   "depen_de": [
+    "d5hooke@1",
+    "d5hooke.1@1",
+    "d5hooke.2@1",
+    "d5hooke.3@1",
+    "d5hooke.4@1",
+    "d5hooke.5@1",
+    "d5hooke.6@1"
+   ],
+   "document": "d5hooke",
+   "empremta": "1e31a6d877ce4762d901be3415667f8a445e67c2010ac14846cef68d650b4de6",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "0fefef99cabec256f879a50e37f83350f6040fba8367f3f0784e4557db9956c3",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5prob": {
+   "depen_de": [
+    "d5prob@1",
+    "d5prob.1@1",
+    "d5prob.2@1",
+    "d5prob.3@1",
+    "d5prob.4@1",
+    "d5prob.5@1",
+    "d5prob.6@1",
+    "d5prob.7@1",
+    "d5prob.8@1"
+   ],
+   "document": "d5prob",
+   "empremta": "941209adf8485d519d30521f5d4e0a2616f795d3dcdd2d716abe37e315932f4e",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "3f128197b9f1c0be8adc979e35847497900fdfbab66c815d3ebe5cdcbeda217a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5repte": {
+   "depen_de": [
+    "d5repte@1",
+    "d5repte.1@1",
+    "d5repte.2@1",
+    "d5repte.3@1",
+    "d5repte._@1"
+   ],
+   "document": "d5repte",
+   "empremta": "05f11d899121883e9f51fcec47e9fa1769826aba6c8c0605b6243a85e00b1717",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "4f2d9dba650e11ccb1c325bf59dfbce976edb2fcb976bc77b47730bee29334fa",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5ruta": {
+   "depen_de": [
+    "d5ruta@1",
+    "d5ruta.1@1",
+    "d5ruta.2@1",
+    "d5ruta.3@1",
+    "d5ruta.4@1",
+    "d5ruta.5@1",
+    "d5ruta.6@1",
+    "d5ruta.7@1",
+    "d5ruta.8@1",
+    "d5ruta.9@1",
+    "d5ruta.10@1",
+    "d5ruta.11@1",
+    "d5ruta.12@1",
+    "d5ruta.13@1"
+   ],
+   "document": "d5ruta",
+   "empremta": "ace95bfbb5302f7bc04a5bf4ba8d2b86dafafc25c156323ed84a52158f699a4d",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "b2de776f35d5490cde27eb7d8e1d84ff065eece414f42eedb5f3028bb17775eb",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d5tfm": {
+   "depen_de": [
+    "d5tfm@1",
+    "d5tfm.1@1",
+    "d5tfm.2@1",
+    "d5tfm.3@1",
+    "d5tfm.4@1",
+    "d5tfm.5@1",
+    "d5tfm.6@1",
+    "d5tfm.7@1"
+   ],
+   "document": "d5tfm",
+   "empremta": "ab5b1a58b29be7944efad4f3f005d74509107e253e3e7a82820266fbd3c787d8",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "b1cdfca9ca5baa66f8e04f0525586f729c0700b7a1ec13790e009bcb54a04e81",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6amp": {
+   "depen_de": [
+    "d6amp@1",
+    "d6amp.1@1",
+    "d6amp.2@1",
+    "d6amp.3@1",
+    "d6amp.4@1",
+    "d6amp.5@1",
+    "d6amp.6@1",
+    "d6amp.7@1"
+   ],
+   "document": "d6amp",
+   "empremta": "f477c3aad55ee528d857b9f2cc18053616c52e3ba0f06f09ccd3c89880102efb",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "975e390488274a6145a7d6d25eb2ac0a8bfc40c0b8e72b82574b445939d6332b",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6diana": {
+   "depen_de": [
+    "d6diana@1",
+    "d6diana.1@1",
+    "d6diana.2@1",
+    "d6diana.3@1",
+    "d6diana.diana@1"
+   ],
+   "document": "d6diana",
+   "empremta": "19def1cad835c4a69d11cbf84c5cc525e912b06884d8f77355e4663883e4b9fd",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "8494e321168271662dbd83c1e5604dcc8451ef89016207040b66f3ff74039e18",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6f1": {
+   "depen_de": [
+    "d6f1@1",
+    "d6f1.1@1",
+    "d6f1.2@1",
+    "d6f1.3@1",
+    "d6f1.4@1",
+    "d6f1.5@1",
+    "d6f1.6@1",
+    "d6f1.7@1"
+   ],
+   "document": "d6f1",
+   "empremta": "a0de795b8d40a33fd59134e26a9796972f2e48585b6fed571698921e10eeff39",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "4371fc60314e7bb281e460bab2839c0ed6edcf5c581ca2e9340869364acfcb3c",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6f2": {
+   "depen_de": [
+    "d6f2@1",
+    "d6f2.1@1",
+    "d6f2.2@1",
+    "d6f2.3@1",
+    "d6f2.4@1",
+    "d6f2.5@1",
+    "d6f2._@1"
+   ],
+   "document": "d6f2",
+   "empremta": "27acca54c56a8e7ae659f6f24594ee09c926fdfbd61d5c2b6a2229ed9fcc4816",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "76bec1b3d4cb79ccaf7b8b6af51968b5df9548e62682f903084380a134e51d26",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6lab": {
+   "depen_de": [
+    "d6lab@1",
+    "d6lab.1@1",
+    "d6lab.2@1",
+    "d6lab.3@1",
+    "d6lab.4@1",
+    "d6lab.5@1",
+    "d6lab.6@1",
+    "d6lab.7@1",
+    "d6lab._@1"
+   ],
+   "document": "d6lab",
+   "empremta": "664a5302dac32838e1b67da808e9f6af331b5e653de53baad1d5ea3c37173080",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "dc00eb525116f1ba64c76974a6329774fa4ec8d2313aef7c929e3fca653ecc7a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6pla": {
+   "depen_de": [
+    "d6pla@1",
+    "d6pla.1@1",
+    "d6pla.2@1",
+    "d6pla.3@1",
+    "d6pla.4@1",
+    "d6pla.5@1",
+    "d6pla.6@1",
+    "d6pla.7@1",
+    "d6pla._@1"
+   ],
+   "document": "d6pla",
+   "empremta": "263b7033cab7b03f80dfbacfacac0858472c4c9571e1aeda9327cfd985096b31",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "e004f046fcb71ee398087ee6b31bcc632d79206f817c486c2c8da1d5e5c93241",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6repte": {
+   "depen_de": [
+    "d6repte@1",
+    "d6repte.1@1",
+    "d6repte.2@1",
+    "d6repte.3@1",
+    "d6repte.4@1",
+    "d6repte.5@1",
+    "d6repte.6@1"
+   ],
+   "document": "d6repte",
+   "empremta": "9db0f43c17da4644883689391a8b349dcd2bc87be386c696ec57f3755fef5556",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "791e2569ffeb529dee95419d13790e2d9500f7b79bd225f45e75d0a57154c84d",
+   "tipus": "fitxa-digital"
+  },
+  "digital/d6ruta": {
+   "depen_de": [
+    "d6ruta@1",
+    "d6ruta.1@1",
+    "d6ruta.2@1",
+    "d6ruta.3@1",
+    "d6ruta.4@1",
+    "d6ruta.5@1",
+    "d6ruta.6@1",
+    "d6ruta.7@1"
+   ],
+   "document": "d6ruta",
+   "empremta": "d2408bd4df588f52aaf2e6bea6394d4d4ec66028246eb1f68830376971a71a0e",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "2fb7ef8ac727f89087b0aac52979fa6f761a33fab34298da8af6243f1f32d548",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dc0": {
+   "depen_de": [
+    "dc0@1",
+    "dc0.1@1",
+    "dc0.2@1",
+    "dc0.3@1",
+    "dc0.4@1",
+    "dc0.5@1",
+    "dc0.6@1",
+    "dc0.7@1",
+    "dc0.8@1",
+    "dc0.9@1",
+    "dc0._@1"
+   ],
+   "document": "dc0",
+   "empremta": "d2061d65944f50b18ef2efb119eadfa56e81d7f4fd436eeab14b7db8c31355d2",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "e0ef775967db49faa542cdb49e4ab20b7f0692a9861569d732a9c8ad60ae2dfd",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR1": {
+   "depen_de": [
+    "dcR1@1",
+    "dcR1.1@1",
+    "dcR1.2@1",
+    "dcR1.3@1",
+    "dcR1.4@1",
+    "dcR1.5@1",
+    "dcR1.6@1"
+   ],
+   "document": "dcR1",
+   "empremta": "71ad81de6273e03eef47a9474495c41f904aea83bece62e6c8c79cac9dc52d71",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "7a880f52f2e85220434bd18c613b094fe1d3336359c933dca7d753d6f7fb187f",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR2": {
+   "depen_de": [
+    "dcR2@1",
+    "dcR2.1@1",
+    "dcR2.2@1",
+    "dcR2.3@1",
+    "dcR2.4@1",
+    "dcR2.5@1",
+    "dcR2.6@1"
+   ],
+   "document": "dcR2",
+   "empremta": "b461249b3bb7f996b041e80fc363e02b32bbbd924cc6b569846c6d91a7fa9fec",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "6cffbd3fa7025fe04d907650d80db9b339828d14ee9ff60ab1368aab17dc370a",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR3": {
+   "depen_de": [
+    "dcR3@1",
+    "dcR3.1@1",
+    "dcR3.2@1",
+    "dcR3.3@1",
+    "dcR3.4@1",
+    "dcR3.5@1",
+    "dcR3.6@1"
+   ],
+   "document": "dcR3",
+   "empremta": "62895eb23f792d5671efaaa930a557b3d23e7c309897ba8476b95418d24480b5",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c5a011dbb2e7fd8305194711422a1021c8e5216c0cd42cc659683e08827a2ecf",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR4": {
+   "depen_de": [
+    "dcR4@1",
+    "dcR4.1@1",
+    "dcR4.2@1",
+    "dcR4.3@1",
+    "dcR4.4@1",
+    "dcR4.5@1"
+   ],
+   "document": "dcR4",
+   "empremta": "60f80b3e058d545b7efef395e443e4e08962cacab5c4c366a0a25b784d43ad61",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "985b660c0293acdda3e36a0848a0e0e49487d31967f3c530e3a92c723e376112",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR5": {
+   "depen_de": [
+    "dcR5@1",
+    "dcR5.1@1",
+    "dcR5.2@1",
+    "dcR5.3@1",
+    "dcR5.4@1",
+    "dcR5.5@1",
+    "dcR5.6@1"
+   ],
+   "document": "dcR5",
+   "empremta": "29a5d6b513b07855d761d6425b519358f5c463972490a86106eafba821deeb37",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "7bbd8eaba13869746f237fc757853442dcc40079165d16fc0951255e9ab11967",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcR6": {
+   "depen_de": [
+    "dcR6@1",
+    "dcR6.1@1",
+    "dcR6.2@1",
+    "dcR6.3@1",
+    "dcR6.4@1",
+    "dcR6.5@1"
+   ],
+   "document": "dcR6",
+   "empremta": "9066a82d4beb520a5bd8a5ac70545febdd7b6e8b4a69f08c3c6f2cc2765846c4",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "d328bcd35792a6b0978a88e5f14c69b36bedb00448bd490a21ac05c215abe16d",
+   "tipus": "fitxa-digital"
+  },
+  "digital/dcT": {
+   "depen_de": [
+    "dcT@1",
+    "dcT.1@1",
+    "dcT.2@1",
+    "dcT.3@1",
+    "dcT.4@1",
+    "dcT.5@1",
+    "dcT.6@1",
+    "dcT.7@1",
+    "dcT.8@1",
+    "dcT.9@1",
+    "dcT.10@1",
+    "dcT.11@1",
+    "dcT._@1"
+   ],
+   "document": "dcT",
+   "empremta": "64e1d4f4a0771842d7b706469f3456a46c870a40c7e37f14aeaa1a88ce62e7fa",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "0a1d4ccf0e5fec825c984cea85a06669f7c8042341f1f8ceece54dd3f3922001",
+   "tipus": "fitxa-digital"
+  },
+  "digital/diana": {
+   "depen_de": [
+    "diana@1",
+    "diana.1@1",
+    "diana.2@1",
+    "diana.3@1",
+    "diana.diana@1"
+   ],
+   "document": "diana",
+   "empremta": "95ae522a834ca5df2c986f9de846f93b6df6c060c87cc909b4d1ddaa67cf4aba",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "e71257b0e5871eb2271d634e9eec03102d554e0f96c33eeebfb15576ddd117a9",
+   "tipus": "fitxa-digital"
+  },
+  "digital/f1": {
+   "depen_de": [
+    "f1@1",
+    "f1.1@1",
+    "f1.2@1",
+    "f1.3@1",
+    "f1.4@1",
+    "f1.5@1",
+    "f1.6@1",
+    "f1.7@1"
+   ],
+   "document": "f1",
+   "empremta": "2ee91417fc38969bb7a5b0458c9148daa1e1ec0a0630fb66c8ddafd94a809e60",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "f160e14788f68bd33bd45d7dba732fe7165411dc88737dc94376168291c0ee9e",
+   "tipus": "fitxa-digital"
+  },
+  "digital/f2": {
+   "depen_de": [
+    "f2@1",
+    "f2.1@1",
+    "f2.2@1",
+    "f2.3@1",
+    "f2.4@1",
+    "f2.5@1",
+    "f2.6@1",
+    "f2.7@1",
+    "f2.8@1"
+   ],
+   "document": "f2",
+   "empremta": "65eb681b59369a2b506d3861296dc8befa7de1594f0e49d5808b45d522d16de6",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "dbad0ec9f1eec3871ec7b5b9e789a839d658c40e3ee97787f44ed073c9456fe2",
+   "tipus": "fitxa-digital"
+  },
+  "digital/lab": {
+   "depen_de": [
+    "lab@1",
+    "lab.1@1",
+    "lab.2@1",
+    "lab.3@1",
+    "lab.4@1",
+    "lab.5@1",
+    "lab.6@1",
+    "lab.7@1"
+   ],
+   "document": "lab",
+   "empremta": "d6a81f6c4d67b336d6753dd5e234ecf8ebc925c7477d385463d4b500e0c39ab1",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "15a4c2f5a2f2f2a1d6dcfc4bc50809d7fd6505a1ff70b5a982deebaa247b9844",
+   "tipus": "fitxa-digital"
+  },
+  "digital/labc": {
+   "depen_de": [
+    "labc@1",
+    "labc.1@1",
+    "labc.2@1",
+    "labc.3@1",
+    "labc.4@1",
+    "labc.5@1",
+    "labc.6@1",
+    "labc.7@1",
+    "labc.P@1"
+   ],
+   "document": "labc",
+   "empremta": "a8c662d559daa5b12ea4c1baa73e2f6d95c39510925cccebedc2ee7e990fce20",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "3856a76d364f77a708238ab37fbfa6965ed72582fcb04d1ce44a035e67c2125b",
+   "tipus": "fitxa-digital"
+  },
+  "digital/repte": {
+   "depen_de": [
+    "repte@1",
+    "repte.1@1",
+    "repte.2@1",
+    "repte.3@1",
+    "repte.4@1",
+    "repte.5@1",
+    "repte.6@1",
+    "repte.7@1"
+   ],
+   "document": "repte",
+   "empremta": "a38c886cb1f49eb0440134828f2aee4336c116e40abdacbd9e553407704800e7",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "f3f5dc86cf84c7662a14e2e565657a5e818d98b19fc3d36ef4bdb0fa5e27fcfb",
+   "tipus": "fitxa-digital"
+  },
+  "digital/ruta": {
+   "depen_de": [
+    "ruta@1",
+    "ruta.1@1",
+    "ruta.2@1",
+    "ruta.3@1",
+    "ruta.4@1",
+    "ruta.5@1",
+    "ruta.6@1",
+    "ruta.7@1",
+    "ruta.8@1",
+    "ruta.9@1",
+    "ruta.10@1"
+   ],
+   "document": "ruta",
+   "empremta": "351605d3f9b5eb351018a7f516beeec22c6b7b9fae1531bb2ac73cd3386a495d",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "069f4fca75ded5b2e5d0cd6b2b199da32a337da60f1ff5887dd7b0ee4425ac57",
+   "tipus": "fitxa-digital"
+  },
+  "digital/video": {
+   "depen_de": [
+    "video@1",
+    "video.1@1",
+    "video.2@1",
+    "video.3@1",
+    "video._@1"
+   ],
+   "document": "video",
+   "empremta": "c6fc9efb4500bba7cbed71aa0ffa7503dee10953ec85158a0e453e6a725d0e67",
+   "generador": "build_fitxes_auto.py (a partir del PDF)",
+   "hash": "c627bceb339536f7ec02b4f23c7368bf43c150d2c4a6ec506e5da9bc249ed922",
+   "tipus": "fitxa-digital"
+  },
+  "docs/curs-01-sessio-0-sondeig-idees-previes.pdf": {
+   "depen_de": [
+    "dc0@1",
+    "dc0.1@1",
+    "dc0.2@1",
+    "dc0.3@1",
+    "dc0.4@1",
+    "dc0.5@1",
+    "dc0.6@1",
+    "dc0.7@1",
+    "dc0.8@1",
+    "dc0.9@1",
+    "dc0._@1"
+   ],
+   "document": "dc0",
+   "empremta": "042939a1deda8f2a43fd0617c12b1c8918526cdaeba019c36033de640793c416",
+   "generador": "gen_curs.py",
+   "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
+   "hash": "6fbcd5ea85a27dd20ab03a5f2b818ba389b28906032f95a930dcec81d370ba5e",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-02-sessio-de-tancament.pdf": {
+   "depen_de": [
+    "dcT@1",
+    "dcT.1@1",
+    "dcT.2@1",
+    "dcT.3@1",
+    "dcT.4@1",
+    "dcT.5@1",
+    "dcT.6@1",
+    "dcT.7@1",
+    "dcT.8@1",
+    "dcT.9@1",
+    "dcT.10@1",
+    "dcT.11@1",
+    "dcT._@1"
+   ],
+   "document": "dcT",
+   "empremta": "462bde54265b7544a92e652590c2c6a7cb37b868094f6e6056ebb8ee26e9f78f",
+   "generador": "gen_curs.py",
+   "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
+   "hash": "e6d91bad924a5ccb3a15020ddcf0918d72957c560c7fe425dc0982b138e2d72f",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-03-enquesta-de-valoracio.pdf": {
+   "depen_de": [
+    "dcE@1"
+   ],
+   "document": "dcE",
+   "empremta": "3efb11b604998f8c3a95ecf926d9614498c898ec6f865d741aa3f9b008ac31b0",
+   "generador": "gen_curs.py",
+   "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
+   "hash": "10b05c8e0fc165fa2afe1d4534da2e109d82c8e5f15c2546119972ee9f1afc0b",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-04-formulari.pdf": {
+   "depen_de": [
+    "dcF@1"
+   ],
+   "document": "dcF",
+   "empremta": "c87790db8160591d1d141b56cdeb1b760b213ce54ea704aff9b9e0396a9fa725",
+   "generador": "gen_curs.py",
+   "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
+   "hash": "e12fe6a0097e4a38efb6d38bbf6cb6d85b387ee5d7630001ce19954b0579ace1",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-05-glossari.pdf": {
+   "depen_de": [
+    "dcG@1"
+   ],
+   "document": "dcG",
+   "empremta": "ed14c15be749cb3deb5a581a082084dfe35495d9118fe84806714939ccec147c",
+   "generador": "gen_curs.py",
+   "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
+   "hash": "b2696aba73cbab430e3cd6db01490d577f5f51b1f94f84b8f3ab33304ae7dde7",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-06-recuperacio-ce1.pdf": {
+   "depen_de": [
+    "dcR1@1",
+    "dcR1.1@1",
+    "dcR1.2@1",
+    "dcR1.3@1",
+    "dcR1.4@1",
+    "dcR1.5@1",
+    "dcR1.6@1"
+   ],
+   "document": "dcR1",
+   "empremta": "b730f17ef9219ab80a4f5fe76845e40d0e89dabe125cec8b26474abd45168bef",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "7137a4afd8e7aa014823abc46a49ef013117671ad59856bcad782e329437aa05",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-07-recuperacio-ce2.pdf": {
+   "depen_de": [
+    "dcR2@1",
+    "dcR2.1@1",
+    "dcR2.2@1",
+    "dcR2.3@1",
+    "dcR2.4@1",
+    "dcR2.5@1",
+    "dcR2.6@1"
+   ],
+   "document": "dcR2",
+   "empremta": "3d5f863ef6e4a4d5bf04536d6d0746b828aaf60985e80beba0cab37d7990f921",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "42606e59d0d86c16e47d3caa3e31a37bc97831f6daf0804d5e4921692b4e1fe3",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-08-recuperacio-ce3.pdf": {
+   "depen_de": [
+    "dcR3@1",
+    "dcR3.1@1",
+    "dcR3.2@1",
+    "dcR3.3@1",
+    "dcR3.4@1",
+    "dcR3.5@1",
+    "dcR3.6@1"
+   ],
+   "document": "dcR3",
+   "empremta": "b869d7f2b69e21a6f597deaea240fce9b3c0037986936fbaa7cdd7646d52abd4",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "0a6e168ce49e0e49b1a3f0a3bfae373203e2123d8bd47e4e85c6d6d7dfac009e",
+   "imatges": {
+    "ghs/ghs01.png": "6f29f67c17789b2a",
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "ghs/ghs03.png": "139ac14e5207c9a6",
+    "ghs/ghs04.png": "c87242f3cbbc8c97",
+    "ghs/ghs05.png": "5bb792b946599130",
+    "ghs/ghs06.png": "b953301d6bb9a939",
+    "ghs/ghs07.png": "cda6aca2eaea69b2",
+    "ghs/ghs08.png": "17149be4297cfa4a",
+    "ghs/ghs09.png": "5b722c2a19d893d5"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-09-recuperacio-ce4.pdf": {
+   "depen_de": [
+    "dcR4@1",
+    "dcR4.1@1",
+    "dcR4.2@1",
+    "dcR4.3@1",
+    "dcR4.4@1",
+    "dcR4.5@1"
+   ],
+   "document": "dcR4",
+   "empremta": "7d206bba2ca4f0f23e2333a12eb8cbdc67cf7d63f3957338ee2b7164badd254e",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "a8096168b613fde525664b0db3e55de0352d09b66a4011953765e98dca26fab5",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-10-recuperacio-ce5.pdf": {
+   "depen_de": [
+    "dcR5@1",
+    "dcR5.1@1",
+    "dcR5.2@1",
+    "dcR5.3@1",
+    "dcR5.4@1",
+    "dcR5.5@1",
+    "dcR5.6@1"
+   ],
+   "document": "dcR5",
+   "empremta": "0a7bb6565d9194831ee58fd2fa52bea29ef03bb689b6f4da6770d4ed215cb91b",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "e22f16ff8ddc688570e97c0ec2ec5f8d9bbe9227be6780bad60dc24242a5502a",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/curs-11-recuperacio-ce6.pdf": {
+   "depen_de": [
+    "dcR6@1",
+    "dcR6.1@1",
+    "dcR6.2@1",
+    "dcR6.3@1",
+    "dcR6.4@1",
+    "dcR6.5@1"
+   ],
+   "document": "dcR6",
+   "empremta": "548507e0ea195a41feca0b4f6b0499f304ca15bde0785d826002a4aac28b9262",
+   "generador": "mn_recup.py",
+   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
+   "hash": "fd96b9a602c817a489f61973d155918dc1f873a2b1fdc1406042ff281c2b9eb2",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/programacio-annexos.pdf": {
+   "depen_de": [
+    "curriculum@1",
+    "sda1@1",
+    "sda2@1",
+    "sda3@1",
+    "sda4@1",
+    "sda5@1",
+    "sda6@1"
+   ],
+   "document": null,
+   "empremta": "95858c85558a736044dc7ba47c038253dcee7ac474a34c1157aa40a6044eb405",
+   "generador": "gen_annexos.py",
+   "hash": "035f5b03bc6eccd219536f0d4e775009ecd9fc789d8f9e800297919f0ba1a56e",
+   "imatges": {},
+   "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
+   "tipus": "pdf-public"
+  },
+  "docs/sda1-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "d1ruta@1",
+    "d1ruta.1@1",
+    "d1ruta.2@1",
+    "d1ruta.3@1",
+    "d1ruta.4@1",
+    "d1ruta.5@1",
+    "d1ruta.6@1",
+    "d1ruta.7@1",
+    "d1ruta.8@1",
+    "d1ruta.9@1",
+    "d1ruta.10@1"
+   ],
+   "document": "d1ruta",
+   "empremta": "73f26db8496d151487051c91d99c5f76dd8833d08712e03601e22af2a905ac15",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "a070e4b30fa74f75907d47e8915c1299fdb261842cc7d726db41e71c9ddc3764",
+   "imatges": {
+    "sda1-s1.png": "0e1b6b0ac7ecff89",
+    "sda1-s10.png": "3856630a7ec8bea2",
+    "sda1-s2.png": "50e9820ae0a57e7e",
+    "sda1-s3.png": "d466e53adfebbcd2",
+    "sda1-s4.png": "37c37591ca972729",
+    "sda1-s5.png": "5b1bd9d71cf486cb",
+    "sda1-s6.png": "69582c7cbc58c0d6",
+    "sda1-s7.png": "e70f5edfdd48b563",
+    "sda1-s8.png": "4ef8f9d8e73420f9",
+    "sda1-s9.png": "ce47ad7b556ae605"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-02-registre-del-detectiu.pdf": {
+   "depen_de": [
+    "d1reg@1",
+    "d1reg._@1"
+   ],
+   "document": "d1reg",
+   "empremta": "c52216b0dd3af74a4e83dad359e79343c325c30a5899c1c6a1fa82774df7c6bb",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "9f7d3230b9cb8c05ae8e8a029a832bc3ae6b79d178b912128a1838d7aa882894",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-03-seguretat-al-laboratori.pdf": {
+   "depen_de": [
+    "d1seg@1",
+    "d1seg.1@1",
+    "d1seg.2@1",
+    "d1seg.3@1",
+    "d1seg.4@1",
+    "d1seg.5@1",
+    "d1seg.6@1",
+    "d1seg.7@1",
+    "d1seg.8@1",
+    "d1seg.9@1",
+    "d1seg.10@1",
+    "d1seg._@1"
+   ],
+   "document": "d1seg",
+   "empremta": "96a3f4d2f1a919e0e3accbc1182ca2a3626692daff35e52948c2ee3477c6a201",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "340887346e04044fed0e6035ac28d73d8bdc653bf0ef5bd82bef9d7b8281f7ea",
+   "imatges": {
+    "ghs/ghs01.png": "6f29f67c17789b2a",
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "ghs/ghs03.png": "139ac14e5207c9a6",
+    "ghs/ghs04.png": "c87242f3cbbc8c97",
+    "ghs/ghs05.png": "5bb792b946599130",
+    "ghs/ghs06.png": "b953301d6bb9a939",
+    "ghs/ghs07.png": "cda6aca2eaea69b2",
+    "ghs/ghs08.png": "17149be4297cfa4a",
+    "ghs/ghs09.png": "5b722c2a19d893d5",
+    "sda1-lab-que-no-fer.png": "aff1381f939545f3"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-04-fitxa-1-magnituds-i-unitats.pdf": {
+   "depen_de": [
+    "d1f1@1",
+    "d1f1.1@1",
+    "d1f1.2@1",
+    "d1f1.3@1",
+    "d1f1.4@1",
+    "d1f1.5@1",
+    "d1f1.6@1",
+    "d1f1.7@1"
+   ],
+   "document": "d1f1",
+   "empremta": "fba0bf6f9d8cc077f68b133d2fa28acc39e3e0a1762d2135650797ea24e7f46d",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "78160fb531db8148d8d4d07b6a7ca40b0871c8ec631630bc9eb360b316d5c822",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-05-fitxa-2-factors-de-conversio.pdf": {
+   "depen_de": [
+    "d1f2@1",
+    "d1f2.1@1",
+    "d1f2.2@1",
+    "d1f2.3@1",
+    "d1f2.4@1",
+    "d1f2.B@1",
+    "d1f2.5@1"
+   ],
+   "document": "d1f2",
+   "empremta": "ce86b1ba96e81082d08b648befd6bee1be06831532804ca6d482e89a00a390f3",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "3da33d8343cd2dd5245412eca7ce55008c4c6220532810c18e2f0555f91916eb",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-06-laboratori-densitat.pdf": {
+   "depen_de": [
+    "d1dens@1",
+    "d1dens.1@1",
+    "d1dens.2@1",
+    "d1dens.3@1",
+    "d1dens.4@1",
+    "d1dens.5@1"
+   ],
+   "document": "d1dens",
+   "empremta": "0039e14dbcd5734320efcc81e037b90f45e7e1e2cdb7a89720578fbfe99f8270",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "b6f3c6fb2a1f10ecd6deb22fd6d82428f05d66ba9452ae3096e0ceb0aed563da",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-07-proves-conductivitat-i-ferro.pdf": {
+   "depen_de": [
+    "d1prov@1",
+    "d1prov.1@1",
+    "d1prov.2@1",
+    "d1prov.3@1",
+    "d1prov.4@1",
+    "d1prov.5@1",
+    "d1prov._@1"
+   ],
+   "document": "d1prov",
+   "empremta": "28ca265ff895b966d09b4427d372d08b5730eb352ac81d621089958af65f3086",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "3ce4b92e2bc5dfa320c4c7a56871bbc9bf16c6f51069c71f3a78abdbda2e41be",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-08-laboratori-separacio.pdf": {
+   "depen_de": [
+    "d1sep@1",
+    "d1sep.1@1",
+    "d1sep.2@1",
+    "d1sep.3@1",
+    "d1sep.4@1",
+    "d1sep.5@1"
+   ],
+   "document": "d1sep",
+   "empremta": "dd2cfff80888d35eef15c5baa7a355af01f3f326cbdd846475c2d52470ffafd3",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "c6236fb7e0df7db233044ca88113c6a2992f7d9f6b30c54b41a6605059d308fc",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-09-cromatografia.pdf": {
+   "depen_de": [
+    "d1crom@1",
+    "d1crom.1@1",
+    "d1crom.2@1",
+    "d1crom.3@1",
+    "d1crom.4@1",
+    "d1crom.5@1"
+   ],
+   "document": "d1crom",
+   "empremta": "48f1e46e48acb4a80f73d1d0a859dbe12b5fa67597512f4f98e128c58fa2f719",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "2ac10326ad6046d0c728a653cf30782ff2940accabd5d1b6f11feb85db861f55",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-10-reading-ellen-swallow-richards.pdf": {
+   "depen_de": [
+    "d1ellen@1",
+    "s1.ellen@1",
+    "s1.ellen.e1@1",
+    "d1ellen.1@1",
+    "d1ellen.2@1",
+    "d1ellen.3@1",
+    "d1ellen.4@1",
+    "d1ellen.5@1",
+    "d1ellen.6@1"
+   ],
+   "document": "d1ellen",
+   "empremta": "caa095cd91bb9bd5435d3529a2805cfb0438e915e9d3916fa9d51169c408aa25",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "a6672a66397669c0629d34126d1d1804042dfc3a6cd1e0311ed637900bac009f",
+   "imatges": {
+    "sda1-ellen.png": "7ecbc32c081e9c15"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-11-guio-informe-i-protocol.pdf": {
+   "depen_de": [
+    "d1inf@1",
+    "s1.inf@1",
+    "s1.inf.i1@1",
+    "s1.inf.i2@1",
+    "s1.inf.i3@1",
+    "s1.inf.i4@1",
+    "d1inf._@1"
+   ],
+   "document": "d1inf",
+   "empremta": "070f13c52d58acc2d73d2144be076cd4b883db774126dfc5e0c9850a9e1e1bc2",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "0b1090b02c1171313839419852030629aa9ccb109cf43001686c0924cadffe3a",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-12-rubriques.pdf": {
+   "depen_de": [
+    "d1rub@1"
+   ],
+   "document": "d1rub",
+   "empremta": "980da3851180a2a2e03a9807a2620a93568e694f2b2e80124320829c4e1e8b4b",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "84b510d7ca31925a9bf2e727a11d29f4d64703b8d91f634e524214dcb9784f37",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-16-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "d1diana@1",
+    "d1diana.1@1",
+    "d1diana.2@1",
+    "d1diana.3@1",
+    "d1diana.diana@1"
+   ],
+   "document": "d1diana",
+   "empremta": "1ffaa0518fae1cc2787883a9d752ba4cd6499aa405f8bd1daca901a992ec8433",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "4a34a76a7c27de3b1ebb3d7d15103d3780173617fd25c50788102796acc5f13f",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-17-mapa-conceptual.pdf": {
+   "depen_de": [
+    "d1mapa@1"
+   ],
+   "document": "d1mapa",
+   "empremta": "c891d2ebd1eeb960739f857410c4d265df47bb9fff2fd5f079477fb660775982",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "45aa855b313824469b4b4a9a1fb17deb7616e70a734a6dcf02222979d3c9b8f8",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda1-18-ampliacio.pdf": {
+   "depen_de": [
+    "d1amp@1",
+    "d1amp.1@1",
+    "d1amp.2@1",
+    "d1amp.3@1",
+    "d1amp.4@1",
+    "d1amp.5@1",
+    "d1amp.6@1",
+    "d1amp.7@1"
+   ],
+   "document": "d1amp",
+   "empremta": "5ef3f77d323d6fd50a1c7653cd5e76da6b110d09b775faa519e16cc531e287e4",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "cb958e3044ee532946673050b97860db9dfff1809bf2e9f452654c1a6c2d7bae",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "ruta@1",
+    "ruta.1@1",
+    "ruta.2@1",
+    "ruta.3@1",
+    "ruta.4@1",
+    "ruta.5@1",
+    "ruta.6@1",
+    "ruta.7@1",
+    "ruta.8@1",
+    "ruta.9@1",
+    "ruta.10@1"
+   ],
+   "document": "ruta",
+   "empremta": "26e321a898ae51dd5e40c37194655f8f3d00fbd07390b0db13c122dc7723b6cc",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "ecb762d39512a8046d54870ae3223ff62c341dcbf83ecca6594824e60b33f8ca",
+   "imatges": {
+    "sda2-s1.png": "0b832f169772a6fc",
+    "sda2-s10.png": "b9fba00ecefa8835",
+    "sda2-s2.png": "7b3a37a64d185693",
+    "sda2-s3.png": "a1b2b036532a8afd",
+    "sda2-s4.png": "e71329ed10dd4a0c",
+    "sda2-s5.png": "5718aa4ce5da177a",
+    "sda2-s6.png": "5360fb21534887fa",
+    "sda2-s7.png": "e936f5aa421bafe0",
+    "sda2-s8.png": "950e38ac79317906",
+    "sda2-s9.png": "1dd06632f48858d4"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-02-full-del-repte.pdf": {
+   "depen_de": [
+    "repte@1",
+    "repte.1@1",
+    "repte.2@1",
+    "repte.3@1",
+    "repte.4@1",
+    "repte.5@1",
+    "repte.6@1",
+    "repte.7@1"
+   ],
+   "document": "repte",
+   "empremta": "9a9d46a9b1edc8dc1117424392489c19b529a5cbd2450465fbbe3eaf5b14df0c",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "63791f4eebaf40d2988e5f894d8dfbf882fe88188b48e6fb5579739b00aea763",
+   "imatges": {
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "sda2-esprai.jpg": "8f00cd474e682eb8"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-03-laboratori-globus.pdf": {
+   "depen_de": [
+    "lab@1",
+    "lab.1@1",
+    "lab.2@1",
+    "lab.3@1",
+    "lab.4@1",
+    "lab.5@1",
+    "lab.6@1",
+    "lab.7@1"
+   ],
+   "document": "lab",
+   "empremta": "dc445e92ddc2ba44e13f97ab6b4822329459faa94d0586e2da490b342dc51188",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "1b94b95622480775f3e4db221077af64f6f58552852d5e33278fe14b9f1e5199",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-04-fitxa-1-model-cineticomolecular.pdf": {
+   "depen_de": [
+    "f1@1",
+    "f1.1@1",
+    "f1.2@1",
+    "f1.3@1",
+    "f1.4@1",
+    "f1.5@1",
+    "f1.6@1",
+    "f1.7@1"
+   ],
+   "document": "f1",
+   "empremta": "474e3dfe7ea8022a0b826cde7119522b031ed2921cd4be54ab82db2532456c61",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "764e3af6d94eb829ce0ef130a577c466faa64f7d51f9fe6d961bf1d30254eadf",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-05-fitxa-2-lleis-dels-gasos.pdf": {
+   "depen_de": [
+    "f2@1",
+    "f2.1@1",
+    "f2.2@1",
+    "f2.3@1",
+    "f2.4@1",
+    "f2.5@1",
+    "f2.6@1",
+    "f2.7@1",
+    "f2.8@1"
+   ],
+   "document": "f2",
+   "empremta": "a15208b7d3df3f1add653483d5c5c3d9009a1bb3bea6654e6d0122e29aedcfaf",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "4bf05ee578862b432ef07ab5bdbeff5d9f2e23fd041a994b276ce3f732f0dab0",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-07-guio-informe-de-practica.pdf": {
+   "depen_de": [
+    "inf@1"
+   ],
+   "document": "inf",
+   "empremta": "5edbec1f594a8456545db93a314754afe590e7036f3f0c0db59635440ce98331",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "90e666e887cfb9d74a9c3bb815d11a94a6014f5251b14d652f3f94270c34b4ca",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-08-guio-del-video.pdf": {
+   "depen_de": [
+    "video@1",
+    "s2.video@1",
+    "s2.video.v1@1",
+    "s2.video.v2@1",
+    "s2.video.v3@1",
+    "video.1@1",
+    "video.2@1",
+    "video.3@1",
+    "video._@1"
+   ],
+   "document": "video",
+   "empremta": "16c5a3d391d2389bc09686648a82e15eee47b23364bb15b280e6f5d2c77fc32e",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "fac31e654cace7b5f8c794ec0b1fb44586200f917e57a39941bc7f9ef201ff4d",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-09-rubriques.pdf": {
+   "depen_de": [
+    "rub@1"
+   ],
+   "document": "rub",
+   "empremta": "f65a1b8054e1321a94f0fdd1cf703650ea0ec8a89ef8489c47da16213e1580ea",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "bb28b5121fb035fbbfa65cb262c0162385d8836f36ecb1b3b8aca9eb9ddcb7cd",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-12-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "diana@1",
+    "diana.1@1",
+    "diana.2@1",
+    "diana.3@1",
+    "diana.diana@1"
+   ],
+   "document": "diana",
+   "empremta": "d69639a91542fc5663b345af53c9fbebc88d46e61c504f88467595a58bff5f83",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "7ac527d3ea5edba2fa8e00b59da7d1c902ee29e5f555287bb54050e57316b26c",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-13-mapa-conceptual.pdf": {
+   "depen_de": [
+    "mapa@1"
+   ],
+   "document": "mapa",
+   "empremta": "cd7c0ff8b583ccc144da708084cc621bb5e6b6e3fa6b012d358404d9248f6c7c",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "02b89ffd0bedcc5c1baf13435b2aeb7a977acb1b321fcc2f8004b7774830b452",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-14-laboratori-corba-i-canvis-destat.pdf": {
+   "depen_de": [
+    "labc@1",
+    "labc.1@1",
+    "labc.2@1",
+    "labc.3@1",
+    "labc.4@1",
+    "labc.5@1",
+    "labc.6@1",
+    "labc.7@1",
+    "labc.P@1"
+   ],
+   "document": "labc",
+   "empremta": "82c740d745fc5c3f64486688a88c83414c60d440c2485caea43b0759a7eb3139",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "e8207b9d45fe6027e32a4d1636119ac7e38e543e8d196628af93cf4a081f4fc1",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-15-ampliacio.pdf": {
+   "depen_de": [
+    "d2amp@1",
+    "d2amp.1@1",
+    "d2amp.2@1",
+    "d2amp.3@1",
+    "d2amp.4@1",
+    "d2amp.5@1",
+    "d2amp.6@1"
+   ],
+   "document": "d2amp",
+   "empremta": "8f8875f8dc7d6ca8746b29b5039be57a5deaf5a6a0383ea17de655d0e9d24f3b",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "6f42b0e8a32e187130f9dd163eaaecf110ef3cc552b2c5a06a222bded7ca13c2",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda2-19-avaluem-els-videos.pdf": {
+   "depen_de": [
+    "d2coav@1",
+    "d2coav._@1"
+   ],
+   "document": "d2coav",
+   "empremta": "157732d65106ad1815ea8f2e759831e04665b3b94845c04314e2c0f041312b66",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "def1ad84333f4d47f32b5fbff0d28363e634bbcd2a51f5896e379bee2cda733a",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "d3ruta@1",
+    "d3ruta.1@1",
+    "d3ruta.2@1",
+    "d3ruta.3@1",
+    "d3ruta.4@1",
+    "d3ruta.5@1",
+    "d3ruta.6@1",
+    "d3ruta.7@1",
+    "d3ruta.8@1",
+    "d3ruta.9@1",
+    "d3ruta.10@1"
+   ],
+   "document": "d3ruta",
+   "empremta": "5767ef79b850db12e95fe1d17ce586c02841d456f11de5db66009488f62b3c3a",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "ca59a50e8fbdcbb7a78c2ad946e35e2474a74023af51971d917d136bf95e2a4e",
+   "imatges": {
+    "sda3-s1.png": "7f73d8fca7f8fa7a",
+    "sda3-s10.png": "d477e439d5610672",
+    "sda3-s2.png": "df5eefd847199ec6",
+    "sda3-s3.png": "0fca071cebf2ea5b",
+    "sda3-s4.png": "47684268eba450b4",
+    "sda3-s5.png": "09d13ac1756134c0",
+    "sda3-s6.png": "33fb38dbbb894b28",
+    "sda3-s7.png": "04824a4924b58af3",
+    "sda3-s8.png": "ed85c164b4675482",
+    "sda3-s9.png": "dc25f832ceb0dc84"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-03-fitxa-1-desmuntem-el-mobil.pdf": {
+   "depen_de": [
+    "d3f1@1",
+    "d3f1.1@1",
+    "d3f1.2@1",
+    "d3f1.3@1",
+    "d3f1.4@1",
+    "d3f1.5@1",
+    "d3f1._@1"
+   ],
+   "document": "d3f1",
+   "empremta": "cc7d657806b759813da72046f08af3723fd4514373fd78e24585066132924227",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "ea17ca7813fe3b035e8b98e21c8de919ae1d9b4b0925c16d3ed6dbbb042f2f0e",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-04-fitxa-2-models-atomics-i-isotops.pdf": {
+   "depen_de": [
+    "d3f2@1",
+    "d3f2.1@1",
+    "d3f2.2@1",
+    "d3f2.3@1",
+    "d3f2.4@1",
+    "d3f2._@1"
+   ],
+   "document": "d3f2",
+   "empremta": "99c17e8c983f9a0a7b02ce244e45479a62956182229a819a5fcf871a1e187af3",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "5b2e8bf3e6abacceac05f5bcf7b066466c0948b32dc06c6de40bfe7c7466a83e",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-05-fitxa-3-ions-i-bateria.pdf": {
+   "depen_de": [
+    "d3f3@1",
+    "d3f3.1@1",
+    "d3f3.2@1",
+    "d3f3.3@1",
+    "d3f3.4@1",
+    "d3f3._@1"
+   ],
+   "document": "d3f3",
+   "empremta": "c528393e0828c4f87ba200350b3f7bc7b154b07dd695024435ff09b29ab6e435",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "5d8cf21c0f5a3e7577359165afb18347967f86adbef9a31db9ea00c44bd28921",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-07-laboratori-assaig-a-la-flama.pdf": {
+   "depen_de": [
+    "d3lab@1",
+    "d3lab.1@1",
+    "d3lab.2@1",
+    "d3lab.3@1",
+    "d3lab.4@1",
+    "d3lab.5@1",
+    "d3lab.6@1",
+    "d3lab.7@1",
+    "d3lab._@1"
+   ],
+   "document": "d3lab",
+   "empremta": "002edabee6df37b6250569324945ae63c1122d5ef859c0c0af2033a018f200bc",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "5b4da401a6a11c5b37a8046a661a690fa1063b5dca9b61a8c3a666539ee5ee15",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-08-fitxa-4-taula-periodica.pdf": {
+   "depen_de": [
+    "d3f4@1",
+    "d3f4.1@1",
+    "d3f4.2@1",
+    "d3f4.3@1",
+    "d3f4.4@1",
+    "d3f4.5@1"
+   ],
+   "document": "d3f4",
+   "empremta": "a165410148075f7e3c987266350937381ceb85024b86f7d9e14e35cab5a0b6ee",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "992a3fe3d24c9b95c727eb55505aa5e3af1f5c5e4c9a57148ed3c62782af80f0",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-09-fitxa-5-enllac-quimic.pdf": {
+   "depen_de": [
+    "d3f5@1",
+    "d3f5.1@1",
+    "d3f5.2@1",
+    "d3f5.3@1",
+    "d3f5.4@1"
+   ],
+   "document": "d3f5",
+   "empremta": "02ff796ae71a67a51a40ae01c24b0e202b159494a7ffbc0bcb3e782b986ed23c",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "540e416f7baf886b8d713bdd6e0e003217093ab1d8ac7521ecfd082ba5cf6751",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-10-dossier-incendis-i-elements-critics.pdf": {
+   "depen_de": [
+    "d3dos@1",
+    "s3.dos@1",
+    "s3.dos.d1@1",
+    "s3.dos.d2@1",
+    "d3dos.1@1",
+    "d3dos.2@1",
+    "d3dos.3@1",
+    "d3dos.4@1",
+    "d3dos.5@1"
+   ],
+   "document": "d3dos",
+   "empremta": "b5182eb8b988aef2325a4ef243b294213bdb93b4d8df69b9e446b587b4911cb6",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "a046125ee365bd3a43d04e07cf6ec995da53b6b96c26cdde71b16e782c1471b2",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-11-pla-de-campanya-punt-de-recollida.pdf": {
+   "depen_de": [
+    "d3camp@1",
+    "s3.camp@1",
+    "s3.camp.c1@1",
+    "s3.camp.c2@1",
+    "s3.camp.c3@1",
+    "d3camp.1@1",
+    "d3camp.2@1",
+    "d3camp.3@1",
+    "d3camp.4@1",
+    "d3camp.5@1",
+    "d3camp.6@1",
+    "d3camp._@1"
+   ],
+   "document": "d3camp",
+   "empremta": "6eda4d7aaf57446e6d59c26f5fafd0279c0943d689f88a82f9b87dd5b06a077d",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "08ff6cfe848df16bc903efca4c99db8bd196a9cc19ae96f9cd8c42a45b383409",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-12-rubriques.pdf": {
+   "depen_de": [
+    "d3rub@1"
+   ],
+   "document": "d3rub",
+   "empremta": "61fa6414441b7f36ee7d0ff27d28d7f87354307214d35ebc92da5b08d966a938",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "82891b11f2f3af9bd2d18d10947a1f7638d24cefe94433120508ffbfeea5c47e",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-16-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "d3diana@1",
+    "d3diana.1@1",
+    "d3diana.2@1",
+    "d3diana.3@1",
+    "d3diana.diana@1"
+   ],
+   "document": "d3diana",
+   "empremta": "2d0e6e40b5d62373ab70f9f3c9c9c38b3966b9b1bf70fedd8d7890899026687a",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "ff00399a3658210a69a56a448fe62e1bd733d2c455f5f89d720128107bd6b299",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-17-mapa-conceptual.pdf": {
+   "depen_de": [
+    "d3mapa@1"
+   ],
+   "document": "d3mapa",
+   "empremta": "35a33274b55aa0aaa1cd701de440773cbaaca504a3455943a33fa86b173fc6dd",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "2d3da8feac45408ecdc7213ec0168e5f42ba1346c40765701f1c5490759ba1c6",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-18-ampliacio.pdf": {
+   "depen_de": [
+    "d3amp@1",
+    "d3amp.1@1",
+    "d3amp.2@1",
+    "d3amp.3@1",
+    "d3amp.4@1",
+    "d3amp.5@1",
+    "d3amp.6@1",
+    "d3amp.7@1"
+   ],
+   "document": "d3amp",
+   "empremta": "d99a2f0eaf93d5f9731a8fa97de29fa8209a5a59c56eedce052c00eef76d042a",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "003ff7d431ab8967fbce398a5d9e373c02a88f9a7dd1f701f084b71907679ab5",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "d4ruta@1",
+    "d4ruta.1@1",
+    "d4ruta.2@1",
+    "d4ruta.3@1",
+    "d4ruta.4@1",
+    "d4ruta.5@1",
+    "d4ruta.6@1",
+    "d4ruta.7@1",
+    "d4ruta.8@1",
+    "d4ruta.9@1",
+    "d4ruta.10@1"
+   ],
+   "document": "d4ruta",
+   "empremta": "317afd9501fb2c09bb6562e0fb18b43214e1ab74b343cff2cdf10537d8183b2f",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "f023cdac9aa13b1d6f47f551dd345b54800ba7fc571daac82a72aa89607c2d45",
+   "imatges": {
+    "sda4-s1.png": "02ab5e3e6b0f75ba",
+    "sda4-s10.png": "98a4cea3244b1316",
+    "sda4-s2.png": "526d9456f0db4210",
+    "sda4-s3.png": "86f44e91a68930b8",
+    "sda4-s4.png": "b68b6b3220fd1197",
+    "sda4-s5.png": "cd49bdf7f44ef85e",
+    "sda4-s6.png": "b06e36d592377f29",
+    "sda4-s7.png": "d28317823b403634",
+    "sda4-s8.png": "52ee15765837719e",
+    "sda4-s9.png": "148c523c055adc45"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-02-full-del-repte.pdf": {
+   "depen_de": [
+    "d4repte@1",
+    "d4repte.1@1",
+    "d4repte.2@1",
+    "d4repte.3@1",
+    "d4repte.4@1",
+    "d4repte.5@1",
+    "d4repte._@1"
+   ],
+   "document": "d4repte",
+   "empremta": "8345c66b3e5e78ada6beb2d8e307c0902b6b8a7e7203b844d77c296a237aea8f",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "6e6839669a4218cba8617c4ba2164f6029761e5815fb1a3208ccf8f6489cf199",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-03-laboratori-conservacio-de-la-massa.pdf": {
+   "depen_de": [
+    "d4lab1@1",
+    "d4lab1.1@1",
+    "d4lab1.2@1",
+    "d4lab1.3@1",
+    "d4lab1.4@1",
+    "d4lab1.5@1",
+    "d4lab1.6@1",
+    "d4lab1._@1"
+   ],
+   "document": "d4lab1",
+   "empremta": "9c4d5df94c8620b8c3fe45e8485be04a919318e019a9431bdd27bfdd8602e8ed",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "4606f738fdb1967a419d45c6bf879876ffd5b276106846f9c9f3051a107f8fe9",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf": {
+   "depen_de": [
+    "d4f1@1",
+    "d4f1.1@1",
+    "d4f1.2@1",
+    "d4f1.3@1",
+    "d4f1.4@1",
+    "d4f1.5@1",
+    "d4f1.6@1"
+   ],
+   "document": "d4f1",
+   "empremta": "811ec92e54f3063718483c6b461f1acd06fc1a0323c1ff06fdc632485150b5d1",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "15bd564895a35a7bdaf3dbea07fd10af65fdc057eecc93a3e75cbcd7d0ebdd75",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-05-laboratori-obtenim-hidrogen.pdf": {
+   "depen_de": [
+    "d4lab2@1",
+    "d4lab2.1@1",
+    "d4lab2.2@1",
+    "d4lab2.3@1",
+    "d4lab2.4@1",
+    "d4lab2.5@1",
+    "d4lab2._@1"
+   ],
+   "document": "d4lab2",
+   "empremta": "4a9d88c029fc73dfbc90876c945aa4dc58d2b4c057726ce33527b59063a33bb9",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "221447fcaa91c02d1e7d5838217f5a170a28551b5c598d7646cea1a317e2fbf0",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf": {
+   "depen_de": [
+    "d4f2@1",
+    "d4f2.1@1",
+    "d4f2.2@1",
+    "d4f2.3@1",
+    "d4f2.4@1",
+    "d4f2.5@1",
+    "d4f2.6@1",
+    "d4f2.7@1"
+   ],
+   "document": "d4f2",
+   "empremta": "54de1ed7e6c2757d860598d4426d106a1d40dc3a56af5948038611a7bad2ae80",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "ab625658a2eba9c02fb768a836a36e3f7b7a93f868377a270b9e11a3a33daa58",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-07-laboratori-electrolisi-de-laigua.pdf": {
+   "depen_de": [
+    "d4lab3@1",
+    "d4lab3.1@1",
+    "d4lab3.2@1",
+    "d4lab3.3@1",
+    "d4lab3.4@1",
+    "d4lab3.5@1",
+    "d4lab3.6@1",
+    "d4lab3._@1"
+   ],
+   "document": "d4lab3",
+   "empremta": "a82c4c97405f672676871139307d7a28d5bda46b9817b3f0613bb46bdf3cc769",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "9a8621a79ab420dffbd15912ca5e9ed64d72e498fee4670a527550be4ee2ba9a",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-08-fitxa-3-taller-de-problemes.pdf": {
+   "depen_de": [
+    "d4f3@1",
+    "d4f3.1@1",
+    "d4f3.2@1",
+    "d4f3.3@1",
+    "d4f3.4@1",
+    "d4f3.5@1",
+    "d4f3.6@1",
+    "d4f3.7@1",
+    "d4f3.8@1",
+    "d4f3.9@1",
+    "d4f3.10@1",
+    "d4f3._@1"
+   ],
+   "document": "d4f3",
+   "empremta": "344ee8d1f762d7a704aa001d363bd08b9539a820a0cfd31e70b52eff469cce9a",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "607bd075df9b88d40b018286dbefdf7b49a6ad4b1d8f5fa4fc589cbbde55c693",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-09-dossier-hidrogen.pdf": {
+   "depen_de": [
+    "d4dos@1",
+    "s4.dos@1",
+    "s4.dos.d1@1",
+    "s4.dos.d2@1",
+    "d4dos.1@1",
+    "d4dos.2@1",
+    "d4dos.3@1",
+    "d4dos.4@1",
+    "d4dos._@1"
+   ],
+   "document": "d4dos",
+   "empremta": "00d845c4132d725d58c5583bfc6a68ec9189d4301ce66ff6fc5e44b2226ea984",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "f557d68faa0cf5d5d33129d4d63d725b8ca5b905fab9e731293a6aeaaf9a9e68",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-10-rubriques.pdf": {
+   "depen_de": [
+    "d4rub@1"
+   ],
+   "document": "d4rub",
+   "empremta": "7af439c0380f60f2729c3befd7d857d98b1b1ec92074bd37d4813acefbd31b11",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "5ef520ecfb2f40099d8d11aee4af6f7cc7e2ebbf67e21a30151aef1b06412a92",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-14-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "d4diana@1",
+    "d4diana.1@1",
+    "d4diana.2@1",
+    "d4diana.3@1",
+    "d4diana.diana@1"
+   ],
+   "document": "d4diana",
+   "empremta": "ab6092cf55d9c9861baa1dcac5a78b66b35677efa395afd41bfa12c084359f83",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "4606ab9ba00e6ee86328cd13cd341944ebcdcbeeac8c377b374e534eb07e1805",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-15-mapa-conceptual.pdf": {
+   "depen_de": [
+    "d4mapa@1"
+   ],
+   "document": "d4mapa",
+   "empremta": "18ba9371be58fa036d58784295094d23e32c1930546d152e3e272688a62c6a27",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "23b1b9b13b7192d4941377de2766b00d9730cd49297544138b90ef124d2c3bac",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-16-ampliacio.pdf": {
+   "depen_de": [
+    "d4amp@1",
+    "d4amp.1@1",
+    "d4amp.2@1",
+    "d4amp.3@1",
+    "d4amp.4@1",
+    "d4amp.5@1",
+    "d4amp.6@1",
+    "d4amp.7@1"
+   ],
+   "document": "d4amp",
+   "empremta": "264ec492404f6fdad7d1523ed91333c13f51a6a4e416f6b881f0a368071c6e41",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "ff19d66b18d31cc1a33871afa6729c8a4e082efc25e21c94579025464581042b",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "d5ruta@1",
+    "d5ruta.1@1",
+    "d5ruta.2@1",
+    "d5ruta.3@1",
+    "d5ruta.4@1",
+    "d5ruta.5@1",
+    "d5ruta.6@1",
+    "d5ruta.7@1",
+    "d5ruta.8@1",
+    "d5ruta.9@1",
+    "d5ruta.10@1",
+    "d5ruta.11@1",
+    "d5ruta.12@1",
+    "d5ruta.13@1"
+   ],
+   "document": "d5ruta",
+   "empremta": "63b0609d878d7644b97305db6ce6b0c28847d59cee5fded7c2d843c39ecf6230",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "0e2c84bc2df19d608b06158fa101371f71d166d0f434c9736718d6583d2ddc42",
+   "imatges": {
+    "sda5-s1.png": "41255b35f7b5fbeb",
+    "sda5-s10.png": "df48224323c356f6",
+    "sda5-s11.png": "f0bdcd24c4e0b991",
+    "sda5-s12.png": "9beaad0d21833caa",
+    "sda5-s13.png": "36eceac6dbcfaa85",
+    "sda5-s2.png": "6bfe993b8b527e3b",
+    "sda5-s3.png": "c313e3129cb11a64",
+    "sda5-s4.png": "77b32e80311b09f4",
+    "sda5-s5.png": "fe51a04a57419f8d",
+    "sda5-s6.png": "ce51fd7cc05d0942",
+    "sda5-s7.png": "3c7e3b659194c8f9",
+    "sda5-s8.png": "8ac313fb467aa67b",
+    "sda5-s9.png": "9cda8322136964d5"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-02-full-del-repte.pdf": {
+   "depen_de": [
+    "d5repte@1",
+    "d5repte.1@1",
+    "d5repte.2@1",
+    "d5repte.3@1",
+    "d5repte._@1"
+   ],
+   "document": "d5repte",
+   "empremta": "e0aae457fc54b95b671c8b634a588c555f731aeaaa77ac03d0bda1ce4f2fc68f",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "6e0f8a6e23f88819bf5380e705367f4bc86676d2145ef4325097fa2b8263abb8",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-03-fitxa-1-mru.pdf": {
+   "depen_de": [
+    "d5f1@1",
+    "d5f1.1@1",
+    "d5f1.2@1",
+    "d5f1.3@1",
+    "d5f1.4@1",
+    "d5f1.5@1",
+    "d5f1.6@1"
+   ],
+   "document": "d5f1",
+   "empremta": "c4d3fccd947e8d89bea87aa62c2d33190576b4214eeb64cbfb7822a101457e59",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "98ab7b3f847a53be7ff95b144a17c2d3410b78636aa3c2ccc2b843fd98423c94",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-04-fitxa-2-mrua.pdf": {
+   "depen_de": [
+    "d5f2@1",
+    "d5f2.1@1",
+    "d5f2.2@1",
+    "d5f2.3@1",
+    "d5f2.4@1",
+    "d5f2.5@1"
+   ],
+   "document": "d5f2",
+   "empremta": "37f722b7f03dd0eb82853788f02f26297df726a608e2a69293d592c60e0b0263",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "7abf156c740d7bb8004d85b90c7a99f8737d5bb544a6f999a4ebb753db826369",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-05-fitxa-3-grafiques-del-patinet.pdf": {
+   "depen_de": [
+    "d5f3@1",
+    "d5f3.1@1",
+    "d5f3.2@1",
+    "d5f3.3@1",
+    "d5f3.4@1",
+    "d5f3.5@1",
+    "d5f3.6@1"
+   ],
+   "document": "d5f3",
+   "empremta": "ed7bed2fad289a9fa52d968ed3b0b7b0671e4a82bdf75f7ca9a6211f63c6278f",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "ce78f18fe33f49c72005cd900ec2a0b353df756577b965241dcdb996dc783efb",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-06-fitxa-4-trajectoria.pdf": {
+   "depen_de": [
+    "d5f4@1",
+    "d5f4.1@1",
+    "d5f4.2@1",
+    "d5f4.3@1",
+    "d5f4.4@1",
+    "d5f4.5@1",
+    "d5f4.6@1",
+    "d5f4.7@1",
+    "d5f4.8@1"
+   ],
+   "document": "d5f4",
+   "empremta": "26754ddfdde4bf05f26d22decf8d2a80540d5e6309f905114eb015afe7e07f9d",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "0be4dd15bb8dd73d7309df9e4905f42e25446ee4db82bc2dab690a1b8f189136",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-07-fitxa-5-difusio-i-gradient.pdf": {
+   "depen_de": [
+    "d5f5@1",
+    "d5f5.1@1",
+    "d5f5.2@1",
+    "d5f5.3@1",
+    "d5f5.4@1",
+    "d5f5.5@1",
+    "d5f5.6@1"
+   ],
+   "document": "d5f5",
+   "empremta": "6c4d9038006623388a53850eaaaabfa3fa85b7c815d18274230080623292fdaa",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "f84a003deaadaff9fbefbb03919ba40426d68d6ef4968b78406e38cba1ff37cd",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf": {
+   "depen_de": [
+    "d5f6q@1",
+    "d5f6q.1@1",
+    "d5f6q.2@1",
+    "d5f6q.3@1",
+    "d5f6q.4@1",
+    "d5f6q.5@1",
+    "d5f6q.6@1",
+    "d5f6q.7@1",
+    "d5f6q.8@1",
+    "d5f6q.9@1"
+   ],
+   "document": "d5f6q",
+   "empremta": "74ce6d3d00f315e935d995a89364488632492f9f8b46f28e6b1f453662602783",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "462e6cf3f80c54e261bb2ba8118c5421d5c3671da76e150edd99f2fea74aaed5",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-09-problemes-de-moviment.pdf": {
+   "depen_de": [
+    "d5prob@1",
+    "d5prob.1@1",
+    "d5prob.2@1",
+    "d5prob.3@1",
+    "d5prob.4@1",
+    "d5prob.5@1",
+    "d5prob.6@1",
+    "d5prob.7@1",
+    "d5prob.8@1"
+   ],
+   "document": "d5prob",
+   "empremta": "4f324c1cfd5c29333cbf93f5d1ad590b6b85efc2db0e4afcf6be70f1255e10f5",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "e36340d1920fd80a3af589946f62627b0bb13c106642f2ad913cdd6fc1955240",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-10-fitxa-7-newton-i-citoesquelet.pdf": {
+   "depen_de": [
+    "d5f6@1",
+    "d5f6.1@1",
+    "d5f6.2@1",
+    "d5f6.3@1",
+    "d5f6.4@1",
+    "d5f6.5@1",
+    "d5f6.6@1",
+    "d5f6.7@1",
+    "d5f6.8@1"
+   ],
+   "document": "d5f6",
+   "empremta": "3ffb513d2e81c7beba0992a0d552d78a9d5c5394b49e737c67aea08308ccfed1",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "498f51c24b99efa7f15590699b8f2d7ae7fc7002e0b9685c7ead0293bc54dedd",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-11-laboratori-llei-de-hooke.pdf": {
+   "depen_de": [
+    "d5hooke@1",
+    "d5hooke.1@1",
+    "d5hooke.2@1",
+    "d5hooke.3@1",
+    "d5hooke.4@1",
+    "d5hooke.5@1",
+    "d5hooke.6@1"
+   ],
+   "document": "d5hooke",
+   "empremta": "6a92022f5ad1c89ca7b4ddfa33c9000f2c1b025ce1766fec10027b0acf1f0dcb",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "1e8747e13bb9ea43b8790b1f62c18174b23446b25b87a7eee482be67318ba2a3",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-12-forces-cellulars.pdf": {
+   "depen_de": [
+    "d5tfm@1",
+    "s5.tfm@1",
+    "s5.tfm.t1@1",
+    "s5.tfm.t2@1",
+    "s5.tfm.t3@1",
+    "d5tfm.1@1",
+    "d5tfm.2@1",
+    "d5tfm.3@1",
+    "d5tfm.4@1",
+    "d5tfm.5@1",
+    "d5tfm.6@1",
+    "d5tfm.7@1"
+   ],
+   "document": "d5tfm",
+   "empremta": "23fd6202834553a1f074bf87d9933ccf2159eed938831b566ec7dfa17d6bb834",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "9b2c11ec7d4f0d0c60788cd25cef5e467cce477b47c4be5ff7f0fdb2d6053f2e",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-14-rubriques.pdf": {
+   "depen_de": [
+    "d5rub@1"
+   ],
+   "document": "d5rub",
+   "empremta": "f17d87106982a9e814916716e045b493c458540b26017de3288bac492a6706ba",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "cae806845291d3e4dc8d79bf8bc962b05ef5c348e981b0afd0fd631f56f58302",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-18-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "d5diana@1",
+    "d5diana.1@1",
+    "d5diana.2@1",
+    "d5diana.3@1",
+    "d5diana.diana@1"
+   ],
+   "document": "d5diana",
+   "empremta": "108cd338052a3bca616e877b681d565ddcee8b3fbe8ef1dfb5e4543109dfff98",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "874334d6759bbfeac8b49eab8033cc71a572fbf6e446cc6f3d51cebb974d488d",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-19-mapa-conceptual.pdf": {
+   "depen_de": [
+    "d5mapa@1"
+   ],
+   "document": "d5mapa",
+   "empremta": "c8691b33d8f4582652638866af33965bd992aa973bf87a889ec329a4932d51b9",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "b7dfb699e635c1d4c9cc7ed8d004eebcbb36c9e051ec4619199a46acc649e5cc",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-20-ampliacio.pdf": {
+   "depen_de": [
+    "d5amp@1",
+    "d5amp.1@1",
+    "d5amp.2@1",
+    "d5amp.3@1",
+    "d5amp.4@1",
+    "d5amp.5@1",
+    "d5amp.6@1",
+    "d5amp.7@1",
+    "d5amp.8@1"
+   ],
+   "document": "d5amp",
+   "empremta": "69c94c8b5dc83c87389559fc8ef59bbad28f26c3568aadda2de9b97f4fc3d04b",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "12d54e91dc150436936d844f25b6f27984add7d02c234a94b1577c7d0b0f2a59",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-01-full-de-ruta.pdf": {
+   "depen_de": [
+    "d6ruta@1",
+    "d6ruta.1@1",
+    "d6ruta.2@1",
+    "d6ruta.3@1",
+    "d6ruta.4@1",
+    "d6ruta.5@1",
+    "d6ruta.6@1",
+    "d6ruta.7@1"
+   ],
+   "document": "d6ruta",
+   "empremta": "203f411bd0a7fe947f1c44d0b3b8d5ece69718d5347e720a044aeaa2b7e3f41a",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "0bbe9f26bc64808a5b0213e5e13805e8a903ca808fd0c54aedb7e0a1a0ed691b",
+   "imatges": {
+    "sda6-s1.png": "2b04931f447c4b77",
+    "sda6-s2.png": "7db7de9cc9917e3f",
+    "sda6-s3.png": "539af93e949fdbe5",
+    "sda6-s4.png": "6c0347d9976e3513",
+    "sda6-s5.png": "8528959ff9534993",
+    "sda6-s6.png": "054c87c877382f9c",
+    "sda6-s7.png": "e47f7262f501e600"
+   },
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-02-full-del-repte.pdf": {
+   "depen_de": [
+    "d6repte@1",
+    "d6repte.1@1",
+    "d6repte.2@1",
+    "d6repte.3@1",
+    "d6repte.4@1",
+    "d6repte.5@1",
+    "d6repte.6@1"
+   ],
+   "document": "d6repte",
+   "empremta": "9f2ab41ab785773c514fc2472cad0f5914123a764125b065f563770a7718aa04",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "7e6d3cd92b1e650c921cc31ada7d8c2496264e7fce5f18b3d7458b65fc4865dd",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-03-fitxa-1-energia-potencia-i-consum.pdf": {
+   "depen_de": [
+    "d6f1@1",
+    "d6f1.1@1",
+    "d6f1.2@1",
+    "d6f1.3@1",
+    "d6f1.4@1",
+    "d6f1.5@1",
+    "d6f1.6@1",
+    "d6f1.7@1"
+   ],
+   "document": "d6f1",
+   "empremta": "1f84ee7caf48d4c7e812eddbbc5f02ec93b675abaeac5d4b14ef588135d78199",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "750d9745c39923a2acacbe51b23e193cc71f734c68278e06130dc80655b267c0",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-04-laboratori-consum-real.pdf": {
+   "depen_de": [
+    "d6lab@1",
+    "d6lab.1@1",
+    "d6lab.2@1",
+    "d6lab.3@1",
+    "d6lab.4@1",
+    "d6lab.5@1",
+    "d6lab.6@1",
+    "d6lab.7@1",
+    "d6lab._@1"
+   ],
+   "document": "d6lab",
+   "empremta": "44ff955dd948037b1c6850b3ade16a662547344b31d3cb2c66852469f3447457",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "adda277e5fedf2477be884d40f80deedd5f214c0a463458122006fdb84839c97",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-05-fitxa-2-don-ve-lelectricitat.pdf": {
+   "depen_de": [
+    "d6f2@1",
+    "d6f2.1@1",
+    "d6f2.2@1",
+    "d6f2.3@1",
+    "d6f2.4@1",
+    "d6f2.5@1",
+    "d6f2._@1"
+   ],
+   "document": "d6f2",
+   "empremta": "7b3b7138b3a67679a717a3e3d1fe9aebac4b641c800145ec0366744fef84d73f",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "87e29085de6ff9fd35254a91e3c1d3994028d6ce9505a947fcf0442c044d0827",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-06-pla-destalvi-i-debat.pdf": {
+   "depen_de": [
+    "d6pla@1",
+    "s6.pla@1",
+    "s6.pla.e1@1",
+    "s6.pla.e2@1",
+    "d6pla.1@1",
+    "d6pla.2@1",
+    "d6pla.3@1",
+    "d6pla.4@1",
+    "d6pla.5@1",
+    "d6pla.6@1",
+    "d6pla.7@1",
+    "d6pla._@1"
+   ],
+   "document": "d6pla",
+   "empremta": "1bb715297435044e7e0a44380bfa1ac205d04e684baed1f762a16dc0a7f404c3",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "2da5a61994dc6a9c30fbccd365aeaafe097eb6512c7198ec0f7b8c4b80521441",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-07-rubriques.pdf": {
+   "depen_de": [
+    "d6rub@1"
+   ],
+   "document": "d6rub",
+   "empremta": "514a9a339e3f4fee2c7e61c3b9edb56aa0efd141a4bd6de982862348b82550c1",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "a8792134ff632aeb43d559db23184628fc5207d79f41aa0e1b28e8503ade0017",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-11-diana-autoavaluacio.pdf": {
+   "depen_de": [
+    "d6diana@1",
+    "d6diana.1@1",
+    "d6diana.2@1",
+    "d6diana.3@1",
+    "d6diana.diana@1"
+   ],
+   "document": "d6diana",
+   "empremta": "b1f28ef64b75c9183ce415724f877d30975c6399aa0dd3e080ebcfc14a28dcf8",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "b514d28320c1c4e81771e398da66cb2d32181a1cb89cccc958b1b6ab683883d5",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-12-mapa-conceptual.pdf": {
+   "depen_de": [
+    "d6mapa@1"
+   ],
+   "document": "d6mapa",
+   "empremta": "db84ef30c699cb64954a12efb9732e8b6aab416d1cd1c48b1a1109c71de9d874",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "1be34843d43929bddb70eb9d0a592655ee3a718c95b9e2cf3ca3acc5422fc296",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-14-ampliacio.pdf": {
+   "depen_de": [
+    "d6amp@1",
+    "d6amp.1@1",
+    "d6amp.2@1",
+    "d6amp.3@1",
+    "d6amp.4@1",
+    "d6amp.5@1",
+    "d6amp.6@1",
+    "d6amp.7@1"
+   ],
+   "document": "d6amp",
+   "empremta": "844e14ebbbe0b6e6aa0134d63d80b43ff6d7cc05e57d1699db5ed5a9a1172aca",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "9bd382cafd8f540fc220caeb5187f08a8b7117bf00d674fde541f9dd3f808b12",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "professorat/programacio-annexos.pdf": {
+   "depen_de": [
+    "curriculum@1",
+    "sda1@1",
+    "sda2@1",
+    "sda3@1",
+    "sda4@1",
+    "sda5@1",
+    "sda6@1"
+   ],
+   "document": "dannex",
+   "empremta": "95858c85558a736044dc7ba47c038253dcee7ac474a34c1157aa40a6044eb405",
+   "generador": "gen_annexos.py",
+   "generador_hash": "c50213ab32ffdb7da3495d44f5f4952f4ea614f5543e68879464d0ec59bbfc92",
+   "hash": "etag:483904b9e6b69da38060b5e800a3b08b",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda1-13-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "d1prova@1",
+    "s1.prova@1",
+    "s1.prova.p1@1",
+    "s1.prova.p2@1",
+    "s1.prova.p3@1",
+    "s1.prova.p4@1",
+    "s1.prova.p5@1",
+    "s1.prova.p6@1"
+   ],
+   "document": "d1prova",
+   "empremta": "6d2fe36cde28b163c21b2c413e9a25990ab1b4c7195b9182ef89f4ee2751c044",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda1-14-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "d1solpr@1",
+    "s1.prova@1",
+    "s1.prova.p1@1",
+    "s1.prova.p2@1",
+    "s1.prova.p3@1",
+    "s1.prova.p4@1",
+    "s1.prova.p5@1",
+    "s1.prova.p6@1"
+   ],
+   "document": "d1solpr",
+   "empremta": "d31df27964d50eac4ce10e4bb150027f5bae026211d33654f4a3738ff41ba5fd",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda1-15-solucionari-fitxes.pdf": {
+   "depen_de": [
+    "d1solf@1"
+   ],
+   "document": "d1solf",
+   "empremta": "4e5e2215250867cd66398c7b3ba57a4bdf186bc267c87e496308d71943c90fa5",
+   "generador": "gen_detectius.py",
+   "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
+   "hash": "etag:545cfe199bd5cdd562a2176ffb2bef8c",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda1-19-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d1solamp@1"
+   ],
+   "document": "d1solamp",
+   "empremta": "51a43146eddc4f9b4df2498479767e71206f030f534b672746715076c4dcf043",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:81dbe52854c98261b890fb2815d5342d",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda1-20-adaptada-dislexia-fitxa-1.pdf": {
+   "depen_de": [
+    "d1adap@1"
+   ],
+   "document": "d1adap",
+   "empremta": "cdacaa74ef349ad93da1ffc417fc4958945ac550fd604a88a00fe29286075a45",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:fd6ba4fc29bb84326aa2ab2ad5de3c99",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-06-solucionari-fitxa-2.pdf": {
+   "depen_de": [
+    "solf2@1"
+   ],
+   "document": "solf2",
+   "empremta": "e72ce70539c32d239aba1f7338768c84d34c1c78a5937ec20276a4dd52b01190",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": "etag:39f2320ee85a08811e7e5b198fc5ab08",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-10-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "prova@1",
+    "s2.prova@1",
+    "s2.prova.p1@1",
+    "s2.prova.p2@1",
+    "s2.prova.p3@1",
+    "s2.prova.p4@1",
+    "s2.prova.p5@1",
+    "s2.prova.p6@1"
+   ],
+   "document": "prova",
+   "empremta": "24bbcc4de7a35166af899e0555c2f1da6ab19a06f46059c2d48292534a8005fa",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-11-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "solpr@1",
+    "s2.prova@1",
+    "s2.prova.p1@1",
+    "s2.prova.p2@1",
+    "s2.prova.p3@1",
+    "s2.prova.p4@1",
+    "s2.prova.p5@1",
+    "s2.prova.p6@1"
+   ],
+   "document": "solpr",
+   "empremta": "196db4ca7b97811ca47d7985316dc078d61555228014ffe60b76c2ffefbc9dcb",
+   "generador": "gen_sda1.py",
+   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-16-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d2solamp@1"
+   ],
+   "document": "d2solamp",
+   "empremta": "2addd07a2456b803392153378a17b695ab31f85dd3bc139bdb6497c4dc7daab6",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:3eb9b3dfa6ddb6649e91094fd3aa24e5",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-17-adaptada-nouvingut-glossari-visual.pdf": {
+   "depen_de": [
+    "d2adap@1"
+   ],
+   "document": "d2adap",
+   "empremta": "04d5fd2eb75cac02aa60b805d66ec24e187ddd31e91d5d8f557de59e918fd361",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:a55033dad9a4ad0cd73b5716ec6822d7",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda2-18-adaptada-continguts-basics-fitxa-1.pdf": {
+   "depen_de": [
+    "d2bas@1"
+   ],
+   "document": "d2bas",
+   "empremta": "deb0c75d8cccfe1e5990dbc2efd57591044258231f70f9851b8213e27d4d0e21",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": null,
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-02-model-de-mobil-per-plastificar.pdf": {
+   "depen_de": [
+    "d3model@1"
+   ],
+   "document": "d3model",
+   "empremta": "35b183936da23d601abbe8f908be9ef495f6a64f690731a89673a9bb64fcf150",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "etag:20bd32acc516a668551b7058c2022cf2",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-06-targetes-cami-del-reciclatge.pdf": {
+   "depen_de": [
+    "d3targ@1"
+   ],
+   "document": "d3targ",
+   "empremta": "308b8ca4b0c5233ed6b36bece28ab155b7c248753957c030bac87f4b79a22642",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "etag:5aa0bdbd1056a8c7e3e8c0d6ae143448",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-13-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "d3prova@1",
+    "s3.prova@1",
+    "s3.prova.p1@1",
+    "s3.prova.p2@1",
+    "s3.prova.p3@1",
+    "s3.prova.p4@1",
+    "s3.prova.p5@1"
+   ],
+   "document": "d3prova",
+   "empremta": "a09d62e84e3f9e4bdd8878e49dbd1eac7c604793a248b81abc5fcd2c2273a92c",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-14-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "d3solpr@1",
+    "s3.prova@1",
+    "s3.prova.p1@1",
+    "s3.prova.p2@1",
+    "s3.prova.p3@1",
+    "s3.prova.p4@1",
+    "s3.prova.p5@1"
+   ],
+   "document": "d3solpr",
+   "empremta": "5d0e6b24e87dbafe0acb57a113fcd158c2d53b6f3affa85cd04a8b25572af5ce",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-15-solucionari-fitxes.pdf": {
+   "depen_de": [
+    "d3solf@1"
+   ],
+   "document": "d3solf",
+   "empremta": "39f914d9ccd4146b80c3df465ce46c832015aeed98e73e376f6bef4889b8367f",
+   "generador": "gen_mobil.py",
+   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
+   "hash": "etag:103d32297d01363f17686365c18d00e8",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-19-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d3solamp@1"
+   ],
+   "document": "d3solamp",
+   "empremta": "d646f0266a1fd139fae5f5f67151872eba3fbc3a22dea9e9677ee1e86cdbda9e",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:b35a2dbc6bc0ead15f78d442cd4cb5b4",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda3-20-adaptada-pi-atom-i-taula-periodica.pdf": {
+   "depen_de": [
+    "d3adap@1"
+   ],
+   "document": "d3adap",
+   "empremta": "e134789b6d9896848fe7b8a6b59e52ab039d653587848a8fff5eab7164f4af70",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:34cf755e70eb686a1b94b394b7d59f81",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda4-11-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "d4prova@1",
+    "s4.prova@1",
+    "s4.prova.p1@1",
+    "s4.prova.p2@1",
+    "s4.prova.p3@1",
+    "s4.prova.p4@1",
+    "s4.prova.p5@1"
+   ],
+   "document": "d4prova",
+   "empremta": "1f1db7ea411fef624e6faa1d464e917eea0f6b832ad021dbec2fc24269f00c1f",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda4-12-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "d4solpr@1",
+    "s4.prova@1",
+    "s4.prova.p1@1",
+    "s4.prova.p2@1",
+    "s4.prova.p3@1",
+    "s4.prova.p4@1",
+    "s4.prova.p5@1"
+   ],
+   "document": "d4solpr",
+   "empremta": "b78a39d1465993c7e0236bc2f3f893c1618aa27a2c90f93f7f50f56571778104",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda4-13-solucionari-fitxes.pdf": {
+   "depen_de": [
+    "d4solf@1"
+   ],
+   "document": "d4solf",
+   "empremta": "690a73e846b2a762655e78b476670debd605925b7cca265c6b01c40da26d201a",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
+   "hash": "etag:99f793b82c0c5a80ddd69298b280ebf1",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda4-17-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d4solamp@1"
+   ],
+   "document": "d4solamp",
+   "empremta": "7144a81dc4dba55ffec8f00afa2d5073eed5add8bb0cc12bf3b3350f8bb1aa8f",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:5ce5e16015a04540820c0b9b87329313",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda4-18-adaptada-discalculia-equacions-i-masses.pdf": {
+   "depen_de": [
+    "d4adap@1"
+   ],
+   "document": "d4adap",
+   "empremta": "1fe2a7638e102248303ffd650e4c1b1a9fe5afb79e161f446c96b4d41b290d44",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:1efda531c905a64fbfe061d74e2efa86",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-13-lamines-forces-de-traccio.pdf": {
+   "depen_de": [
+    "d5lam@1"
+   ],
+   "document": "d5lam",
+   "empremta": "f8c72338381dd1fd160d6be504c51a00d07579e525a10c9460c6ac4f628da3b3",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "etag:240084e98b447ed1b697ee68dca8f110",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-15-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "d5prova@1",
+    "s5.prova@1",
+    "s5.prova.p1@1",
+    "s5.prova.p2@1",
+    "s5.prova.p3@1",
+    "s5.prova.p4@1",
+    "s5.prova.p5@1"
+   ],
+   "document": "d5prova",
+   "empremta": "efb5c87b8c9a10701a8abbab14d5e3a63236b4138c0ee1bb829f0d10c47fb681",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-16-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "d5solpr@1",
+    "s5.prova@1",
+    "s5.prova.p1@1",
+    "s5.prova.p2@1",
+    "s5.prova.p3@1",
+    "s5.prova.p4@1",
+    "s5.prova.p5@1"
+   ],
+   "document": "d5solpr",
+   "empremta": "b7fe8d5fa6f734a266efd09d182af638e46ed6a0155a421d76d1fe7198491874",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-17-solucionari-fitxes.pdf": {
+   "depen_de": [
+    "d5solf@1"
+   ],
+   "document": "d5solf",
+   "empremta": "c9cbf9de4cf4553da45280edf23d35cc6a347c507b3ca4dd8bf821e837927960",
+   "generador": "gen_cel.py",
+   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
+   "hash": "etag:f200d663edfd8364fb91d111abced0c5",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-21-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d5solamp@1"
+   ],
+   "document": "d5solamp",
+   "empremta": "6b7dd2ef58d1d1dae60753ca5a42786c79dff45ef58f99e12d99bf030d2d9afc",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:964e28fce2c771865f276243eea7f521",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda5-22-adaptada-tdah-problemes-de-moviment.pdf": {
+   "depen_de": [
+    "d5adap@1"
+   ],
+   "document": "d5adap",
+   "empremta": "bc0ec23c75edee2ac037329cd31d0cdaca17822b7e9dbe9cf19a8e8269a512e6",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:5ac313d6cafe5bd9ef7d5ce5711e3b7f",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda6-08-demostracio-assoliment.pdf": {
+   "depen_de": [
+    "d6prova@1",
+    "s6.prova@1",
+    "s6.prova.p1@1",
+    "s6.prova.p2@1",
+    "s6.prova.p3@1",
+    "s6.prova.p4@1",
+    "s6.prova.p5@1"
+   ],
+   "document": "d6prova",
+   "empremta": "a80020a74f669139bbe7e2a804a922ef2cab1d9837e8b2cbc2d564f274dfc4a6",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda6-09-solucionari-demostracio.pdf": {
+   "depen_de": [
+    "d6solpr@1",
+    "s6.prova@1",
+    "s6.prova.p1@1",
+    "s6.prova.p2@1",
+    "s6.prova.p3@1",
+    "s6.prova.p4@1",
+    "s6.prova.p5@1"
+   ],
+   "document": "d6solpr",
+   "empremta": "7ea79047e74e54827082091db2e98567d9903aacf52ad0d6fc4ac09fe660b7f7",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": null,
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda6-10-solucionari-fitxes.pdf": {
+   "depen_de": [
+    "d6solf@1"
+   ],
+   "document": "d6solf",
+   "empremta": "817c83485f8ff9bc797fe3348c3b2b8aefc97313e1ab1cb9ad735af65256d737",
+   "generador": "gen_energia.py",
+   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
+   "hash": "etag:3f89595b2d22abe9f49f7bff00ca88a8",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda6-15-solucionari-ampliacio.pdf": {
+   "depen_de": [
+    "d6solamp@1"
+   ],
+   "document": "d6solamp",
+   "empremta": "e998e13100aed047c56d92bd688cc272dfea88ae67dadf2b906ac0fe434490c1",
+   "generador": "mn_ampl.py",
+   "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
+   "hash": "etag:36ce93ff859ed014747194740a158846",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "professorat/sda6-16-adaptada-tea-guio-del-debat.pdf": {
+   "depen_de": [
+    "d6adap@1"
+   ],
+   "document": "d6adap",
+   "empremta": "92c3354cee7f5f743287dd9ccd49840d1b64d94bcc1f649d20dc97cae49ea12d",
+   "generador": "mn_adapt.py",
+   "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
+   "hash": "etag:e091df2b382f6ced6b0189c22834d667",
+   "imatges": {},
+   "tipus": "pdf-professorat"
+  },
+  "programacio/taula10": {
+   "coherent_amb_full_md": true,
+   "depen_de": [
+    "curriculum@1",
+    "s1.prova.p1@1",
+    "s1.prova.p2@1",
+    "s1.prova.p3@1",
+    "s1.prova.p4@1",
+    "s1.prova.p5@1",
+    "s1.prova.p6@1",
+    "s1.inf.i1@1",
+    "s1.inf.i2@1",
+    "s1.inf.i3@1",
+    "s1.inf.i4@1",
+    "s1.lab.l1@1",
+    "s1.lab.l2@1",
+    "s1.ellen.e1@1",
+    "s2.prova.p1@1",
+    "s2.prova.p2@1",
+    "s2.prova.p3@1",
+    "s2.prova.p4@1",
+    "s2.prova.p5@1",
+    "s2.prova.p6@1",
+    "s2.video.v1@1",
+    "s2.video.v2@1",
+    "s2.video.v3@1",
+    "s2.expl.e1@1",
+    "s2.expl.e2@1",
+    "s3.prova.p1@1",
+    "s3.prova.p2@1",
+    "s3.prova.p3@1",
+    "s3.prova.p4@1",
+    "s3.prova.p5@1",
+    "s3.camp.c1@1",
+    "s3.camp.c2@1",
+    "s3.camp.c3@1",
+    "s3.dos.d1@1",
+    "s3.dos.d2@1",
+    "s3.fit.f2@1",
+    "s4.prova.p1@1",
+    "s4.prova.p2@1",
+    "s4.prova.p3@1",
+    "s4.prova.p4@1",
+    "s4.prova.p5@1",
+    "s4.lab.l1@1",
+    "s4.lab.l2@1",
+    "s4.lab.l3@1",
+    "s4.dos.d1@1",
+    "s4.dos.d2@1",
+    "s5.prova.p1@1",
+    "s5.prova.p2@1",
+    "s5.prova.p3@1",
+    "s5.prova.p4@1",
+    "s5.prova.p5@1",
+    "s5.tfm.t1@1",
+    "s5.tfm.t2@1",
+    "s5.tfm.t3@1",
+    "s5.graf.g1@1",
+    "s5.graf.g2@1",
+    "s5.febre.f1@1",
+    "s5.febre.f2@1",
+    "s6.prova.p1@1",
+    "s6.prova.p2@1",
+    "s6.prova.p3@1",
+    "s6.prova.p4@1",
+    "s6.prova.p5@1",
+    "s6.cerca.c1@1",
+    "s6.cerca.c2@1",
+    "s6.pla.e1@1",
+    "s6.pla.e2@1",
+    "s6.debat.b1@1",
+    "s6.debat.b2@1"
+   ],
+   "empremta": "4b7c68cd1368e67b5e9062341b52a00ae166322dde07a557efd2747f5b6e41d7",
+   "generador": "build_prog_final.py (tools/3r/dades/full.md)",
+   "hash": "4b7c68cd1368e67b5e9062341b52a00ae166322dde07a557efd2747f5b6e41d7",
+   "tipus": "programacio"
+  },
+  "programacio/taula11": {
+   "coherent_amb_full_md": true,
+   "depen_de": [
+    "curriculum@1",
+    "s1.prova.p1@1",
+    "s1.prova.p2@1",
+    "s1.prova.p3@1",
+    "s1.prova.p4@1",
+    "s1.prova.p5@1",
+    "s1.prova.p6@1",
+    "s1.inf.i1@1",
+    "s1.inf.i2@1",
+    "s1.inf.i3@1",
+    "s1.inf.i4@1",
+    "s1.lab.l1@1",
+    "s1.lab.l2@1",
+    "s1.ellen.e1@1",
+    "s2.prova.p1@1",
+    "s2.prova.p2@1",
+    "s2.prova.p3@1",
+    "s2.prova.p4@1",
+    "s2.prova.p5@1",
+    "s2.prova.p6@1",
+    "s2.video.v1@1",
+    "s2.video.v2@1",
+    "s2.video.v3@1",
+    "s2.expl.e1@1",
+    "s2.expl.e2@1",
+    "s3.prova.p1@1",
+    "s3.prova.p2@1",
+    "s3.prova.p3@1",
+    "s3.prova.p4@1",
+    "s3.prova.p5@1",
+    "s3.camp.c1@1",
+    "s3.camp.c2@1",
+    "s3.camp.c3@1",
+    "s3.dos.d1@1",
+    "s3.dos.d2@1",
+    "s3.fit.f2@1",
+    "s4.prova.p1@1",
+    "s4.prova.p2@1",
+    "s4.prova.p3@1",
+    "s4.prova.p4@1",
+    "s4.prova.p5@1",
+    "s4.lab.l1@1",
+    "s4.lab.l2@1",
+    "s4.lab.l3@1",
+    "s4.dos.d1@1",
+    "s4.dos.d2@1",
+    "s5.prova.p1@1",
+    "s5.prova.p2@1",
+    "s5.prova.p3@1",
+    "s5.prova.p4@1",
+    "s5.prova.p5@1",
+    "s5.tfm.t1@1",
+    "s5.tfm.t2@1",
+    "s5.tfm.t3@1",
+    "s5.graf.g1@1",
+    "s5.graf.g2@1",
+    "s5.febre.f1@1",
+    "s5.febre.f2@1",
+    "s6.prova.p1@1",
+    "s6.prova.p2@1",
+    "s6.prova.p3@1",
+    "s6.prova.p4@1",
+    "s6.prova.p5@1",
+    "s6.cerca.c1@1",
+    "s6.cerca.c2@1",
+    "s6.pla.e1@1",
+    "s6.pla.e2@1",
+    "s6.debat.b1@1",
+    "s6.debat.b2@1"
+   ],
+   "empremta": "4b7c68cd1368e67b5e9062341b52a00ae166322dde07a557efd2747f5b6e41d7",
+   "generador": "build_prog_final.py (tools/3r/dades/full.md)",
+   "hash": "4b7c68cd1368e67b5e9062341b52a00ae166322dde07a557efd2747f5b6e41d7",
+   "tipus": "programacio"
+  }
+ },
+ "nota": "Generat per tools/3r/artefactes.py --registra. Registra l'estat actual com a generat."
+}

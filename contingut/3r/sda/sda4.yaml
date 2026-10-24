@@ -1,0 +1,1104 @@
+# SdA 4: font única (sessions, documents, fitxes digitals, evidències i criteris).
+# uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
+# versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
+# Els camps d'una pregunta hereten la versio de la pregunta.
+sda: 4
+versio: 2
+color: --s4
+titol: Un cotxe que només allibera aigua?
+repte: Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?
+meta: '2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3'
+publicada: true
+ce_aprovades:
+- CE1
+- CE2
+- CE3
+sessions:
+- titol: El repte i l'espelma
+  fase: Explorem
+  text: Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.
+  docs:
+  - d4ruta
+  - d4repte
+  - d4rub
+  enllacos:
+  - tmbh2
+- titol: Lavoisier al laboratori
+  fase: Experimentem
+  text: Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.
+  docs:
+  - d4lab1
+  enllacos: []
+- titol: Formulació i nomenclatura
+  fase: Aprenem
+  text: Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.
+  docs:
+  - d4f1
+  enllacos: []
+- titol: Obtenim hidrogen
+  fase: Experimentem
+  text: Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.
+  docs:
+  - d4lab2
+  enllacos: []
+- titol: Equacions i càlculs de massa
+  fase: Aprenem
+  text: Aprendrem a ajustar equacions químiques i a calcular les masses de reactius i productes a partir de les masses atòmiques. Calcularem quanta aigua allibera cada dia un autobús d'hidrogen. La fitxa 2 l'acabaràs a casa.
+  docs:
+  - d4f2
+  enllacos:
+  - anajust
+  - ajust
+- titol: 'Electròlisi: hidrogen verd'
+  fase: Experimentem
+  text: Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.
+  docs:
+  - d4lab3
+  enllacos: []
+- titol: Taller de problemes
+  fase: Practiquem
+  text: 'Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d''una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d''ajust d''equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.'
+  docs:
+  - d4f3
+  - d4mapa
+  enllacos:
+  - ancol
+  - ajust
+- titol: Per què no són tots així?
+  fase: Ho apliquem
+  text: Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.
+  docs:
+  - d4dos
+  - d4repte
+  enllacos:
+  - anpila
+- titol: Demostració d'assoliment
+  fase: Avaluem
+  text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.
+  docs: []
+  docs_professorat:
+  - d4prova
+  - d4solpr
+  enllacos: []
+- titol: Corregeixo i reflexiono
+  fase: Reflexionem
+  text: Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.
+  docs:
+  - d4diana
+  docs_professorat:
+  - d4solpr
+  enllacos: []
+professorat:
+- bloc: Material multinivell · ampliació
+  text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
+  docs:
+  - d4amp
+  - d4solamp
+- bloc: Atenció a la diversitat · Discalcúlia
+  text: Ajust d'equacions amb models de boles i càlculs de massa amb taules de proporcionalitat i calculadora. Mesura addicional. Inclou una nota per al professorat a l'última pàgina.
+  docs:
+  - d4adap
+- bloc: Plantilla de la SdA
+  text: Identificació, context, elements curriculars, sessions, avaluació, diversitat, organització i seguretat, i materials.
+  url: https://claude.ai/code/artifact/3ecfcc8c-4799-480d-a5da-d98b8ffa1c60
+  url_text: Obre la plantilla
+- bloc: Registre de competències
+  text: Què es treballa a cada SdA i què queda pendent.
+  url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
+  url_text: Obre el registre
+- bloc: Activitat de demostració i solucionaris
+  text: Activitat de demostració d'assoliment de la sessió 9, solucionari amb criteris i solucionari de les fitxes i dels tres laboratoris (amb notes de preparació).
+  docs:
+  - d4prova
+  - d4solpr
+  - d4solf
+- bloc: Rúbriques
+  text: Fulls de laboratori (Lavoisier i electròlisi) i dossier amb la resposta del grup.
+  docs:
+  - d4rub
+documents:
+  d4amp:
+    uid: d4amp
+    versio: 1
+    fitxer: sda4-16-ampliacio.pdf
+    titol: Reptes d'ampliació
+    digital:
+      origen: auto
+      titol: Dossier d'ampliació
+      sda: 4
+      preguntes:
+      - uid: d4amp.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Raonament Equacions més difícils. Ajusta aquestes equacions químiques. Comprova al fina…
+        criteris: []
+        camps:
+        - d4amp.a1
+      - uid: d4amp.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Càlcul L'aigua que surt pel tub d'escapament. En la reacció \(\mathrm{2\,H_2 + O_2 \lon…
+        criteris: []
+        camps:
+        - d4amp.a2
+      - uid: d4amp.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Càlcul Qui s'acaba primer? El reactiu limitant. Fem reaccionar 10 g d'hidrogen amb 64 g…
+        criteris: []
+        camps:
+        - d4amp.a3
+      - uid: d4amp.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Dades Emissions de CO₂: el cotxe de gasolina i el d''hidrogen. Combustió de l''octà: \(\m…'
+        criteris: []
+        camps:
+        - d4amp.a4
+      - uid: d4amp.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Càlcul Electròlisi de l'aigua. En una electròlisi recollim 30 mL d'hidrogen. A 20 °C i…
+        criteris: []
+        camps:
+        - d4amp.a5
+      - uid: d4amp.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Dades La velocitat d'una reacció. Posem un tros de zinc en àcid clorhídric i mesurem el…
+        criteris: []
+        camps:
+        - d4amp.a6
+        - d4amp.a7
+      - uid: d4amp.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: '7 Formulació Més formulació. Escriu el nom o la fórmula: Fe₂O₃ · Al₂O₃ · PbO₂ · SO₃ · H₂S…'
+        criteris: []
+        camps:
+        - d4amp.a8
+  d4solamp:
+    uid: d4solamp
+    versio: 1
+    fitxer: sda4-17-solucionari-ampliacio.pdf
+    titol: Solucionari de l'ampliació
+    professorat: true
+  d4adap:
+    uid: d4adap
+    versio: 1
+    fitxer: sda4-18-adaptada-discalculia-equacions-i-masses.pdf
+    titol: Equacions i masses pas a pas · Discalcúlia
+    professorat: true
+  d4ruta:
+    uid: d4ruta
+    versio: 1
+    fitxer: sda4-01-full-de-ruta.pdf
+    titol: Full de ruta
+    digital:
+      origen: auto
+      titol: Full de ruta · Un cotxe que només allibera aigua?
+      sda: 4
+      preguntes:
+      - uid: d4ruta.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: El repte i l'espelma
+        criteris: []
+        camps:
+        - d4ruta.a1
+        - d4ruta.a2
+        - d4ruta.a3
+      - uid: d4ruta.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: Lavoisier al laboratori
+        criteris: []
+        camps:
+        - d4ruta.a4
+        - d4ruta.a5
+        - d4ruta.a6
+      - uid: d4ruta.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: Formulació i nomenclatura
+        criteris: []
+        camps:
+        - d4ruta.a7
+        - d4ruta.a8
+        - d4ruta.a9
+      - uid: d4ruta.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: Obtenim hidrogen
+        criteris: []
+        camps:
+        - d4ruta.a10
+        - d4ruta.a11
+        - d4ruta.a12
+      - uid: d4ruta.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: Equacions i càlculs de massa
+        criteris: []
+        camps:
+        - d4ruta.a13
+        - d4ruta.a14
+        - d4ruta.a15
+      - uid: d4ruta.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 'Electròlisi: hidrogen verd'
+        criteris: []
+        camps:
+        - d4ruta.a16
+        - d4ruta.a17
+        - d4ruta.a18
+      - uid: d4ruta.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: Taller de problemes
+        criteris: []
+        camps:
+        - d4ruta.a19
+        - d4ruta.a20
+        - d4ruta.a21
+      - uid: d4ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Per què no són tots així?
+        criteris: []
+        camps:
+        - d4ruta.a22
+        - d4ruta.a23
+        - d4ruta.a24
+      - uid: d4ruta.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: Demostració d'assoliment
+        criteris: []
+        camps:
+        - d4ruta.a25
+        - d4ruta.a26
+        - d4ruta.a27
+      - uid: d4ruta.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: Corregeixo i reflexiono
+        criteris: []
+        camps:
+        - d4ruta.a28
+        - d4ruta.a29
+        - d4ruta.a30
+  d4repte:
+    uid: d4repte
+    versio: 1
+    fitxer: sda4-02-full-del-repte.pdf
+    titol: Full del repte
+    digital:
+      origen: auto
+      titol: Full del repte · Un cotxe que només allibera aigua?
+      sda: 4
+      preguntes:
+      - uid: d4repte.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Què en penses? Si un vehicle només allibera vapor d'aigua, per què creus que encara no…
+        criteris: []
+        camps:
+        - d4repte.a1
+      - uid: d4repte.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Reactius i productes. En la combustió de l'espelma, quines substàncies reaccionen i qui…
+        criteris: []
+        camps:
+        - d4repte.a6
+      - uid: d4repte.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 I l'hidrogen? L'hidrogen (H₂) no conté carboni. Quins productes creus que es formaran q…
+        criteris: []
+        camps:
+        - d4repte.a7
+      - uid: d4repte.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: '4 Discutiu-ho en grup. Parleu d''aquestes preguntes i escriviu la hipòtesi del grup: Quan…'
+        criteris: []
+        camps:
+        - d4repte.a8
+      - uid: d4repte.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Esmena la hipòtesi. Després de la sessió 8, compara la hipòtesi del grup amb el que has…
+        criteris: []
+        camps:
+        - d4repte.a9
+      - uid: d4repte._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4repte.a2
+        - d4repte.a3
+        - d4repte.a4
+        - d4repte.a5
+  d4lab1:
+    uid: d4lab1
+    versio: 1
+    fitxer: sda4-03-laboratori-conservacio-de-la-massa.pdf
+    titol: 'Laboratori: es conserva la massa?'
+    digital:
+      origen: auto
+      titol: Laboratori · Es conserva la massa?
+      sda: 4
+      preguntes:
+      - uid: d4lab1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Dues proves. Farem la reacció en un sistema obert (el vas de precipitats, sense tapar)…
+        criteris: []
+        camps:
+        - d4lab1.a1
+      - uid: d4lab1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 El sistema tancat. A l'ampolla hi posem 20 mL de vinagre, i el bicarbonat dins del tub…
+        criteris: []
+        camps:
+        - d4lab1.a2
+      - uid: d4lab1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Sistema obert. Ha variat la massa? Si ha disminuït, vol dir que s'ha destruït matèria?…
+        criteris: []
+        camps:
+        - d4lab1.a13
+      - uid: d4lab1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Sistema tancat. Ha variat la massa? Tenint en compte la resolució de la balança, la dif…
+        criteris: []
+        camps:
+        - d4lab1.a14
+      - uid: d4lab1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 L'energia. La temperatura ha pujat o ha baixat? La reacció ha alliberat energia a l'ent…
+        criteris: []
+        camps:
+        - d4lab1.a15
+      - uid: d4lab1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Una comprovació. La massa que ha perdut el sistema obert és aproximadament la massa de…
+        criteris: []
+        camps:
+        - d4lab1.a16
+      - uid: d4lab1._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4lab1.a3
+        - d4lab1.a4
+        - d4lab1.a5
+        - d4lab1.a6
+        - d4lab1.a7
+        - d4lab1.a8
+        - d4lab1.a9
+        - d4lab1.a10
+        - d4lab1.a11
+        - d4lab1.a12
+  d4f1:
+    uid: d4f1
+    versio: 1
+    fitxer: sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf
+    titol: Fitxa 1
+    digital:
+      origen: auto
+      titol: Fitxa 1 · Formulació i nomenclatura
+      sda: 4
+      preguntes:
+      - uid: d4f1.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Simple o compost? Classifica com a substància simple o compost i justifica-ho: H₂, H₂O,…'
+        criteris: []
+        camps:
+        - d4f1.a1
+      - uid: d4f1.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Completa la taula.
+        criteris: []
+        camps:
+        - d4f1.a2
+        - d4f1.a3
+        - d4f1.a4
+        - d4f1.a5
+        - d4f1.a6
+        - d4f1.a7
+        - d4f1.a8
+        - d4f1.a9
+        - d4f1.a10
+        - d4f1.a11
+        - d4f1.a12
+        - d4f1.a13
+        - d4f1.a14
+        - d4f1.a15
+        - d4f1.a16
+        - d4f1.a17
+        - d4f1.a18
+        - d4f1.a19
+        - d4f1.a20
+        - d4f1.a21
+      - uid: d4f1.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Combina els ions. Escriu la fórmula i el nom del compost que formen.
+        criteris: []
+        camps:
+        - d4f1.a22
+        - d4f1.a23
+        - d4f1.a24
+        - d4f1.a25
+        - d4f1.a26
+        - d4f1.a27
+        - d4f1.a28
+        - d4f1.a29
+        - d4f1.a30
+        - d4f1.a31
+        - d4f1.a32
+        - d4f1.a33
+      - uid: d4f1.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Del nom a la fórmula. a) diòxid de carboni · b) òxid de calci · c) clorur de potassi ·…
+        criteris: []
+        camps:
+        - d4f1.a34
+      - uid: d4f1.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 De la fórmula al nom. a) MgO · b) NaCl · c) CO · d) HCl · e) CaCl₂ · f) Al₂O₃ · g) NO₂…
+        criteris: []
+        camps:
+        - d4f1.a35
+      - uid: d4f1.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: '6 Els compostos de la nostra SdA. Escriu el nom o la fórmula: a) H₂O · b) CO₂ · c) CH₄ ·…'
+        criteris: []
+        camps:
+        - d4f1.a36
+  d4lab2:
+    uid: d4lab2
+    versio: 1
+    fitxer: sda4-05-laboratori-obtenim-hidrogen.pdf
+    titol: 'Laboratori: obtenim hidrogen'
+    digital:
+      origen: auto
+      titol: Laboratori · Obtenim hidrogen
+      sda: 4
+      preguntes:
+      - uid: d4lab2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Per què boca avall? Per què recollim l'hidrogen en un tub boca avall i el portem a la f…
+        criteris: []
+        camps:
+        - d4lab2.a5
+      - uid: d4lab2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 L'equació química. El magnesi reacciona amb l'àcid clorhídric i es formen clorur de mag…
+        criteris: []
+        camps:
+        - d4lab2.a6
+      - uid: d4lab2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 El so de la flama. El so que se sent és una petita explosió: l''hidrogen reacciona amb l…'
+        criteris: []
+        camps:
+        - d4lab2.a7
+      - uid: d4lab2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 L'energia. La temperatura ha pujat o ha baixat? La reacció del magnesi amb l'àcid clorh…
+        criteris: []
+        camps:
+        - d4lab2.a8
+      - uid: d4lab2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Canvi químic. Quines evidències de la pràctica indiquen que s'ha produït un canvi quími…
+        criteris: []
+        camps:
+        - d4lab2.a9
+      - uid: d4lab2._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4lab2.a1
+        - d4lab2.a2
+        - d4lab2.a3
+        - d4lab2.a4
+  d4f2:
+    uid: d4f2
+    versio: 1
+    fitxer: sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf
+    titol: Fitxa 2
+    digital:
+      origen: auto
+      titol: Fitxa 2 · Equacions químiques i càlculs de massa
+      sda: 4
+      preguntes:
+      - uid: d4f2.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Compta els àtoms. A l'esquema de dalt, quants àtoms d'hidrogen i d'oxigen hi ha als rea…
+        criteris: []
+        camps:
+        - d4f2.a1
+        - d4f2.a2
+      - uid: d4f2.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Ajusta les equacions. Pots comprovar-ho amb la simulació PhET «Ajust d'equacions químiq…
+        criteris: []
+        camps:
+        - d4f2.a3
+      - uid: d4f2.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Aigua a partir d'hidrogen. Quina massa d'aigua es forma quan reaccionen 8 g d'hidrogen?…
+        criteris: []
+        camps:
+        - d4f2.a4
+      - uid: d4f2.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 L'autobús de TMB. Cada autobús d'hidrogen consumeix uns 20 kg d'hidrogen al dia. Quina…
+        criteris: []
+        camps:
+        - d4f2.a5
+      - uid: d4f2.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 El gas de la cuina. El gas natural és majoritàriament metà. Ajusta l'equació de la comb…
+        criteris: []
+        camps:
+        - d4f2.a6
+      - uid: d4f2.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Al laboratori. A la sessió 4 vam fer reaccionar 0,024 g de magnesi amb àcid clorhídric…
+        criteris: []
+        camps:
+        - d4f2.a7
+      - uid: d4f2.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: 7 Què sobra? En un recipient tancat es fan reaccionar 10 g d'hidrogen amb 100 g d'oxigen.…
+        criteris: []
+        camps:
+        - d4f2.a8
+  d4lab3:
+    uid: d4lab3
+    versio: 1
+    fitxer: sda4-07-laboratori-electrolisi-de-laigua.pdf
+    titol: 'Laboratori: electròlisi de l''aigua'
+    digital:
+      origen: auto
+      titol: 'Laboratori · Electròlisi de l''aigua: hidrogen verd'
+      sda: 4
+      preguntes:
+      - uid: d4lab3.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Quina massa cal? Volem preparar 400 mL d'una dissolució de carbonat de sodi de concentr…
+        criteris: []
+        camps:
+        - d4lab3.a1
+      - uid: d4lab3.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Un exemple de càlcul. Escriu el càlcul complet del volum de gas del tub A al final de l…
+        criteris: []
+        camps:
+        - d4lab3.a35
+      - uid: d4lab3.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Quin gas hi ha a cada tub? En quin tub s'ha recollit més gas? Quin gas és? Calcula la r…
+        criteris: []
+        camps:
+        - d4lab3.a36
+      - uid: d4lab3.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Volum i massa. Segons l'equació, es formen 2 molècules d'hidrogen per cada molècula d'o…
+        criteris: []
+        camps:
+        - d4lab3.a37
+      - uid: d4lab3.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Fonts d'error. Probablement la vostra relació de volums no és exactament 2. Per què? Pe…
+        criteris: []
+        camps:
+        - d4lab3.a38
+      - uid: d4lab3.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Energia i hidrogen verd. Per descompondre l'aigua hem hagut de subministrar energia elè…
+        criteris: []
+        camps:
+        - d4lab3.a39
+      - uid: d4lab3._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4lab3.a2
+        - d4lab3.a3
+        - d4lab3.a4
+        - d4lab3.a5
+        - d4lab3.a6
+        - d4lab3.a7
+        - d4lab3.a8
+        - d4lab3.a9
+        - d4lab3.a10
+        - d4lab3.a11
+        - d4lab3.a12
+        - d4lab3.a13
+        - d4lab3.a14
+        - d4lab3.a15
+        - d4lab3.a16
+        - d4lab3.a17
+        - d4lab3.a18
+        - d4lab3.a19
+        - d4lab3.a20
+        - d4lab3.a21
+        - d4lab3.a22
+        - d4lab3.a23
+        - d4lab3.a24
+        - d4lab3.a25
+        - d4lab3.a26
+        - d4lab3.a27
+        - d4lab3.a28
+        - d4lab3.a29
+        - d4lab3.a30
+        - d4lab3.a31
+        - d4lab3.a32
+        - d4lab3.a33
+        - d4lab3.a34
+  d4f3:
+    uid: d4f3
+    versio: 1
+    fitxer: sda4-08-fitxa-3-taller-de-problemes.pdf
+    titol: Fitxa 3
+    digital:
+      origen: auto
+      titol: Fitxa 3 · Taller de problemes i formulació
+      sda: 4
+      preguntes:
+      - uid: d4f3.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: '1 Formulació. Escriu el nom o la fórmula: a) CaO · b) diòxid de sofre · c) KCl · d) òxid…'
+        criteris: []
+        camps:
+        - d4f3.a1
+      - uid: d4f3.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Ajusta. a) \(\mathrm{C_4H_{10} + O_2 \longrightarrow CO_2 + H_2O}\) · b) \(\mathrm{Al +…
+        criteris: []
+        camps:
+        - d4f3.a2
+      - uid: d4f3.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: '3 La bombona de propà. Una bombona conté 11 kg de propà: \(\mathrm{C_3H_8 + 5\,O_2 \longr…'
+        criteris: []
+        camps:
+        - d4f3.a3
+      - uid: d4f3.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 El cotxe d'hidrogen. Un cotxe de pila de combustible porta un dipòsit amb 5,6 kg d'hidr…
+        criteris: []
+        camps:
+        - d4f3.a4
+      - uid: d4f3.5
+        id: '5'
+        versio: 1
+        tipus: auto
+        etiqueta: 5 Lavoisier amb magnesi. Quan cremem 2,4 g de magnesi a l'aire, obtenim 4,0 g d'òxid de m…
+        criteris: []
+        camps:
+        - d4f3.a5
+      - uid: d4f3.6
+        id: '6'
+        versio: 1
+        tipus: auto
+        etiqueta: 6 Un litre de gasolina. Considera que la gasolina és octà (C₈H₁₈) i que 1 L de gasolina t…
+        criteris: []
+        camps:
+        - d4f3.a6
+      - uid: d4f3.7
+        id: '7'
+        versio: 1
+        tipus: auto
+        etiqueta: '7 Exotèrmica o endotèrmica? Classifica-les: a) la combustió del butà · b) l''electròlisi d…'
+        criteris: []
+        camps:
+        - d4f3.a7
+      - uid: d4f3.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: 8 Quin àcid és més concentrat? Quina dissolució, A o B, és més concentrada? Justifica-ho…
+        criteris: []
+        camps:
+        - d4f3.a17
+      - uid: d4f3.9
+        id: '9'
+        versio: 1
+        tipus: auto
+        etiqueta: 9 Les col·lisions. Explica els resultats de les demostracions 2 i 3 amb la teoria de les…
+        criteris: []
+        camps:
+        - d4f3.a18
+      - uid: d4f3.10
+        id: '10'
+        versio: 1
+        tipus: auto
+        etiqueta: 10 A la vida quotidiana. Quin factor explica cada fet? a) El menjar es conserva més dies…
+        criteris: []
+        camps:
+        - d4f3.a19
+      - uid: d4f3._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4f3.a8
+        - d4f3.a9
+        - d4f3.a10
+        - d4f3.a11
+        - d4f3.a12
+        - d4f3.a13
+        - d4f3.a14
+        - d4f3.a15
+        - d4f3.a16
+  d4dos:
+    uid: d4dos
+    versio: 1
+    fitxer: sda4-09-dossier-hidrogen.pdf
+    titol: Dossier sobre l'hidrogen
+    digital:
+      origen: auto
+      titol: Dossier · Per què no són tots així?
+      sda: 4
+      preguntes:
+      - uid: d4dos.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 Fes el càlcul. Un autobús de TMB consumeix uns 20 kg d'hidrogen al dia. Si l'hidrogen f…
+        criteris: []
+        camps:
+        - d4dos.a4
+      - uid: d4dos.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Compara. Amb la mateixa quantitat d'electricitat renovable, quin vehicle pot recórrer m…
+        criteris: []
+        camps:
+        - d4dos.a5
+      - uid: d4dos.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 On té sentit? Segons aquest text, per a quins vehicles té més sentit l'hidrogen? Per qu…
+        criteris: []
+        camps:
+        - d4dos.a6
+      - uid: d4dos.4
+        id: '4'
+        versio: 1
+        tipus: auto
+        etiqueta: 4 Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així? Respo…
+        criteris: []
+        camps:
+        - d4dos.a7
+      - uid: d4dos._
+        id: _
+        versio: 1
+        tipus: auto
+        etiqueta: ''
+        criteris: []
+        camps:
+        - d4dos.a1
+        - d4dos.a2
+        - d4dos.a3
+  d4rub:
+    uid: d4rub
+    versio: 1
+    fitxer: sda4-10-rubriques.pdf
+    titol: Rúbriques
+  d4prova:
+    uid: d4prova
+    versio: 1
+    fitxer: sda4-11-prova.pdf
+    titol: Activitat de demostració d'assoliment
+    professorat: true
+  d4solpr:
+    uid: d4solpr
+    versio: 1
+    fitxer: sda4-12-solucionari-prova.pdf
+    titol: Solucionari de l'activitat de demostració
+    professorat: true
+  d4solf:
+    uid: d4solf
+    versio: 1
+    fitxer: sda4-13-solucionari-fitxes.pdf
+    titol: Solucionari de les fitxes i dels laboratoris
+    professorat: true
+  d4diana:
+    uid: d4diana
+    versio: 1
+    fitxer: sda4-14-diana-autoavaluacio.pdf
+    titol: Diana d'autoavaluació
+    digital:
+      origen: auto
+      titol: Diana d'autoavaluació
+      sda: 4
+      preguntes:
+      - uid: d4diana.1
+        id: '1'
+        versio: 1
+        tipus: auto
+        etiqueta: 1 El que més m'ha costat d'aquesta SdA ha estat…
+        criteris: []
+        camps:
+        - d4diana.a8
+      - uid: d4diana.2
+        id: '2'
+        versio: 1
+        tipus: auto
+        etiqueta: 2 Ara que saps més química, què li diries a algú que creu que els cotxes d'hidrogen no co…
+        criteris: []
+        camps:
+        - d4diana.a9
+      - uid: d4diana.3
+        id: '3'
+        versio: 1
+        tipus: auto
+        etiqueta: 3 Per a la propera SdA, em comprometo a…
+        criteris: []
+        camps:
+        - d4diana.a10
+      - uid: d4diana.diana
+        id: diana
+        versio: 1
+        tipus: auto
+        etiqueta: Diana d'autoavaluació
+        criteris: []
+        camps:
+        - d4diana.a1
+        - d4diana.a2
+        - d4diana.a3
+        - d4diana.a4
+        - d4diana.a5
+        - d4diana.a6
+        - d4diana.a7
+  d4mapa:
+    uid: d4mapa
+    versio: 1
+    fitxer: sda4-15-mapa-conceptual.pdf
+    titol: Mapa conceptual
+evidencies:
+- uid: s4.prova
+  id: prova
+  versio: 2
+  titol: Activitat de demostració d'assoliment (sessió 9)
+  instruments:
+  - d4prova
+  - d4solpr
+  items:
+  - uid: s4.prova.p1
+    id: p1
+    versio: 1
+    titol: Activitat 1 · Formulació
+    criteris:
+    - '3.2'
+  - uid: s4.prova.p2
+    id: p2
+    versio: 2
+    titol: Activitat 2 · La llana d'acer
+    criteris:
+    - '2.2'
+    - '1.2'
+  - uid: s4.prova.p3
+    id: p3
+    versio: 1
+    titol: Activitat 3 · La bombona de butà
+    criteris:
+    - '3.2'
+  - uid: s4.prova.p4
+    id: p4
+    versio: 1
+    titol: Activitat 4 · Una electròlisi
+    criteris:
+    - '2.5'
+    - '3.2'
+  - uid: s4.prova.p5
+    id: p5
+    versio: 1
+    titol: Activitat 5 · Zero emissions?
+    criteris:
+    - '3.1'
+  pes: 30
+- uid: s4.lab
+  id: lab
+  versio: 1
+  titol: 'Fulls de laboratori: Lavoisier i electròlisi'
+  instruments: []
+  items:
+  - uid: s4.lab.l1
+    id: l1
+    versio: 1
+    titol: Disseny del procediment
+    criteris:
+    - '2.2'
+    descriptors:
+      AE: Distingeix sistema obert i tancat, proposa un procediment que impedeix que s'escapi cap substància i el justifica
+      AN: Proposa un procediment correcte amb alguna mancança
+      AS: Procediment incomplet o poc justificat
+      NA: No dissenya el procediment
+  - uid: s4.lab.l2
+    id: l2
+    versio: 1
+    titol: Presentació dels resultats
+    criteris:
+    - '2.5'
+    descriptors:
+      AE: Taules completes amb magnituds i unitats, càlculs de volum complets i conclusions coherents amb les dades
+      AN: Taules i càlculs correctes amb algun error menor
+      AS: Taules incompletes o conclusions poc relacionades amb les dades
+      NA: Sense taules o sense conclusions
+  - uid: s4.lab.l3
+    id: l3
+    versio: 1
+    titol: Unitats i eines matemàtiques
+    criteris:
+    - '3.2'
+    descriptors:
+      AE: Fa servir correctament les unitats, la fórmula del volum i les fórmules químiques
+      AN: Algun error menor d'unitats o de càlcul
+      AS: Errors freqüents d'unitats o de càlcul
+      NA: No aplica les unitats ni els càlculs
+  pes: 40
+- uid: s4.dos
+  id: dos
+  versio: 1
+  titol: Dossier i resposta del grup al repte (sessió 8)
+  instruments:
+  - d4dos
+  items:
+  - uid: s4.dos.d1
+    id: d1
+    versio: 1
+    titol: Dades de fonts diverses
+    criteris:
+    - '3.1'
+    descriptors:
+      AE: Fa servir com a mínim tres dades del dossier, en cita la font i les relaciona amb la química de la SdA
+      AN: Fa servir dades del dossier i en cita la font
+      AS: Fa servir alguna dada sense citar-ne la font
+      NA: No fa servir dades
+  - uid: s4.dos.d2
+    id: d2
+    versio: 1
+    titol: Treball en equip
+    criteris:
+    - '2.4'
+    descriptors:
+      AE: Cada membre fa el seu rol, explica el seu aspecte als altres i la resposta integra les aportacions de tots
+      AN: Tots participen i compleixen el rol, amb alguna desigualtat
+      AS: La feina recau en una part del grup
+      NA: Un sol membre fa la feina
+  pes: 30
