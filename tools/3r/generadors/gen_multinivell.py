@@ -1,4 +1,6 @@
 """Genera els materials multinivell: ampliació, solucionaris, materials adaptats i recuperació."""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "lib"))
+import imatges as IM
 import os, sys
 import gen_sda1 as G
 from playwright.sync_api import sync_playwright
@@ -31,5 +33,6 @@ if __name__ == "__main__":
             pg.pdf(path=os.path.join(OUT, fn), format="A4", print_background=True, prefer_css_page_size=True,
                    display_header_footer=True, header_template="<div></div>", footer_template=(G.FOOT.format(n=n, t=G.SDA["title"]) if n else G.FOOT.replace("SdA {n} · {t}", "Tasques de recuperació")))
             os.remove(path)
+            IM.registra_us(fn, html)
             print("ok", fn)
         br.close()

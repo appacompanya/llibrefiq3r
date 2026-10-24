@@ -1,5 +1,5 @@
 """Converteix els fulls de l'alumnat (HTML dels generadors) en fitxes digitals per al llibre digital.
-Sortida: ../llibrefiq3r/digital/js/fitxes-auto.js i ../llibrefiq3r/digital/fimg/ (imatges).
+Sortida: ../llibrefiq3r/digital/js/fitxes-auto.js. Les imatges no es copien: s'enllacen a ../img/<id> (una sola còpia, tools/3r/lib/imatges.py).
 Regles: línies -> resposta (text + equacions + factors de conversió); cel·les buides de taula -> camps;
 requadres de dibuix i preguntes que demanen dibuixar -> pujar foto; caselles de verificació -> checkbox;
 diana -> valoració 1-4 amb diana dinàmica."""
@@ -8,7 +8,8 @@ from bs4 import BeautifulSoup, NavigableString
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUTJS = os.path.join(HERE, "..", "llibrefiq3r", "digital", "js", "fitxes-auto.js")
-IMGDIR = os.path.join(HERE, "..", "llibrefiq3r", "digital", "fimg")
+sys.path.insert(0, os.path.join(HERE, "..", "lib"))
+import imatges as IM
 TMP = os.path.join(HERE, "_html_fitxes")
 
 # ---- mapa clau -> fitxer (del llibre) ----
@@ -180,7 +181,10 @@ for key, (fn, teacher) in D.items():
             if src.startswith("file://"):
                 p = src[7:]
                 if os.path.exists(p):
-                    shutil.copy2(p, os.path.join(IMGDIR, os.path.basename(p))); im["src"] = "fimg/" + os.path.basename(p)
+                    rel = os.path.relpath(os.path.realpath(p), os.path.realpath(IM.DIR))
+                    if rel.startswith(".."):
+                        raise SystemExit(f"Imatge fora de img/: {p}. Desa-la a img/ (una sola còpia) i fes-la servir des d'allà.")
+                    im["src"] = "../img/" + rel.replace(os.sep, "/")
         return el
 
     html = []

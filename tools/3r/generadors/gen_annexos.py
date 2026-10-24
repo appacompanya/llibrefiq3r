@@ -1,5 +1,5 @@
 """Annexos de la programació: fitxa resum de cada SdA (1 pàgina) + sondeig, enquesta i rúbrica de recuperació."""
-import os, re, json, subprocess
+import os, re, sys, json, subprocess
 import gen_sda1 as G
 from mn_common import SD, use
 from playwright.sync_api import sync_playwright
@@ -24,7 +24,9 @@ _r6, _r7, _r8 = _sec[_i6], _sec[_i6 + 1], _sec[_i8]
 _sec[_i6] = _r8.replace("| 8 · Problemes", "| 6 · Problemes"); _sec[_i6 + 1] = _r6.replace("| 6 · Difusió", "| 7 · Difusió"); _sec[_i8] = _r7.replace("| 7 · Quimiotaxi", "| 8 · Quimiotaxi")
 MD = MD[:_a] + "\n".join(_sec) + MD[_b:]
 DATA = {d["n"]: d for d in json.load(open(os.path.join(SCR, "sdas.json"), encoding="utf-8"))}
-IMG = os.path.join(G.ROOT, "img")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "lib"))
+import imatges as IM
+IMG = IM.DIR  # una sola còpia de cada imatge (img/ de l'arrel)
 
 def md_inline(s):
     s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)

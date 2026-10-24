@@ -72,3 +72,12 @@ Serveix de plantilla per fer un llibre nou: es canvien els continguts i es mant�
 - Les rutes absolutes antigues (`/home/claude`, `scratchpad`) encara hi són a `gen_annexos.py`, `annex_fitxes.py`, `annex_samples.py` i `gen_llibre.py`.
 - La font única de les dades és ara `contingut/3r/` (vegeu `docs/ARQUITECTURA.md`): `build_dades.py` en genera `digital/js/dades-generades.js` i `artefactes.py` diu què cal regenerar.
 - Diferències del kit (20/10) amb el web publicat (font de veritat): `digital/profe.html` (1 línia: `isStaff`), `js/profe.js` (~190 línies), `js/store.js` (~210), `js/fitxa.js`, `js/alumne.js`, `css/profe.css`, `css/fitxa.css`: són els canvis del 22-23/10 (cursos i docents, cua «Per revisar», ortografia i indici d'IA). `template.html` és anterior a aquests canvis.
+
+## Imatges: una sola còpia (25/10/2026)
+
+- Cada imatge és **un sol fitxer a `img/`** (arrel del web). El seu identificador és el camí dins de `img/` (p. ex. `sda2-s3.png`, `ghs/ghs03.png`).
+- El web (`index.html`, `digital/`, `profe.html`, `digital/js/fitxes-auto.js`) l'enllaça com a `img/<id>` o `../img/<id>`. S'han eliminat les còpies de `digital/fimg/` (70) i `tools/3r/generadors/img/` (10).
+- Els generadors de PDF la demanen a `tools/3r/lib/imatges.py` (`IM.uri(id)`, `IM.DIR`) i, en renderitzar cada PDF, desen quines imatges conté a `contingut/3r/generat/imatges-us.json`.
+- `artefactes.py` guarda el hash de les imatges de cada PDF; si una canvia, `--check` diu `CAL REGENERAR … (imatge img/<id> canviada)` per a cada PDF afectat.
+- **Per substituir una imatge:** sobreescriu `img/<id>` amb el mateix nom → `python3 tools/3r/artefactes.py --check` → regenera els PDF que surten → `--registra-imatges` (o `--registra` quan tot estigui al dia). El web la mostra nova sense fer res més.
+- `supabase/functions/imatges4` és dels llibres de 2n i 4t (imatges generades, versionades per nom a `privat.imatges4`): no afecta 3r.

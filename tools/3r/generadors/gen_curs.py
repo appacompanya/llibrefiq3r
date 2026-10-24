@@ -1,4 +1,6 @@
 """Genera els fulls de curs: sondeig de la sessió 0, full de tancament i enquesta de valoració."""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "lib"))
+import imatges as IM
 import os, sys
 import gen_sda1 as G
 from gen_sda1 import q, lines, page
@@ -107,5 +109,6 @@ if __name__ == "__main__":
             pg.pdf(path=os.path.join(OUT, fn), format="A4", print_background=True, prefer_css_page_size=True,
                    display_header_footer=True, header_template="<div></div>", footer_template=FOOT)
             os.remove(path)
+            IM.registra_us(fn, html)
             print("ok", fn)
         br.close()

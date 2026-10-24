@@ -1254,6 +1254,7 @@
    "generador": "gen_curs.py",
    "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
    "hash": "6fbcd5ea85a27dd20ab03a5f2b818ba389b28906032f95a930dcec81d370ba5e",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-02-sessio-de-tancament.pdf": {
@@ -1277,6 +1278,7 @@
    "generador": "gen_curs.py",
    "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
    "hash": "e6d91bad924a5ccb3a15020ddcf0918d72957c560c7fe425dc0982b138e2d72f",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-03-enquesta-de-valoracio.pdf": {
@@ -1288,6 +1290,7 @@
    "generador": "gen_curs.py",
    "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
    "hash": "10b05c8e0fc165fa2afe1d4534da2e109d82c8e5f15c2546119972ee9f1afc0b",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-04-formulari.pdf": {
@@ -1299,6 +1302,7 @@
    "generador": "gen_curs.py",
    "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
    "hash": "e12fe6a0097e4a38efb6d38bbf6cb6d85b387ee5d7630001ce19954b0579ace1",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-05-glossari.pdf": {
@@ -1310,6 +1314,7 @@
    "generador": "gen_curs.py",
    "generador_hash": "aa7fdfa9faad6b83e90a15f44cf5372b5065c57d6f396cf6b8cb29715cc6a93c",
    "hash": "b2696aba73cbab430e3cd6db01490d577f5f51b1f94f84b8f3ab33304ae7dde7",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-06-recuperacio-ce1.pdf": {
@@ -1327,6 +1332,7 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "7137a4afd8e7aa014823abc46a49ef013117671ad59856bcad782e329437aa05",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-07-recuperacio-ce2.pdf": {
@@ -1344,6 +1350,7 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "42606e59d0d86c16e47d3caa3e31a37bc97831f6daf0804d5e4921692b4e1fe3",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-08-recuperacio-ce3.pdf": {
@@ -1361,6 +1368,17 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "0a6e168ce49e0e49b1a3f0a3bfae373203e2123d8bd47e4e85c6d6d7dfac009e",
+   "imatges": {
+    "ghs/ghs01.png": "6f29f67c17789b2a",
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "ghs/ghs03.png": "139ac14e5207c9a6",
+    "ghs/ghs04.png": "c87242f3cbbc8c97",
+    "ghs/ghs05.png": "5bb792b946599130",
+    "ghs/ghs06.png": "b953301d6bb9a939",
+    "ghs/ghs07.png": "cda6aca2eaea69b2",
+    "ghs/ghs08.png": "17149be4297cfa4a",
+    "ghs/ghs09.png": "5b722c2a19d893d5"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/curs-09-recuperacio-ce4.pdf": {
@@ -1377,6 +1395,7 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "a8096168b613fde525664b0db3e55de0352d09b66a4011953765e98dca26fab5",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-10-recuperacio-ce5.pdf": {
@@ -1394,6 +1413,7 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "e22f16ff8ddc688570e97c0ec2ec5f8d9bbe9227be6780bad60dc24242a5502a",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/curs-11-recuperacio-ce6.pdf": {
@@ -1410,6 +1430,7 @@
    "generador": "mn_recup.py",
    "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
    "hash": "fd96b9a602c817a489f61973d155918dc1f873a2b1fdc1406042ff281c2b9eb2",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/programacio-annexos.pdf": {
@@ -1426,6 +1447,7 @@
    "empremta": "95858c85558a736044dc7ba47c038253dcee7ac474a34c1157aa40a6044eb405",
    "generador": "gen_annexos.py",
    "hash": "035f5b03bc6eccd219536f0d4e775009ecd9fc789d8f9e800297919f0ba1a56e",
+   "imatges": {},
    "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
    "tipus": "pdf-public"
   },
@@ -1448,6 +1470,18 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "a070e4b30fa74f75907d47e8915c1299fdb261842cc7d726db41e71c9ddc3764",
+   "imatges": {
+    "sda1-s1.png": "0e1b6b0ac7ecff89",
+    "sda1-s10.png": "3856630a7ec8bea2",
+    "sda1-s2.png": "50e9820ae0a57e7e",
+    "sda1-s3.png": "d466e53adfebbcd2",
+    "sda1-s4.png": "37c37591ca972729",
+    "sda1-s5.png": "5b1bd9d71cf486cb",
+    "sda1-s6.png": "69582c7cbc58c0d6",
+    "sda1-s7.png": "e70f5edfdd48b563",
+    "sda1-s8.png": "4ef8f9d8e73420f9",
+    "sda1-s9.png": "ce47ad7b556ae605"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-02-registre-del-detectiu.pdf": {
@@ -1460,6 +1494,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "9f7d3230b9cb8c05ae8e8a029a832bc3ae6b79d178b912128a1838d7aa882894",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-03-seguretat-al-laboratori.pdf": {
@@ -1482,6 +1517,18 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "340887346e04044fed0e6035ac28d73d8bdc653bf0ef5bd82bef9d7b8281f7ea",
+   "imatges": {
+    "ghs/ghs01.png": "6f29f67c17789b2a",
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "ghs/ghs03.png": "139ac14e5207c9a6",
+    "ghs/ghs04.png": "c87242f3cbbc8c97",
+    "ghs/ghs05.png": "5bb792b946599130",
+    "ghs/ghs06.png": "b953301d6bb9a939",
+    "ghs/ghs07.png": "cda6aca2eaea69b2",
+    "ghs/ghs08.png": "17149be4297cfa4a",
+    "ghs/ghs09.png": "5b722c2a19d893d5",
+    "sda1-lab-que-no-fer.png": "aff1381f939545f3"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-04-fitxa-1-magnituds-i-unitats.pdf": {
@@ -1500,6 +1547,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "78160fb531db8148d8d4d07b6a7ca40b0871c8ec631630bc9eb360b316d5c822",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-05-fitxa-2-factors-de-conversio.pdf": {
@@ -1517,6 +1565,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "3da33d8343cd2dd5245412eca7ce55008c4c6220532810c18e2f0555f91916eb",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-06-laboratori-densitat.pdf": {
@@ -1533,6 +1582,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "b6f3c6fb2a1f10ecd6deb22fd6d82428f05d66ba9452ae3096e0ceb0aed563da",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-07-proves-conductivitat-i-ferro.pdf": {
@@ -1550,6 +1600,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "3ce4b92e2bc5dfa320c4c7a56871bbc9bf16c6f51069c71f3a78abdbda2e41be",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-08-laboratori-separacio.pdf": {
@@ -1566,6 +1617,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "c6236fb7e0df7db233044ca88113c6a2992f7d9f6b30c54b41a6605059d308fc",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-09-cromatografia.pdf": {
@@ -1582,6 +1634,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "2ac10326ad6046d0c728a653cf30782ff2940accabd5d1b6f11feb85db861f55",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-10-reading-ellen-swallow-richards.pdf": {
@@ -1601,6 +1654,9 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "a6672a66397669c0629d34126d1d1804042dfc3a6cd1e0311ed637900bac009f",
+   "imatges": {
+    "sda1-ellen.png": "7ecbc32c081e9c15"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-11-guio-informe-i-protocol.pdf": {
@@ -1618,6 +1674,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "0b1090b02c1171313839419852030629aa9ccb109cf43001686c0924cadffe3a",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-12-rubriques.pdf": {
@@ -1629,6 +1686,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "84b510d7ca31925a9bf2e727a11d29f4d64703b8d91f634e524214dcb9784f37",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-16-diana-autoavaluacio.pdf": {
@@ -1644,6 +1702,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "4a34a76a7c27de3b1ebb3d7d15103d3780173617fd25c50788102796acc5f13f",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-17-mapa-conceptual.pdf": {
@@ -1655,6 +1714,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "45aa855b313824469b4b4a9a1fb17deb7616e70a734a6dcf02222979d3c9b8f8",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda1-18-ampliacio.pdf": {
@@ -1673,6 +1733,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "cb958e3044ee532946673050b97860db9dfff1809bf2e9f452654c1a6c2d7bae",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-01-full-de-ruta.pdf": {
@@ -1694,6 +1755,18 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "ecb762d39512a8046d54870ae3223ff62c341dcbf83ecca6594824e60b33f8ca",
+   "imatges": {
+    "sda2-s1.png": "0b832f169772a6fc",
+    "sda2-s10.png": "b9fba00ecefa8835",
+    "sda2-s2.png": "7b3a37a64d185693",
+    "sda2-s3.png": "a1b2b036532a8afd",
+    "sda2-s4.png": "e71329ed10dd4a0c",
+    "sda2-s5.png": "5718aa4ce5da177a",
+    "sda2-s6.png": "5360fb21534887fa",
+    "sda2-s7.png": "e936f5aa421bafe0",
+    "sda2-s8.png": "950e38ac79317906",
+    "sda2-s9.png": "1dd06632f48858d4"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-02-full-del-repte.pdf": {
@@ -1712,6 +1785,10 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "63791f4eebaf40d2988e5f894d8dfbf882fe88188b48e6fb5579739b00aea763",
+   "imatges": {
+    "ghs/ghs02.png": "7867a1b1b576b2bd",
+    "sda2-esprai.jpg": "8f00cd474e682eb8"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-03-laboratori-globus.pdf": {
@@ -1730,6 +1807,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "1b94b95622480775f3e4db221077af64f6f58552852d5e33278fe14b9f1e5199",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-04-fitxa-1-model-cineticomolecular.pdf": {
@@ -1748,6 +1826,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "764e3af6d94eb829ce0ef130a577c466faa64f7d51f9fe6d961bf1d30254eadf",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-05-fitxa-2-lleis-dels-gasos.pdf": {
@@ -1767,6 +1846,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "4bf05ee578862b432ef07ab5bdbeff5d9f2e23fd041a994b276ce3f732f0dab0",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-07-guio-informe-de-practica.pdf": {
@@ -1778,6 +1858,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "90e666e887cfb9d74a9c3bb815d11a94a6014f5251b14d652f3f94270c34b4ca",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-08-guio-del-video.pdf": {
@@ -1797,6 +1878,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "fac31e654cace7b5f8c794ec0b1fb44586200f917e57a39941bc7f9ef201ff4d",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-09-rubriques.pdf": {
@@ -1808,6 +1890,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "bb28b5121fb035fbbfa65cb262c0162385d8836f36ecb1b3b8aca9eb9ddcb7cd",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-12-diana-autoavaluacio.pdf": {
@@ -1823,6 +1906,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "7ac527d3ea5edba2fa8e00b59da7d1c902ee29e5f555287bb54050e57316b26c",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-13-mapa-conceptual.pdf": {
@@ -1834,6 +1918,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "02b89ffd0bedcc5c1baf13435b2aeb7a977acb1b321fcc2f8004b7774830b452",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-14-laboratori-corba-i-canvis-destat.pdf": {
@@ -1853,6 +1938,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "e8207b9d45fe6027e32a4d1636119ac7e38e543e8d196628af93cf4a081f4fc1",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-15-ampliacio.pdf": {
@@ -1870,6 +1956,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "6f42b0e8a32e187130f9dd163eaaecf110ef3cc552b2c5a06a222bded7ca13c2",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-19-avaluem-els-videos.pdf": {
@@ -1882,6 +1969,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "def1ad84333f4d47f32b5fbff0d28363e634bbcd2a51f5896e379bee2cda733a",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-01-full-de-ruta.pdf": {
@@ -1903,6 +1991,18 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "ca59a50e8fbdcbb7a78c2ad946e35e2474a74023af51971d917d136bf95e2a4e",
+   "imatges": {
+    "sda3-s1.png": "7f73d8fca7f8fa7a",
+    "sda3-s10.png": "d477e439d5610672",
+    "sda3-s2.png": "df5eefd847199ec6",
+    "sda3-s3.png": "0fca071cebf2ea5b",
+    "sda3-s4.png": "47684268eba450b4",
+    "sda3-s5.png": "09d13ac1756134c0",
+    "sda3-s6.png": "33fb38dbbb894b28",
+    "sda3-s7.png": "04824a4924b58af3",
+    "sda3-s8.png": "ed85c164b4675482",
+    "sda3-s9.png": "dc25f832ceb0dc84"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-03-fitxa-1-desmuntem-el-mobil.pdf": {
@@ -1920,6 +2020,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "ea17ca7813fe3b035e8b98e21c8de919ae1d9b4b0925c16d3ed6dbbb042f2f0e",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-04-fitxa-2-models-atomics-i-isotops.pdf": {
@@ -1936,6 +2037,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "5b2e8bf3e6abacceac05f5bcf7b066466c0948b32dc06c6de40bfe7c7466a83e",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-05-fitxa-3-ions-i-bateria.pdf": {
@@ -1952,6 +2054,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "5d8cf21c0f5a3e7577359165afb18347967f86adbef9a31db9ea00c44bd28921",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-07-laboratori-assaig-a-la-flama.pdf": {
@@ -1971,6 +2074,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "5b4da401a6a11c5b37a8046a661a690fa1063b5dca9b61a8c3a666539ee5ee15",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-08-fitxa-4-taula-periodica.pdf": {
@@ -1987,6 +2091,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "992a3fe3d24c9b95c727eb55505aa5e3af1f5c5e4c9a57148ed3c62782af80f0",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-09-fitxa-5-enllac-quimic.pdf": {
@@ -2002,6 +2107,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "540e416f7baf886b8d713bdd6e0e003217093ab1d8ac7521ecfd082ba5cf6751",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-10-dossier-incendis-i-elements-critics.pdf": {
@@ -2021,6 +2127,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "a046125ee365bd3a43d04e07cf6ec995da53b6b96c26cdde71b16e782c1471b2",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-11-pla-de-campanya-punt-de-recollida.pdf": {
@@ -2043,6 +2150,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "08ff6cfe848df16bc903efca4c99db8bd196a9cc19ae96f9cd8c42a45b383409",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-12-rubriques.pdf": {
@@ -2054,6 +2162,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "82891b11f2f3af9bd2d18d10947a1f7638d24cefe94433120508ffbfeea5c47e",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-16-diana-autoavaluacio.pdf": {
@@ -2069,6 +2178,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "ff00399a3658210a69a56a448fe62e1bd733d2c455f5f89d720128107bd6b299",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-17-mapa-conceptual.pdf": {
@@ -2080,6 +2190,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "2d3da8feac45408ecdc7213ec0168e5f42ba1346c40765701f1c5490759ba1c6",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda3-18-ampliacio.pdf": {
@@ -2098,6 +2209,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "003ff7d431ab8967fbce398a5d9e373c02a88f9a7dd1f701f084b71907679ab5",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-01-full-de-ruta.pdf": {
@@ -2119,6 +2231,18 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "f023cdac9aa13b1d6f47f551dd345b54800ba7fc571daac82a72aa89607c2d45",
+   "imatges": {
+    "sda4-s1.png": "02ab5e3e6b0f75ba",
+    "sda4-s10.png": "98a4cea3244b1316",
+    "sda4-s2.png": "526d9456f0db4210",
+    "sda4-s3.png": "86f44e91a68930b8",
+    "sda4-s4.png": "b68b6b3220fd1197",
+    "sda4-s5.png": "cd49bdf7f44ef85e",
+    "sda4-s6.png": "b06e36d592377f29",
+    "sda4-s7.png": "d28317823b403634",
+    "sda4-s8.png": "52ee15765837719e",
+    "sda4-s9.png": "148c523c055adc45"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-02-full-del-repte.pdf": {
@@ -2136,6 +2260,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "6e6839669a4218cba8617c4ba2164f6029761e5815fb1a3208ccf8f6489cf199",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-03-laboratori-conservacio-de-la-massa.pdf": {
@@ -2154,6 +2279,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "4606f738fdb1967a419d45c6bf879876ffd5b276106846f9c9f3051a107f8fe9",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf": {
@@ -2171,6 +2297,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "15bd564895a35a7bdaf3dbea07fd10af65fdc057eecc93a3e75cbcd7d0ebdd75",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-05-laboratori-obtenim-hidrogen.pdf": {
@@ -2188,6 +2315,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "221447fcaa91c02d1e7d5838217f5a170a28551b5c598d7646cea1a317e2fbf0",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf": {
@@ -2206,6 +2334,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "ab625658a2eba9c02fb768a836a36e3f7b7a93f868377a270b9e11a3a33daa58",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-07-laboratori-electrolisi-de-laigua.pdf": {
@@ -2224,6 +2353,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "9a8621a79ab420dffbd15912ca5e9ed64d72e498fee4670a527550be4ee2ba9a",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-08-fitxa-3-taller-de-problemes.pdf": {
@@ -2246,6 +2376,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "607bd075df9b88d40b018286dbefdf7b49a6ad4b1d8f5fa4fc589cbbde55c693",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-09-dossier-hidrogen.pdf": {
@@ -2265,6 +2396,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "f557d68faa0cf5d5d33129d4d63d725b8ca5b905fab9e731293a6aeaaf9a9e68",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-10-rubriques.pdf": {
@@ -2276,6 +2408,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "5ef520ecfb2f40099d8d11aee4af6f7cc7e2ebbf67e21a30151aef1b06412a92",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-14-diana-autoavaluacio.pdf": {
@@ -2291,6 +2424,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "4606ab9ba00e6ee86328cd13cd341944ebcdcbeeac8c377b374e534eb07e1805",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-15-mapa-conceptual.pdf": {
@@ -2302,6 +2436,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "23b1b9b13b7192d4941377de2766b00d9730cd49297544138b90ef124d2c3bac",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-16-ampliacio.pdf": {
@@ -2320,6 +2455,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "ff19d66b18d31cc1a33871afa6729c8a4e082efc25e21c94579025464581042b",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-01-full-de-ruta.pdf": {
@@ -2344,6 +2480,21 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "0e2c84bc2df19d608b06158fa101371f71d166d0f434c9736718d6583d2ddc42",
+   "imatges": {
+    "sda5-s1.png": "41255b35f7b5fbeb",
+    "sda5-s10.png": "df48224323c356f6",
+    "sda5-s11.png": "f0bdcd24c4e0b991",
+    "sda5-s12.png": "9beaad0d21833caa",
+    "sda5-s13.png": "36eceac6dbcfaa85",
+    "sda5-s2.png": "6bfe993b8b527e3b",
+    "sda5-s3.png": "c313e3129cb11a64",
+    "sda5-s4.png": "77b32e80311b09f4",
+    "sda5-s5.png": "fe51a04a57419f8d",
+    "sda5-s6.png": "ce51fd7cc05d0942",
+    "sda5-s7.png": "3c7e3b659194c8f9",
+    "sda5-s8.png": "8ac313fb467aa67b",
+    "sda5-s9.png": "9cda8322136964d5"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-02-full-del-repte.pdf": {
@@ -2359,6 +2510,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "6e0f8a6e23f88819bf5380e705367f4bc86676d2145ef4325097fa2b8263abb8",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-03-fitxa-1-mru.pdf": {
@@ -2376,6 +2528,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "98ab7b3f847a53be7ff95b144a17c2d3410b78636aa3c2ccc2b843fd98423c94",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-04-fitxa-2-mrua.pdf": {
@@ -2392,6 +2545,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "7abf156c740d7bb8004d85b90c7a99f8737d5bb544a6f999a4ebb753db826369",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-05-fitxa-3-grafiques-del-patinet.pdf": {
@@ -2409,6 +2563,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "ce78f18fe33f49c72005cd900ec2a0b353df756577b965241dcdb996dc783efb",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-06-fitxa-4-trajectoria.pdf": {
@@ -2428,6 +2583,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "0be4dd15bb8dd73d7309df9e4905f42e25446ee4db82bc2dab690a1b8f189136",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-07-fitxa-5-difusio-i-gradient.pdf": {
@@ -2445,6 +2601,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "f84a003deaadaff9fbefbb03919ba40426d68d6ef4968b78406e38cba1ff37cd",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf": {
@@ -2465,6 +2622,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "462e6cf3f80c54e261bb2ba8118c5421d5c3671da76e150edd99f2fea74aaed5",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-09-problemes-de-moviment.pdf": {
@@ -2484,6 +2642,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "e36340d1920fd80a3af589946f62627b0bb13c106642f2ad913cdd6fc1955240",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-10-fitxa-7-newton-i-citoesquelet.pdf": {
@@ -2503,6 +2662,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "498f51c24b99efa7f15590699b8f2d7ae7fc7002e0b9685c7ead0293bc54dedd",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-11-laboratori-llei-de-hooke.pdf": {
@@ -2520,6 +2680,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "1e8747e13bb9ea43b8790b1f62c18174b23446b25b87a7eee482be67318ba2a3",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-12-forces-cellulars.pdf": {
@@ -2542,6 +2703,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "9b2c11ec7d4f0d0c60788cd25cef5e467cce477b47c4be5ff7f0fdb2d6053f2e",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-14-rubriques.pdf": {
@@ -2553,6 +2715,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "cae806845291d3e4dc8d79bf8bc962b05ef5c348e981b0afd0fd631f56f58302",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-18-diana-autoavaluacio.pdf": {
@@ -2568,6 +2731,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "874334d6759bbfeac8b49eab8033cc71a572fbf6e446cc6f3d51cebb974d488d",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-19-mapa-conceptual.pdf": {
@@ -2579,6 +2743,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "b7dfb699e635c1d4c9cc7ed8d004eebcbb36c9e051ec4619199a46acc649e5cc",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda5-20-ampliacio.pdf": {
@@ -2598,6 +2763,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "12d54e91dc150436936d844f25b6f27984add7d02c234a94b1577c7d0b0f2a59",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-01-full-de-ruta.pdf": {
@@ -2616,6 +2782,15 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "0bbe9f26bc64808a5b0213e5e13805e8a903ca808fd0c54aedb7e0a1a0ed691b",
+   "imatges": {
+    "sda6-s1.png": "2b04931f447c4b77",
+    "sda6-s2.png": "7db7de9cc9917e3f",
+    "sda6-s3.png": "539af93e949fdbe5",
+    "sda6-s4.png": "6c0347d9976e3513",
+    "sda6-s5.png": "8528959ff9534993",
+    "sda6-s6.png": "054c87c877382f9c",
+    "sda6-s7.png": "e47f7262f501e600"
+   },
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-02-full-del-repte.pdf": {
@@ -2633,6 +2808,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "7e6d3cd92b1e650c921cc31ada7d8c2496264e7fce5f18b3d7458b65fc4865dd",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-03-fitxa-1-energia-potencia-i-consum.pdf": {
@@ -2651,6 +2827,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "750d9745c39923a2acacbe51b23e193cc71f734c68278e06130dc80655b267c0",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-04-laboratori-consum-real.pdf": {
@@ -2670,6 +2847,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "adda277e5fedf2477be884d40f80deedd5f214c0a463458122006fdb84839c97",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-05-fitxa-2-don-ve-lelectricitat.pdf": {
@@ -2687,6 +2865,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "87e29085de6ff9fd35254a91e3c1d3994028d6ce9505a947fcf0442c044d0827",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-06-pla-destalvi-i-debat.pdf": {
@@ -2709,6 +2888,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "2da5a61994dc6a9c30fbccd365aeaafe097eb6512c7198ec0f7b8c4b80521441",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-07-rubriques.pdf": {
@@ -2720,6 +2900,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "a8792134ff632aeb43d559db23184628fc5207d79f41aa0e1b28e8503ade0017",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-11-diana-autoavaluacio.pdf": {
@@ -2735,6 +2916,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "b514d28320c1c4e81771e398da66cb2d32181a1cb89cccc958b1b6ab683883d5",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-12-mapa-conceptual.pdf": {
@@ -2746,6 +2928,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "1be34843d43929bddb70eb9d0a592655ee3a718c95b9e2cf3ca3acc5422fc296",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-14-ampliacio.pdf": {
@@ -2764,6 +2947,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "9bd382cafd8f540fc220caeb5187f08a8b7117bf00d674fde541f9dd3f808b12",
+   "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "professorat/programacio-annexos.pdf": {
@@ -2781,6 +2965,7 @@
    "generador": "gen_annexos.py",
    "generador_hash": "c50213ab32ffdb7da3495d44f5f4952f4ea614f5543e68879464d0ec59bbfc92",
    "hash": "etag:483904b9e6b69da38060b5e800a3b08b",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda1-13-demostracio-assoliment.pdf": {
@@ -2828,6 +3013,7 @@
    "generador": "gen_detectius.py",
    "generador_hash": "1ead88453b7181a92ea8cc4f3dc6f1ec0a8407a2991296e7c6899f7c364599d7",
    "hash": "etag:545cfe199bd5cdd562a2176ffb2bef8c",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda1-19-solucionari-ampliacio.pdf": {
@@ -2839,6 +3025,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:81dbe52854c98261b890fb2815d5342d",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda1-20-adaptada-dislexia-fitxa-1.pdf": {
@@ -2850,6 +3037,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:fd6ba4fc29bb84326aa2ab2ad5de3c99",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda2-06-solucionari-fitxa-2.pdf": {
@@ -2861,6 +3049,7 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "etag:39f2320ee85a08811e7e5b198fc5ab08",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda2-10-demostracio-assoliment.pdf": {
@@ -2908,6 +3097,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:3eb9b3dfa6ddb6649e91094fd3aa24e5",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda2-17-adaptada-nouvingut-glossari-visual.pdf": {
@@ -2919,6 +3109,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:a55033dad9a4ad0cd73b5716ec6822d7",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda2-18-adaptada-continguts-basics-fitxa-1.pdf": {
@@ -2930,6 +3121,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": null,
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-02-model-de-mobil-per-plastificar.pdf": {
@@ -2941,6 +3133,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "etag:20bd32acc516a668551b7058c2022cf2",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-06-targetes-cami-del-reciclatge.pdf": {
@@ -2952,6 +3145,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "etag:5aa0bdbd1056a8c7e3e8c0d6ae143448",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-13-demostracio-assoliment.pdf": {
@@ -2997,6 +3191,7 @@
    "generador": "gen_mobil.py",
    "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
    "hash": "etag:103d32297d01363f17686365c18d00e8",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-19-solucionari-ampliacio.pdf": {
@@ -3008,6 +3203,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:b35a2dbc6bc0ead15f78d442cd4cb5b4",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-20-adaptada-pi-atom-i-taula-periodica.pdf": {
@@ -3019,6 +3215,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:34cf755e70eb686a1b94b394b7d59f81",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda4-11-demostracio-assoliment.pdf": {
@@ -3064,6 +3261,7 @@
    "generador": "gen_hidrogen.py",
    "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
    "hash": "etag:99f793b82c0c5a80ddd69298b280ebf1",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda4-17-solucionari-ampliacio.pdf": {
@@ -3075,6 +3273,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:5ce5e16015a04540820c0b9b87329313",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda4-18-adaptada-discalculia-equacions-i-masses.pdf": {
@@ -3086,6 +3285,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:1efda531c905a64fbfe061d74e2efa86",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda5-13-lamines-forces-de-traccio.pdf": {
@@ -3097,6 +3297,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "etag:240084e98b447ed1b697ee68dca8f110",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda5-15-demostracio-assoliment.pdf": {
@@ -3142,6 +3343,7 @@
    "generador": "gen_cel.py",
    "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
    "hash": "etag:f200d663edfd8364fb91d111abced0c5",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda5-21-solucionari-ampliacio.pdf": {
@@ -3153,6 +3355,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:964e28fce2c771865f276243eea7f521",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda5-22-adaptada-tdah-problemes-de-moviment.pdf": {
@@ -3164,6 +3367,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:5ac313d6cafe5bd9ef7d5ce5711e3b7f",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda6-08-demostracio-assoliment.pdf": {
@@ -3209,6 +3413,7 @@
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
    "hash": "etag:3f89595b2d22abe9f49f7bff00ca88a8",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda6-15-solucionari-ampliacio.pdf": {
@@ -3220,6 +3425,7 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "etag:36ce93ff859ed014747194740a158846",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "professorat/sda6-16-adaptada-tea-guio-del-debat.pdf": {
@@ -3231,6 +3437,7 @@
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
    "hash": "etag:e091df2b382f6ced6b0189c22834d667",
+   "imatges": {},
    "tipus": "pdf-professorat"
   },
   "programacio/taula10": {

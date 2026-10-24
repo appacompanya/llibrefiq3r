@@ -1,4 +1,6 @@
 """Genera el formulari (1 pàgina) i el glossari del curs (alumnat)."""
+import sys as _s, os as _o; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "..", "lib"))
+import imatges as IM
 import os, sys
 import gen_curs as GC
 from gen_sda1 import page

@@ -2,8 +2,10 @@
 import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-IMG = lambda n: "file://" + os.path.join(ROOT, "img", n)
-GHS = lambda c: "file://" + os.path.join(ROOT, "img", "ghs", f"ghs{c:02d}.png")
+import sys; sys.path.insert(0, os.path.join(ROOT, "..", "lib"))
+import imatges as IM  # una sola còpia de cada imatge, a img/ de l'arrel
+IMG = lambda n: IM.uri(n)
+GHS = lambda c: IM.uri(f"ghs/ghs{c:02d}.png")
 
 T = 'font-family="AH,Verdana,sans-serif" fill="#1f2328"'
 INK = "#1f2328"

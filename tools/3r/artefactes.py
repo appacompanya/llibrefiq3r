@@ -10,6 +10,7 @@ Quan canvies el YAML o un generador, l'empremta canvia i --check diu CAL REGENER
 Ús:
   python3 tools/3r/artefactes.py --registra   recalcula i desa contingut/3r/artefactes.json (després de regenerar)
   python3 tools/3r/artefactes.py --check      compara amb el registre i diu què cal regenerar o què falta
+  python3 tools/3r/artefactes.py --registra-imatges   desa el hash de les imatges que fa servir cada PDF (sense tocar res més)
   --bucket FITXER.json  llista d'objectes del bucket (per defecte contingut/3r/generat/bucket-professorat.json)"""
 import hashlib, json, os, re, subprocess, sys, glob
 import yaml
@@ -20,6 +21,8 @@ C = os.path.join(ROOT, "contingut", "3r")
 REG = os.path.join(C, "artefactes.json")
 sys.path.insert(0, HERE)
 import build_dades as B
+sys.path.insert(0, os.path.join(HERE, "lib"))
+import imatges as IM
 
 GEN_SDA = {1: "gen_detectius.py", 2: "gen_sda1.py", 3: "gen_mobil.py", 4: "gen_hidrogen.py", 5: "gen_cel.py", 6: "gen_energia.py"}
 PRIVAT = set(GEN_SDA.values()) | {"mn_ampl.py", "mn_adapt.py"}
@@ -140,6 +143,31 @@ def compute(bucket_file):
     return A, orfes, sorted(set(docs_pdf) - docs_linked), tp
 
 
+def imatges_de(art, x):
+    """Imatges (id → hash) que conté un artefacte. Font exacta: l'HTML que el generador deixa al costat del PDF
+    (src="file://.../img/<id>"); si no hi és, s'analitza el codi del generador."""
+    ids = IM.totes()
+    nom = art.split("/", 1)[1]
+    cands = [nom, nom.replace("-prova.pdf", "-demostracio-assoliment.pdf").replace("-solucionari-prova.pdf", "-solucionari-demostracio.pdf")]
+    us = json.load(open(IM.US)) if os.path.exists(IM.US) else {}
+    for c in cands:
+        if c in us: return {i: IM.hash_(i) for i in us[c]}
+    for d in [os.path.join(HERE, "privat", "docs"), os.path.join(ROOT, "docs")]:
+        for c in cands:
+            h = os.path.join(d, c.replace(".pdf", ".html"))
+            if os.path.exists(h):
+                txt = open(h, encoding="utf-8", errors="ignore").read()
+                pre = "file://" + IM.DIR + "/"
+                us = sorted({u for u in re.findall(re.escape(pre) + r"([^\"')\s]+)", txt) if u in ids})
+                return {i: IM.hash_(i) for i in us}
+    g = x.get("generador") or ""
+    fonts = [gen_path(g.split()[0])] if g.endswith(".py") else []
+    if x.get("tipus") in ("pdf-public", "pdf-professorat") and "annex" in art:
+        fonts = [os.path.join(HERE, "generadors", f) for f in ("gen_annexos.py", "gen_annex_extra.py", "annex_samples.py")]
+    txt = "".join(open(f, encoding="utf-8").read() for f in fonts if os.path.exists(f))
+    return {i: IM.hash_(i) for i in IM.usades_per(txt, ids)} if txt else {}
+
+
 def fix_suggestion(name, orfes):
     m = re.match(r"^(sda\d-\d\d)-", name)
     return [o for o in orfes if m and o.startswith(m.group(1) + "-")]
@@ -149,6 +177,16 @@ def main():
     a = sys.argv[1:]
     bf = a[a.index("--bucket") + 1] if "--bucket" in a else os.path.join(C, "generat", "bucket-professorat.json")
     A, orfes, docs_orfes, tp = compute(bf)
+    for k, x in A.items():
+        if x["tipus"].startswith("pdf"): x["imatges"] = imatges_de(k, x)
+    if "--registra-imatges" in a:
+        # només afegeix o actualitza el hash de les imatges al registre, sense marcar res més com a regenerat
+        D = json.load(open(REG)); n = 0
+        for k, x in A.items():
+            if "imatges" in x and k in D["artefactes"]:
+                D["artefactes"][k]["imatges"] = x["imatges"]; n += 1
+        json.dump(D, open(REG, "w"), ensure_ascii=False, indent=1, sort_keys=True)
+        print(f"Imatges registrades per a {n} artefactes"); return
     if "--registra" in a:
         json.dump({"nota": "Generat per tools/3r/artefactes.py --registra. Registra l'estat actual com a generat.", "artefactes": A},
                   open(REG, "w"), ensure_ascii=False, indent=1, sort_keys=True)
@@ -160,11 +198,16 @@ def main():
             r = R.get(k)
             if x.get("hash") is None: falta.append(k)
             if not r: nous.append(k); continue
+            motius = []
             if r["empremta"] != x["empremta"]:
-                changed = sorted(set(x["depen_de"]) ^ set(r["depen_de"]))
-                stale.append((k, changed))
-            elif r.get("generador_hash") and x.get("generador_hash") and r["generador_hash"] != x["generador_hash"]:
-                stale.append((k, [f"generador {x['generador']} modificat"]))
+                motius += sorted(set(x["depen_de"]) ^ set(r["depen_de"])) or ["definició al YAML modificada"]
+            if r.get("imatges") is not None and x.get("imatges") is not None and r["imatges"] != x["imatges"]:
+                canv = sorted(i for i in set(r["imatges"]) | set(x["imatges"]) if r["imatges"].get(i) != x["imatges"].get(i))
+                motius = [f"imatge img/{i} canviada" for i in canv] + motius
+            if not motius and r.get("generador_hash") and x.get("generador_hash") and r["generador_hash"] != x["generador_hash"]:
+                motius = [f"generador {x['generador']} modificat"]
+            if motius:
+                stale.append((k, motius))
             elif r.get("hash") != x["hash"] and x.get("hash") is not None: manual.append(k)
         for k, x in A.items():
             if x.get("coherent_amb_full_md") is False and k not in [s[0] for s in stale]:
