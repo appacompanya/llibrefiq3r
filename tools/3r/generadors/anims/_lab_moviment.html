@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>__TITLE__</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Laboratori de moviment: pista amb el patinet i gràfiques (esquerra), controls, lectures i taula (dreta) */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#1f2328; --muted:#5f6670; --line:#e1ddd5; --chip:#efece6;
+  --acc:#C9621C; --acc-soft:#FBEADD; --cold:#2f6db5; --hot:#c2413a; --ok:#2e7d4f; --stage:#fbfaf8; --ghost:#9aa3ad;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --ok:#5fc08a; --stage:#191c22; --ghost:#6b737e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171c; --surface:#1d2027; --fg:#e8eaee; --muted:#a1a8b3; --line:#2f333c; --chip:#262a32;
+  --acc:#f0a064; --acc-soft:#3a2a1e; --cold:#6aa6f0; --hot:#f07870; --ok:#5fc08a; --stage:#191c22; --ghost:#6b737e; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1160px;margin:0 auto;padding:20px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px));display:grid;gap:16px}
+.top{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+.top a{color:var(--acc);font-weight:700;text-decoration:none}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.1;margin:.15em 0 0;text-wrap:balance}
+h2{font-family:var(--display);font-size:1.1rem;margin:0}
+.lead{color:var(--muted);max-width:72ch;margin:0}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media (max-width:900px){.sim{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px;min-width:0}
+canvas{display:block;width:100%;height:auto;background:var(--stage);border-radius:10px}
+.ctl{display:grid;gap:2px}
+.ctl .row{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.ctl label{font-weight:700;font-size:.95rem}
+.ctl output{font-variant-numeric:tabular-nums;font-weight:800;color:var(--acc)}
+input[type=range]{width:100%;accent-color:var(--acc);height:30px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:inherit;font-size:.95rem;font-weight:700;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:8px 14px;cursor:pointer;min-height:44px}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn:focus-visible,input:focus-visible{outline:3px solid color-mix(in srgb,var(--acc) 50%,transparent);outline-offset:2px}
+.read{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.read div{background:var(--chip);border-radius:10px;padding:7px 10px;display:grid}
+.read span{font-size:.76rem;color:var(--muted);font-weight:700}
+.read b{font-size:1.2rem;font-variant-numeric:tabular-nums;font-family:var(--display)}
+.eq{background:var(--acc-soft);border-radius:10px;padding:8px 12px;font-weight:700;font-variant-numeric:tabular-nums;display:grid;gap:2px}
+.eq span{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.tscroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:4px 8px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+th{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+td.now{color:var(--acc);font-weight:800}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:18px;height:4px;border-radius:2px;vertical-align:middle;margin-right:5px}
+.hint{font-size:.85rem;color:var(--muted);margin:0}
+.qs ol{margin:0;padding-left:1.3em;display:grid;gap:6px}
+.qs li::marker{font-weight:700;color:var(--acc)}
+body.emb .top,body.emb .lead{display:none}
+body.emb .wrap{padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Física i química · 3r ESO · SdA 5 · Cèl·lules immunitàries a la caça dels patògens</div>
+      <h1>__H1__</h1>
+    </div>
+    <a href="index.html" id="tornar">← Torna al llibre</a>
+  </div>
+  <p class="lead">__LEAD__</p>
+  <div class="sim">
+    <div class="card">
+      <canvas id="cv" role="img" aria-label="Pista amb el patinet i gràfiques posició–temps i velocitat–temps"></canvas>
+      <div class="legend"><span><i class="sw" style="background:var(--acc)"></i>moviment actual</span><span><i class="sw" style="background:var(--ghost)"></i>moviment desat per comparar</span><span>Els punts de la pista marquen la posició cada segon.</span></div>
+    </div>
+    <div class="card" aria-label="Controls i mesures">
+      <div id="ctls"></div>
+      <div class="btns">
+        <button type="button" class="btn pri" id="bPlay">▶ Inicia</button>
+        <button type="button" class="btn" id="bReset">↺ Torna a començar</button>
+        <button type="button" class="btn" id="bSave">Desa per comparar</button>
+      </div>
+      <div class="read" aria-live="off">
+        <div><span>Temps</span><b id="rT">0,0 s</b></div>
+        <div><span>Posició</span><b id="rX">–</b></div>
+        <div><span>Velocitat</span><b id="rV">–</b></div>
+        <div><span>Acceleració</span><b id="rA">–</b></div>
+      </div>
+      <div class="eq" id="eq"></div>
+      <div class="tscroll"><table id="tb"></table></div>
+      <p class="hint">Si canvies un valor, el moviment torna a començar. Una velocitat negativa vol dir que el patinet va cap a l'esquerra. Una acceleració negativa fa disminuir la velocitat: si el patinet va cap a la dreta, frena.</p>
+    </div>
+  </div>
+  <section class="card qs"><h2>Investiga</h2><ol>__QS__</ol></section>
+</div>
+<script>
+"use strict";
+const MODE="__MODE__";
+const $=s=>document.querySelector(s), root=document.documentElement;
+if (window.self!==window.top || /[?&]emb=1/.test(location.search)) document.body.classList.add("emb");
+let C={};function readColors(){const cs=getComputedStyle(root);for(const k of ["fg","muted","line","chip","acc","stage","ghost","surface"])C[k]=cs.getPropertyValue("--"+k).trim();}readColors();
+const FONT='"Atkinson Hyperlegible",system-ui,sans-serif';
+const fmt=(n,d=1)=>{let s=(Math.abs(n)<1e-9?0:n).toFixed(d);if(/^-0[.,]?0*$/.test(s))s=s.slice(1);return s.replace(".",",").replace("-","−");};
+const TMAX=10;
+const CT=MODE==="mru"?[["x0","Posició inicial, x₀","m",0,30,1,0],["v","Velocitat, v","m/s",-6,10,0.5,3]]:[["x0","Posició inicial, x₀","m",0,30,1,0],["v0","Velocitat inicial, v₀","m/s",-6,10,0.5,0],["a","Acceleració, a","m/s²",-3,3,0.25,1]];
+const P={};const box=$("#ctls");box.style.cssText="display:grid;gap:10px";
+for(const [k,lab,u,mn,mx,st,val] of CT){P[k]=val;const d=document.createElement("div");d.className="ctl";
+  d.innerHTML=`<div class="row"><label for="s_${k}">${lab}</label><output id="o_${k}"></output></div><input type="range" id="s_${k}" min="${mn}" max="${mx}" step="${st}" value="${val}">`;box.appendChild(d);
+  const inp=d.querySelector("input"),out=d.querySelector("output");const show=()=>out.textContent=fmt(P[k],st<1?(st<.5?2:1):0)+" "+u;show();
+  inp.addEventListener("input",()=>{P[k]=+inp.value;show();reset();});}
+const v0=()=>MODE==="mru"?P.v:P.v0, ac=()=>MODE==="mru"?0:P.a;
+const pos=(t,p=P)=>{const V=MODE==="mru"?p.v:p.v0,A=MODE==="mru"?0:p.a;return p.x0+V*t+.5*A*t*t;};
+const vel=(t,p=P)=>{const V=MODE==="mru"?p.v:p.v0,A=MODE==="mru"?0:p.a;return V+A*t;};
+let t=0,run=false,last=0,ghost=null;
+const cv=$("#cv"),ctx=cv.getContext("2d"),W=960,H=560;
+function fit(){const d=Math.min(2,window.devicePixelRatio||1);cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);}fit();
+function T(s,x,y,o={}){ctx.save();ctx.font=(o.w||600)+" "+(o.s||13)+"px "+FONT;ctx.fillStyle=o.c||C.fg;ctx.textAlign=o.a||"center";ctx.textBaseline=o.b||"middle";ctx.fillText(s,x,y);ctx.restore();}
+function nice(a,b){const span=b-a;const raw=span/6;const p=Math.pow(10,Math.floor(Math.log10(raw)));const m=raw/p;const st=(m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p;return [Math.floor(a/st)*st,Math.ceil(b/st)*st,st];}
+function range(f,extra){let mn=Infinity,mx=-Infinity;const fs=[f];if(extra)fs.push(extra);for(const g of fs)for(let k=0;k<=100;k++){const y=g(TMAX*k/100);mn=Math.min(mn,y);mx=Math.max(mx,y);}mn=Math.min(mn,0);mx=Math.max(mx,mn+1);if(mx-mn<4)mx=mn+4;return nice(mn,mx);}
+function scales(){const gp=ghost;const xr=range(s=>pos(s),gp?s=>pos(s,gp):null),vr=range(s=>vel(s),gp?s=>vel(s,gp):null);return {xr,vr};}
+const TR={x:50,y:150,w:860};const GX={x:70,y:240,w:370,h:250},GV={x:550,y:240,w:370,h:250};
+function track(xr){const [a,b,st]=xr;const X=v=>TR.x+(v-a)/(b-a)*TR.w;ctx.save();ctx.strokeStyle=C.muted;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(TR.x-10,TR.y);ctx.lineTo(TR.x+TR.w+10,TR.y);ctx.stroke();ctx.lineWidth=1.5;
+  for(let v=a;v<=b+1e-9;v+=st){const x=X(v);ctx.beginPath();ctx.moveTo(x,TR.y);ctx.lineTo(x,TR.y+9);ctx.stroke();T(fmt(v,st<1?1:0)+" m",x,TR.y+22,{c:C.muted,s:12});}ctx.restore();return X;}
+function scooter(x,dir,col){const y=TR.y;ctx.save();ctx.translate(x,0);ctx.scale(dir<0?-1:1,1);ctx.strokeStyle=C.fg;ctx.lineWidth=3;ctx.lineCap="round";
+  ctx.fillStyle=col;ctx.beginPath();ctx.arc(-22,y-9,9,0,7);ctx.arc(22,y-9,9,0,7);ctx.fill();
+  ctx.beginPath();ctx.moveTo(-26,y-18);ctx.lineTo(16,y-18);ctx.lineTo(22,y-9);ctx.moveTo(16,y-18);ctx.lineTo(20,y-66);ctx.lineTo(12,y-68);ctx.stroke();
+  ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-6,y-20);ctx.lineTo(-2,y-48);ctx.lineTo(2,y-76);ctx.moveTo(2,y-20);ctx.lineTo(-2,y-48);ctx.moveTo(2,y-70);ctx.lineTo(14,y-64);ctx.stroke();
+  ctx.fillStyle=C.fg;ctx.beginPath();ctx.arc(3,y-87,9,0,7);ctx.fill();ctx.restore();}
+function graph(g,r,lab,title){const [a,b,st]=r;const gx=s=>g.x+s/TMAX*g.w,gy=v=>g.y+g.h-(v-a)/(b-a)*g.h;
+  ctx.save();ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.font="600 12px "+FONT;ctx.fillStyle=C.muted;
+  for(let v=a;v<=b+1e-9;v+=st){const y=gy(v);ctx.beginPath();ctx.moveTo(g.x,y);ctx.lineTo(g.x+g.w,y);ctx.stroke();ctx.textAlign="right";ctx.textBaseline="middle";ctx.fillText(fmt(v,st<1?1:0),g.x-7,y);}
+  for(let s=0;s<=TMAX;s++){const x=gx(s);ctx.beginPath();ctx.moveTo(x,g.y);ctx.lineTo(x,g.y+g.h);ctx.stroke();ctx.textAlign="center";ctx.textBaseline="top";ctx.fillText(String(s),x,g.y+g.h+5);}
+  ctx.strokeStyle=C.fg;ctx.lineWidth=2;const y0=gy(0);ctx.beginPath();ctx.moveTo(g.x,g.y-6);ctx.lineTo(g.x,g.y+g.h);ctx.moveTo(g.x,y0);ctx.lineTo(g.x+g.w+6,y0);ctx.stroke();ctx.restore();
+  T(lab,g.x,g.y-16,{w:700,s:14,a:"left"});T(title,g.x+g.w/2,g.y-16,{w:700,s:14,c:C.muted});T("t (s)",g.x+g.w+2,g.y+g.h+24,{w:700,s:13,a:"right"});
+  return {gx,gy};}
+function curve(m,f,t1,col,lw,dash){ctx.save();ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.lineJoin="round";if(dash)ctx.setLineDash(dash);ctx.beginPath();for(let k=0;k<=150;k++){const s=t1*k/150;const x=m.gx(s),y=m.gy(f(s));k?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();ctx.restore();}
+function draw(){ctx.clearRect(0,0,W,H);const {xr,vr}=scales();const X=track(xr);
+  if(ghost){for(let k=0;k<=TMAX;k++){ctx.fillStyle=C.ghost;ctx.beginPath();ctx.arc(X(pos(k,ghost)),TR.y+40,4,0,7);ctx.fill();}T("desat",TR.x-30,TR.y+40,{s:11,c:C.muted});}
+  let lastL=-99;for(let k=0;k<=Math.floor(t+1e-9);k++){const x=X(pos(k));ctx.fillStyle=C.acc;ctx.beginPath();ctx.arc(x,TR.y,5,0,7);ctx.fill();if(Math.abs(x-lastL)>28){T(k+" s",x,TR.y-112,{c:C.acc,w:700,s:12});lastL=x;}}
+  scooter(X(pos(t)),vel(t)||v0()||1,C.acc);
+  const mx=graph(GX,xr,"x (m)","Posició–temps"),mv=graph(GV,vr,"v (m/s)","Velocitat–temps");
+  if(ghost){curve(mx,s=>pos(s,ghost),TMAX,C.ghost,2.5,[6,5]);curve(mv,s=>vel(s,ghost),TMAX,C.ghost,2.5,[6,5]);}
+  curve(mx,s=>pos(s),t,C.acc,3.5);curve(mv,s=>vel(s),t,C.acc,3.5);
+  for(const [m,f] of [[mx,pos],[mv,vel]]){ctx.fillStyle=C.acc;ctx.beginPath();ctx.arc(m.gx(t),m.gy(f(t)),6,0,7);ctx.fill();}
+  $("#rT").textContent=fmt(t,1)+" s";$("#rX").textContent=fmt(pos(t),1)+" m";$("#rV").textContent=fmt(vel(t),1)+" m/s";$("#rA").textContent=fmt(ac(),2)+" m/s²";}
+function sgn(n,d){return (n<0?" − ":" + ")+fmt(Math.abs(n),d);}
+function eqs(){const x0=P.x0,V=v0(),A=ac();
+  $("#eq").innerHTML=MODE==="mru"?`<span>Equació del moviment</span>x = ${fmt(x0,0)}${sgn(V,1)} · t`:`<span>Equacions del moviment</span>x = ${fmt(x0,0)}${sgn(V,1)} · t${sgn(A/2,3).replace(/,?0+$/,"")} · t²<br>v = ${fmt(V,1)}${sgn(A,2)} · t`;}
+function table(){let h="<tr><th>t (s)</th><th>x (m)</th><th>v (m/s)</th></tr>";for(let k=0;k<=TMAX;k+=1){const shown=k<=t+1e-9;const c=shown&&k===Math.floor(t+1e-9)?' class="now"':"";h+=`<tr><td${c}>${k}</td><td${c}>${shown?fmt(pos(k),1):""}</td><td${c}>${shown?fmt(vel(k),1):""}</td></tr>`;}$("#tb").innerHTML=h;}
+let lastRow=-1;
+function reset(){t=0;run=false;lastRow=-1;$("#bPlay").textContent="▶ Inicia";eqs();table();draw();}
+function tick(now){if(!run)return;const dt=Math.min(.05,(now-last)/1000);last=now;t=Math.min(TMAX,t+dt);const r=Math.floor(t+1e-9);if(r!==lastRow){lastRow=r;table();}draw();
+  if(t>=TMAX){run=false;$("#bPlay").textContent="▶ Inicia";table();return;}requestAnimationFrame(tick);}
+$("#bPlay").onclick=()=>{if(run){run=false;$("#bPlay").textContent="▶ Continua";return;}if(t>=TMAX)t=0;run=true;$("#bPlay").textContent="⏸ Pausa";last=performance.now();requestAnimationFrame(tick);};
+$("#bReset").onclick=reset;
+$("#bSave").onclick=()=>{ghost={...P};draw();};
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{readColors();draw();});
+new MutationObserver(()=>{readColors();draw();}).observe(root,{attributes:true,attributeFilter:["data-theme"]});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+reset();
+</script>
+</body>
+</html>

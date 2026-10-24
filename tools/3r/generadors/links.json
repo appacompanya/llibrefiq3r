@@ -1,0 +1,1594 @@
+{
+ "D": {
+  "dc0": {
+   "f": "curs-01-sessio-0-sondeig-idees-previes.pdf",
+   "l": "Sessió 0: sondeig d'idees prèvies"
+  },
+  "dcT": {
+   "f": "curs-02-sessio-de-tancament.pdf",
+   "l": "Sessió de tancament"
+  },
+  "dcE": {
+   "f": "curs-03-enquesta-de-valoracio.pdf",
+   "l": "Enquesta de valoració (anònima)"
+  },
+  "d5ruta": {
+   "f": "sda5-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "d5repte": {
+   "f": "sda5-02-full-del-repte.pdf",
+   "l": "Full del repte"
+  },
+  "d5f1": {
+   "f": "sda5-03-fitxa-1-mru.pdf",
+   "l": "Fitxa 1"
+  },
+  "d5f2": {
+   "f": "sda5-04-fitxa-2-mrua.pdf",
+   "l": "Fitxa 2"
+  },
+  "d5f3": {
+   "f": "sda5-05-fitxa-3-grafiques-del-patinet.pdf",
+   "l": "Fitxa 3: gràfiques"
+  },
+  "d5f4": {
+   "f": "sda5-06-fitxa-4-trajectoria.pdf",
+   "l": "Fitxa 4"
+  },
+  "d5f5": {
+   "f": "sda5-07-fitxa-5-difusio-i-gradient.pdf",
+   "l": "Fitxa 5: difusió i gradient"
+  },
+  "d5f6q": {
+   "f": "sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf",
+   "l": "Fitxa 6: quimiotaxi, febre i salut"
+  },
+  "d5prob": {
+   "f": "sda5-09-problemes-de-moviment.pdf",
+   "l": "Problemes"
+  },
+  "d5f6": {
+   "f": "sda5-10-fitxa-7-newton-i-citoesquelet.pdf",
+   "l": "Fitxa 7 · Newton i citoesquelet"
+  },
+  "d5hooke": {
+   "f": "sda5-11-laboratori-llei-de-hooke.pdf",
+   "l": "Laboratori de Hooke"
+  },
+  "d5tfm": {
+   "f": "sda5-12-forces-cellulars.pdf",
+   "l": "Full de forces cel·lulars"
+  },
+  "d5lam": {
+   "f": "sda5-13-lamines-forces-de-traccio.pdf",
+   "l": "Làmines A i B",
+   "t": 1
+  },
+  "d5rub": {
+   "f": "sda5-14-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "d5prova": {
+   "f": "sda5-15-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "d5solpr": {
+   "f": "sda5-16-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "d5solf": {
+   "f": "sda5-17-solucionari-fitxes.pdf",
+   "l": "Solucionari de les fitxes",
+   "t": 1
+  },
+  "d5diana": {
+   "f": "sda5-18-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "d5mapa": {
+   "f": "sda5-19-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "d3ruta": {
+   "f": "sda3-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "d3model": {
+   "f": "sda3-02-model-de-mobil-per-plastificar.pdf",
+   "l": "Model de mòbil per plastificar",
+   "t": 1
+  },
+  "d3f1": {
+   "f": "sda3-03-fitxa-1-desmuntem-el-mobil.pdf",
+   "l": "Fitxa 1"
+  },
+  "d3f2": {
+   "f": "sda3-04-fitxa-2-models-atomics-i-isotops.pdf",
+   "l": "Fitxa 2"
+  },
+  "d3f3": {
+   "f": "sda3-05-fitxa-3-ions-i-bateria.pdf",
+   "l": "Fitxa 3"
+  },
+  "d3targ": {
+   "f": "sda3-06-targetes-cami-del-reciclatge.pdf",
+   "l": "Targetes del reciclatge",
+   "t": 1
+  },
+  "d3lab": {
+   "f": "sda3-07-laboratori-assaig-a-la-flama.pdf",
+   "l": "Laboratori: assaig a la flama"
+  },
+  "d3f4": {
+   "f": "sda3-08-fitxa-4-taula-periodica.pdf",
+   "l": "Fitxa 4"
+  },
+  "d3f5": {
+   "f": "sda3-09-fitxa-5-enllac-quimic.pdf",
+   "l": "Fitxa 5"
+  },
+  "d3dos": {
+   "f": "sda3-10-dossier-incendis-i-elements-critics.pdf",
+   "l": "Dossier"
+  },
+  "d3camp": {
+   "f": "sda3-11-pla-de-campanya-punt-de-recollida.pdf",
+   "l": "Pla de campanya"
+  },
+  "d3rub": {
+   "f": "sda3-12-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "d3prova": {
+   "f": "sda3-13-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "d3solpr": {
+   "f": "sda3-14-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "d3solf": {
+   "f": "sda3-15-solucionari-fitxes.pdf",
+   "l": "Solucionari de les fitxes",
+   "t": 1
+  },
+  "d3diana": {
+   "f": "sda3-16-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "d3mapa": {
+   "f": "sda3-17-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "d1amp": {
+   "f": "sda1-18-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d1solamp": {
+   "f": "sda1-19-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d1adap": {
+   "f": "sda1-20-adaptada-dislexia-fitxa-1.pdf",
+   "l": "Fitxa 1 adaptada · Dislèxia",
+   "t": 1
+  },
+  "d2amp": {
+   "f": "sda2-15-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d2solamp": {
+   "f": "sda2-16-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d2adap": {
+   "f": "sda2-17-adaptada-nouvingut-glossari-visual.pdf",
+   "l": "Glossari visual i fitxa 1 · Nouvingut",
+   "t": 1
+  },
+  "d2bas": {
+   "f": "sda2-18-adaptada-continguts-basics-fitxa-1.pdf",
+   "l": "Fitxa 1 · Continguts bàsics",
+   "t": 1
+  },
+  "d2coav": {
+   "f": "sda2-19-avaluem-els-videos.pdf",
+   "l": "Avaluem els vídeos (auto i coavaluació)"
+  },
+  "d3amp": {
+   "f": "sda3-18-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d3solamp": {
+   "f": "sda3-19-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d3adap": {
+   "f": "sda3-20-adaptada-pi-atom-i-taula-periodica.pdf",
+   "l": "Dins de l'àtom i la taula periòdica · suport manipulatiu",
+   "t": 1
+  },
+  "d4amp": {
+   "f": "sda4-16-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d4solamp": {
+   "f": "sda4-17-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d4adap": {
+   "f": "sda4-18-adaptada-discalculia-equacions-i-masses.pdf",
+   "l": "Equacions i masses pas a pas · Discalcúlia",
+   "t": 1
+  },
+  "d5amp": {
+   "f": "sda5-20-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d5solamp": {
+   "f": "sda5-21-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d5adap": {
+   "f": "sda5-22-adaptada-tdah-problemes-de-moviment.pdf",
+   "l": "Problemes de moviment un a un · TDAH",
+   "t": 1
+  },
+  "d6amp": {
+   "f": "sda6-14-ampliacio.pdf",
+   "l": "Reptes d'ampliació"
+  },
+  "d6solamp": {
+   "f": "sda6-15-solucionari-ampliacio.pdf",
+   "l": "Solucionari de l'ampliació",
+   "t": 1
+  },
+  "d6adap": {
+   "f": "sda6-16-adaptada-tea-guio-del-debat.pdf",
+   "l": "Guió anticipat del debat · TEA",
+   "t": 1
+  },
+  "dcF": {
+   "f": "curs-04-formulari.pdf",
+   "l": "Formulari del curs"
+  },
+  "dcG": {
+   "f": "curs-05-glossari.pdf",
+   "l": "Glossari del curs"
+  },
+  "dannex": {
+   "f": "programacio-annexos.pdf",
+   "l": "Annexos de la programació",
+   "t": 1
+  },
+  "dcR1": {
+   "f": "curs-06-recuperacio-ce1.pdf",
+   "l": "Recuperació CE1"
+  },
+  "dcR2": {
+   "f": "curs-07-recuperacio-ce2.pdf",
+   "l": "Recuperació CE2"
+  },
+  "dcR3": {
+   "f": "curs-08-recuperacio-ce3.pdf",
+   "l": "Recuperació CE3"
+  },
+  "dcR4": {
+   "f": "curs-09-recuperacio-ce4.pdf",
+   "l": "Recuperació CE4"
+  },
+  "dcR5": {
+   "f": "curs-10-recuperacio-ce5.pdf",
+   "l": "Recuperació CE5"
+  },
+  "dcR6": {
+   "f": "curs-11-recuperacio-ce6.pdf",
+   "l": "Recuperació CE6"
+  },
+  "d6ruta": {
+   "f": "sda6-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "d6repte": {
+   "f": "sda6-02-full-del-repte.pdf",
+   "l": "Full del repte"
+  },
+  "d6f1": {
+   "f": "sda6-03-fitxa-1-energia-potencia-i-consum.pdf",
+   "l": "Fitxa 1"
+  },
+  "d6lab": {
+   "f": "sda6-04-laboratori-consum-real.pdf",
+   "l": "Laboratori: mesurem el consum real"
+  },
+  "d6f2": {
+   "f": "sda6-05-fitxa-2-don-ve-lelectricitat.pdf",
+   "l": "Fitxa 2"
+  },
+  "d6pla": {
+   "f": "sda6-06-pla-destalvi-i-debat.pdf",
+   "l": "Pla d'estalvi i debat"
+  },
+  "d6rub": {
+   "f": "sda6-07-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "d6prova": {
+   "f": "sda6-08-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "d6solpr": {
+   "f": "sda6-09-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "d6solf": {
+   "f": "sda6-10-solucionari-fitxes.pdf",
+   "l": "Solucionari de les fitxes i del laboratori",
+   "t": 1
+  },
+  "d6diana": {
+   "f": "sda6-11-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "d6mapa": {
+   "f": "sda6-12-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "d4ruta": {
+   "f": "sda4-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "d4repte": {
+   "f": "sda4-02-full-del-repte.pdf",
+   "l": "Full del repte"
+  },
+  "d4lab1": {
+   "f": "sda4-03-laboratori-conservacio-de-la-massa.pdf",
+   "l": "Laboratori: es conserva la massa?"
+  },
+  "d4f1": {
+   "f": "sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf",
+   "l": "Fitxa 1"
+  },
+  "d4lab2": {
+   "f": "sda4-05-laboratori-obtenim-hidrogen.pdf",
+   "l": "Laboratori: obtenim hidrogen"
+  },
+  "d4f2": {
+   "f": "sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf",
+   "l": "Fitxa 2"
+  },
+  "d4lab3": {
+   "f": "sda4-07-laboratori-electrolisi-de-laigua.pdf",
+   "l": "Laboratori: electròlisi de l'aigua"
+  },
+  "d4f3": {
+   "f": "sda4-08-fitxa-3-taller-de-problemes.pdf",
+   "l": "Fitxa 3"
+  },
+  "d4dos": {
+   "f": "sda4-09-dossier-hidrogen.pdf",
+   "l": "Dossier sobre l'hidrogen"
+  },
+  "d4rub": {
+   "f": "sda4-10-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "d4prova": {
+   "f": "sda4-11-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "d4solpr": {
+   "f": "sda4-12-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "d4solf": {
+   "f": "sda4-13-solucionari-fitxes.pdf",
+   "l": "Solucionari de les fitxes i dels laboratoris",
+   "t": 1
+  },
+  "d4diana": {
+   "f": "sda4-14-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "d4mapa": {
+   "f": "sda4-15-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "d1ruta": {
+   "f": "sda1-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "d1reg": {
+   "f": "sda1-02-registre-del-detectiu.pdf",
+   "l": "Registre del detectiu"
+  },
+  "d1seg": {
+   "f": "sda1-03-seguretat-al-laboratori.pdf",
+   "l": "Seguretat al laboratori"
+  },
+  "d1f1": {
+   "f": "sda1-04-fitxa-1-magnituds-i-unitats.pdf",
+   "l": "Fitxa 1"
+  },
+  "d1f2": {
+   "f": "sda1-05-fitxa-2-factors-de-conversio.pdf",
+   "l": "Fitxa 2 i cerca de densitats"
+  },
+  "d1dens": {
+   "f": "sda1-06-laboratori-densitat.pdf",
+   "l": "Laboratori de densitat"
+  },
+  "d1prov": {
+   "f": "sda1-07-proves-conductivitat-i-ferro.pdf",
+   "l": "Full de proves"
+  },
+  "d1sep": {
+   "f": "sda1-08-laboratori-separacio.pdf",
+   "l": "Laboratori de separació"
+  },
+  "d1crom": {
+   "f": "sda1-09-cromatografia.pdf",
+   "l": "Cromatografia"
+  },
+  "d1ellen": {
+   "f": "sda1-10-reading-ellen-swallow-richards.pdf",
+   "l": "Reading: Ellen Swallow Richards"
+  },
+  "d1inf": {
+   "f": "sda1-11-guio-informe-i-protocol.pdf",
+   "l": "Guió de l'informe i protocol"
+  },
+  "d1rub": {
+   "f": "sda1-12-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "d1prova": {
+   "f": "sda1-13-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "d1solpr": {
+   "f": "sda1-14-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "d1solf": {
+   "f": "sda1-15-solucionari-fitxes.pdf",
+   "l": "Solucionari de les fitxes i contingut dels pots",
+   "t": 1
+  },
+  "d1diana": {
+   "f": "sda1-16-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "d1mapa": {
+   "f": "sda1-17-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "ruta": {
+   "f": "sda2-01-full-de-ruta.pdf",
+   "l": "Full de ruta"
+  },
+  "repte": {
+   "f": "sda2-02-full-del-repte.pdf",
+   "l": "Full del repte"
+  },
+  "lab": {
+   "f": "sda2-03-laboratori-globus.pdf",
+   "l": "Full de laboratori"
+  },
+  "f1": {
+   "f": "sda2-04-fitxa-1-model-cineticomolecular.pdf",
+   "l": "Fitxa 1"
+  },
+  "f2": {
+   "f": "sda2-05-fitxa-2-lleis-dels-gasos.pdf",
+   "l": "Fitxa 2"
+  },
+  "solf2": {
+   "f": "sda2-06-solucionari-fitxa-2.pdf",
+   "l": "Solucionari fitxa 2",
+   "t": 1
+  },
+  "inf": {
+   "f": "sda2-07-guio-informe-de-practica.pdf",
+   "l": "Guió de l'informe"
+  },
+  "video": {
+   "f": "sda2-08-guio-del-video.pdf",
+   "l": "Guió del vídeo"
+  },
+  "rub": {
+   "f": "sda2-09-rubriques.pdf",
+   "l": "Rúbriques"
+  },
+  "prova": {
+   "f": "sda2-10-demostracio-assoliment.pdf",
+   "l": "Activitat de demostració d'assoliment",
+   "t": 1
+  },
+  "solpr": {
+   "f": "sda2-11-solucionari-demostracio.pdf",
+   "l": "Solucionari de l'activitat de demostració",
+   "t": 1
+  },
+  "diana": {
+   "f": "sda2-12-diana-autoavaluacio.pdf",
+   "l": "Diana d'autoavaluació"
+  },
+  "mapa": {
+   "f": "sda2-13-mapa-conceptual.pdf",
+   "l": "Mapa conceptual"
+  },
+  "labc": {
+   "f": "sda2-14-laboratori-corba-i-canvis-destat.pdf",
+   "l": "Full de laboratori"
+  }
+ },
+ "L": {
+  "inv": {
+   "u": "https://llibrefiq3r.cat/docs/sda6-00-plantilla-inventari-energetic.xlsx",
+   "l": "Plantilla d'Excel: inventari energètic i pla d'estalvi"
+  },
+  "reecat": {
+   "u": "https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf",
+   "l": "Red Eléctrica: balanç elèctric de Catalunya 2024"
+  },
+  "circuits": {
+   "u": "https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc",
+   "l": "Simulació: kit de construcció de circuits"
+  },
+  "telkes": {
+   "u": "https://ethw.org/M%C3%A1ria_Telkes",
+   "l": "Mária Telkes, pionera de l'energia solar",
+   "fr": 1
+  },
+  "tmbh2": {
+   "u": "https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola",
+   "l": "Notícia: TMB rep el primer bus d'hidrogen (2021)"
+  },
+  "ajust": {
+   "u": "https://phet.colorado.edu/ca/simulations/balancing-chemical-equations",
+   "l": "Simulació: ajust d'equacions químiques"
+  },
+  "ferida": {
+   "u": "https://www.cellimagelibrary.org/images/44511",
+   "l": "Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)",
+   "v": "https://cildata.crbs.ucsd.edu/media/videos/44511/44511_web.mp4",
+   "cr": "Cèl·lules epitelials de ronyó (MDCK) tancant una ferida de 300 µm. Assaf Zaritsky i Doron Kaplan, Cell Image Library CIL:44511 (domini públic)."
+  },
+  "metastasi": {
+   "u": "https://www.cellimagelibrary.org/images/42160",
+   "l": "Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit",
+   "v": "https://cildata.crbs.ucsd.edu/media/videos/42160/42160_web.mp4",
+   "cr": "Fragment de tumor de mama humà que envaeix una matriu (una imatge cada 20 minuts; barra: 50 µm). Andrew Ewald, PNAS 2012. Cell Image Library CIL:42160 (CC BY)."
+  },
+  "cito": {
+   "u": "https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg",
+   "l": "Imatge: el citoesquelet al microscopi de fluorescència",
+   "img": "https://upload.wikimedia.org/wikipedia/commons/0/09/FluorescentCells.jpg",
+   "alt": "Cèl·lules endotelials amb el nucli en blau, els microtúbuls en verd i els filaments d'actina en vermell",
+   "cr": "Nucli en blau (DAPI), microtúbuls en verd (tubulina) i filaments d'actina en vermell. Imatge de domini públic, Wikimedia Commons."
+  },
+  "febre": {
+   "u": "https://www.nature.com/articles/s41598-022-10858-w",
+   "l": "Article citat a la fitxa 6 (Khachaturyan et al., 2022)"
+  },
+  "rogers": {
+   "u": "https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria",
+   "l": "Vídeo: un neutròfil persegueix un bacteri (D. Rogers)",
+   "v": "https://embryology.med.unsw.edu.au/embryology/images/3/36/Neutrophil_chasing_bacteria_movie.mp4",
+   "cr": "Pel·lícula de David Rogers (Universitat Vanderbilt, anys cinquanta). Font: UNSW Embryology (Dr Mark Hill)."
+  },
+  "difusio": {
+   "u": "https://phet.colorado.edu/ca/simulations/diffusion",
+   "l": "Simulació: difusió"
+  },
+  "rutherford": {
+   "u": "https://phet.colorado.edu/ca/simulations/rutherford-scattering",
+   "l": "Simulació: dispersió de Rutherford"
+  },
+  "buildatom": {
+   "u": "https://phet.colorado.edu/ca/simulations/build-an-atom",
+   "l": "Simulació: construeix un àtom"
+  },
+  "simbat": {
+   "u": "sim-bateria.html",
+   "l": "Simulador: la bateria de liti per dins",
+   "an": 1
+  },
+  "simgas": {
+   "u": "sim-gasos.html",
+   "l": "Simulador: el model cineticomolecular dels gasos",
+   "an": 1
+  },
+  "anajust": {
+   "u": "sim-ajust.html",
+   "l": "Animació: com s'ajusta una equació química",
+   "an": 1
+  },
+  "anenllac": {
+   "u": "sim-enllac.html",
+   "l": "Animació: enllaç iònic, covalent i metàl·lic",
+   "an": 1
+  },
+  "ancol": {
+   "u": "sim-colisions.html",
+   "l": "Animació: teoria de col·lisions i velocitat de reacció",
+   "an": 1
+  },
+  "anpila": {
+   "u": "sim-pila.html",
+   "l": "Animació: com funciona una pila de combustible",
+   "an": 1
+  },
+  "anmrua": {
+   "u": "sim-mrua.html",
+   "l": "Animació: MRU i MRUA amb la gràfica velocitat–temps",
+   "an": 1
+  },
+  "labmru": {
+   "u": "sim-lab-mru.html",
+   "l": "Simulador: laboratori del MRU (tria la velocitat)",
+   "an": 1
+  },
+  "labmrua": {
+   "u": "sim-lab-mrua.html",
+   "l": "Simulador: laboratori del MRUA (tria la velocitat inicial i l'acceleració)",
+   "an": 1
+  },
+  "phetforces": {
+   "u": "https://phet.colorado.edu/ca/simulations/forces-and-motion-basics",
+   "l": "Simulació: forces i moviment"
+  },
+  "phetfaraday": {
+   "u": "https://phet.colorado.edu/ca/simulations/faradays-electromagnetic-lab",
+   "l": "Simulació: laboratori electromagnètic de Faraday"
+  },
+  "ptable": {
+   "u": "https://ptable.com/",
+   "l": "Taula periòdica interactiva",
+   "fr": 1
+  },
+  "density": {
+   "u": "https://phet.colorado.edu/ca/simulations/density",
+   "l": "Simulació: densitat"
+  },
+  "sugarsalt": {
+   "u": "https://phet.colorado.edu/ca/simulations/sugar-and-salt-solutions",
+   "l": "Simulació: sucre i sal en dissolució"
+  },
+  "gasprop": {
+   "u": "https://phet.colorado.edu/ca/simulations/gas-properties",
+   "l": "Simulació: propietats dels gasos"
+  },
+  "gasintro": {
+   "u": "https://phet.colorado.edu/ca/simulations/gases-intro",
+   "l": "Simulació: introducció als gasos"
+  },
+  "states": {
+   "u": "https://phet.colorado.edu/ca/simulations/states-of-matter-basics",
+   "l": "Simulació: estats de la matèria"
+  }
+ },
+ "SDAS": [
+  {
+   "n": 1,
+   "title": "Detectius de la matèria",
+   "sessions": [
+    {
+     "t": "El repte i la seguretat",
+     "d": [
+      "d1ruta",
+      "d1reg",
+      "d1seg",
+      "d1rub"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Unitats i notació científica",
+     "d": [
+      "d1f1"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Factors de conversió",
+     "d": [
+      "d1f2"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Densitat dels pots enigma",
+     "d": [
+      "d1dens"
+     ],
+     "dt": [
+      "d1solf"
+     ],
+     "l": [
+      "density"
+     ]
+    },
+    {
+     "t": "Conductivitat i el clau de ferro",
+     "d": [
+      "d1prov"
+     ],
+     "dt": [],
+     "l": [
+      "sugarsalt"
+     ]
+    },
+    {
+     "t": "Separem mescles",
+     "d": [
+      "d1sep",
+      "d1ellen"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "La nota anònima",
+     "d": [
+      "d1crom"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Resolem el cas",
+     "d": [
+      "d1inf",
+      "d1mapa"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "d1prova",
+      "d1solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Corregeixo i reflexiono",
+     "d": [
+      "d1diana"
+     ],
+     "dt": [
+      "d1solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d1amp",
+      "d1solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · Dislèxia",
+     "d": [
+      "d1adap"
+     ]
+    },
+    {
+     "b": "Programació didàctica del curs",
+     "d": [
+      "dannex"
+     ]
+    },
+    {
+     "b": "Sessió 0 i sessió de tancament del curs",
+     "d": [
+      "dc0",
+      "dcT",
+      "dcE"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "d1prova",
+      "d1solpr",
+      "d1solf"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "d1rub"
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "El desodorant kamikaze",
+   "sessions": [
+    {
+     "t": "El repte",
+     "d": [
+      "ruta",
+      "repte",
+      "rub"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Els globus al fred i a la calor",
+     "d": [
+      "lab"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "El model de partícules",
+     "d": [
+      "f1"
+     ],
+     "dt": [],
+     "l": [
+      "simgas",
+      "gasprop",
+      "states"
+     ]
+    },
+    {
+     "t": "Les lleis dels gasos",
+     "d": [],
+     "dt": [],
+     "l": [
+      "simgas",
+      "gasintro"
+     ]
+    },
+    {
+     "t": "Exercicis de gasos",
+     "d": [
+      "f2"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Corba d'escalfament i canvis d'estat",
+     "d": [
+      "labc",
+      "inf"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Torno al repte",
+     "d": [
+      "repte",
+      "video",
+      "mapa"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Gravem el vídeo per a 1r",
+     "d": [
+      "rub"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "prova",
+      "solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Corregeixo i reflexiono",
+     "d": [
+      "d2coav",
+      "diana"
+     ],
+     "dt": [
+      "solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d2amp",
+      "d2solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · Nouvingut",
+     "d": [
+      "d2adap"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · Continguts bàsics",
+     "d": [
+      "d2bas"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "prova",
+      "solpr",
+      "solf2"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "rub"
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Què hi ha dins del meu mòbil?",
+   "sessions": [
+    {
+     "t": "Desmuntem el mòbil",
+     "d": [
+      "d3ruta",
+      "d3f1",
+      "d3rub"
+     ],
+     "dt": [
+      "d3model"
+     ],
+     "l": []
+    },
+    {
+     "t": "De Dalton a Bohr",
+     "d": [
+      "d3f2"
+     ],
+     "dt": [],
+     "l": [
+      "rutherford",
+      "buildatom"
+     ]
+    },
+    {
+     "t": "Ions i el camí del reciclatge",
+     "d": [
+      "d3f3"
+     ],
+     "dt": [
+      "d3targ"
+     ],
+     "l": [
+      "simbat"
+     ]
+    },
+    {
+     "t": "El liti a la flama",
+     "d": [
+      "d3lab"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "La taula periòdica",
+     "d": [
+      "d3f4"
+     ],
+     "dt": [],
+     "l": [
+      "ptable"
+     ]
+    },
+    {
+     "t": "L'enllaç químic",
+     "d": [
+      "d3f5"
+     ],
+     "dt": [],
+     "l": [
+      "anenllac"
+     ]
+    },
+    {
+     "t": "Per què cremen les bateries?",
+     "d": [
+      "d3dos"
+     ],
+     "dt": [],
+     "l": [
+      "simbat"
+     ]
+    },
+    {
+     "t": "Posem en marxa el punt de recollida",
+     "d": [
+      "d3camp",
+      "d3mapa"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "d3prova",
+      "d3solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Corregeixo i reflexiono",
+     "d": [
+      "d3diana"
+     ],
+     "dt": [
+      "d3solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d3amp",
+      "d3solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · Suport manipulatiu",
+     "d": [
+      "d3adap"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Material per imprimir",
+     "d": [
+      "d3model",
+      "d3targ"
+     ]
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "d3prova",
+      "d3solpr",
+      "d3solf"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "d3rub"
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Un cotxe que només allibera aigua?",
+   "sessions": [
+    {
+     "t": "El repte i l'espelma",
+     "d": [
+      "d4ruta",
+      "d4repte",
+      "d4rub"
+     ],
+     "dt": [],
+     "l": [
+      "tmbh2"
+     ]
+    },
+    {
+     "t": "Lavoisier al laboratori",
+     "d": [
+      "d4lab1"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Formulació i nomenclatura",
+     "d": [
+      "d4f1"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Obtenim hidrogen",
+     "d": [
+      "d4lab2"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Equacions i càlculs de massa",
+     "d": [
+      "d4f2"
+     ],
+     "dt": [],
+     "l": [
+      "anajust",
+      "ajust"
+     ]
+    },
+    {
+     "t": "Electròlisi: hidrogen verd",
+     "d": [
+      "d4lab3"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Taller de problemes",
+     "d": [
+      "d4f3",
+      "d4mapa"
+     ],
+     "dt": [],
+     "l": [
+      "ancol",
+      "ajust"
+     ]
+    },
+    {
+     "t": "Per què no són tots així?",
+     "d": [
+      "d4dos",
+      "d4repte"
+     ],
+     "dt": [],
+     "l": [
+      "anpila"
+     ]
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "d4prova",
+      "d4solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Corregeixo i reflexiono",
+     "d": [
+      "d4diana"
+     ],
+     "dt": [
+      "d4solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d4amp",
+      "d4solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · Discalcúlia",
+     "d": [
+      "d4adap"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "d4prova",
+      "d4solpr",
+      "d4solf"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "d4rub"
+     ]
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "title": "Cèl·lules immunitàries a la caça dels patògens",
+   "sessions": [
+    {
+     "t": "La persecució",
+     "d": [
+      "d5ruta",
+      "d5repte",
+      "d5rub"
+     ],
+     "dt": [],
+     "l": [
+      "rogers",
+      "ferida",
+      "metastasi"
+     ]
+    },
+    {
+     "t": "El moviment uniforme (MRU)",
+     "d": [
+      "d5f1"
+     ],
+     "dt": [],
+     "l": [
+      "labmru"
+     ]
+    },
+    {
+     "t": "El moviment accelerat (MRUA)",
+     "d": [
+      "d5f2"
+     ],
+     "dt": [],
+     "l": [
+      "anmrua",
+      "labmrua"
+     ]
+    },
+    {
+     "t": "Les gràfiques del patinet",
+     "d": [
+      "d5f3"
+     ],
+     "dt": [],
+     "l": [
+      "anmrua",
+      "labmru",
+      "labmrua"
+     ]
+    },
+    {
+     "t": "Trajectòria i desplaçament",
+     "d": [
+      "d5f4"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Problemes de moviment",
+     "d": [
+      "d5prob"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Difusió i gradient",
+     "d": [
+      "d5f5"
+     ],
+     "dt": [],
+     "l": [
+      "difusio"
+     ]
+    },
+    {
+     "t": "Quimiotaxi i febre",
+     "d": [
+      "d5f6q"
+     ],
+     "dt": [],
+     "l": [
+      "rogers",
+      "febre"
+     ]
+    },
+    {
+     "t": "Les lleis de Newton",
+     "d": [
+      "d5f6"
+     ],
+     "dt": [],
+     "l": [
+      "cito",
+      "phetforces"
+     ]
+    },
+    {
+     "t": "La llei de Hooke",
+     "d": [
+      "d5hooke"
+     ],
+     "dt": [],
+     "l": []
+    },
+    {
+     "t": "Les cèl·lules també fan forces",
+     "d": [
+      "d5tfm",
+      "d5mapa"
+     ],
+     "dt": [
+      "d5lam"
+     ],
+     "l": []
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "d5prova",
+      "d5solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Responc el repte i reflexiono",
+     "d": [
+      "d5diana"
+     ],
+     "dt": [
+      "d5solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d5amp",
+      "d5solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · TDAH",
+     "d": [
+      "d5adap"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Material per imprimir",
+     "d": [
+      "d5lam"
+     ]
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "d5prova",
+      "d5solpr",
+      "d5solf"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "d5rub"
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "title": "L'energia del nostre institut",
+   "sessions": [
+    {
+     "t": "Auditoria energètica de l'aula",
+     "d": [
+      "d6ruta",
+      "d6repte",
+      "d6rub"
+     ],
+     "dt": [],
+     "l": [
+      "inv"
+     ]
+    },
+    {
+     "t": "Energia, potència i consum",
+     "d": [
+      "d6f1"
+     ],
+     "dt": [],
+     "l": [
+      "telkes"
+     ]
+    },
+    {
+     "t": "Mesurem el consum real",
+     "d": [
+      "d6lab"
+     ],
+     "dt": [],
+     "l": [
+      "inv"
+     ]
+    },
+    {
+     "t": "D'on ve l'electricitat?",
+     "d": [
+      "d6f2"
+     ],
+     "dt": [],
+     "l": [
+      "reecat",
+      "phetfaraday"
+     ]
+    },
+    {
+     "t": "El pla d'estalvi i el debat",
+     "d": [
+      "d6pla",
+      "d6repte",
+      "d6mapa"
+     ],
+     "dt": [],
+     "l": [
+      "inv"
+     ]
+    },
+    {
+     "t": "Demostració d'assoliment",
+     "d": [],
+     "dt": [
+      "d6prova",
+      "d6solpr"
+     ],
+     "l": []
+    },
+    {
+     "t": "Corregeixo, votem i reflexiono",
+     "d": [
+      "d6diana",
+      "d6pla"
+     ],
+     "dt": [
+      "d6solpr"
+     ],
+     "l": []
+    }
+   ],
+   "teacher": [
+    {
+     "b": "Material multinivell · ampliació",
+     "d": [
+      "d6amp",
+      "d6solamp"
+     ]
+    },
+    {
+     "b": "Atenció a la diversitat · TEA",
+     "d": [
+      "d6adap"
+     ]
+    },
+    {
+     "b": "Tasques de recuperació (una per CE)",
+     "d": [
+      "dcR1",
+      "dcR2",
+      "dcR3",
+      "dcR4",
+      "dcR5",
+      "dcR6"
+     ]
+    },
+    {
+     "b": "Sessió de tancament del curs",
+     "d": [
+      "dcT",
+      "dcE"
+     ]
+    },
+    {
+     "b": "Plantilla de la SdA",
+     "d": []
+    },
+    {
+     "b": "Registre de competències",
+     "d": []
+    },
+    {
+     "b": "Activitat de demostració i solucionaris",
+     "d": [
+      "d6prova",
+      "d6solpr",
+      "d6solf"
+     ]
+    },
+    {
+     "b": "Rúbriques",
+     "d": [
+      "d6rub"
+     ]
+    }
+   ]
+  }
+ ]
+}
