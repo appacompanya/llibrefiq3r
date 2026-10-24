@@ -16,6 +16,8 @@ Valida (i ho diu clarament; no canvia mai el contingut pedagògic):
   python3 tools/3r/build_dades.py                  genera i valida
   python3 tools/3r/build_dades.py --compara        a més, compara el resultat amb els blocs escrits a mà de les 3 pàgines
   python3 tools/3r/build_dades.py --respostes /workspace/backups/2026-10-24
+  python3 tools/3r/build_dades.py --aplica-html    escriu els blocs generats dins de les 3 pàgines (font única → web)
+  python3 tools/3r/build_dades.py --mapa FITXER    copia el mapa SdA → evidències → criteris → CE
   --estricte: surt amb error si hi ha avisos de validació (per a CI)."""
 import json, os, re, subprocess, sys, glob
 import yaml
@@ -192,6 +194,41 @@ def mapa(cur, sdas, docs):
     return out
 
 
+PAGINES = [("digital/profe.html", {"D": "D", "L": "L", "SDAS": "SDAS", "EVAL": "EVAL", "CRIT_NAMES": "CRIT_NAMES"}),
+           ("digital/index.html", {"D": "D_alumne", "L": "L", "SDAS": "SDAS_alumne"}),
+           ("index.html", {"D": "D_alumne", "L": "L_arrel", "SDAS": "SDAS_alumne"})]
+
+
+def lit(v):
+    """Literal JS llegible: una entrada per línia al primer nivell."""
+    if isinstance(v, dict):
+        return "{\n" + ",\n".join(f"  {json.dumps(k, ensure_ascii=False)}: {json.dumps(x, ensure_ascii=False)}" for k, x in v.items()) + "\n}"
+    if isinstance(v, list):
+        return "[\n" + ",\n".join("  " + json.dumps(x, ensure_ascii=False) for x in v) + "\n]"
+    return json.dumps(v, ensure_ascii=False)
+
+
+def aplica_html(out):
+    """Substitueix els blocs const D/L/SDAS/EVAL/CRIT_NAMES de les 3 pàgines pels generats (marcats)."""
+    js = ("const grab=require(process.argv[1]+'/tools/3r/lib/jsliteral.js');const f=process.argv[2];const r={};"
+          "for(const n of JSON.parse(process.argv[3])){const g=grab(f,n);r[n]=[g.start,g.end];}console.log(JSON.stringify(r));")
+    for f, blocs in PAGINES:
+        path = os.path.join(ROOT, f)
+        pos = json.loads(subprocess.check_output(["node", "-e", js, ROOT, path, json.dumps(list(blocs))]))
+        txt = open(path, encoding="utf-8").read()
+        # node dóna posicions en unitats UTF-16 (els emojis en compten 2): les convertim a índexs de Python
+        u16 = txt.encode("utf-16-le")
+        cp = lambda i: len(u16[:2 * i].decode("utf-16-le"))
+        pos = {n: (cp(a), cp(b)) for n, (a, b) in pos.items()}
+        for n, (a, b) in sorted(pos.items(), key=lambda x: -x[1][0]):
+            marca = "/* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */\n"
+            pre = txt[:a]
+            new = ("" if pre.endswith(marca) else marca) + f"const {n} = {lit(out[blocs[n]])}"
+            txt = txt[:a] + new + txt[b:]
+        open(path, "w", encoding="utf-8").write(txt)
+        print(f"  {f}: {', '.join(blocs)} actualitzats")
+
+
 def js_out(o):
     return ("/* Generat per tools/3r/build_dades.py a partir de contingut/3r/*.yaml. No l'editis a mà:\n"
             "   edita el YAML i torna a executar l'script. */\n"
@@ -230,6 +267,8 @@ def main():
         for t, (n, bad) in orphans(d, U, docs).items():
             print(f"  {t}: {n} files, {sum(bad.values())} orfes" + (f" → {bad}" if bad else ""))
             if bad: W.append(f"orfes a {t}")
+    if "--aplica-html" in a:
+        print("\nActualitzo les pàgines amb les dades generades:"); aplica_html(out)
     if "--compara" in a:
         r = json.loads(subprocess.check_output(["node", "-e", COMPARA, ROOT]))
         print("\nComparació amb els blocs escrits a mà:")
