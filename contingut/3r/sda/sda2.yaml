@@ -370,7 +370,7 @@ documents:
         id: '9'
         versio: 1
         tipus: auto
-        etiqueta: Demostració d\'assoliment
+        etiqueta: Demostració d'assoliment
         criteris: []
         camps:
         - ruta.a25
@@ -769,13 +769,13 @@ documents:
   prova:
     uid: prova
     versio: 1
-    fitxer: sda2-10-demostracio-assoliment.pdf
+    fitxer: sda2-10-prova.pdf
     titol: Activitat de demostració d'assoliment
     professorat: true
   solpr:
     uid: solpr
     versio: 1
-    fitxer: sda2-11-solucionari-demostracio.pdf
+    fitxer: sda2-11-solucionari-prova.pdf
     titol: Solucionari de l'activitat de demostració
     professorat: true
   diana:
@@ -950,7 +950,7 @@ evidencies:
 - uid: s2.prova
   id: prova
   versio: 1
-  titol: Activitat de demostració d'assoliment (sessions 9 i 10)
+  titol: Activitat de demostració d'assoliment (sessió 9)
   instruments:
   - prova
   - solpr

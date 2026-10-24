@@ -72,12 +72,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "d5prova": {
-   "f": "sda5-15-demostracio-assoliment.pdf",
+   "f": "sda5-15-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "d5solpr": {
-   "f": "sda5-16-solucionari-demostracio.pdf",
+   "f": "sda5-16-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -145,12 +145,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "d3prova": {
-   "f": "sda3-13-demostracio-assoliment.pdf",
+   "f": "sda3-13-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "d3solpr": {
-   "f": "sda3-14-solucionari-demostracio.pdf",
+   "f": "sda3-14-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -326,12 +326,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "d6prova": {
-   "f": "sda6-08-demostracio-assoliment.pdf",
+   "f": "sda6-08-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "d6solpr": {
-   "f": "sda6-09-solucionari-demostracio.pdf",
+   "f": "sda6-09-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -389,12 +389,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "d4prova": {
-   "f": "sda4-11-demostracio-assoliment.pdf",
+   "f": "sda4-11-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "d4solpr": {
-   "f": "sda4-12-solucionari-demostracio.pdf",
+   "f": "sda4-12-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -460,12 +460,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "d1prova": {
-   "f": "sda1-13-demostracio-assoliment.pdf",
+   "f": "sda1-13-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "d1solpr": {
-   "f": "sda1-14-solucionari-demostracio.pdf",
+   "f": "sda1-14-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -520,12 +520,12 @@ window.FQ3_DADES = {
    "l": "Rúbriques"
   },
   "prova": {
-   "f": "sda2-10-demostracio-assoliment.pdf",
+   "f": "sda2-10-prova.pdf",
    "l": "Activitat de demostració d'assoliment",
    "t": 1
   },
   "solpr": {
-   "f": "sda2-11-solucionari-demostracio.pdf",
+   "f": "sda2-11-solucionari-prova.pdf",
    "l": "Solucionari de l'activitat de demostració",
    "t": 1
   },
@@ -2964,7 +2964,7 @@ window.FQ3_DADES = {
   "1": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+    "l": "Activitat de demostració d'assoliment (sessió 9)",
     "items": [
      {
       "id": "p1",
@@ -3124,7 +3124,7 @@ window.FQ3_DADES = {
   "2": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+    "l": "Activitat de demostració d'assoliment (sessió 9)",
     "items": [
      {
       "id": "p1",
@@ -3284,7 +3284,7 @@ window.FQ3_DADES = {
   "3": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+    "l": "Activitat de demostració d'assoliment (sessió 9)",
     "items": [
      {
       "id": "p1",
@@ -3418,7 +3418,7 @@ window.FQ3_DADES = {
   "4": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+    "l": "Activitat de demostració d'assoliment (sessió 9)",
     "items": [
      {
       "id": "p1",
@@ -3540,7 +3540,7 @@ window.FQ3_DADES = {
   "5": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 12 i 13)",
+    "l": "Activitat de demostració d'assoliment (sessió 12)",
     "items": [
      {
       "id": "p1",
@@ -3628,7 +3628,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "graf",
-    "l": "Gràfiques del patinet",
+    "l": "Gràfiques del patinet (fitxa 3, sessió 4)",
     "items": [
      {
       "id": "g1",
@@ -3660,7 +3660,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "febre",
-    "l": "La febre i la migració (sessió 8)",
+    "l": "La febre i la migració (fitxa 6, sessió 8)",
     "items": [
      {
       "id": "f1",
@@ -3726,7 +3726,7 @@ window.FQ3_DADES = {
   "6": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessions 6 i 7)",
+    "l": "Activitat de demostració d'assoliment (sessió 6)",
     "items": [
      {
       "id": "p1",

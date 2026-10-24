@@ -219,7 +219,7 @@ documents:
         id: '9'
         versio: 1
         tipus: auto
-        etiqueta: Demostració d\'assoliment
+        etiqueta: Demostració d'assoliment
         criteris: []
         camps:
         - d3ruta.a25
@@ -903,13 +903,13 @@ documents:
   d3prova:
     uid: d3prova
     versio: 1
-    fitxer: sda3-13-demostracio-assoliment.pdf
+    fitxer: sda3-13-prova.pdf
     titol: Activitat de demostració d'assoliment
     professorat: true
   d3solpr:
     uid: d3solpr
     versio: 1
-    fitxer: sda3-14-solucionari-demostracio.pdf
+    fitxer: sda3-14-solucionari-prova.pdf
     titol: Solucionari de l'activitat de demostració
     professorat: true
   d3solf:
@@ -1082,7 +1082,7 @@ evidencies:
 - uid: s3.prova
   id: prova
   versio: 2
-  titol: Activitat de demostració d'assoliment (sessions 9 i 10)
+  titol: Activitat de demostració d'assoliment (sessió 9)
   instruments:
   - d3prova
   - d3solpr

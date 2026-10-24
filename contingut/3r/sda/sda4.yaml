@@ -290,7 +290,7 @@ documents:
         id: '9'
         versio: 1
         tipus: auto
-        etiqueta: Demostració d\'assoliment
+        etiqueta: Demostració d'assoliment
         criteris: []
         camps:
         - d4ruta.a25
@@ -922,13 +922,13 @@ documents:
   d4prova:
     uid: d4prova
     versio: 1
-    fitxer: sda4-11-demostracio-assoliment.pdf
+    fitxer: sda4-11-prova.pdf
     titol: Activitat de demostració d'assoliment
     professorat: true
   d4solpr:
     uid: d4solpr
     versio: 1
-    fitxer: sda4-12-solucionari-demostracio.pdf
+    fitxer: sda4-12-solucionari-prova.pdf
     titol: Solucionari de l'activitat de demostració
     professorat: true
   d4solf:
@@ -994,7 +994,7 @@ evidencies:
 - uid: s4.prova
   id: prova
   versio: 2
-  titol: Activitat de demostració d'assoliment (sessions 9 i 10)
+  titol: Activitat de demostració d'assoliment (sessió 9)
   instruments:
   - d4prova
   - d4solpr

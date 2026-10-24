@@ -272,7 +272,7 @@ documents:
         id: '12'
         versio: 1
         tipus: auto
-        etiqueta: Demostració d\'assoliment
+        etiqueta: Demostració d'assoliment
         criteris: []
         camps:
         - d5ruta.a34
@@ -1126,13 +1126,13 @@ documents:
   d5prova:
     uid: d5prova
     versio: 1
-    fitxer: sda5-15-demostracio-assoliment.pdf
+    fitxer: sda5-15-prova.pdf
     titol: Activitat de demostració d'assoliment
     professorat: true
   d5solpr:
     uid: d5solpr
     versio: 1
-    fitxer: sda5-16-solucionari-demostracio.pdf
+    fitxer: sda5-16-solucionari-prova.pdf
     titol: Solucionari de l'activitat de demostració
     professorat: true
   d5solf:
@@ -1284,7 +1284,7 @@ evidencies:
 - uid: s5.prova
   id: prova
   versio: 1
-  titol: Activitat de demostració d'assoliment (sessions 12 i 13)
+  titol: Activitat de demostració d'assoliment (sessió 12)
   instruments:
   - d5prova
   - d5solpr
@@ -1366,7 +1366,7 @@ evidencies:
 - uid: s5.graf
   id: graf
   versio: 1
-  titol: Gràfiques del patinet
+  titol: Gràfiques del patinet (fitxa 3, sessió 4)
   instruments: []
   items:
   - uid: s5.graf.g1
@@ -1395,7 +1395,7 @@ evidencies:
 - uid: s5.febre
   id: febre
   versio: 1
-  titol: La febre i la migració (sessió 8)
+  titol: La febre i la migració (fitxa 6, sessió 8)
   instruments: []
   items:
   - uid: s5.febre.f1

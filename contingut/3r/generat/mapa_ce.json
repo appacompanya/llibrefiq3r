@@ -144,20 +144,20 @@
    "evidencies": [
     {
      "uid": "s1.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 30,
      "instruments": [
       {
        "uid": "d1prova",
-       "fitxer": "sda1-13-demostracio-assoliment.pdf",
+       "fitxer": "sda1-13-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "d1solpr",
-       "fitxer": "sda1-14-solucionari-demostracio.pdf",
+       "fitxer": "sda1-14-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }
@@ -381,20 +381,20 @@
    "evidencies": [
     {
      "uid": "s2.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 25,
      "instruments": [
       {
        "uid": "prova",
-       "fitxer": "sda2-10-demostracio-assoliment.pdf",
+       "fitxer": "sda2-10-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "solpr",
-       "fitxer": "sda2-11-solucionari-demostracio.pdf",
+       "fitxer": "sda2-11-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }
@@ -613,20 +613,20 @@
    "evidencies": [
     {
      "uid": "s3.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 2,
      "tipus": "qualificadora",
      "pes_percent": 30,
      "instruments": [
       {
        "uid": "d3prova",
-       "fitxer": "sda3-13-demostracio-assoliment.pdf",
+       "fitxer": "sda3-13-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "d3solpr",
-       "fitxer": "sda3-14-solucionari-demostracio.pdf",
+       "fitxer": "sda3-14-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }
@@ -828,20 +828,20 @@
    "evidencies": [
     {
      "uid": "s4.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 9 i 10)",
+     "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 2,
      "tipus": "qualificadora",
      "pes_percent": 30,
      "instruments": [
       {
        "uid": "d4prova",
-       "fitxer": "sda4-11-demostracio-assoliment.pdf",
+       "fitxer": "sda4-11-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "d4solpr",
-       "fitxer": "sda4-12-solucionari-demostracio.pdf",
+       "fitxer": "sda4-12-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }
@@ -1015,20 +1015,20 @@
    "evidencies": [
     {
      "uid": "s5.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 12 i 13)",
+     "titol": "Activitat de demostració d'assoliment (sessió 12)",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 30,
      "instruments": [
       {
        "uid": "d5prova",
-       "fitxer": "sda5-15-demostracio-assoliment.pdf",
+       "fitxer": "sda5-15-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "d5solpr",
-       "fitxer": "sda5-16-solucionari-demostracio.pdf",
+       "fitxer": "sda5-16-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }
@@ -1140,7 +1140,7 @@
     },
     {
      "uid": "s5.graf",
-     "titol": "Gràfiques del patinet",
+     "titol": "Gràfiques del patinet (fitxa 3, sessió 4)",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 15,
@@ -1172,7 +1172,7 @@
     },
     {
      "uid": "s5.febre",
-     "titol": "La febre i la migració (sessió 8)",
+     "titol": "La febre i la migració (fitxa 6, sessió 8)",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 10,
@@ -1270,20 +1270,20 @@
    "evidencies": [
     {
      "uid": "s6.prova",
-     "titol": "Activitat de demostració d'assoliment (sessions 6 i 7)",
+     "titol": "Activitat de demostració d'assoliment (sessió 6)",
      "versio": 2,
      "tipus": "qualificadora",
      "pes_percent": 30,
      "instruments": [
       {
        "uid": "d6prova",
-       "fitxer": "sda6-08-demostracio-assoliment.pdf",
+       "fitxer": "sda6-08-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
        "on": "bucket professorat"
       },
       {
        "uid": "d6solpr",
-       "fitxer": "sda6-09-solucionari-demostracio.pdf",
+       "fitxer": "sda6-09-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
        "on": "bucket professorat"
       }

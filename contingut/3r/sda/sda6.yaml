@@ -265,7 +265,7 @@ documents:
         id: '6'
         versio: 1
         tipus: auto
-        etiqueta: Demostració d\'assoliment
+        etiqueta: Demostració d'assoliment
         criteris: []
         camps:
         - d6ruta.a16
@@ -676,13 +676,13 @@ documents:
   d6prova:
     uid: d6prova
     versio: 1
-    fitxer: sda6-08-demostracio-assoliment.pdf
+    fitxer: sda6-08-prova.pdf
     titol: Activitat de demostració d'assoliment
     professorat: true
   d6solpr:
     uid: d6solpr
     versio: 1
-    fitxer: sda6-09-solucionari-demostracio.pdf
+    fitxer: sda6-09-solucionari-prova.pdf
     titol: Solucionari de l'activitat de demostració
     professorat: true
   d6solf:
@@ -748,7 +748,7 @@ evidencies:
 - uid: s6.prova
   id: prova
   versio: 2
-  titol: Activitat de demostració d'assoliment (sessions 6 i 7)
+  titol: Activitat de demostració d'assoliment (sessió 6)
   instruments:
   - d6prova
   - d6solpr
