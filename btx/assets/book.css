@@ -237,3 +237,32 @@ section.err li::before{content:"!";position:absolute;left:0;top:.18em;width:1.1e
 .card:hover .card-pic img{transform:scale(1.03)}
 @media (max-width:640px){.cover-pic{margin:14px 14px 0;border-radius:14px;border-width:2.5px}}
 @media print{.cover-pic{margin:10px 18px 0;border:1.5px solid #000;box-shadow:none;break-inside:avoid}.cover-pic img{max-height:7cm;object-fit:contain}.card-pic{display:none}}
+/* ---------- portades petites a les targetes (clic = amplia) ---------- */
+.card.has-pic{grid-template-rows:auto 1fr}.card.has-pic .card-h{margin-top:0}
+.card-top{display:flex;align-items:center;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 72%,#000))}
+.card-top .card-h{flex:1;min-width:0;background:none}
+.card-pic{position:relative;flex:none;display:block;width:104px;margin:10px 12px 10px 0;padding:0;border:3px solid #1b1f24;border-radius:12px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:3px 3px 0 rgba(0,0,0,.35)}
+.card-pic img{display:block;width:100%;height:auto;aspect-ratio:3/2;transition:transform .25s ease}
+.card-pic:hover img,.card-pic:focus-visible img{transform:scale(1.06)}.card:hover .card-pic img{transform:none}.card .card-pic:hover img{transform:scale(1.06)}
+.card-pic:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.zoom-ic{position:absolute;right:3px;bottom:3px;width:20px;height:20px;border-radius:50%;background:#1b1f24;color:#fff;font:700 12px/20px system-ui,sans-serif;text-align:center}
+@media (max-width:420px){.card-pic{width:86px;margin-right:10px}.card-h{padding:14px 12px 14px 14px;gap:10px}.card-h .big{font-size:2.1rem}}
+/* ---------- portada de /btx: els cinc documents ---------- */
+:root{--d1:#12857A;--d2:#2F6FB5;--d3:#B83A7A;--d4:#D9731A;--d5:#C63D3D}
+.hero .credit{font-family:var(--sans);font-size:.88rem;color:var(--muted)}.hero .credit a{color:inherit}
+.sec-h{font-family:var(--display);font-weight:800;font-size:1.5rem;margin:6px 0 12px;scroll-margin-top:80px}
+.sec-note{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin:-6px 0 14px}
+.docs{margin:0 0 30px}
+.docs-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.doc{display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;padding:14px 14px 12px;font-family:var(--sans)}
+.doc-n{flex:none;font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;color:var(--c);min-width:.8em}
+.doc-b{min-width:0}.doc h3{margin:0 0 4px;font-size:1.05rem}.doc h3 a{color:var(--ink);text-decoration:none}.doc h3 a:hover{color:var(--c)}
+.doc p{margin:0 0 10px;font-size:.86rem;color:#3b4148;line-height:1.35}
+.doc-acts{display:flex;flex-wrap:wrap;gap:6px}
+.doc-acts a{font-size:.8rem;font-weight:700;text-decoration:none;border-radius:999px;padding:5px 11px;background:var(--c);color:#fff;border:1.5px solid var(--c)}
+.doc-acts a.ghost{background:#fff;color:var(--c)}
+.pdfmode{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin:10px 0 0}
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;vertical-align:middle;margin-left:4px}
+.seg button{border:0;background:#fff;padding:4px 10px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+@media print{.docs,.card-pic,.lb{display:none!important}}
