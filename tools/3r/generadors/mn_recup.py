@@ -14,8 +14,9 @@ CE_TXT = {
     5: "Analitzar els efectes de determinades accions sobre el medi ambient i la salut, basant-se en la física i la química, per fer propostes d'acció i adoptar hàbits sostenibles i saludables.",
     6: "Interpretar i valorar la ciència com una construcció col·lectiva en continu canvi i evolució, que interacciona amb la societat per generar millores.",
 }
-LAST = {1: "la SdA 5", 2: "la SdA 4", 3: "la SdA 4", 4: "la SdA 6", 5: "la SdA 5", 6: "la SdA 6"}
-WHERE = {1: "SdA 2 i SdA 5", 2: "SdA 1 i SdA 4", 3: "SdA 1 i SdA 4", 4: "SdA 2 i SdA 6", 5: "SdA 3 i SdA 5", 6: "SdA 3 i SdA 6"}
+LAST = {1: "la SdA 5", 2: "la SdA 5", 3: "la SdA 4", 4: "la SdA 6", 5: "la SdA 5", 6: "la SdA 6"}
+# Repartiment de CE aprovat (mapa_ce_final.json): on s'avalua cada CE
+WHERE = {1: "SdA 2, 3, 4, 5 i 6", 2: "SdA 1, 2, 4 i 5", 3: "SdA 1 i 4", 4: "SdA 2 i 6", 5: "SdA 1, 3 i 5", 6: "SdA 3 i 6"}
 
 
 def head(ce, title, intro):
@@ -25,7 +26,7 @@ def head(ce, title, intro):
          f'<h1>{title}<span class="badge">Recuperació CE{ce}</span></h1></div>{who}</div>')
     h += f'<p class="intro">{intro}</p>'
     h += (f'<div class="tip" style="padding:2mm 3mm"><b>Competència específica {ce}.</b> {CE_TXT[ce]} '
-          f'La vas treballar a la {WHERE[ce]}. Si fas aquesta tasca millor que durant el curs, el nivell d\'assoliment nou substitueix l\'anterior.</div>')
+          f'La vas treballar a les {WHERE[ce]}. Si fas aquesta tasca millor que durant el curs, el nivell d\'assoliment nou substitueix l\'anterior.</div>')
     return h
 
 
@@ -83,7 +84,7 @@ def recup_ce1():
         ("Problema i solucions (1.3)", "Identifica els conceptes del problema, el resol amb unitats i proposa solucions viables i justificades", "Resol el problema i proposa una solució", "Resolució parcial o solució poc relacionada", "No resol el problema"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE1 en acabar {LAST[1]} (criteris 1.1, 1.2 i 1.3) o qui vulgui millorar el nivell. El nivell nou substitueix el de la CE1 a la SdA 2 i a la SdA 5 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE1 en acabar {LAST[1]} (criteris 1.1, 1.2 i 1.3) o qui vulgui millorar el nivell. El nivell nou substitueix el de la CE1 a les {WHERE[1]} si és més alt.",
         "<b>Solucions.</b> Tema A: T = 283, 293, 303 i 313 K; p / T ≈ 0,00848 bar/K en tots els casos (constant): llei de Gay-Lussac, a volum constant la pressió és proporcional a la temperatura absoluta. A 60 °C (333 K): p ≈ 0,00848 · 333 ≈ <b>2,82 bar</b>, per sobre del màxim recomanat: cal desinflar una mica la roda a l'estiu o no deixar-la al sol. "
         "Tema B: MRUA; a = (0 − 6,0) / 4 = <b>−1,5 m/s²</b>; distància de frenada = ½ · 6,0 · 4 = <b>12 m</b>. A 3 m/s: t = 2 s i d = ½ · 3 · 2 = <b>3 m</b> (la meitat de velocitat, una quarta part de distància). "
         "Amb 1 s de reacció: 6 + 12 = <b>18 m</b>; a 4 m/s: 4 + 4² / (2 · 1,5) ≈ 4 + 5,3 = <b>9,3 m</b>.",
@@ -127,7 +128,7 @@ def recup_ce2():
         ("La ciència la fan persones (2.6)", "Explica l'aportació de la científica, analitza els biaixos de gènere i cita la font", "Explica l'aportació i esmenta els biaixos", "Biografia sense reflexió", "No ho fa"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE2 en acabar {LAST[2]} (criteris 2.1 a 2.6) o qui vulgui millorar. El nivell nou substitueix el de la CE2 a la SdA 1 i a la SdA 4 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE2 en acabar {LAST[2]} (criteris 2.1 a 2.6) o qui vulgui millorar. El nivell nou substitueix el de la CE2 a les {WHERE[2]} si és més alt.",
         "<b>Resultats esperats.</b> A: el glaçó es fon més de pressa en aigua que a l'aire, i en aigua de l'aixeta que en aigua molt salada freda (cal controlar volum i temperatura de l'aigua). B: la pastilla es dissol més de pressa en aigua calenta (més energia cinètica de les partícules: més xocs eficaços). C: l'allargament és proporcional al pes fins al límit d'elasticitat (llei de Hooke); la gràfica F–Δx és una recta per l'origen.",
         "<b>Seguretat:</b> només aigua de l'aixeta (mai bullint), sense foc ni productes de neteja. Es pot fer a l'institut, a l'hora del pati, si a casa no és possible.",
         "<b>Atenció a la diversitat:</b> es pot donar la taula de variables mig completada a l'alumnat amb més dificultats; l'alumnat d'altes capacitats pot afegir una segona variable o calcular el pendent.",
@@ -170,7 +171,7 @@ def recup_ce3():
         ("Seguretat i normes (3.3)", "Interpreta tots els pictogrames i relaciona les normes amb la salut, el medi ambient i les instal·lacions", "Interpreta els pictogrames i justifica les normes", "Interpretació parcial o normes sense justificar", "No interpreta les etiquetes"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE3 en acabar {LAST[3]} (criteris 3.1, 3.2 i 3.3) o qui vulgui millorar. El nivell nou substitueix el de la CE3 a la SdA 1 i a la SdA 4 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE3 en acabar {LAST[3]} (criteris 3.1, 3.2 i 3.3) o qui vulgui millorar. El nivell nou substitueix el de la CE3 a les {WHERE[3]} si és més alt.",
         "<b>Solucions B.</b> a) 1500 mL · 1,05 g/mL = 1575 g = <b>1,575 kg</b>. b) 40 g/L = <b>40 mg/mL</b>; 40 g/L · 2 L = <b>80 g</b>. c) 200 mL = <b>0,200 L = 2 · 10⁻⁴ m³</b>. d) 0,81 g/cm³ = <b>810 kg/m³</b>.",
         "<b>Solucions C.</b> clorur de sodi; clorur d'hidrogen (àcid clorhídric en dissolució); amoníac; CO₂; metà; CaO; òxid de ferro(III); SiO₂.",
         "<b>Solucions D.</b> a) El color del got: no és una variable que afecti la velocitat de dissolució. c) Com més temperatura, menys temps (relació decreixent, no lineal); a 35 °C, uns 37–39 s. d) A més temperatura, les partícules es mouen més de pressa i xoquen més sovint i amb més energia: més xocs eficaços.",
@@ -215,7 +216,7 @@ def recup_ce4():
         ("Respecte i inclusió (4.2)", "Incorpora altres veus i té en compte col·lectius diversos sense estereotips", "Incorpora altres veus", "Esmenta altres opinions sense tenir-les en compte", "No té en compte altres opinions"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE4 a la SdA 2 (criteri 4.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE4 a la SdA 2 i a la SdA 6 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE4 a la SdA 2 (criteri 4.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE4 a les {WHERE[4]} si és més alt.",
         "<b>Orientacions:</b> és la mateixa estructura de la tasca de comunicació del curs. A la tutoria de mitja tasca reviseu la fitxa de fonts i els arguments abans de gravar.",
         "<b>Atenció a la diversitat:</b> l'alumnat amb mesures addicionals pot fer la defensa per escrit o gravada; l'alumnat nouvingut pot fer el producte en parella i amb el glossari del curs.",
     ], title="Com funciona la recuperació · nota per al professorat, no s'imprimeix per a l'alumne")
@@ -253,7 +254,7 @@ def recup_ce5():
         ("Projecte guiat (5.4)", "Objectiu mesurable, pla complet, dades d'abans i després i reflexió crítica compartida amb la família", "Pla complet i dades d'abans i després", "Pla incomplet o sense dades de després", "No hi ha pla"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE5 en acabar {LAST[5]} (criteris 5.1 a 5.4) o qui vulgui millorar. El nivell nou substitueix el de la CE5 a la SdA 3 i a la SdA 5 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE5 en acabar {LAST[5]} (criteris 5.1 a 5.4) o qui vulgui millorar. El nivell nou substitueix el de la CE5 a les {WHERE[5]} si és més alt.",
         "<b>Solucions del càlcul.</b> A: 10 · 2 W · 20 h · 365 = 146 000 Wh = <b>146 kWh</b>; 146 · 0,15 ≈ <b>21,9 €</b> l'any. B: 4 · 2 = 8 L/dia; 8 / 1,5 ≈ 5,3 ampolles/dia; · 365 ≈ 1950 ampolles; · 30 g ≈ <b>58 kg</b> de plàstic l'any. C: 25 · 0,034 = <b>0,85 g</b> d'or.",
         "<b>Atenció a la diversitat:</b> si a casa no és possible fer el projecte, es pot fer a l'aula o a l'institut (per exemple, els aparells en espera d'una aula).",
     ], title="Com funciona la recuperació · nota per al professorat, no s'imprimeix per a l'alumne")
@@ -290,7 +291,7 @@ def recup_ce6():
         ("Sense biaixos de gènere (6.2)", "Revisa la proposta i el repartiment de tasques sense estereotips i inclou col·lectius diversos", "Revisa el repartiment de tasques", "Revisió superficial", "No ho revisa"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE6 a la SdA 3 (criteri 6.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE6 a la SdA 3 i a la SdA 6 si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE6 a la SdA 3 (criteri 6.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE6 a les {WHERE[6]} si és més alt.",
         "<b>Fites orientatives.</b> A: Dalton 1808, Thomson 1897, Rutherford 1911 (amb Geiger i Marsden), Bohr 1913, Chadwick 1932; Marie Curie i Marguerite Perey (radioactivitat, franci). B: Edison i Swan (1879), fluorescents (anys 1930), LED blau de Nakamura, Akasaki i Amano (1990s, premi Nobel 2014). C: Volta (1800), Planté (1859), Goodenough, Whittingham i Yoshino (bateria de ió liti, Nobel 2019). D: motor de combustió (Benz, 1886), Bertha Benz (primer viatge llarg, 1888), cotxe elèctric modern, pila de combustible.",
         "<b>Atenció a la diversitat:</b> es pot donar una plantilla de línia del temps amb les dates ja posades.",
     ], title="Com funciona la recuperació · nota per al professorat, no s'imprimeix per a l'alumne")
