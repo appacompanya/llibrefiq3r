@@ -229,11 +229,11 @@ section.err li::before{content:"!";position:absolute;left:0;top:.18em;width:1.1e
   .kd,.katex-display,table{overflow:visible!important}
 }
 /* ---------- imatges de portada ---------- */
-.cover-band.has-img{min-height:clamp(210px,26vw,300px);align-content:end;background:color-mix(in srgb,var(--c) 70%,#000)}
-.cover-img,.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.cover-band.has-img::before,.card-h.has-img::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 55%,rgba(8,10,14,.9)) 0%,color-mix(in srgb,var(--c) 35%,rgba(8,10,14,.62)) 42%,rgba(8,10,14,.08) 85%),linear-gradient(0deg,rgba(8,10,14,.45),transparent 55%)}
-.cover-band.has-img::after{display:none}
-.cover-band.has-img>*:not(img),.card-h.has-img>*:not(img){position:relative;z-index:2;text-shadow:0 1px 12px rgba(0,0,0,.45)}
-.card-h{position:relative;overflow:hidden}
-.card-h.has-img{min-height:128px;align-items:flex-end;background:color-mix(in srgb,var(--c) 70%,#000)}
-@media print{.cover-img,.card-img{display:none}.cover-band.has-img{min-height:0}.cover-band.has-img::before,.card-h.has-img::before{display:none}.cover-band.has-img>*:not(img){text-shadow:none}}
+.cover-pic{margin:18px 28px 0;border:3px solid #1b1f24;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 0 -4px color-mix(in srgb,var(--c) 35%,transparent),0 16px 30px -18px rgba(0,0,0,.4)}
+.cover-pic img{display:block;width:100%;height:auto;aspect-ratio:3/2}
+.card.has-pic{grid-template-rows:auto auto 1fr}.card.has-pic .card-h{margin-top:12px}
+.card-pic{display:block;margin:12px 12px 0;border:2.5px solid #1b1f24;border-radius:14px;overflow:hidden;background:#fff}
+.card-pic img{display:block;width:100%;height:auto;aspect-ratio:3/2;transition:transform .35s ease}
+.card:hover .card-pic img{transform:scale(1.03)}
+@media (max-width:640px){.cover-pic{margin:14px 14px 0;border-radius:14px;border-width:2.5px}}
+@media print{.cover-pic{margin:10px 18px 0;border:1.5px solid #000;box-shadow:none;break-inside:avoid}.cover-pic img{max-height:7cm;object-fit:contain}.card-pic{display:none}}
