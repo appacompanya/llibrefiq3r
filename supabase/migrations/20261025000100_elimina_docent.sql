@@ -1,5 +1,5 @@
 -- =====================================================================================
--- PLA · NO EXECUTAT. Eliminar el compte compartit «docent» (contrasenya feble i coneguda).
+-- APLICADA el 24/10/2026 (migració elimina_docent): «docent» esborrat; les seves 4 respostes de prova s'han esborrat en cascada (còpia a backups/2026-10-24).
 -- Queden només: maciapallares (administrador), claudiatallero i paularomero.
 --
 -- Estat al 24/10/2026 (consulta de només lectura):
