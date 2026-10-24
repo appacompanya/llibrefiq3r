@@ -15,9 +15,9 @@
     return D.capitols.map(function (c) {
       var f = kind === "e" ? c.enunciats : c.solucions, p = kind === "e" ? c.pagines_enunciats : c.pagines_solucions;
       var pics = COVERS[c.slug] || [c.slug];
-      return '<div class="chw" style="--c:' + col(c) + ';--np:' + pics.length + '"><a class="ch" data-pdf="' + esc(f) + '" href="' + esc(f) + '" target="_blank" rel="noopener"><span class="n">' + c.n + '</span><span><b>' + esc(c.titol) + '</b><span>' +
-        nf(c.exercicis, "exercici", "exercicis") + " · " + nf(p, "pàgina", "pàgines") + '</span></span></a><span class="chpics">' +
-        pics.map(function (s) { return '<button type="button" class="chpic" data-zoom="../assets/covers/' + s + '.webp" data-zoom-alt="' + esc(c.n + ". " + c.titol) + '" aria-label="Amplia la portada: ' + esc(c.titol) + '"><img src="../assets/covers/' + s + '_thumb.webp" alt="" loading="lazy" decoding="async" width="600" height="400"></button>'; }).join("") + "</span></div>";
+      var picsHtml = '<span class="chpics">' + pics.map(function (s) { return '<button type="button" class="chpic" data-zoom="../assets/covers/' + s + '.webp" data-zoom-alt="' + esc(c.n + ". " + c.titol) + '" aria-label="Amplia la portada: ' + esc(c.titol) + '"><img src="../assets/covers/' + s + '_thumb.webp" alt="" loading="lazy" decoding="async" width="600" height="400"></button>'; }).join("") + "</span>";
+      return '<div class="chw" style="--c:' + col(c) + ';--np:' + pics.length + '">' + picsHtml + '<a class="ch" data-pdf="' + esc(f) + '" href="' + esc(f) + '" target="_blank" rel="noopener"><span class="n">' + c.n + '</span><span><b>' + esc(c.titol) + '</b><span>' +
+        nf(c.exercicis, "exercici", "exercicis") + " · " + nf(p, "pàgina", "pàgines") + '</span></span></a></div>';
     }).join("");
   }
   function label(x) {

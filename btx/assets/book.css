@@ -266,3 +266,40 @@ section.err li::before{content:"!";position:absolute;left:0;top:.18em;width:1.1e
 .seg button{border:0;background:#fff;padding:4px 10px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
 @media print{.docs,.card-pic,.lb{display:none!important}}
+/* els cinc documents en una sola filera quan hi ha amplada */
+@media (min-width:1240px),(min-width:880px) and (max-width:1080px){
+  .docs-g{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+  .doc{flex-direction:column;gap:2px;padding:12px 12px 12px;border-left-width:0;border-top:6px solid var(--c)}
+  .doc-n{font-size:1.5rem}
+  .doc h3{font-size:.98rem;line-height:1.2}
+  .doc p{font-size:.8rem;margin-bottom:8px}
+  .doc-b{display:flex;flex-direction:column;flex:1}
+  .doc-acts{margin-top:auto;flex-direction:column;gap:5px}
+  .doc-acts a{text-align:center;padding:5px 8px;font-size:.78rem}
+}
+/* ---------- v2: les portades dels temes són el focus ---------- */
+.page.wide .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:1239px){.page.wide .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:880px) and (max-width:1080px){.page.wide .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.page.wide .cards{grid-template-columns:1fr}}
+.card.has-pic{grid-template-rows:auto auto 1fr}
+.card.has-pic .card-pic{width:auto;margin:12px 12px 0;border:3.5px solid #1b1f24;border-radius:14px;box-shadow:4px 4px 0 rgba(0,0,0,.25)}
+.card.has-pic .card-pic img{aspect-ratio:3/2;object-fit:cover}
+.card.has-pic .zoom-ic{width:28px;height:28px;font-size:16px;line-height:28px;right:8px;bottom:8px}
+.card.has-pic .card-h{margin:12px 12px 0;border-radius:12px;padding:12px 14px}
+.card.has-pic .card-h .big{font-size:2.2rem}
+.card.has-pic ol{padding-top:8px;font-size:.84rem}
+/* els cinc documents: una filera discreta de pastilles */
+.docs{margin:16px 0 0}
+.dpills{display:flex;flex-wrap:wrap;gap:6px}
+.dpill{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:.8rem;font-weight:700;text-decoration:none;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px 11px 4px 5px;white-space:nowrap}
+.dpill span{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--c);color:#fff;font-size:.7rem}
+.dpill:hover{border-color:var(--c);color:var(--c)}
+.dprint{margin:8px 0 0;font-family:var(--sans);font-size:.76rem;color:var(--muted)}
+.dprint a{color:inherit}
+.dprint .pdfmode{display:inline;margin:0;font-size:inherit}
+.dprint .seg button{padding:1px 8px;font-size:.72rem}
+.hero{margin-bottom:22px}
+@media (max-width:420px){.card.has-pic .card-pic{margin:10px 10px 0}.card.has-pic .card-h{margin:10px 10px 0}}
+@media print{.docs{display:none!important}}
+.dprint a,.dprint .pdfmode{white-space:nowrap}
