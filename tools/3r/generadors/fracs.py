@@ -2,7 +2,8 @@ import re
 def fr(a,b):
     st=lambda x: x[1:-1] if x.startswith("(") and x.endswith(")") and x.count("(")==1 else x
     return f'<span class="fr"><span>{st(a)}</span><span>{st(b)}</span></span>'
-SPECIAL=[("E<sub>a</sub> / valor de referència · 100",fr("E<sub>a</sub>","valor de referència")+" · 100"),("(canvi de l'eix vertical) / (canvi de l'eix horitzontal)",fr("canvi de l'eix vertical","canvi de l'eix horitzontal")),
+SPECIAL=[("massa de solut (g) / volum de dissolució (L)",fr("massa de solut (g)","volum de dissolució (L)")),("massa de solut / massa de dissolució · 100",fr("massa de solut","massa de dissolució")+" · 100"),
+ ("massa de solut / volum",fr("massa de solut","volum")),("mida a la imatge / augments",fr("mida a la imatge","augments")),("E<sub>a</sub> / valor de referència · 100",fr("E<sub>a</sub>","valor de referència")+" · 100"),("(canvi de l'eix vertical) / (canvi de l'eix horitzontal)",fr("canvi de l'eix vertical","canvi de l'eix horitzontal")),
  ("en kW (W / 1 000)","en kW (divideix els watts entre 1 000)"),("(V final − V inicial) / V inicial",fr("V final − V inicial","V inicial")),("4/3 ·",fr("4","3")+" ·"),
  ("error absolut / referència · 100",fr("error absolut","referència")+" · 100"),("llum / elèctrica · 100",fr("llum","elèctrica")+" · 100"),("3 / 8 · 100",fr("3","8")+" · 100"),
  ("energia útil / energia consumida · 100",fr("energia útil","energia consumida")+" · 100"),

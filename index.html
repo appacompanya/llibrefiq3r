@@ -432,6 +432,7 @@ const L = {
   "rutherford": {"u": "https://phet.colorado.edu/ca/simulations/rutherford-scattering", "l": "Simulació: dispersió de Rutherford"},
   "buildatom": {"u": "https://phet.colorado.edu/ca/simulations/build-an-atom", "l": "Simulació: construeix un àtom"},
   "simbat": {"u": "sim-bateria.html", "l": "Simulador: la bateria de liti per dins", "an": 1},
+  "joctaularank": {"u": "joc-taula.html?nivell=3r&vista=ranquing", "l": "Rànquing del joc de la taula periòdica", "an": 1},
   "joctaula": {"u": "joc-taula.html?nivell=3r", "l": "Joc: la taula periòdica (símbols, posicions i valències)", "an": 1},
   "simgas": {"u": "sim-gasos.html", "l": "Simulador: el model cineticomolecular dels gasos", "an": 1},
   "anajust": {"u": "sim-ajust.html", "l": "Animació: com s'ajusta una equació química", "an": 1},
@@ -629,7 +630,7 @@ function renderHome(){
 function renderCta(){
   // a la portada: botó petit per obrir el joc de la taula periòdica (dins del llibre)
   document.getElementById("cta").innerHTML = L.joctaula
-    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>`
+    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>` + (L.joctaularank ? ` <button type="button" class="btn ghost vid" data-open="joctaularank" style="font-size:.92rem;padding:8px 14px;min-height:40px">🏆 Rànquing</button>` : "")
     : "";
 }
 

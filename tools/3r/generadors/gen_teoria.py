@@ -370,7 +370,8 @@ def build(ns, out_dir):
         for n in ns:
             t, c, tint = COL[n]
             G.SDA.update({"n": n, "title": t, "color": c, "tint": tint})
-            body = FR(FUNCS[n]())
+            import teoria_txt
+            body = FR(teoria_txt.FUNCS[n]())
             html = G.page(body, EXTRA)
             path = os.path.join(out_dir, f"sda{n}-teoria.html"); open(path, "w", encoding="utf-8").write(html)
             pg.goto("file://" + path)
