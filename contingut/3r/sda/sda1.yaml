@@ -132,6 +132,11 @@ professorat:
   docs:
   - d1rub
 documents:
+  d1teo:
+    uid: d1teo
+    versio: 1
+    fitxer: sda1-00-dossier-de-teoria.pdf
+    titol: Dossier de teoria
   d1amp:
     uid: d1amp
     versio: 1
