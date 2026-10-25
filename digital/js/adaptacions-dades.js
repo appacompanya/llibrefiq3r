@@ -2150,51 +2150,51 @@ window.FQ_ADAPT = {
       ]
      },
      "3": {
-      "exemple": "Exemple semblant: 30 mL d'aire a 1 atm es comprimeixen fins a 15 mL. P₁·V₁ = P₂·V₂ → 1 · 30 = P₂ · 15 → P₂ = 30 / 15 = <b>2 atm</b>.",
+      "exemple": "Exemple semblant: 30 mL d'aire a 1 atm es comprimeixen fins a 15 mL. P₁·V₁ = P₂·V₂ → 1 · 30 = P₂ · 15 → P₂ = <span class=\"fr\"><span>30</span><span>15</span></span> = <b>2 atm</b>.",
       "passos": [
        "Dades: P₁ = 1 atm, V₁ = 40 mL, V₂ = 10 mL, P₂ = ?",
        "La temperatura no canvia: llei de Boyle-Mariotte, P₁·V₁ = P₂·V₂.",
        "Substitueix: 1 · 40 = P₂ · 10.",
-       "Aïlla P₂: P₂ = 40 / 10 = … atm."
+       "Aïlla P₂: P₂ = <span class=\"fr\"><span>40</span><span>10</span></span> = … atm."
       ]
      },
      "4": {
       "passos": [
        "Dades: P₁ = 3 atm, V₁ = 2 cm³, P₂ = 1 atm, V₂ = ?",
        "La temperatura no canvia: P₁·V₁ = P₂·V₂.",
-       "V₂ = P₁ · V₁ / P₂ = 3 · 2 / 1 = … cm³."
+       "V₂ = <span class=\"fr\"><span>P₁ · V₁</span><span>P₂</span></span> = <span class=\"fr\"><span>3 · 2</span><span>1</span></span> = … cm³."
       ],
       "pistes": [
        "Quan la pressió baixa, el volum es fa més gran."
       ]
      },
      "5": {
-      "exemple": "Exemple semblant: 1,0 L a 300 K es refreda fins a 270 K. V₂ = V₁ · T₂ / T₁ = 1,0 · 270 / 300 = <b>0,90 L</b>.",
+      "exemple": "Exemple semblant: 1,0 L a 300 K es refreda fins a 270 K. V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>1,0 · 270</span><span>300</span></span> = <b>0,90 L</b>.",
       "passos": [
        "Passa a kelvin: 27 °C = 300 K; −18 °C = 255 K.",
        "La pressió no canvia: llei de Charles, V₁/T₁ = V₂/T₂.",
-       "V₂ = V₁ · T₂ / T₁ = 2,0 · 255 / 300 = … L."
+       "V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>2,0 · 255</span><span>300</span></span> = … L."
       ]
      },
      "6": {
       "passos": [
        "Passa a kelvin: 20 °C = 293 K; 60 °C = 333 K.",
-       "La pressió no canvia: V₂ = V₁ · T₂ / T₁.",
-       "V₂ = 3,0 · 333 / 293 = … L."
+       "La pressió no canvia: V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span>.",
+       "V₂ = <span class=\"fr\"><span>3,0 · 333</span><span>293</span></span> = … L."
       ]
      },
      "7": {
       "passos": [
        "Passa a kelvin: 10 °C = 283 K; 40 °C = 313 K.",
        "El volum no canvia: llei de Gay-Lussac, P₁/T₁ = P₂/T₂.",
-       "P₂ = P₁ · T₂ / T₁ = 2,5 · 313 / 283 = … atm."
+       "P₂ = <span class=\"fr\"><span>P₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>2,5 · 313</span><span>283</span></span> = … atm."
       ]
      },
      "8": {
       "passos": [
        "Passa a kelvin: 20 °C = 293 K; 65 °C = 338 K.",
-       "El volum no canvia: P₂ = P₁ · T₂ / T₁ = 3,0 · 338 / 293 = … atm.",
-       "Segona part: T₂ = P₂ · T₁ / P₁ = 4,5 · 293 / 3,0 = … K. Després resta 273 per passar-ho a °C."
+       "El volum no canvia: P₂ = <span class=\"fr\"><span>P₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>3,0 · 338</span><span>293</span></span> = … atm.",
+       "Segona part: T₂ = <span class=\"fr\"><span>P₂ · T₁</span><span>P₁</span></span> = <span class=\"fr\"><span>4,5 · 293</span><span>3,0</span></span> = … K. Després resta 273 per passar-ho a °C."
       ]
      }
     },
@@ -2213,42 +2213,42 @@ window.FQ_ADAPT = {
        "Dades: P₁ = 1 atm, V₁ = 40 mL, V₂ = 10 mL, P₂ = ?",
        "La temperatura no canvia: llei de Boyle-Mariotte, P₁·V₁ = P₂·V₂.",
        "Substitueix: 1 · 40 = P₂ · 10.",
-       "Aïlla P₂: P₂ = 40 / 10 = … atm."
+       "Aïlla P₂: P₂ = <span class=\"fr\"><span>40</span><span>10</span></span> = … atm."
       ]
      },
      "4": {
       "passos": [
        "Dades: P₁ = 3 atm, V₁ = 2 cm³, P₂ = 1 atm, V₂ = ?",
        "La temperatura no canvia: P₁·V₁ = P₂·V₂.",
-       "V₂ = P₁ · V₁ / P₂ = 3 · 2 / 1 = … cm³."
+       "V₂ = <span class=\"fr\"><span>P₁ · V₁</span><span>P₂</span></span> = <span class=\"fr\"><span>3 · 2</span><span>1</span></span> = … cm³."
       ]
      },
      "5": {
       "passos": [
        "Passa a kelvin: 27 °C = 300 K; −18 °C = 255 K.",
        "La pressió no canvia: llei de Charles, V₁/T₁ = V₂/T₂.",
-       "V₂ = V₁ · T₂ / T₁ = 2,0 · 255 / 300 = … L."
+       "V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>2,0 · 255</span><span>300</span></span> = … L."
       ]
      },
      "6": {
       "passos": [
        "Passa a kelvin: 20 °C = 293 K; 60 °C = 333 K.",
-       "La pressió no canvia: V₂ = V₁ · T₂ / T₁.",
-       "V₂ = 3,0 · 333 / 293 = … L."
+       "La pressió no canvia: V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span>.",
+       "V₂ = <span class=\"fr\"><span>3,0 · 333</span><span>293</span></span> = … L."
       ]
      },
      "7": {
       "passos": [
        "Passa a kelvin: 10 °C = 283 K; 40 °C = 313 K.",
        "El volum no canvia: llei de Gay-Lussac, P₁/T₁ = P₂/T₂.",
-       "P₂ = P₁ · T₂ / T₁ = 2,5 · 313 / 283 = … atm."
+       "P₂ = <span class=\"fr\"><span>P₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>2,5 · 313</span><span>283</span></span> = … atm."
       ]
      },
      "8": {
       "passos": [
        "Passa a kelvin: 20 °C = 293 K; 65 °C = 338 K.",
-       "El volum no canvia: P₂ = P₁ · T₂ / T₁ = 3,0 · 338 / 293 = … atm.",
-       "Segona part: T₂ = P₂ · T₁ / P₁ = 4,5 · 293 / 3,0 = … K. Després resta 273 per passar-ho a °C."
+       "El volum no canvia: P₂ = <span class=\"fr\"><span>P₁ · T₂</span><span>T₁</span></span> = <span class=\"fr\"><span>3,0 · 338</span><span>293</span></span> = … atm.",
+       "Segona part: T₂ = <span class=\"fr\"><span>P₂ · T₁</span><span>P₁</span></span> = <span class=\"fr\"><span>4,5 · 293</span><span>3,0</span></span> = … K. Després resta 273 per passar-ho a °C."
       ]
      }
     }
@@ -2761,7 +2761,7 @@ window.FQ_ADAPT = {
       "passos": [
        "Bateria: aprofita uns 75 % (entre 70 i 80).",
        "Hidrogen: aprofita uns 30 % (entre 25 i 35).",
-       "Divideix: 75 / 30 = … vegades més."
+       "Divideix: <span class=\"fr\"><span>75</span><span>30</span></span> = … vegades més."
       ]
      },
      "3": {
@@ -2798,7 +2798,7 @@ window.FQ_ADAPT = {
      "2": {
       "passos": [
        "Agafa el valor del mig de cada interval: 75 % i 30 %.",
-       "75 / 30 = …"
+       "<span class=\"fr\"><span>75</span><span>30</span></span> = …"
       ]
      }
     }
@@ -2812,7 +2812,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "Tram 1: v = 0 + 0,25 · 20 = … m/s.",
-       "Tram 3: el temps de frenada és t = v / 0,25 = …",
+       "Tram 3: el temps de frenada és t = <span class=\"fr\"><span>v</span><span>0,25</span></span> = …",
        "Durada total: 20 s + 40 s + temps de frenada."
       ]
      },
@@ -2839,9 +2839,9 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "Pendent = (canvi de v) / (canvi de t).",
-       "Tram 1: (5 − 0) / 20 = … m/s². Representa l'acceleració.",
-       "Tram 2 a la x–t: (250 − 50) / 40 = … m/s. Representa la velocitat."
+       "Pendent = <span class=\"fr\"><span>canvi de v</span><span>canvi de t</span></span>.",
+       "Tram 1: <span class=\"fr\"><span>5 − 0</span><span>20</span></span> = … m/s². Representa l'acceleració.",
+       "Tram 2 a la x–t: <span class=\"fr\"><span>250 − 50</span><span>40</span></span> = … m/s. Representa la velocitat."
       ]
      },
      "6": {
@@ -2850,7 +2850,7 @@ window.FQ_ADAPT = {
        "Al tram 2 la velocitat és constant, per això …"
       ],
       "pistes": [
-       "Rapidesa mitjana = distància total / temps total = 300 m / 80 s."
+       "Rapidesa mitjana = <span class=\"fr\"><span>distància total</span><span>temps total</span></span> = <span class=\"fr\"><span>300 m</span><span>80 s</span></span>."
       ]
      }
     },
@@ -2865,20 +2865,20 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "v = 0,25 · 20 = …",
-       "t = 5 / 0,25 = …",
+       "t = <span class=\"fr\"><span>5</span><span>0,25</span></span> = …",
        "20 + 40 + … = … s"
       ]
      },
      "5": {
       "passos": [
-       "(5 − 0) / 20 = …",
-       "(0 − 5) / 20 = …",
-       "(250 − 50) / 40 = …"
+       "<span class=\"fr\"><span>5 − 0</span><span>20</span></span> = …",
+       "<span class=\"fr\"><span>0 − 5</span><span>20</span></span> = …",
+       "<span class=\"fr\"><span>250 − 50</span><span>40</span></span> = …"
       ]
      },
      "6": {
       "passos": [
-       "300 / 80 = … m/s"
+       "<span class=\"fr\"><span>300</span><span>80</span></span> = … m/s"
       ]
      }
     }
@@ -2915,7 +2915,7 @@ window.FQ_ADAPT = {
       ]
      },
      "5": {
-      "exemple": "Gradient = (canvi de concentració) / (distància) = (20 − 100) / 40 = −80 / 40 = −2 nM/µm.",
+      "exemple": "Gradient = <span class=\"fr\"><span>canvi de concentració</span><span>distància</span></span> = <span class=\"fr\"><span>20 − 100</span><span>40</span></span> = <span class=\"fr\"><span>−80</span><span>40</span></span> = −2 nM/µm.",
       "pistes": [
        "Per cada µm, la concentració baixa 2 nM. En 12 µm, baixa 2 · 12 = …"
       ]
@@ -2940,7 +2940,7 @@ window.FQ_ADAPT = {
      "5": {
       "passos": [
        "20 − 100 = −80",
-       "−80 / 40 = … nM/µm",
+       "<span class=\"fr\"><span>−80</span><span>40</span></span> = … nM/µm",
        "2 · 12 = … nM"
       ]
      }
@@ -2967,14 +2967,14 @@ window.FQ_ADAPT = {
       "passos": [
        "Busca 35 °C a l'eix horitzontal, puja fins a la recta i mira la velocitat.",
        "Fes el mateix amb 39 °C.",
-       "Pendent = (velocitat a 39 °C − velocitat a 35 °C) / (39 − 35)."
+       "Pendent = <span class=\"fr\"><span>velocitat a 39 °C − velocitat a 35 °C</span><span>39 − 35</span></span>."
       ]
      },
      "4": {
       "passos": [
        "Augment de temperatura: 39,5 − 37 = 2,5 °C.",
        "Augment de velocitat = pendent · 2,5.",
-       "Temps = 120 µm / velocitat. Calcula-ho a 37 °C i a 39,5 °C i resta."
+       "Temps = <span class=\"fr\"><span>120 µm</span><span>velocitat</span></span>. Calcula-ho a 37 °C i a 39,5 °C i resta."
       ]
      },
      "5": {
@@ -3017,7 +3017,7 @@ window.FQ_ADAPT = {
       "passos": [
        "39,5 − 37 = 2,5",
        "pendent · 2,5 = …",
-       "120 / velocitat = … min"
+       "<span class=\"fr\"><span>120</span><span>velocitat</span></span> = … min"
       ]
      }
     }
@@ -3109,7 +3109,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Si és una recta que passa per l'origen, F i Δx són proporcionals.",
-       "Agafa un punt de la recta: k = F / Δx.",
+       "Agafa un punt de la recta: k = <span class=\"fr\"><span>F</span><span>Δx</span></span>.",
        "Escriu: F = … · Δx."
       ]
      },
@@ -3117,7 +3117,7 @@ window.FQ_ADAPT = {
       "passos": [
        "Passa l'allargament a metres.",
        "F = k · Δx.",
-       "Massa = F / 9,8."
+       "Massa = <span class=\"fr\"><span>F</span><span>9,8</span></span>."
       ]
      },
      "5": {
@@ -3137,21 +3137,21 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "50 / 1000 = 0,050 kg",
+       "<span class=\"fr\"><span>50</span><span>1000</span></span> = 0,050 kg",
        "0,050 · 9,8 = 0,49 N",
        "Allargament = longitud − longitud inicial"
       ]
      },
      "3": {
       "passos": [
-       "k = F / Δx = … N/m"
+       "k = <span class=\"fr\"><span>F</span><span>Δx</span></span> = … N/m"
       ]
      },
      "4": {
       "passos": [
-       "Δx en m = cm / 100",
+       "Δx en m = <span class=\"fr\"><span>cm</span><span>100</span></span>",
        "F = k · Δx",
-       "m = F / 9,8"
+       "m = <span class=\"fr\"><span>F</span><span>9,8</span></span>"
       ]
      }
     }
@@ -3166,7 +3166,7 @@ window.FQ_ADAPT = {
       ]
      },
      "2": {
-      "exemple": "Si una fletxa fa 8 mm a la làmina i la barra d'escala diu 4 mm = 1 µm, el desplaçament real és 8 / 4 = 2 µm. Després, força = k · Δx.",
+      "exemple": "Si una fletxa fa 8 mm a la làmina i la barra d'escala diu 4 mm = 1 µm, el desplaçament real és <span class=\"fr\"><span>8</span><span>4</span></span> = 2 µm. Després, força = k · Δx.",
       "passos": [
        "Mesura la fletxa en mm.",
        "Divideix entre els mm que fa 1 µm a la barra d'escala.",
@@ -3220,7 +3220,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "2": {
       "passos": [
-       "mm / (mm d'1 µm) = µm",
+       "<span class=\"fr\"><span>mm</span><span>mm d'1 µm</span></span> = µm",
        "µm · k = nN",
        "nN · 10⁻⁹ = N"
       ]
@@ -3228,7 +3228,7 @@ window.FQ_ADAPT = {
      "6": {
       "passos": [
        "Suma de les sis forces = … N",
-       "9,8 · 10⁻³ / suma = …"
+       "<span class=\"fr\"><span>9,8 · 10⁻³</span><span>suma</span></span> = …"
       ]
      }
     }
@@ -3250,7 +3250,7 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "Si 7 160 GWh són el 19,1 %, el total és 7 160 / 0,191 = … GWh.",
+       "Si 7 160 GWh són el 19,1 %, el total és 7 <span class=\"fr\"><span>160</span><span>0,191</span></span> = … GWh.",
        "Compara el total amb el consum: 44 113 GWh.",
        "Si el consum és més gran, Catalunya ha de …"
       ]
@@ -3278,7 +3278,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "19,1 % = 0,191",
-       "7 160 / 0,191 = … GWh",
+       "7 <span class=\"fr\"><span>160</span><span>0,191</span></span> = … GWh",
        "44 113 − … = … GWh que falten"
       ]
      }
@@ -3295,7 +3295,7 @@ window.FQ_ADAPT = {
       ]
      },
      "2": {
-      "exemple": "Canviar 10 tubs de 36 W per LED de 18 W, 6 h al dia, 175 dies: estalvi = (36 − 18) · 10 · 6 · 175 / 1000 = 189 kWh/any; 189 · 0,15 = 28,35 €.",
+      "exemple": "Canviar 10 tubs de 36 W per LED de 18 W, 6 h al dia, 175 dies: estalvi = <span class=\"fr\"><span>(36 − 18) · 10 · 6 · 175</span><span>1000</span></span> = 189 kWh/any; 189 · 0,15 = 28,35 €.",
       "passos": [
        "Potència abans − potència després (W).",
        "Multiplica per les hores i els dies.",
@@ -3340,7 +3340,7 @@ window.FQ_ADAPT = {
       "passos": [
        "36 − 18 = 18 W",
        "18 · 10 · 6 · 175 = … Wh",
-       "… / 1000 = … kWh",
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh",
        "… · 0,15 = … €"
       ]
      }
@@ -3537,7 +3537,7 @@ window.FQ_ADAPT = {
   "lab": {
    "basics": {
     "abans_titol": "Fórmules d'aquest laboratori",
-    "abans": "<ul><li>Radi: <b>r = perímetre / (2 · 3,14)</b></li><li>Volum: <b>V = 4/3 · 3,14 · r³</b> (cm³)</li><li>Litres: <b>cm³ / 1000</b></li><li>Variació: <b>(V final − V inicial) / V inicial · 100</b></li></ul>",
+    "abans": "<ul><li>Radi: <b>r = <span class=\"fr\"><span>perímetre</span><span>2 · 3,14</span></span></b></li><li>Volum: <b>V = <span class=\"fr\"><span>4</span><span>3</span></span> · 3,14 · r³</b> (cm³)</li><li>Litres: <b><span class=\"fr\"><span>cm³</span><span>1000</span></span></b></li><li>Variació: <b><span class=\"fr\"><span>V final − V inicial</span><span>V inicial</span></span> · 100</b></li></ul>",
     "preguntes": {
      "1": {
       "passos": [
@@ -3553,9 +3553,9 @@ window.FQ_ADAPT = {
       ]
      },
      "3": {
-      "exemple": "Si el perímetre és 62,8 cm: r = 62,8 / 6,28 = 10 cm; V = 4/3 · 3,14 · 10³ = 4 187 cm³ = 4,19 L.",
+      "exemple": "Si el perímetre és 62,8 cm: r = <span class=\"fr\"><span>62,8</span><span>6,28</span></span> = 10 cm; V = <span class=\"fr\"><span>4</span><span>3</span></span> · 3,14 · 10³ = 4 187 cm³ = 4,19 L.",
       "passos": [
-       "r = perímetre / 6,28",
+       "r = <span class=\"fr\"><span>perímetre</span><span>6,28</span></span>",
        "r³ = r · r · r",
        "V = 4,19 · r³ (cm³)",
        "Divideix entre 1000 per tenir litres."
@@ -3598,16 +3598,16 @@ window.FQ_ADAPT = {
     "preguntes": {
      "3": {
       "passos": [
-       "r = P / 6,28",
+       "r = <span class=\"fr\"><span>P</span><span>6,28</span></span>",
        "r · r · r = …",
        "4,19 · … = … cm³",
-       "… / 1000 = … L"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … L"
       ]
      },
      "4": {
       "passos": [
        "V final − V inicial = …",
-       "… / V inicial = …",
+       "<span class=\"fr\"><span>…</span><span>V</span></span> inicial = …",
        "… · 100 = … %"
       ]
      }
@@ -3626,7 +3626,7 @@ window.FQ_ADAPT = {
       ]
      },
      "3": {
-      "exemple": "2,5 kg · (1000 g / 1 kg) = 2500 g. Els kg de dalt i de baix es van.",
+      "exemple": "2,5 kg · <span class=\"fr\"><span>1000 g</span><span>1 kg</span></span> = 2500 g. Els kg de dalt i de baix es van.",
       "passos": [
        "Escriu la quantitat.",
        "Multiplica pel factor: a dalt la unitat que vols, a baix la que tens.",
@@ -3695,7 +3695,7 @@ window.FQ_ADAPT = {
     "abans": "Factor de conversió: escriu a <b>dalt</b> la unitat que vols i a <b>baix</b> la que vols treure. Les dues quantitats del factor han de valer el mateix (1 kg = 1000 g).",
     "preguntes": {
      "1": {
-      "exemple": "1,2 g/mL · (1 kg / 1000 g) · (1 000 000 mL / 1 m³) = 1200 kg/m³.",
+      "exemple": "1,2 g/mL · <span class=\"fr\"><span>1 kg</span><span>1000 g</span></span> · <span class=\"fr\"><span>1 000 000 mL</span><span>1 m³</span></span> = 1200 kg/m³.",
       "passos": [
        "Primer canvia els grams a kg.",
        "Després els mL a m³ (1 m³ = 1 000 000 mL).",
@@ -3703,7 +3703,7 @@ window.FQ_ADAPT = {
       ]
      },
      "2": {
-      "exemple": "90 km/h · (1000 m / 1 km) · (1 h / 3600 s) = 25 m/s.",
+      "exemple": "90 km/h · <span class=\"fr\"><span>1000 m</span><span>1 km</span></span> · <span class=\"fr\"><span>1 h</span><span>3600 s</span></span> = 25 m/s.",
       "pistes": [
        "Drecera: de km/h a m/s divideix entre 3,6. De m/s a km/h multiplica per 3,6."
       ]
@@ -3716,8 +3716,8 @@ window.FQ_ADAPT = {
      },
      "4": {
       "passos": [
-       "0,5 L/min · (1000 mL / 1 L) = 500 mL/min.",
-       "500 mL/min · (1 min / 60 s) = … mL/s."
+       "0,5 L/min · <span class=\"fr\"><span>1000 mL</span><span>1 L</span></span> = 500 mL/min.",
+       "500 mL/min · <span class=\"fr\"><span>1 min</span><span>60 s</span></span> = … mL/s."
       ]
      },
      "5": {
@@ -3740,14 +3740,14 @@ window.FQ_ADAPT = {
     "preguntes": {
      "2": {
       "passos": [
-       "90 / 3,6 = …",
+       "<span class=\"fr\"><span>90</span><span>3,6</span></span> = …",
        "15 · 3,6 = …"
       ]
      },
      "4": {
       "passos": [
        "0,5 · 1000 = 500",
-       "500 / 60 = …"
+       "<span class=\"fr\"><span>500</span><span>60</span></span> = …"
       ]
      }
     }
@@ -3757,10 +3757,10 @@ window.FQ_ADAPT = {
    "basics": {
     "preguntes": {
      "1": {
-      "exemple": "Pot ple 160 g, tara 60 g → líquid 100 g. Volum 125 mL → ρ = 100 / 125 = 0,80 g/mL = 800 kg/m³.",
+      "exemple": "Pot ple 160 g, tara 60 g → líquid 100 g. Volum 125 mL → ρ = <span class=\"fr\"><span>100</span><span>125</span></span> = 0,80 g/mL = 800 kg/m³.",
       "passos": [
        "Massa del líquid = pot ple − tara.",
-       "ρ = massa / volum (g/mL).",
+       "ρ = <span class=\"fr\"><span>massa</span><span>volum</span></span> (g/mL).",
        "Per tenir kg/m³, multiplica per 1000."
       ]
      },
@@ -3773,7 +3773,7 @@ window.FQ_ADAPT = {
       "passos": [
        "Busca a la teva llista una densitat de referència semblant.",
        "Error absolut = |mesurada − referència|.",
-       "Error relatiu = error absolut / referència · 100."
+       "Error relatiu = <span class=\"fr\"><span>error absolut</span><span>referència</span></span> · 100."
       ]
      },
      "4": {
@@ -3801,14 +3801,14 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "Massa: ple − tara = … g",
-       "ρ = … / … = … g/mL",
+       "ρ = <span class=\"fr\"><span>…</span><span>…</span></span> = … g/mL",
        "… · 1000 = … kg/m³"
       ]
      },
      "3": {
       "passos": [
        "mesurada − referència = … (sense signe)",
-       "… / referència = …",
+       "<span class=\"fr\"><span>…</span><span>referència</span></span> = …",
        "… · 100 = … %"
       ]
      }
@@ -4355,36 +4355,36 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "Aigua: 8 · 36 / 4 = … g.",
-       "Oxigen: 8 · 32 / 4 = … g."
+       "Aigua: <span class=\"fr\"><span>8 · 36</span><span>4</span></span> = … g.",
+       "Oxigen: <span class=\"fr\"><span>8 · 32</span><span>4</span></span> = … g."
       ]
      },
      "4": {
       "passos": [
        "Igual que la pregunta 3, però amb 20 kg.",
-       "Aigua: 20 · 36 / 4 = … kg.",
-       "Oxigen: 20 · 32 / 4 = … kg."
+       "Aigua: <span class=\"fr\"><span>20 · 36</span><span>4</span></span> = … kg.",
+       "Oxigen: <span class=\"fr\"><span>20 · 32</span><span>4</span></span> = … kg."
       ]
      },
      "5": {
       "passos": [
        "CH₄ + 2 O₂ → CO₂ + 2 H₂O.",
        "16 g CH₄ → 44 g CO₂ i 36 g H₂O.",
-       "1 kg = 1000 g: 1000 · 44 / 16 = … g de CO₂."
+       "1 kg = 1000 g: <span class=\"fr\"><span>1000 · 44</span><span>16</span></span> = … g de CO₂."
       ]
      },
      "6": {
       "passos": [
        "Mg = 24 u; 2 HCl = 73 u; MgCl₂ = 95 u; H₂ = 2 u.",
        "Reactius: 24 + 73. Productes: 95 + 2. Són iguals?",
-       "H₂: 0,024 · 2 / 24 = … g."
+       "H₂: <span class=\"fr\"><span>0,024 · 2</span><span>24</span></span> = … g."
       ]
      },
      "7": {
       "passos": [
-       "10 g d'H₂ necessiten 10 · 32 / 4 = … g d'O₂.",
+       "10 g d'H₂ necessiten <span class=\"fr\"><span>10 · 32</span><span>4</span></span> = … g d'O₂.",
        "En tenim 100 g: en sobra o en falta?",
-       "El que s'acaba primer decideix l'aigua: 10 · 36 / 4 = … g."
+       "El que s'acaba primer decideix l'aigua: <span class=\"fr\"><span>10 · 36</span><span>4</span></span> = … g."
       ]
      }
     },
@@ -4401,8 +4401,8 @@ window.FQ_ADAPT = {
     "preguntes": {
      "3": {
       "passos": [
-       "8 · 36 = 288 → 288 / 4 = …",
-       "8 · 32 = 256 → 256 / 4 = …"
+       "8 · 36 = 288 → <span class=\"fr\"><span>288</span><span>4</span></span> = …",
+       "8 · 32 = 256 → <span class=\"fr\"><span>256</span><span>4</span></span> = …"
       ]
      },
      "4": {
@@ -4413,15 +4413,15 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "1000 · 44 / 16 = …",
-       "1000 · 36 / 16 = …"
+       "<span class=\"fr\"><span>1000 · 44</span><span>16</span></span> = …",
+       "<span class=\"fr\"><span>1000 · 36</span><span>16</span></span> = …"
       ]
      },
      "6": {
       "passos": [
        "24 + 73 = …",
        "95 + 2 = …",
-       "0,024 / 12 = …"
+       "<span class=\"fr\"><span>0,024</span><span>12</span></span> = …"
       ]
      },
      "7": {
@@ -4451,7 +4451,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Al tub on hi ha més gas hi ha hidrogen (càtode, −).",
-       "Relació = volum del tub A / volum del tub B."
+       "Relació = <span class=\"fr\"><span>volum del tub A</span><span>volum del tub B</span></span>."
       ]
      },
      "4": {
@@ -4481,13 +4481,13 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "400 / 1000 = 0,4 L",
+       "<span class=\"fr\"><span>400</span><span>1000</span></span> = 0,4 L",
        "50 · 0,4 = … g"
       ]
      },
      "3": {
       "passos": [
-       "volum A / volum B = …"
+       "<span class=\"fr\"><span>volum A</span><span>volum B</span></span> = …"
       ]
      }
     }
@@ -4512,26 +4512,26 @@ window.FQ_ADAPT = {
       "passos": [
        "Compta àtoms: 3 C, 8 H, 10 O a cada costat.",
        "Masses: 44 + 160 = 132 + 72.",
-       "CO₂: 11 kg · 132 / 44 = … kg."
+       "CO₂: <span class=\"fr\"><span>11 · 132</span><span>44</span></span> = … kg."
       ]
      },
      "4": {
       "passos": [
-       "Aigua: 5,6 · 36 / 4 = … kg.",
-       "Per quilòmetre: … / 650 = … kg."
+       "Aigua: <span class=\"fr\"><span>5,6 · 36</span><span>4</span></span> = … kg.",
+       "Per quilòmetre: <span class=\"fr\"><span>…</span><span>650</span></span> = … kg."
       ]
      },
      "5": {
       "passos": [
        "a) O₂ = 4,0 − 2,4 = … g.",
        "b) L'oxigen de l'aire s'ha unit al magnesi.",
-       "c) 6,0 · 4,0 / 2,4 = … g."
+       "c) <span class=\"fr\"><span>6,0 · 4,0</span><span>2,4</span></span> = … g."
       ]
      },
      "6": {
       "passos": [
        "1 L = 0,74 kg = 740 g d'octà.",
-       "CO₂: 740 · 704 / 228 = … g."
+       "CO₂: <span class=\"fr\"><span>740 · 704</span><span>228</span></span> = … g."
       ]
      },
      "7": {
@@ -4578,19 +4578,19 @@ window.FQ_ADAPT = {
      "4": {
       "passos": [
        "5,6 · 9 = … kg",
-       "… / 650 = … kg"
+       "<span class=\"fr\"><span>…</span><span>650</span></span> = … kg"
       ]
      },
      "5": {
       "passos": [
        "4,0 − 2,4 = …",
-       "6,0 / 2,4 = 2,5 → 2,5 · 4,0 = …"
+       "<span class=\"fr\"><span>6,0</span><span>2,4</span></span> = 2,5 → 2,5 · 4,0 = …"
       ]
      },
      "6": {
       "passos": [
        "740 · 704 = …",
-       "… / 228 = … g"
+       "<span class=\"fr\"><span>…</span><span>228</span></span> = … g"
       ]
      }
     }
@@ -4632,12 +4632,12 @@ window.FQ_ADAPT = {
   "d5f1": {
    "basics": {
     "abans_titol": "Fórmules del MRU",
-    "abans": "<ul><li><b>v = distància / temps</b></li><li><b>distància = v · t</b> · <b>t = distància / v</b></li><li>Equació de posició: <b>x = x₀ + v · t</b></li><li>km/h → m/s: divideix entre 3,6.</li></ul>",
+    "abans": "<ul><li><b>v = <span class=\"fr\"><span>distància</span><span>temps</span></span></b></li><li><b>distància = v · t</b> · <b>t = <span class=\"fr\"><span>distància</span><span>v</span></span></b></li><li>Equació de posició: <b>x = x₀ + v · t</b></li><li>km/h → m/s: divideix entre 3,6.</li></ul>",
     "preguntes": {
      "1": {
       "passos": [
        "Mira quants metres avança cada segon.",
-       "v = metres / segons. Per tenir km/h, multiplica per 3,6.",
+       "v = <span class=\"fr\"><span>metres</span><span>segons</span></span>. Per tenir km/h, multiplica per 3,6.",
        "És MRU si cada segon avança el mateix.",
        "Marca els punts (t, x) i uneix-los: ha de sortir una recta."
       ]
@@ -4648,15 +4648,15 @@ window.FQ_ADAPT = {
       ]
      },
      "3": {
-      "exemple": "18 km/h / 3,6 = 5 m/s.",
+      "exemple": "<span class=\"fr\"><span>18 km/h</span><span>3,6</span></span> = 5 m/s.",
       "passos": [
        "2 min = 120 s → distància = 5 · 120 = … m.",
-       "1,5 km = 1500 m → t = 1500 / 5 = … s."
+       "1,5 km = 1500 m → t = <span class=\"fr\"><span>1500</span><span>5</span></span> = … s."
       ]
      },
      "4": {
       "passos": [
-       "36 km/h / 3,6 = 10 m/s.",
+       "<span class=\"fr\"><span>36 km/h</span><span>3,6</span></span> = 10 m/s.",
        "x = 50 + 10 · t.",
        "t = 8 s → x = 50 + 10 · 8 = … m.",
        "x = 250 → 250 = 50 + 10 · t → t = … s."
@@ -4664,15 +4664,15 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "Passa a m/s: 72 / 3,6 = 20 i 54 / 3,6 = 15.",
-       "3 km = 3000 m. Temps de cadascun: 3000 / v.",
+       "Passa a m/s: <span class=\"fr\"><span>72</span><span>3,6</span></span> = 20 i <span class=\"fr\"><span>54</span><span>3,6</span></span> = 15.",
+       "3 km = 3000 m. Temps de cadascun: <span class=\"fr\"><span>3000</span><span>v</span></span>.",
        "Resta els dos temps."
       ]
      },
      "6": {
       "pistes": [
        "Com més inclinada és la recta, més de pressa va.",
-       "v = canvi de x / canvi de t: agafa dos punts de cada recta.",
+       "v = <span class=\"fr\"><span>canvi de x</span><span>canvi de t</span></span>: agafa dos punts de cada recta.",
        "Una recta horitzontal vol dir que no es mou."
       ]
      }
@@ -4689,22 +4689,22 @@ window.FQ_ADAPT = {
     "preguntes": {
      "3": {
       "passos": [
-       "18 / 3,6 = 5",
+       "<span class=\"fr\"><span>18</span><span>3,6</span></span> = 5",
        "5 · 120 = …",
-       "1500 / 5 = …"
+       "<span class=\"fr\"><span>1500</span><span>5</span></span> = …"
       ]
      },
      "4": {
       "passos": [
-       "36 / 3,6 = 10",
+       "<span class=\"fr\"><span>36</span><span>3,6</span></span> = 10",
        "50 + 80 = …",
-       "(250 − 50) / 10 = …"
+       "<span class=\"fr\"><span>250 − 50</span><span>10</span></span> = …"
       ]
      },
      "5": {
       "passos": [
-       "3000 / 20 = … s",
-       "3000 / 15 = … s",
+       "<span class=\"fr\"><span>3000</span><span>20</span></span> = … s",
+       "<span class=\"fr\"><span>3000</span><span>15</span></span> = … s",
        "… − … = … s"
       ]
      }
@@ -4714,7 +4714,7 @@ window.FQ_ADAPT = {
   "d5f2": {
    "basics": {
     "abans_titol": "Fórmules del MRUA",
-    "abans": "<ul><li><b>a = (v − v₀) / t</b></li><li><b>v = v₀ + a · t</b></li><li><b>distància = v₀ · t + ½ · a · t²</b></li><li>Si frena, la a és negativa.</li></ul>",
+    "abans": "<ul><li><b>a = <span class=\"fr\"><span>v − v₀</span><span>t</span></span></b></li><li><b>v = v₀ + a · t</b></li><li><b>distància = v₀ · t + ½ · a · t²</b></li><li>Si frena, la a és negativa.</li></ul>",
     "preguntes": {
      "1": {
       "passos": [
@@ -4726,19 +4726,19 @@ window.FQ_ADAPT = {
      "2": {
       "pistes": [
        "Si la velocitat puja: MRUA. Si es manté: MRU.",
-       "Distància = àrea sota la gràfica: triangle (base · altura / 2) i rectangle (base · altura)."
+       "Distància = àrea sota la gràfica: triangle (<span class=\"fr\"><span>base · altura</span><span>2</span></span>) i rectangle (base · altura)."
       ]
      },
      "3": {
       "passos": [
-       "a = (0 − 6) / 3 = … m/s². És negativa perquè frena.",
+       "a = <span class=\"fr\"><span>0 − 6</span><span>3</span></span> = … m/s². És negativa perquè frena.",
        "distància = 6 · 3 + ½ · a · 3² = … m."
       ]
      },
      "4": {
       "passos": [
-       "50 km/h / 3,6 = 13,9 m/s. t = 13,9 / 5 = … s.",
-       "distància = v · t / 2 = … m.",
+       "<span class=\"fr\"><span>50 km/h</span><span>3,6</span></span> = 13,9 m/s. t = <span class=\"fr\"><span>13,9</span><span>5</span></span> = … s.",
+       "distància = <span class=\"fr\"><span>v · t</span><span>2</span></span> = … m.",
        "Fes el mateix amb 30 km/h (8,3 m/s).",
        "Reacció: suma v · 1 s a cada distància."
       ]
@@ -4769,16 +4769,16 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "−6 / 3 = …",
-       "6 · 3 / 2 = … m"
+       "<span class=\"fr\"><span>−6</span><span>3</span></span> = …",
+       "<span class=\"fr\"><span>6 · 3</span><span>2</span></span> = … m"
       ]
      },
      "4": {
       "passos": [
-       "13,9 / 5 = … s",
-       "13,9 · … / 2 = … m",
-       "8,3 / 5 = … s",
-       "8,3 · … / 2 = … m"
+       "<span class=\"fr\"><span>13,9</span><span>5</span></span> = … s",
+       "<span class=\"fr\"><span>13,9 · …</span><span>2</span></span> = … m",
+       "<span class=\"fr\"><span>8,3</span><span>5</span></span> = … s",
+       "<span class=\"fr\"><span>8,3 · …</span><span>2</span></span> = … m"
       ]
      }
     }
@@ -4787,13 +4787,13 @@ window.FQ_ADAPT = {
   "d5f4": {
    "basics": {
     "abans_titol": "Com es fa servir l'escala",
-    "abans": "<p>Augments = mida al dibuix (en µm) / mida real (µm). 1 mm = 1000 µm.</p><p>Mida real = mida al dibuix / augments.</p>",
+    "abans": "<p>Augments = <span class=\"fr\"><span>mida al dibuix (en µm)</span><span>mida real (µm)</span></span>. 1 mm = 1000 µm.</p><p>Mida real = <span class=\"fr\"><span>mida al dibuix</span><span>augments</span></span>.</p>",
     "preguntes": {
      "1": {
       "passos": [
        "Mesura el glòbul vermell en mm i passa-ho a µm (· 1000).",
-       "Augments = mida al dibuix (µm) / 7,5.",
-       "Per a cada cèl·lula: mida real = mida al dibuix / augments."
+       "Augments = <span class=\"fr\"><span>mida al dibuix (µm)</span><span>7,5</span></span>.",
+       "Per a cada cèl·lula: mida real = <span class=\"fr\"><span>mida al dibuix</span><span>augments</span></span>."
       ]
      },
      "2": {
@@ -4815,8 +4815,8 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "Rapidesa mitjana = camí total / 5 min.",
-       "Velocitat mitjana = desplaçament / 5 min.",
+       "Rapidesa mitjana = <span class=\"fr\"><span>camí total</span><span>5 min</span></span>.",
+       "Velocitat mitjana = <span class=\"fr\"><span>desplaçament</span><span>5 min</span></span>.",
        "Són diferents perquè el camí no és recte."
       ]
      },
@@ -4827,7 +4827,7 @@ window.FQ_ADAPT = {
      },
      "7": {
       "passos": [
-       "temps = 120 µm / rapidesa (µm/min)."
+       "temps = <span class=\"fr\"><span>120 µm</span><span>rapidesa (µm/min)</span></span>."
       ]
      },
      "8": {
@@ -4850,7 +4850,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "mm · 1000 = … µm",
-       "… / 7,5 = … augments"
+       "<span class=\"fr\"><span>…</span><span>7,5</span></span> = … augments"
       ]
      },
      "3": {
@@ -4861,13 +4861,13 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "camí / 5 = … µm/min",
-       "desplaçament / 5 = … µm/min"
+       "<span class=\"fr\"><span>camí</span><span>5</span></span> = … µm/min",
+       "<span class=\"fr\"><span>desplaçament</span><span>5</span></span> = … µm/min"
       ]
      },
      "7": {
       "passos": [
-       "120 / … = … min"
+       "<span class=\"fr\"><span>120</span><span>…</span></span> = … min"
       ]
      }
     }
@@ -4881,7 +4881,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "3 min = 180 s → distància = 5 · 180 = … m.",
-       "2 km = 2000 m → t = 2000 / 5 = … s."
+       "2 km = 2000 m → t = <span class=\"fr\"><span>2000</span><span>5</span></span> = … s."
       ]
      },
      "2": {
@@ -4895,33 +4895,33 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Autobús: x = 10 · t. Bici: x = ½ · 0,5 · t² = 0,25 · t².",
-       "Iguala: 10t = 0,25t² → t = 10 / 0,25 = … s.",
+       "Iguala: 10t = 0,25t² → t = <span class=\"fr\"><span>10</span><span>0,25</span></span> = … s.",
        "Distància: 10 · t = … m."
       ]
      },
      "4": {
       "passos": [
-       "t = 20 / 1 = … s.",
+       "t = <span class=\"fr\"><span>20</span><span>1</span></span> = … s.",
        "distància = ½ · 1 · t² = … m."
       ]
      },
      "5": {
       "passos": [
-       "a = (0 − 20) / 25 = … m/s².",
-       "distància = 20 · 25 / 2 = … m.",
-       "Tram a 20 m/s: 700 − 200 − … = … m → t = … / 20."
+       "a = <span class=\"fr\"><span>0 − 20</span><span>25</span></span> = … m/s².",
+       "distància = <span class=\"fr\"><span>20 · 25</span><span>2</span></span> = … m.",
+       "Tram a 20 m/s: 700 − 200 − … = … m → t = <span class=\"fr\"><span>…</span><span>20</span></span>."
       ]
      },
      "6": {
       "passos": [
-       "Tram 1: a = 4 / 2. Tram 2: a = 0. Tram 3: a = −4 / 4.",
-       "Distància = àrea: 2 · 4 / 2 + 6 · 4 + 4 · 4 / 2."
+       "Tram 1: a = <span class=\"fr\"><span>4</span><span>2</span></span>. Tram 2: a = 0. Tram 3: a = <span class=\"fr\"><span>−4</span><span>4</span></span>.",
+       "Distància = àrea: <span class=\"fr\"><span>2 · 4</span><span>2</span></span> + 6 · 4 + <span class=\"fr\"><span>4 · 4</span><span>2</span></span>."
       ]
      },
      "7": {
       "passos": [
-       "t = 120 / 17 = … min. · 60 = … s.",
-       "17 µm/min = 17 · 10⁻⁶ m / 60 s = … m/s."
+       "t = <span class=\"fr\"><span>120</span><span>17</span></span> = … min. · 60 = … s.",
+       "17 µm/min = <span class=\"fr\"><span>17 · 10⁻⁶ m</span><span>60 s</span></span> = … m/s."
       ]
      },
      "8": {
@@ -4945,7 +4945,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "5 · 180 = …",
-       "2000 / 5 = …"
+       "<span class=\"fr\"><span>2000</span><span>5</span></span> = …"
       ]
      },
      "2": {
@@ -4956,22 +4956,22 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "10 / 0,25 = …",
+       "<span class=\"fr\"><span>10</span><span>0,25</span></span> = …",
        "10 · … = … m"
       ]
      },
      "4": {
       "passos": [
-       "20 / 1 = 20 s",
+       "<span class=\"fr\"><span>20</span><span>1</span></span> = 20 s",
        "0,5 · 400 = … m"
       ]
      },
      "5": {
       "passos": [
-       "−20 / 25 = …",
-       "20 · 25 / 2 = …",
+       "<span class=\"fr\"><span>−20</span><span>25</span></span> = …",
+       "<span class=\"fr\"><span>20 · 25</span><span>2</span></span> = …",
        "700 − 200 − 250 = …",
-       "… / 20 = … s"
+       "<span class=\"fr\"><span>…</span><span>20</span></span> = … s"
       ]
      },
      "6": {
@@ -4981,14 +4981,14 @@ window.FQ_ADAPT = {
      },
      "7": {
       "passos": [
-       "120 / 17 = …",
+       "<span class=\"fr\"><span>120</span><span>17</span></span> = …",
        "… · 60 = … s"
       ]
      },
      "8": {
       "passos": [
        "17 − 2 = 15",
-       "60 / 15 = …"
+       "<span class=\"fr\"><span>60</span><span>15</span></span> = …"
       ]
      }
     }
@@ -5017,7 +5017,7 @@ window.FQ_ADAPT = {
      },
      "4": {
       "passos": [
-       "a = (6 − 0) / 4 = … m/s².",
+       "a = <span class=\"fr\"><span>6 − 0</span><span>4</span></span> = … m/s².",
        "F = 80 · a = … N.",
        "F = 60 · a = … N."
       ]
@@ -5063,7 +5063,7 @@ window.FQ_ADAPT = {
      },
      "4": {
       "passos": [
-       "6 / 4 = …",
+       "<span class=\"fr\"><span>6</span><span>4</span></span> = …",
        "80 · … = … N",
        "60 · … = … N"
       ]
@@ -5074,7 +5074,7 @@ window.FQ_ADAPT = {
   "d6repte": {
    "basics": {
     "abans_titol": "Fórmula de l'energia",
-    "abans": "<p><b>E (kWh) = P (W) · hores / 1000</b></p><p>Exemple: un llum de 36 W encès 6 h → 36 · 6 / 1000 = 0,216 kWh.</p>",
+    "abans": "<p><b>E (kWh) = <span class=\"fr\"><span>P (W) · hores</span><span>1000</span></span></b></p><p>Exemple: un llum de 36 W encès 6 h → <span class=\"fr\"><span>36 · 6</span><span>1000</span></span> = 0,216 kWh.</p>",
     "preguntes": {
      "1": {
       "pistes": [
@@ -5089,7 +5089,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Escriu la fórmula de l'Excel (per exemple, =D6*E6/1000).",
-       "Agafa una fila: potència · hores / 1000 = … kWh.",
+       "Agafa una fila: <span class=\"fr\"><span>potència · hores</span><span>1000</span></span> = … kWh.",
        "Comprova que surt igual que a l'Excel."
       ]
      },
@@ -5121,7 +5121,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "P · h = … Wh",
-       "… / 1000 = … kWh"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh"
       ]
      },
      "5": {
@@ -5137,18 +5137,18 @@ window.FQ_ADAPT = {
   "d6f1": {
    "basics": {
     "abans_titol": "Fórmules",
-    "abans": "<ul><li>Rendiment = energia útil / energia consumida · 100.</li><li><b>E (J) = P (W) · t (s)</b></li><li><b>E (kWh) = P (W) · hores / 1000</b></li><li>Cost = kWh · preu.</li></ul>",
+    "abans": "<ul><li>Rendiment = <span class=\"fr\"><span>energia útil</span><span>energia consumida</span></span> · 100.</li><li><b>E (J) = P (W) · t (s)</b></li><li><b>E (kWh) = <span class=\"fr\"><span>P (W) · hores</span><span>1000</span></span></b></li><li>Cost = kWh · preu.</li></ul>",
     "preguntes": {
      "1": {
       "passos": [
        "Elèctrica → lluminosa (útil) + tèrmica (perduda).",
        "Suma l'energia de llum i de calor: dona el mateix que l'elèctrica?",
-       "Rendiment = llum / elèctrica · 100."
+       "Rendiment = <span class=\"fr\"><span>llum</span><span>elèctrica</span></span> · 100."
       ]
      },
      "2": {
       "passos": [
-       "Rendiment = 3 / 8 · 100 = … %.",
+       "Rendiment = <span class=\"fr\"><span>3</span><span>8</span></span> · 100 = … %.",
        "Diagrama: entra 8 J d'electricitat, surten 3 J de llum i 5 J de calor."
       ]
      },
@@ -5167,16 +5167,16 @@ window.FQ_ADAPT = {
      "5": {
       "passos": [
        "Hores a l'any: 5 · 365 = 1825 h.",
-       "60 W: 60 · 1825 / 1000 = … kWh · 0,15 = … €.",
-       "8 W: 8 · 1825 / 1000 = … kWh · 0,15 = … €.",
+       "60 W: <span class=\"fr\"><span>60 · 1825</span><span>1000</span></span> = … kWh · 0,15 = … €.",
+       "8 W: <span class=\"fr\"><span>8 · 1825</span><span>1000</span></span> = … kWh · 0,15 = … €.",
        "Resta els dos costos."
       ]
      },
      "6": {
       "passos": [
-       "1 W · 20 h · 365 = … Wh → / 1000 = … kWh.",
+       "1 W · 20 h · 365 = … Wh → <span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh.",
        "· 3 000 000 llars = … kWh.",
-       "/ 1 000 000 = … GWh."
+       "<span class=\"fr\"><span>…</span><span>1</span></span> 000 000 = … GWh."
       ]
      },
      "7": {
@@ -5198,7 +5198,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "2": {
       "passos": [
-       "3 / 8 = …",
+       "<span class=\"fr\"><span>3</span><span>8</span></span> = …",
        "… · 100 = … %"
       ]
      },
@@ -5210,14 +5210,14 @@ window.FQ_ADAPT = {
      "5": {
       "passos": [
        "5 · 365 = 1825",
-       "60 · 1825 / 1000 = …",
-       "8 · 1825 / 1000 = …",
+       "<span class=\"fr\"><span>60 · 1825</span><span>1000</span></span> = …",
+       "<span class=\"fr\"><span>8 · 1825</span><span>1000</span></span> = …",
        "Cada un · 0,15 i resta"
       ]
      },
      "6": {
       "passos": [
-       "20 · 365 / 1000 = … kWh",
+       "<span class=\"fr\"><span>20 · 365</span><span>1000</span></span> = … kWh",
        "… · 3 = … GWh"
       ]
      }
@@ -5227,7 +5227,7 @@ window.FQ_ADAPT = {
   "d6lab": {
    "basics": {
     "abans_titol": "Fórmules",
-    "abans": "<ul><li><b>E = P · t</b> (W · s = J; W · h / 1000 = kWh)</li><li>1 kWh = 3,6 · 10⁶ J</li><li>Cost = kWh · 0,15 €</li></ul>",
+    "abans": "<ul><li><b>E = P · t</b> (W · s = J; <span class=\"fr\"><span>W · h</span><span>1000</span></span> = kWh)</li><li>1 kWh = 3,6 · 10⁶ J</li><li>Cost = kWh · 0,15 €</li></ul>",
     "preguntes": {
      "1": {
       "passos": [
@@ -5244,13 +5244,13 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Diferència de potència: halògena − LED = … W.",
-       "· 100 bombetes · 6 h · 175 dies / 1000 = … kWh.",
+       "<span class=\"fr\"><span>… · 100 bombetes · 6 h · 175 dies</span><span>1000</span></span> = … kWh.",
        "· 0,15 = … €."
       ]
      },
      "4": {
       "passos": [
-       "Potència en espera d'una pissarra · 30 · 18 h · 365 / 1000 = … kWh.",
+       "Potència en espera d'una pissarra: <span class=\"fr\"><span>P · 30 · 18 h · 365</span><span>1000</span></span> = … kWh.",
        "Fes el mateix per als carregadors."
       ]
      },
@@ -5287,14 +5287,14 @@ window.FQ_ADAPT = {
       "passos": [
        "halògena − LED = … W",
        "… · 100 · 6 · 175 = … Wh",
-       "… / 1000 = … kWh",
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh",
        "… · 0,15 = … €"
       ]
      },
      "4": {
       "passos": [
        "P · 30 · 18 · 365 = … Wh",
-       "… / 1000 = … kWh"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh"
       ]
      }
     }
@@ -5306,7 +5306,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "K = °C + 273: 283, 293, 303, 313.",
-       "p / T: divideix cada pressió entre la seva temperatura en K.",
+       "<span class=\"fr\"><span>p</span><span>T</span></span>: divideix cada pressió entre la seva temperatura en K.",
        "Si surt sempre el mateix número, p i T són proporcionals (llei de Gay-Lussac)."
       ]
      },
@@ -5314,8 +5314,8 @@ window.FQ_ADAPT = {
       "passos": [
        "Marca els punts (t, v) i uneix-los.",
        "La velocitat baixa igual cada segon: MRUA.",
-       "a = (0 − 6) / 4 = … m/s².",
-       "Distància = àrea del triangle: 4 · 6 / 2 = … m."
+       "a = <span class=\"fr\"><span>0 − 6</span><span>4</span></span> = … m/s².",
+       "Distància = àrea del triangle: <span class=\"fr\"><span>4 · 6</span><span>2</span></span> = … m."
       ]
      },
      "3": {
@@ -5326,7 +5326,7 @@ window.FQ_ADAPT = {
      "4": {
       "passos": [
        "Tema A: 60 °C = 333 K. p = (p/T) · 333 = … bar.",
-       "Tema B: t = 3 / 1,5 = … s. Distància = 3 · t / 2 = … m."
+       "Tema B: t = <span class=\"fr\"><span>3</span><span>1,5</span></span> = … s. Distància = <span class=\"fr\"><span>3 · t</span><span>2</span></span> = … m."
       ]
      },
      "5": {
@@ -5357,20 +5357,20 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "10 + 273 = 283 (i igual amb els altres)",
-       "2,40 / 283 = …"
+       "<span class=\"fr\"><span>2,40</span><span>283</span></span> = …"
       ]
      },
      "2": {
       "passos": [
-       "−6 / 4 = …",
-       "4 · 6 / 2 = …"
+       "<span class=\"fr\"><span>−6</span><span>4</span></span> = …",
+       "<span class=\"fr\"><span>4 · 6</span><span>2</span></span> = …"
       ]
      },
      "4": {
       "passos": [
        "(p/T) · 333 = …",
-       "3 / 1,5 = …",
-       "3 · … / 2 = …"
+       "<span class=\"fr\"><span>3</span><span>1,5</span></span> = …",
+       "<span class=\"fr\"><span>3 · …</span><span>2</span></span> = …"
       ]
      },
      "5": {
@@ -5499,7 +5499,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Detergent: 1,5 L = 1500 mL. Massa = 1500 · 1,05 = … g = … kg.",
-       "Lleixiu: 40 g/L = 40 000 mg / 1000 mL = … mg/mL.",
+       "Lleixiu: 40 g/L = <span class=\"fr\"><span>40 000 mg</span><span>1000 mL</span></span> = … mg/mL.",
        "En 2 L: 40 · 2 = … g."
       ]
      },
@@ -5534,7 +5534,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "1500 · 1,05 = … g",
-       "… / 1000 = … kg",
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kg",
        "40 · 2 = … g"
       ]
      }
@@ -5630,8 +5630,8 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "A: 10 · 2 W · 20 h · 365 = … Wh → / 1000 = … kWh · 0,15 = … €.",
-       "B: 4 · 2 L = 8 L/dia → 8 / 1,5 = 5,3 ampolles · 30 g = … g/dia · 365 = … g."
+       "A: 10 · 2 W · 20 h · 365 = … Wh → <span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh · 0,15 = … €.",
+       "B: 4 · 2 L = 8 L/dia → <span class=\"fr\"><span>8</span><span>1,5</span></span> = 5,3 ampolles · 30 g = … g/dia · 365 = … g."
       ]
      },
      "4": {

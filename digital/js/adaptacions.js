@@ -36,6 +36,7 @@
 .ad-paper.ad-dis .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.35rem!important}
 .ad-tts{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:2px 10px;font:inherit;font-size:.8rem;cursor:pointer;margin:4px 0}
 .ad-tts[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.15}.fr>span{padding:0 .2em}.fr>span+span{border-top:1.5px solid currentColor}
 .ad-redueix{border-width:2.5px!important;background:color-mix(in srgb,var(--acc) 14%,var(--surface))!important}
 .ad-card{box-sizing:border-box;max-width:100%;overflow-wrap:anywhere;border:1.5px solid var(--acc);border-radius:12px;padding:10px 14px;margin:8px 0;background:color-mix(in srgb,var(--acc) 6%,var(--surface))}
 .ad-card h4{margin:0 0 6px;font-size:.95rem}

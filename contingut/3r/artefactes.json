@@ -1460,7 +1460,7 @@
    "empremta": "08bb93f117297b1d8ca195c3320c0b6acaa3c458dc5311df48953cee702c8195",
    "generador": "gen_detectius.py",
    "generador_hash": null,
-   "hash": "1cd7d2e098737cee0c549849c9d6f99de5e58d41193952d6e7ef38f3b501d396",
+   "hash": "19c76afce91d323ba342a5395570b1bb570240b06a7f04b802922421d643a244",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -1757,7 +1757,7 @@
    "empremta": "5604b6067e21274ce629ee4d765eec42d0a7a7d3dc11144dd01b086e29120c81",
    "generador": "gen_sda1.py",
    "generador_hash": null,
-   "hash": "de3950889d72ceb205c2d046f3dbc5da22cdea4a78c041ace65e222603c469a1",
+   "hash": "a66fa09eb961d4cdb022e041c9e8053015a3e27de5bd36c608f48c7e2e550cc9",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2005,7 +2005,7 @@
    "empremta": "81671257dfc89de412b6232a876404a415f8e740effb8f26c9c140abe3a1ce6c",
    "generador": "gen_mobil.py",
    "generador_hash": null,
-   "hash": "d630bcb1fe9a7f297072cc531dae9326244b6fd2526ded06f49fa9171d2a6e1d",
+   "hash": "d89d5ed1da24d681738093ff24bb8898641c149b474b02a1923ee48781f5b331",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2257,7 +2257,7 @@
    "empremta": "1d5e961f302a128dc3c9d82c84741d0356e9de92b4a25dc552004ea1d2a460ca",
    "generador": "gen_hidrogen.py",
    "generador_hash": null,
-   "hash": "2cf217343416c8091c7f6dab6e9ca2a8f853d4fb7d0f5268e904a6b5d7ace699",
+   "hash": "7cf6e87651b7fd07c711cb00e610e014e54f70f85217dba7b5de9767b83c79e3",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2516,7 +2516,7 @@
    "empremta": "72a3da1fd11630fa74cc50f3d8f5a7057643189013027e199553602d534ce1c6",
    "generador": "gen_cel.py",
    "generador_hash": null,
-   "hash": "a95a73af814280efe773c32f41467852fdbd5ce5d3c6f4c0443f1b4abccc161d",
+   "hash": "120dcec730b9702a2668d648a91cafecdc400809c607185d7977dd423853cccd",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2841,7 +2841,7 @@
    "empremta": "9eafa8e430ac63ae759725a4a97c1a541195ad35be054929680a7ea3aa970c38",
    "generador": "gen_energia.py",
    "generador_hash": null,
-   "hash": "4c2326d75cd57b40606e4d2937a7af2fe0feb3947b44520469d36ec30b0ea657",
+   "hash": "12205b283165b08b1cc952cf6fc4f3101446f9e4d8bc9306931d41a6d70dc8f2",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },

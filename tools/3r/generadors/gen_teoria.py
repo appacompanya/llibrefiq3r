@@ -4,6 +4,7 @@
 import os, sys
 import gen_sda1 as G
 import figs
+import fracs
 import gen_mobil as M, gen_hidrogen as Hd, gen_energia as En
 from playwright.sync_api import sync_playwright
 
@@ -19,6 +20,7 @@ EXTRA = """
 .ex b.t{color:var(--acc)}
 .fbox{border:1.2pt solid var(--acc);border-radius:2.5mm;padding:2mm 3.5mm;margin:2mm 0 3mm;background:var(--tint);break-inside:avoid}
 .fbox .formula{margin:1mm 0}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em;line-height:1.12}.fr>span{padding:0 .15em}.fr>span+span{border-top:.9pt solid currentColor}
 .kw{columns:2;column-gap:8mm;font-size:9.8pt}.kw p{break-inside:avoid;margin:0 0 1.5mm}
 h2{margin-top:6mm}
 """
@@ -58,8 +60,8 @@ def sda1():
     b += TIP("Volum", "1 L = 1 dm³ i <b>1 mL = 1 cm³</b>. 1 m³ = 1 000 L.")
     b += S(2, "Factors de conversió")
     b += P("Un <b>factor de conversió</b> és una fracció que val 1, perquè a dalt i a baix hi ha la mateixa quantitat escrita amb unitats diferents. En multiplicar-hi, la quantitat no canvia, però sí la unitat. La unitat que volem treure ha de quedar una vegada a dalt i una a baix, per simplificar-se.")
-    b += EX("Exemple", "Passa 72 km/h a m/s: \\( 72\\ \\frac{\\mathrm{km}}{\\mathrm{h}} \\cdot \\frac{1000\\ \\mathrm{m}}{1\\ \\mathrm{km}} \\cdot \\frac{1\\ \\mathrm{h}}{3600\\ \\mathrm{s}} = 20\\ \\frac{\\mathrm{m}}{\\mathrm{s}} \\). Quan hi ha més d'una unitat, encadenem factors, un per a cada unitat.")
-    b += EX("Exemple", "Passa 1,2 g/mL a kg/m³: \\( 1{,}2\\ \\frac{\\mathrm{g}}{\\mathrm{mL}} \\cdot \\frac{1\\ \\mathrm{kg}}{1000\\ \\mathrm{g}} \\cdot \\frac{10^{6}\\ \\mathrm{mL}}{1\\ \\mathrm{m^3}} = 1200\\ \\frac{\\mathrm{kg}}{\\mathrm{m^3}} \\).")
+    b += EX("Exemple", "Passa 72 km/h a m/s: \\( 72\\ \\dfrac{\\mathrm{km}}{\\mathrm{h}} \\cdot \\dfrac{1000\\ \\mathrm{m}}{1\\ \\mathrm{km}} \\cdot \\dfrac{1\\ \\mathrm{h}}{3600\\ \\mathrm{s}} = 20\\ \\dfrac{\\mathrm{m}}{\\mathrm{s}} \\). Quan hi ha més d'una unitat, encadenem factors, un per a cada unitat.")
+    b += EX("Exemple", "Passa 1,2 g/mL a kg/m³: \\( 1{,}2\\ \\dfrac{\\mathrm{g}}{\\mathrm{mL}} \\cdot \\dfrac{1\\ \\mathrm{kg}}{1000\\ \\mathrm{g}} \\cdot \\dfrac{10^{6}\\ \\mathrm{mL}}{1\\ \\mathrm{m^3}} = 1200\\ \\dfrac{\\mathrm{kg}}{\\mathrm{m^3}} \\).")
     b += S(3, "Notació científica")
     b += P("Per escriure nombres molt grans o molt petits fem servir la <b>notació científica</b>: \\( a \\cdot 10^{n} \\), amb \\( 1 \\le a < 10 \\). Si el nombre és més gran que 1, l'exponent és positiu; si és més petit que 1, és negatiu.")
     b += EX("Exemples", "300 000 000 m/s = 3 · 10⁸ m/s (velocitat de la llum) · 0,000 07 m = 7 · 10⁻⁵ m (gruix d'un cabell).")
@@ -177,9 +179,10 @@ def sda3():
     b += S(6, "El model de Bohr i l'assaig a la flama")
     b += P("Al model de Bohr, els electrons s'ordenen en capes: fins a 2 a la primera, fins a 8 a la segona i comencem a omplir la tercera amb 8. Liti (Z = 3): 2, 1 · Oxigen (Z = 8): 2, 6 · Sodi (Z = 11): 2, 8, 1. Els electrons de l'<b>última capa</b> decideixen com es comporta l'element.",
            "Quan escalfem una sal a la flama, alguns electrons absorbeixen energia i salten a una capa més allunyada. En tornar a la seva capa, emeten aquesta energia en forma de <b>llum d'uns colors concrets</b>. Cada element té el seu: el liti dona vermell intens; el sodi, groc; el coure, verd. L'<b>espectroscopi</b> separa la llum en línies i és més fiable que el color a ull nu (el liti i l'estronci fan tots dos vermell). El color identifica l'element, no el compost. Així, Bunsen i Kirchhoff van descobrir el cesi i el rubidi (1860–1861).")
-    b += S(7, "La taula periòdica")
+    b += '<div class="pb"></div>' + S(7, "La taula periòdica")
     b += P("El 1869, Dmitri <b>Mendeléiev</b> va ordenar els elements i va deixar forats per a elements encara no descoberts, de què va predir les propietats. Avui la taula s'ordena per <b>nombre atòmic Z</b>. Les files són els <b>períodes</b> (1–7) i les columnes, els <b>grups</b> (1–18). Els elements d'un mateix grup tenen el mateix nombre d'electrons a l'última capa i propietats semblants.")
-    b += M.taula_svg(width_mm=165)
+    b += taula_familia()
+    b += P("Els grups amb nom propi són: <b>alcalins</b> (1), <b>alcalinoterris</b> (2), <b>metalls de transició</b> (3–12), <b>terris</b> (13), <b>carbonoides</b> (14), <b>nitrogenoides</b> (15), <b>amfígens</b> (16), <b>halògens</b> (17) i <b>gasos nobles</b> (18). Les dues files de sota són els <b>lantànids</b> (terres rares, com el neodimi de l'altaveu del mòbil) i els <b>actínids</b>.")
     b += UL("<b>Metalls</b> (a l'esquerra i al centre): brillants, bons conductors, tendeixen a formar cations.",
             "<b>No metalls</b> (a la dreta): mals conductors, tendeixen a formar anions. <b>Semimetalls</b>: B, Si, Ge, As, Sb, Te.",
             "<b>Gasos nobles</b> (grup 18): última capa plena, gairebé no reaccionen.",
@@ -198,7 +201,7 @@ def sda3():
     b += S(10, "Mòbils, recursos i reciclatge")
     b += P("Molts materials del mòbil són <b>matèries primeres crítiques</b>: són importants per a la tecnologia i se n'obtenen en pocs països, de vegades amb problemes ambientals i socials (com el cobalt i el coltan de la República Democràtica del Congo). Per això cal, per ordre, <b>reutilitzar</b> (fer durar el mòbil), <b>reciclar</b> i <b>recuperar</b> els elements. Els mòbils vells es porten a un punt de recollida, mai al contenidor de rebuig.")
     b += KW(("Element", "substància amb un sol tipus d'àtom"), ("Nombre atòmic (Z)", "nombre de protons"), ("Nombre màssic (A)", "protons + neutrons"), ("Isòtops", "mateix Z, diferent A"),
-            ("Catió / anió", "ió positiu / ió negatiu"), ("Període / grup", "fila / columna de la taula periòdica"), ("Electrons de valència", "electrons de l'última capa"),
+            ("Catió i anió", "ió positiu i ió negatiu"), ("Període i grup", "fila i columna de la taula periòdica"), ("Electrons de valència", "electrons de l'última capa"),
             ("Enllaç iònic", "entre ions de càrrega oposada"), ("Enllaç covalent", "electrons compartits"), ("Electròlit", "medi per on viatgen els ions a la bateria"))
     return b
 
@@ -227,13 +230,13 @@ def sda4():
     b += S(5, "Càlculs de massa")
     b += P("Amb les <b>masses atòmiques</b> (H = 1 u, C = 12 u, O = 16 u, Mg = 24 u, Cl = 35,5 u…) calculem la massa de cada terme de l'equació i en traiem la proporció. Després fem servir un factor de conversió, com a la SdA 1.")
     b += F("2 H₂ + O₂ → 2 H₂O", "4 g + 32 g → 36 g")
-    b += EX("Exemple", "Quina massa d'aigua es forma amb 8 g d'hidrogen? \\( 8\\ \\mathrm{g\\ H_2} \\cdot \\frac{36\\ \\mathrm{g\\ H_2O}}{4\\ \\mathrm{g\\ H_2}} = 72\\ \\mathrm{g\\ H_2O} \\). Un autobús que consumeix 20 kg d'hidrogen al dia allibera 180 kg d'aigua.")
+    b += EX("Exemple", "Quina massa d'aigua es forma amb 8 g d'hidrogen? \\( 8\\ \\mathrm{g\\ H_2} \\cdot \\dfrac{36\\ \\mathrm{g\\ H_2O}}{4\\ \\mathrm{g\\ H_2}} = 72\\ \\mathrm{g\\ H_2O} \\). Un autobús que consumeix 20 kg d'hidrogen al dia allibera 180 kg d'aigua.")
     b += P("Si les quantitats dels reactius no estan en la proporció exacta, un s'acaba primer (el <b>reactiu limitant</b>) i de l'altre en sobra.")
     b += S(6, "L'energia de les reaccions")
     b += UL("<b>Exotèrmica:</b> allibera energia a l'entorn (la temperatura puja). Combustions, el magnesi amb àcid clorhídric, l'hidrogen amb l'oxigen.",
             "<b>Endotèrmica:</b> absorbeix energia de l'entorn (la temperatura baixa o cal subministrar energia). El vinagre amb bicarbonat, l'electròlisi de l'aigua, la fotosíntesi.")
-    b += P("A l'<b>electròlisi</b>, el corrent elèctric descompon l'aigua: 2 H₂O → 2 H₂ + O₂. Es forma el doble de volum d'hidrogen (al càtode, −) que d'oxigen (a l'ànode, +).")
-    b += Hd.electrolisi_svg()
+    b += P("A l'<b>electròlisi</b>, el corrent elèctric descompon l'aigua: 2 H₂O → 2 H₂ + O₂. Es forma el <b>doble de volum d'hidrogen</b> (al càtode, −) que d'oxigen (a l'ànode, +), perquè per cada molècula d'oxigen se'n formen dues d'hidrogen.")
+    b += electrolisi_teoria()
     b += S(7, "La velocitat de les reaccions")
     b += P("Segons la <b>teoria de les col·lisions</b>, perquè dues partícules reaccionin han de xocar amb prou energia. Tot el que augmenta els xocs eficaços fa la reacció més ràpida:")
     b += T(["Factor", "Efecte", "Exemple"],
@@ -244,8 +247,8 @@ def sda4():
     b += P("Els <b>hidrocarburs</b> (metà, propà, butà, gasolina) contenen carboni i hidrogen; en cremar-los es formen CO₂ i H₂O. L'<b>hidrogen</b> no conté carboni: en una pila de combustible reacciona amb l'oxigen i només forma aigua. Però que el vehicle no emeti CO₂ no vol dir que no contamini gens: depèn de com s'obté l'hidrogen.")
     b += T(["Hidrogen", "D'on surt", "Emissions"], [["Gris", "Gas natural", "Emet CO₂ en produir-lo (uns 10–12 kg de CO₂ per kg d'H₂)"], ["Blau", "Gas natural, capturant part del CO₂", "Menys emissions"], ["Verd", "Electròlisi amb electricitat renovable", "Gairebé sense emissions"]], w=["14%", "40%", "46%"])
     b += P("A més, amb la mateixa electricitat renovable un vehicle de bateria fa unes 2–3 vegades més quilòmetres que un d'hidrogen. L'hidrogen té més sentit en vehicles grans que fan molts quilòmetres, com els autobusos.")
-    b += KW(("Reactius / productes", "substàncies inicials / substàncies noves"), ("Llei de Lavoisier", "la massa es conserva en una reacció"), ("Llei de Proust", "proporció fixa en massa"),
-            ("Coeficient", "nombre davant d'una fórmula per ajustar l'equació"), ("Reactiu limitant", "el que s'acaba primer"), ("Exotèrmica / endotèrmica", "allibera / absorbeix energia"),
+    b += KW(("Reactius i productes", "substàncies inicials i substàncies noves"), ("Llei de Lavoisier", "la massa es conserva en una reacció"), ("Llei de Proust", "proporció fixa en massa"),
+            ("Coeficient", "nombre davant d'una fórmula per ajustar l'equació"), ("Reactiu limitant", "el que s'acaba primer"), ("Exotèrmica i endotèrmica", "allibera energia i absorbeix energia"),
             ("Teoria de les col·lisions", "les partícules han de xocar per reaccionar"), ("Electròlisi", "descomposició amb corrent elèctric"), ("Hidrocarbur", "compost de carboni i hidrogen"), ("Hidrogen verd", "obtingut amb electricitat renovable"))
     return b
 
@@ -299,7 +302,7 @@ def sda5():
     b += P("Per dins, la cèl·lula té un <b>citoesquelet</b>. Els filaments d'<b>actina</b> empenyen la membrana endavant i estiren el substrat cap enrere a través de les <b>adhesions focals</b>; els <b>microtúbuls</b> fan de vies de transport. Per la 3a llei de Newton, el substrat estira la cèl·lula cap endavant i la cèl·lula avança.",
            "Les forces de les cèl·lules són de l'ordre dels <b>nanonewtons</b> (1 nN = 10⁻⁹ N). Es mesuren posant la cèl·lula sobre un gel tou amb boletes: el gel es comporta com un conjunt de molles i, pel desplaçament de les boletes i la llei de Hooke, en calculem la força. A l'escala de la cèl·lula, el fregament de l'aigua és molt gran: quan deixa de fer força, s'atura gairebé a l'instant.")
     b += TIP("Salut", "Mesurar les forces i la velocitat de les cèl·lules ajuda a entendre la immunitat, la cicatrització de les ferides i la metàstasi. Amb febre, els neutròfils es mouen més de pressa: la febre és una conseqüència de la resposta del cos a la infecció, no la causa de la malaltia.")
-    b += KW(("Desplaçament", "canvi de posició (fletxa de l'inici al final)"), ("Velocitat", "Δx / Δt"), ("Acceleració", "Δv / Δt"), ("MRU / MRUA", "velocitat constant / acceleració constant"),
+    b += KW(("Desplaçament", "canvi de posició (fletxa de l'inici al final)"), ("Velocitat", "Δx / Δt"), ("Acceleració", "Δv / Δt"), ("MRU i MRUA", "velocitat constant i acceleració constant"),
             ("Pendent", "a la x–t, velocitat; a la v–t, acceleració"), ("Gradient", "variació de la concentració amb la distància"), ("Quimiotaxi", "moviment guiat per un gradient químic"),
             ("Força", "acció que canvia el moviment o deforma; en N"), ("Constant elàstica", "k = F / Δx"), ("Inèrcia", "tendència a mantenir l'estat de moviment"))
     return b
@@ -354,6 +357,11 @@ def sda6():
             ("En paral·lel", "cada aparell en una branca"), ("Alternador", "transforma energia cinètica en elèctrica"), ("Renovable", "font que es regenera de manera natural"))
     return b
 
+def FR(h):
+    import re
+    parts = re.split(r'(<svg.*?</svg>)', h, flags=re.S)
+    return "".join(x if x.startswith("<svg") else fracs.conv(x) for x in parts)
+
 FUNCS = {1: sda1, 2: sda2, 3: sda3, 4: sda4, 5: sda5, 6: sda6}
 
 def build(ns, out_dir):
@@ -362,7 +370,7 @@ def build(ns, out_dir):
         for n in ns:
             t, c, tint = COL[n]
             G.SDA.update({"n": n, "title": t, "color": c, "tint": tint})
-            body = FUNCS[n]()
+            body = FR(FUNCS[n]())
             html = G.page(body, EXTRA)
             path = os.path.join(out_dir, f"sda{n}-teoria.html"); open(path, "w", encoding="utf-8").write(html)
             pg.goto("file://" + path)
@@ -372,6 +380,89 @@ def build(ns, out_dir):
                    header_template="<div></div>", footer_template=G.FOOT.format(n=n, t=t))
             os.remove(path); print("ok", pdf)
         br.close()
+
+def electrolisi_teoria():
+    s = Hd.electrolisi_svg()
+    # dins dels tubs: líquid fins al gas i gas visible (H2 = el doble de volum que O2)
+    add = ""
+    for x, top, h, lab in ((215, 74, 56, "H₂"), (305, 74, 28, "O₂")):
+        add += f'<rect x="{x-12}" y="{top}" width="24" height="{120-top}" fill="#bfe0f2"/>'
+        add += f'<rect x="{x-12}" y="{top}" width="24" height="{h}" fill="#ffffff" stroke="#9aa1a8" stroke-width=".6"/>'
+        add += f'<text x="{x}" y="{top + h/2 + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="#1f2328">{lab}</text>'
+    s = s.replace('<rect x="202" y="72" width="26" height="40" fill="#ffffff" opacity=".95"/><rect x="292" y="72" width="26" height="22" fill="#ffffff" opacity=".95"/>', add)
+    s = s.replace('<text x="212" y="135" text-anchor="end">h</text>', '').replace('<line x1="196" y1="72" x2="196" y2="112" stroke="#1f2328" stroke-width="1"/><line x1="192" y1="72" x2="200" y2="72" stroke="#1f2328" stroke-width="1"/><line x1="192" y1="112" x2="200" y2="112" stroke="#1f2328" stroke-width="1"/>', '')
+    s = s.replace('>tub A<', '>hidrogen<').replace('>tub B<', '>oxigen<').replace('pila de 9 V', 'pila')
+    return s
+
+# ---------- taula periòdica amb famílies (SdA 3) ----------
+SYM = ("H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe "
+       "Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr "
+       "Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og").split()
+CAT = {"alc": ("Metalls alcalins", "#F6C2B5"), "alt": ("Metalls alcalinoterris", "#F9DDAA"), "tra": ("Metalls de transició", "#F3E9A6"),
+       "lan": ("Lantànids (terres rares)", "#D9EBB5"), "act": ("Actínids", "#C4E3C9"), "met": ("Altres metalls", "#D3DCE6"),
+       "sem": ("Semimetalls", "#BFE3E0"), "nom": ("No metalls", "#BFD8F4"), "hal": ("Halògens", "#D7CCF2"), "gas": ("Gasos nobles", "#F2C9E3")}
+def cat_of(z, s):
+    if s == "H": return "nom"
+    if s in ("He", "Ne", "Ar", "Kr", "Xe", "Rn", "Og"): return "gas"
+    if s in ("F", "Cl", "Br", "I", "At", "Ts"): return "hal"
+    if s in ("C", "N", "O", "P", "S", "Se"): return "nom"
+    if s in ("B", "Si", "Ge", "As", "Sb", "Te"): return "sem"
+    if s in ("Li", "Na", "K", "Rb", "Cs", "Fr"): return "alc"
+    if s in ("Be", "Mg", "Ca", "Sr", "Ba", "Ra"): return "alt"
+    if 57 <= z <= 71: return "lan"
+    if 89 <= z <= 103: return "act"
+    if s in ("Al", "Ga", "In", "Sn", "Tl", "Pb", "Bi", "Po", "Nh", "Fl", "Mc", "Lv"): return "met"
+    return "tra"
+def pos(z):
+    P = [(1, 1), (2, 18)]
+    if z <= 2: return P[z - 1]
+    def blk(start, per):
+        k = z - start
+        if k < 2: return per, 1 + k
+        return per, 13 + (k - 2)
+    if z <= 10: return blk(3, 2)
+    if z <= 18: return blk(11, 3)
+    if z <= 36: return 4, z - 18
+    if z <= 54: return 5, z - 36
+    if z <= 56: return 6, z - 54
+    if 57 <= z <= 71: return 9, 3 + (z - 57)
+    if z <= 86: return 6, z - 68
+    if z <= 88: return 7, z - 86
+    if 89 <= z <= 103: return 10, 3 + (z - 89)
+    return 7, z - 100
+def taula_familia():
+    cw, ch, L, Tp = 34, 36, 26, 74
+    W, Hh = L + 18 * cw + 6, Tp + 9 * ch + 12 + 56
+    s = f'<svg viewBox="0 0 {W} {Hh}" width="178mm" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1mm auto" font-family="Verdana,sans-serif">'
+    NOMS = {1: "Alca-<br>lins", 2: "Alcali-<br>noterris", 13: "Ter-<br>ris", 14: "Carbo-<br>noides", 15: "Nitro-<br>genoides", 16: "Amfí-<br>gens", 17: "Halò-<br>gens", 18: "Gasos<br>nobles"}
+    for g in range(1, 19):
+        x = L + (g - 1) * cw + cw / 2
+        if g in NOMS:
+            for i, t in enumerate(NOMS[g].split("<br>")):
+                s += f'<text x="{x}" y="{30 + i * 11}" text-anchor="middle" font-size="7.6" font-weight="700" fill="#1f2328">{t}</text>'
+        s += f'<text x="{x}" y="{Tp - 6}" text-anchor="middle" font-size="9" fill="#5d646d">{g}</text>'
+    xa, xb = L + 2 * cw + 2, L + 12 * cw - 2
+    s += f'<text x="{(xa + xb) / 2}" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="#1f2328">Metalls de transició (grups 3–12)</text>'
+    s += f'<path d="M{xa} 42 L{xa} 46 L{xb} 46 L{xb} 42" fill="none" stroke="#1f2328" stroke-width="1"/>'
+    for p in range(1, 8):
+        s += f'<text x="{L - 8}" y="{Tp + (p - 1) * ch + ch / 2 + 4}" text-anchor="middle" font-size="9" fill="#5d646d">{p}</text>'
+    for z, sym in enumerate(SYM, 1):
+        per, g = pos(z)
+        y = Tp + (per - 1) * ch + (14 if per >= 9 else 0) - (2 * ch if per >= 9 else 0) + (2 * ch if per >= 9 else 0)
+        y = Tp + ((per - 2) * ch + 12 if per >= 9 else (per - 1) * ch)
+        x = L + (g - 1) * cw
+        fill = CAT[cat_of(z, sym)][1]
+        s += f'<rect x="{x + 1}" y="{y + 1}" width="{cw - 2}" height="{ch - 2}" rx="3" fill="{fill}" stroke="#7a8088" stroke-width=".6"/>'
+        s += f'<text x="{x + 4}" y="{y + 10}" font-size="7" fill="#3b4048">{z}</text><text x="{x + cw / 2}" y="{y + 26}" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f2328">{sym}</text>'
+    for per, lab in ((6, "57–71"), (7, "89–103")):
+        x = L + 2 * cw; y = Tp + (per - 1) * ch
+        s += f'<rect x="{x + 1}" y="{y + 1}" width="{cw - 2}" height="{ch - 2}" rx="3" fill="{CAT["lan" if per == 6 else "act"][1]}" stroke="#7a8088" stroke-width=".6"/><text x="{x + cw / 2}" y="{y + 22}" text-anchor="middle" font-size="7.5" fill="#1f2328">{lab}</text>'
+    ly = Tp + 9 * ch + 30
+    for i, (k, (nm, c)) in enumerate(CAT.items()):
+        lx = L + (i % 5) * 122; yy = ly + (i // 5) * 18
+        s += f'<rect x="{lx}" y="{yy - 10}" width="13" height="13" rx="2" fill="{c}" stroke="#7a8088" stroke-width=".6"/><text x="{lx + 18}" y="{yy + 1}" font-size="9" fill="#1f2328">{nm}</text>'
+    return s + "</svg>"
+
 
 if __name__ == "__main__":
     ns = [int(x) for x in sys.argv[1:]] or [1, 2, 3, 4, 5, 6]
