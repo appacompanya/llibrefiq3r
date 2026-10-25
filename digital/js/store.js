@@ -16,35 +16,82 @@
 
   /* ---------------- Mode demostració ---------------- */
   function demoStore() {
-    const KEY = "fq3-demo-db-v4";
+    const KEY = "fq3-demo-db-v5";
+    /* Comptes fixos de la demostració. S'han de poder fer servir sempre: si el navegador ja té dades,
+       o si un docent ha reiniciat o esborrat el codi, es tornen a posar a cada càrrega. */
+    const SEED_COURSES = [
+      { id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } },
+      { id: "c-demo2", name: "2n A (exemple)", level: "2n", teacher_id: "teacher", settings: { auto_calc: true } },
+      { id: "c-demo4", name: "4t A (exemple)", level: "4t", teacher_id: "teacher", settings: { auto_calc: true } },
+    ];
+    const SEED_STUDENTS = [
+      { id: "demo1", display_name: "Alumne/a 01 (exemple)", grup: "3r A (exemple)", code: "DEMO-0001", role: "student", course_id: "c-demo" },
+      { id: "demo2", display_name: "Alumne/a 02 (exemple)", grup: "3r A (exemple)", code: "DEMO-0002", role: "student", course_id: "c-demo" },
+      { id: "demo3", display_name: "Alumne/a 03 (exemple)", grup: "3r A (exemple)", code: "DEMO-0003", role: "student", course_id: "c-demo" },
+      { id: "demo2n1", display_name: "Alumne/a 2n 01 (exemple)", grup: "2n A (exemple)", code: "DEMO-2001", role: "student", course_id: "c-demo2" },
+      { id: "demo2n2", display_name: "Alumne/a 2n 02 (exemple)", grup: "2n A (exemple)", code: "DEMO-2002", role: "student", course_id: "c-demo2" },
+      { id: "demo4t1", display_name: "Alumne/a 4t 01 (exemple)", grup: "4t A (exemple)", code: "DEMO-4001", role: "student", course_id: "c-demo4" },
+      { id: "demo4t2", display_name: "Alumne/a 4t 02 (exemple)", grup: "4t A (exemple)", code: "DEMO-4002", role: "student", course_id: "c-demo4" },
+    ];
+    const seedIds = new Set(SEED_STUDENTS.map((s) => s.id));
+    const seedCodes = new Set(SEED_STUDENTS.map((s) => s.code));
+    const isSeedStudent = (s) => !!s && (seedIds.has(s.id) || seedCodes.has(s.code));
+    const newCode = () => { const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let c = ""; for (let i = 0; i < 8; i++) c += A[Math.floor(Math.random() * A.length)]; return c.slice(0, 4) + "-" + c.slice(4); };
+    const asObj = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v : {});
+    function ensureDemoSeeds(db) {
+      db.settings = asObj(db.settings);
+      if (db.settings.auto_calc == null) db.settings.auto_calc = true;
+      db.teachers = Array.isArray(db.teachers) ? db.teachers : [];
+      db.courses = Array.isArray(db.courses) ? db.courses : [];
+      db.students = Array.isArray(db.students) ? db.students : [];
+      db.responses = asObj(db.responses);
+      db.submissions = asObj(db.submissions);
+      db.feedback = asObj(db.feedback);
+      db.photos = asObj(db.photos);
+      if (!db.teachers.some((t) => t.id === "teacher"))
+        db.teachers.unshift({ id: "teacher", role: "admin", display_name: "Professor (demostració)", username: "docent" });
+      for (const c of SEED_COURSES) {
+        let cur = db.courses.find((x) => x.id === c.id);
+        if (!cur) { cur = { ...c, settings: { ...c.settings } }; db.courses.push(cur); }
+        cur.level = c.level;
+        if (!cur.teacher_id) cur.teacher_id = c.teacher_id;
+        if (!cur.name) cur.name = c.name;
+        if (!cur.settings || typeof cur.settings !== "object") cur.settings = { auto_calc: true };
+      }
+      for (const s of db.students) {
+        if (seedIds.has(s.id) || !seedCodes.has(s.code)) continue;
+        let c = newCode();
+        while (seedCodes.has(c) || db.students.some((x) => x !== s && x.code === c)) c = newCode();
+        s.code = c;
+      }
+      for (const s of SEED_STUDENTS) {
+        const course = db.courses.find((c) => c.id === s.course_id);
+        let cur = db.students.find((x) => x.id === s.id);
+        if (!cur) { cur = { ...s }; db.students.push(cur); }
+        cur.code = s.code;
+        cur.role = "student";
+        cur.course_id = s.course_id;
+        if (!cur.display_name) cur.display_name = s.display_name;
+        cur.grup = (course && course.name) || cur.grup || s.grup;
+      }
+    }
     const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || null; } catch { return null; } };
     let db = load();
-    if (!db) {
-      db = { settings: { auto_calc: true }, teachers: [{ id: "teacher", role: "admin", display_name: "Professor (demostració)", username: "docent" }],
-        courses: [{ id: "c-demo", name: "3r A (exemple)", level: "3r", teacher_id: "teacher", settings: { auto_calc: true } },
-                  { id: "c-demo2", name: "2n A (exemple)", level: "2n", teacher_id: "teacher", settings: { auto_calc: true } },
-                  { id: "c-demo4", name: "4t A (exemple)", level: "4t", teacher_id: "teacher", settings: { auto_calc: true } }],
-        students: [], responses: {}, submissions: {}, feedback: {}, photos: {} };
-      ["Alumne/a 01 (exemple)", "Alumne/a 02 (exemple)", "Alumne/a 03 (exemple)"].forEach((n, i) =>
-        db.students.push({ id: "demo" + (i + 1), display_name: n, grup: "3r A (exemple)", code: "DEMO-000" + (i + 1), role: "student", course_id: "c-demo" }));
-      ["Alumne/a 2n 01 (exemple)", "Alumne/a 2n 02 (exemple)"].forEach((n, i) =>
-        db.students.push({ id: "demo2n" + (i + 1), display_name: n, grup: "2n A (exemple)", code: "DEMO-200" + (i + 1), role: "student", course_id: "c-demo2" }));
-      ["Alumne/a 4t 01 (exemple)", "Alumne/a 4t 02 (exemple)"].forEach((n, i) =>
-        db.students.push({ id: "demo4t" + (i + 1), display_name: n, grup: "4t A (exemple)", code: "DEMO-400" + (i + 1), role: "student", course_id: "c-demo4" }));
-    }
+    if (!db || typeof db !== "object" || Array.isArray(db)) db = {};
+    ensureDemoSeeds(db);
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch {} };
+    save();
     let me = null; try { me = JSON.parse(sessionStorage.getItem("fq3-demo-me")); } catch {}
     const setMe = (p) => { me = p; try { p ? sessionStorage.setItem("fq3-demo-me", JSON.stringify(p)) : sessionStorage.removeItem("fq3-demo-me"); } catch {} };
     const k = (...a) => a.join("|");
     const rid = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-    const newCode = () => { const A = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let c = ""; for (let i = 0; i < 8; i++) c += A[Math.floor(Math.random() * A.length)]; return c.slice(0, 4) + "-" + c.slice(4); };
     const course = (id) => db.courses.find((c) => c.id === id);
     const mine = () => db.courses.filter((c) => me && (me.role === "admin" || c.teacher_id === me.id));
     const sub = (sid, ws) => db.submissions[k(sid, ws)];
     return {
       mode: "demo", client: null,
-      async init() { return me; },
-      async signInStudent(code) { const s = db.students.find((x) => x.code === normCode(code)); if (!s) throw new Error("bad_code"); setMe(s); return s; },
+      async init() { ensureDemoSeeds(db); save(); return me; },
+      async signInStudent(code) { ensureDemoSeeds(db); save(); const s = db.students.find((x) => x.code === normCode(code)); if (!s) throw new Error("bad_code"); setMe(s); return s; },
       async signInTeacher(user, pw) {
         const t = db.teachers.find((x) => x.username === String(user).trim().toLowerCase());
         if (!t || pw !== (t.password || "docent")) throw new Error("bad_login");
@@ -84,8 +131,19 @@
         for (const n of names) { const s = { id: rid("s"), display_name: n, grup: c.name, code: newCode(), role: "student", course_id: c.id }; db.students.push(s); out.push(s); }
         save(); return out;
       },
-      async resetCode(id) { const s = db.students.find((x) => x.id === id); s.code = newCode(); save(); return s.code; },
-      async deleteStudent(id) { db.students = db.students.filter((x) => x.id !== id); save(); },
+      async resetCode(id) {
+        ensureDemoSeeds(db);
+        const s = db.students.find((x) => x.id === id);
+        if (!s) throw new Error("bad_student");
+        if (isSeedStudent(s)) { save(); throw new Error("Els comptes de demostració conserven el codi DEMO."); }
+        s.code = newCode(); ensureDemoSeeds(db); save(); return s.code;
+      },
+      async deleteStudent(id) {
+        const s = db.students.find((x) => x.id === id);
+        if (isSeedStudent(s)) throw new Error("Els comptes de demostració no es poden esborrar.");
+        db.students = db.students.filter((x) => x.id !== id);
+        ensureDemoSeeds(db); save();
+      },
       async listSubmissions() { return Object.entries(db.submissions).map(([kk, v]) => ({ student_id: kk.split("|")[0], worksheet_id: kk.split("|")[1], ...v })); },
       async listResponseKeys() { const s = new Set(); Object.keys(db.responses).forEach((kk) => { const [a, b] = kk.split("|"); s.add(a + "|" + b); }); return [...s].map((x) => ({ student_id: x.split("|")[0], worksheet_id: x.split("|")[1] })); },
       async feedbackFor(sid, ws) { return Object.entries(db.feedback).filter(([kk]) => kk.startsWith(k(sid, ws) + "|")).map(([kk, v]) => ({ item_id: kk.split("|")[2], ...v })); },
