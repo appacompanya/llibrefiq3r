@@ -5,7 +5,7 @@
 # 8 sessions (no tornar a 7). Avaluació oficial: nivells NA–AE, sense pesos.
 # Fulls reals a docs/: ruta, repte, fitxa 1, laboratori de consum real, fitxa 2, pla d'estalvi i debat, rúbriques, diana, mapa, i la plantilla d'Excel de l'inventari. No hi ha «full de l'auditoria» ni «full de laboratori de circuits».
 # Fitxes: la 1 és formativa. De la fitxa 2, només la part C (cerca i cita de fonts) és qualificadora (evidència s6.cerca, criteri 4.3).
-# CE: principals CE4 i CE6. Secundària CE1: el càlcul d'energia, kWh i rendiment del pla (1.2), no el 6.2. El 6.2 queda a la implicació ciutadana i a la demostració.
+# CE: principals CE4 i CE6. Secundària CE1: el càlcul d'energia, kWh i rendiment del pla (1.2), no el 6.2. El 6.2 queda a la implicació ciutadana i a la demostració. El 4.1 s'avalua a la presentació del pla (sessions 6 i 8).
 # Les recuperacions de la CE4 i la CE6 es lliuren a la sessió de tancament, després d'avaluar-les a aquesta SdA, no a l'inici.
 sda: 6
 versio: 4
@@ -82,7 +82,7 @@ sessions:
   mitja: false
 - titol: Corregeixo, votem i reflexiono
   fase: Reflexionem
-  text: Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.
+  text: Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran i defensaran els plans d'estalvi amb el full de càlcul i un gràfic, i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.
   docs:
   - d6diana
   - d6pla
@@ -305,7 +305,7 @@ documents:
         - d6ruta.a21
   d6repte:
     uid: d6repte
-    versio: 1
+    versio: 2
     fitxer: sda6-02-full-del-repte.pdf
     titol: Full del repte
     digital:
@@ -365,7 +365,7 @@ documents:
         - d6repte.a8
   d6f1:
     uid: d6f1
-    versio: 1
+    versio: 2
     fitxer: sda6-03-fitxa-1-energia-potencia-i-consum.pdf
     titol: Fitxa 1
     digital:
@@ -433,7 +433,7 @@ documents:
     avaluacio: formativa
   d6lab:
     uid: d6lab
-    versio: 1
+    versio: 2
     fitxer: sda6-04-laboratori-consum-real.pdf
     titol: 'Laboratori: mesurem el consum real'
     digital:
@@ -542,7 +542,7 @@ documents:
         - d6lab.a36
   d6f2:
     uid: d6f2
-    versio: 1
+    versio: 2
     fitxer: sda6-05-fitxa-2-don-ve-lelectricitat.pdf
     titol: Fitxa 2
     digital:
@@ -608,7 +608,7 @@ documents:
     nota_avaluacio: La fitxa és formativa excepte la part C (cerca i cita de fonts), que és l'evidència qualificadora s6.cerca, criteri 4.3. La correcció automàtica de la resta no entra al càlcul oficial.
   d6pla:
     uid: d6pla
-    versio: 1
+    versio: 2
     fitxer: sda6-06-pla-destalvi-i-debat.pdf
     titol: Pla d'estalvi i debat
     digital:
@@ -696,7 +696,7 @@ documents:
         - d6pla.a16
   d6rub:
     uid: d6rub
-    versio: 1
+    versio: 2
     fitxer: sda6-07-rubriques.pdf
     titol: Rúbriques
   d6prova:
@@ -719,7 +719,7 @@ documents:
     professorat: true
   d6diana:
     uid: d6diana
-    versio: 1
+    versio: 2
     fitxer: sda6-11-diana-autoavaluacio.pdf
     titol: Diana d'autoavaluació
     digital:
@@ -840,8 +840,8 @@ evidencies:
       NA: No cita les fonts
 - uid: s6.pla
   id: pla
-  versio: 2
-  titol: Pla d'estalvi del grup
+  versio: 3
+  titol: Pla d'estalvi del grup i presentació
   instruments:
   - d6pla
   items:
@@ -867,6 +867,17 @@ evidencies:
       AN: Implica la comunitat i revisa el repartiment de tasques
       AS: Implicació poc concreta o repartiment no revisat
       NA: No hi ha implicació de la comunitat
+  - uid: s6.pla.e3
+    id: e3
+    versio: 1
+    titol: Presentació i defensa amb recursos digitals
+    criteris:
+    - '4.1'
+    descriptors:
+      AE: Defensa el pla amb el full de càlcul, un gràfic i dades citades de Red Eléctrica, i respon les preguntes amb arguments
+      AN: Defensa el pla amb el full de càlcul o un gràfic i alguna dada
+      AS: Presenta el pla sense recursos digitals o sense defensar-lo
+      NA: No presenta el pla
 - uid: s6.debat
   id: debat
   versio: 1

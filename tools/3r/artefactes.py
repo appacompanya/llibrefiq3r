@@ -11,6 +11,7 @@ Quan canvies el YAML o un generador, l'empremta canvia i --check diu CAL REGENER
   python3 tools/3r/artefactes.py --registra   recalcula i desa contingut/3r/artefactes.json (després de regenerar)
   python3 tools/3r/artefactes.py --check      compara amb el registre i diu què cal regenerar o què falta
   python3 tools/3r/artefactes.py --registra-imatges   desa el hash de les imatges que fa servir cada PDF (sense tocar res més)
+  python3 tools/3r/artefactes.py --registra-nomes K1,K2   registra només aquests artefactes (p. ex. docs/sda2-09-rubriques.pdf)
   python3 tools/3r/artefactes.py --impacte REF   graf d'impacte (el càlcul és a tools/3r/impacte.py)
   python3 tools/3r/artefactes.py --actua REF     igual, i executa només el pas segur (build_dades.py)
   --bucket FITXER.json  llista d'objectes del bucket (per defecte contingut/3r/generat/bucket-professorat.json)
@@ -207,6 +208,15 @@ def main():
                 D["artefactes"][k]["imatges"] = x["imatges"]; n += 1
         json.dump(D, open(REG, "w"), ensure_ascii=False, indent=1, sort_keys=True)
         print(f"Imatges registrades per a {n} artefactes"); return
+    if "--registra-nomes" in a:
+        # registra només els artefactes indicats (separats per comes) i deixa la resta com estaven
+        ks = a[a.index("--registra-nomes") + 1].split(",")
+        D = json.load(open(REG))
+        for k in ks:
+            if k not in A: sys.exit(f"No existeix l'artefacte {k}")
+            D["artefactes"][k] = A[k]; print(f"Registrat {k}")
+        json.dump(D, open(REG, "w"), ensure_ascii=False, indent=1, sort_keys=True)
+        return
     if "--registra" in a:
         json.dump({"nota": "Generat per tools/3r/artefactes.py --registra. Registra l'estat actual com a generat.", "artefactes": A},
                   open(REG, "w"), ensure_ascii=False, indent=1, sort_keys=True)
