@@ -117,6 +117,13 @@ def validate(cur, com, sdas, docs, out):
         if falten or sobren:
             W.append(f"SdA {n}: CE aprovades {', '.join(sorted(ap))}; avaluades {', '.join(sorted(ces))}"
                      + (f" · FALTEN {', '.join(falten)}" if falten else "") + (f" · SOBREN {', '.join(sobren)}" if sobren else ""))
+        prin, sec = s.get("ce_principals") or [], s.get("ce_secundaria") or []
+        if len(sec) > 1:
+            W.append(f"SdA {n}: com a màxim una CE secundària (n'hi ha {len(sec)})")
+        if set(prin) & set(sec) or set(prin) | set(sec) != ap:
+            W.append(f"SdA {n}: ce_principals {prin} i ce_secundaria {sec} no coincideixen amb ce_aprovades {sorted(ap)}")
+        if any("pes" in e for e in s["evidencies"]):
+            W.append(f"SdA {n}: encara hi ha pesos (pes:) a les evidències; l'avaluació és qualitativa, sense percentatges")
         for x in s["sessions"] + s["professorat"]:
             for k in x.get("docs", []) + x.get("docs_professorat", []):
                 if k not in docs: W.append(f"SdA {n}: la sessió «{x.get('titol') or x.get('bloc')}» fa servir el document {k}, que no existeix")
@@ -167,7 +174,12 @@ def mapa(cur, sdas, docs):
     crit = {c["id"]: {"ce": ce["id"], "nom_curt": c["nom_curt"], "text": c["text"]} for ce in cur["competencies"] for c in ce["criteris"]}
     out = {"generat_per": "tools/3r/build_dades.py --mapa", "font": "contingut/3r (font única)",
            "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; "
-                           "l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar.",
+                           "l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar. "
+                           "Es conserva «prova de la flama» com a procediment de laboratori.",
+           "avaluacio": "Qualitativa (NA, AS, AN, AE). Sense pesos: el nivell d'un criteri i d'una CE és la mitjana no ponderada "
+                        "dels aspectes on apareixen, arrodonida a l'alça. Dues CE principals per SdA i, com a màxim, una de secundària "
+                        "si té evidència amb rúbrica. La nota automàtica de les fitxes digitals formatives és orientativa i no entra "
+                        "a la mitjana oficial. Les fitxes qualificadores es valoren a la rúbrica de l'evidència, no amb el nivell automàtic agregat.",
            "competencies": {ce["id"]: ce["text"] for ce in cur["competencies"]}, "criteris": crit, "sda": []}
     cov = {}
     for s in sdas:
@@ -175,14 +187,19 @@ def mapa(cur, sdas, docs):
         for e in s["evidencies"]:
             cs = sorted({c for i in e["items"] for c in i["criteris"]}, key=key)
             for c in cs: cov.setdefault(c, []).append(s["sda"])
-            evs.append({"uid": e["uid"], "titol": e["titol"], "versio": e["versio"], "tipus": "qualificadora", "pes_percent": e.get("pes"),
+            evs.append({"uid": e["uid"], "titol": e["titol"], "versio": e["versio"], "tipus": "qualificadora",
                         "instruments": [{"uid": k, "fitxer": docs[k]["fitxer"], "titol": docs[k]["titol"],
-                                         "on": "bucket professorat" if docs[k].get("professorat") else "docs/ (alumnat)"} for k in e.get("instruments", [])],
+                                         "on": "bucket professorat" if docs[k].get("professorat") else "docs/ (alumnat)",
+                                         "avaluacio": docs[k].get("avaluacio"),
+                                         **({"part_qualificadora": docs[k]["part_qualificadora"]} if docs[k].get("part_qualificadora") else {})}
+                                        for k in e.get("instruments", [])],
                         "criteris": cs, "ce": sorted({crit[c]["ce"] for c in cs}),
                         "items": [{"uid": i["uid"], "titol": i["titol"], "criteris": i["criteris"], "versio": i["versio"]} for i in e["items"]]})
         cs = sorted({c for e in evs for c in e["criteris"]}, key=key)
-        out["sda"].append({"sda": s["sda"], "titol": s["titol"], "repte": s["repte"], "ce": sorted({crit[c]["ce"] for c in cs}),
-                           "ce_aprovades": s["ce_aprovades"], "criteris": cs, "pes_total": sum(e["pes_percent"] or 0 for e in evs), "evidencies": evs})
+        out["sda"].append({"sda": s["sda"], "titol": s["titol"], "repte": s["repte"],
+                           "ce_principals": s.get("ce_principals") or [], "ce_secundaria": s.get("ce_secundaria") or [],
+                           "ce": sorted({crit[c]["ce"] for c in cs}),
+                           "ce_aprovades": s["ce_aprovades"], "criteris": cs, "evidencies": evs})
     # taules 10 (CE × SdA) i 11 (SdA × CE)
     t10 = {ce["id"]: {str(s["sda"]): sorted([c for c in s["criteris"] if crit[c]["ce"] == ce["id"]], key=key) for s in out["sda"]} for ce in cur["competencies"]}
     out["taula10_ce_x_sda"] = t10

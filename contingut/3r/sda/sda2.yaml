@@ -2,17 +2,19 @@
 # uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
+# Avaluació oficial: nivells NA–AE, sense pesos.
+# Fitxes 1 i 2: formatives (no entren al càlcul oficial).
+# CE: principals CE1 i CE2. El vídeo no avalua 4.1 (no defensa un punt de vista ecosocial): l'adaptació al públic i els recursos digitals són 2.5.
 sda: 2
-versio: 2
+versio: 3
 color: --s2
 titol: El desodorant kamikaze
 repte: Per què explota un desodorant dins d'un cotxe a l'agost?
-meta: '1r trimestre · 10 sessions · Producte final: un vídeo per a l''alumnat de 1r d''ESO · Competències específiques avaluades: CE1, CE2 i CE4'
+meta: '1r trimestre · 10 sessions · Producte final: un vídeo per a l''alumnat de 1r d''ESO · Competències específiques avaluades: CE1 i CE2'
 publicada: true
 ce_aprovades:
 - CE1
 - CE2
-- CE4
 sessions:
 - titol: El repte
   fase: Explorem
@@ -622,6 +624,7 @@ documents:
         criteris: []
         camps:
         - f1.a22
+    avaluacio: formativa
   f2:
     uid: f2
     versio: 1
@@ -696,6 +699,7 @@ documents:
         criteris: []
         camps:
         - f2.a8
+    avaluacio: formativa
   solf2:
     uid: solf2
     versio: 1
@@ -992,10 +996,9 @@ evidencies:
     titol: Activitat 6 · L'Everest
     criteris:
     - '1.2'
-  pes: 25
 - uid: s2.video
   id: video
-  versio: 1
+  versio: 2
   titol: Vídeo per a 1r d'ESO
   instruments:
   - video
@@ -1013,10 +1016,10 @@ evidencies:
       NA: No fa servir el model o l'explicació és incorrecta
   - uid: s2.video.v2
     id: v2
-    versio: 1
+    versio: 2
     titol: Adaptació al públic
     criteris:
-    - '4.1'
+    - '2.5'
     descriptors:
       AE: Llenguatge clar, exemples propers i suport visual
       AN: Llenguatge clar i algun suport visual
@@ -1024,16 +1027,15 @@ evidencies:
       NA: No s'entén per a un alumne de 1r
   - uid: s2.video.v3
     id: v3
-    versio: 1
+    versio: 2
     titol: Recursos digitals
     criteris:
-    - '4.1'
+    - '2.5'
     descriptors:
       AE: Imatge i so clars, 2–3 minuts, muntatge i suport visual cuidats
       AN: Imatge i so correctes, durada adequada
       AS: Problemes de so o d'imatge, o durada inadequada
       NA: No es pot seguir el vídeo
-  pes: 35
 - uid: s2.expl
   id: expl
   versio: 1
@@ -1062,7 +1064,6 @@ evidencies:
       AN: Interpreta l'avís de l'etiqueta
       AS: Esmenta l'avís sense interpretar-lo
       NA: No interpreta l'etiqueta
-  pes: 25
 - uid: s2.labc
   id: labc
   versio: 1
@@ -1093,4 +1094,7 @@ evidencies:
       AN: Identifica el tram constant i l'explica amb alguna imprecisió
       AS: Descriu la gràfica sense interpretar-la
       NA: No interpreta els resultats
-  pes: 15
+ce_principals:
+- CE1
+- CE2
+ce_secundaria: []

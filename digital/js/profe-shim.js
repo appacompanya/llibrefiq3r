@@ -47,12 +47,16 @@
   const signed = {};
   G.fqDocUrl = async function (f) {
     const teacher = G.D && Object.values(G.D).some((d) => d.f === f && d.t);
-    if (!teacher) return "../docs/" + f;
-    if (!sb) return "../docs/" + f;
+    const pub = "../docs/" + f;
+    if (!teacher || !sb) return pub;
     if (signed[f] && signed[f].exp > Date.now()) return signed[f].url;
     const { data, error } = await sb.storage.from("professorat").createSignedUrl(f, 3600);
-    if (error || !data) throw { code: "fetch" };
-    signed[f] = { url: data.signedUrl, exp: Date.now() + 50 * 60 * 1000 }; return data.signedUrl;
+    if (!error && data && data.signedUrl) {
+      signed[f] = { url: data.signedUrl, exp: Date.now() + 50 * 60 * 1000 };
+      return data.signedUrl;
+    }
+    /* El bucket privat no té el fitxer (p. ex. la fitxa 1 adaptada de la SdA 2). La còpia de docs/ és la que s'obre. */
+    return pub;
   };
   G.fqTeacherFiles = () => G.D ? Object.values(G.D).filter((d) => d.t).map((d) => d.f) : [];
   G.fqListUploaded = async () => { if (!sb) return []; const { data } = await sb.storage.from("professorat").list("", { limit: 1000 }); return (data || []).map((x) => x.name); };

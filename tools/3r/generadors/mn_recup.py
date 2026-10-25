@@ -14,9 +14,9 @@ CE_TXT = {
     5: "Analitzar els efectes de determinades accions sobre el medi ambient i la salut, basant-se en la física i la química, per fer propostes d'acció i adoptar hàbits sostenibles i saludables.",
     6: "Interpretar i valorar la ciència com una construcció col·lectiva en continu canvi i evolució, que interacciona amb la societat per generar millores.",
 }
-LAST = {1: "la SdA 5", 2: "la SdA 5", 3: "la SdA 4", 4: "la SdA 6", 5: "la SdA 5", 6: "la SdA 6"}
-# Repartiment de CE aprovat (mapa_ce_final.json): on s'avalua cada CE
-WHERE = {1: "SdA 2, 3, 4, 5 i 6", 2: "SdA 1, 2, 4 i 5", 3: "SdA 1 i 4", 4: "SdA 2 i 6", 5: "SdA 1, 3 i 5", 6: "SdA 3 i 6"}
+LAST = {1: "la SdA 6", 2: "la SdA 5", 3: "la SdA 4", 4: "la SdA 6", 5: "la SdA 5", 6: "la SdA 6"}
+# On s'avalua cada CE (contingut/3r/generat/mapa_ce.json): dues principals i, si escau, una secundària
+WHERE = {1: "SdA 2, 5 i 6", 2: "SdA 1, 2, 4 i 5", 3: "SdA 1 i 4", 4: "SdA 3 i 6", 5: "SdA 1, 3 i 5", 6: "SdA 3 i 6"}
 
 
 def head(ce, title, intro):
@@ -32,11 +32,10 @@ def head(ce, title, intro):
 
 def calendari(ce, rows=None):
     if rows is None and ce in (4, 6):
-        sda = "la SdA 2" if ce == 4 else "la SdA 3"
-        rows = [[f"A l'inici de la SdA 6, si tinc la CE{ce} en NA a {sda}", "Rebo la tasca, trio el tema i reviso la rúbrica."],
+        rows = [[f"A la sessió de tancament, després d'avaluar la CE{ce} a la SdA 6, si la tinc en NA", "Rebo la tasca, trio el tema i reviso la rúbrica."],
                 ["Al cap de cinc dies", "Ensenyo l'esborrany de les parts A i B al professor (tutoria de 10 minuts)."],
                 ["Al cap de deu dies", "Lliuro el producte (a l'aula virtual o en paper)."],
-                ["Sessió de tancament", f"Defensa oral de 3 minuts. Compta el nivell més alt entre la tasca i la SdA 6."]]
+                ["Abans de la sessió d'avaluació final", f"Defensa oral de 3 minuts. Compta el nivell més alt entre la tasca i la SdA 6."]]
     rows = rows or [[f"En acabar {LAST[ce]} (o quan t'ho indiqui el professor)", "Rebo la tasca, trio el tema i reviso la rúbrica."],
                     ["Al cap de cinc dies", "Ensenyo l'esborrany de les parts A i B al professor (tutoria de 10 minuts)."],
                     ["Al cap de deu dies", "Lliuro el producte (a l'aula virtual o en paper)."],
@@ -216,7 +215,7 @@ def recup_ce4():
         ("Respecte i inclusió (4.2)", "Incorpora altres veus i té en compte col·lectius diversos sense estereotips", "Incorpora altres veus", "Esmenta altres opinions sense tenir-les en compte", "No té en compte altres opinions"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE4 a la SdA 2 (criteri 4.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE4 a les {WHERE[4]} si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE4 en acabar la SdA 6 (criteri 4.1 a la SdA 3; 4.2 i 4.3 a la SdA 6). La tasca es lliura a la sessió de tancament, després d'avaluar la CE, i no a l'inici de la SdA 6. També qui vulgui millorar. El nivell nou substitueix el de la CE4 a les {WHERE[4]} si és més alt.",
         "<b>Orientacions:</b> és la mateixa estructura de la tasca de comunicació del curs. A la tutoria de mitja tasca reviseu la fitxa de fonts i els arguments abans de gravar.",
         "<b>Atenció a la diversitat:</b> l'alumnat amb mesures addicionals pot fer la defensa per escrit o gravada; l'alumnat nouvingut pot fer el producte en parella i amb el glossari del curs.",
     ], title="Com funciona la recuperació · nota per al professorat, no s'imprimeix per a l'alumne")
@@ -291,7 +290,7 @@ def recup_ce6():
         ("Sense biaixos de gènere (6.2)", "Revisa la proposta i el repartiment de tasques sense estereotips i inclou col·lectius diversos", "Revisa el repartiment de tasques", "Revisió superficial", "No ho revisa"),
     ])
     b += teacher_note([
-        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE6 a la SdA 3 (criteri 6.1); es lliura a l'inici de la SdA 6 perquè es pugui defensar abans de l'avaluació final. També qui vulgui millorar. El nivell nou substitueix el de la CE6 a les {WHERE[6]} si és més alt.",
+        f"<b>Per a qui és:</b> l'alumnat amb NA a la CE6 en acabar la SdA 6 (criteri 6.1 a la SdA 3 i 6.2 a la SdA 6). La tasca es lliura a la sessió de tancament, després d'avaluar la CE, i no a l'inici de la SdA 6. També qui vulgui millorar. El nivell nou substitueix el de la CE6 a les {WHERE[6]} si és més alt.",
         "<b>Fites orientatives.</b> A: Dalton 1808, Thomson 1897, Rutherford 1911 (amb Geiger i Marsden), Bohr 1913, Chadwick 1932; Marie Curie i Marguerite Perey (radioactivitat, franci). B: Edison i Swan (1879), fluorescents (anys 1930), LED blau de Nakamura, Akasaki i Amano (1990s, premi Nobel 2014). C: Volta (1800), Planté (1859), Goodenough, Whittingham i Yoshino (bateria de ió liti, Nobel 2019). D: motor de combustió (Benz, 1886), Bertha Benz (primer viatge llarg, 1888), cotxe elèctric modern, pila de combustible.",
         "<b>Atenció a la diversitat:</b> es pot donar una plantilla de línia del temps amb les dates ja posades.",
     ], title="Com funciona la recuperació · nota per al professorat, no s'imprimeix per a l'alumne")

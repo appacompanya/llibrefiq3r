@@ -6,6 +6,7 @@
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   let settings = { auto_calc: true }, me = null, wsKey = null, wsBack = null, wsFromNav = false, cur = null;
   const LEVEL = window.FQ_LEVEL || "3r";
+  const iaDoc = () => (location.pathname.includes("/2n/") || location.pathname.includes("/4t/")) ? "../../docs/privacitat-ia.html" : "../docs/privacitat-ia.html";
 
   /* ---------- accés ---------- */
   function showLogin(msg) {
@@ -20,6 +21,7 @@
       <p class="err" id="fqErr">${esc(msg || "")}</p>
       <button class="btn" type="submit">Entra</button>
       ${S.mode === "demo" ? `<p class="demo"><b>Mode demostració.</b> Prova amb el codi ${LEVEL === "2n" ? "<b>DEMO-2001</b> o DEMO-2002" : LEVEL === "4t" ? "<b>DEMO-4001</b> o DEMO-4002" : "<b>DEMO-0001</b>, DEMO-0002 o DEMO-0003"}. Les respostes només es desen en aquest navegador.</p>` : `<p class="demo">El codi te'l dona el professor. Si l'has perdut, demana-li'n un de nou.</p>`}
+      <p class="demo">En lliurar una fitxa, les respostes escrites es poden enviar a un proveïdor d'IA per a la correcció assistida. L'indicador «Possible IA» només el veu el docent i no és la nota. <a href="${iaDoc()}">Més informació</a></p>
     </form>`;
     el.hidden = false;
     $("#fqCode").addEventListener("input", (e) => { let v = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ""); if (v.length > 4) v = v.slice(0, 4) + "-" + v.slice(4, 8); e.target.value = v; });
@@ -61,7 +63,7 @@
     sec.innerHTML = `<div class="wsbar"><button type="button" class="btn ghost" id="wsBack"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="wsBackL">Torna</span></button>
       <div class="vtitle"><span><span class="vk" id="wsKick"></span></span><b id="wsName"></b></div>
       <span class="wsstat" id="wsStat"></span><a class="btn ghost" id="wsPdf">Versió en PDF</a><button type="button" class="btn" id="wsSubmit">Lliura la fitxa</button></div>
-      <div class="wsnote" id="wsNote" hidden></div><div id="wsHost"></div>`;
+      <div class="wsnote" id="wsNote" hidden></div><p class="wsnote">En lliurar, les respostes escrites es poden enviar a un proveïdor d'IA per a la correcció assistida. «Possible IA» és un indici per al docent, no la nota oficial. <a href="${iaDoc()}">Més informació</a></p><div id="wsHost"></div>`;
     $("#wsBack").onclick = () => { if (wsFromNav) history.back(); else location.hash = wsBack || "inici"; };
     $("#wsSubmit").onclick = submitWs;
   }

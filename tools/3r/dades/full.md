@@ -22,16 +22,16 @@
 
 ### 1.1 Per què aquesta programació
 
-Aquesta programació organitza el curs de Física i química de 3r d'ESO en **sis situacions d'aprenentatge (SdA)** i **62 sessions d'una hora**, a partir d'una idea senzilla: l'alumnat aprèn ciència quan la necessita per resoldre una pregunta que li importa. Cada SdA comença amb un repte real i proper (dotze pots de laboratori sense etiqueta, un desodorant que rebenta dins d'un cotxe, el mòbil que tenim a la butxaca, els autobusos d'hidrogen de Barcelona, una cèl·lula immunitària que persegueix un bacteri, el consum elèctric de la nostra aula) i acaba amb un producte que surt de l'aula: un protocol, un vídeo per a 1r d'ESO, un punt de recollida de mòbils, una resposta argumentada amb dades, la resposta a una pregunta de recerca biomèdica o un pla d'estalvi que es presenta a la direcció.
+Aquesta programació organitza el curs de Física i química de 3r d'ESO en **sis situacions d'aprenentatge (SdA)** i **63 sessions d'una hora**, a partir d'una idea senzilla: l'alumnat aprèn ciència quan la necessita per resoldre una pregunta que li importa. Cada SdA comença amb un repte real i proper (dotze pots de laboratori sense etiqueta, un desodorant que rebenta dins d'un cotxe, el mòbil que tenim a la butxaca, els autobusos d'hidrogen de Barcelona, una cèl·lula immunitària que persegueix un bacteri, el consum elèctric de la nostra aula) i acaba amb un producte que surt de l'aula: un protocol, un vídeo per a 1r d'ESO, un punt de recollida de mòbils, una resposta argumentada amb dades, un full de forces cel·lulars o un pla d'estalvi que es presenta a la direcció.
 
 La programació respon als **sis vectors** i als **principis pedagògics** de l'article 3 del Decret 175/2022: aprenentatge competencial, funcional i integrat; personalització; coeducació i perspectiva de gènere; inclusió amb els principis del disseny universal per a l'aprenentatge (DUA); domini de la llengua i hàbit lector; i ciutadania democràtica i consciència global, amb els objectius de desenvolupament sostenible (ODS) com a horitzó.
 
 **Principis que la guien:**
 
 - **Contextos reals, locals i propers a l'alumnat**, connectats amb el barri, la ciutat i els projectes del centre.
-- **Cada competència específica (CE) s'avalua en dues SdA**, de manera que l'alumnat té dues oportunitats per demostrar-la, i cada criteri té una segona oportunitat concreta (apartat 7.6). Cada SdA avalua dues CE i, en conjunt, s'avaluen els 21 criteris d'avaluació de la matèria i es treballen 34 dels 35 sabers del decret (apartat 3.3).
+- **Cada SdA avalua dues competències específiques principals** i, només si hi ha una evidència amb rúbrica, una de secundària. No es força una tercera CE cosmètica. Cada criteri que s'avalua té evidència real, i una segona oportunitat concreta (apartat 7.6). En conjunt s'avaluen els 21 criteris i es treballen 34 dels 35 sabers del decret (apartat 3.3). El criteri 3.3 (seguretat) només és evidència oficial a la SdA 1.
 - **Una estructura reconeixible a totes les SdA:** repte i hipòtesi → indagació i nous coneixements → aplicació i producte → avaluació → autoregulació (esmena amb bolígraf verd i diana d'autoavaluació).
-- **Laboratori a les hores desdoblades**, amb dotze pràctiques i seguretat documentada a cada full.
+- **Laboratori a les hores desdoblades**, amb onze pràctiques d'alumnat i seguretat documentada a cada full. La difusió de la SdA 5 és una demostració del docent en grup sencer.
 - **Avaluació formativa i formadora**, amb rúbriques conegudes des del primer dia i qualificació per criteris, no per mitjana d'exàmens.
 - **Material multinivell a totes les SdA**: reptes d'ampliació, materials adaptats per a diferents perfils i una tasca de recuperació per a les competències que es tanquen a final de curs.
 
@@ -83,7 +83,7 @@ La programació es planteja per a un grup de 3r d'ESO de **30 alumnes**, heterog
 
 | Situació | Nombre | Mesures previstes |
 | --- | --- | --- |
-| Alumne amb pla de suport individualitzat (necessitats educatives especials) | 1 | Mesura intensiva; materials adaptats i rol definit als grups (SdA 3 com a exemple) |
+| Alumne amb pla de suport individualitzat (necessitats educatives especials) | 1 | Mesura addicional: suport manipulatiu i rol definit, amb els mateixos criteris (SdA 3). La programació pública no preveu criteris adaptats de PI ni mesures intensives |
 | Alumnat amb dislèxia | 2 | Mesura addicional: format adaptat, lectura en veu alta, més temps (SdA 1) |
 | Alumnat amb TDAH | 1 | Mesura addicional: tasques fragmentades, pauses actives (SdA 5) |
 | Alumne amb trastorn de l'espectre autista | 1 | Mesura addicional: anticipació, rols explícits, espai de calma (SdA 6) |
@@ -91,7 +91,7 @@ La programació es planteja per a un grup de 3r d'ESO de **30 alumnes**, heterog
 | Alumnat amb dificultats en el càlcul | 2–3 | Suports per al càlcul i calculadora (SdA 4) |
 | Alumnat amb altes capacitats o que avança més de pressa | 2–3 | Reptes d'ampliació a totes les SdA |
 
-**Horari.** La matèria té 2 hores setmanals. Una hora es fa amb el grup sencer i l'altra és desdoblada (mig grup, 15 alumnes) i compartida amb Biologia i geologia: mentre una meitat fa Física i química, l'altra fa Biologia, i a la setmana següent s'intercanvien. Aquesta organització permet fer laboratori amb seguretat i atenció individualitzada (apartat 6.3).
+**Horari.** L'alumnat fa 2 hores setmanals: una amb el grup sencer i una desdoblada (mig grup, 15 alumnes), compartida amb Biologia i geologia. El professorat repeteix l'hora desdoblada, una amb cada meitat: el seu horari és 1 hora de grup sencer i 2 de mig grup cada setmana. Mentre una meitat fa Física i química, l'altra fa Biologia. Aquesta organització permet fer laboratori amb seguretat i atenció individualitzada (apartat 6.3).
 
 ### 2.4 Implicacions per a la programació
 
@@ -113,7 +113,7 @@ Els textos de les competències específiques, dels criteris d'avaluació i dels
 | Criteri d'avaluació (1r, 2n i 3r) | SdA |
 | --- | --- |
 | 1.1 Analitzar conceptes, fenòmens i processos relacionats amb els sabers de la física i la química interpretant informació en diferents formats (models, gràfics, taules, diagrames, fórmules, esquemes, símbols, pàgines web…), mantenint una actitud crítica i obtenint conclusions fonamentades en raons científiques. | 2, 5 |
-| 1.2 Interpretar i predir el comportament de fenòmens quotidians rellevants, relacionant-lo amb models, lleis i teories adequades de la física i la química. | 2, 5 |
+| 1.2 Interpretar i predir el comportament de fenòmens quotidians rellevants, relacionant-lo amb models, lleis i teories adequades de la física i la química. | 2, 5, 6 |
 | 1.3 Identificar els conceptes relacionats amb situacions problemàtiques reals de caràcter científic i proporcionar possibles solucions. | 5 |
 
 **Competència específica 2.** Dissenyar, desenvolupar i comunicar el plantejament i les conclusions de recerques incloent la formulació de preguntes i d'hipòtesis i la seva contrastació experimental, dins de l'àmbit escolar, seguint els passos de les metodologies pròpies de la ciència, com l'experimentació i la cerca d'evidències, i del pensament computacional cooperant, quan calgui, per indagar en aspectes relacionats amb la física i la química.
@@ -121,10 +121,10 @@ Els textos de les competències específiques, dels criteris d'avaluació i dels
 | Criteri d'avaluació (1r, 2n i 3r) | SdA |
 | --- | --- |
 | 2.1 Plantejar preguntes sobre fenòmens quotidians i formular hipòtesis que puguin ser respostes o contrastades en el context escolar a través de l'experimentació, la presa de dades i l'anàlisi de fenòmens físics i químics. | 1 |
-| 2.2 Dissenyar, fent servir metodologies pròpies de la ciència, procediments de recerca que impliquin l'ús de la deducció, el treball experimental i el raonament logicomatemàtic. | 4 |
-| 2.3 Portar a terme dissenys experimentals fent servir els instruments, les eines o les tècniques adequades amb correcció i interpretar-ne els resultats utilitzant, quan sigui necessari, eines matemàtiques i tecnològiques. | 1 |
+| 2.2 Dissenyar, fent servir metodologies pròpies de la ciència, procediments de recerca que impliquin l'ús de la deducció, el treball experimental i el raonament logicomatemàtic. | 4, 5 |
+| 2.3 Portar a terme dissenys experimentals fent servir els instruments, les eines o les tècniques adequades amb correcció i interpretar-ne els resultats utilitzant, quan sigui necessari, eines matemàtiques i tecnològiques. | 1, 2, 5 |
 | 2.4 Cooperar en un projecte científic assumint responsablement una funció concreta, utilitzant espais virtuals quan sigui necessari, respectant la diversitat i afavorint la inclusió. | 4 |
-| 2.5 Presentar els resultats i les conclusions obtingudes mitjançant l'experimentació i l'observació de camp utilitzant el format adequat (taules, gràfics, informes, etc.) i, quan sigui necessari, eines digitals. | 4 |
+| 2.5 Presentar els resultats i les conclusions obtingudes mitjançant l'experimentació i l'observació de camp utilitzant el format adequat (taules, gràfics, informes, etc.) i, quan sigui necessari, eines digitals. | 2, 4 |
 | 2.6 Valorar la contribució de la ciència a la societat i la tasca de les persones que s'hi han dedicat, reflexionant sobre els biaixos de gènere en les ciències i la tecnologia, i entenent la recerca com una tasca | 1 |
 
 **Competència específica 3.** Generar, interpretar i validar dades i informació en diferents formats i fonts, fent servir de manera adient el llenguatge científic específic de la física i la química, i usar de manera responsable i segura el material de laboratori, per valorar el llenguatge científic com a eina universal de comunicació i intercanvi de coneixement.
@@ -139,7 +139,7 @@ Els textos de les competències específiques, dels criteris d'avaluació i dels
 
 | Criteri d'avaluació (1r, 2n i 3r) | SdA |
 | --- | --- |
-| 4.1 Utilitzar de forma crítica, creativa i eficient entorns digitals i diferents recursos en formats diversos per defensar el punt de vista propi sobre fenòmens i qüestions ecosocialment rellevants. | 2 |
+| 4.1 Utilitzar de forma crítica, creativa i eficient entorns digitals i diferents recursos en formats diversos per defensar el punt de vista propi sobre fenòmens i qüestions ecosocialment rellevants. | 3 |
 | 4.2 Justificar el punt de vista propi sobre qüestions ecosocialment rellevants, utilitzant tant el treball individual com en equip, respectant les aportacions de tothom i promovent la inclusió de gènere i social. | 6 |
 | 4.3 Cercar i analitzar informació amb mitjans convencionals i digitals i crear continguts relacionats amb la física i la química, seleccionant amb criteri les fonts més fiables i organitzant informació mitjançant l'ús i la citació correctes de diferents fonts. | 6 |
 
@@ -147,7 +147,7 @@ Els textos de les competències específiques, dels criteris d'avaluació i dels
 
 | Criteri d'avaluació (1r, 2n i 3r) | SdA |
 | --- | --- |
-| 5.1 Justificar amb fonaments científics la importància de la preservació dels sistemes fisicoquímics de l'entorn (qualitat de l'aire, de l'aigua, del sòl). | 3 |
+| 5.1 Justificar amb fonaments científics la importància de la preservació dels sistemes fisicoquímics de l'entorn (qualitat de l'aire, de l'aigua, del sòl). | 1, 3 |
 | 5.2 Justificar la necessitat de tenir hàbits sostenibles, analitzant d'una manera crítica les activitats pròpies i alienes i basant-se en els raonaments propis, els coneixements adquirits i la informació disponible. | 3 |
 | 5.3 Identificar algunes situacions en què els coneixements derivats de la física i la química poden contribuir a millorar la sostenibilitat ambiental i la salut individual i col·lectiva. | 5 |
 | 5.4 Emprendre, de manera guiada i amb la metodologia adequada, projectes científics relacionats amb la millora de la societat i que afavoreixin el creixement entre iguals com a base d'una comunitat científica escolar crítica i ètica. | 3 |
@@ -159,28 +159,27 @@ Els textos de les competències específiques, dels criteris d'avaluació i dels
 | 6.1 Interpretar la ciència com un procés en construcció, a través de l'anàlisi amb perspectiva històrica dels avenços científics dels homes i dones que hi van participar, i valorar les repercussions mútues de la ciència actual amb la tecnologia, la societat i el medi ambient. | 3 |
 | 6.2 Raonar la capacitat de la ciència per proposar, mitjançant la implicació ciutadana, solucions sostenibles per a les necessitats tecnològiques, ambientals, econòmiques i socials, detectades en l'entorn, sense biaixos de gènere. | 6 |
 
-**Pla d'avaluació de les competències.** Cada SdA avalua dues CE i cada CE s'avalua en dues SdA:
+**Pla d'avaluació de les competències.** Dues CE principals per SdA. Una CE secundària només si surt d'una evidència amb rúbrica (CE5 a la SdA 1, CE4 a la SdA 3, CE2 a la SdA 5, CE1 a la SdA 6). Les principals van en negreta a la taula de cada SdA, més avall.
 
-| CE | SdA 1 | SdA 2 | SdA 3 | SdA 4 | SdA 5 | SdA 6 |
-| --- | --- | --- | --- | --- | --- | --- |
-| CE1 |  | 1.1, 1.2 |  |  | 1.1, 1.2, 1.3 |  |
-| CE2 | 2.1, 2.3, 2.6 |  |  | 2.2, 2.4, 2.5 |  |  |
-| CE3 | 3.2, 3.3 |  |  | 3.1, 3.2 |  |  |
-| CE4 |  | 4.1 |  |  |  | 4.2, 4.3 |
-| CE5 |  |  | 5.1, 5.2, 5.4 |  | 5.3 |  |
-| CE6 |  |  | 6.1 |  |  | 6.2 |
+| CE | Paper | SdA 1 | SdA 2 | SdA 3 | SdA 4 | SdA 5 | SdA 6 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| CE1 | Principal a 2 i 5; secundària a 6 |  | 1.1, 1.2 |  |  | 1.1, 1.2, 1.3 | 1.2 |
+| CE2 | Principal a 1, 2 i 4; secundària a 5 | 2.1, 2.3, 2.6 | 2.3, 2.5 |  | 2.2, 2.4, 2.5 | 2.2, 2.3 |  |
+| CE3 | Principal a 1 i 4 | 3.2, 3.3 |  |  | 3.1, 3.2 |  |  |
+| CE4 | Principal a 6; secundària a 3 |  |  | 4.1 |  |  | 4.2, 4.3 |
+| CE5 | Principal a 3 i 5; secundària a 1 | 5.1 |  | 5.1, 5.2, 5.4 |  | 5.3 |  |
+| CE6 | Principal a 3 i 6 |  |  | 6.1 |  |  | 6.2 |
 
-**Competències específiques de cada SdA.** La mateixa informació, ordenada per SdA: cada fila mostra quines competències i criteris s'avaluen en aquella SdA.
+**Competències específiques de cada SdA.**
 
-| SdA | CE1 | CE2 | CE3 | CE4 | CE5 | CE6 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 · Detectius de la matèria |  | 2.1, 2.3, 2.6 | 3.2, 3.3 |  |  |  |
-| 2 · El desodorant kamikaze | 1.1, 1.2 |  |  | 4.1 |  |  |
-| 3 · Què hi ha dins del meu mòbil? |  |  |  |  | 5.1, 5.2, 5.4 | 6.1 |
-| 4 · Un cotxe que només allibera aigua? |  | 2.2, 2.4, 2.5 | 3.1, 3.2 |  |  |  |
-| 5 · Cèl·lules immunitàries a la caça dels patògens | 1.1, 1.2, 1.3 |  |  |  | 5.3 |  |
-| 6 · L'energia del nostre institut |  |  |  | 4.2, 4.3 |  | 6.2 |
-| SdA en què s'avalua | 2 | 2 | 2 | 2 | 2 | 2 |
+| SdA | Principals | Secundària | Criteris |
+| --- | --- | --- | --- |
+| 1 · Detectius de la matèria | CE2, CE3 | CE5 | 2.1, 2.3, 2.6, 3.2, 3.3, 5.1 |
+| 2 · El desodorant kamikaze | CE1, CE2 | — | 1.1, 1.2, 2.3, 2.5 |
+| 3 · Què hi ha dins del meu mòbil? | CE5, CE6 | CE4 | 4.1, 5.1, 5.2, 5.4, 6.1 |
+| 4 · Un cotxe que només allibera aigua? | CE2, CE3 | — | 2.2, 2.4, 2.5, 3.1, 3.2 |
+| 5 · Cèl·lules immunitàries a la caça dels patògens | CE1, CE5 | CE2 | 1.1, 1.2, 1.3, 2.2, 2.3, 5.3 |
+| 6 · L'energia del nostre institut | CE4, CE6 | CE1 | 1.2, 4.2, 4.3, 6.2 |
 
 ### 3.2 Sabers
 
@@ -222,7 +221,7 @@ Sabers de Física i química de primer, segon i tercer curs (annex 3 del Decret 
 | E6 | Elaboració fonamentada d'hipòtesis sobre el medi ambient i la sostenibilitat a partir de les diferències entre fonts d'energia renovables i no renovables i el seu contrast amb dades reals i la presa argumentada de decisions. | 4, 6 |
 | E7 | Anàlisi i aplicació dels mecanismes i efectes de la transferència i conducció de calor sobre els sistemes materials (fluids i sòlids), l'assoliment de l'equilibri tèrmic, en situacions quotidianes i de rellevància ambiental i social. | No: 1r–2n |
 | E8 | Realització d'experiments relacionats amb la naturalesa elèctrica de la matèria, i comprovació i interpretació de les propietats conductores dels materials. | 1, 3, 4 |
-| E9 | Disseny, muntatge i anàlisi de circuits elèctrics elementals, tant en un entorn físic com simulat. | 6 (anàlisi; sense muntatge) |
+| E9 | Disseny, muntatge i anàlisi de circuits elèctrics elementals, tant en un entorn físic com simulat. | 6 (muntatge senzill i simulació; sense full de laboratori) |
 | E10 | Anàlisi crítica dels diferents processos d'obtenció d'energia elèctrica, per desenvolupar consciència sobre la necessitat de l'estalvi energètic i la conservació sostenible del medi ambient i la societat. | 6 |
 
 **Interacció**
@@ -250,12 +249,12 @@ Sabers de Física i química de primer, segon i tercer curs (annex 3 del Decret 
 
 El decret deixa al professorat la gradació dels sabers entre 1r i 3r. En aquesta programació:
 
-- **Notació científica i canvis d'unitats.** Es treballen a la SdA 1 (sessions 2 i 3), s'avaluen a la seva prova i s'apliquen a les SdA 3 (escala de l'àtom), 4 (masses), 5 (cèl·lules i forces de nanonewtons) i 6 (energia en kWh i J).
+- **Notació científica i canvis d'unitats.** Es treballen a la SdA 1 (sessions 2 i 3), s'avaluen a l'activitat de demostració d'assoliment i s'apliquen a les SdA 3 (escala de l'àtom), 4 (masses), 5 (cèl·lules i forces de nanonewtons) i 6 (energia en kWh i J).
 - **Seguretat viària (I4).** Es treballa a la SdA 5 amb la distància d'aturada a 50 i a 30 km/h, amb temps de reacció, que justifica el límit de 30 km/h a prop de les escoles.
 - **Quantitat de matèria (M7).** A 3r es treballa amb masses i proporcions definides, sense el concepte de mol; el mol apareix només com a ampliació a la SdA 4 i es desenvolupa a 4t, on també s'introdueix la configuració electrònica per orbitals. A 3r, l'estructura electrònica es limita al model de capes de Bohr (SdA 3).
 - **Factors de la velocitat de reacció (C6).** Es treballen amb tres demostracions (concentració, superfície i temperatura) a la sessió 7 de la SdA 4, per no afegir una sessió de laboratori.
 - **Sabers que no es treballen a 3r.** La transferència i conducció de calor i l'equilibri tèrmic (E7) i la transferència d'energia en forma de so (part d'E3) no es treballen en cap SdA d'aquesta programació: segons la distribució del departament, es treballen a 1r i 2n d'ESO. A la SdA 2 s'escalfen i es refreden globus i aigua, però l'objectiu és el model cineticomolecular, no els mecanismes de transferència de calor.
-- **Circuits elèctrics (E9).** Es treballen a la SdA 6 a partir de la instal·lació elèctrica real de l'aula (associació en sèrie i en paral·lel, consum en espera), sense una pràctica específica de muntatge de circuits; la simulació PhET queda com a recurs complementari.
+- **Circuits elèctrics (E9).** A la SdA 6 (sessió 2) es munten circuits elementals en sèrie i en paral·lel amb piles i bombetes, i es contrasten amb la simulació PhET. No hi ha un full de laboratori de circuits: el registre és el full de ruta i la simulació. El consum real (sessió 4) es mesura amb wattímetre i té el seu full.
 
 ### 3.4 Competències clau i perfil de sortida
 
@@ -298,14 +297,14 @@ CCL: competència en comunicació lingüística · CP: competència plurilingüe
 
 El curs 2026-2027 comença el 8 de setembre de 2026 i acaba el 21 de juny de 2027. Les vacances de Nadal van del 22 de desembre al 7 de gener, i les de Setmana Santa, del 20 al 29 de març. Amb 2 hores setmanals i descomptant festius i dies de lliure disposició, hi ha unes **70 hores lectives**: unes 28 al primer trimestre, unes 20 al segon i unes 22 al tercer.
 
-La programació ocupa **62 sessions** (sessió 0, 60 sessions de SdA i sessió de tancament) i deixa **un marge d'unes 8 hores** per a sortides, activitats del centre, avaluacions, imprevistos o una SdA que s'allargui.
+La programació ocupa **63 sessions** (sessió 0, 61 sessions de SdA i sessió de tancament) i deixa **un marge d'unes 7 hores** per a sortides, activitats del centre, avaluacions, imprevistos o una SdA que s'allargui.
 
 | Trimestre | Contingut | Sessions programades | Hores disponibles (aprox.) | Marge |
 | --- | --- | --- | --- | --- |
 | 1r (set.–des.) | Sessió 0 · SdA 1 · SdA 2 · SdA 3 (sessions 1–3) | 24 | 28 | 4 |
 | 2n (gen.–març) | SdA 3 (sessions 4–10) · SdA 4 · SdA 5 (sessions 1–2) | 19 | 20 | 1 |
-| 3r (abr.–juny) | SdA 5 (sessions 3–13) · SdA 6 · sessió de tancament | 19 | 22 | 3 |
-| **Total** |  | **62** | **70** | **8** |
+| 3r (abr.–juny) | SdA 5 (sessions 3–13) · SdA 6 (8 sessions) · sessió de tancament | 20 | 22 | 2 |
+| **Total** |  | **63** | **70** | **7** |
 
 La seqüència va de la matèria i la mesura (SdA 1) al model de partícules (SdA 2), l'àtom (SdA 3) i el canvi químic (SdA 4), i acaba amb les forces i el moviment (SdA 5) i l'energia (SdA 6), que integra bona part del que s'ha après durant el curs.
 
@@ -313,12 +312,12 @@ La seqüència va de la matèria i la mesura (SdA 1) al model de partícules (Sd
 
 | SdA | Repte | Ses. | Producte final | CE | Trimestre |
 | --- | --- | --- | --- | --- | --- |
-| 1 · Detectius de la matèria | Com podem identificar dotze substàncies que han perdut l'etiqueta? | 10 | Informe del grup i protocol d'identificació | CE2, CE3 | 1r |
-| 2 · El desodorant kamikaze | Per què explota un desodorant dins d'un cotxe a l'agost? | 10 | Vídeo per a l'alumnat de 1r d'ESO | CE1, CE4 | 1r |
-| 3 · Què hi ha dins del meu mòbil? | Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem? | 10 | Campanya i punt de recollida de mòbils al centre | CE5, CE6 | 1r–2n |
+| 1 · Detectius de la matèria | Com podem identificar dotze substàncies que han perdut l'etiqueta? | 10 | Informe del grup i protocol d'identificació | CE2, CE3 (sec. CE5) | 1r |
+| 2 · El desodorant kamikaze | Per què explota un desodorant dins d'un cotxe a l'agost? | 10 | Vídeo per a l'alumnat de 1r d'ESO | CE1, CE2 | 1r |
+| 3 · Què hi ha dins del meu mòbil? | Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem? | 10 | Campanya del punt de recollida (objectiu, rols, cartell i arguments) | CE5, CE6 (sec. CE4) | 1r–2n |
 | 4 · Un cotxe que només allibera aigua? | Per què no tots els vehicles funcionen amb hidrogen? | 10 | Resposta argumentada del grup amb dades citades | CE2, CE3 | 2n |
-| 5 · Cèl·lules immunitàries a la caça dels patògens | Com persegueix un neutròfil un bacteri sense veure'l? | 13 | Full de forces cel·lulars i resposta al repte | CE1, CE5 | 2n–3r |
-| 6 · L'energia del nostre institut | Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut? | 7 | Pla d'estalvi i votació del pla que es presenta a la direcció | CE4, CE6 | 3r |
+| 5 · Cèl·lules immunitàries a la caça dels patògens | Com persegueix un neutròfil un bacteri sense veure'l? | 13 | Full de forces cel·lulars | CE1, CE5 (sec. CE2) | 2n–3r |
+| 6 · L'energia del nostre institut | Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut? | 8 | Pla d'estalvi amb l'estalvi en kWh i votació del pla que es presenta a la direcció | CE4, CE6 (sec. CE1) | 3r |
 
 ### 4.3 Sessió 0 i sessió de tancament
 
@@ -337,9 +336,9 @@ La primera i l'última sessió del curs emmarquen les sis SdA i formen part de l
 
 - **Represa després de vacances.** Si una SdA queda partida per unes vacances, la primera sessió de la represa comença amb 15 minuts de reactivació (mapa conceptual, preguntes ràpides o revisió del full de ruta). És el cas de la SdA 3 al gener (laboratori de l'assaig a la flama) i de la SdA 5 a l'abril (MRUA). No s'hi afegeixen sessions, per no desplaçar l'alternança de grup sencer i mig grup.
 - **Activitats que es poden comprimir** sense tocar els laboratoris ni els instruments avaluats: el taller de problemes de la SdA 4 (sessió 7), els problemes de moviment de la SdA 5 (sessió 8) i la cerca d'informació de la SdA 6 (sessió 4), que pot continuar a casa.
-- **Pla B del 2n trimestre (1 hora de marge).** Si es perd més d'una hora, el taller de problemes de la SdA 4 (sessió 7) es fa a casa amb el solucionari i es corregeix en 10 minuts a la sessió 8, i les sessions 1 i 2 de la SdA 5 passen al 3r trimestre, que té 3 hores de marge.
-- **Pla B de final de curs (SdA 6).** La SdA 6 ha d'acabar la primera setmana de juny. Si es perden sessions pel calendari de final de curs: la cerca d'informació de la sessió 4 es fa a casa amb la fitxa 2; el debat de la sessió 5 es redueix a 20 minuts amb dos portaveus per grup; la votació dels plans es fa a l'aula virtual, i la sessió de tancament es fusiona amb la sessió 7 (diana i full de tancament en 25 minuts). La prova i el pla d'estalvi no es toquen, perquè són la segona avaluació de la CE4 i de la CE6.
-- **Calendari de la tasca de recuperació.** L'alumnat amb NA en el criteri 4.1 (SdA 2) o 6.1 (SdA 3) rep la tasca a l'inici de la SdA 6; la resta, a la sessió 7, amb els resultats de la prova. El termini és de deu dies i la defensa oral es fa abans de la sessió d'avaluació final. Si la sessió 7 queda després del 7 de juny, la tasca es redueix als apartats A, C i D i la defensa es fa a la sessió de tancament.
+- **Pla B del 2n trimestre (1 hora de marge).** Si es perd més d'una hora, el taller de problemes de la SdA 4 (sessió 7) es fa a casa amb el solucionari i es corregeix en 10 minuts a la sessió 8, i les sessions 1 i 2 de la SdA 5 passen al 3r trimestre, que té 2 hores de marge.
+- **Pla B de final de curs (SdA 6).** La SdA 6 té 8 sessions. Si es perden sessions: la cerca de la sessió 5 es fa a casa amb la fitxa 2; el debat de la sessió 6 es redueix a 20 minuts amb dos portaveus per grup, i la votació es pot fer a l'aula virtual. L'activitat de demostració (sessió 7) i el pla d'estalvi (sessió 6) no es toquen.
+- **Calendari de la tasca de recuperació.** Cada tasca es lliura en acabar la darrera SdA on s'avalua aquella CE (CE3 en acabar la SdA 4; CE2 i CE5 en acabar la SdA 5; CE1, CE4 i CE6 en acabar la SdA 6). Les de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les, i no a l'inici de la SdA 6. El termini és de deu dies, amb una tutoria de 10 minuts al cap de cinc dies, i la defensa oral es fa abans de la sessió d'avaluació final. Compta el nivell més alt.
 - **Feina a casa.** Les fitxes formatives que no s'acaben a classe es completen a casa i es corregeixen els 5 primers minuts de la sessió següent. Els fulls avaluats es fan i es lliuren a classe.
 
 ## 5. Les situacions d'aprenentatge
@@ -356,8 +355,8 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 **Elements curriculars.**
 
-- Criteris: 2.1, 2.3 i 2.6 (CE2); 3.2 i 3.3 (CE3).
-- Sabers: HC1–HC6 · M2 (experiments amb sistemes materials), M3 (substàncies i mescles) · E8 (naturalesa elèctrica i conductors) · C2 (canvis físics i químics), C4 (àcids, bases, oxidacions i precipitats).
+- Criteris: 2.1, 2.3 i 2.6 (CE2, principal); 3.2 i 3.3 (CE3, principal); 5.1 (CE5, secundària: lectura «Aigua i salut»).
+- Sabers: HC1–HC6 · M2 (experiments amb sistemes materials), M3 (substàncies i mescles) · E8 (naturalesa elèctrica i conductors) · C2 (canvis físics i químics), C4 (àcids, bases, oxidacions i precipitats). No s'hi treballen l'estructura atòmica (M5) ni la taula periòdica (M6): són de la SdA 3.
 - Vectors i ODS: aprenentatges competencials, perspectiva de gènere (Ellen Swallow Richards), universalitat del currículum, qualitat de l'educació de les llengües (informe científic i lectura en anglès), ciutadania democràtica i consciència global (aigua i salut pública); ODS 6.
 
 **Objectius d'aprenentatge.** En acabar la SdA, l'alumnat serà capaç de:
@@ -381,28 +380,28 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 6 · Separem mescles | MG | Aplicació | Laboratori: miscibilitat, decantació i separació d'una mescla de quatre components. Lectura en anglès a casa. | Full de laboratori (qualificador). Llista de control de seguretat. |
 | 7 · La nota anònima | GS | Aplicació | Cromatografia de les notes anònimes. Revisió de l'assignació dels pots. Debat sobre Ellen Swallow Richards. | Lectura en anglès (qualificadora, rúbrica). Full de cromatografia (formatiu). |
 | 8 · Resolem el cas | MG | Estructuració i síntesi | Presentació de l'assignació final amb dues proves per pot; protocol d'identificació consensuat; mapa conceptual. | Informe i protocol (qualificador, rúbrica; coavaluació de les presentacions). |
-| 9 · Prova | GS | Avaluació i regulació | Prova escrita amb situacions noves. | Prova (qualificadora, heteroavaluació amb solucionari i criteris). |
-| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció col·lectiva de la prova, esmena amb bolígraf verd i diana d'autoavaluació. | Esmena (formadora, autoavaluació). Diana (autoavaluació). |
+| 9 · Demostració d'assoliment | GS | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves. | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció col·lectiva de l'activitat de demostració, esmena amb bolígraf verd i diana d'autoavaluació. | Esmena (formadora, autoavaluació). Diana (autoavaluació). |
 
 **Organització i agrupaments.** Grups de quatre amb rols rotatius (coordinació, material i seguretat, registre, portaveu). Laboratori a les sessions desdoblades 4 i 6; demostracions amb el grup sencer.
 
-**Materials i recursos.** Dotze pots amb substàncies comunes sense etiqueta, balances digitals, provetes, aparell de conductivitat amb pila i LED, clau de ferro i sulfat de coure, embuts de decantació i de filtració, imants, paper de cromatografia i retoladors. Fulls: full de ruta, registre del detectiu, seguretat, fitxes 1 i 2, quatre fulls de laboratori, lectura en anglès, guió de l'informe, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Dotze pots amb substàncies comunes sense etiqueta, balances digitals, provetes, aparell de conductivitat amb pila i LED, clau de ferro i sulfat de coure, embuts de decantació i de filtració, imants, paper de cromatografia i retoladors. Fulls: full de ruta, registre del detectiu, seguretat, fitxes 1 i 2, quatre fulls de laboratori, lectura en anglès, guió de l'informe, rúbriques, activitat de demostració, diana i mapa conceptual.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Informe del grup i protocol | Qualificador | Heteroavaluació amb rúbrica; coavaluació de la presentació | 2.1, 2.3, 3.2 | 40 % |
-| Prova competencial | Qualificador | Heteroavaluació amb solucionari i criteris | 2.3, 2.6, 3.2 | 30 % |
-| Fulls de laboratori i seguretat | Qualificador | Heteroavaluació amb la rúbrica dels fulls i l’observació del compliment de les normes de seguretat | 2.3, 3.3 | 20 % |
-| Lectura en anglès (Ellen Swallow Richards) | Qualificador | Heteroavaluació amb rúbrica | 2.6 | 10 % |
-| Registre del detectiu, fitxes 1 i 2, diana | Formatiu | Autoavaluació (bolígraf verd, diana) | — | — |
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Informe del grup i protocol | Qualificador | Heteroavaluació amb rúbrica; coavaluació de la presentació | 2.1, 2.3, 3.2 |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació amb solucionari i criteris | 2.3, 2.6, 3.2 |
+| Fulls de laboratori i seguretat | Qualificador | Heteroavaluació amb la rúbrica dels fulls i l’observació del compliment de les normes de seguretat | 2.3, 3.3 |
+| Lectura en anglès (Ellen Swallow Richards) | Qualificador | Heteroavaluació amb rúbrica | 2.6, 5.1 |
+| Registre del detectiu, fitxes 1 i 2, diana | Formatiu | Autoavaluació (bolígraf verd, diana) | — |
 
 **Atenció a la diversitat.** Fitxa 1 adaptada per a alumnat amb dislèxia (format d'alta llegibilitat, escala de prefixos dibuixada, exemples resolts, menys ítems); rols de laboratori rotatius; lectura en anglès amb glossari; dossier d'ampliació amb la corona d'Arquimedes, un problema de Fermi i el factor de retenció.
 
 ### 5.2 SdA 2 · El desodorant kamikaze
 
-**Justificació.** Els aerosols que exploten dins dels cotxes a l'estiu són una notícia recurrent i un risc real. El fenomen requereix el model de partícules, la relació entre pressió, volum i temperatura i els canvis d'estat, i permet construir el model cineticomolecular a partir de l'experimentació. El producte final, un vídeo per a 1r d'ESO, obliga a explicar el model amb paraules senzilles, la millor prova que s'ha entès.
+**Justificació.** Els aerosols que exploten dins dels cotxes a l'estiu són una notícia recurrent i un risc real. El fenomen requereix el model de partícules, la relació entre pressió, volum i temperatura i els canvis d'estat, i permet construir el model cineticomolecular a partir de l'experimentació. El producte final, un vídeo per a 1r d'ESO, obliga a explicar el model amb paraules senzilles, la millor evidència que s'ha entès.
 
 **Repte.** *Per què explota un desodorant dins d'un cotxe a l'agost?*
 
@@ -410,7 +409,7 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 **Elements curriculars.**
 
-- Criteris: 1.1 i 1.2 (CE1); 4.1 (CE4).
+- Criteris: 1.1 i 1.2 (CE1, principal); 2.3 i 2.5 (CE2, principal). El vídeo no avalua el criteri 4.1: l'adaptació al públic i els recursos digitals són el 2.5.
 - Sabers: HC1–HC5 · M1 (model cineticomolecular), M2 (experiments amb sistemes materials) · E2 (energia en els canvis), E4 (gràfics temperatura–temps) · C2 (canvis físics i químics).
 - Vectors i ODS: aprenentatges competencials, universalitat del currículum, qualitat de l'educació de les llengües (text explicatiu adaptat a un destinatari), benestar emocional (tutoria de 3r a 1r).
 
@@ -434,21 +433,22 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 6 · Corba d'escalfament i canvis d'estat | MG | Aplicació | Laboratori: corba d'escalfament de l'aigua amb torns de mesura; canvis d'estat; ebullició a baixa pressió en una xeringa tapada. | Dades per a l'informe de pràctica (formatiu). Llista de control de seguretat. |
 | 7 · Torno al repte | GS | Estructuració i síntesi | Explicació final del repte i comparació amb el dibuix del primer dia; mapa conceptual; elecció del fenomen del vídeo. | Explicació final (qualificadora, rúbrica). |
 | 8 · Gravem el vídeo per a 1r | MG | Aplicació | Guió i gravació del vídeo per a 1r d'ESO; edició a casa. | Guió amb llista de comprovació (formatiu). |
-| 9 · Prova | GS | Avaluació i regulació | Prova escrita amb situacions noves. | Prova (qualificadora). |
-| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció i esmena de la prova; presentació dels vídeos; diana. | Vídeo (qualificador, rúbrica; coavaluació dels companys). Esmena i diana (autoavaluació). |
+| 9 · Demostració d'assoliment | GS | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves. | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció i esmena de l'activitat de demostració; presentació dels vídeos; diana. | Vídeo (qualificador, rúbrica; coavaluació dels companys). Esmena i diana (autoavaluació). |
 
 **Organització i agrupaments.** Grups de quatre estables durant la SdA. Laboratori a les sessions 2 i 6 (mig grup). El vídeo es fa en grup i cada membre assumeix un rol (guió, gravació, muntatge, veu).
 
-**Materials i recursos.** Globus, cinta mètrica, congelador, vasos amb aigua calenta, termòmetres, fogó elèctric, xeringues, simulacions PhET (estats de la matèria i propietats dels gasos), portàtils o mòbils per gravar i editar el vídeo. Fulls: full de ruta, full del repte, laboratoris, fitxes 1 i 2, guió de l'informe, guió del vídeo, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Globus, cinta mètrica, congelador, vasos amb aigua calenta, termòmetres, fogó elèctric, xeringues, simulacions PhET (estats de la matèria i propietats dels gasos), portàtils o mòbils per gravar i editar el vídeo. Fulls: full de ruta, full del repte, laboratoris, fitxes 1 i 2, guió de l'informe, guió del vídeo, rúbriques, activitat de demostració, diana i mapa conceptual.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Vídeo per a 1r d'ESO | Qualificador | Heteroavaluació i coavaluació amb rúbrica | 1.2, 4.1 | 40 % |
-| Explicació final del repte | Qualificador | Heteroavaluació amb rúbrica | 1.1, 1.2 | 30 % |
-| Prova competencial | Qualificador | Heteroavaluació | 1.1, 1.2 | 30 % |
-| Fitxes 1 i 2, informe de pràctica, guió del vídeo, diana | Formatiu | Autoavaluació i coavaluació | — | — |
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Vídeo per a 1r d'ESO | Qualificador | Heteroavaluació i coavaluació amb rúbrica | 1.2, 2.5 |
+| Explicació final del repte | Qualificador | Heteroavaluació amb rúbrica | 1.1, 1.2 |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació | 1.1, 1.2 |
+| Informe de la corba d'escalfament | Qualificador | Heteroavaluació amb rúbrica | 2.3 |
+| Fitxes 1 i 2, guió del vídeo, diana | Formatiu | Autoavaluació i coavaluació | — |
 
 **Atenció a la diversitat.** Glossari visual trilingüe i fitxa 1 amb suport visual per a l'alumnat nouvingut (banc de paraules i frases model); rols diversos en el vídeo (guió, gravació, muntatge, veu); dossier d'ampliació amb el globus sonda, la pressió de vapor del butà, el zero absolut i l'energia de la corba d'escalfament.
 
@@ -458,11 +458,11 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 **Repte.** *Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?*
 
-**Producte final.** Campanya i punt de recollida de mòbils al centre, amb el balanç del que s'ha recollit.
+**Producte final.** Campanya del punt de recollida (objectiu, normes, rols, cartell i arguments). El recompte del que s'ha recollit es comenta en tancar la SdA 4 i no es qualifica aquí.
 
 **Elements curriculars.**
 
-- Criteris: 5.1, 5.2 i 5.4 (CE5); 6.1 (CE6).
+- Criteris: 5.1, 5.2 i 5.4 (CE5, principal); 6.1 (CE6, principal); 4.1 (CE4, secundària: difusió del punt de vista ecosocial al cartell de la campanya).
 - Sabers: HC1, HC3–HC6 · M2 (experiments amb sistemes materials), M4 (criteris de la taula periòdica), M5 (estructura atòmica, ions i isòtops), M6 (propietats i posició a la taula), M7 (compostos i quantitat de matèria) · E3 (emissió de llum), E8 (naturalesa elèctrica i conductors) · C4 (oxidació i reducció a la bateria).
 - Vectors i ODS: aprenentatges competencials, ciutadania democràtica i consciència global (matèries primeres crítiques i reciclatge), perspectiva de gènere (Marguerite Perey), universalitat del currículum, qualitat de l'educació de les llengües (textos de difusió); ODS 12.
 
@@ -485,25 +485,25 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 5 · La taula periòdica | GS | Introducció de nous coneixements | Mendeléiev i les prediccions; situació dels elements del mòbil a la taula; propietats dels grups. | Fitxa 4 (formativa, autocorrecció). |
 | 6 · L'enllaç químic | MG | Introducció de nous coneixements | Enllaç iònic, covalent i metàl·lic aplicat als materials del mòbil (coure, silici, plàstic). | Fitxa 5 (formativa). |
 | 7 · Per què cremen les bateries? | GS | Aplicació | Anàlisi de notícies d'incendis en camions i plantes de residus; matèries primeres crítiques de la UE. | Dossier (qualificador, rúbrica). |
-| 8 · Posem en marxa el punt de recollida | MG | Estructuració i síntesi | Pla de campanya: objectiu, normes, rols, cartell i difusió; mapa conceptual. | Pla de campanya (formatiu; part de la rúbrica de la campanya). |
-| 9 · Prova | GS | Avaluació i regulació | Prova escrita amb situacions noves. | Prova (qualificadora). |
+| 8 · Posem en marxa el punt de recollida | MG | Estructuració i síntesi | Campanya: objectiu, normes, rols, cartell i difusió del punt de vista ecosocial. El recompte es comenta a la SdA 4 i no es qualifica aquí. | Campanya (qualificadora, rúbrica; inclou el criteri 4.1 a la difusió). |
+| 9 · Demostració d'assoliment | GS | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves. | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
 | 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció i esmena; diana. El punt de recollida funciona unes setmanes i se'n fa el balanç a la SdA 4. | Campanya (qualificadora, rúbrica). Esmena i diana (autoavaluació). |
 
 **Organització i agrupaments.** Grups de quatre; a la sessió 3, cada grup és expert en una etapa del reciclatge. Laboratori a la sessió 4 (mig grup). La campanya implica tot el centre durant unes setmanes.
 
-**Materials i recursos.** Model de mòbil per desmuntar, simulacions PhET (construeix un àtom, dispersió de Rutherford) i simulador propi de la bateria de liti, sals de liti, sodi, coure i potassi, broquet Bunsen (manipulat pel professor), espectroscopis del CESIRE, targetes del camí del reciclatge, caixa del punt de recollida. Fulls: full de ruta, fitxes 1–5, laboratori, dossier, pla de campanya, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Model de mòbil per desmuntar, simulacions PhET (construeix un àtom, dispersió de Rutherford) i simulador propi de la bateria de liti, sals de liti, sodi, coure i potassi, broquet Bunsen (manipulat pel professor), espectroscopis del CESIRE, targetes del camí del reciclatge, caixa del punt de recollida. Fulls: full de ruta, fitxes 1–5, laboratori, dossier, pla de campanya, rúbriques, activitat de demostració, diana i mapa conceptual.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Campanya i punt de recollida | Qualificador | Heteroavaluació amb rúbrica; autoavaluació del grup | 5.1, 5.2, 5.4 | 35 % |
-| Prova competencial | Qualificador | Heteroavaluació | 5.1, 5.2, 6.1 | 30 % |
-| Dossier sobre incendis i matèries primeres crítiques | Qualificador | Heteroavaluació amb rúbrica | 5.1, 5.2 | 25 % |
-| Fitxa d'evolució dels models atòmics | Qualificador | Heteroavaluació | 6.1 | 10 % |
-| Fitxes 1–5, laboratori, diana | Formatiu | Autoavaluació | — | — |
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Campanya del punt de recollida | Qualificador | Heteroavaluació amb rúbrica | 4.1, 5.1, 5.2, 5.4 |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació | 5.1, 5.2, 6.1 |
+| Dossier sobre incendis i matèries primeres crítiques | Qualificador | Heteroavaluació amb rúbrica | 5.1, 5.2 |
+| Fitxa d'evolució dels models atòmics | Qualificador | Heteroavaluació | 6.1 |
+| Fitxes 1, 3, 4 i 5, laboratori, diana | Formatiu | Autoavaluació. La fitxa 2 és la fila qualificadora de dalt | — |
 
-**Atenció a la diversitat.** Fitxa per a l'alumne amb PI (models de Bohr per comptar, taula periòdica simplificada, rol de registre a la campanya); models manipulables d'àtoms; dossier d'ampliació amb la massa atòmica mitjana, l'escala de l'àtom, la mineria urbana i l'energia de la bateria.
+**Atenció a la diversitat.** Mesura addicional, amb els mateixos criteris: fitxa amb suport manipulatiu (models de Bohr per comptar, taula periòdica simplificada, rol de registre a la campanya) per a l'alumnat que ho necessita; models manipulables d'àtoms; dossier d'ampliació amb la massa atòmica mitjana, l'escala de l'àtom, la mineria urbana i l'energia de la bateria. No hi ha criteris adaptats de PI.
 
 ### 5.4 SdA 4 · Un cotxe que només allibera aigua?
 
@@ -541,21 +541,21 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 6 · Electròlisi: hidrogen verd | MG | Aplicació | Laboratori: electròlisi de l'aigua amb material casolà; volum de gas cada 2 minuts i relació de volums. | Full de laboratori (qualificador). |
 | 7 · Taller de problemes | GS | Estructuració i síntesi | Demostracions de la velocitat de reacció (concentració, superfície i temperatura); problemes de síntesi; mapa conceptual. | Fitxa 3 (formativa). |
 | 8 · Per què no són tots així? | MG | Aplicació | Lectura en trencaclosques del dossier (origen de l'hidrogen, eficiència, seguretat); resposta del grup amb dades citades. | Dossier i resposta (qualificadors, rúbrica; autoavaluació del rol). |
-| 9 · Prova | GS | Avaluació i regulació | Prova escrita amb situacions noves. | Prova (qualificadora). |
-| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció i esmena; diana; balanç de la campanya de mòbils. | Esmena i diana (autoavaluació). |
+| 9 · Demostració d'assoliment | GS | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves. | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 10 · Corregeixo i reflexiono | MG | Avaluació i regulació | Correcció i esmena; diana. Comentari del recompte de mòbils de la SdA 3, sense qualificar-lo. | Esmena i diana (autoavaluació). |
 
 **Organització i agrupaments.** Grups de tres o quatre. Laboratoris a les sessions 2, 4 i 6 (mig grup). Trencaclosques a la sessió 8: cada membre és expert en un aspecte del dossier.
 
-**Materials i recursos.** Espelma i pot de vidre, aigua de calç, vinagre, bicarbonat, globus, balança, magnesi, àcid clorhídric diluït, tubs d'assaig, termòmetre, pot amb xinxetes d'acer, pila de 9 V i electròlit, zinc en gra i en pols, àcid a dues concentracions. Fulls: full de ruta, full del repte, tres laboratoris, fitxes 1–3, dossier de l'hidrogen, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Espelma i pot de vidre, aigua de calç, vinagre, bicarbonat, globus, balança, magnesi, àcid clorhídric diluït, tubs d'assaig, termòmetre, pot amb xinxetes d'acer, pila de 9 V i electròlit, zinc en gra i en pols, àcid a dues concentracions. Fulls: full de ruta, full del repte, tres laboratoris, fitxes 1–3, dossier de l'hidrogen, rúbriques, activitat de demostració, diana i mapa conceptual.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Fulls de laboratori (sessions 2, 4 i 6) | Qualificador | Heteroavaluació amb rúbrica | 2.2, 2.5, 3.2 | 40 % |
-| Prova competencial | Qualificador | Heteroavaluació | 2.2, 2.5, 3.1, 3.2 | 30 % |
-| Dossier i resposta del grup | Qualificador | Heteroavaluació amb rúbrica; autoavaluació del rol | 2.4, 3.1 | 30 % |
-| Fitxes 1–3, full del repte, diana | Formatiu | Autoavaluació | — | — |
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Fulls de laboratori (sessions 2, 4 i 6) | Qualificador | Heteroavaluació amb rúbrica | 2.2, 2.5, 3.2 |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació | 2.2, 2.5, 3.1, 3.2 |
+| Dossier i resposta del grup | Qualificador | Heteroavaluació amb rúbrica; autoavaluació del rol | 2.4, 3.1 |
+| Fitxes 1–3, full del repte, diana | Formatiu | Autoavaluació | — |
 
 **Atenció a la diversitat.** Fitxa d'equacions i càlculs de massa amb models de boles i taules de proporcionalitat per a l'alumnat amb dificultats en el càlcul; targetes de formulació; dossier d'ampliació amb equacions de combustió, el reactiu limitant, les emissions de CO₂ de la gasolina i de l'hidrogen gris i la velocitat de reacció a partir de dades.
 
@@ -565,11 +565,11 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 **Repte.** *Com persegueix un neutròfil un bacteri sense veure'l?*
 
-**Producte final.** Full de forces cel·lulars (anàlisi de dues imatges de microscòpia) i resposta argumentada al repte.
+**Producte final.** Full de forces cel·lulars (anàlisi de dues imatges de microscòpia). La resposta al repte de la sessió final és formativa i no és una evidència oficial.
 
 **Elements curriculars.**
 
-- Criteris: 1.1, 1.2 i 1.3 (CE1); 5.3 (CE5).
+- Criteris: 1.1, 1.2 i 1.3 (CE1, principal); 5.3 (CE5, principal); 2.2 i 2.3 (CE2, secundària: demostració de difusió en grup sencer, fitxa 5).
 - Sabers: HC1–HC5 · I1 (cinemàtica), I2 (efectes de les forces), I3 (observació dels efectes de les forces), I4 (lleis de Newton i seguretat viària), I5 (propietats elàstiques), amb la notació científica aplicada a l'escala cel·lular.
 - Vectors i ODS: aprenentatges competencials, ciutadania democràtica i consciència global (seguretat viària), perspectiva de gènere (investigadores de la migració cel·lular), universalitat del currículum, qualitat de l'educació de les llengües (resposta argumentada); ODS 3.
 
@@ -591,36 +591,35 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 3 · El moviment accelerat (MRUA) | GS | Introducció de nous coneixements | Reactivació (15 min). Acceleració i equacions del MRUA; frenada a 50 i a 30 km/h (seguretat viària). | Fitxa 2 (formativa). Comentari de les rúbriques. |
 | 4 · Les gràfiques del patinet | MG | Aplicació | Taula i gràfiques posició–temps i velocitat–temps d'un patinet; interpretació dels pendents. | Fitxa 3 (qualificadora, rúbrica). |
 | 5 · Trajectòria i desplaçament | GS | Aplicació | Mida de les cèl·lules amb un glòbul vermell (eritròcit, 7,5 µm) com a escala de referència i càlcul de l'augment; trajectòria real d'un neutròfil; distància, desplaçament, rapidesa i velocitat mitjanes. | Fitxa 4 (formativa). |
-| 6 · Difusió i gradient | MG | Aplicació | Laboratori: disseny i realització de l'experiment de difusió de tinta a tres temperatures; gradient amb simulació. | Fitxa 5 (formativa). Llista de control del disseny experimental. |
-| 7 · Quimiotaxi i febre | GS | Introducció de nous coneixements | Quimiotaxi; gràfica de recerca sobre la febre; malaltia i símptomes. | Fitxa 6 (qualificadora, rúbrica). |
-| 8 · Problemes de moviment | MG | Estructuració i síntesi | Problemes de MRU i MRUA: trobades, arrencades, frenades i la persecució del neutròfil. | Problemes (formatius, solucionari). |
+| 6 · Problemes de moviment | MG | Estructuració i síntesi | Problemes de MRU i MRUA: trobades, arrencades, frenades i la persecució del neutròfil. | Problemes (formatius, solucionari). |
+| 7 · Difusió i gradient | GS | Aplicació | Demostració del docent amb el grup sencer: difusió de tinta a tres temperatures. L'alumnat observa, registra el disseny i les conclusions a la fitxa 5 i treballa el gradient amb la simulació. No és un laboratori en mig grup. | Fitxa 5 (qualificadora, rúbrica: criteris 2.2 i 2.3). |
+| 8 · Quimiotaxi i febre | MG | Introducció de nous coneixements | Quimiotaxi; gràfica de recerca sobre la febre; malaltia i símptomes. | Fitxa 6 (qualificadora, rúbrica). |
 | 9 · Les lleis de Newton | GS | Introducció de nous coneixements | Tres lleis de Newton aplicades al patinet i a la cèl·lula; píndola sobre el citoesquelet. | Fitxa 7 (formativa). |
 | 10 · La llei de Hooke | MG | Aplicació | Laboratori: allargament d'una molla amb masses i constant elàstica a partir de la gràfica. | Full de laboratori (formatiu). |
 | 11 · Les cèl·lules també fan forces | GS | Aplicació | Superposició de dues imatges de microscòpia de forces de tracció; desplaçament de les boletes i càlcul de forces; mapa conceptual. | Full de forces cel·lulars (qualificador, rúbrica). |
-| 12 · Prova | MG | Avaluació i regulació | Prova escrita amb situacions noves (dues versions equivalents o intercanvi d'hora amb Biologia). | Prova (qualificadora). |
-| 13 · Responc el repte i reflexiono | GS | Estructuració i síntesi | Resposta final al repte i esmena de les hipòtesis; correcció i esmena de la prova; diana. | Esmena i diana (autoavaluació). |
+| 12 · Demostració d'assoliment | MG | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves (dues versions equivalents, una per a cada mig grup). | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 13 · Responc el repte i reflexiono | GS | Estructuració i síntesi | Resposta final al repte (formativa, no és evidència oficial) i esmena de les hipòtesis; correcció i esmena de l'activitat de demostració; diana. El producte qualificat és el full de forces cel·lulars. | Esmena i diana (autoavaluació). |
 
-**Organització i agrupaments.** Parelles per a la resolució de problemes i grups de quatre al laboratori (sessions 6 i 10). Coordinació amb Biologia per a la part cel·lular.
+**Organització i agrupaments.** Parelles per a la resolució de problemes (sessió 6, mig grup) i grups de quatre al laboratori de Hooke (sessió 10, mig grup). La difusió (sessió 7) és una demostració del docent amb el grup sencer. Coordinació amb Biologia per a la part cel·lular.
 
-**Materials i recursos.** Vídeo de neutròfil (recurs obert), imatges estroboscòpiques de vehicles, tinta i aigua a tres temperatures, simulació de difusió, molles, masses i regles, imatges de microscòpia de forces de tracció (làmines A i B). Fulls: full de ruta, full del repte, fitxes 1–7, problemes, laboratori de Hooke, full de forces cel·lulars, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Vídeo de neutròfil (recurs obert), imatges estroboscòpiques de vehicles, tinta i aigua a tres temperatures, simulació de difusió, molles, masses i regles, imatges de microscòpia de forces de tracció (làmines A i B). Fulls: full de ruta, full del repte, fitxes 1–7, problemes, laboratori de Hooke, full de forces cel·lulars, rúbriques, activitat de demostració, diana i mapa conceptual.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Prova competencial | Qualificador | Heteroavaluació | 1.1, 1.2, 1.3, 5.3 | 35 % |
-| Full de forces cel·lulars | Qualificador | Heteroavaluació amb rúbrica | 1.2, 1.3, 5.3 | 30 % |
-| Gràfiques del patinet (fitxa 3) | Qualificador | Heteroavaluació amb rúbrica | 1.1 | 20 % |
-| La febre i la migració (fitxa 6) | Qualificador | Heteroavaluació amb rúbrica | 1.1, 5.3 | 15 % |
-| Fitxes 1, 2, 4, 5 i 7, problemes, laboratoris, diana | Formatiu | Autoavaluació | — | — |
-
-La prova pesa un 35 % perquè és la SdA amb més contingut conceptual i més sessions.
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació | 1.1, 1.2, 1.3, 5.3 |
+| Full de forces cel·lulars | Qualificador | Heteroavaluació amb rúbrica | 1.2, 1.3, 5.3 |
+| Gràfiques del patinet (fitxa 3) | Qualificador | Heteroavaluació amb rúbrica | 1.1 |
+| La febre i la migració (fitxa 6) | Qualificador | Heteroavaluació amb rúbrica | 1.1, 5.3 |
+| Demostració de difusió (fitxa 5, grup sencer) | Qualificador | Heteroavaluació amb rúbrica | 2.2, 2.3 |
+| Fitxes 1, 2, 4 i 7, problemes, laboratori de Hooke, resposta al repte, diana | Formatiu | Autoavaluació. No entren al càlcul oficial | — |
 
 **Atenció a la diversitat.** Problemes de moviment fragmentats en targetes amb llista de passos i pausa activa per a l'alumnat amb TDAH; vehicles i patinets abans de les cèl·lules (del concret a l'abstracte); dossier d'ampliació amb trobades, persecucions, caiguda lliure, molles en sèrie i en paral·lel i l'àrea sota la gràfica v–t.
 
 ### 5.6 SdA 6 · L'energia del nostre institut
 
-**Justificació.** Tanca el curs amb un projecte d'impacte real: la direcció demana a l'alumnat propostes per reduir el consum elèctric. L'alumnat fa una auditoria de la seva aula amb un full de càlcul, mesura el consum real amb un wattímetre, estudia d'on ve l'electricitat i elabora un pla d'estalvi que es debat i es vota. Integra energia, potència, rendiment, circuits i fonts d'energia, i avalua per segona vegada la comunicació digital i l'argumentació (CE4) i la ciència com a motor de solucions sostenibles (CE6).
+**Justificació.** Tanca el curs amb un projecte d'impacte real: la direcció demana a l'alumnat propostes per reduir el consum elèctric. L'alumnat fa una auditoria de la seva aula amb un full de càlcul, mesura el consum real amb un wattímetre, estudia d'on ve l'electricitat i elabora un pla d'estalvi que es debat i es vota. Integra energia, potència, rendiment, circuits i fonts d'energia. Les CE principals són la CE4 i la CE6. El càlcul d'estalvi en kWh i de rendiment del pla avalua el criteri 1.2 (CE1, secundària), perquè és una predicció amb un model (E = P·t), no el 6.2.
 
 **Repte.** *Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?*
 
@@ -628,8 +627,8 @@ La prova pesa un 35 % perquè és la SdA amb més contingut conceptual i més se
 
 **Elements curriculars.**
 
-- Criteris: 4.2 i 4.3 (CE4); 6.2 (CE6).
-- Sabers: HC1–HC6 · E1 (qüestions sobre l'energia), E3 (llum: incandescència i LED), E5 (ús domèstic i industrial de l'energia), E6 (fonts renovables i no renovables), E9 (circuits en sèrie i en paral·lel, anàlisi conceptual sense muntatge), E10 (obtenció d'energia elèctrica).
+- Criteris: 4.2 i 4.3 (CE4, principal); 6.2 (CE6, principal); 1.2 (CE1, secundària: càlcul de kWh i rendiment del pla, i predicció sèrie/paral·lel).
+- Sabers: HC1–HC6 · E1 (qüestions sobre l'energia), E3 (llum: incandescència i LED), E5 (ús domèstic i industrial de l'energia), E6 (fonts renovables i no renovables), E9 (circuits en sèrie i en paral·lel: muntatge senzill i simulació, sense full de laboratori), E10 (obtenció d'energia elèctrica).
 - Vectors i ODS: aprenentatges competencials, ciutadania democràtica i consciència global (debat i votació), perspectiva de gènere (Mária Telkes), universalitat del currículum, qualitat de l'educació de les llengües (argumentació oral i citació de fonts); ODS 7, 11 i 13.
 
 **Objectius d'aprenentatge.**
@@ -645,29 +644,30 @@ La prova pesa un 35 % perquè és la SdA amb més contingut conceptual i més se
 
 | Sessió | Grup | Fase | Activitats | Avaluació (instrument, finalitat i agent) |
 | --- | --- | --- | --- | --- |
-| 1 · Auditoria energètica de l'aula | MG | Exploració | Encàrrec de la direcció; hipòtesi del grup sobre quin aparell gasta més; inventari al full de càlcul amb les potències de les etiquetes i fórmules. | Hipòtesi (diagnòstica). Full de càlcul (formatiu, plantilla amb solucionari). |
-| 2 · Energia, potència i consum | GS | Introducció de nous coneixements | Conservació de l'energia i rendiment; bombeta d'incandescència i LED; kWh i cost; Mária Telkes. | Fitxa 1 (formativa, autocorrecció). |
-| 3 · Mesurem el consum real | MG | Aplicació | Laboratori amb wattímetre: aparells en marxa i en espera; consum anual; associació en sèrie i en paral·lel de la instal·lació. | Full de laboratori (formatiu). Llista de control de seguretat (230 V). |
-| 4 · D'on ve l'electricitat? | GS | Introducció de nous coneixements | Turbina i alternador; mix elèctric de Catalunya; cerca en parelles d'una tecnologia en fonts fiables. | Fitxa 2 (formativa). Cerca d'informació (qualificadora, rúbrica). |
-| 5 · El pla d'estalvi i el debat | MG | Aplicació | Pla d'estalvi en grups de tres (hàbits, eficiència i generació) amb l'estalvi calculat; debat sobre la mesura prioritària; mapa conceptual. | Pla d'estalvi (qualificador). Debat (qualificador, rúbrica; coavaluació). |
-| 6 · Prova | GS | Avaluació i regulació | Prova escrita amb situacions noves. | Prova (qualificadora). |
-| 7 · Corregeixo, votem i reflexiono | MG | Avaluació i regulació | Correcció i esmena; presentació i votació dels plans; diana; lliurament de la tasca de recuperació a qui la necessiti. | Esmena i diana (autoavaluació). Votació (participació). |
+| 1 · Auditoria energètica i acústica de l'aula | GS | Exploració | Encàrrec de la direcció; mapa de soroll; hipòtesi sobre quin aparell gasta més; inventari a la plantilla d'Excel. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte. | Hipòtesi (diagnòstica). Inventari (formatiu). |
+| 2 · Muntem circuits | MG | Introducció de nous coneixements | Circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i simulació PhET. No hi ha full de laboratori de circuits: el registre és el full de ruta i la simulació. | Observació formativa. |
+| 3 · Energia, potència i consum | GS | Introducció de nous coneixements | Conservació de l'energia i rendiment; bombeta d'incandescència i LED; kWh i cost; Mária Telkes. | Fitxa 1 (formativa, autocorrecció). |
+| 4 · Mesurem el consum real | MG | Aplicació | Wattímetre: aparells en marxa i en espera; consum anual. | Full de laboratori de consum real (formatiu). |
+| 5 · D'on ve l'electricitat? | GS | Introducció de nous coneixements | Turbina i alternador; mix elèctric; cerca en parelles amb fonts citades. | Fitxa 2: parts formatives; la part C (cerca i cita) és qualificadora (criteri 4.3). |
+| 6 · El pla d'estalvi i el debat | MG | Aplicació | Pla amb tres mesures i el càlcul d'estalvi en kWh i rendiment (criteri 1.2); participació i equitat (criteri 6.2); debat. | Pla (qualificador). Debat (qualificador, rúbrica). |
+| 7 · Demostració d'assoliment | GS | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves. | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 8 · Corregeixo, votem i reflexiono | MG | Avaluació i regulació | Correcció i esmena; presentació i votació dels plans; diana. La recuperació de la CE4 i la CE6 no es lliura aquí: es lliura a la sessió de tancament del curs. | Esmena i diana (autoavaluació). Votació (participació). |
 
-**Organització i agrupaments.** Grups de tres per a l'auditoria, el pla i el debat. Laboratori amb wattímetre a la sessió 3 (mig grup). La votació final és de tot el grup classe.
+**Organització i agrupaments.** Grups de tres per a l'auditoria, el pla i el debat. Muntatge de circuits a la sessió 2 i wattímetre a la sessió 4 (mig grup). La votació final és de tot el grup classe.
 
-**Materials i recursos.** Portàtils amb full de càlcul (plantilla de l'inventari a l'aula virtual), wattímetres d'endoll, aparells de l'aula (portàtils i carregadors, ventilador, pissarra digital), bombeta LED i halògena, bullidor, dades del mix elèctric de Red Eléctrica. Fulls: full de ruta, full del repte, fitxes 1 i 2, laboratori, pla d'estalvi i debat, rúbriques, prova, diana i mapa conceptual.
+**Materials i recursos.** Portàtils, plantilla d'Excel de l'inventari, wattímetres, piles, bombetes i interruptors, simulació PhET de circuits, bombeta LED i halògena, dades del mix elèctric. Fulls que existeixen: full de ruta, full del repte, fitxa 1, laboratori de consum real, fitxa 2, pla d'estalvi i debat, rúbriques, diana i mapa conceptual. No es fa servir cap full d'auditoria ni cap full de laboratori de circuits.
 
 **Instruments d'avaluació.**
 
-| Instrument | Tipus | Agent i eina | Criteris | Pes |
-| --- | --- | --- | --- | --- |
-| Pla d'estalvi | Qualificador | Heteroavaluació amb rúbrica | 6.2 | 35 % |
-| Prova competencial | Qualificador | Heteroavaluació | 4.2, 4.3, 6.2 | 30 % |
-| Cerca d'informació | Qualificador | Heteroavaluació amb rúbrica | 4.3 | 20 % |
-| Debat | Qualificador | Heteroavaluació i coavaluació amb rúbrica | 4.2 | 15 % |
-| Full de càlcul, fitxes 1 i 2, laboratori, diana | Formatiu | Autoavaluació | — | — |
+| Instrument | Tipus | Agent i eina | Criteris |
+| --- | --- | --- | --- |
+| Pla d'estalvi | Qualificador | Heteroavaluació amb rúbrica | 1.2, 6.2 |
+| Activitat de demostració d'assoliment | Qualificador | Heteroavaluació | 1.2, 4.2, 4.3, 6.2 |
+| Cerca d'informació (fitxa 2, part C) | Qualificador | Heteroavaluació amb rúbrica. La resta de la fitxa 2 és formativa | 4.3 |
+| Debat | Qualificador | Heteroavaluació i coavaluació amb rúbrica | 4.2 |
+| Inventari, fitxa 1, laboratori de consum real, diana | Formatiu | Autoavaluació. No entren al càlcul oficial | — |
 
-**Atenció a la diversitat.** Guió anticipat del debat per a l'alumne amb TEA (horari de la sessió, rol de responsable de dades, frases model, normes i targeta de pausa); plantilla de full de càlcul amb una fila d'exemple; dossier d'ampliació amb rendiments en cadena, plaques solars al terrat, centrals de bombament, bombetes en sèrie i el CO₂ evitat. Com que les CE4 i CE6 no tornen a aparèixer, s'hi preveu una **tasca de recuperació** específica (apartat 7.6).
+**Atenció a la diversitat.** Guió anticipat del debat per a l'alumne amb TEA (horari de la sessió, rol de responsable de dades, frases model, normes i targeta de pausa); plantilla de full de càlcul amb una fila d'exemple; dossier d'ampliació amb rendiments en cadena, plaques solars al terrat, centrals de bombament, bombetes en sèrie i el CO₂ evitat. Les tasques de recuperació de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les (apartat 7.6).
 
 ## 6. Metodologia i organització
 
@@ -685,7 +685,7 @@ Totes les SdA segueixen el cicle d'aprenentatge de Jorba i Sanmartí (1996), que
 | Introducció de nous coneixements | Construir els models i conceptes nous a partir de l'evidència | Experiments i demostracions amb predicció–observació–explicació, simulacions, explicació del professor, lectures breus, fitxes guiades | Model de partícules amb simulació (SdA 2), models atòmics i Rutherford (SdA 3), formulació (SdA 4), MRU i MRUA (SdA 5) |
 | Estructuració i síntesi | Organitzar i relacionar el que s'ha après | Mapa conceptual, protocol, taula de síntesi, posada en comú, base d'orientació, tornar a la hipòtesi | Protocol d'identificació (SdA 1), explicació final del repte (SdA 2), taller de problemes (SdA 4), resposta al repte (SdA 5) |
 | Aplicació | Transferir el coneixement a situacions noves i al producte final | Laboratoris d'indagació, problemes contextualitzats, producte final, debat, projecte amb impacte | Vídeo per a 1r (SdA 2), campanya de mòbils (SdA 3), forces cel·lulars (SdA 5), pla d'estalvi i debat (SdA 6) |
-| Avaluació i regulació | Comprovar l'assoliment i aprendre dels errors | Prova competencial, esmena amb bolígraf verd, coavaluació amb rúbrica, diana d'autoavaluació | Sessions finals de totes les SdA |
+| Avaluació i regulació | Comprovar l'assoliment i aprendre dels errors | Activitat de demostració d'assoliment, esmena amb bolígraf verd, coavaluació amb rúbrica, diana d'autoavaluació | Sessions finals de totes les SdA |
 
 Les fases no són compartiments estancs: l'avaluació formativa i formadora travessa tot el cicle (fitxes amb autocorrecció, rúbriques compartides des del primer dia, preguntes ràpides), i la hipòtesi de la fase d'exploració es recupera i s'esmena al final de cada SdA. El curs sencer també té forma de cicle: la sessió 0 és l'exploració de tot l'any i la sessió de tancament n'és la síntesi.
 
@@ -693,19 +693,19 @@ Cada SdA té un **full de ruta** il·lustrat, sessió a sessió, on l'alumnat an
 
 ### 6.3 Organització horària i desdoblament
 
-A cada SdA, les sessions alternen grup sencer i mig grup. El desdoblament està justificat per tres raons:
+A cada SdA, les sessions alternen grup sencer i mig grup. L'alumnat en fa una de cada cada setmana; el professorat repeteix la de mig grup (1 hora de grup sencer i 2 de mig grup). El desdoblament està justificat per tres raons:
 
 - **Seguretat:** amb 15 alumnes, el professor pot supervisar tots els grups de laboratori i intervenir a temps; amb 30, en un laboratori dissenyat per a menys alumnes, la manipulació de flama, àcids o aparells elèctrics no seria segura.
 - **Aprenentatge actiu:** cada alumne manipula, mesura i registra dades, en lloc d'observar.
 - **Atenció individualitzada:** les hores desdoblades sense laboratori (per exemple, les unitats i la notació científica de la SdA 1 o el MRU de la SdA 5) es fan servir per a la resolució guiada de problemes i el seguiment individual, que és on més rendeix tenir 15 alumnes.
 
-Els laboratoris es fan sempre amb mig grup, i les proves i les demostracions, amb el grup sencer. Quan l'ordre de les sessions situa una prova en una hora desdoblada, s'acorda amb el professorat de Biologia i geologia fer aquella setmana les dues hores amb el grup sencer, amb reciprocitat; si no és possible, la prova es fa en dues versions equivalents.
+Els laboratoris que fa l'alumnat es fan sempre amb mig grup. La difusió de tinta de la SdA 5 (sessió 7) és una demostració del docent amb el grup sencer, no una pràctica en mig grup. L'activitat de demostració d'assoliment segueix el grup marcat a la sessió: a la SdA 5 és en mig grup (sessió 12), amb dues versions equivalents. Si en una altra SdA cau en una hora desdoblada i cal el grup sencer, s'acorda amb el professorat de Biologia i geologia un intercanvi d'hora; si no és possible, es fa en dues versions equivalents.
 
 **Agrupaments.** Grups de treball heterogenis de tres o quatre alumnes, estables durant una SdA, amb rols rotatius (coordinació, material i seguretat, registre de dades, portaveu) que es reparteixen de manera equilibrada per gènere i per perfil. A la SdA 4 es fa servir el trencaclosques (cada membre és expert en una part del dossier) i a la SdA 6, grups de tres per al pla.
 
 ### 6.4 Laboratori i seguretat
 
-El curs inclou **dotze pràctiques de laboratori** i diverses demostracions. Cada full de laboratori comença amb un requadre de seguretat específic: ulleres en totes les pràctiques, guants amb àcids i dissolucions irritants, flama manipulada només pel professor, piles de baixa tensió i, a la SdA 6, aparells de 230 V connectats només per l'endoll i revisats prèviament. La SdA 1 dedica la primera sessió al decàleg de seguretat, que s'avalua (criteri 3.3). Els residus es gestionen segons el protocol del laboratori del centre.
+El curs inclou **onze pràctiques de laboratori** de l'alumnat i diverses demostracions. La difusió de tinta (SdA 5, sessió 7) la fa el docent amb el grup sencer i no compta com a pràctica de l'alumnat. Cada full de laboratori comença amb un requadre de seguretat específic: ulleres en totes les pràctiques, guants amb àcids i dissolucions irritants, flama manipulada només pel professor, piles de baixa tensió i, a la SdA 6, aparells de 230 V connectats només per l'endoll i revisats prèviament. La SdA 1 dedica la primera sessió al decàleg de seguretat, que s'avalua (criteri 3.3). Els residus es gestionen segons el protocol del laboratori del centre.
 
 | SdA | Pràctiques de laboratori |
 | --- | --- |
@@ -713,12 +713,12 @@ El curs inclou **dotze pràctiques de laboratori** i diverses demostracions. Cad
 | 2 | Globus al fred i a la calor · corba d'escalfament i canvis d'estat |
 | 3 | Assaig a la flama i espectroscopi |
 | 4 | Conservació de la massa · obtenció d'hidrogen · electròlisi de l'aigua |
-| 5 | Difusió i temperatura · llei de Hooke |
+| 5 | Llei de Hooke |
 | 6 | Consum real amb wattímetre |
 
 ### 6.5 Recursos i materials
 
-- **Llibre digital de l'aula:** web amb totes les sessions, els fulls de l'alumnat, les simulacions i els reptes d'ampliació, i una zona del professorat amb proves, solucionaris, rúbriques, materials adaptats i un registre d'avaluació per criteris.
+- **Llibre digital de l'aula:** web amb totes les sessions, els fulls de l'alumnat, les simulacions i els reptes d'ampliació, i una zona del professorat amb les activitats de demostració d'assoliment, solucionaris, rúbriques, materials adaptats i un registre d'avaluació per criteris.
 - **Simulacions:** PhET (estats de la matèria, propietats dels gasos, construeix un àtom, dispersió de Rutherford, circuits) i un simulador propi de la bateria de liti.
 - **Eines digitals:** full de càlcul (inventari energètic), edició de vídeo (SdA 2), cerca i avaluació de fonts (SdA 6) i aula virtual del grup.
 - **Material de laboratori** ordinari i de baix cost (electròlisi amb xinxetes i una pila, globus, molles), i préstec del CESIRE (espectroscopis) i wattímetres d'endoll.
@@ -726,11 +726,11 @@ El curs inclou **dotze pràctiques de laboratori** i diverses demostracions. Cad
 
 ### 6.6 Coordinació amb altres departaments
 
-- **Biologia i geologia:** la SdA 5 es coordina amb el professorat de Biologia (cèl·lula, citoesquelet, sistema immunitari, salut i malaltia); cada matèria avalua els seus criteris. Amb el mateix departament es gestiona el desdoblament, l'ús compartit del laboratori i l'intercanvi d'hores per a les proves.
+- **Biologia i geologia:** la SdA 5 es coordina amb el professorat de Biologia (cèl·lula, citoesquelet, sistema immunitari, salut i malaltia); cada matèria avalua els seus criteris. Amb el mateix departament es gestiona el desdoblament, l'ús compartit del laboratori i l'intercanvi d'hores per a l'activitat de demostració d'assoliment.
 - **Tecnologia i digitalització:** la SdA 6 (instal·lació elèctrica, elements de protecció, eficiència dels aparells) i la SdA 3 (components d'un mòbil) es coordinen amb Tecnologia per no duplicar continguts i compartir materials.
 - **Matemàtiques:** es coordina el moment en què es treballen la proporcionalitat i els percentatges (SdA 1 i 4), les equacions de primer grau i el pendent (SdA 5) i la lectura de gràfics (SdA 2, 5 i 6), perquè l'alumnat ja els conegui o els vegi alhora.
 - **Llengua catalana i anglès:** textos argumentatius amb fonts citades (SdA 4 i 6) i una lectura en anglès sobre Ellen Swallow Richards (SdA 1).
-- **Tutoria i orientació:** informació de la sessió 0 i seguiment de l'alumnat amb mesures addicionals i intensives a les reunions d'equip docent i de la CAEI.
+- **Tutoria i orientació:** informació de la sessió 0 i seguiment de l'alumnat amb mesures addicionals a les reunions d'equip docent i de la CAEI.
 
 ## 7. Avaluació
 
@@ -743,7 +743,7 @@ L'avaluació és **global, contínua i formativa** (art. 23 del Decret 175/2022)
 | Inicial | Conèixer les idees prèvies i el grup | Sondeig de la sessió 0; primera hipòtesi de cada SdA |
 | Formativa | Regular l'aprenentatge durant la SdA | Fitxes amb autocorrecció, fulls de laboratori no qualificats, observació, preguntes ràpides |
 | Formadora | Que l'alumnat s'autoreguli | Rúbriques compartides, coavaluació (vídeos, debat), esmena amb bolígraf verd, diana d'autoavaluació |
-| Sumativa | Valorar el grau d'assoliment dels criteris | Productes finals, fulls avaluats i prova competencial de cada SdA |
+| Sumativa | Valorar el grau d'assoliment dels criteris | Productes finals, fulls avaluats i activitat de demostració d'assoliment de cada SdA |
 | Final | Comparar l'inici i el final del curs | Sessió de tancament i enquesta de valoració |
 
 ### 7.2 Tècniques i instruments d'avaluació
@@ -753,11 +753,11 @@ L'avaluació és **global, contínua i formativa** (art. 23 del Decret 175/2022)
 | Sondeig d'idees prèvies i hipòtesi inicial | Diagnòstica | Professor i alumne | Sessió 0 i primera sessió de cada SdA |
 | Fitxes amb solucionari | Formativa | Autoavaluació amb bolígraf verd | Totes les SdA |
 | Fulls de laboratori | Formativa o qualificadora | Heteroavaluació amb rúbrica | SdA 1, 2, 3, 4, 5 i 6 |
-| Observació del compliment de les normes de seguretat al laboratori | Formativa i qualificadora (criteri 3.3) | Observació del professor | Laboratoris |
+| Observació del compliment de les normes de seguretat al laboratori | Qualificadora del criteri 3.3 només a la SdA 1; formativa a la resta | Observació del professor | Laboratoris |
 | Rúbriques dels productes finals (informe, vídeo, campanya, resposta argumentada, full de forces, pla d'estalvi) | Qualificadora | Heteroavaluació i coavaluació | Totes les SdA |
 | Rúbrica de debat i de presentació oral | Qualificadora | Heteroavaluació i coavaluació | SdA 1, 2 i 6 |
-| Prova competencial amb situacions noves | Qualificadora | Heteroavaluació amb solucionari i criteris | Totes les SdA |
-| Esmena de la prova amb bolígraf verd | Formadora | Autoavaluació | Totes les SdA |
+| Activitat de demostració d'assoliment | Qualificadora | Heteroavaluació amb solucionari i criteris | Totes les SdA |
+| Esmena de l'activitat de demostració amb bolígraf verd | Formadora | Autoavaluació | Totes les SdA |
 | Diana d'autoavaluació | Formadora | Autoavaluació | Final de cada SdA |
 | Full de ruta i portafoli | Formadora | Autoavaluació | Totes les SdA |
 | Registre d'avaluació per criteris | Registre sistemàtic (art. 23.8) | Professor | Tot el curs |
@@ -765,32 +765,23 @@ L'avaluació és **global, contínua i formativa** (art. 23 del Decret 175/2022)
 
 Cada rúbrica descriu quatre nivells (AE, AN, AS i NA) per a cada aspecte. La versió de l'alumnat explica què cal fer per arribar a cada nivell, sense codis curriculars; la versió del professor indica, a més, el criteri que avalua cada aspecte. L'alumnat la rep a la primera sessió de la SdA i la comenta abans de la primera activitat avaluada.
 
-### 7.3 Instruments qualificadors i pesos
+### 7.3 Instruments qualificadors
 
-A cada SdA es qualifiquen el producte final, un o dos instruments més i una **prova competencial amb situacions noves**, que pesa el 30 % de la SdA (35 % a la SdA 5, la de més contingut conceptual). Cap instrument pesa més del 40 %, de manera que cap evidència aïllada no decideix el nivell. Els instruments, els pesos i els criteris de cada SdA són a les taules «Instruments d'avaluació» de l'apartat 5.
+No hi ha ponderacions ni percentatges. A cada SdA es qualifiquen les evidències de les taules de l'apartat 5. Cada aspecte es valora amb NA, AS, AN o AE. El nivell d'un criteri, i el d'una competència en aquella SdA, és la **mitjana no ponderada** dels aspectes on apareix, **arrodonida a l'alça**. Per fer la mitjana, els nivells valen NA = 1, AS = 2, AN = 3 i AE = 4 (per exemple, 2,3 → AN). És el mateix càlcul del registre del llibre digital.
+
+**Regla de les fitxes.** Les fitxes formatives, i la correcció automàtica del llibre digital, són feedback per a l'alumne: una nota orientativa que **no entra** a la mitjana oficial. Les fitxes que sí qualifiquen es marquen a la rúbrica de l'evidència, no amb el nivell automàtic agregat:
+
+- SdA 3, fitxa 2 (evolució dels models): evidència del criteri 6.1.
+- SdA 5, fitxa 3 (gràfiques del patinet): criteri 1.1; fitxa 5 (difusió): criteris 2.2 i 2.3; fitxa 6 (febre): criteris 1.1 i 5.3. La fitxa 7 (Newton) és formativa.
+- SdA 6, fitxa 2: només la part C (cerca i cita de fonts) qualifica el criteri 4.3. La resta de la fitxa és formativa.
 
 ### 7.4 Procediment de qualificació
 
-La qualificació s'expressa en els nivells d'assoliment de l'article 29.2 del Decret 175/2022: **no assoliment (NA)**, **assoliment satisfactori (AS)**, **assoliment notable (AN)** i **assoliment excel·lent (AE)**. S'obté a partir de les competències específiques, en tres passos:
+La qualificació s'expressa en els nivells de l'article 29.2 del Decret 175/2022: **no assoliment (NA)**, **assoliment satisfactori (AS)**, **assoliment notable (AN)** i **assoliment excel·lent (AE)**. No es converteixen en notes numèriques ni en percentatges.
 
-1. **De les evidències al criteri.** Cada aspecte d'una rúbrica dona un nivell al criteri que avalua. Quan un criteri té diverses evidències, es ponderen amb els pesos dels instruments de la SdA.
-2. **Dels criteris a la competència.** El nivell de cada CE és la mitjana dels seus criteris. Si un criteri s'ha recuperat (apartat 7.6), compta el nivell més alt.
-3. **De les competències a la matèria.** Per combinar les sis CE, que pesen igual, cada nivell es converteix en un valor intern: NA = 3, AS = 5,5, AN = 7,5 i AE = 9,5. El nivell de la matèria surt de la taula següent.
-
-| Nivell de la matèria | Condicions |
-| --- | --- |
-| Assoliment satisfactori (AS) | Com a mínim 4 de les 6 CE en AS o més, i mitjana de les CE igual o superior a 5 |
-| Assoliment notable (AN) | Mitjana igual o superior a 7 i cap CE en NA |
-| Assoliment excel·lent (AE) | Mitjana igual o superior a 8,75 i cap CE per sota d'AN |
-| No assoliment (NA) | No es compleixen les condicions de l'AS |
-
-Així, una CE no assolida no suspèn la matèria si les altres la compensen, però l'aprovat demana una base sòlida a la majoria de competències. Exemples:
-
-- 2 CE en AN, 2 en AS i 2 en NA: mitjana de 5,3 i 4 CE assolides → **AS**.
-- 4 CE en AS i 2 en NA: mitjana de 4,7 → **NA**. Recuperant un criteri d'una de les CE no assolides (apartat 7.6), l'alumne pot arribar a l'AS.
-- 3 CE en AE i 3 en AN: mitjana de 8,5 → **AN**; amb 4 CE en AE i 2 en AN, la mitjana és de 8,8 → **AE**.
-
-Quan l'evolució del curs mostra una millora clara, l'equip docent pot arrodonir a l'alça, d'acord amb el caràcter continu de l'avaluació (art. 23.2). Els valors numèrics són una eina interna de càlcul: la qualificació que es comunica a l'alumnat i a les famílies és el nivell d'assoliment (art. 29.2). El procediment s'ajusta als criteris que fixi el centre en el seu projecte educatiu (art. 23.3). El professor registra les evidències per criteri en un instrument de registre sistemàtic (art. 23.8), que forma part de la zona del professorat del llibre digital.
+1. **Dels aspectes al criteri i a la CE de la SdA.** Mitjana no ponderada dels aspectes, arrodonida a l'alça.
+2. **De les SdA a la CE del curs.** Mitjana no ponderada de totes les evidències d'aquella CE. Si la tasca de recuperació (apartat 7.6) dona un nivell més alt, substitueix l'anterior.
+3. **Comunicació.** El que es comunica a l'alumnat i a les famílies és el nivell d'assoliment. El procediment s'ajusta als criteris del projecte educatiu del centre (art. 23.3). El professor registra les evidències al llibre digital (art. 23.8).
 
 ### 7.5 Informació a l'alumnat i a les famílies
 
@@ -800,37 +791,37 @@ A final de cada trimestre, l'informe d'avaluació recull el nivell de les CE tre
 
 Cada criteri té una segona oportunitat. Hi ha tres mecanismes, de més a menys immediat:
 
-- **Tasca de reforç (dins de la SdA).** És una activitat breu i individual, d'uns 20–30 minuts, centrada en un sol criteri: té la mateixa estructura que l'activitat on l'alumne no el va assolir i es valora amb la mateixa fila de la rúbrica. Per exemple, si un alumne té NA en el criteri 3.2 a la prova de la SdA 1, la tasca de reforç són quatre canvis d'unitats i dues densitats nous, amb el formulari. El professor la lliura a la sessió de correcció de la prova a l'alumnat amb NA en aquell criteri; es fa a casa i es lliura en dues setmanes. Si l'alumne hi arriba a l'AS o més, aquest nivell substitueix el NA del criteri.
-- **Una activitat d'una SdA posterior.** Els criteris 1.1, 1.2 i 3.2 s'avaluen en dues SdA. La resta es tornen a treballar en una activitat posterior, que es registra com a evidència només per a l'alumnat amb NA en aquell criteri i només si millora el nivell (taula següent).
-- **Tasca de recuperació final (CE4 i CE6).** Per als criteris que es tanquen a la SdA 6, que no tenen activitats posteriors.
+- **Tasca de reforç (dins de la SdA o just després).** Activitat breu i individual sobre el criteri no assolit, amb la mateixa fila de la rúbrica. Es lliura a la sessió de correcció, es fa a casa i es retorna en dues setmanes. Si l'alumne hi arriba a l'AS o més, aquest nivell substitueix el NA del criteri. El criteri 3.3 només té evidència oficial a la SdA 1: la segona oportunitat és una tasca sobre el decàleg de seguretat, no l'observació de tots els laboratoris posteriors (allà la seguretat és formativa).
+- **Una altra SdA on el mateix criteri té evidència.** Si el criteri s'avalua en més d'una SdA, la segona evidència és la segona oportunitat.
+- **Tasca de recuperació de la CE.** N'hi ha una per competència, amb repte, parts guiades, rúbrica i defensa oral de 3 minuts. Es lliura en acabar la darrera SdA on s'avalua aquella CE. Les de la CE4 i la CE6 es lliuren a la **sessió de tancament del curs, després d'avaluar-les a la SdA 6**, i no a l'inici de la SdA 6. Termini de deu dies, tutoria de 10 minuts al cap de cinc, defensa abans de la sessió d'avaluació final. Compta el nivell més alt. També la pot fer qui vulgui millorar.
 
 | Criteri | S'avalua a | Segona oportunitat |
 | --- | --- | --- |
-| 1.1 i 1.2 | SdA 2 i SdA 5 | S'avaluen dues vegades |
-| 1.3 | SdA 5 | SdA 6, sessió 5: pla d'estalvi (situació problemàtica real) |
-| 2.1 | SdA 1 | SdA 5, sessió 6: pregunta i hipòtesi de l'experiment de difusió |
-| 2.2 | SdA 4 | SdA 5, sessió 6: disseny de l'experiment de difusió |
-| 2.3 | SdA 1 | SdA 5, sessió 10: laboratori de la llei de Hooke |
-| 2.4 | SdA 4 | SdA 6, sessió 5: pla d'estalvi en grup, amb rols |
-| 2.5 | SdA 4 | SdA 5, sessió 10: gràfica F–Δx i conclusió del laboratori de Hooke |
-| 2.6 | SdA 1 | Tasca de reforç sobre Mária Telkes (SdA 6, sessió 2) |
-| 3.1 | SdA 4 | SdA 6, sessió 1: inventari energètic amb full de càlcul |
-| 3.2 | SdA 1 i SdA 4 | S'avalua dues vegades |
-| 3.3 | SdA 1 | Observació a tots els laboratoris de les SdA 2 a 5 |
-| 4.1 | SdA 2 | Tasca de recuperació final |
-| 4.2 i 4.3 | SdA 6 | Tasca de recuperació final |
-| 5.1 | SdA 3 | SdA 4, sessió 8: dossier de l'hidrogen (emissions i qualitat de l'aire) |
-| 5.2 i 5.4 | SdA 3 | SdA 6, sessió 5: pla d'estalvi |
-| 5.3 | SdA 5 | SdA 6, sessions 4 i 5: fonts d'energia i pla d'estalvi |
-| 6.1 | SdA 3 | Tasca de recuperació final |
-| 6.2 | SdA 6 | Tasca de recuperació final |
+| 1.1 | SdA 2 i SdA 5 | Dues evidències |
+| 1.2 | SdA 2, SdA 5 i SdA 6 (càlcul de kWh i rendiment del pla) | Dues evidències o més |
+| 1.3 | SdA 5 | Tasca de reforç; la recuperació de la CE1 es lliura en acabar la SdA 6 |
+| 2.1 | SdA 1 | Tasca de reforç |
+| 2.2 | SdA 4 i SdA 5 (disseny de la difusió, fitxa 5) | Dues evidències |
+| 2.3 | SdA 1, SdA 2 (corba d'escalfament) i SdA 5 (conclusions de la difusió) | Dues evidències o més |
+| 2.4 | SdA 4 | Tasca de reforç |
+| 2.5 | SdA 2 (vídeo) i SdA 4 | Dues evidències |
+| 2.6 | SdA 1 | Tasca de reforç |
+| 3.1 | SdA 4 | Tasca de reforç |
+| 3.2 | SdA 1 i SdA 4 | Dues evidències |
+| 3.3 | SdA 1 | Tasca de reforç sobre el decàleg. No s'avalua a les pràctiques de les SdA 2 a 6 |
+| 4.1 | SdA 3 (difusió de la campanya) | Tasca de recuperació de la CE4, a la sessió de tancament |
+| 4.2 i 4.3 | SdA 6 | Tasca de recuperació de la CE4, a la sessió de tancament |
+| 5.1 | SdA 1 (lectura) i SdA 3 | Dues evidències |
+| 5.2 i 5.4 | SdA 3 | Tasca de recuperació de la CE5, en acabar la SdA 5 |
+| 5.3 | SdA 5 | Tasca de recuperació de la CE5, en acabar la SdA 5 |
+| 6.1 | SdA 3 | Tasca de recuperació de la CE6, a la sessió de tancament |
+| 6.2 | SdA 6 | Tasca de recuperació de la CE6, a la sessió de tancament |
 
-- **CE que es tanquen a la SdA 6 (CE4 i CE6).** Com que la CE4 i la CE6 no tornen a aparèixer, s'hi preveu una **tasca de recuperació específica** abans de l'avaluació final. L'alumnat amb algun criteri d'aquestes CE en NA (4.1, 4.2, 4.3, 6.1 o 6.2) prepara un pòdcast o una presentació narrada de 3–4 minuts per a l'alumnat de 2n d'ESO sobre un tema a triar (bateries de ió liti, hidrogen verd, energia solar fotovoltaica o l'estudi energètic de l'institut fet a la SdA 6, amb l'anàlisi i les propostes de sostenibilitat), que inclou: una fitxa d'avaluació de tres fonts de tipus diferent (4.3); un exemple de com ha canviat el coneixement científic i una repercussió social i una d'ambiental (6.1); uns càlculs d'energia, rendiment i cost del tema triat i una proposta per al centre o el barri basada en aquests càlculs, amb un avantatge i un límit (6.2); el producte digital (4.1) i una defensa oral de 3 minuts amb preguntes i una objecció (4.2). El calendari i el pla B són a l'apartat 4.4. S'avalua amb una rúbrica de quatre nivells per criteri i el nivell obtingut substitueix l'anterior si és més alt. També la pot fer l'alumnat que vulgui millorar el seu nivell.
 - **Matèria pendent:** l'alumnat que no superi la matèria segueix un pla de recuperació el curs següent, amb tasques vinculades a les CE no assolides i seguiment del professorat de Física i química de 4t o del departament.
 
 ## 8. Atenció a la diversitat
 
-D'acord amb el Decret 150/2017 i l'article 19 del Decret 175/2022, les mesures s'organitzen en tres nivells d'intensitat. Les **universals** són comunes a totes les SdA; les **addicionals** i **intensives** es concreten a la plantilla de cada SdA, on hi ha un exemple de material adaptat per a un perfil diferent del grup. Els materials adaptats tenen el mateix títol que la fitxa ordinària perquè cap alumne se senti assenyalat, i inclouen una nota per al professorat que no s'imprimeix per a l'alumne.
+D'acord amb el Decret 150/2017 i l'article 19 del Decret 175/2022, aquesta programació pública concreta mesures **universals** i **addicionals**. No inclou mesures intensives ni un pla de suport individualitzat amb criteris adaptats: els suports (per exemple la fitxa manipulativa de la SdA 3) avaluen els mateixos criteris que la resta del grup. Els materials amb suport tenen el mateix títol que la fitxa ordinària perquè cap alumne se senti assenyalat, i inclouen una nota per al professorat que no s'imprimeix per a l'alumne.
 
 ### 8.1 Mesures universals (DUA)
 
@@ -844,17 +835,17 @@ D'acord amb el Decret 150/2017 i l'article 19 del Decret 175/2022, les mesures s
 
 | SdA | Perfil | Material adaptat d'exemple | Suports principals |
 | --- | --- | --- | --- |
-| 1 | Dislèxia | Fitxa 1 adaptada · Magnituds, unitats i notació científica | Lletra d'alta llegibilitat de 13 punts, interlineat 1,7, fons crema, escala de prefixos dibuixada, exemples resolts, menys ítems; lectura en veu alta i 25 % més de temps a la prova |
+| 1 | Dislèxia | Fitxa 1 adaptada · Magnituds, unitats i notació científica | Lletra d'alta llegibilitat de 13 punts, interlineat 1,7, fons crema, escala de prefixos dibuixada, exemples resolts, menys ítems; lectura en veu alta i temps addicional a l'activitat de demostració |
 | 2 | Alumnat nouvingut | Glossari visual i fitxa 1 · El model de partícules | Glossari trilingüe amb columna per a la llengua familiar, banc de paraules, frases model, respostes amb dibuix; coordinació amb l'aula d'acollida |
 | 4 | Dificultats en el càlcul (discalcúlia) | Equacions i càlculs de massa, pas a pas | Ajust amb models de boles, taules de proporcionalitat amb l'operació indicada, calculadora i valoració del plantejament |
 | 5 | TDAH | Problemes de moviment, un a un | Un problema per targeta, temps orientatiu, llista de passos, barra de progrés i pausa activa pactada |
 | 6 | Trastorn de l'espectre autista | Guió del debat: què passarà i què he de fer | Anticipació de l'horari i del rol, frases model, normes explícites sobre torns i soroll, targeta de pausa |
 
-Altres mesures addicionals que s'apliquen quan cal: versions guiades de les fitxes clau amb el primer exercici resolt, ubicació a l'aula, temps addicional a les proves, enunciats llegits en veu alta i possibilitat de respondre una part oralment.
+Altres mesures addicionals que s'apliquen quan cal: versions guiades de les fitxes clau amb el primer exercici resolt, ubicació a l'aula, temps addicional a l'activitat de demostració, enunciats llegits en veu alta i possibilitat de respondre una part oralment. Els criteris són els mateixos per a tot l'alumnat.
 
-### 8.3 Mesures intensives
+### 8.3 Sense mesures intensives a la programació pública
 
-L'alumne amb **pla de suport individualitzat** (art. 21 i 25 del Decret 175/2022) treballa els mateixos reptes que el grup amb un subconjunt de sabers i criteris adaptats, materials manipulables i un rol propi en els treballs de grup (mesura, registre o comunicació). L'exemple és la fitxa *Dins de l'àtom i la taula periòdica* de la SdA 3: models de Bohr per comptar electrons, taula periòdica simplificada per classificar metalls i no-metalls, relació d'elements i parts del mòbil i justificació del reciclatge, amb el rol de responsable de registre a la campanya. S'avalua respecte dels criteris del PI, amb el suport de la docent d'educació especial i la coordinació de la CAEI.
+No es programen mesures intensives ni criteris adaptats. L'exemple de la SdA 3 (fitxa *Dins de l'àtom i la taula periòdica*: models de Bohr per comptar electrons, taula periòdica simplificada, relació element–part del mòbil i rol de registre a la campanya) és una **mesura addicional** amb els **mateixos criteris** que la resta del grup. El nom de fitxer històric del material no es canvia, perquè trencaria els enllaços del llibre.
 
 ### 8.4 Altes capacitats
 

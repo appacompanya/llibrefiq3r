@@ -2,17 +2,21 @@
 # uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
+# Avaluació oficial: nivells NA–AE, sense pesos.
+# Fitxes: la 2 (d3f2, evolució dels models) és qualificadora (evidència s3.fit, criteri 6.1). Les fitxes 1, 3, 4 i 5 són formatives i no entren al càlcul oficial.
+# CE: principals CE5 i CE6. Secundària CE4 (4.1 al cartell i la difusió de la campanya, que sí defensen un punt de vista ecosocial). Sense CE1: només sortia a tres activitats de la demostració, sense rúbrica.
+# El balanç del punt de recollida es comenta a la SdA 4; aquí es qualifica la campanya.
 sda: 3
-versio: 2
+versio: 3
 color: --s3
 titol: Què hi ha dins del meu mòbil?
 repte: Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?
-meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils al centre, amb el balanç del que s''ha recollit · Competències específiques avaluades: CE1, CE5 i CE6'
+meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4'
 publicada: true
 ce_aprovades:
-- CE1
 - CE5
 - CE6
+- CE4
 sessions:
 - titol: Desmuntem el mòbil
   fase: Explorem
@@ -70,7 +74,7 @@ sessions:
   - simbat
 - titol: Posem en marxa el punt de recollida
   fase: Ho apliquem
-  text: 'Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.'
+  text: 'Organitzarem la campanya: objectiu, normes, rols, cartell i difusió del punt de vista (per què no llençar el mòbil al rebuig). El punt de recollida es posa en marxa. El recompte del que s''ha recollit es comenta en tancar la SdA 4 i no forma part del producte que es qualifica aquí. Al final tens el mapa conceptual de la SdA.'
   docs:
   - d3camp
   - d3mapa
@@ -309,6 +313,7 @@ documents:
         - d3f1.a12
         - d3f1.a13
         - d3f1.a14
+    avaluacio: formativa
   d3f2:
     uid: d3f2
     versio: 1
@@ -414,6 +419,8 @@ documents:
         - d3f2.a20
         - d3f2.a21
         - d3f2.a22
+    avaluacio: qualificadora
+    nota_avaluacio: 'Qualificadora: evidència s3.fit, criteri 6.1. La correcció automàtica del llibre digital és orientativa; el nivell oficial el posa el professor a la rúbrica.'
   d3f3:
     uid: d3f3
     versio: 1
@@ -509,6 +516,7 @@ documents:
         - d3f3.a42
         - d3f3.a43
         - d3f3.a44
+    avaluacio: formativa
   d3targ:
     uid: d3targ
     versio: 1
@@ -698,6 +706,7 @@ documents:
         criteris: []
         camps:
         - d3f4.a47
+    avaluacio: formativa
   d3f5:
     uid: d3f5
     versio: 1
@@ -754,6 +763,7 @@ documents:
         criteris: []
         camps:
         - d3f5.a18
+    avaluacio: formativa
   d3dos:
     uid: d3dos
     versio: 1
@@ -1081,7 +1091,7 @@ documents:
 evidencies:
 - uid: s3.prova
   id: prova
-  versio: 2
+  versio: 3
   titol: Activitat de demostració d'assoliment (sessió 9)
   instruments:
   - d3prova
@@ -1095,22 +1105,22 @@ evidencies:
     - '6.1'
   - uid: s3.prova.p2
     id: p2
-    versio: 2
+    versio: 3
     titol: Activitat 2 · Àtoms, ions i isòtops
     criteris:
-    - '1.1'
+    - '6.1'
   - uid: s3.prova.p3
     id: p3
-    versio: 2
+    versio: 3
     titol: Activitat 3 · La taula periòdica
     criteris:
-    - '1.2'
+    - '6.1'
   - uid: s3.prova.p4
     id: p4
-    versio: 2
+    versio: 3
     titol: Activitat 4 · El liti a la flama
     criteris:
-    - '1.2'
+    - '6.1'
   - uid: s3.prova.p5
     id: p5
     versio: 1
@@ -1118,25 +1128,24 @@ evidencies:
     criteris:
     - '5.1'
     - '5.2'
-  pes: 30
 - uid: s3.camp
   id: camp
-  versio: 1
+  versio: 2
   titol: Campanya del punt de recollida (producte final)
   instruments:
   - d3camp
   items:
   - uid: s3.camp.c1
     id: c1
-    versio: 1
+    versio: 2
     titol: Projecte
     criteris:
     - '5.4'
     descriptors:
-      AE: Objectiu mesurable, pla complet i assolit; registre setmanal i balanç amb gràfica
-      AN: Pla complet i registre correcte; balanç sense analitzar
-      AS: Pla incomplet o registre irregular
-      NA: No hi ha pla ni registre
+      AE: Objectiu mesurable, pla complet (normes, rols, cartell i difusió) i punt de recollida en marxa
+      AN: Pla complet i punt de recollida en marxa
+      AS: Pla incomplet o sense posar en marxa
+      NA: No hi ha pla ni punt de recollida
   - uid: s3.camp.c2
     id: c2
     versio: 1
@@ -1159,7 +1168,17 @@ evidencies:
       AN: Proposa hàbits concrets
       AS: Proposa hàbits genèrics
       NA: No proposa hàbits
-  pes: 35
+  - uid: s3.camp.c4
+    id: c4
+    versio: 1
+    titol: Difusió del punt de vista ecosocial
+    criteris:
+    - '4.1'
+    descriptors:
+      AE: El cartell o el missatge defensa, amb arguments i un format clar, per què els mòbils no han d'anar al rebuig
+      AN: El missatge defensa la recollida selectiva amb algun argument
+      AS: El missatge anuncia la recollida sense defensar el punt de vista
+      NA: No hi ha cartell ni missatge de difusió
 - uid: s3.dos
   id: dos
   versio: 1
@@ -1189,12 +1208,12 @@ evidencies:
       AN: Relaciona les matèries primeres crítiques amb el reciclatge
       AS: Identifica les matèries primeres crítiques sense relacionar-los
       NA: No ho relaciona
-  pes: 25
 - uid: s3.fit
   id: fit
   versio: 1
   titol: Fitxa 2 · Evolució dels models atòmics
-  instruments: []
+  instruments:
+  - d3f2
   items:
   - uid: s3.fit.f2
     id: f2
@@ -1202,4 +1221,8 @@ evidencies:
     titol: Línia del temps dels models i experiment de Rutherford
     criteris:
     - '6.1'
-  pes: 10
+ce_principals:
+- CE5
+- CE6
+ce_secundaria:
+- CE4

@@ -1,9 +1,9 @@
-# Física i química · 3r d'ESO
+# Física i química · 2n, 3r, 4t d'ESO i batxillerat
 
-Llibre digital dinàmic de Física i química de 3r d'ESO creat per Macià Esteve Pallarès Pallarès.
+Llibres digitals creats per Macià Esteve Pallarès Pallarès. L'arrel del repositori és el de **3r** (`index.html`, `digital/`, `docs/`, `contingut/3r/`). 2n és a `2n/`, 4t a `4t/` i el batxillerat a `btx/`. Com es construeix cada un: [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
-Web estàtica: `index.html` + `docs/` (fulls en PDF) + `img/` + `lib/` (visor de PDF).
-Conté només el material de l'alumnat.
+Web de 3r: `index.html` + `docs/` (fulls en PDF) + `img/` + `lib/` (visor de PDF).
+El llibre de l'alumnat no inclou les activitats de demostració ni els solucionaris.
 
 ## Versió digital (`/digital/`)
 
@@ -71,4 +71,9 @@ Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fi
   `python3 tools/material/build.py --extreu carpeta`, edita les fonts i torna a fer
   `python3 tools/material/build.py --fonts carpeta`. Els textos dels solucionaris de l'ampliació també es desen a la taula
   `kv` (`solucions-2n`, `solucions-4t`), que fa servir la correcció automàtica.
-- El material de 3r és a l'espai privat «professorat» de Supabase i s'obre des de la zona del professorat de 3r.
+- El material de 3r és a l'espai privat «professorat» de Supabase i s'obre des de la zona del professorat de 3r. Si un full encara no és al bucket i n'hi ha còpia a `docs/`, s'obre aquesta còpia (fitxa 1 adaptada de la SdA 2).
+- El model de xifrat de 2n i 4t (AES-256-GCM i Diffie-Hellman, secret a `kv` / `clau-material`) no es modifica en els canvis de 3r.
+
+## Correcció amb IA
+
+Les respostes escrites d'una fitxa digital es poden enviar a un proveïdor d'IA per proposar una correcció. L'indicador «Possible IA» i la qualificació alternativa només els veu el docent: són un indici, no la nota oficial. Text per a famílies: [docs/privacitat-ia.html](docs/privacitat-ia.html).

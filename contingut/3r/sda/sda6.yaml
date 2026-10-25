@@ -2,21 +2,26 @@
 # uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
+# 8 sessions (no tornar a 7). Avaluació oficial: nivells NA–AE, sense pesos.
+# Fulls reals a docs/: ruta, repte, fitxa 1, laboratori de consum real, fitxa 2, pla d'estalvi i debat, rúbriques, diana, mapa, i la plantilla d'Excel de l'inventari. No hi ha «full de l'auditoria» ni «full de laboratori de circuits».
+# Fitxes: la 1 és formativa. De la fitxa 2, només la part C (cerca i cita de fonts) és qualificadora (evidència s6.cerca, criteri 4.3).
+# CE: principals CE4 i CE6. Secundària CE1: el càlcul d'energia, kWh i rendiment del pla (1.2), no el 6.2. El 6.2 queda a la implicació ciutadana i a la demostració.
+# Les recuperacions de la CE4 i la CE6 es lliuren a la sessió de tancament, després d'avaluar-les a aquesta SdA, no a l'inici.
 sda: 6
-versio: 3
+versio: 4
 color: --s6
 titol: L'energia del nostre institut
 repte: Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?
-meta: '3r trimestre · 8 sessions · Producte final: pla d''estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l''estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6'
+meta: '3r trimestre · 8 sessions · Producte final: pla d''estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l''estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4, CE6 i CE1'
 publicada: true
 ce_aprovades:
-- CE1
 - CE4
 - CE6
+- CE1
 sessions:
 - titol: Auditoria energètica i acústica de l'aula
   fase: Observem
-  text: 'La direcció ens demana propostes per reduir el consum d''electricitat i el soroll de l''institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l''inventari energètic a l''Excel (baixa la plantilla amb el botó d''aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l''energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.'
+  text: 'La direcció ens demana propostes per reduir el consum d''electricitat i el soroll de l''institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l''inventari energètic a l''Excel (baixa la plantilla amb el botó d''aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l''energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA. No hi ha un full d''auditoria a part: les hipòtesis van al full del repte i l''inventari, a la plantilla d''Excel.'
   docs:
   - d6ruta
   - d6repte
@@ -26,7 +31,7 @@ sessions:
   mitja: false
 - titol: Muntem circuits
   fase: Experimentem
-  text: 'Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se''n fon una bombeta. Amb la simulació PhET (el botó d''aquesta sessió) comprovarem per què la instal·lació elèctrica de l''aula va en paral·lel.'
+  text: 'Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se''n fon una bombeta. Amb la simulació PhET (el botó d''aquesta sessió) comprovarem per què la instal·lació elèctrica de l''aula va en paral·lel. No hi ha full de laboratori de circuits: el que observeu queda al full de ruta i a la simulació.'
   docs: []
   enllacos:
   - circuits
@@ -96,7 +101,7 @@ professorat:
   docs:
   - d6adap
 - bloc: Tasques de recuperació (una per CE)
-  text: Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.
+  text: Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les a la SdA 6, i no a l'inici d'aquesta SdA. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.
   docs:
   - dcR1
   - dcR2
@@ -425,6 +430,7 @@ documents:
         criteris: []
         camps:
         - d6f1.a8
+    avaluacio: formativa
   d6lab:
     uid: d6lab
     versio: 1
@@ -597,6 +603,9 @@ documents:
         - d6f2.a7
         - d6f2.a8
         - d6f2.a9
+    avaluacio: formativa
+    part_qualificadora: C
+    nota_avaluacio: La fitxa és formativa excepte la part C (cerca i cita de fonts), que és l'evidència qualificadora s6.cerca, criteri 4.3. La correcció automàtica de la resta no entra al càlcul oficial.
   d6pla:
     uid: d6pla
     versio: 1
@@ -800,12 +809,12 @@ evidencies:
     titol: Activitat 5 · Plaques solars a l'institut
     criteris:
     - '6.2'
-  pes: 30
 - uid: s6.cerca
   id: cerca
   versio: 1
   titol: Cerca d'informació (fitxa 2, part C)
-  instruments: []
+  instruments:
+  - d6f2
   items:
   - uid: s6.cerca.c1
     id: c1
@@ -829,25 +838,24 @@ evidencies:
       AN: Cita les fonts amb algun element que falta
       AS: Cita les fonts de manera incompleta
       NA: No cita les fonts
-  pes: 20
 - uid: s6.pla
   id: pla
-  versio: 1
+  versio: 2
   titol: Pla d'estalvi del grup
   instruments:
   - d6pla
   items:
   - uid: s6.pla.e1
     id: e1
-    versio: 1
-    titol: Mesures basades en dades
+    versio: 2
+    titol: Càlcul de l'estalvi (kWh i rendiment)
     criteris:
-    - '6.2'
+    - '1.2'
     descriptors:
-      AE: Tres mesures de tipus diferents, amb l'estalvi calculat correctament i suposicions explícites
-      AN: Tres mesures amb un càlcul correcte
-      AS: Mesures poc concretes o sense càlcul
-      NA: No proposa mesures
+      AE: Tres mesures de tipus diferents; l'estalvi en kWh (E = P·t) i el rendiment es calculen bé i les suposicions són explícites
+      AN: Tres mesures amb el càlcul d'estalvi correcte
+      AS: Mesures poc concretes o sense el càlcul d'energia
+      NA: No proposa mesures ni càlcul
   - uid: s6.pla.e2
     id: e2
     versio: 1
@@ -859,7 +867,6 @@ evidencies:
       AN: Implica la comunitat i revisa el repartiment de tasques
       AS: Implicació poc concreta o repartiment no revisat
       NA: No hi ha implicació de la comunitat
-  pes: 35
 - uid: s6.debat
   id: debat
   versio: 1
@@ -888,4 +895,8 @@ evidencies:
       AN: Respecta els torns i escolta
       AS: Interromp o no té en compte els altres
       NA: Actitud que exclou algun membre
-  pes: 15
+ce_principals:
+- CE4
+- CE6
+ce_secundaria:
+- CE1

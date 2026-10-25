@@ -2,6 +2,10 @@
 # uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
+# Avaluació oficial: nivells NA, AS, AN i AE, sense pesos percentuals.
+# Fitxes: són formatives. La nota del llibre digital és orientativa i no entra al càlcul oficial.
+# Sabers: HC1–HC6, M2, M3, E8, C2, C4. No s'hi treballen M5 (estructura atòmica) ni M6 (taula periòdica); són de la SdA 3.
+# CE: principals CE2 i CE3. Secundària CE5 (lectura Ellen Swallow Richards, ítem «Aigua i salut», rúbrica 5.1).
 sda: 1
 versio: 2
 color: --s1
@@ -619,6 +623,7 @@ documents:
         criteris: []
         camps:
         - d1f1.7
+    avaluacio: formativa
   d1f2:
     uid: d1f2
     versio: 1
@@ -682,6 +687,7 @@ documents:
         criteris: []
         camps:
         - d1f2.5
+    avaluacio: formativa
   d1dens:
     uid: d1dens
     versio: 1
@@ -1224,7 +1230,6 @@ evidencies:
     titol: Activitat 6 · Ellen Swallow Richards
     criteris:
     - '2.6'
-  pes: 30
 - uid: s1.inf
   id: inf
   versio: 1
@@ -1276,7 +1281,6 @@ evidencies:
       AN: Assigna la majoria de pots amb proves convergents
       AS: Assigna els pots amb una sola prova
       NA: Assignacions sense justificar
-  pes: 40
 - uid: s1.lab
   id: lab
   versio: 1
@@ -1295,7 +1299,6 @@ evidencies:
     titol: Normes de seguretat
     criteris:
     - '3.3'
-  pes: 20
 - uid: s1.ellen
   id: ellen
   versio: 2
@@ -1325,4 +1328,8 @@ evidencies:
       AN: Justifica la importància de les normes de qualitat de l'aigua amb algun argument científic
       AS: Diu que l'aigua ha de ser de qualitat sense justificar-ho
       NA: No respon o la resposta no té relació amb la qualitat de l'aigua
-  pes: 10
+ce_principals:
+- CE2
+- CE3
+ce_secundaria:
+- CE5

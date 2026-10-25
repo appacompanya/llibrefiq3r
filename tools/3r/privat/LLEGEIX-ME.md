@@ -17,7 +17,23 @@ que només ha de veure el professorat. Per això aquesta carpeta està exclosa d
 
 Origen: `kit-llibre-fq-4t.zip` (versió del 20/10/2026). Es poden obtenir de la còpia del kit fora del repositori.
 
-**Pendent:** desar-les xifrades com les de 2n i 4t (`tools/material/build.py --fonts`, amb el secret `FQ_MATERIAL_B`
-que només pot copiar un administrador). No s'ha fet en aquesta fase perquè cal el secret.
+## Xifrar les fonts (mateix esquema que 2n i 4t, sense tocar aquell material)
+
+No facis `tools/material/build.py --fonts` amb aquesta carpeta. Aquella ordre **substitueix**
+`tools/material/fonts-privades.bin`, que és el paquet de 2n i 4t, i després només sap construir els PDF d'aquests dos cursos.
+
+El model de xifrat de 2n i 4t no canvia: AES-256-GCM i clau `SHA-256(A^b mod p)`, amb `A` a
+`tools/material/clau-publica.json` i `b` a la taula `kv` (camí `clau-material`).
+
+Per deixar els generadors de 3r xifrats al mateix esquema, en local i sense pujar secrets:
+
+1. Un administrador copia el valor `b` de `kv` / `clau-material` i l'exporta a la sessió:
+   `export FQ_MATERIAL_B='…'`. No el desis en cap fitxer del repositori ni el posis a la línia d'ordres d'un script que es pugi.
+2. Copia els `.py` de la taula (el kit del 20/10/2026) dins `tools/3r/privat/`. El `.gitignore` d'aquesta carpeta no els puja.
+3. Executa `python3 tools/3r/xifra_fonts_privat.py`. Escriu `tools/3r/privat/fonts-3r.bin` (també ignorat per git).
+4. Esborra els `.py` en clar de la màquina si no els has d'editar. Per tornar-los a tenir cal el mateix `FQ_MATERIAL_B`; el script només xifra, no desxifra.
+
+Els PDF de professorat de 3r que ja existeixen segueixen al bucket `professorat` de Supabase. Aquest pas només protegeix les fonts dels generadors.
+
 Els scripts públics de `tools/3r/generadors/` (p. ex. `gen_curs.py`, `gen_multinivell.py`) importen ajudes de `gen_sda1.py`:
 sense aquesta carpeta no s'executen.

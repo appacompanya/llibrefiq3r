@@ -1459,7 +1459,7 @@
    "title": "L'energia del nostre institut",
    "sessions": [
     {
-     "t": "Auditoria energètica de l'aula",
+     "t": "Auditoria energètica i acústica de l'aula",
      "d": [
       "d6ruta",
       "d6repte",
@@ -1468,6 +1468,14 @@
      "dt": [],
      "l": [
       "inv"
+     ]
+    },
+    {
+     "t": "Muntem circuits",
+     "d": [],
+     "dt": [],
+     "l": [
+      "circuits"
      ]
     },
     {

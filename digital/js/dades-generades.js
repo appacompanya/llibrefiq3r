@@ -1386,7 +1386,7 @@ window.FQ3_DADES = {
    "c": "--s2",
    "title": "El desodorant kamikaze",
    "q": "Per què explota un desodorant dins d'un cotxe a l'agost?",
-   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1, CE2 i CE4",
+   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE2",
    "ready": true,
    "sessions": [
     {
@@ -1554,7 +1554,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils al centre, amb el balanç del que s'ha recollit · Competències específiques avaluades: CE1, CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -1642,7 +1642,7 @@ window.FQ3_DADES = {
     {
      "t": "Posem en marxa el punt de recollida",
      "ph": "Ho apliquem",
-     "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.",
+     "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió del punt de vista (per què no llençar el mòbil al rebuig). El punt de recollida es posa en marxa. El recompte del que s'ha recollit es comenta en tancar la SdA 4 i no forma part del producte que es qualifica aquí. Al final tens el mapa conceptual de la SdA.",
      "d": [
       "d3camp",
       "d3mapa"
@@ -1732,7 +1732,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
    "ready": true,
    "sessions": [
     {
@@ -1835,7 +1835,7 @@ window.FQ3_DADES = {
     {
      "t": "Corregeixo i reflexiono",
      "ph": "Reflexionem",
-     "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+     "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. El punt de recollida de mòbils de la SdA 3 ja haurà funcionat unes setmanes: en comentarem el recompte, sense qualificar-lo, perquè a la SdA 3 es qualifica la campanya.",
      "d": [
       "d4diana"
      ],
@@ -1896,7 +1896,7 @@ window.FQ3_DADES = {
    "c": "--s5",
    "title": "Cèl·lules immunitàries a la caça dels patògens",
    "q": "Com persegueix un neutròfil un bacteri sense veure'l?",
-   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5",
+   "meta": "2n i 3r trimestre · 13 sessions · Producte final: full de forces cel·lulars · Competències específiques avaluades: CE1, CE5 i CE2",
    "ready": true,
    "sessions": [
     {
@@ -1912,7 +1912,8 @@ window.FQ3_DADES = {
       "rogers",
       "ferida",
       "metastasi"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "El moviment uniforme (MRU)",
@@ -1923,7 +1924,8 @@ window.FQ3_DADES = {
      ],
      "l": [
       "labmru"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "El moviment accelerat (MRUA)",
@@ -1935,7 +1937,8 @@ window.FQ3_DADES = {
      "l": [
       "anmrua",
       "labmrua"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Les gràfiques del patinet",
@@ -1948,7 +1951,8 @@ window.FQ3_DADES = {
       "anmrua",
       "labmru",
       "labmrua"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Trajectòria i desplaçament",
@@ -1957,7 +1961,8 @@ window.FQ3_DADES = {
      "d": [
       "d5f4"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Problemes de moviment",
@@ -1966,18 +1971,20 @@ window.FQ3_DADES = {
      "d": [
       "d5prob"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Difusió i gradient",
      "ph": "Experimentem",
-     "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+     "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
      "d": [
       "d5f5"
      ],
      "l": [
       "difusio"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Quimiotaxi i febre",
@@ -1989,7 +1996,8 @@ window.FQ3_DADES = {
      "l": [
       "rogers",
       "febre"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Les lleis de Newton",
@@ -2001,7 +2009,8 @@ window.FQ3_DADES = {
      "l": [
       "cito",
       "phetforces"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "La llei de Hooke",
@@ -2010,7 +2019,8 @@ window.FQ3_DADES = {
      "d": [
       "d5hooke"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Les cèl·lules també fan forces",
@@ -2023,7 +2033,8 @@ window.FQ3_DADES = {
      "dt": [
       "d5lam"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Demostració d'assoliment",
@@ -2034,19 +2045,21 @@ window.FQ3_DADES = {
       "d5prova",
       "d5solpr"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Responc el repte i reflexiono",
      "ph": "Reflexionem",
-     "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+     "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l'avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.",
      "d": [
       "d5diana"
      ],
      "dt": [
       "d5solpr"
      ],
-     "l": []
+     "l": [],
+     "half": false
     }
    ],
    "teacher": [
@@ -2095,7 +2108,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Rúbriques",
-     "s": "Full de forces cel·lulars, gràfiques del patinet i experiment de difusió.",
+     "s": "Full de forces cel·lulars, gràfiques del patinet i demostració de difusió (grup sencer, sessió 7).",
      "d": [
       "d5rub"
      ]
@@ -2107,13 +2120,13 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
+   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4, CE6 i CE1",
    "ready": true,
    "sessions": [
     {
      "t": "Auditoria energètica i acústica de l'aula",
      "ph": "Observem",
-     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
+     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte i l'inventari, a la plantilla d'Excel.",
      "d": [
       "d6ruta",
       "d6repte",
@@ -2127,7 +2140,7 @@ window.FQ3_DADES = {
     {
      "t": "Muntem circuits",
      "ph": "Experimentem",
-     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel.",
+     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel. No hi ha full de laboratori de circuits: el que observeu queda al full de ruta i a la simulació.",
      "d": [],
      "l": [
       "circuits"
@@ -2230,7 +2243,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Tasques de recuperació (una per CE)",
-     "s": "Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.",
+     "s": "Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les a la SdA 6, i no a l'inici d'aquesta SdA. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.",
      "d": [
       "dcR1",
       "dcR2",
@@ -2393,7 +2406,7 @@ window.FQ3_DADES = {
    "c": "--s2",
    "title": "El desodorant kamikaze",
    "q": "Per què explota un desodorant dins d'un cotxe a l'agost?",
-   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1, CE2 i CE4",
+   "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE2",
    "ready": true,
    "sessions": [
     {
@@ -2503,7 +2516,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils al centre, amb el balanç del que s'ha recollit · Competències específiques avaluades: CE1, CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -2585,7 +2598,7 @@ window.FQ3_DADES = {
     {
      "t": "Posem en marxa el punt de recollida",
      "ph": "Ho apliquem",
-     "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.",
+     "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió del punt de vista (per què no llençar el mòbil al rebuig). El punt de recollida es posa en marxa. El recompte del que s'ha recollit es comenta en tancar la SdA 4 i no forma part del producte que es qualifica aquí. Al final tens el mapa conceptual de la SdA.",
      "d": [
       "d3camp",
       "d3mapa"
@@ -2616,7 +2629,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
    "ready": true,
    "sessions": [
     {
@@ -2715,7 +2728,7 @@ window.FQ3_DADES = {
     {
      "t": "Corregeixo i reflexiono",
      "ph": "Reflexionem",
-     "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+     "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. El punt de recollida de mòbils de la SdA 3 ja haurà funcionat unes setmanes: en comentarem el recompte, sense qualificar-lo, perquè a la SdA 3 es qualifica la campanya.",
      "d": [
       "d4diana"
      ],
@@ -2729,7 +2742,7 @@ window.FQ3_DADES = {
    "c": "--s5",
    "title": "Cèl·lules immunitàries a la caça dels patògens",
    "q": "Com persegueix un neutròfil un bacteri sense veure'l?",
-   "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5",
+   "meta": "2n i 3r trimestre · 13 sessions · Producte final: full de forces cel·lulars · Competències específiques avaluades: CE1, CE5 i CE2",
    "ready": true,
    "sessions": [
     {
@@ -2745,7 +2758,8 @@ window.FQ3_DADES = {
       "rogers",
       "ferida",
       "metastasi"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "El moviment uniforme (MRU)",
@@ -2756,7 +2770,8 @@ window.FQ3_DADES = {
      ],
      "l": [
       "labmru"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "El moviment accelerat (MRUA)",
@@ -2768,7 +2783,8 @@ window.FQ3_DADES = {
      "l": [
       "anmrua",
       "labmrua"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Les gràfiques del patinet",
@@ -2781,7 +2797,8 @@ window.FQ3_DADES = {
       "anmrua",
       "labmru",
       "labmrua"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Trajectòria i desplaçament",
@@ -2790,7 +2807,8 @@ window.FQ3_DADES = {
      "d": [
       "d5f4"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Problemes de moviment",
@@ -2799,18 +2817,20 @@ window.FQ3_DADES = {
      "d": [
       "d5prob"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Difusió i gradient",
      "ph": "Experimentem",
-     "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+     "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
      "d": [
       "d5f5"
      ],
      "l": [
       "difusio"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Quimiotaxi i febre",
@@ -2822,7 +2842,8 @@ window.FQ3_DADES = {
      "l": [
       "rogers",
       "febre"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Les lleis de Newton",
@@ -2834,7 +2855,8 @@ window.FQ3_DADES = {
      "l": [
       "cito",
       "phetforces"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "La llei de Hooke",
@@ -2843,7 +2865,8 @@ window.FQ3_DADES = {
      "d": [
       "d5hooke"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Les cèl·lules també fan forces",
@@ -2853,23 +2876,26 @@ window.FQ3_DADES = {
       "d5tfm",
       "d5mapa"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Demostració d'assoliment",
      "ph": "Avaluem",
      "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.",
      "d": [],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Responc el repte i reflexiono",
      "ph": "Reflexionem",
-     "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+     "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l'avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.",
      "d": [
       "d5diana"
      ],
-     "l": []
+     "l": [],
+     "half": false
     }
    ],
    "teacher": []
@@ -2879,13 +2905,13 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
+   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4, CE6 i CE1",
    "ready": true,
    "sessions": [
     {
      "t": "Auditoria energètica i acústica de l'aula",
      "ph": "Observem",
-     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
+     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte i l'inventari, a la plantilla d'Excel.",
      "d": [
       "d6ruta",
       "d6repte",
@@ -2899,7 +2925,7 @@ window.FQ3_DADES = {
     {
      "t": "Muntem circuits",
      "ph": "Experimentem",
-     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel.",
+     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel. No hi ha full de laboratori de circuits: el que observeu queda al full de ruta i a la simulació.",
      "d": [],
      "l": [
       "circuits"
@@ -3212,7 +3238,7 @@ window.FQ3_DADES = {
       "id": "v2",
       "l": "Adaptació al públic",
       "c": [
-       "4.1"
+       "2.5"
       ],
       "d": {
        "AE": "Llenguatge clar, exemples propers i suport visual",
@@ -3225,7 +3251,7 @@ window.FQ3_DADES = {
       "id": "v3",
       "l": "Recursos digitals",
       "c": [
-       "4.1"
+       "2.5"
       ],
       "d": {
        "AE": "Imatge i so clars, 2–3 minuts, muntatge i suport visual cuidats",
@@ -3317,21 +3343,21 @@ window.FQ3_DADES = {
       "id": "p2",
       "l": "Activitat 2 · Àtoms, ions i isòtops",
       "c": [
-       "1.1"
+       "6.1"
       ]
      },
      {
       "id": "p3",
       "l": "Activitat 3 · La taula periòdica",
       "c": [
-       "1.2"
+       "6.1"
       ]
      },
      {
       "id": "p4",
       "l": "Activitat 4 · El liti a la flama",
       "c": [
-       "1.2"
+       "6.1"
       ]
      },
      {
@@ -3355,10 +3381,10 @@ window.FQ3_DADES = {
        "5.4"
       ],
       "d": {
-       "AE": "Objectiu mesurable, pla complet i assolit; registre setmanal i balanç amb gràfica",
-       "AN": "Pla complet i registre correcte; balanç sense analitzar",
-       "AS": "Pla incomplet o registre irregular",
-       "NA": "No hi ha pla ni registre"
+       "AE": "Objectiu mesurable, pla complet (normes, rols, cartell i difusió) i punt de recollida en marxa",
+       "AN": "Pla complet i punt de recollida en marxa",
+       "AS": "Pla incomplet o sense posar en marxa",
+       "NA": "No hi ha pla ni punt de recollida"
       }
      },
      {
@@ -3385,6 +3411,19 @@ window.FQ3_DADES = {
        "AN": "Proposa hàbits concrets",
        "AS": "Proposa hàbits genèrics",
        "NA": "No proposa hàbits"
+      }
+     },
+     {
+      "id": "c4",
+      "l": "Difusió del punt de vista ecosocial",
+      "c": [
+       "4.1"
+      ],
+      "d": {
+       "AE": "El cartell o el missatge defensa, amb arguments i un format clar, per què els mòbils no han d'anar al rebuig",
+       "AN": "El missatge defensa la recollida selectiva amb algun argument",
+       "AS": "El missatge anuncia la recollida sense defensar el punt de vista",
+       "NA": "No hi ha cartell ni missatge de difusió"
       }
      }
     ]
@@ -3451,8 +3490,7 @@ window.FQ3_DADES = {
       "id": "p2",
       "l": "Activitat 2 · La llana d'acer",
       "c": [
-       "2.2",
-       "1.2"
+       "2.2"
       ]
      },
      {
@@ -3712,7 +3750,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "difu",
-    "l": "Laboratori de difusió (fitxa 5, sessió 7)",
+    "l": "Demostració de difusió (fitxa 5, sessió 7, grup sencer)",
     "items": [
      {
       "id": "x1",
@@ -3823,15 +3861,15 @@ window.FQ3_DADES = {
     "items": [
      {
       "id": "e1",
-      "l": "Mesures basades en dades",
+      "l": "Càlcul de l'estalvi (kWh i rendiment)",
       "c": [
-       "6.2"
+       "1.2"
       ],
       "d": {
-       "AE": "Tres mesures de tipus diferents, amb l'estalvi calculat correctament i suposicions explícites",
-       "AN": "Tres mesures amb un càlcul correcte",
-       "AS": "Mesures poc concretes o sense càlcul",
-       "NA": "No proposa mesures"
+       "AE": "Tres mesures de tipus diferents; l'estalvi en kWh (E = P·t) i el rendiment es calculen bé i les suposicions són explícites",
+       "AN": "Tres mesures amb el càlcul d'estalvi correcte",
+       "AS": "Mesures poc concretes o sense el càlcul d'energia",
+       "NA": "No proposa mesures ni càlcul"
       }
      },
      {

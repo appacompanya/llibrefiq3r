@@ -1,7 +1,8 @@
 {
  "generat_per": "tools/3r/build_dades.py --mapa",
  "font": "contingut/3r (font única)",
- "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar.",
+ "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar. Es conserva «prova de la flama» com a procediment de laboratori.",
+ "avaluacio": "Qualitativa (NA, AS, AN, AE). Sense pesos: el nivell d'un criteri i d'una CE és la mitjana no ponderada dels aspectes on apareixen, arrodonida a l'alça. Dues CE principals per SdA i, com a màxim, una de secundària si té evidència amb rúbrica. La nota automàtica de les fitxes digitals formatives és orientativa i no entra a la mitjana oficial. Les fitxes qualificadores es valoren a la rúbrica de l'evidència, no amb el nivell automàtic agregat.",
  "competencies": {
   "CE1": "Interpretar fenòmens de la naturalesa, predient i argumentant-ne el comportament a partir de models, lleis i teories propis de la física i química per apropiar-se de conceptes i processos propis de la ciència.",
   "CE2": "Dissenyar, desenvolupar i comunicar el plantejament i les conclusions de recerques incloent la formulació de preguntes i d'hipòtesis i la seva contrastació experimental, dins de l'àmbit escolar, seguint els passos de les metodologies pròpies de la ciència, com l'experimentació i la cerca d'evidències, i del pensament computacional cooperant, quan calgui, per indagar en aspectes relacionats amb la física i la química.",
@@ -122,6 +123,13 @@
    "sda": 1,
    "titol": "Detectius de la matèria",
    "repte": "Com podem identificar dotze substàncies que han perdut l'etiqueta?",
+   "ce_principals": [
+    "CE2",
+    "CE3"
+   ],
+   "ce_secundaria": [
+    "CE5"
+   ],
    "ce": [
     "CE2",
     "CE3",
@@ -140,26 +148,26 @@
     "3.3",
     "5.1"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s1.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d1prova",
        "fitxer": "sda1-13-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "d1solpr",
        "fitxer": "sda1-14-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -227,13 +235,13 @@
      "titol": "Informe del repte i protocol",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 40,
      "instruments": [
       {
        "uid": "d1inf",
        "fitxer": "sda1-11-guio-informe-i-protocol.pdf",
        "titol": "Guió de l'informe i protocol",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -285,7 +293,6 @@
      "titol": "Laboratori i seguretat (observació)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 20,
      "instruments": [],
      "criteris": [
       "2.3",
@@ -319,13 +326,13 @@
      "titol": "Lectura sobre Ellen Swallow Richards",
      "versio": 2,
      "tipus": "qualificadora",
-     "pes_percent": 10,
      "instruments": [
       {
        "uid": "d1ellen",
        "fitxer": "sda1-10-reading-ellen-swallow-richards.pdf",
        "titol": "Reading: Ellen Swallow Richards",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -361,42 +368,45 @@
    "sda": 2,
    "titol": "El desodorant kamikaze",
    "repte": "Per què explota un desodorant dins d'un cotxe a l'agost?",
+   "ce_principals": [
+    "CE1",
+    "CE2"
+   ],
+   "ce_secundaria": [],
    "ce": [
     "CE1",
-    "CE2",
-    "CE4"
+    "CE2"
    ],
    "ce_aprovades": [
     "CE1",
-    "CE2",
-    "CE4"
+    "CE2"
    ],
    "criteris": [
     "1.1",
     "1.2",
     "2.3",
-    "4.1"
+    "2.5"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s2.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 9)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 25,
      "instruments": [
       {
        "uid": "prova",
        "fitxer": "sda2-10-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "solpr",
        "fitxer": "sda2-11-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -461,24 +471,24 @@
     {
      "uid": "s2.video",
      "titol": "Vídeo per a 1r d'ESO",
-     "versio": 1,
+     "versio": 2,
      "tipus": "qualificadora",
-     "pes_percent": 35,
      "instruments": [
       {
        "uid": "video",
        "fitxer": "sda2-08-guio-del-video.pdf",
        "titol": "Guió del vídeo",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
       "1.2",
-      "4.1"
+      "2.5"
      ],
      "ce": [
       "CE1",
-      "CE4"
+      "CE2"
      ],
      "items": [
       {
@@ -493,17 +503,17 @@
        "uid": "s2.video.v2",
        "titol": "Adaptació al públic",
        "criteris": [
-        "4.1"
+        "2.5"
        ],
-       "versio": 1
+       "versio": 2
       },
       {
        "uid": "s2.video.v3",
        "titol": "Recursos digitals",
        "criteris": [
-        "4.1"
+        "2.5"
        ],
-       "versio": 1
+       "versio": 2
       }
      ]
     },
@@ -512,7 +522,6 @@
      "titol": "Explicació final del repte",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 25,
      "instruments": [],
      "criteris": [
       "1.1",
@@ -545,19 +554,20 @@
      "titol": "Laboratori de la corba d'escalfament i informe de pràctica (sessió 6)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 15,
      "instruments": [
       {
        "uid": "labc",
        "fitxer": "sda2-14-laboratori-corba-i-canvis-destat.pdf",
        "titol": "Full de laboratori",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       },
       {
        "uid": "inf",
        "fitxer": "sda2-07-guio-informe-de-practica.pdf",
        "titol": "Guió de l'informe",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -591,55 +601,58 @@
    "sda": 3,
    "titol": "Què hi ha dins del meu mòbil?",
    "repte": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
+   "ce_principals": [
+    "CE5",
+    "CE6"
+   ],
+   "ce_secundaria": [
+    "CE4"
+   ],
    "ce": [
-    "CE1",
+    "CE4",
     "CE5",
     "CE6"
    ],
    "ce_aprovades": [
-    "CE1",
     "CE5",
-    "CE6"
+    "CE6",
+    "CE4"
    ],
    "criteris": [
-    "1.1",
-    "1.2",
+    "4.1",
     "5.1",
     "5.2",
     "5.4",
     "6.1"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s3.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 9)",
-     "versio": 2,
+     "versio": 3,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d3prova",
        "fitxer": "sda3-13-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "d3solpr",
        "fitxer": "sda3-14-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
-      "1.1",
-      "1.2",
       "5.1",
       "5.2",
       "6.1"
      ],
      "ce": [
-      "CE1",
       "CE5",
       "CE6"
      ],
@@ -656,25 +669,25 @@
        "uid": "s3.prova.p2",
        "titol": "Activitat 2 · Àtoms, ions i isòtops",
        "criteris": [
-        "1.1"
+        "6.1"
        ],
-       "versio": 2
+       "versio": 3
       },
       {
        "uid": "s3.prova.p3",
        "titol": "Activitat 3 · La taula periòdica",
        "criteris": [
-        "1.2"
+        "6.1"
        ],
-       "versio": 2
+       "versio": 3
       },
       {
        "uid": "s3.prova.p4",
        "titol": "Activitat 4 · El liti a la flama",
        "criteris": [
-        "1.2"
+        "6.1"
        ],
-       "versio": 2
+       "versio": 3
       },
       {
        "uid": "s3.prova.p5",
@@ -690,23 +703,25 @@
     {
      "uid": "s3.camp",
      "titol": "Campanya del punt de recollida (producte final)",
-     "versio": 1,
+     "versio": 2,
      "tipus": "qualificadora",
-     "pes_percent": 35,
      "instruments": [
       {
        "uid": "d3camp",
        "fitxer": "sda3-11-pla-de-campanya-punt-de-recollida.pdf",
        "titol": "Pla de campanya",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
+      "4.1",
       "5.1",
       "5.2",
       "5.4"
      ],
      "ce": [
+      "CE4",
       "CE5"
      ],
      "items": [
@@ -716,7 +731,7 @@
        "criteris": [
         "5.4"
        ],
-       "versio": 1
+       "versio": 2
       },
       {
        "uid": "s3.camp.c2",
@@ -733,6 +748,14 @@
         "5.2"
        ],
        "versio": 1
+      },
+      {
+       "uid": "s3.camp.c4",
+       "titol": "Difusió del punt de vista ecosocial",
+       "criteris": [
+        "4.1"
+       ],
+       "versio": 1
       }
      ]
     },
@@ -741,13 +764,13 @@
      "titol": "Dossier: incendis i matèries primeres crítiques",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 25,
      "instruments": [
       {
        "uid": "d3dos",
        "fitxer": "sda3-10-dossier-incendis-i-elements-critics.pdf",
        "titol": "Dossier",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -781,8 +804,15 @@
      "titol": "Fitxa 2 · Evolució dels models atòmics",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 10,
-     "instruments": [],
+     "instruments": [
+      {
+       "uid": "d3f2",
+       "fitxer": "sda3-04-fitxa-2-models-atomics-i-isotops.pdf",
+       "titol": "Fitxa 2",
+       "on": "docs/ (alumnat)",
+       "avaluacio": "qualificadora"
+      }
+     ],
      "criteris": [
       "6.1"
      ],
@@ -806,55 +836,55 @@
    "sda": 4,
    "titol": "Un cotxe que només allibera aigua?",
    "repte": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
+   "ce_principals": [
+    "CE2",
+    "CE3"
+   ],
+   "ce_secundaria": [],
    "ce": [
-    "CE1",
     "CE2",
     "CE3"
    ],
    "ce_aprovades": [
-    "CE1",
     "CE2",
     "CE3"
    ],
    "criteris": [
-    "1.2",
     "2.2",
     "2.4",
     "2.5",
     "3.1",
     "3.2"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s4.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 9)",
-     "versio": 2,
+     "versio": 3,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d4prova",
        "fitxer": "sda4-11-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "d4solpr",
        "fitxer": "sda4-12-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
-      "1.2",
       "2.2",
       "2.5",
       "3.1",
       "3.2"
      ],
      "ce": [
-      "CE1",
       "CE2",
       "CE3"
      ],
@@ -871,10 +901,9 @@
        "uid": "s4.prova.p2",
        "titol": "Activitat 2 · La llana d'acer",
        "criteris": [
-        "2.2",
-        "1.2"
+        "2.2"
        ],
-       "versio": 2
+       "versio": 3
       },
       {
        "uid": "s4.prova.p3",
@@ -908,7 +937,6 @@
      "titol": "Fulls de laboratori: Lavoisier i electròlisi",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 40,
      "instruments": [],
      "criteris": [
       "2.2",
@@ -951,13 +979,13 @@
      "titol": "Dossier i resposta del grup al repte (sessió 8)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d4dos",
        "fitxer": "sda4-09-dossier-hidrogen.pdf",
        "titol": "Dossier sobre l'hidrogen",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -993,6 +1021,13 @@
    "sda": 5,
    "titol": "Cèl·lules immunitàries a la caça dels patògens",
    "repte": "Com persegueix un neutròfil un bacteri sense veure'l?",
+   "ce_principals": [
+    "CE1",
+    "CE5"
+   ],
+   "ce_secundaria": [
+    "CE2"
+   ],
    "ce": [
     "CE1",
     "CE2",
@@ -1000,8 +1035,8 @@
    ],
    "ce_aprovades": [
     "CE1",
-    "CE2",
-    "CE5"
+    "CE5",
+    "CE2"
    ],
    "criteris": [
     "1.1",
@@ -1011,26 +1046,26 @@
     "2.3",
     "5.3"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s5.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 12)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d5prova",
        "fitxer": "sda5-15-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "d5solpr",
        "fitxer": "sda5-16-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -1093,13 +1128,13 @@
      "titol": "Full de forces cel·lulars (grup)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d5tfm",
        "fitxer": "sda5-12-forces-cellulars.pdf",
        "titol": "Full de forces cel·lulars",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -1143,8 +1178,15 @@
      "titol": "Gràfiques del patinet (fitxa 3, sessió 4)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 15,
-     "instruments": [],
+     "instruments": [
+      {
+       "uid": "d5f3",
+       "fitxer": "sda5-05-fitxa-3-grafiques-del-patinet.pdf",
+       "titol": "Fitxa 3: gràfiques",
+       "on": "docs/ (alumnat)",
+       "avaluacio": "qualificadora"
+      }
+     ],
      "criteris": [
       "1.1"
      ],
@@ -1175,8 +1217,15 @@
      "titol": "La febre i la migració (fitxa 6, sessió 8)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 10,
-     "instruments": [],
+     "instruments": [
+      {
+       "uid": "d5f6q",
+       "fitxer": "sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf",
+       "titol": "Fitxa 6: quimiotaxi, febre i salut",
+       "on": "docs/ (alumnat)",
+       "avaluacio": "qualificadora"
+      }
+     ],
      "criteris": [
       "1.1",
       "5.3"
@@ -1206,16 +1255,16 @@
     },
     {
      "uid": "s5.difu",
-     "titol": "Laboratori de difusió (fitxa 5, sessió 7)",
+     "titol": "Demostració de difusió (fitxa 5, sessió 7, grup sencer)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 15,
      "instruments": [
       {
        "uid": "d5f5",
        "fitxer": "sda5-07-fitxa-5-difusio-i-gradient.pdf",
        "titol": "Fitxa 5: difusió i gradient",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": "qualificadora"
       }
      ],
      "criteris": [
@@ -1250,15 +1299,22 @@
    "sda": 6,
    "titol": "L'energia del nostre institut",
    "repte": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
+   "ce_principals": [
+    "CE4",
+    "CE6"
+   ],
+   "ce_secundaria": [
+    "CE1"
+   ],
    "ce": [
     "CE1",
     "CE4",
     "CE6"
    ],
    "ce_aprovades": [
-    "CE1",
     "CE4",
-    "CE6"
+    "CE6",
+    "CE1"
    ],
    "criteris": [
     "1.2",
@@ -1266,26 +1322,26 @@
     "4.3",
     "6.2"
    ],
-   "pes_total": 100,
    "evidencies": [
     {
      "uid": "s6.prova",
      "titol": "Activitat de demostració d'assoliment (sessió 7)",
      "versio": 2,
      "tipus": "qualificadora",
-     "pes_percent": 30,
      "instruments": [
       {
        "uid": "d6prova",
        "fitxer": "sda6-08-prova.pdf",
        "titol": "Activitat de demostració d'assoliment",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       },
       {
        "uid": "d6solpr",
        "fitxer": "sda6-09-solucionari-prova.pdf",
        "titol": "Solucionari de l'activitat de demostració",
-       "on": "bucket professorat"
+       "on": "bucket professorat",
+       "avaluacio": null
       }
      ],
      "criteris": [
@@ -1347,8 +1403,16 @@
      "titol": "Cerca d'informació (fitxa 2, part C)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 20,
-     "instruments": [],
+     "instruments": [
+      {
+       "uid": "d6f2",
+       "fitxer": "sda6-05-fitxa-2-don-ve-lelectricitat.pdf",
+       "titol": "Fitxa 2",
+       "on": "docs/ (alumnat)",
+       "avaluacio": "formativa",
+       "part_qualificadora": "C"
+      }
+     ],
      "criteris": [
       "4.3"
      ],
@@ -1377,31 +1441,33 @@
     {
      "uid": "s6.pla",
      "titol": "Pla d'estalvi del grup",
-     "versio": 1,
+     "versio": 2,
      "tipus": "qualificadora",
-     "pes_percent": 35,
      "instruments": [
       {
        "uid": "d6pla",
        "fitxer": "sda6-06-pla-destalvi-i-debat.pdf",
        "titol": "Pla d'estalvi i debat",
-       "on": "docs/ (alumnat)"
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
       }
      ],
      "criteris": [
+      "1.2",
       "6.2"
      ],
      "ce": [
+      "CE1",
       "CE6"
      ],
      "items": [
       {
        "uid": "s6.pla.e1",
-       "titol": "Mesures basades en dades",
+       "titol": "Càlcul de l'estalvi (kWh i rendiment)",
        "criteris": [
-        "6.2"
+        "1.2"
        ],
-       "versio": 1
+       "versio": 2
       },
       {
        "uid": "s6.pla.e2",
@@ -1418,7 +1484,6 @@
      "titol": "Debat del grup (observació)",
      "versio": 1,
      "tipus": "qualificadora",
-     "pes_percent": 15,
      "instruments": [],
      "criteris": [
       "4.2"
@@ -1455,13 +1520,8 @@
     "1.1",
     "1.2"
    ],
-   "3": [
-    "1.1",
-    "1.2"
-   ],
-   "4": [
-    "1.2"
-   ],
+   "3": [],
+   "4": [],
    "5": [
     "1.1",
     "1.2",
@@ -1478,7 +1538,8 @@
     "2.6"
    ],
    "2": [
-    "2.3"
+    "2.3",
+    "2.5"
    ],
    "3": [],
    "4": [
@@ -1508,10 +1569,10 @@
   },
   "CE4": {
    "1": [],
-   "2": [
+   "2": [],
+   "3": [
     "4.1"
    ],
-   "3": [],
    "4": [],
    "5": [],
    "6": [
@@ -1572,23 +1633,21 @@
     "1.2"
    ],
    "CE2": [
-    "2.3"
+    "2.3",
+    "2.5"
    ],
    "CE3": [],
-   "CE4": [
-    "4.1"
-   ],
+   "CE4": [],
    "CE5": [],
    "CE6": []
   },
   "3": {
-   "CE1": [
-    "1.1",
-    "1.2"
-   ],
+   "CE1": [],
    "CE2": [],
    "CE3": [],
-   "CE4": [],
+   "CE4": [
+    "4.1"
+   ],
    "CE5": [
     "5.1",
     "5.2",
@@ -1599,9 +1658,7 @@
    ]
   },
   "4": {
-   "CE1": [
-    "1.2"
-   ],
+   "CE1": [],
    "CE2": [
     "2.2",
     "2.4",
@@ -1655,7 +1712,6 @@
    "1.3",
    "2.1",
    "2.4",
-   "2.5",
    "2.6",
    "3.1",
    "3.3",
@@ -1671,13 +1727,10 @@
   "sda_per_criteri": {
    "1.1": [
     2,
-    3,
     5
    ],
    "1.2": [
     2,
-    3,
-    4,
     5,
     6
    ],
@@ -1700,6 +1753,7 @@
     4
    ],
    "2.5": [
+    2,
     4
    ],
    "2.6": [
@@ -1716,7 +1770,7 @@
     1
    ],
    "4.1": [
-    2
+    3
    ],
    "4.2": [
     6

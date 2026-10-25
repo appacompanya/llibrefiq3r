@@ -8,6 +8,10 @@ from bs4 import BeautifulSoup, NavigableString
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUTJS = os.path.join(HERE, "..", "llibrefiq3r", "digital", "js", "fitxes-auto.js")
+# La fitxa publicada és digital/js/fitxes-auto.js (arrel del repo), no aquesta sortida del kit antic.
+_published = os.path.normpath(os.path.join(HERE, "..", "..", "..", "digital", "js", "fitxes-auto.js"))
+if os.path.normpath(OUTJS) == _published:
+    raise SystemExit("Aturat: aquest script no ha d'escriure la fitxes-auto.js publicada. Edita el YAML o el JS viu.")
 sys.path.insert(0, os.path.join(HERE, "..", "lib"))
 import imatges as IM
 TMP = os.path.join(HERE, "_html_fitxes")
