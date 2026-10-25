@@ -1,210 +1,216 @@
 {
  "bucket": "professorat",
- "font": "storage.objects (consulta de només lectura, 24/10/2026)",
+ "font": "storage.objects (consulta de només lectura, 25/10/2026)",
  "objectes": [
   {
    "nom": "programacio-annexos.pdf",
-   "mida": 4687058,
-   "etag": "483904b9e6b69da38060b5e800a3b08b",
-   "actualitzat": "2026-10-14T23:45:53.99237+00:00"
+   "mida": 8482494,
+   "etag": "bf8f6de57ee1fb7c7c018bf3d0539ab5",
+   "actualitzat": "2026-10-25T15:13:07.537965+00:00"
   },
   {
    "nom": "sda1-13-prova.pdf",
-   "mida": 120474,
-   "etag": "b22bad08a56abae121f18e24b241672f",
-   "actualitzat": "2026-10-14T23:45:54.231655+00:00"
+   "mida": 85694,
+   "etag": "9a2b63040df3a8c345432f6218740802",
+   "actualitzat": "2026-10-24T21:13:51.172294+00:00"
   },
   {
    "nom": "sda1-14-solucionari-prova.pdf",
-   "mida": 77633,
-   "etag": "b1d5ffe6e64e1d85921542ad593186ca",
-   "actualitzat": "2026-10-14T23:45:54.515605+00:00"
+   "mida": 68622,
+   "etag": "ee62e32dde1daf32666893936ce03135",
+   "actualitzat": "2026-10-24T21:13:51.930903+00:00"
   },
   {
    "nom": "sda1-15-solucionari-fitxes.pdf",
-   "mida": 77733,
-   "etag": "545cfe199bd5cdd562a2176ffb2bef8c",
-   "actualitzat": "2026-10-14T23:45:54.825373+00:00"
+   "mida": 59352,
+   "etag": "5a83606b7837fd13be889f331407277d",
+   "actualitzat": "2026-10-24T21:13:52.992665+00:00"
   },
   {
    "nom": "sda1-19-solucionari-ampliacio.pdf",
-   "mida": 82375,
-   "etag": "81dbe52854c98261b890fb2815d5342d",
-   "actualitzat": "2026-10-14T23:45:54.999868+00:00"
+   "mida": 59779,
+   "etag": "1ea9a012c90df56388e9e5f031bdb8af",
+   "actualitzat": "2026-10-24T21:13:54.127257+00:00"
   },
   {
    "nom": "sda1-20-adaptada-dislexia-fitxa-1.pdf",
-   "mida": 140191,
-   "etag": "fd6ba4fc29bb84326aa2ab2ad5de3c99",
-   "actualitzat": "2026-10-14T23:45:55.251088+00:00"
+   "mida": 110519,
+   "etag": "f33981d6a2754147a1df9eb0c4d45750",
+   "actualitzat": "2026-10-24T21:13:55.300486+00:00"
   },
   {
    "nom": "sda2-06-solucionari-fitxa-2.pdf",
-   "mida": 86121,
-   "etag": "39f2320ee85a08811e7e5b198fc5ab08",
-   "actualitzat": "2026-10-14T23:45:55.440864+00:00"
+   "mida": 59998,
+   "etag": "ad14265ed3b47cff412daf40e4620cf2",
+   "actualitzat": "2026-10-24T21:13:56.370949+00:00"
   },
   {
    "nom": "sda2-10-prova.pdf",
-   "mida": 120934,
-   "etag": "ecdbb065f6bf0a31388b32f20aa572a7",
-   "actualitzat": "2026-10-14T23:45:55.66421+00:00"
+   "mida": 78414,
+   "etag": "0d367998006123bd9668cbad22a43eed",
+   "actualitzat": "2026-10-24T21:13:57.484784+00:00"
   },
   {
    "nom": "sda2-11-solucionari-prova.pdf",
-   "mida": 68983,
-   "etag": "a25642afd466a1a41b67bf9d966735fb",
-   "actualitzat": "2026-10-14T23:45:55.858485+00:00"
+   "mida": 51860,
+   "etag": "3d185f534531a989c6db7602ad286b63",
+   "actualitzat": "2026-10-24T21:13:58.589028+00:00"
   },
   {
    "nom": "sda2-16-solucionari-ampliacio.pdf",
-   "mida": 70878,
-   "etag": "3eb9b3dfa6ddb6649e91094fd3aa24e5",
-   "actualitzat": "2026-10-14T23:45:56.151096+00:00"
+   "mida": 55269,
+   "etag": "3edca5f599cd915b54eae43fde5e5f46",
+   "actualitzat": "2026-10-24T21:14:00.054688+00:00"
   },
   {
    "nom": "sda2-17-adaptada-nouvingut-glossari-visual.pdf",
-   "mida": 144884,
-   "etag": "a55033dad9a4ad0cd73b5716ec6822d7",
-   "actualitzat": "2026-10-14T23:45:56.398411+00:00"
+   "mida": 115819,
+   "etag": "18dbbfc65c4f5f9e8b640feeeebcc50f",
+   "actualitzat": "2026-10-24T21:14:01.969364+00:00"
+  },
+  {
+   "nom": "sda2-18-adaptada-continguts-basics-fitxa-1.pdf",
+   "mida": 108337,
+   "etag": "956837c9276f6b5f9c1af06541f4e910",
+   "actualitzat": "2026-10-24T21:14:02.754304+00:00"
   },
   {
    "nom": "sda3-02-model-de-mobil-per-plastificar.pdf",
-   "mida": 414004,
-   "etag": "20bd32acc516a668551b7058c2022cf2",
-   "actualitzat": "2026-10-14T23:45:56.679451+00:00"
+   "mida": 382958,
+   "etag": "c120125e974bedc861064e3158ece892",
+   "actualitzat": "2026-10-24T21:14:04.288115+00:00"
   },
   {
    "nom": "sda3-06-targetes-cami-del-reciclatge.pdf",
-   "mida": 103234,
-   "etag": "5aa0bdbd1056a8c7e3e8c0d6ae143448",
-   "actualitzat": "2026-10-14T23:45:56.991206+00:00"
+   "mida": 75042,
+   "etag": "7396c4b499c3150967ffa23cc5ffc00f",
+   "actualitzat": "2026-10-24T21:14:05.436262+00:00"
   },
   {
    "nom": "sda3-13-prova.pdf",
-   "mida": 112443,
-   "etag": "e8488a8f0888ca542196a140b466aa3e",
-   "actualitzat": "2026-10-14T23:45:57.321099+00:00"
+   "mida": 97454,
+   "etag": "ca3e4b0d14b6c61404a61e7249709018",
+   "actualitzat": "2026-10-25T15:10:11.684541+00:00"
   },
   {
    "nom": "sda3-14-solucionari-prova.pdf",
-   "mida": 67652,
-   "etag": "b0f3eefff0c93bdd20cd0d234bcf4259",
-   "actualitzat": "2026-10-14T23:45:57.589596+00:00"
+   "mida": 73929,
+   "etag": "8bb3d2bc0e903567b0a1928583069a6c",
+   "actualitzat": "2026-10-25T15:10:11.985572+00:00"
   },
   {
    "nom": "sda3-15-solucionari-fitxes.pdf",
-   "mida": 76972,
-   "etag": "103d32297d01363f17686365c18d00e8",
-   "actualitzat": "2026-10-14T23:45:57.88911+00:00"
+   "mida": 56011,
+   "etag": "2a553ac58f2e86b9b3a5f97156008257",
+   "actualitzat": "2026-10-24T21:14:08.700159+00:00"
   },
   {
    "nom": "sda3-19-solucionari-ampliacio.pdf",
-   "mida": 79951,
-   "etag": "b35a2dbc6bc0ead15f78d442cd4cb5b4",
-   "actualitzat": "2026-10-14T23:45:58.297472+00:00"
+   "mida": 61124,
+   "etag": "698e41855096320ad98864578a87c07a",
+   "actualitzat": "2026-10-24T21:14:09.836051+00:00"
   },
   {
    "nom": "sda3-20-adaptada-pi-atom-i-taula-periodica.pdf",
-   "mida": 145550,
-   "etag": "34cf755e70eb686a1b94b394b7d59f81",
-   "actualitzat": "2026-10-14T23:45:58.544509+00:00"
+   "mida": 114404,
+   "etag": "a936186713222a55757df4fd905a00c5",
+   "actualitzat": "2026-10-24T21:14:10.973451+00:00"
   },
   {
    "nom": "sda4-11-prova.pdf",
-   "mida": 114957,
-   "etag": "ff379dadcbaf93ab3356e0b951839990",
-   "actualitzat": "2026-10-14T23:45:58.999044+00:00"
+   "mida": 79709,
+   "etag": "79cabebc5398c38894956a5db729eec0",
+   "actualitzat": "2026-10-24T21:14:12.054924+00:00"
   },
   {
    "nom": "sda4-12-solucionari-prova.pdf",
-   "mida": 73343,
-   "etag": "abab52859981d3629a810c195ec578be",
-   "actualitzat": "2026-10-14T23:45:59.393194+00:00"
+   "mida": 57909,
+   "etag": "10ecd4ea74576bfb91285acdd1340c3b",
+   "actualitzat": "2026-10-24T21:14:13.102944+00:00"
   },
   {
    "nom": "sda4-13-solucionari-fitxes.pdf",
-   "mida": 117044,
-   "etag": "99f793b82c0c5a80ddd69298b280ebf1",
-   "actualitzat": "2026-10-14T23:45:59.719019+00:00"
+   "mida": 77403,
+   "etag": "8df155a2e6c1ea608992ce8dd8708c6a",
+   "actualitzat": "2026-10-24T21:14:14.281759+00:00"
   },
   {
    "nom": "sda4-17-solucionari-ampliacio.pdf",
-   "mida": 78667,
-   "etag": "5ce5e16015a04540820c0b9b87329313",
-   "actualitzat": "2026-10-14T23:45:59.948925+00:00"
+   "mida": 70938,
+   "etag": "8563e76af4184366def2dd13c7a89ab5",
+   "actualitzat": "2026-10-24T21:14:15.346647+00:00"
   },
   {
    "nom": "sda4-18-adaptada-discalculia-equacions-i-masses.pdf",
-   "mida": 136750,
-   "etag": "1efda531c905a64fbfe061d74e2efa86",
-   "actualitzat": "2026-10-14T23:46:00.157641+00:00"
+   "mida": 119423,
+   "etag": "49f0776c845d95e141a3c84d482e344f",
+   "actualitzat": "2026-10-24T21:14:16.561064+00:00"
   },
   {
    "nom": "sda5-13-lamines-forces-de-traccio.pdf",
-   "mida": 254808,
-   "etag": "240084e98b447ed1b697ee68dca8f110",
-   "actualitzat": "2026-10-14T23:46:00.608093+00:00"
+   "mida": 217987,
+   "etag": "220cef6c913322d277de9cad8a682b0f",
+   "actualitzat": "2026-10-24T21:14:18.213118+00:00"
   },
   {
    "nom": "sda5-15-prova.pdf",
-   "mida": 141473,
-   "etag": "e59d6fd17c7d3648e32c52826b55fd84",
-   "actualitzat": "2026-10-14T23:46:00.93137+00:00"
+   "mida": 104949,
+   "etag": "c13c434ea5a4e993aa3e1a884513d285",
+   "actualitzat": "2026-10-24T21:14:19.414946+00:00"
   },
   {
    "nom": "sda5-16-solucionari-prova.pdf",
-   "mida": 77126,
-   "etag": "605048bcc96baaed742aa8d15eb32813",
-   "actualitzat": "2026-10-14T23:46:01.165207+00:00"
+   "mida": 71256,
+   "etag": "58cb753253bf6ed2259b34a5edf8776f",
+   "actualitzat": "2026-10-24T21:14:20.502302+00:00"
   },
   {
    "nom": "sda5-17-solucionari-fitxes.pdf",
-   "mida": 117547,
-   "etag": "f200d663edfd8364fb91d111abced0c5",
-   "actualitzat": "2026-10-14T23:46:01.464015+00:00"
+   "mida": 78725,
+   "etag": "4d010fec5310a1fa15be424ac4758492",
+   "actualitzat": "2026-10-24T21:14:21.755852+00:00"
   },
   {
    "nom": "sda5-21-solucionari-ampliacio.pdf",
-   "mida": 78098,
-   "etag": "964e28fce2c771865f276243eea7f521",
-   "actualitzat": "2026-10-14T23:46:01.640776+00:00"
+   "mida": 66821,
+   "etag": "98e55acd77b325719621ae25a8baa4a6",
+   "actualitzat": "2026-10-24T21:14:22.927271+00:00"
   },
   {
    "nom": "sda5-22-adaptada-tdah-problemes-de-moviment.pdf",
-   "mida": 131728,
-   "etag": "5ac313d6cafe5bd9ef7d5ce5711e3b7f",
-   "actualitzat": "2026-10-14T23:46:01.85241+00:00"
+   "mida": 107631,
+   "etag": "5154b068740dbaf77813d7fa6c565a3c",
+   "actualitzat": "2026-10-24T21:14:24.051581+00:00"
   },
   {
    "nom": "sda6-08-prova.pdf",
-   "mida": 121089,
-   "etag": "f5479e2a897a07fe37eedad5bd18ea44",
-   "actualitzat": "2026-10-14T23:46:02.095237+00:00"
+   "mida": 101741,
+   "etag": "7f6ff8ae2bc0a94c0c2b97bfcff067b4",
+   "actualitzat": "2026-10-25T15:10:12.332453+00:00"
   },
   {
    "nom": "sda6-09-solucionari-prova.pdf",
-   "mida": 82894,
-   "etag": "12bee17bb215303d820233e78dff2e56",
-   "actualitzat": "2026-10-14T23:46:02.410947+00:00"
+   "mida": 71362,
+   "etag": "82b6e967bf1fac7471c97f475f1d35be",
+   "actualitzat": "2026-10-25T15:10:12.689042+00:00"
   },
   {
    "nom": "sda6-10-solucionari-fitxes.pdf",
-   "mida": 75309,
-   "etag": "3f89595b2d22abe9f49f7bff00ca88a8",
-   "actualitzat": "2026-10-14T23:46:02.711148+00:00"
+   "mida": 85348,
+   "etag": "dace5eb3628bad87cb54ef1b8a73672d",
+   "actualitzat": "2026-10-25T15:10:13.016981+00:00"
   },
   {
    "nom": "sda6-15-solucionari-ampliacio.pdf",
-   "mida": 83853,
-   "etag": "36ce93ff859ed014747194740a158846",
-   "actualitzat": "2026-10-14T23:46:04.411888+00:00"
+   "mida": 71423,
+   "etag": "b16ff0b35a21fc4be777486a2f4ebaa7",
+   "actualitzat": "2026-10-24T21:14:28.323017+00:00"
   },
   {
    "nom": "sda6-16-adaptada-tea-guio-del-debat.pdf",
-   "mida": 127817,
-   "etag": "e091df2b382f6ced6b0189c22834d667",
-   "actualitzat": "2026-10-14T23:46:04.618535+00:00"
+   "mida": 106291,
+   "etag": "c376769f4650fa100e60b98ba46cf765",
+   "actualitzat": "2026-10-24T21:14:29.452261+00:00"
   }
  ]
 }
