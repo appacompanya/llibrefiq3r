@@ -1445,9 +1445,9 @@
     "sda6@4"
    ],
    "document": null,
-   "empremta": "8aa73c80136f09f7fcc1c68014643ec3252051267f0ded3b0214930f7d4df61b",
+   "empremta": "81d84a7e9f163176cee2ac0b32da32dc9ad60a744ce1dcab313ca8f0a8b89c8e",
    "generador": "gen_annexos.py",
-   "hash": "7f7205bb3216de655fd3c7174cb22a973f159e37fedd7838b761c270a7e32029",
+   "hash": "968450e34d0adf91f43c14e5bdd2ee3dcd704941d4f2278a71c6ca895ccf01ca",
    "imatges": {},
    "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
    "tipus": "pdf-public"
