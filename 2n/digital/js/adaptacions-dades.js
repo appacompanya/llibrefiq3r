@@ -473,7 +473,7 @@ window.FQ_ADAPT = {
      "densitat",
      "densitats"
     ],
-    "def": "massa que té cada unitat de volum d'una substància: d = m / V",
+    "def": "massa que té cada unitat de volum d'una substància: d = <span class=\"fr\"><span>m</span><span>V</span></span>",
     "tr": {
      "es": "densidad",
      "en": "density",
@@ -1621,7 +1621,7 @@ window.FQ_ADAPT = {
     },
     "preguntes": {
      "3": {
-      "exemple": "2,4 m · (100 cm / 1 m) = 240 cm. Els metres de dalt i de baix es van."
+      "exemple": "2,4 m · <span class=\"fr\"><span>100 cm</span><span>1 m</span></span> = 240 cm. Els metres de dalt i de baix es van."
      },
      "4": {
       "pistes": [
@@ -1640,15 +1640,15 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "2,4 · 100 = …",
-       "750 / 1000 = …",
+       "<span class=\"fr\"><span>750</span><span>1000</span></span> = …",
        "1,5 · 1000 = …"
       ]
      },
      "5": {
       "passos": [
-       "25 / 100 = … m",
+       "<span class=\"fr\"><span>25</span><span>100</span></span> = … m",
        "3 · 3600 = … s",
-       "450 / 1000 = … kg"
+       "<span class=\"fr\"><span>450</span><span>1000</span></span> = … kg"
       ]
      }
     }
@@ -1672,7 +1672,7 @@ window.FQ_ADAPT = {
     },
     "preguntes": {
      "1": {
-      "exemple": "45 m · (1 km / 1000 m) = 0,045 km."
+      "exemple": "45 m · <span class=\"fr\"><span>1 km</span><span>1000 m</span></span> = 0,045 km."
      },
      "3": {
       "pistes": [
@@ -1685,14 +1685,14 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "45 / 1000 = …",
-       "200 / 1000 = …",
+       "<span class=\"fr\"><span>45</span><span>1000</span></span> = …",
+       "<span class=\"fr\"><span>200</span><span>1000</span></span> = …",
        "6,5 · 1000 = …"
       ]
      },
      "3": {
       "passos": [
-       "90 / 3,6 = …",
+       "<span class=\"fr\"><span>90</span><span>3,6</span></span> = …",
        "8 · 3,6 = …"
       ]
      },
@@ -1740,7 +1740,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "llargada · amplada = … m²",
-       "… / alumnes = … m²"
+       "<span class=\"fr\"><span>…</span><span>alumnes</span></span> = … m²"
       ]
      },
      "4": {
@@ -1770,7 +1770,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "V = 60 · 30 · 40 = … cm³.",
-       "Litres = cm³ / 1000."
+       "Litres = <span class=\"fr\"><span>cm³</span><span>1000</span></span>."
       ]
      },
      "4": {
@@ -1799,7 +1799,7 @@ window.FQ_ADAPT = {
       "passos": [
        "60 · 30 = 1800",
        "1800 · 40 = … cm³",
-       "… / 1000 = … L"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … L"
       ]
      },
      "4": {
@@ -1861,7 +1861,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "4": {
       "pistes": [
-       "Volum d'una gota = volum en 1 min / gotes en 1 min."
+       "Volum d'una gota = <span class=\"fr\"><span>volum en 1 min</span><span>gotes en 1 min</span></span>."
       ]
      },
      "5": {
@@ -1883,14 +1883,14 @@ window.FQ_ADAPT = {
     "preguntes": {
      "4": {
       "passos": [
-       "volum en 1 min / gotes = … mL"
+       "<span class=\"fr\"><span>volum en 1 min</span><span>gotes</span></span> = … mL"
       ]
      },
      "5": {
       "passos": [
        "… · 60 = … mL en 1 h",
        "… · 24 = … mL en un dia",
-       "… / 1000 = … L",
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … L",
        "… · 365 = … L"
       ]
      }
@@ -1915,7 +1915,7 @@ window.FQ_ADAPT = {
      },
      "2": {
       "passos": [
-       "Litres a l'any / 175 = litres al dia.",
+       "<span class=\"fr\"><span>Litres a l'any</span><span>175</span></span> = litres al dia.",
        "Divideix entre les persones."
       ]
      },
@@ -1941,13 +1941,13 @@ window.FQ_ADAPT = {
      },
      "2": {
       "passos": [
-       "… / 175 = … L al dia",
-       "… / 520 = … L"
+       "<span class=\"fr\"><span>…</span><span>175</span></span> = … L al dia",
+       "<span class=\"fr\"><span>…</span><span>520</span></span> = … L"
       ]
      },
      "4": {
       "passos": [
-       "volum gran / volum petit = …"
+       "<span class=\"fr\"><span>volum gran</span><span>volum petit</span></span> = …"
       ]
      }
     }
@@ -2052,7 +2052,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "V = 24 · 11,5 · 5 = … cm³.",
-       "dm³ = cm³ / 1000."
+       "dm³ = <span class=\"fr\"><span>cm³</span><span>1000</span></span>."
       ]
      },
      "6": {
@@ -2126,7 +2126,7 @@ window.FQ_ADAPT = {
      "2": {
       "passos": [
        "massa amb líquid − proveta = … g",
-       "… / volum = … g/mL"
+       "<span class=\"fr\"><span>…</span><span>volum</span></span> = … g/mL"
       ]
      }
     }
@@ -2135,7 +2135,7 @@ window.FQ_ADAPT = {
   "d2f2": {
    "basics": {
     "abans_titol": "Fórmules de la densitat",
-    "abans": "<ul><li><b>d = m / V</b> · <b>m = d · V</b> · <b>V = m / d</b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
+    "abans": "<ul><li><b>d = <span class=\"fr\"><span>m</span><span>V</span></span></b> · <b>m = d · V</b> · <b>V = <span class=\"fr\"><span>m</span><span>d</span></span></b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
     "treu": [
      "4",
      "7"
@@ -2148,20 +2148,20 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "d = massa / volum.",
+       "d = <span class=\"fr\"><span>massa</span><span>volum</span></span>.",
        "Busca a la taula el número que s'hi assembla més."
       ]
      },
      "6": {
       "passos": [
        "Volum de la peça = 100 − 50 = … cm³.",
-       "d = 135 / … = … g/cm³.",
+       "d = <span class=\"fr\"><span>135</span><span>…</span></span> = … g/cm³.",
        "Busca-la a la taula."
       ]
      },
      "8": {
       "passos": [
-       "d = 158 / 200 = … g/mL.",
+       "d = <span class=\"fr\"><span>158</span><span>200</span></span> = … g/mL.",
        "L'aigua té 1 g/mL."
       ]
      }
@@ -2171,19 +2171,19 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "46 / 50 = …",
-       "2 · 2 · 2 = 8 cm³ → 4 / 8 = …"
+       "<span class=\"fr\"><span>46</span><span>50</span></span> = …",
+       "2 · 2 · 2 = 8 cm³ → <span class=\"fr\"><span>4</span><span>8</span></span> = …"
       ]
      },
      "6": {
       "passos": [
        "100 − 50 = 50",
-       "135 / 50 = …"
+       "<span class=\"fr\"><span>135</span><span>50</span></span> = …"
       ]
      },
      "8": {
       "passos": [
-       "158 / 200 = …"
+       "<span class=\"fr\"><span>158</span><span>200</span></span> = …"
       ]
      }
     }
@@ -2192,7 +2192,7 @@ window.FQ_ADAPT = {
   "d2f3": {
    "basics": {
     "abans_titol": "Fórmules de la densitat",
-    "abans": "<ul><li><b>d = m / V</b> · <b>m = d · V</b> · <b>V = m / d</b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
+    "abans": "<ul><li><b>d = <span class=\"fr\"><span>m</span><span>V</span></span></b> · <b>m = d · V</b> · <b>V = <span class=\"fr\"><span>m</span><span>d</span></span></b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
     "treu": [
      "5",
      "6",
@@ -2208,19 +2208,19 @@ window.FQ_ADAPT = {
       "passos": [
        "5 L = 5000 cm³.",
        "m = 0,92 · 5000 = … g.",
-       "Passa a kg: / 1000."
+       "Passa a kg: <span class=\"fr\"><span>…</span><span>1000</span></span>."
       ]
      },
      "2": {
       "passos": [
-       "d = 7,7 / 0,4 = … g/cm³.",
+       "d = <span class=\"fr\"><span>7,7</span><span>0,4</span></span> = … g/cm³.",
        "L'or té 19,3 g/cm³: és igual?"
       ]
      },
      "3": {
       "passos": [
        "2 kg = 2000 g.",
-       "V = 2000 / 0,92 = … cm³."
+       "V = <span class=\"fr\"><span>2000</span><span>0,92</span></span> = … cm³."
       ]
      },
      "4": {
@@ -2231,13 +2231,13 @@ window.FQ_ADAPT = {
      "7": {
       "passos": [
        "m = 1000 · 2500 = … kg.",
-       "/ 1000 = … t."
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … t."
       ]
      },
      "8": {
       "passos": [
        "Busca la densitat de la mel a la taula.",
-       "V = 500 / densitat = … mL."
+       "V = <span class=\"fr\"><span>500</span><span>densitat</span></span> = … mL."
       ]
      }
     }
@@ -2247,17 +2247,17 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "0,92 · 5000 = …",
-       "… / 1000 = … kg"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kg"
       ]
      },
      "2": {
       "passos": [
-       "7,7 / 0,4 = …"
+       "<span class=\"fr\"><span>7,7</span><span>0,4</span></span> = …"
       ]
      },
      "3": {
       "passos": [
-       "2000 / 0,92 = …"
+       "<span class=\"fr\"><span>2000</span><span>0,92</span></span> = …"
       ]
      },
      "4": {
@@ -2268,7 +2268,7 @@ window.FQ_ADAPT = {
      "7": {
       "passos": [
        "1000 · 2500 = …",
-       "… / 1000 = … t"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … t"
       ]
      }
     }
@@ -2298,7 +2298,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "3": {
       "passos": [
-       "d = massa / volum = … g/cm³"
+       "d = <span class=\"fr\"><span>massa</span><span>volum</span></span> = … g/cm³"
       ]
      }
     }
@@ -2333,7 +2333,7 @@ window.FQ_ADAPT = {
      },
      "7": {
       "passos": [
-       "d = 400 / 5000 = … g/cm³.",
+       "d = <span class=\"fr\"><span>400</span><span>5000</span></span> = … g/cm³.",
        "Si és més petita que 1, sura."
       ]
      }
@@ -2343,7 +2343,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "7": {
       "passos": [
-       "400 / 5000 = …"
+       "<span class=\"fr\"><span>400</span><span>5000</span></span> = …"
       ]
      }
     }
@@ -2395,7 +2395,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Mesura la massa de 50 mL d'aigua salada.",
-       "d = massa / 50 = … g/mL."
+       "d = <span class=\"fr\"><span>massa</span><span>50</span></span> = … g/mL."
       ]
      },
      "5": {
@@ -2409,12 +2409,12 @@ window.FQ_ADAPT = {
     "preguntes": {
      "3": {
       "passos": [
-       "massa / 50 = …"
+       "<span class=\"fr\"><span>massa</span><span>50</span></span> = …"
       ]
      },
      "4": {
       "passos": [
-       "massa / 20 = …"
+       "<span class=\"fr\"><span>massa</span><span>20</span></span> = …"
       ]
      }
     }
@@ -2433,13 +2433,13 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "d = 1000 / 64 = … g/cm³.",
+       "d = <span class=\"fr\"><span>1000</span><span>64</span></span> = … g/cm³.",
        "Compara-la amb 19,3 (or) i 10,5 (plata)."
       ]
      },
      "2": {
       "passos": [
-       "V = 1000 / 19,3 = … cm³.",
+       "V = <span class=\"fr\"><span>1000</span><span>19,3</span></span> = … cm³.",
        "Diferència: 64 − … = … cm³."
       ]
      },
@@ -2464,12 +2464,12 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "1000 / 64 = …"
+       "<span class=\"fr\"><span>1000</span><span>64</span></span> = …"
       ]
      },
      "2": {
       "passos": [
-       "1000 / 19,3 = …",
+       "<span class=\"fr\"><span>1000</span><span>19,3</span></span> = …",
        "64 − … = …"
       ]
      }
@@ -3003,7 +3003,7 @@ window.FQ_ADAPT = {
     },
     "preguntes": {
      "1": {
-      "exemple": "380 mmHg · (1 atm / 760 mmHg) = 0,5 atm."
+      "exemple": "380 mmHg · <span class=\"fr\"><span>1 atm</span><span>760 mmHg</span></span> = 0,5 atm."
      },
      "3": {
       "pistes": [
@@ -3016,7 +3016,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "380 / 760 = …",
+       "<span class=\"fr\"><span>380</span><span>760</span></span> = …",
        "2,5 · 760 = …"
       ]
      },
@@ -3087,7 +3087,7 @@ window.FQ_ADAPT = {
   "d3f5": {
    "basics": {
     "abans_titol": "Boyle-Mariotte",
-    "abans": "<p><b>P₁ · V₁ = P₂ · V₂</b>. Si el volum es fa petit, la pressió es fa gran.</p><p>P₂ = P₁ · V₁ / V₂ · V₂ = P₁ · V₁ / P₂</p>",
+    "abans": "<p><b>P₁ · V₁ = P₂ · V₂</b>. Si el volum es fa petit, la pressió es fa gran.</p><p>P₂ = <span class=\"fr\"><span>P₁ · V₁</span><span>V₂</span></span> i V₂ = <span class=\"fr\"><span>P₁ · V₁</span><span>P₂</span></span></p>",
     "treu": [
      "4",
      "5",
@@ -3101,27 +3101,27 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "Dades: P₁ = 1 atm, V₁ = 0,5 L, V₂ = 0,2 L.",
-       "P₂ = 1 · 0,5 / 0,2 = … atm."
+       "P₂ = <span class=\"fr\"><span>1 · 0,5</span><span>0,2</span></span> = … atm."
       ]
      },
      "2": {
       "passos": [
-       "V₂ = 1 · 3 / 0,6 = … L."
+       "V₂ = <span class=\"fr\"><span>1 · 3</span><span>0,6</span></span> = … L."
       ]
      },
      "3": {
       "passos": [
-       "V₂ = 2 · 4 / 1 = … mL."
+       "V₂ = <span class=\"fr\"><span>2 · 4</span><span>1</span></span> = … mL."
       ]
      },
      "6": {
       "passos": [
-       "V₂ = 1 · 4 / 2 = … L."
+       "V₂ = <span class=\"fr\"><span>1 · 4</span><span>2</span></span> = … L."
       ]
      },
      "7": {
       "passos": [
-       "V₂ = 1 · 50 / 2,5 = … mL."
+       "V₂ = <span class=\"fr\"><span>1 · 50</span><span>2,5</span></span> = … mL."
       ]
      }
     }
@@ -3131,29 +3131,29 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "1 · 0,5 = 0,5",
-       "0,5 / 0,2 = …"
+       "<span class=\"fr\"><span>0,5</span><span>0,2</span></span> = …"
       ]
      },
      "2": {
       "passos": [
        "1 · 3 = 3",
-       "3 / 0,6 = …"
+       "<span class=\"fr\"><span>3</span><span>0,6</span></span> = …"
       ]
      },
      "3": {
       "passos": [
        "2 · 4 = 8",
-       "8 / 1 = …"
+       "<span class=\"fr\"><span>8</span><span>1</span></span> = …"
       ]
      },
      "6": {
       "passos": [
-       "4 / 2 = …"
+       "<span class=\"fr\"><span>4</span><span>2</span></span> = …"
       ]
      },
      "7": {
       "passos": [
-       "50 / 2,5 = …"
+       "<span class=\"fr\"><span>50</span><span>2,5</span></span> = …"
       ]
      }
     }
@@ -3162,7 +3162,7 @@ window.FQ_ADAPT = {
   "d3f6": {
    "basics": {
     "abans_titol": "Les lleis amb la temperatura",
-    "abans": "<ul><li>Sempre en kelvin: <b>K = °C + 273</b>.</li><li>Charles (pressió constant): <b>V₂ = V₁ · T₂ / T₁</b></li><li>Gay-Lussac (volum constant): <b>P₂ = P₁ · T₂ / T₁</b></li></ul>",
+    "abans": "<ul><li>Sempre en kelvin: <b>K = °C + 273</b>.</li><li>Charles (pressió constant): <b>V₂ = <span class=\"fr\"><span>V₁ · T₂</span><span>T₁</span></span></b></li><li>Gay-Lussac (volum constant): <b>P₂ = <span class=\"fr\"><span>P₁ · T₂</span><span>T₁</span></span></b></li></ul>",
     "treu": [
      "3",
      "4",
@@ -3176,13 +3176,13 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "T₁ = 18 + 273 = 291 K; T₂ = 45 + 273 = 318 K.",
-       "V₂ = 1,5 · 318 / 291 = … L."
+       "V₂ = <span class=\"fr\"><span>1,5 · 318</span><span>291</span></span> = … L."
       ]
      },
      "2": {
       "passos": [
        "T₁ = 288 K; T₂ = 318 K.",
-       "P₂ = 3,2 · 318 / 288 = … atm."
+       "P₂ = <span class=\"fr\"><span>3,2 · 318</span><span>288</span></span> = … atm."
       ]
      },
      "5": {
@@ -3193,13 +3193,13 @@ window.FQ_ADAPT = {
      "7": {
       "passos": [
        "T₁ = 280 K; T₂ = 320 K.",
-       "P₂ = 2,5 · 320 / 280 = … atm."
+       "P₂ = <span class=\"fr\"><span>2,5 · 320</span><span>280</span></span> = … atm."
       ]
      },
      "8": {
       "passos": [
        "T₁ = 293 K; T₂ = 333 K.",
-       "P₂ = 1,5 · 333 / 293 = … atm."
+       "P₂ = <span class=\"fr\"><span>1,5 · 333</span><span>293</span></span> = … atm."
       ]
      }
     }
@@ -3209,25 +3209,25 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "1,5 · 318 = 477",
-       "477 / 291 = …"
+       "<span class=\"fr\"><span>477</span><span>291</span></span> = …"
       ]
      },
      "2": {
       "passos": [
        "3,2 · 318 = …",
-       "… / 288 = …"
+       "<span class=\"fr\"><span>…</span><span>288</span></span> = …"
       ]
      },
      "7": {
       "passos": [
        "2,5 · 320 = 800",
-       "800 / 280 = …"
+       "<span class=\"fr\"><span>800</span><span>280</span></span> = …"
       ]
      },
      "8": {
       "passos": [
        "1,5 · 333 = …",
-       "… / 293 = …"
+       "<span class=\"fr\"><span>…</span><span>293</span></span> = …"
       ]
      }
     }
@@ -3243,7 +3243,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "Passa les temperatures a K (°C + 273).",
-       "P freda = 1,55 · T freda / T ambient."
+       "P freda = <span class=\"fr\"><span>1,55 · T freda</span><span>T ambient</span></span>."
       ]
      },
      "5": {
@@ -3260,7 +3260,7 @@ window.FQ_ADAPT = {
       "passos": [
        "°C + 273 = … K",
        "1,55 · T freda = …",
-       "… / T ambient = … atm"
+       "<span class=\"fr\"><span>…</span><span>T ambient</span></span> = … atm"
       ]
      }
     }
@@ -3277,12 +3277,12 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "T₁ = 298 K; T₂ = 278 K.",
-       "P₂ = 1,8 · 278 / 298 = … atm."
+       "P₂ = <span class=\"fr\"><span>1,8 · 278</span><span>298</span></span> = … atm."
       ]
      },
      "2": {
       "passos": [
-       "V₂ = 200 · 12 / 1 = … L."
+       "V₂ = <span class=\"fr\"><span>200 · 12</span><span>1</span></span> = … L."
       ]
      }
     }
@@ -3292,7 +3292,7 @@ window.FQ_ADAPT = {
      "1": {
       "passos": [
        "1,8 · 278 = …",
-       "… / 298 = …"
+       "<span class=\"fr\"><span>…</span><span>298</span></span> = …"
       ]
      },
      "2": {
@@ -3468,7 +3468,7 @@ window.FQ_ADAPT = {
   "d4f2": {
    "basics": {
     "abans_titol": "La concentració",
-    "abans": "<ul><li><b>c = massa de solut / volum (en L)</b></li><li>m = c · V · V = m / c</li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
+    "abans": "<ul><li><b>c = <span class=\"fr\"><span>massa de solut</span><span>volum (en L)</span></span></b></li><li>m = c · V i V = <span class=\"fr\"><span>m</span><span>c</span></span></li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
     "treu": [
      "4",
      "7",
@@ -3488,7 +3488,7 @@ window.FQ_ADAPT = {
      "2": {
       "passos": [
        "Passa els mL a L (divideix entre 1000).",
-       "c = massa / volum en L."
+       "c = <span class=\"fr\"><span>massa</span><span>volum</span></span> en L."
       ]
      },
      "3": {
@@ -3508,9 +3508,9 @@ window.FQ_ADAPT = {
     "preguntes": {
      "2": {
       "passos": [
-       "250 / 1000 = 0,25 L",
-       "20 / 0,25 = …",
-       "36 / 1 = …"
+       "<span class=\"fr\"><span>250</span><span>1000</span></span> = 0,25 L",
+       "<span class=\"fr\"><span>20</span><span>0,25</span></span> = …",
+       "<span class=\"fr\"><span>36</span><span>1</span></span> = …"
       ]
      },
      "3": {
@@ -3520,8 +3520,8 @@ window.FQ_ADAPT = {
      },
      "5": {
       "passos": [
-       "500 / 1000 = 0,5 L",
-       "15 / 0,5 = …"
+       "<span class=\"fr\"><span>500</span><span>1000</span></span> = 0,5 L",
+       "<span class=\"fr\"><span>15</span><span>0,5</span></span> = …"
       ]
      },
      "6": {
@@ -3535,7 +3535,7 @@ window.FQ_ADAPT = {
   "d4f3": {
    "basics": {
     "abans_titol": "La concentració",
-    "abans": "<ul><li><b>c = massa de solut / volum (en L)</b></li><li>m = c · V · V = m / c</li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
+    "abans": "<ul><li><b>c = <span class=\"fr\"><span>massa de solut</span><span>volum (en L)</span></span></b></li><li>m = c · V i V = <span class=\"fr\"><span>m</span><span>c</span></span></li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
     "treu": [
      "5",
      "6",
@@ -3547,7 +3547,7 @@ window.FQ_ADAPT = {
       "passos": [
        "45 · 1,5 = … mg en una ampolla.",
        "… · 365 = … mg en un any.",
-       "/ 1000 = … g."
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … g."
       ]
      },
      "2": {
@@ -3558,9 +3558,9 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "c = 212 / 2 = … g/L.",
+       "c = <span class=\"fr\"><span>212</span><span>2</span></span> = … g/L.",
        "En 0,25 L: … · 0,25 = … g de sucre.",
-       "/ 4 = … terrossos."
+       "<span class=\"fr\"><span>…</span><span>4</span></span> = … terrossos."
       ]
      },
      "4": {
@@ -3577,20 +3577,20 @@ window.FQ_ADAPT = {
       "passos": [
        "45 · 1,5 = …",
        "… · 365 = …",
-       "… / 1000 = … g"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … g"
       ]
      },
      "2": {
       "passos": [
        "38 · 1000 = … g",
-       "… / 1000 = … kg"
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kg"
       ]
      },
      "3": {
       "passos": [
-       "212 / 2 = …",
+       "<span class=\"fr\"><span>212</span><span>2</span></span> = …",
        "… · 0,25 = …",
-       "… / 4 = …"
+       "<span class=\"fr\"><span>…</span><span>4</span></span> = …"
       ]
      },
      "4": {
@@ -3612,7 +3612,7 @@ window.FQ_ADAPT = {
      },
      "2": {
       "passos": [
-       "c = massa pesada / 0,1 L."
+       "c = <span class=\"fr\"><span>massa pesada</span><span>0,1 L</span></span>."
       ]
      },
      "3": {
@@ -3632,13 +3632,13 @@ window.FQ_ADAPT = {
     "preguntes": {
      "1": {
       "passos": [
-       "100 / 1000 = 0,1 L",
+       "<span class=\"fr\"><span>100</span><span>1000</span></span> = 0,1 L",
        "20 · 0,1 = …"
       ]
      },
      "2": {
       "passos": [
-       "massa / 0,1 = …"
+       "<span class=\"fr\"><span>massa</span><span>0,1</span></span> = …"
       ]
      }
     }
@@ -3729,7 +3729,7 @@ window.FQ_ADAPT = {
      "3": {
       "passos": [
        "50 mL = 0,05 L.",
-       "c = residu / 0,05 = … g/L."
+       "c = <span class=\"fr\"><span>residu</span><span>0,05</span></span> = … g/L."
       ]
      },
      "4": {
@@ -3748,7 +3748,7 @@ window.FQ_ADAPT = {
      },
      "3": {
       "passos": [
-       "residu / 0,05 = … g/L"
+       "<span class=\"fr\"><span>residu</span><span>0,05</span></span> = … g/L"
       ]
      }
     }
@@ -5077,7 +5077,7 @@ window.FQ_ADAPT = {
       "passos": [
        "m₁ · T₁ = …",
        "m₂ · T₂ = …",
-       "suma / (m₁ + m₂) = … °C"
+       "<span class=\"fr\"><span>suma</span><span>m₁ + m₂</span></span> = … °C"
       ]
      }
     }
@@ -5300,7 +5300,7 @@ window.FQ_ADAPT = {
     "preguntes": {
      "2": {
       "passos": [
-       "a) 8000 · 30 / 100 = … kWh.",
+       "a) <span class=\"fr\"><span>8000 · 30</span><span>100</span></span> = … kWh.",
        "b) 1 kWh = 3,6 MJ → … · 3,6 = … MJ."
       ]
      },
@@ -5326,7 +5326,7 @@ window.FQ_ADAPT = {
      "2": {
       "passos": [
        "8000 · 30 = 240 000",
-       "… / 100 = … kWh",
+       "<span class=\"fr\"><span>…</span><span>100</span></span> = … kWh",
        "… · 3,6 = … MJ"
       ]
      }
@@ -5415,7 +5415,7 @@ window.FQ_ADAPT = {
      "6": {
       "passos": [
        "400 · 4 = … Wh",
-       "… / 1000 = … kWh al dia",
+       "<span class=\"fr\"><span>…</span><span>1000</span></span> = … kWh al dia",
        "… · 365 = … kWh a l'any"
       ]
      }
