@@ -1300,6 +1300,159 @@ fitxes:
   d1ellen:
     basics: no_cal
     discalculia: no_cal
+  f2:
+    basics:
+      abans_titol: Com es resol un problema de gasos
+      abans: '<ol><li>Escriu les <b>dades</b> amb unitats: P₁, V₁, T₁, P₂, V₂, T₂.</li><li>Mira què <b>no canvia</b> i tria la llei: temperatura → Boyle-Mariotte; pressió → Charles; volum → Gay-Lussac.</li><li>Passa les temperatures
+        a <b>kelvin</b> (suma 273).</li><li>Substitueix a la fórmula i <b>aïlla</b> la incògnita.</li><li>Calcula i escriu el resultat amb la <b>unitat</b>.</li></ol>'
+      preguntes:
+        '1':
+          exemple: 25 °C → 25 + 273 = <b>298 K</b>. 300 K → 300 − 273 = <b>27 °C</b>.
+          pistes:
+          - Per passar de °C a K, suma 273.
+          - 'Amb temperatures negatives també sumes: −40 + 273 = …'
+        '2':
+          passos:
+          - 'Llegeix cada situació i pensa què es manté igual: la temperatura, la pressió o el volum.'
+          - Temperatura igual → Boyle-Mariotte. Pressió igual → Charles. Volum igual → Gay-Lussac.
+          pistes:
+          - Si empenyem a poc a poc la xeringa, la temperatura no canvia.
+          - 'El globus al sol es pot fer gran: la pressió és la de fora.'
+          - 'L''olla tancada no es pot fer més gran: el volum no canvia.'
+        '3':
+          exemple: 'Exemple semblant: 30 mL d''aire a 1 atm es comprimeixen fins a 15 mL. P₁·V₁ = P₂·V₂ → 1 · 30 = P₂ · 15 → P₂ = 30 / 15 = <b>2 atm</b>.'
+          passos: &id001
+          - 'Dades: P₁ = 1 atm, V₁ = 40 mL, V₂ = 10 mL, P₂ = ?'
+          - 'La temperatura no canvia: llei de Boyle-Mariotte, P₁·V₁ = P₂·V₂.'
+          - 'Substitueix: 1 · 40 = P₂ · 10.'
+          - 'Aïlla P₂: P₂ = 40 / 10 = … atm.'
+        '4':
+          passos: &id002
+          - 'Dades: P₁ = 3 atm, V₁ = 2 cm³, P₂ = 1 atm, V₂ = ?'
+          - 'La temperatura no canvia: P₁·V₁ = P₂·V₂.'
+          - V₂ = P₁ · V₁ / P₂ = 3 · 2 / 1 = … cm³.
+          pistes:
+          - Quan la pressió baixa, el volum es fa més gran.
+        '5':
+          exemple: 'Exemple semblant: 1,0 L a 300 K es refreda fins a 270 K. V₂ = V₁ · T₂ / T₁ = 1,0 · 270 / 300 = <b>0,90 L</b>.'
+          passos: &id003
+          - 'Passa a kelvin: 27 °C = 300 K; −18 °C = 255 K.'
+          - 'La pressió no canvia: llei de Charles, V₁/T₁ = V₂/T₂.'
+          - V₂ = V₁ · T₂ / T₁ = 2,0 · 255 / 300 = … L.
+        '6':
+          passos: &id004
+          - 'Passa a kelvin: 20 °C = 293 K; 60 °C = 333 K.'
+          - 'La pressió no canvia: V₂ = V₁ · T₂ / T₁.'
+          - V₂ = 3,0 · 333 / 293 = … L.
+        '7':
+          passos: &id005
+          - 'Passa a kelvin: 10 °C = 283 K; 40 °C = 313 K.'
+          - 'El volum no canvia: llei de Gay-Lussac, P₁/T₁ = P₂/T₂.'
+          - P₂ = P₁ · T₂ / T₁ = 2,5 · 313 / 283 = … atm.
+        '8':
+          passos: &id006
+          - 'Passa a kelvin: 20 °C = 293 K; 65 °C = 338 K.'
+          - 'El volum no canvia: P₂ = P₁ · T₂ / T₁ = 3,0 · 338 / 293 = … atm.'
+          - 'Segona part: T₂ = P₂ · T₁ / P₁ = 4,5 · 293 / 3,0 = … K. Després resta 273 per passar-ho a °C.'
+    discalculia:
+      preguntes:
+        '3':
+          passos: *id001
+        '4':
+          passos: *id002
+        '5':
+          passos: *id003
+        '6':
+          passos: *id004
+        '7':
+          passos: *id005
+        '8':
+          passos: *id006
+  f1:
+    basics:
+      abans_titol: Les quatre idees del model de partícules
+      abans: '<ol><li>La matèria està feta de <b>partícules</b> molt petites.</li><li>Entre les partícules hi ha <b>buit</b>: no hi ha res.</li><li>Les partícules sempre es <b>mouen</b>.</li><li>Com més <b>temperatura</b>,
+        més de pressa es mouen i més xoquen.</li></ol>Fes servir aquestes idees a totes les preguntes.'
+      preguntes:
+        '1':
+          pistes:
+          - 'Paraules per omplir: partícules · buit · moviment · més de pressa · xocs.'
+        '2':
+          passos:
+          - 'Sòlid: partícules molt juntes i ordenades. Només vibren: fletxes petites.'
+          - 'Líquid: partícules juntes però desordenades. Es mouen i llisquen.'
+          - 'Gas: partícules molt separades. Es mouen de pressa cap a tot arreu: fletxes llargues.'
+        '3':
+          pistes:
+          - Quan escalfem, canvia la mida de les partícules o la seva velocitat?
+          - Entre les partícules d'un gas, hi ha alguna cosa?
+          - En un sòlid, les partícules estan quietes del tot o vibren?
+        '4':
+          frases: &id007
+          - Al congelador, les partícules d'aire es mouen més …
+          - Xoquen menys … contra la goma del globus.
+          - Per això el volum del globus …
+        '5':
+          frases: &id008
+          - Les partícules del perfum es mouen …
+          - Entre les partícules d'aire hi ha …, i per això les partícules del perfum …
+        '6':
+          frases: &id009
+          - A l'aire, les partícules estan … i entre elles hi ha molt …
+          - A l'aigua, les partícules estan …, i per això …
+        '7':
+          frases: &id010
+          - A l'hivern, l'aire de dins de la pilota està més …
+          - Les partícules es mouen més … i xoquen … contra les parets.
+          - Per això la pressió és més … i la pilota bota …
+    nouvingut:
+      preguntes:
+        '4':
+          frases: *id007
+          paraules:
+          - partícules
+          - moviment
+          - xocs
+          - buit
+          - temperatura
+          - pressió
+        '5':
+          frases: *id008
+          paraules:
+          - partícules
+          - moviment
+          - xocs
+          - buit
+          - temperatura
+          - pressió
+        '6':
+          frases: *id009
+          paraules:
+          - partícules
+          - moviment
+          - xocs
+          - buit
+          - temperatura
+          - pressió
+        '7':
+          frases: *id010
+          paraules:
+          - partícules
+          - moviment
+          - xocs
+          - buit
+          - temperatura
+          - pressió
+    tea:
+      preguntes:
+        '4':
+          model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
+        '5':
+          model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
+        '6':
+          model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
+        '7':
+          model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
 pendents:
   d5repte:
   - basics
@@ -1440,13 +1593,6 @@ pendents:
   - basics
   - tea
   lab:
-  - basics
-  - discalculia
-  f1:
-  - nouvingut
-  - basics
-  - tea
-  f2:
   - basics
   - discalculia
   labc:

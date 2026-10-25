@@ -20,13 +20,21 @@
     const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap"; document.head.appendChild(l);
     const st = document.createElement("style"); st.id = "adcss";
     st.textContent = `
-.ad-dis .ws,.ad-dis .ws *{font-family:"Atkinson Hyperlegible",Verdana,sans-serif!important}
-.ad-dis .ws{font-size:1.12em;line-height:1.8;letter-spacing:.02em;word-spacing:.08em}
-.ad-dis .ws p,.ad-dis .ws .q,.ad-dis .ws .tip,.ad-dis .ws td{text-align:left!important}
-.ad-dis .ws b{font-weight:700}
+.ad-dis .ws,.ad-dis .ws *:not(.ML__latex *):not(math-field){font-family:"Atkinson Hyperlegible",Verdana,sans-serif!important}
+.ad-dis .ws{box-sizing:border-box;max-width:100%;line-height:1.9;letter-spacing:.05em;word-spacing:.16em;background:#fdf8ea;color:#1f2328;border-radius:14px;padding:14px}
+.ad-dis .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.3rem!important;line-height:1.9!important}
+.ad-dis .ws h2{font-size:1.5rem!important}
+.ad-dis .ws p,.ad-dis .ws .q,.ad-dis .ws .tip,.ad-dis .ws td,.ad-dis .ws li{text-align:left!important}
+.ad-dis .ws em,.ad-dis .ws i{font-style:normal!important;font-weight:700}
+.ad-dis .ws textarea,.ad-dis .ws input{padding:8px 10px!important}
+.ad-dis .ws .tip,.ad-dis .ws .ad-card,.ad-dis .ws-block{background:#fffdf6!important;color:#1f2328}
+.ad-bas .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.12rem!important;line-height:1.75!important}
+.ad-bas .ws-block{padding-top:6px;padding-bottom:6px}
+.ad-paper .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.15rem!important}
+.ad-paper.ad-dis .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.35rem!important}
 .ad-tts{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:2px 10px;font:inherit;font-size:.8rem;cursor:pointer;margin:4px 0}
 .ad-tts[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
-.ad-card{border:1.5px solid var(--acc);border-radius:12px;padding:10px 14px;margin:8px 0;background:color-mix(in srgb,var(--acc) 6%,var(--surface))}
+.ad-card{box-sizing:border-box;max-width:100%;overflow-wrap:anywhere;border:1.5px solid var(--acc);border-radius:12px;padding:10px 14px;margin:8px 0;background:color-mix(in srgb,var(--acc) 6%,var(--surface))}
 .ad-card h4{margin:0 0 6px;font-size:.95rem}
 .ad-card ul,.ad-card ol{margin:4px 0 0;padding-left:1.3em}
 .ad-gl{all:unset;cursor:pointer;border-bottom:2px dotted var(--acc);font-weight:600}
@@ -42,8 +50,8 @@
 .ad-nav .bar{flex:1 1 120px;height:8px;border-radius:99px;background:var(--chip);overflow:hidden}.ad-nav .bar i{display:block;height:100%;background:var(--acc)}
 .ad-nav .tm{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem}
 .ad-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:70;background:var(--fg);color:var(--surface);border-radius:999px;padding:8px 16px;font-size:.9rem}
-.ad-paper .ws-block{margin-bottom:28px}.ad-draw{border:1.5px dashed var(--line);border-radius:10px;min-height:60mm;color:var(--muted);padding:6px 10px;font-size:.85rem}.ad-paper .ad-steps li{margin-bottom:6px}
-@media print{.wsnote,.ad-tts,.ad-nav,.ad-calc,.ad-noprint,.ad-pista{display:none!important}.ad-gl{border:0;font-weight:700}}`;
+.ad-num{background:color-mix(in srgb,var(--acc) 18%,transparent);border-radius:4px;padding:0 3px;font-weight:700}.ad-paper .ws-block{margin-bottom:28px}.ad-draw{border:1.5px dashed var(--line);border-radius:10px;min-height:60mm;color:var(--muted);padding:6px 10px;font-size:.85rem}.ad-paper .ad-steps li{margin-bottom:6px}
+@media print{html{font-size:12pt}.ad-paper .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:13pt!important}.ad-paper.ad-dis .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:15pt!important;line-height:1.9!important}.ad-paper textarea{min-height:28mm}.ad-dis .ws{background:none!important;padding:0}.wsnote,.ad-tts,.ad-nav,.ad-calc,.ad-noprint,.ad-pista{display:none!important}.ad-gl{border:0;font-weight:700}}`;
     document.head.appendChild(st);
   }
 
@@ -52,6 +60,12 @@
   const qid = (sec) => sec.dataset.qblock || sec.dataset.block || ((sec.querySelector(".ws-item") || {}).dataset || {}).item || "";
   const promptEl = (sec) => sec.querySelector(":scope > .q > div, :scope .ws-q > div");
   /* lloc on s'afegeixen les ajudes: just després de l'enunciat, a l'amplada de la pregunta */
+  /* insereix una ajuda just abans del primer camp de resposta de la pregunta (o, si no n'hi ha, després de l'enunciat) */
+  function place(sec, node) {
+    const f = sec.querySelector(".work, .ws-math, .ws-chain, .ws-scroll, table:not(.ad-gltab), textarea, select, input:not([type=checkbox]):not([type=radio]), .ws-photos");
+    if (f && !f.closest(".ad-card")) { const anchor = f.closest(".ws-item") && f.closest(".ws-item") !== sec ? f.closest(".ws-item") : f; anchor.before(node); }
+    else afterQ(sec).after(node);
+  }
   const afterQ = (sec) => { const p = promptEl(sec); return (p && p.closest(".q, .ws-q")) || p || sec; };
   function plain(el) {
     if (!el) return "";
@@ -135,7 +149,7 @@
   }
 
   /* ---------- versió escrita a mà (continguts bàsics, nouvingut, TEA, discalcúlia): continguts afegits per pregunta ---------- */
-  function variants(host, k, perfils) {
+  function variants(host, k, perfils, paper) {
     const ws = host.querySelector(".ws"); if (!ws) return;
     perfils.forEach((p) => {
       const v = variant(k, p); if (!v) return;
@@ -144,28 +158,64 @@
       questions(host).forEach((sec) => {
         const x = Q[qid(sec)]; if (!x) return;
         const p0 = afterQ(sec);
-        if (x.exemple) p0.after(card("Exemple resolt", x.exemple));
-        if (x.passos) p0.after(card("Fes-ho per passos", `<ol class="ad-steps">${x.passos.map((s) => `<li>${s}</li>`).join("")}</ol>`));
-        if (x.frases) p0.after(card("Frases que t'ajuden", `<ul>${x.frases.map((s) => `<li>${s}</li>`).join("")}</ul>${x.paraules ? `<p><b>Paraules:</b> ${x.paraules.map(esc).join(" · ")}</p>` : ""}`));
-        if (x.model) p0.after(card("Com ha de ser la resposta", x.model));
-        if (x.pistes) {
+        if (x.exemple) place(sec, card("Exemple resolt", x.exemple));
+        if (x.passos) place(sec, card("Fes-ho per passos", `<ol class="ad-steps">${x.passos.map((s) => `<li>${s}</li>`).join("")}</ol>`));
+        if (x.frases) place(sec, card("Frases que t'ajuden", `<ul>${x.frases.map((s) => `<li>${s}</li>`).join("")}</ul>${x.paraules ? `<p><b>Paraules:</b> ${x.paraules.map(esc).join(" · ")}</p>` : ""}`));
+        if (x.model) place(sec, card("Com ha de ser la resposta", x.model));
+        if (x.pistes && paper) place(sec, card("Pistes", `<ol class="ad-steps">${x.pistes.map((t) => `<li>${t}</li>`).join("")}</ol>`));
+        else if (x.pistes) {
           const c = card("Necessites ajuda?", "");
           x.pistes.forEach((t, i) => { const b = document.createElement("button"); b.type = "button"; b.className = "btn ghost ad-pista"; b.textContent = `Pista ${i + 1}`; b.disabled = i > 0;
             b.onclick = () => { b.disabled = true; const d = document.createElement("div"); d.className = "ad-pistatxt"; d.innerHTML = t; c.append(d); const nx = c.querySelectorAll(".ad-pista")[i + 1]; if (nx) nx.disabled = false; }; c.append(b); });
-          p0.after(c);
+          place(sec, c);
         }
       });
     });
   }
 
+
+  /* ---------- continguts bàsics (automàtic): com respondre cada tipus de pregunta i vocabulari en català ---------- */
+  const GUIA = [
+    [/\b(calcula|quin volum|quina pressió|quina temperatura|quina massa|quant|a quina|quina velocitat|quina energia|quina distància)/i, "Fes-ho per passos", "<ol class=\"ad-steps\"><li>Escriu les <b>dades</b> amb les unitats.</li><li>Tria la <b>fórmula</b> (mira el formulari o la teoria de la fitxa).</li><li><b>Substitueix</b> els números a la fórmula.</li><li><b>Calcula</b>.</li><li>Escriu el <b>resultat amb la unitat</b>.</li></ol>"],
+    [/\b(explica|justifica|per què|argumenta|raona)/i, "Com respondre", "<ol class=\"ad-steps\"><li>Digues <b>què passa</b>.</li><li>Digues <b>per què</b>, amb la idea principal del tema.</li><li>Fes servir una <b>paraula clau</b> de la fitxa.</li></ol><p>Pots començar així: «Passa que … perquè …».</p>"],
+    [/\b(completa|omple)/i, "Com fer-ho", "<p>Mira l'exemple o la primera fila. Després fes el mateix a cada casella, d'una en una.</p>"],
+    [/\b(dibuixa|representa|gràfica|fes un esquema)/i, "Com fer el dibuix o la gràfica", "<ol class=\"ad-steps\"><li>Posa el <b>nom</b> i la <b>unitat</b> a cada eix o a cada part.</li><li>Tria una <b>escala</b> que hi càpiga.</li><li>Marca els <b>punts</b> o dibuixa les parts.</li><li>Revisa que es pugui entendre.</li></ol>"],
+    [/\b(compara|diferència|semblances)/i, "Com comparar", "<p>Digues en què <b>s'assemblen</b> i en què <b>es diferencien</b>. Pots començar així: «Els dos … però …».</p>"],
+    [/\b(classifica|ordena|relaciona)/i, "Com fer-ho", "<p>Llegeix cada element i pensa a quin grup va. Fes-ho d'un en un i comprova-ho al final.</p>"],
+  ];
+  function basicsAuto(host, k) {
+    const v = variant(k, "basics"); const Q = (v && v.preguntes) || {};
+    questions(host).forEach((sec) => {
+      if (Q[qid(sec)]) return;
+      const t = plain(promptEl(sec) || sec); const g = GUIA.find(([re]) => re.test(t)); if (!g) return;
+      place(sec, card(g[1], g[2], "ad-bascard"));
+    });
+  }
+  function vocabCa(host, k) {
+    const words = A().glossari[String(sdaOf(k))] || []; const ws = host.querySelector(".ws"); if (!ws || !words.length) return;
+    const txt = ws.textContent.toLowerCase();
+    const list = words.filter((w) => (w.formes || [w.ca]).some((f) => txt.includes(f.toLowerCase())));
+    if (list.length) ws.prepend(card("Paraules que t'ajuden", `<ul>${list.map((w) => `<li><b>${esc(w.ca)}:</b> ${esc(w.def)}</li>`).join("")}</ul>`));
+  }
+  /* discalcúlia: ressalta les dades numèriques (número + unitat) de l'enunciat */
+  function markNums(el) {
+    if (!el) return;
+    const re = /(−|-)?\d+(?:[.,]\d+)?(?:\s?(?:°C|K|atm|bar|mL|cm³|dm³|m³|L|km\/h|m\/s²|m\/s|kWh|km|cm|mm|µm|m|kg|mg|g|min|h|s|N|J|W|Pa|%))?/g;
+    const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.parentElement.closest("input,textarea,math-field,button,.ad-card,.ML__latex,.uf,.n") ? NodeFilter.FILTER_REJECT : /\d/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP) });
+    const ns = []; while (tw.nextNode()) ns.push(tw.currentNode);
+    ns.forEach((n) => { const t = n.nodeValue; if (t.includes("\\(")) return; const h = esc(t).replace(re, (m) => `<span class="ad-num">${m}</span>`); if (h === esc(t)) return; const sp = document.createElement("span"); sp.innerHTML = h; n.replaceWith(...sp.childNodes); });
+  }
   /* ---------- discalcúlia: taula de passos i calculadora a les preguntes de càlcul ---------- */
   const isCalc = (sec) => !!sec.querySelector(".work, .wl-math, .ws-math, .ws-chain, input[inputmode=decimal]") && /\d/.test(plain(promptEl(sec) || sec));
-  function discalculia(host, paper) {
+  function discalculia(host, paper, K) {
     let any = false;
     questions(host).forEach((sec) => {
       if (!isCalc(sec)) return; any = true;
-      const p0 = afterQ(sec);
-      p0.after(card("Taula de passos", `<ol class="ad-steps"><li><b>Dades:</b> escriu cada dada amb la seva unitat.</li><li><b>Fórmula:</b> quina fórmula fas servir?</li><li><b>Substitueix:</b> posa els números a la fórmula.</li><li><b>Opera:</b> fes el càlcul${paper ? " amb la calculadora" : " (pots fer servir la calculadora)"}.</li><li><b>Resultat:</b> escriu el número amb la unitat. Té sentit?</li></ol>`));
+      markNums(promptEl(sec));
+      const vq = ((variant(K, "discalculia") || {}).preguntes || {})[qid(sec)] || ((variant(K, "basics") || {}).preguntes || {})[qid(sec)];
+      if (vq && vq.passos) return;
+      if ([...sec.querySelectorAll(".ad-bascard h4")].some((h) => h.textContent === "Fes-ho per passos")) return;
+      place(sec, card("Taula de passos", `<ol class="ad-steps"><li><b>Dades:</b> escriu cada dada amb la seva unitat.</li><li><b>Fórmula:</b> quina fórmula fas servir?</li><li><b>Substitueix:</b> posa els números a la fórmula.</li><li><b>Opera:</b> fes el càlcul${paper ? " amb la calculadora" : " (pots fer servir la calculadora)"}.</li><li><b>Resultat:</b> escriu el número amb la unitat. Té sentit?</li></ol>`));
     });
     if (!any || paper || document.querySelector(".ad-calc-open")) return;
     const ws = host.querySelector(".ws");
@@ -231,8 +281,9 @@
     host.classList.toggle("ad-paper", paper);
     if (paper) host.querySelectorAll(".muted").forEach((m) => { if (/sense foto/.test(m.textContent)) m.outerHTML = '<div class="ad-draw">Dibuixa-ho aquí</div>'; });
     if (on("lletra")) host.classList.add("ad-dis");
-    variants(host, k, P.filter((p) => p === "basics" || !PERFIL_AJUDA[p] || on(PERFIL_AJUDA[p])));
-    if (on("passos")) discalculia(host, paper);
+    if (P.includes("basics")) { host.classList.add("ad-bas"); basicsAuto(host, k); if (!on("glossari")) vocabCa(host, k); }
+    variants(host, k, P.filter((p) => p === "basics" || !PERFIL_AJUDA[p] || on(PERFIL_AJUDA[p])), paper);
+    if (on("passos")) discalculia(host, paper, k);
     if (on("glossari")) glossari(host, k, paper, opts.idioma);
     if (!paper && on("veu")) tts(host);
     if (on("guia")) tea(host, k, paper);
