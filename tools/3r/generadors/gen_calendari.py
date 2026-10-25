@@ -12,7 +12,7 @@ FEST = {dt.date(2026, 9, 11): "Diada", dt.date(2026, 9, 24): "La Mercè", dt.dat
         dt.date(2026, 12, 7): "Lliure disposició", dt.date(2026, 12, 8): "Immaculada", dt.date(2027, 2, 8): "Lliure disposició",
         dt.date(2027, 5, 14): "Lliure disposició", dt.date(2027, 5, 17): "Segona Pasqua"}
 VAC = [(dt.date(2026, 12, 22), dt.date(2027, 1, 7), "Nadal"), (dt.date(2027, 3, 20), dt.date(2027, 3, 29), "Setmana Santa")]
-G = json.load(open(os.path.join(os.path.dirname(HERE), "web-fq3", "annex_groups.json")))  # {"1": "GMGM...", ...}
+G = json.load(open(os.path.join(HERE, "annex_groups.json"), encoding="utf-8"))  # {"1": "GMGM...", ...} G grup sencer, M mig grup, L laboratori (només en mig grup)
 
 def lective(d):
     return START <= d <= END and d.weekday() < 5 and d not in FEST and not any(a <= d <= b for a, b, _ in VAC)

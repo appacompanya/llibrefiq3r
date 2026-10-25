@@ -60,11 +60,12 @@ def taules_programacio(sdas, cur):
 
 def taula10_full_md():
     md = open(os.path.join(HERE, "dades", "full.md")).read()
-    a = md.index("| CE | SdA 1 |"); rows = md[a:].split("\n\n")[0].splitlines()[2:]
+    a = md.index("| CE | Paper | SdA 1 |"); rows = md[a:].split("\n\n")[0].splitlines()[2:]
     t = {}
     for r in rows:
         cells = [c.strip() for c in r.strip("|").split("|")]
-        for n, v in enumerate(cells[1:], 1):
+        if not cells or not cells[0].startswith("CE"): continue
+        for n, v in enumerate(cells[2:], 1):
             if v: t.setdefault(cells[0], {})[str(n)] = [x.strip() for x in v.split(",")]
     return t
 
@@ -97,8 +98,17 @@ def compute(bucket_file):
         emp = sha(canon(defs))
         if d.get("professorat"):
             o = bucket.get(d["fitxer"])
-            A[f"professorat/{d['fitxer']}"] = {"tipus": "pdf-professorat", "document": k, "generador": g, "generador_hash": gh,
-                "depen_de": dep, "empremta": emp, "hash": ("etag:" + o["etag"]) if o else None}
+            local = os.path.join(ROOT, "docs", d["fitxer"])
+            if o:
+                ph, pnota = "etag:" + o["etag"], None
+            elif os.path.exists(local):
+                ph, pnota = hfile(local), "no és al bucket; la còpia que s'obre és docs/"
+            else:
+                ph, pnota = None, None
+            rec = {"tipus": "pdf-professorat", "document": k, "generador": g, "generador_hash": gh,
+                "depen_de": dep, "empremta": emp, "hash": ph}
+            if pnota: rec["nota"] = pnota
+            A[f"professorat/{d['fitxer']}"] = rec
         else:
             p = os.path.join(ROOT, "docs", d["fitxer"])
             A[f"docs/{d['fitxer']}"] = {"tipus": "pdf-alumnat", "document": k, "generador": g, "generador_hash": gh,
@@ -139,7 +149,8 @@ def compute(bucket_file):
     orfes = sorted(set(bucket) - linked)
     # PDF de docs/ sense document
     docs_pdf = sorted(os.path.basename(p) for p in glob.glob(os.path.join(ROOT, "docs", "*.pdf")))
-    docs_linked = {a.split("/", 1)[1] for a in A if a.startswith("docs/")}
+    # Un PDF de docs/ enllaçat com a professorat (còpia de reserva) no és orfe.
+    docs_linked = {a.split("/", 1)[1] for a in A if a.startswith(("docs/", "professorat/"))}
     return A, orfes, sorted(set(docs_pdf) - docs_linked), tp
 
 

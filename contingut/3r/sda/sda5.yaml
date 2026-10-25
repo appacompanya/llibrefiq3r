@@ -5,7 +5,8 @@
 # Avaluació oficial: nivells NA–AE, sense pesos.
 # Fitxes qualificadores: 3 (d5f3, gràfiques, 1.1), 5 (d5f5, difusió, 2.2 i 2.3) i 6 (d5f6q, febre, 1.1 i 5.3). La resta (1, 2, 4 i 7) són formatives i no entren al càlcul oficial.
 # La resposta al repte de la sessió 13 és formativa (esmena de les hipòtesis). El producte que es qualifica és el full de forces cel·lulars.
-# CE: principals CE1 i CE5. Secundària CE2 (laboratori de difusió, fitxa 5, amb rúbrica de disseny i conclusions).
+# CE: principals CE1 i CE5. Secundària CE2 (demostració de difusió en grup sencer, sessió 7, fitxa 5, amb rúbrica de disseny i conclusions).
+# Grup: mitja false = grup sencer (GS), mitja true = mig grup (MG). Horari: 1 GS + 2 migs (el docent repeteix la sessió de mig grup). La sessió 7 és GS: demostració del docent, no laboratori en mig grup.
 sda: 5
 versio: 3
 color: --s5
@@ -29,6 +30,7 @@ sessions:
   - rogers
   - ferida
   - metastasi
+  mitja: false
 - titol: El moviment uniforme (MRU)
   fase: Aprenem
   text: Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.
@@ -36,6 +38,7 @@ sessions:
   - d5f1
   enllacos:
   - labmru
+  mitja: true
 - titol: El moviment accelerat (MRUA)
   fase: Aprenem
   text: 'Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l''acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d''un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.'
@@ -44,6 +47,7 @@ sessions:
   enllacos:
   - anmrua
   - labmrua
+  mitja: false
 - titol: Les gràfiques del patinet
   fase: Ho apliquem
   text: Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.
@@ -53,25 +57,29 @@ sessions:
   - anmrua
   - labmru
   - labmrua
+  mitja: true
 - titol: Trajectòria i desplaçament
   fase: Aprenem
   text: Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell (eritròcit, 7,5 µm de diàmetre) com a escala de referència i calcularem l'augment del dibuix. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.
   docs:
   - d5f4
   enllacos: []
+  mitja: false
 - titol: Problemes de moviment
   fase: Practiquem
   text: 'Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.'
   docs:
   - d5prob
   enllacos: []
+  mitja: true
 - titol: Difusió i gradient
   fase: Experimentem
-  text: 'Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l''experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l''observarem amb una simulació.'
+  text: 'El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l''observarem amb una simulació.'
   docs:
   - d5f5
   enllacos:
   - difusio
+  mitja: false
 - titol: Quimiotaxi i febre
   fase: Aprenem
   text: Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.
@@ -80,6 +88,7 @@ sessions:
   enllacos:
   - rogers
   - febre
+  mitja: true
 - titol: Les lleis de Newton
   fase: Aprenem
   text: 'Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s''atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.'
@@ -88,12 +97,14 @@ sessions:
   enllacos:
   - cito
   - phetforces
+  mitja: false
 - titol: La llei de Hooke
   fase: Experimentem
   text: Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.
   docs:
   - d5hooke
   enllacos: []
+  mitja: true
 - titol: Les cèl·lules també fan forces
   fase: Ho apliquem
   text: Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar l'activitat de demostració d'assoliment.
@@ -103,6 +114,7 @@ sessions:
   docs_professorat:
   - d5lam
   enllacos: []
+  mitja: false
 - titol: Demostració d'assoliment
   fase: Avaluem
   text: Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.
@@ -111,6 +123,7 @@ sessions:
   - d5prova
   - d5solpr
   enllacos: []
+  mitja: true
 - titol: Responc el repte i reflexiono
   fase: Reflexionem
   text: 'Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l''activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l''avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.'
@@ -119,6 +132,7 @@ sessions:
   docs_professorat:
   - d5solpr
   enllacos: []
+  mitja: false
 professorat:
 - bloc: Material multinivell · ampliació
   text: Reptes d'ampliació per a l'alumnat que ja domina els criteris o acaba abans (també al llibre de l'alumnat) i el seu solucionari.
@@ -148,7 +162,7 @@ professorat:
   - d5solpr
   - d5solf
 - bloc: Rúbriques
-  text: Full de forces cel·lulars, gràfiques del patinet i experiment de difusió.
+  text: Full de forces cel·lulars, gràfiques del patinet i demostració de difusió (grup sencer, sessió 7).
   docs:
   - d5rub
 documents:
@@ -1436,7 +1450,7 @@ evidencies:
 - uid: s5.difu
   id: difu
   versio: 1
-  titol: Laboratori de difusió (fitxa 5, sessió 7)
+  titol: Demostració de difusió (fitxa 5, sessió 7, grup sencer)
   instruments:
   - d5f5
   items:

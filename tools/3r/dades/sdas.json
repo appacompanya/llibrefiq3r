@@ -382,18 +382,18 @@
     "half": false
    },
    {
-    "t": "Difusió i gradient",
-    "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+    "t": "Problemes de moviment",
+    "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.",
     "half": true
+   },
+   {
+    "t": "Difusió i gradient",
+    "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+    "half": false
    },
    {
     "t": "Quimiotaxi i febre",
     "p": "Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.",
-    "half": false
-   },
-   {
-    "t": "Problemes de moviment",
-    "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.",
     "half": true
    },
    {
@@ -408,7 +408,7 @@
    },
    {
     "t": "Les cèl·lules també fan forces",
-    "p": "Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar la prova.",
+    "p": "Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar l'activitat de demostració d'assoliment.",
     "half": false
    },
    {
@@ -418,7 +418,7 @@
    },
    {
     "t": "Responc el repte i reflexiono",
-    "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+    "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l'avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.",
     "half": false
    }
   ],

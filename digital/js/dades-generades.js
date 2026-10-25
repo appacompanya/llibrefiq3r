@@ -1912,7 +1912,8 @@ window.FQ3_DADES = {
       "rogers",
       "ferida",
       "metastasi"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "El moviment uniforme (MRU)",
@@ -1923,7 +1924,8 @@ window.FQ3_DADES = {
      ],
      "l": [
       "labmru"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "El moviment accelerat (MRUA)",
@@ -1935,7 +1937,8 @@ window.FQ3_DADES = {
      "l": [
       "anmrua",
       "labmrua"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Les gràfiques del patinet",
@@ -1948,7 +1951,8 @@ window.FQ3_DADES = {
       "anmrua",
       "labmru",
       "labmrua"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Trajectòria i desplaçament",
@@ -1957,7 +1961,8 @@ window.FQ3_DADES = {
      "d": [
       "d5f4"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Problemes de moviment",
@@ -1966,18 +1971,20 @@ window.FQ3_DADES = {
      "d": [
       "d5prob"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Difusió i gradient",
      "ph": "Experimentem",
-     "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+     "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
      "d": [
       "d5f5"
      ],
      "l": [
       "difusio"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Quimiotaxi i febre",
@@ -1989,7 +1996,8 @@ window.FQ3_DADES = {
      "l": [
       "rogers",
       "febre"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Les lleis de Newton",
@@ -2001,7 +2009,8 @@ window.FQ3_DADES = {
      "l": [
       "cito",
       "phetforces"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "La llei de Hooke",
@@ -2010,7 +2019,8 @@ window.FQ3_DADES = {
      "d": [
       "d5hooke"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Les cèl·lules també fan forces",
@@ -2023,7 +2033,8 @@ window.FQ3_DADES = {
      "dt": [
       "d5lam"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Demostració d'assoliment",
@@ -2034,7 +2045,8 @@ window.FQ3_DADES = {
       "d5prova",
       "d5solpr"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Responc el repte i reflexiono",
@@ -2046,7 +2058,8 @@ window.FQ3_DADES = {
      "dt": [
       "d5solpr"
      ],
-     "l": []
+     "l": [],
+     "half": false
     }
    ],
    "teacher": [
@@ -2095,7 +2108,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Rúbriques",
-     "s": "Full de forces cel·lulars, gràfiques del patinet i experiment de difusió.",
+     "s": "Full de forces cel·lulars, gràfiques del patinet i demostració de difusió (grup sencer, sessió 7).",
      "d": [
       "d5rub"
      ]
@@ -2745,7 +2758,8 @@ window.FQ3_DADES = {
       "rogers",
       "ferida",
       "metastasi"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "El moviment uniforme (MRU)",
@@ -2756,7 +2770,8 @@ window.FQ3_DADES = {
      ],
      "l": [
       "labmru"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "El moviment accelerat (MRUA)",
@@ -2768,7 +2783,8 @@ window.FQ3_DADES = {
      "l": [
       "anmrua",
       "labmrua"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Les gràfiques del patinet",
@@ -2781,7 +2797,8 @@ window.FQ3_DADES = {
       "anmrua",
       "labmru",
       "labmrua"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Trajectòria i desplaçament",
@@ -2790,7 +2807,8 @@ window.FQ3_DADES = {
      "d": [
       "d5f4"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Problemes de moviment",
@@ -2799,18 +2817,20 @@ window.FQ3_DADES = {
      "d": [
       "d5prob"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Difusió i gradient",
      "ph": "Experimentem",
-     "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+     "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
      "d": [
       "d5f5"
      ],
      "l": [
       "difusio"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "Quimiotaxi i febre",
@@ -2822,7 +2842,8 @@ window.FQ3_DADES = {
      "l": [
       "rogers",
       "febre"
-     ]
+     ],
+     "half": true
     },
     {
      "t": "Les lleis de Newton",
@@ -2834,7 +2855,8 @@ window.FQ3_DADES = {
      "l": [
       "cito",
       "phetforces"
-     ]
+     ],
+     "half": false
     },
     {
      "t": "La llei de Hooke",
@@ -2843,7 +2865,8 @@ window.FQ3_DADES = {
      "d": [
       "d5hooke"
      ],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Les cèl·lules també fan forces",
@@ -2853,14 +2876,16 @@ window.FQ3_DADES = {
       "d5tfm",
       "d5mapa"
      ],
-     "l": []
+     "l": [],
+     "half": false
     },
     {
      "t": "Demostració d'assoliment",
      "ph": "Avaluem",
      "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.",
      "d": [],
-     "l": []
+     "l": [],
+     "half": true
     },
     {
      "t": "Responc el repte i reflexiono",
@@ -2869,7 +2894,8 @@ window.FQ3_DADES = {
      "d": [
       "d5diana"
      ],
-     "l": []
+     "l": [],
+     "half": false
     }
    ],
    "teacher": []
@@ -3724,7 +3750,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "difu",
-    "l": "Laboratori de difusió (fitxa 5, sessió 7)",
+    "l": "Demostració de difusió (fitxa 5, sessió 7, grup sencer)",
     "items": [
      {
       "id": "x1",

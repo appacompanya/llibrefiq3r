@@ -32,6 +32,7 @@
   }
   /* cada llibre digital treballa amb els cursos del seu nivell (3r per defecte; 2n posa window.FQ_LEVEL) */
   const LEVEL = window.FQ_LEVEL || "3r";
+  const iaDoc = () => (location.pathname.includes("/2n/") || location.pathname.includes("/4t/")) ? "../../docs/privacitat-ia.html" : "../docs/privacitat-ia.html";
   async function loadCourses() {
     courses = (await S.listCourses()).filter((c) => c.level === LEVEL);
     if (!courses.some((c) => c.id === S.curCourse())) S.setCourse(courses[0] ? courses[0].id : null);
@@ -115,6 +116,7 @@
       <section class="card"><h2>Correcció automàtica</h2><p class="note">Quan l'alumne lliura una fitxa digital, rep de seguida la correcció de cada pregunta (nivell i comentari breu):</p>
         <ul class="note"><li>Els càlculs, les taules i les preguntes tancades es corregeixen sols, sense IA.</li><li>Les respostes raonades les corregeix una IA econòmica (OpenAI gpt-5.4-nano) amb els solucionaris del professorat.</li><li>Els dibuixos en foto també els mira la IA, en baixa resolució perquè costi poc.</li><li>També valora l'ortografia en català i en corregeix algun exemple a l'alumne.</li><li>Indici de text copiat d'una IA: la IA en valora l'estil i el llibre compta els caràcters que l'alumne ha enganxat a cada resposta. Només ho veus tu, a «Per revisar». És un indici per comprovar, no una prova.</li><li>L'alumne veu de seguida la correcció de tota la fitxa. Totes les fitxes corregides van a <b>Per revisar</b>, per si vols comprovar-les; les preguntes on la IA dubta surten marcades. Les fitxes en paper les valores tu.</li></ul>
         <p class="note">Tu reps la mateixa valoració com a proposta a cada apartat: la pots canviar i decideixes quan retornar la fitxa amb la teva valoració. Els errors es classifiquen per tipus a «Seguiment de l'alumnat».${S.mode === "demo" ? " En mode demostració, la correcció es basa només en la comprovació automàtica dels càlculs." : ""}</p>
+        <p class="note">Les respostes escrites es poden enviar a un proveïdor d'IA. L'etiqueta <b>Possible IA</b> i el nivell «amb NA» del costat són un indici per revisar la fitxa. <b>No són la nota oficial</b> (aquesta continua sent NA–AE, posada per tu). <a href="${iaDoc()}">Text per a les famílies</a></p>
         <p class="note" id="usage"></p></section>`;
     S.usage().then((u) => { const el = $("#usage"); if (el && S.mode !== "demo") el.innerHTML = `Despesa aproximada de la IA aquest mes (tots els cursos): <b>${(u.usd || 0).toLocaleString("ca-ES", { style: "currency", currency: "USD", maximumFractionDigits: 2 })}</b> en ${u.calls || 0} correccions.`; }).catch(() => {});
     if (window.fqTeacherFiles && S.mode !== "demo") pdfPanel();
@@ -318,7 +320,7 @@
   function levelHtml(sid, ws, src) {
     const L = wsLevel(sid, ws); if (!L) return "";
     const li = wsLevelIA(sid, ws);
-    return chip(L.lv) + (src ? `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : "") + (li ? ` <span class="pill ia" title="Possible text copiat d'una IA (${iaSusp(sid, ws).length === 1 ? "1 pregunta" : iaSusp(sid, ws).length + " preguntes"})">IA</span> <span class="iaalt" title="Nivell si les preguntes amb indici d'IA compten com a NA">amb NA: ${chip(li)}</span>` : "");
+    return chip(L.lv) + (src ? `<span class="src">${L.src === "auto" ? "auto" : "prof."}</span>` : "") + (li ? ` <span class="pill ia" title="Indici per al docent, no és la nota oficial">Possible IA</span> <span class="iaalt" title="Indici: nivell si les preguntes amb «Possible IA» comptessin com a NA. No és la nota oficial.">amb NA: ${chip(li)}</span>` : "");
   }
 
   function stuSummary(sid) {

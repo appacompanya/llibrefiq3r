@@ -22,8 +22,7 @@ Serveix de plantilla per fer un llibre nou: es canvien els continguts i es mant�
     - També genera els laboratoris interactius de MRU i MRUA (`anims/_lab_moviment.html`): l'alumne tria els valors i veu la pista, les gràfiques i la taula alhora.
     - `sim-gasos.html` i `sim-bateria.html` són simuladors fets a mà.
   - **Llibre imprès (DIN A4, color, wire-o):** `gen_llibre.py` munta tots els fulls amb portada, pàgines pròpies, QR dels recursos digitals i píndoles d'informació (`llibre_pindoles.py`).
-  - **Construcció del web:** `build_web.py` (plantilla → `index.html` i `profe.html`), `build_site.py` (web estàtica) i `export_links.js` (`links.json`).
-  - **Llibre digital:** `build_digital.py`, `build_fitxes_auto.py` (converteix els fulls HTML en fitxes en línia amb camps) i `build_profe_digital.py`.
+  - **Construcció del web (retirada):** `build_web.py`, `build_site.py`, `build_digital.py`, `build_profe_digital.py` i `export_links.js` s'aturen i no reescriuen la web. La font és `contingut/3r/*.yaml` i el pipeline és `build_dades.py --aplica-html` (més avall). `build_fitxes_auto.py` continua al kit, però escriu a una ruta antiga, no al `digital/js/fitxes-auto.js` publicat.
   - **Programació (Word):**
     - `build_prog_final.py` transforma el Word base amb l'ajuda de `prog_edit.py`;
     - `prog_links.py` posa els hiperenllaços;
@@ -44,15 +43,16 @@ Serveix de plantilla per fer un llibre nou: es canvien els continguts i es mant�
 
 ## Ordre de construcció (3r)
 
-1. `python3 build_web.py`
-2. `python3 build_site.py`
-3. Copiar el web al repositori.
-4. `python3 build_digital.py`
-5. `python3 build_fitxes_auto.py`
-6. `python3 build_profe_digital.py`
-7. Programació: `python3 build_prog_final.py`, convertir a PDF amb `soffice --headless --convert-to pdf` i passar `fix_toc.py` dues vegades.
-8. `python3 gen_calendari.py`, `python3 gen_annex_extra.py` i `python3 gen_annexos.py`.
-9. Animacions: `python3 gen_anims.py`. Llibre imprès: `node export_links.js` i `python3 gen_llibre.py`.
+La web publicada no surt de `template.html`. `build_web.py`, `build_site.py`, `build_digital.py`,
+`build_profe_digital.py` i `export_links.js` s'aturen: reescriurien el llibre amb la còpia vella.
+
+1. Edita `contingut/3r/*.yaml`.
+2. `python3 tools/3r/build_dades.py --aplica-html --estricte` (des de l'arrel del repositori).
+3. `python3 tools/3r/artefactes.py --check` i, si els PDF nous són els bons, `--registra`.
+
+`digital/js/dades-generades.js` és la foto intermèdia. El navegador no el carrega: `--aplica-html` enganxa els blocs a les pàgines. Vegeu `docs/ARQUITECTURA.md`.
+
+Els PDF, la programació i els annexos segueixen els generadors d'aquesta carpeta (`build_prog_final.py`, `gen_annexos.py`, `gen_calendari.py`, `gen_anims.py`, `gen_llibre.py`). `node export_links.js` està retirat.
 
 ## Coses a tenir en compte (lliçons apreses)
 

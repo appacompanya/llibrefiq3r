@@ -286,7 +286,7 @@ sub_all(doc, r"^8\.4 Altes capacitats", "8.3 Altes capacitats")
 # ------------------------------------------------------------------ 14. Revisió de coherència (octubre)
 REV = [
  (r"una tasca de recuperació per a les competències que es tanquen a final de curs", "una tasca de recuperació per a cada competència específica"),
- (r"^Laboratori a les hores desdoblades, amb dotze pràctiques", "Laboratori sobretot a les hores desdoblades, amb dotze pràctiques"),
+ (r"^Laboratori a les hores desdoblades, amb dotze pràctiques", "Laboratori a les hores desdoblades, amb onze pràctiques d'alumnat (la difusió de la SdA 5 és una demostració del docent en grup sencer)"),
  (r"i entenent la recerca com una tasca$", "i entenent la recerca com una tasca col·lectiva i interdisciplinària en constant evolució, influïda pel context polític i els recursos econòmics."),
  (r"A 3r es treballen tots els sabers del bloc, amb una mica més de profunditat", "A 3r es treballen 34 dels 35 sabers, amb una mica més de profunditat"),
  (r"i de la SdA 5 a l'abril \(MRUA\)", "i de la SdA 5 a l'abril (sessió 2, MRU)"),
@@ -302,7 +302,7 @@ REV = [
  (r"^Fitxa d'evolució dels models \(evidència d'assoliment\)$", "Fitxa 2, part A: evolució dels models (evidència d'assoliment)"),
  (r"^Fitxa d'evolució dels models atòmics$", "Fitxa 2 · Evolució dels models atòmics (part A)"),
  (r"\(sessions 1–2 abans de Setmana Santa; 3–13 a l'abril i al maig\)", "(sessió 1 abans de Setmana Santa; 2–13 a l'abril i al maig)"),
- (r"Aula ordinària i laboratori \(sessions 6 i 10\)\.", "Aula ordinària i laboratori (sessions 7 i 10)."),
+ (r"Aula ordinària i laboratori \(sessions 6 i 10\)\.", "Aula ordinària; problemes en mig grup (sessió 6); demostració de difusió en grup sencer (sessió 7); laboratori de Hooke en mig grup (sessió 10)."),
  (r"Aigua calenta preparada pel professor \(sessió 6\)", "Aigua calenta preparada pel professor (sessió 7)"),
  (r"^Pregunta: «Dos cotxes van a 50 km/h\. Han de fer el mateix moviment\?»\.", "Reactivació després de Setmana Santa (repte i hipòtesis de la sessió 1) i pregunta: «Dos cotxes van a 50 km/h. Han de fer el mateix moviment?»."),
  (r"^Reactivació després de Setmana Santa i correcció de la fitxa 1\.", "Correcció de la fitxa 1 i resolució de dubtes."),

@@ -31,7 +31,7 @@ La programació respon als **sis vectors** i als **principis pedagògics** de l'
 - **Contextos reals, locals i propers a l'alumnat**, connectats amb el barri, la ciutat i els projectes del centre.
 - **Cada SdA avalua dues competències específiques principals** i, només si hi ha una evidència amb rúbrica, una de secundària. No es força una tercera CE cosmètica. Cada criteri que s'avalua té evidència real, i una segona oportunitat concreta (apartat 7.6). En conjunt s'avaluen els 21 criteris i es treballen 34 dels 35 sabers del decret (apartat 3.3). El criteri 3.3 (seguretat) només és evidència oficial a la SdA 1.
 - **Una estructura reconeixible a totes les SdA:** repte i hipòtesi → indagació i nous coneixements → aplicació i producte → avaluació → autoregulació (esmena amb bolígraf verd i diana d'autoavaluació).
-- **Laboratori a les hores desdoblades**, amb dotze pràctiques i seguretat documentada a cada full.
+- **Laboratori a les hores desdoblades**, amb onze pràctiques d'alumnat i seguretat documentada a cada full. La difusió de la SdA 5 és una demostració del docent en grup sencer.
 - **Avaluació formativa i formadora**, amb rúbriques conegudes des del primer dia i qualificació per criteris, no per mitjana d'exàmens.
 - **Material multinivell a totes les SdA**: reptes d'ampliació, materials adaptats per a diferents perfils i una tasca de recuperació per a les competències que es tanquen a final de curs.
 
@@ -91,7 +91,7 @@ La programació es planteja per a un grup de 3r d'ESO de **30 alumnes**, heterog
 | Alumnat amb dificultats en el càlcul | 2–3 | Suports per al càlcul i calculadora (SdA 4) |
 | Alumnat amb altes capacitats o que avança més de pressa | 2–3 | Reptes d'ampliació a totes les SdA |
 
-**Horari.** La matèria té 2 hores setmanals. Una hora es fa amb el grup sencer i l'altra és desdoblada (mig grup, 15 alumnes) i compartida amb Biologia i geologia: mentre una meitat fa Física i química, l'altra fa Biologia, i a la setmana següent s'intercanvien. Aquesta organització permet fer laboratori amb seguretat i atenció individualitzada (apartat 6.3).
+**Horari.** L'alumnat fa 2 hores setmanals: una amb el grup sencer i una desdoblada (mig grup, 15 alumnes), compartida amb Biologia i geologia. El professorat repeteix l'hora desdoblada, una amb cada meitat: el seu horari és 1 hora de grup sencer i 2 de mig grup cada setmana. Mentre una meitat fa Física i química, l'altra fa Biologia. Aquesta organització permet fer laboratori amb seguretat i atenció individualitzada (apartat 6.3).
 
 ### 2.4 Implicacions per a la programació
 
@@ -569,7 +569,7 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 **Elements curriculars.**
 
-- Criteris: 1.1, 1.2 i 1.3 (CE1, principal); 5.3 (CE5, principal); 2.2 i 2.3 (CE2, secundària: laboratori de difusió, fitxa 5).
+- Criteris: 1.1, 1.2 i 1.3 (CE1, principal); 5.3 (CE5, principal); 2.2 i 2.3 (CE2, secundària: demostració de difusió en grup sencer, fitxa 5).
 - Sabers: HC1–HC5 · I1 (cinemàtica), I2 (efectes de les forces), I3 (observació dels efectes de les forces), I4 (lleis de Newton i seguretat viària), I5 (propietats elàstiques), amb la notació científica aplicada a l'escala cel·lular.
 - Vectors i ODS: aprenentatges competencials, ciutadania democràtica i consciència global (seguretat viària), perspectiva de gènere (investigadores de la migració cel·lular), universalitat del currículum, qualitat de l'educació de les llengües (resposta argumentada); ODS 3.
 
@@ -591,16 +591,16 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | 3 · El moviment accelerat (MRUA) | GS | Introducció de nous coneixements | Reactivació (15 min). Acceleració i equacions del MRUA; frenada a 50 i a 30 km/h (seguretat viària). | Fitxa 2 (formativa). Comentari de les rúbriques. |
 | 4 · Les gràfiques del patinet | MG | Aplicació | Taula i gràfiques posició–temps i velocitat–temps d'un patinet; interpretació dels pendents. | Fitxa 3 (qualificadora, rúbrica). |
 | 5 · Trajectòria i desplaçament | GS | Aplicació | Mida de les cèl·lules amb un glòbul vermell (eritròcit, 7,5 µm) com a escala de referència i càlcul de l'augment; trajectòria real d'un neutròfil; distància, desplaçament, rapidesa i velocitat mitjanes. | Fitxa 4 (formativa). |
-| 6 · Difusió i gradient | MG | Aplicació | Laboratori: disseny i realització de l'experiment de difusió de tinta a tres temperatures; gradient amb simulació. | Fitxa 5 (qualificadora, rúbrica: criteris 2.2 i 2.3). |
-| 7 · Quimiotaxi i febre | GS | Introducció de nous coneixements | Quimiotaxi; gràfica de recerca sobre la febre; malaltia i símptomes. | Fitxa 6 (qualificadora, rúbrica). |
-| 8 · Problemes de moviment | MG | Estructuració i síntesi | Problemes de MRU i MRUA: trobades, arrencades, frenades i la persecució del neutròfil. | Problemes (formatius, solucionari). |
+| 6 · Problemes de moviment | MG | Estructuració i síntesi | Problemes de MRU i MRUA: trobades, arrencades, frenades i la persecució del neutròfil. | Problemes (formatius, solucionari). |
+| 7 · Difusió i gradient | GS | Aplicació | Demostració del docent amb el grup sencer: difusió de tinta a tres temperatures. L'alumnat observa, registra el disseny i les conclusions a la fitxa 5 i treballa el gradient amb la simulació. No és un laboratori en mig grup. | Fitxa 5 (qualificadora, rúbrica: criteris 2.2 i 2.3). |
+| 8 · Quimiotaxi i febre | MG | Introducció de nous coneixements | Quimiotaxi; gràfica de recerca sobre la febre; malaltia i símptomes. | Fitxa 6 (qualificadora, rúbrica). |
 | 9 · Les lleis de Newton | GS | Introducció de nous coneixements | Tres lleis de Newton aplicades al patinet i a la cèl·lula; píndola sobre el citoesquelet. | Fitxa 7 (formativa). |
 | 10 · La llei de Hooke | MG | Aplicació | Laboratori: allargament d'una molla amb masses i constant elàstica a partir de la gràfica. | Full de laboratori (formatiu). |
 | 11 · Les cèl·lules també fan forces | GS | Aplicació | Superposició de dues imatges de microscòpia de forces de tracció; desplaçament de les boletes i càlcul de forces; mapa conceptual. | Full de forces cel·lulars (qualificador, rúbrica). |
-| 12 · Demostració d'assoliment | MG | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves (dues versions equivalents o intercanvi d'hora amb Biologia). | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
+| 12 · Demostració d'assoliment | MG | Avaluació i regulació | Activitat de demostració d'assoliment, individual, amb situacions noves (dues versions equivalents, una per a cada mig grup). | Activitat de demostració d'assoliment (qualificadora, evidència d'assoliment). |
 | 13 · Responc el repte i reflexiono | GS | Estructuració i síntesi | Resposta final al repte (formativa, no és evidència oficial) i esmena de les hipòtesis; correcció i esmena de l'activitat de demostració; diana. El producte qualificat és el full de forces cel·lulars. | Esmena i diana (autoavaluació). |
 
-**Organització i agrupaments.** Parelles per a la resolució de problemes i grups de quatre al laboratori (sessions 6 i 10). Coordinació amb Biologia per a la part cel·lular.
+**Organització i agrupaments.** Parelles per a la resolució de problemes (sessió 6, mig grup) i grups de quatre al laboratori de Hooke (sessió 10, mig grup). La difusió (sessió 7) és una demostració del docent amb el grup sencer. Coordinació amb Biologia per a la part cel·lular.
 
 **Materials i recursos.** Vídeo de neutròfil (recurs obert), imatges estroboscòpiques de vehicles, tinta i aigua a tres temperatures, simulació de difusió, molles, masses i regles, imatges de microscòpia de forces de tracció (làmines A i B). Fulls: full de ruta, full del repte, fitxes 1–7, problemes, laboratori de Hooke, full de forces cel·lulars, rúbriques, activitat de demostració, diana i mapa conceptual.
 
@@ -612,7 +612,7 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 | Full de forces cel·lulars | Qualificador | Heteroavaluació amb rúbrica | 1.2, 1.3, 5.3 |
 | Gràfiques del patinet (fitxa 3) | Qualificador | Heteroavaluació amb rúbrica | 1.1 |
 | La febre i la migració (fitxa 6) | Qualificador | Heteroavaluació amb rúbrica | 1.1, 5.3 |
-| Laboratori de difusió (fitxa 5) | Qualificador | Heteroavaluació amb rúbrica | 2.2, 2.3 |
+| Demostració de difusió (fitxa 5, grup sencer) | Qualificador | Heteroavaluació amb rúbrica | 2.2, 2.3 |
 | Fitxes 1, 2, 4 i 7, problemes, laboratori de Hooke, resposta al repte, diana | Formatiu | Autoavaluació. No entren al càlcul oficial | — |
 
 **Atenció a la diversitat.** Problemes de moviment fragmentats en targetes amb llista de passos i pausa activa per a l'alumnat amb TDAH; vehicles i patinets abans de les cèl·lules (del concret a l'abstracte); dossier d'ampliació amb trobades, persecucions, caiguda lliure, molles en sèrie i en paral·lel i l'àrea sota la gràfica v–t.
@@ -644,7 +644,7 @@ Cada SdA es descriu amb el mateix esquema: justificació, repte i producte, elem
 
 | Sessió | Grup | Fase | Activitats | Avaluació (instrument, finalitat i agent) |
 | --- | --- | --- | --- | --- |
-| 1 · Auditoria energètica i acústica de l'aula | MG | Exploració | Encàrrec de la direcció; mapa de soroll; hipòtesi sobre quin aparell gasta més; inventari a la plantilla d'Excel. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte. | Hipòtesi (diagnòstica). Inventari (formatiu). |
+| 1 · Auditoria energètica i acústica de l'aula | GS | Exploració | Encàrrec de la direcció; mapa de soroll; hipòtesi sobre quin aparell gasta més; inventari a la plantilla d'Excel. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte. | Hipòtesi (diagnòstica). Inventari (formatiu). |
 | 2 · Muntem circuits | MG | Introducció de nous coneixements | Circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i simulació PhET. No hi ha full de laboratori de circuits: el registre és el full de ruta i la simulació. | Observació formativa. |
 | 3 · Energia, potència i consum | GS | Introducció de nous coneixements | Conservació de l'energia i rendiment; bombeta d'incandescència i LED; kWh i cost; Mária Telkes. | Fitxa 1 (formativa, autocorrecció). |
 | 4 · Mesurem el consum real | MG | Aplicació | Wattímetre: aparells en marxa i en espera; consum anual. | Full de laboratori de consum real (formatiu). |
@@ -693,19 +693,19 @@ Cada SdA té un **full de ruta** il·lustrat, sessió a sessió, on l'alumnat an
 
 ### 6.3 Organització horària i desdoblament
 
-A cada SdA, les sessions alternen grup sencer i mig grup. El desdoblament està justificat per tres raons:
+A cada SdA, les sessions alternen grup sencer i mig grup. L'alumnat en fa una de cada cada setmana; el professorat repeteix la de mig grup (1 hora de grup sencer i 2 de mig grup). El desdoblament està justificat per tres raons:
 
 - **Seguretat:** amb 15 alumnes, el professor pot supervisar tots els grups de laboratori i intervenir a temps; amb 30, en un laboratori dissenyat per a menys alumnes, la manipulació de flama, àcids o aparells elèctrics no seria segura.
 - **Aprenentatge actiu:** cada alumne manipula, mesura i registra dades, en lloc d'observar.
 - **Atenció individualitzada:** les hores desdoblades sense laboratori (per exemple, les unitats i la notació científica de la SdA 1 o el MRU de la SdA 5) es fan servir per a la resolució guiada de problemes i el seguiment individual, que és on més rendeix tenir 15 alumnes.
 
-Els laboratoris es fan sempre amb mig grup, i l'activitat de demostració d'assoliment, amb el grup sencer. Si l'ordre de les sessions la situa en una hora desdoblada, s'acorda amb el professorat de Biologia i geologia fer aquella setmana les dues hores amb el grup sencer, amb reciprocitat; si no és possible, es fa en dues versions equivalents.
+Els laboratoris que fa l'alumnat es fan sempre amb mig grup. La difusió de tinta de la SdA 5 (sessió 7) és una demostració del docent amb el grup sencer, no una pràctica en mig grup. L'activitat de demostració d'assoliment segueix el grup marcat a la sessió: a la SdA 5 és en mig grup (sessió 12), amb dues versions equivalents. Si en una altra SdA cau en una hora desdoblada i cal el grup sencer, s'acorda amb el professorat de Biologia i geologia un intercanvi d'hora; si no és possible, es fa en dues versions equivalents.
 
 **Agrupaments.** Grups de treball heterogenis de tres o quatre alumnes, estables durant una SdA, amb rols rotatius (coordinació, material i seguretat, registre de dades, portaveu) que es reparteixen de manera equilibrada per gènere i per perfil. A la SdA 4 es fa servir el trencaclosques (cada membre és expert en una part del dossier) i a la SdA 6, grups de tres per al pla.
 
 ### 6.4 Laboratori i seguretat
 
-El curs inclou **dotze pràctiques de laboratori** i diverses demostracions. Cada full de laboratori comença amb un requadre de seguretat específic: ulleres en totes les pràctiques, guants amb àcids i dissolucions irritants, flama manipulada només pel professor, piles de baixa tensió i, a la SdA 6, aparells de 230 V connectats només per l'endoll i revisats prèviament. La SdA 1 dedica la primera sessió al decàleg de seguretat, que s'avalua (criteri 3.3). Els residus es gestionen segons el protocol del laboratori del centre.
+El curs inclou **onze pràctiques de laboratori** de l'alumnat i diverses demostracions. La difusió de tinta (SdA 5, sessió 7) la fa el docent amb el grup sencer i no compta com a pràctica de l'alumnat. Cada full de laboratori comença amb un requadre de seguretat específic: ulleres en totes les pràctiques, guants amb àcids i dissolucions irritants, flama manipulada només pel professor, piles de baixa tensió i, a la SdA 6, aparells de 230 V connectats només per l'endoll i revisats prèviament. La SdA 1 dedica la primera sessió al decàleg de seguretat, que s'avalua (criteri 3.3). Els residus es gestionen segons el protocol del laboratori del centre.
 
 | SdA | Pràctiques de laboratori |
 | --- | --- |
@@ -713,7 +713,7 @@ El curs inclou **dotze pràctiques de laboratori** i diverses demostracions. Cad
 | 2 | Globus al fred i a la calor · corba d'escalfament i canvis d'estat |
 | 3 | Assaig a la flama i espectroscopi |
 | 4 | Conservació de la massa · obtenció d'hidrogen · electròlisi de l'aigua |
-| 5 | Difusió i temperatura · llei de Hooke |
+| 5 | Llei de Hooke |
 | 6 | Consum real amb wattímetre |
 
 ### 6.5 Recursos i materials

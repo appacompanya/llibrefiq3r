@@ -15,14 +15,7 @@ import re as _re
 MD = MD.replace("| Fotografia estroboscòpica d'un cotxe", "| Reactivació després de Setmana Santa. Fotografia estroboscòpica d'un cotxe").replace("Reactivació (15 min). Acceleració", "Acceleració")
 MD = MD.replace("Fitxa per a l'alumne amb PI (", "Fitxa amb suport manipulatiu per a l'alumnat amb NESE que ho necessita (")
 MD = _re.sub(r"\| (\d+) · Prova \|", r"| \1 · Demostració d'assoliment |", MD)
-# SdA 5: problemes de moviment passa a la sessió 6 (abans de difusió i quimiotaxi)
-_a = MD.index("### 5.5 SdA 5"); _b = MD.index("### 5.6", _a)
-_sec = MD[_a:_b].splitlines()
-_i6 = next(i for i, l in enumerate(_sec) if l.startswith("| 6 · Difusió"))
-_i8 = next(i for i, l in enumerate(_sec) if l.startswith("| 8 · Problemes"))
-_r6, _r7, _r8 = _sec[_i6], _sec[_i6 + 1], _sec[_i8]
-_sec[_i6] = _r8.replace("| 8 · Problemes", "| 6 · Problemes"); _sec[_i6 + 1] = _r6.replace("| 6 · Difusió", "| 7 · Difusió"); _sec[_i8] = _r7.replace("| 7 · Quimiotaxi", "| 8 · Quimiotaxi")
-MD = MD[:_a] + "\n".join(_sec) + MD[_b:]
+# La seqüència de la SdA 5 ja és la del web (6 problemes, 7 difusió en grup sencer, 8 quimiotaxi). No es reordena.
 DATA = {d["n"]: d for d in json.load(open(os.path.join(SCR, "sdas.json"), encoding="utf-8"))}
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "lib"))
 import imatges as IM
