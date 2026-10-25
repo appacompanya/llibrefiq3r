@@ -1,0 +1,5581 @@
+/* Generat per tools/3r/build_adaptacions.py a partir de contingut/2n/adaptacions.yaml. No l'editis a mà. */
+window.FQ_ADAPT = {
+ "perfils": [
+  "dislexia",
+  "nouvingut",
+  "basics",
+  "discalculia",
+  "tdah",
+  "tea"
+ ],
+ "llengues": [
+  {
+   "codi": "ar",
+   "nom": "Àrab",
+   "paisos": "Marroc, Algèria, Síria, Egipte…",
+   "traductor": "ar",
+   "rtl": true
+  },
+  {
+   "codi": "ber",
+   "nom": "Amazic (tamazight)",
+   "paisos": "Marroc, Algèria",
+   "traductor": ""
+  },
+  {
+   "codi": "ur",
+   "nom": "Urdú",
+   "paisos": "Pakistan",
+   "traductor": "ur",
+   "rtl": true
+  },
+  {
+   "codi": "pa",
+   "nom": "Panjabi",
+   "paisos": "Pakistan, Índia",
+   "traductor": "pa"
+  },
+  {
+   "codi": "bn",
+   "nom": "Bengalí",
+   "paisos": "Bangladesh",
+   "traductor": "bn"
+  },
+  {
+   "codi": "hi",
+   "nom": "Hindi",
+   "paisos": "Índia",
+   "traductor": "hi"
+  },
+  {
+   "codi": "ne",
+   "nom": "Nepalès",
+   "paisos": "Nepal",
+   "traductor": "ne"
+  },
+  {
+   "codi": "zh",
+   "nom": "Xinès",
+   "paisos": "Xina",
+   "traductor": "zh-CN"
+  },
+  {
+   "codi": "tl",
+   "nom": "Tagal (filipí)",
+   "paisos": "Filipines",
+   "traductor": "tl"
+  },
+  {
+   "codi": "ro",
+   "nom": "Romanès",
+   "paisos": "Romania, Moldàvia",
+   "traductor": "ro"
+  },
+  {
+   "codi": "bg",
+   "nom": "Búlgar",
+   "paisos": "Bulgària",
+   "traductor": "bg"
+  },
+  {
+   "codi": "uk",
+   "nom": "Ucraïnès",
+   "paisos": "Ucraïna",
+   "traductor": "uk"
+  },
+  {
+   "codi": "ru",
+   "nom": "Rus",
+   "paisos": "Rússia, Ucraïna, Geòrgia, Bielorússia…",
+   "traductor": "ru"
+  },
+  {
+   "codi": "ka",
+   "nom": "Georgià",
+   "paisos": "Geòrgia",
+   "traductor": "ka"
+  },
+  {
+   "codi": "hy",
+   "nom": "Armeni",
+   "paisos": "Armènia",
+   "traductor": "hy"
+  },
+  {
+   "codi": "pl",
+   "nom": "Polonès",
+   "paisos": "Polònia",
+   "traductor": "pl"
+  },
+  {
+   "codi": "sq",
+   "nom": "Albanès",
+   "paisos": "Albània, Kosovo",
+   "traductor": "sq"
+  },
+  {
+   "codi": "es",
+   "nom": "Castellà",
+   "paisos": "Amèrica Llatina, Espanya",
+   "traductor": "es"
+  },
+  {
+   "codi": "qu",
+   "nom": "Quítxua",
+   "paisos": "Perú, Bolívia, Equador",
+   "traductor": "qu"
+  },
+  {
+   "codi": "gn",
+   "nom": "Guaraní",
+   "paisos": "Paraguai",
+   "traductor": "gn"
+  },
+  {
+   "codi": "pt",
+   "nom": "Portuguès",
+   "paisos": "Brasil, Portugal, Angola…",
+   "traductor": "pt"
+  },
+  {
+   "codi": "fr",
+   "nom": "Francès",
+   "paisos": "Senegal, Mali, Guinea, Costa d'Ivori, França…",
+   "traductor": "fr"
+  },
+  {
+   "codi": "en",
+   "nom": "Anglès",
+   "paisos": "Nigèria, Gàmbia, Ghana, Pakistan, Regne Unit…",
+   "traductor": "en"
+  },
+  {
+   "codi": "wo",
+   "nom": "Wòlof",
+   "paisos": "Senegal, Gàmbia",
+   "traductor": "wo"
+  },
+  {
+   "codi": "ff",
+   "nom": "Fula (pulaar)",
+   "paisos": "Senegal, Guinea, Mali",
+   "traductor": "ff"
+  },
+  {
+   "codi": "mnk",
+   "nom": "Mandinga",
+   "paisos": "Gàmbia, Senegal, Mali, Guinea",
+   "traductor": ""
+  },
+  {
+   "codi": "snk",
+   "nom": "Soninké",
+   "paisos": "Senegal, Mali, Gàmbia",
+   "traductor": ""
+  },
+  {
+   "codi": "bm",
+   "nom": "Bambara",
+   "paisos": "Mali",
+   "traductor": "bm"
+  },
+  {
+   "codi": "tw",
+   "nom": "Twi",
+   "paisos": "Ghana",
+   "traductor": "ak"
+  },
+  {
+   "codi": "ig",
+   "nom": "Igbo",
+   "paisos": "Nigèria",
+   "traductor": "ig"
+  },
+  {
+   "codi": "yo",
+   "nom": "Ioruba",
+   "paisos": "Nigèria",
+   "traductor": "yo"
+  },
+  {
+   "codi": "ha",
+   "nom": "Haussa",
+   "paisos": "Nigèria, Níger",
+   "traductor": "ha"
+  },
+  {
+   "codi": "fa",
+   "nom": "Persa (farsi, dari)",
+   "paisos": "Iran, Afganistan",
+   "traductor": "fa",
+   "rtl": true
+  },
+  {
+   "codi": "ps",
+   "nom": "Paixtu",
+   "paisos": "Afganistan, Pakistan",
+   "traductor": "ps",
+   "rtl": true
+  },
+  {
+   "codi": "tr",
+   "nom": "Turc",
+   "paisos": "Turquia",
+   "traductor": "tr"
+  },
+  {
+   "codi": "ku",
+   "nom": "Kurd",
+   "paisos": "Turquia, Síria, Iraq",
+   "traductor": "ku"
+  },
+  {
+   "codi": "it",
+   "nom": "Italià",
+   "paisos": "Itàlia, Argentina",
+   "traductor": "it"
+  },
+  {
+   "codi": "de",
+   "nom": "Alemany",
+   "paisos": "Alemanya, Àustria, Suïssa",
+   "traductor": "de"
+  },
+  {
+   "codi": "nl",
+   "nom": "Neerlandès",
+   "paisos": "Països Baixos, Bèlgica",
+   "traductor": "nl"
+  },
+  {
+   "codi": "vi",
+   "nom": "Vietnamita",
+   "paisos": "Vietnam",
+   "traductor": "vi"
+  },
+  {
+   "codi": "ko",
+   "nom": "Coreà",
+   "paisos": "Corea del Sud",
+   "traductor": "ko"
+  },
+  {
+   "codi": "ja",
+   "nom": "Japonès",
+   "paisos": "Japó",
+   "traductor": "ja"
+  },
+  {
+   "codi": "ti",
+   "nom": "Tigrinya",
+   "paisos": "Eritrea, Etiòpia",
+   "traductor": "ti"
+  },
+  {
+   "codi": "am",
+   "nom": "Amhàric",
+   "paisos": "Etiòpia",
+   "traductor": "am"
+  },
+  {
+   "codi": "so",
+   "nom": "Somali",
+   "paisos": "Somàlia",
+   "traductor": "so"
+  }
+ ],
+ "glossari": {
+  "1": [
+   {
+    "ca": "magnitud",
+    "formes": [
+     "magnitud",
+     "magnituds"
+    ],
+    "def": "propietat que es pot mesurar i expressar amb un nombre i una unitat",
+    "tr": {
+     "es": "magnitud",
+     "en": "physical quantity",
+     "fr": "grandeur",
+     "pt": "grandeza",
+     "ro": "mărime",
+     "ru": "величина",
+     "uk": "величина",
+     "ar": "كمية فيزيائية",
+     "zh": "物理量",
+     "ur": "مقدار"
+    }
+   },
+   {
+    "ca": "unitat",
+    "formes": [
+     "unitat",
+     "unitats"
+    ],
+    "def": "quantitat que fem servir per comparar quan mesurem (metre, quilogram, segon…)",
+    "tr": {
+     "es": "unidad",
+     "en": "unit",
+     "fr": "unité",
+     "pt": "unidade",
+     "ro": "unitate",
+     "ru": "единица измерения",
+     "uk": "одиниця вимірювання",
+     "ar": "وحدة قياس",
+     "zh": "单位",
+     "ur": "اکائی"
+    }
+   },
+   {
+    "ca": "factor de conversió",
+    "formes": [
+     "factor de conversió",
+     "factors de conversió",
+     "factor"
+    ],
+    "def": "fracció que val 1 i serveix per canviar d'unitat",
+    "tr": {
+     "es": "factor de conversión",
+     "en": "conversion factor",
+     "fr": "facteur de conversion",
+     "pt": "fator de conversão",
+     "ro": "factor de conversie",
+     "ru": "коэффициент пересчёта",
+     "uk": "коефіцієнт перерахунку",
+     "ar": "معامل التحويل",
+     "zh": "换算因子",
+     "ur": "تبادلی عامل"
+    }
+   },
+   {
+    "ca": "proveta",
+    "formes": [
+     "proveta",
+     "provetes"
+    ],
+    "def": "recipient de vidre o plàstic, alt i graduat, per mesurar volums de líquids",
+    "tr": {
+     "es": "probeta",
+     "en": "graduated cylinder",
+     "fr": "éprouvette graduée",
+     "pt": "proveta",
+     "ro": "cilindru gradat",
+     "ru": "мерный цилиндр",
+     "uk": "мірний циліндр",
+     "ar": "مخبار مدرج",
+     "zh": "量筒",
+     "ur": "پیمائشی سلنڈر"
+    }
+   },
+   {
+    "ca": "sensibilitat",
+    "formes": [
+     "sensibilitat"
+    ],
+    "def": "la quantitat més petita que pot mesurar un instrument",
+    "tr": {
+     "es": "sensibilidad",
+     "en": "resolution (smallest division)",
+     "fr": "sensibilité",
+     "pt": "sensibilidade",
+     "ro": "sensibilitate",
+     "ru": "цена деления",
+     "uk": "ціна поділки",
+     "ar": "أصغر تدريجة",
+     "zh": "最小刻度",
+     "ur": "حساسیت"
+    }
+   },
+   {
+    "ca": "superfície",
+    "formes": [
+     "superfície",
+     "superfícies"
+    ],
+    "def": "mida d'una zona plana; es mesura en m²",
+    "tr": {
+     "es": "superficie",
+     "en": "area",
+     "fr": "surface",
+     "pt": "área",
+     "ro": "suprafață",
+     "ru": "площадь",
+     "uk": "площа",
+     "ar": "مساحة",
+     "zh": "面积",
+     "ur": "رقبہ"
+    }
+   },
+   {
+    "ca": "volum",
+    "formes": [
+     "volum",
+     "volums"
+    ],
+    "def": "espai que ocupa un cos; es mesura en m³ o en litres",
+    "tr": {
+     "es": "volumen",
+     "en": "volume",
+     "fr": "volume",
+     "pt": "volume",
+     "ro": "volum",
+     "ru": "объём",
+     "uk": "об'єм",
+     "ar": "حجم",
+     "zh": "体积",
+     "ur": "حجم"
+    }
+   },
+   {
+    "ca": "notació científica",
+    "formes": [
+     "notació científica"
+    ],
+    "def": "manera d'escriure nombres molt grans o molt petits amb una potència de 10",
+    "tr": {
+     "es": "notación científica",
+     "en": "scientific notation",
+     "fr": "notation scientifique",
+     "pt": "notação científica",
+     "ro": "notație științifică",
+     "ru": "научная запись числа",
+     "uk": "стандартний вигляд числа",
+     "ar": "الترميز العلمي",
+     "zh": "科学记数法",
+     "ur": "سائنسی ترقیم"
+    }
+   }
+  ],
+  "2": [
+   {
+    "ca": "massa",
+    "formes": [
+     "massa",
+     "masses"
+    ],
+    "def": "quantitat de matèria d'un cos; es mesura amb la balança, en kg",
+    "tr": {
+     "es": "masa",
+     "en": "mass",
+     "fr": "masse",
+     "pt": "massa",
+     "ro": "masă",
+     "ru": "масса",
+     "uk": "маса",
+     "ar": "كتلة",
+     "zh": "质量",
+     "ur": "کمیت"
+    }
+   },
+   {
+    "ca": "densitat",
+    "formes": [
+     "densitat",
+     "densitats"
+    ],
+    "def": "massa que té cada unitat de volum d'una substància: d = m / V",
+    "tr": {
+     "es": "densidad",
+     "en": "density",
+     "fr": "masse volumique",
+     "pt": "densidade",
+     "ro": "densitate",
+     "ru": "плотность",
+     "uk": "густина",
+     "ar": "كثافة",
+     "zh": "密度",
+     "ur": "کثافت"
+    }
+   },
+   {
+    "ca": "surar",
+    "formes": [
+     "surar",
+     "sura",
+     "suren"
+    ],
+    "def": "quedar-se a la superfície d'un líquid sense enfonsar-se",
+    "tr": {
+     "es": "flotar",
+     "en": "to float",
+     "fr": "flotter",
+     "pt": "flutuar",
+     "ro": "a pluti",
+     "ru": "плавать",
+     "uk": "плавати",
+     "ar": "يطفو",
+     "zh": "漂浮",
+     "ur": "تیرنا"
+    }
+   },
+   {
+    "ca": "enfonsar-se",
+    "formes": [
+     "enfonsa",
+     "enfonsar",
+     "enfonsen"
+    ],
+    "def": "anar cap al fons d'un líquid",
+    "tr": {
+     "es": "hundirse",
+     "en": "to sink",
+     "fr": "couler",
+     "pt": "afundar",
+     "ro": "a se scufunda",
+     "ru": "тонуть",
+     "uk": "тонути",
+     "ar": "يغرق",
+     "zh": "下沉",
+     "ur": "ڈوبنا"
+    }
+   },
+   {
+    "ca": "balança",
+    "formes": [
+     "balança",
+     "balances"
+    ],
+    "def": "instrument per mesurar la massa",
+    "tr": {
+     "es": "balanza",
+     "en": "balance (scale)",
+     "fr": "balance",
+     "pt": "balança",
+     "ro": "balanță",
+     "ru": "весы",
+     "uk": "терези",
+     "ar": "ميزان",
+     "zh": "天平",
+     "ur": "ترازو"
+    }
+   },
+   {
+    "ca": "propietat característica",
+    "formes": [
+     "propietat característica",
+     "propietats característiques",
+     "característica",
+     "característiques"
+    ],
+    "def": "propietat que serveix per saber de quina substància es tracta (densitat, temperatura d'ebullició…)",
+    "tr": {
+     "es": "propiedad característica",
+     "en": "characteristic property",
+     "fr": "propriété caractéristique",
+     "pt": "propriedade característica",
+     "ro": "proprietate caracteristică",
+     "ru": "характерное свойство",
+     "uk": "характерна властивість",
+     "ar": "خاصية مميزة",
+     "zh": "特征性质",
+     "ur": "امتیازی خاصیت"
+    }
+   },
+   {
+    "ca": "capa",
+    "formes": [
+     "capa",
+     "capes"
+    ],
+    "def": "part d'un líquid que queda separada, a sobre o a sota d'una altra",
+    "tr": {
+     "es": "capa",
+     "en": "layer",
+     "fr": "couche",
+     "pt": "camada",
+     "ro": "strat",
+     "ru": "слой",
+     "uk": "шар",
+     "ar": "طبقة",
+     "zh": "层",
+     "ur": "تہہ"
+    }
+   },
+   {
+    "ca": "hipòtesi",
+    "formes": [
+     "hipòtesi"
+    ],
+    "def": "resposta provisional que després comprovem amb un experiment",
+    "tr": {
+     "es": "hipótesis",
+     "en": "hypothesis",
+     "fr": "hypothèse",
+     "pt": "hipótese",
+     "ro": "ipoteză",
+     "ru": "гипотеза",
+     "uk": "гіпотеза",
+     "ar": "فرضية",
+     "zh": "假设",
+     "ur": "مفروضہ"
+    }
+   }
+  ],
+  "3": [
+   {
+    "ca": "partícula",
+    "formes": [
+     "partícula",
+     "partícules"
+    ],
+    "def": "tros molt i molt petit de matèria que no podem veure",
+    "tr": {
+     "es": "partícula",
+     "en": "particle",
+     "fr": "particule",
+     "pt": "partícula",
+     "ro": "particulă",
+     "ru": "частица",
+     "uk": "частинка",
+     "ar": "جسيم",
+     "zh": "粒子",
+     "ur": "ذرہ"
+    }
+   },
+   {
+    "ca": "estat",
+    "formes": [
+     "estat",
+     "estats",
+     "sòlid",
+     "líquid",
+     "gas"
+    ],
+    "def": "forma en què es troba la matèria: sòlid, líquid o gas",
+    "tr": {
+     "es": "estado",
+     "en": "state of matter",
+     "fr": "état de la matière",
+     "pt": "estado físico",
+     "ro": "stare de agregare",
+     "ru": "агрегатное состояние",
+     "uk": "агрегатний стан",
+     "ar": "حالة المادة",
+     "zh": "物态",
+     "ur": "مادے کی حالت"
+    }
+   },
+   {
+    "ca": "fusió",
+    "formes": [
+     "fusió",
+     "fon",
+     "fondre"
+    ],
+    "def": "pas de sòlid a líquid",
+    "tr": {
+     "es": "fusión",
+     "en": "melting",
+     "fr": "fusion",
+     "pt": "fusão",
+     "ro": "topire",
+     "ru": "плавление",
+     "uk": "плавлення",
+     "ar": "انصهار",
+     "zh": "熔化",
+     "ur": "پگھلنا"
+    }
+   },
+   {
+    "ca": "ebullició",
+    "formes": [
+     "ebullició",
+     "bull",
+     "bullir"
+    ],
+    "def": "pas de líquid a gas a tot el líquid, a una temperatura fixa",
+    "tr": {
+     "es": "ebullición",
+     "en": "boiling",
+     "fr": "ébullition",
+     "pt": "ebulição",
+     "ro": "fierbere",
+     "ru": "кипение",
+     "uk": "кипіння",
+     "ar": "غليان",
+     "zh": "沸腾",
+     "ur": "ابلنا"
+    }
+   },
+   {
+    "ca": "evaporació",
+    "formes": [
+     "evaporació",
+     "evapora"
+    ],
+    "def": "pas de líquid a gas només a la superfície, a qualsevol temperatura",
+    "tr": {
+     "es": "evaporación",
+     "en": "evaporation",
+     "fr": "évaporation",
+     "pt": "evaporação",
+     "ro": "evaporare",
+     "ru": "испарение",
+     "uk": "випаровування",
+     "ar": "تبخر",
+     "zh": "蒸发",
+     "ur": "تبخیر"
+    }
+   },
+   {
+    "ca": "condensació",
+    "formes": [
+     "condensació",
+     "condensa"
+    ],
+    "def": "pas de gas a líquid",
+    "tr": {
+     "es": "condensación",
+     "en": "condensation",
+     "fr": "condensation",
+     "pt": "condensação",
+     "ro": "condensare",
+     "ru": "конденсация",
+     "uk": "конденсація",
+     "ar": "تكاثف",
+     "zh": "液化",
+     "ur": "تکثیف"
+    }
+   },
+   {
+    "ca": "pressió",
+    "formes": [
+     "pressió"
+    ],
+    "def": "força dels xocs de les partícules contra les parets; es mesura en atm o Pa",
+    "tr": {
+     "es": "presión",
+     "en": "pressure",
+     "fr": "pression",
+     "pt": "pressão",
+     "ro": "presiune",
+     "ru": "давление",
+     "uk": "тиск",
+     "ar": "ضغط",
+     "zh": "压强",
+     "ur": "دباؤ"
+    }
+   },
+   {
+    "ca": "temperatura",
+    "formes": [
+     "temperatura"
+    ],
+    "def": "mesura de com de ràpid es mouen les partícules; es mesura en °C o en K",
+    "tr": {
+     "es": "temperatura",
+     "en": "temperature",
+     "fr": "température",
+     "pt": "temperatura",
+     "ro": "temperatură",
+     "ru": "температура",
+     "uk": "температура",
+     "ar": "درجة الحرارة",
+     "zh": "温度",
+     "ur": "درجہ حرارت"
+    }
+   }
+  ],
+  "4": [
+   {
+    "ca": "mescla",
+    "formes": [
+     "mescla",
+     "mescles"
+    ],
+    "def": "material format per dues substàncies o més",
+    "tr": {
+     "es": "mezcla",
+     "en": "mixture",
+     "fr": "mélange",
+     "pt": "mistura",
+     "ro": "amestec",
+     "ru": "смесь",
+     "uk": "суміш",
+     "ar": "خليط",
+     "zh": "混合物",
+     "ur": "آمیزہ"
+    }
+   },
+   {
+    "ca": "substància pura",
+    "formes": [
+     "substància pura",
+     "substàncies pures"
+    ],
+    "def": "material format per una sola substància",
+    "tr": {
+     "es": "sustancia pura",
+     "en": "pure substance",
+     "fr": "corps pur",
+     "pt": "substância pura",
+     "ro": "substanță pură",
+     "ru": "чистое вещество",
+     "uk": "чиста речовина",
+     "ar": "مادة نقية",
+     "zh": "纯净物",
+     "ur": "خالص مادہ"
+    }
+   },
+   {
+    "ca": "dissolució",
+    "formes": [
+     "dissolució",
+     "dissolucions"
+    ],
+    "def": "mescla homogènia: no se'n veuen les parts",
+    "tr": {
+     "es": "disolución",
+     "en": "solution",
+     "fr": "solution",
+     "pt": "solução",
+     "ro": "soluție",
+     "ru": "раствор",
+     "uk": "розчин",
+     "ar": "محلول",
+     "zh": "溶液",
+     "ur": "محلول"
+    }
+   },
+   {
+    "ca": "solut",
+    "formes": [
+     "solut"
+    ],
+    "def": "substància que es dissol (n'hi ha menys)",
+    "tr": {
+     "es": "soluto",
+     "en": "solute",
+     "fr": "soluté",
+     "pt": "soluto",
+     "ro": "substanță dizolvată",
+     "ru": "растворённое вещество",
+     "uk": "розчинена речовина",
+     "ar": "مذاب",
+     "zh": "溶质",
+     "ur": "منحل"
+    }
+   },
+   {
+    "ca": "dissolvent",
+    "formes": [
+     "dissolvent"
+    ],
+    "def": "substància on es dissol el solut (n'hi ha més)",
+    "tr": {
+     "es": "disolvente",
+     "en": "solvent",
+     "fr": "solvant",
+     "pt": "solvente",
+     "ro": "solvent",
+     "ru": "растворитель",
+     "uk": "розчинник",
+     "ar": "مذيب",
+     "zh": "溶剂",
+     "ur": "محلل"
+    }
+   },
+   {
+    "ca": "concentració",
+    "formes": [
+     "concentració"
+    ],
+    "def": "quantitat de solut que hi ha en cada litre de dissolució (g/L)",
+    "tr": {
+     "es": "concentración",
+     "en": "concentration",
+     "fr": "concentration",
+     "pt": "concentração",
+     "ro": "concentrație",
+     "ru": "концентрация",
+     "uk": "концентрація",
+     "ar": "تركيز",
+     "zh": "浓度",
+     "ur": "ارتکاز"
+    }
+   },
+   {
+    "ca": "solubilitat",
+    "formes": [
+     "solubilitat"
+    ],
+    "def": "quantitat màxima de solut que es pot dissoldre",
+    "tr": {
+     "es": "solubilidad",
+     "en": "solubility",
+     "fr": "solubilité",
+     "pt": "solubilidade",
+     "ro": "solubilitate",
+     "ru": "растворимость",
+     "uk": "розчинність",
+     "ar": "ذوبانية",
+     "zh": "溶解度",
+     "ur": "حل پذیری"
+    }
+   },
+   {
+    "ca": "filtració",
+    "formes": [
+     "filtració",
+     "filtrar",
+     "filtre"
+    ],
+    "def": "tècnica que separa un sòlid d'un líquid amb un filtre",
+    "tr": {
+     "es": "filtración",
+     "en": "filtration",
+     "fr": "filtration",
+     "pt": "filtração",
+     "ro": "filtrare",
+     "ru": "фильтрование",
+     "uk": "фільтрування",
+     "ar": "ترشيح",
+     "zh": "过滤",
+     "ur": "فلٹریشن"
+    }
+   }
+  ],
+  "5": [
+   {
+    "ca": "canvi físic",
+    "formes": [
+     "canvi físic",
+     "canvis físics",
+     "físic"
+    ],
+    "def": "canvi en què la substància continua sent la mateixa",
+    "tr": {
+     "es": "cambio físico",
+     "en": "physical change",
+     "fr": "transformation physique",
+     "pt": "transformação física",
+     "ro": "transformare fizică",
+     "ru": "физическое явление",
+     "uk": "фізичне явище",
+     "ar": "تغير فيزيائي",
+     "zh": "物理变化",
+     "ur": "طبعی تبدیلی"
+    }
+   },
+   {
+    "ca": "canvi químic",
+    "formes": [
+     "canvi químic",
+     "canvis químics",
+     "químic"
+    ],
+    "def": "canvi en què es formen substàncies noves",
+    "tr": {
+     "es": "cambio químico",
+     "en": "chemical change",
+     "fr": "transformation chimique",
+     "pt": "transformação química",
+     "ro": "transformare chimică",
+     "ru": "химическое явление",
+     "uk": "хімічне явище",
+     "ar": "تغير كيميائي",
+     "zh": "化学变化",
+     "ur": "کیمیائی تبدیلی"
+    }
+   },
+   {
+    "ca": "reactiu",
+    "formes": [
+     "reactiu",
+     "reactius"
+    ],
+    "def": "substància que hi ha al principi d'una reacció",
+    "tr": {
+     "es": "reactivo",
+     "en": "reactant",
+     "fr": "réactif",
+     "pt": "reagente",
+     "ro": "reactant",
+     "ru": "реагент",
+     "uk": "реагент",
+     "ar": "مادة متفاعلة",
+     "zh": "反应物",
+     "ur": "متعامل"
+    }
+   },
+   {
+    "ca": "producte",
+    "formes": [
+     "producte",
+     "productes"
+    ],
+    "def": "substància nova que es forma en una reacció",
+    "tr": {
+     "es": "producto",
+     "en": "product",
+     "fr": "produit",
+     "pt": "produto",
+     "ro": "produs de reacție",
+     "ru": "продукт реакции",
+     "uk": "продукт реакції",
+     "ar": "ناتج التفاعل",
+     "zh": "生成物",
+     "ur": "حاصل"
+    }
+   },
+   {
+    "ca": "reacció química",
+    "formes": [
+     "reacció química",
+     "reaccions",
+     "reacció"
+    ],
+    "def": "procés en què els reactius es transformen en productes",
+    "tr": {
+     "es": "reacción química",
+     "en": "chemical reaction",
+     "fr": "réaction chimique",
+     "pt": "reação química",
+     "ro": "reacție chimică",
+     "ru": "химическая реакция",
+     "uk": "хімічна реакція",
+     "ar": "تفاعل كيميائي",
+     "zh": "化学反应",
+     "ur": "کیمیائی تعامل"
+    }
+   },
+   {
+    "ca": "combustió",
+    "formes": [
+     "combustió",
+     "crema",
+     "cremar"
+    ],
+    "def": "reacció d'un combustible amb l'oxigen que desprèn calor i llum",
+    "tr": {
+     "es": "combustión",
+     "en": "combustion",
+     "fr": "combustion",
+     "pt": "combustão",
+     "ro": "ardere",
+     "ru": "горение",
+     "uk": "горіння",
+     "ar": "احتراق",
+     "zh": "燃烧",
+     "ur": "احتراق"
+    }
+   },
+   {
+    "ca": "evidència",
+    "formes": [
+     "evidència",
+     "evidències"
+    ],
+    "def": "senyal que es veu i que indica que hi ha hagut un canvi químic (gas, color, olor…)",
+    "tr": {
+     "es": "evidencia",
+     "en": "evidence (sign)",
+     "fr": "indice",
+     "pt": "evidência",
+     "ro": "dovadă",
+     "ru": "признак",
+     "uk": "ознака",
+     "ar": "دليل",
+     "zh": "证据",
+     "ur": "ثبوت"
+    }
+   },
+   {
+    "ca": "conservació de la massa",
+    "formes": [
+     "conservació de la massa",
+     "es conserva"
+    ],
+    "def": "en una reacció en un recipient tancat, la massa no canvia",
+    "tr": {
+     "es": "conservación de la masa",
+     "en": "conservation of mass",
+     "fr": "conservation de la masse",
+     "pt": "conservação da massa",
+     "ro": "conservarea masei",
+     "ru": "сохранение массы",
+     "uk": "збереження маси",
+     "ar": "حفظ الكتلة",
+     "zh": "质量守恒",
+     "ur": "کمیت کا تحفظ"
+    }
+   }
+  ],
+  "6": [
+   {
+    "ca": "energia",
+    "formes": [
+     "energia"
+    ],
+    "def": "capacitat de produir canvis; es mesura en joules (J)",
+    "tr": {
+     "es": "energía",
+     "en": "energy",
+     "fr": "énergie",
+     "pt": "energia",
+     "ro": "energie",
+     "ru": "энергия",
+     "uk": "енергія",
+     "ar": "طاقة",
+     "zh": "能量",
+     "ur": "توانائی"
+    }
+   },
+   {
+    "ca": "calor",
+    "formes": [
+     "calor"
+    ],
+    "def": "energia que passa d'un cos calent a un de més fred",
+    "tr": {
+     "es": "calor",
+     "en": "heat",
+     "fr": "chaleur",
+     "pt": "calor",
+     "ro": "căldură",
+     "ru": "теплота",
+     "uk": "теплота",
+     "ar": "حرارة",
+     "zh": "热量",
+     "ur": "حرارت"
+    }
+   },
+   {
+    "ca": "equilibri tèrmic",
+    "formes": [
+     "equilibri tèrmic",
+     "equilibri"
+    ],
+    "def": "quan dos cossos en contacte arriben a la mateixa temperatura",
+    "tr": {
+     "es": "equilibrio térmico",
+     "en": "thermal equilibrium",
+     "fr": "équilibre thermique",
+     "pt": "equilíbrio térmico",
+     "ro": "echilibru termic",
+     "ru": "тепловое равновесие",
+     "uk": "теплова рівновага",
+     "ar": "توازن حراري",
+     "zh": "热平衡",
+     "ur": "حرارتی توازن"
+    }
+   },
+   {
+    "ca": "conducció",
+    "formes": [
+     "conducció"
+    ],
+    "def": "la calor passa a través d'un material, de partícula a partícula",
+    "tr": {
+     "es": "conducción",
+     "en": "conduction",
+     "fr": "conduction",
+     "pt": "condução",
+     "ro": "conducție",
+     "ru": "теплопроводность",
+     "uk": "теплопровідність",
+     "ar": "توصيل حراري",
+     "zh": "热传导",
+     "ur": "ایصال حرارت"
+    }
+   },
+   {
+    "ca": "convecció",
+    "formes": [
+     "convecció"
+    ],
+    "def": "la calor es mou amb un líquid o un gas que puja quan s'escalfa",
+    "tr": {
+     "es": "convección",
+     "en": "convection",
+     "fr": "convection",
+     "pt": "convecção",
+     "ro": "convecție",
+     "ru": "конвекция",
+     "uk": "конвекція",
+     "ar": "حمل حراري",
+     "zh": "对流",
+     "ur": "حملِ حرارت"
+    }
+   },
+   {
+    "ca": "radiació",
+    "formes": [
+     "radiació"
+    ],
+    "def": "la calor viatja sense tocar res, com la del Sol",
+    "tr": {
+     "es": "radiación",
+     "en": "radiation",
+     "fr": "rayonnement",
+     "pt": "radiação",
+     "ro": "radiație",
+     "ru": "излучение",
+     "uk": "випромінювання",
+     "ar": "إشعاع",
+     "zh": "热辐射",
+     "ur": "اشعاع"
+    }
+   },
+   {
+    "ca": "aïllant",
+    "formes": [
+     "aïllant",
+     "aïllants"
+    ],
+    "def": "material que deixa passar molt poca calor",
+    "tr": {
+     "es": "aislante",
+     "en": "insulator",
+     "fr": "isolant",
+     "pt": "isolante",
+     "ro": "izolator",
+     "ru": "теплоизолятор",
+     "uk": "теплоізолятор",
+     "ar": "عازل حراري",
+     "zh": "隔热材料",
+     "ur": "حاجز حرارت"
+    }
+   },
+   {
+    "ca": "font d'energia",
+    "formes": [
+     "font d'energia",
+     "fonts d'energia",
+     "renovable",
+     "renovables"
+    ],
+    "def": "d'on traiem l'energia: Sol, vent, aigua, gas…",
+    "tr": {
+     "es": "fuente de energía",
+     "en": "energy source",
+     "fr": "source d'énergie",
+     "pt": "fonte de energia",
+     "ro": "sursă de energie",
+     "ru": "источник энергии",
+     "uk": "джерело енергії",
+     "ar": "مصدر طاقة",
+     "zh": "能源",
+     "ur": "توانائی کا ذریعہ"
+    }
+   }
+  ]
+ },
+ "fitxes": {
+  "d1ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d1diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d1amp": {
+   "basics": "no_cal"
+  },
+  "d2ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d2diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d2amp": {
+   "basics": "no_cal"
+  },
+  "d3ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d3diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d3amp": {
+   "basics": "no_cal"
+  },
+  "d4ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d4diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d4amp": {
+   "basics": "no_cal"
+  },
+  "d5ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d5diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d5amp": {
+   "basics": "no_cal"
+  },
+  "d6ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d6diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d6amp": {
+   "basics": "no_cal"
+  },
+  "d1guia": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d1repte": {
+   "basics": {
+    "redueix": {
+     "1": "Omple només tres usos.",
+     "7": "Explica la idea. No cal el càlcul."
+    },
+    "preguntes": {
+     "2": {
+      "passos": [
+       "Persones de l'institut: pregunta-ho (o fes servir 520).",
+       "Litres per persona i dia: el total de la pregunta 1.",
+       "Persones · litres · 175 dies = … L."
+      ]
+     },
+     "3": {
+      "pistes": [
+       "Una porta fa uns 2 m d'alt: compara-hi el gimnàs."
+      ],
+      "passos": [
+       "V = llarg · ample · alt (m³)."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que sí / no cabria perquè …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "L'institut gasta … L i el gimnàs fa … L.",
+       "Cabria … vegades."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "520 · … = … L al dia",
+       "… · 175 = … L a l'any"
+      ]
+     },
+     "3": {
+      "passos": [
+       "llarg · ample = …",
+       "… · alt = … m³"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "4": {
+      "frases": [
+       "Creiem que sí / no cabria perquè …"
+      ],
+      "paraules": [
+       "aigua",
+       "gimnàs",
+       "volum",
+       "litre"
+      ]
+     },
+     "6": {
+      "frases": [
+       "L'institut gasta … litres."
+      ],
+      "paraules": [
+       "volum",
+       "cabre",
+       "vegades"
+      ]
+     },
+     "7": {
+      "frases": [
+       "Podem estalviar aigua si …"
+      ],
+      "paraules": [
+       "estalviar",
+       "aixeta",
+       "cisterna"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d1f1": {
+   "basics": {
+    "redueix": {
+     "2": "Fes només tres productes.",
+     "4": "Fes només dos productes."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Al laboratori no es menja, no s'olora directament i sempre s'avisa el professor."
+      ]
+     },
+     "3": {
+      "frases": [
+       "a) Primer … i després aviso …",
+       "b) No toco el vidre amb les mans: …"
+      ]
+     },
+     "6": {
+      "pistes": [
+       "El primer pas és rentar l'ull amb molta aigua."
+      ]
+     },
+     "7": {
+      "frases": [
+       "La bata protegeix …",
+       "Les ulleres protegeixen …",
+       "Els guants protegeixen …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "Primer … Després …"
+      ],
+      "paraules": [
+       "rentar",
+       "avisar",
+       "professor"
+      ]
+     },
+     "5": {
+      "frases": [
+       "La Marta no ha de …"
+      ],
+      "paraules": [
+       "cabells",
+       "menjar",
+       "residus"
+      ]
+     },
+     "7": {
+      "frases": [
+       "La bata protegeix …"
+      ],
+      "paraules": [
+       "bata",
+       "ulleres",
+       "guants",
+       "pell",
+       "ulls"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d1lab1": {
+   "basics": {
+    "redueix": {
+     "1": "Fes només cinc peces."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Volum: mira la part de baix de la corba del líquid (el menisc).",
+       "Sensibilitat: el valor entre dues ratlles seguides."
+      ]
+     },
+     "3": {
+      "frases": [
+       "La proveta marca … mL. És més precisa …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "Volum amb la pedra − 50 mL = volum de la pedra.",
+       "1 mL = 1 cm³."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "4": {
+      "passos": [
+       "… − 50 = … mL",
+       "… mL = … cm³"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "És més precís …"
+      ],
+      "paraules": [
+       "proveta",
+       "vas",
+       "precís"
+      ]
+     },
+     "5": {
+      "frases": [
+       "He deixat …"
+      ],
+      "paraules": [
+       "netejar",
+       "ordenar",
+       "aigüera"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d1f2": {
+   "basics": {
+    "abans_titol": "Factors de conversió",
+    "abans": "<p>Factor de conversió: a <b>dalt</b> la unitat que vols i a <b>baix</b> la que vols treure. Les dues quantitats valen el mateix (1 m = 100 cm).</p>",
+    "treu": [
+     "6",
+     "8"
+    ],
+    "redueix": {
+     "2": "Fes només a) i b).",
+     "3": "Fes només a), b) i c).",
+     "5": "Fes només a), b) i c).",
+     "9": "Completa només les tres primeres."
+    },
+    "preguntes": {
+     "3": {
+      "exemple": "2,4 m · (100 cm / 1 m) = 240 cm. Els metres de dalt i de baix es van."
+     },
+     "4": {
+      "pistes": [
+       "Les unitats que vols treure han de quedar una a dalt i una a baix per anul·lar-se."
+      ]
+     },
+     "1": {
+      "pistes": [
+       "Una magnitud es pot mesurar amb un nombre i una unitat."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "2,4 · 100 = …",
+       "750 / 1000 = …",
+       "1,5 · 1000 = …"
+      ]
+     },
+     "5": {
+      "passos": [
+       "25 / 100 = … m",
+       "3 · 3600 = … s",
+       "450 / 1000 = … kg"
+      ]
+     }
+    }
+   }
+  },
+  "d1f3": {
+   "basics": {
+    "abans_titol": "Factors de conversió",
+    "abans": "<p>Factor de conversió: a <b>dalt</b> la unitat que vols i a <b>baix</b> la que vols treure. Les dues quantitats valen el mateix (1 m = 100 cm).</p>",
+    "treu": [
+     "4",
+     "6",
+     "8"
+    ],
+    "redueix": {
+     "1": "Fes només a), b) i c).",
+     "2": "Fes només a) i b).",
+     "3": "Fes només a) i b).",
+     "5": "Fes només a) i c).",
+     "7": "Calcula només els litres que surten en 1 h."
+    },
+    "preguntes": {
+     "1": {
+      "exemple": "45 m · (1 km / 1000 m) = 0,045 km."
+     },
+     "3": {
+      "pistes": [
+       "De km/h a m/s: divideix entre 3,6. De m/s a km/h: multiplica per 3,6."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "45 / 1000 = …",
+       "200 / 1000 = …",
+       "6,5 · 1000 = …"
+      ]
+     },
+     "3": {
+      "passos": [
+       "90 / 3,6 = …",
+       "8 · 3,6 = …"
+      ]
+     },
+     "5": {
+      "passos": [
+       "2,5 · 10 000 = … cm²",
+       "375 · 1000 = … L"
+      ]
+     },
+     "7": {
+      "passos": [
+       "12 · 60 = … L"
+      ]
+     }
+    }
+   }
+  },
+  "d1lab2": {
+   "basics": {
+    "redueix": {
+     "2": "Feu dues mesures de cada dimensió."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "S = llargada · amplada (m²).",
+       "Divideix entre el nombre d'alumnes."
+      ]
+     },
+     "4": {
+      "passos": [
+       "V = llargada · amplada · altura (m³).",
+       "Litres = m³ · 1000."
+      ]
+     },
+     "6": {
+      "pistes": [
+       "Pensa en la cinta (es doblega?), en qui llegeix i en la sensibilitat."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "llargada · amplada = … m²",
+       "… / alumnes = … m²"
+      ]
+     },
+     "4": {
+      "passos": [
+       "llargada · amplada · altura = … m³",
+       "… · 1000 = … L"
+      ]
+     }
+    }
+   }
+  },
+  "d1f4": {
+   "basics": {
+    "abans_titol": "Recorda",
+    "abans": "<ul><li>1 m² = 10 000 cm²</li><li>1 m³ = 1000 L</li><li>1 L = 1 dm³ = 1000 cm³</li></ul>",
+    "treu": [
+     "8",
+     "9",
+     "10"
+    ],
+    "redueix": {
+     "1": "Fes només a), b) i c).",
+     "4": "Calcula només els m³ i els litres. No cal comptar les ampolles.",
+     "6": "Calcula només la superfície del terra en m² i el volum en m³."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "V = 60 · 30 · 40 = … cm³.",
+       "Litres = cm³ / 1000."
+      ]
+     },
+     "4": {
+      "passos": [
+       "V = 50 · 25 · 2 = … m³.",
+       "Litres = m³ · 1000."
+      ]
+     },
+     "2": {
+      "passos": [
+       "S = 28 · 15 = … m².",
+       "cm² = m² · 10 000."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "28 · 15 = … m²",
+       "… · 10 000 = … cm²"
+      ]
+     },
+     "3": {
+      "passos": [
+       "60 · 30 = 1800",
+       "1800 · 40 = … cm³",
+       "… / 1000 = … L"
+      ]
+     },
+     "4": {
+      "passos": [
+       "50 · 25 = 1250",
+       "1250 · 2 = … m³",
+       "… · 1000 = … L"
+      ]
+     }
+    }
+   }
+  },
+  "d1f5": {
+   "basics": {
+    "treu": [
+     "4",
+     "9",
+     "10"
+    ],
+    "redueix": {
+     "1": "Fes només a), b) i c).",
+     "2": "Fes només a), b) i c).",
+     "7": "Fes només a) i b).",
+     "8": "Fes només a)."
+    },
+    "preguntes": {
+     "1": {
+      "exemple": "3 000 000: movem la coma 6 llocs a l'esquerra → 3 · 10⁶. 0,002: movem la coma 3 llocs a la dreta → 2 · 10⁻³."
+     },
+     "7": {
+      "pistes": [
+       "En multiplicar, multiplica els números i suma els exponents. En dividir, divideix els números i resta els exponents."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "7": {
+      "passos": [
+       "2 · 4 = 8 i 3 + 2 = 5 → 8 · 10⁵",
+       "6 : 3 = … i 8 − 4 = … → … · 10…"
+      ]
+     },
+     "5": {
+      "passos": [
+       "3 · 2 = 6",
+       "5 + 3 = 8 → 6 · 10⁸"
+      ]
+     }
+    }
+   }
+  },
+  "d1lab3": {
+   "basics": {
+    "redueix": {
+     "3": "Feu dues repeticions."
+    },
+    "preguntes": {
+     "4": {
+      "pistes": [
+       "Volum d'una gota = volum en 1 min / gotes en 1 min."
+      ]
+     },
+     "5": {
+      "passos": [
+       "mL en 1 min · 60 · 24 = mL en un dia.",
+       "Divideix entre 1000: litres en un dia.",
+       "· 365: litres en un any."
+      ]
+     },
+     "6": {
+      "frases": [
+       "La hipòtesi es compleix / no es compleix perquè …",
+       "Una font d'error és …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "4": {
+      "passos": [
+       "volum en 1 min / gotes = … mL"
+      ]
+     },
+     "5": {
+      "passos": [
+       "… · 60 = … mL en 1 h",
+       "… · 24 = … mL en un dia",
+       "… / 1000 = … L",
+       "… · 365 = … L"
+      ]
+     }
+    }
+   }
+  },
+  "d1f6": {
+   "basics": {
+    "treu": [
+     "5",
+     "7",
+     "8",
+     "9",
+     "10"
+    ],
+    "preguntes": {
+     "1": {
+      "passos": [
+       "Litres = m³ · 1000.",
+       "Escriu-ho en notació científica."
+      ]
+     },
+     "2": {
+      "passos": [
+       "Litres a l'any / 175 = litres al dia.",
+       "Divideix entre les persones."
+      ]
+     },
+     "3": {
+      "passos": [
+       "V = llarg · ample · alt (m³).",
+       "Litres = m³ · 1000."
+      ]
+     },
+     "4": {
+      "passos": [
+       "Divideix el volum més gran entre el més petit."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "1350 · 1000 = … L"
+      ]
+     },
+     "2": {
+      "passos": [
+       "… / 175 = … L al dia",
+       "… / 520 = … L"
+      ]
+     },
+     "4": {
+      "passos": [
+       "volum gran / volum petit = …"
+      ]
+     }
+    }
+   }
+  },
+  "d2guia": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d2repte": {
+   "basics": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Crec que queden en capes perquè …"
+      ]
+     },
+     "2": {
+      "frases": [
+       "Si posem més oli, quedaria … perquè …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "El suro s'aturarà … La femella …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que un líquid queda a sota d'un altre quan …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Un líquid queda a sota quan té més densitat. La nostra torre …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Crec que …"
+      ],
+      "paraules": [
+       "líquid",
+       "capa",
+       "pesar"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que …"
+      ],
+      "paraules": [
+       "densitat",
+       "a sota",
+       "a sobre"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Queda a sota perquè …"
+      ],
+      "paraules": [
+       "densitat",
+       "dens",
+       "capa"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d2f1": {
+   "basics": {
+    "treu": [
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "3": "Fes només a) i b).",
+     "4": "Passa només 0,250 kg a grams."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "V = 24 · 11,5 · 5 = … cm³.",
+       "dm³ = cm³ / 1000."
+      ]
+     },
+     "6": {
+      "passos": [
+       "52 − 40 = … mL.",
+       "1 mL = 1 cm³."
+      ]
+     },
+     "9": {
+      "passos": [
+       "Massa d'aigua = 525 − 25 = … g.",
+       "Cada gram d'aigua ocupa 1 mL."
+      ]
+     },
+     "10": {
+      "frases": [
+       "El volum no serveix perquè dues coses de substàncies diferents poden …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "24 · 11,5 = 276",
+       "276 · 5 = … cm³"
+      ]
+     },
+     "4": {
+      "passos": [
+       "0,250 · 1000 = … g"
+      ]
+     },
+     "6": {
+      "passos": [
+       "52 − 40 = …"
+      ]
+     },
+     "9": {
+      "passos": [
+       "525 − 25 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d2lab1": {
+   "basics": {
+    "redueix": {
+     "3": "Feu només dues files (20 i 40 mL)."
+    },
+    "preguntes": {
+     "2": {
+      "passos": [
+       "Massa del líquid = massa amb líquid − massa de la proveta buida.",
+       "Massa ÷ volum."
+      ]
+     },
+     "5": {
+      "frases": [
+       "Per a un mateix líquid, massa ÷ volum dona …",
+       "Per a dos líquids diferents, …",
+       "Les gràfiques són …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "massa amb líquid − proveta = … g",
+       "… / volum = … g/mL"
+      ]
+     }
+    }
+   }
+  },
+  "d2f2": {
+   "basics": {
+    "abans_titol": "Fórmules de la densitat",
+    "abans": "<ul><li><b>d = m / V</b> · <b>m = d · V</b> · <b>V = m / d</b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
+    "treu": [
+     "4",
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només a) i b).",
+     "2": "Fes només a) i b).",
+     "3": "Fes només a)."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "d = massa / volum.",
+       "Busca a la taula el número que s'hi assembla més."
+      ]
+     },
+     "6": {
+      "passos": [
+       "Volum de la peça = 100 − 50 = … cm³.",
+       "d = 135 / … = … g/cm³.",
+       "Busca-la a la taula."
+      ]
+     },
+     "8": {
+      "passos": [
+       "d = 158 / 200 = … g/mL.",
+       "L'aigua té 1 g/mL."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "46 / 50 = …",
+       "2 · 2 · 2 = 8 cm³ → 4 / 8 = …"
+      ]
+     },
+     "6": {
+      "passos": [
+       "100 − 50 = 50",
+       "135 / 50 = …"
+      ]
+     },
+     "8": {
+      "passos": [
+       "158 / 200 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d2f3": {
+   "basics": {
+    "abans_titol": "Fórmules de la densitat",
+    "abans": "<ul><li><b>d = m / V</b> · <b>m = d · V</b> · <b>V = m / d</b></li><li>1 mL = 1 cm³ · 1 L = 1000 cm³</li><li>Mira la taula de densitats de la fitxa.</li></ul>",
+    "treu": [
+     "5",
+     "6",
+     "9",
+     "10",
+     "11"
+    ],
+    "redueix": {
+     "3": "Calcula només el volum del gel (densitat 0,92 g/cm³)."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "5 L = 5000 cm³.",
+       "m = 0,92 · 5000 = … g.",
+       "Passa a kg: / 1000."
+      ]
+     },
+     "2": {
+      "passos": [
+       "d = 7,7 / 0,4 = … g/cm³.",
+       "L'or té 19,3 g/cm³: és igual?"
+      ]
+     },
+     "3": {
+      "passos": [
+       "2 kg = 2000 g.",
+       "V = 2000 / 0,92 = … cm³."
+      ]
+     },
+     "4": {
+      "passos": [
+       "m = 1,03 · 250 = … g."
+      ]
+     },
+     "7": {
+      "passos": [
+       "m = 1000 · 2500 = … kg.",
+       "/ 1000 = … t."
+      ]
+     },
+     "8": {
+      "passos": [
+       "Busca la densitat de la mel a la taula.",
+       "V = 500 / densitat = … mL."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "0,92 · 5000 = …",
+       "… / 1000 = … kg"
+      ]
+     },
+     "2": {
+      "passos": [
+       "7,7 / 0,4 = …"
+      ]
+     },
+     "3": {
+      "passos": [
+       "2000 / 0,92 = …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "1,03 · 250 = …"
+      ]
+     },
+     "7": {
+      "passos": [
+       "1000 · 2500 = …",
+       "… / 1000 = … t"
+      ]
+     }
+    }
+   }
+  },
+  "d2lab2": {
+   "basics": {
+    "redueix": {
+     "3": "Mesureu només tres objectes: el cub, la pedra i la plastilina."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "Cub: mesura els costats i multiplica'ls.",
+       "Pedra: proveta amb aigua; volum de després − volum d'abans."
+      ]
+     },
+     "4": {
+      "frases": [
+       "La densitat de la plastilina no canvia perquè …",
+       "La barca sura perquè …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "d = massa / volum = … g/cm³"
+      ]
+     }
+    }
+   }
+  },
+  "d2f4": {
+   "basics": {
+    "treu": [
+     "5",
+     "8",
+     "9"
+    ],
+    "redueix": {
+     "2": "Fes només quatre files."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "L'ou s'enfonsa si el líquid és menys dens que 1,08 g/cm³ i sura si és més dens.",
+       "Com més sal, més dens és el líquid."
+      ]
+     },
+     "3": {
+      "frases": [
+       "L'iceberg sura perquè el gel és menys … que l'aigua de mar."
+      ]
+     },
+     "4": {
+      "frases": [
+       "El vaixell sura perquè té molt d'aire a dins i la seva densitat mitjana …"
+      ]
+     },
+     "7": {
+      "passos": [
+       "d = 400 / 5000 = … g/cm³.",
+       "Si és més petita que 1, sura."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "7": {
+      "passos": [
+       "400 / 5000 = …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "L'iceberg sura perquè …"
+      ],
+      "paraules": [
+       "gel",
+       "dens",
+       "surar"
+      ]
+     },
+     "4": {
+      "frases": [
+       "El vaixell sura perquè …"
+      ],
+      "paraules": [
+       "aire",
+       "densitat",
+       "forat"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d2lab3": {
+   "basics": {
+    "redueix": {
+     "4": "Feu només dos gots."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Mesura la massa de 50 mL d'aigua salada.",
+       "d = massa / 50 = … g/mL."
+      ]
+     },
+     "5": {
+      "frases": [
+       "Primer hem d'abocar el got … perquè és el més dens."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "massa / 50 = …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "massa / 20 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d2f5": {
+   "basics": {
+    "treu": [
+     "6",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "5": "Escriu una sola manera i cita la font."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "d = 1000 / 64 = … g/cm³.",
+       "Compara-la amb 19,3 (or) i 10,5 (plata)."
+      ]
+     },
+     "2": {
+      "passos": [
+       "V = 1000 / 19,3 = … cm³.",
+       "Diferència: 64 − … = … cm³."
+      ]
+     },
+     "3": {
+      "frases": [
+       "És segur que … És llegenda que …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Galileu va millorar … Això vol dir que la ciència …"
+      ]
+     },
+     "9": {
+      "pistes": [
+       "Pregunta: és d'or la corona? Hipòtesi: … Experiment: … Conclusió: …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "1000 / 64 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "1000 / 19,3 = …",
+       "64 − … = …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "És segur que …"
+      ],
+      "paraules": [
+       "història",
+       "llegenda",
+       "segur"
+      ]
+     },
+     "4": {
+      "frases": [
+       "La ciència canvia perquè …"
+      ],
+      "paraules": [
+       "millorar",
+       "idea",
+       "provar"
+      ]
+     },
+     "9": {
+      "frases": [
+       "La pregunta és …"
+      ],
+      "paraules": [
+       "pregunta",
+       "hipòtesi",
+       "experiment",
+       "conclusió"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "9": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d2f6": {
+   "basics": {
+    "treu": [
+     "6",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "4": "Escriviu només el nom, què fa i la font."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Com menys dens és el líquid, més s'enfonsa el densímetre."
+      ]
+     },
+     "3": {
+      "frases": [
+       "He escrit … homes i … dones. Crec que passa perquè …"
+      ]
+     },
+     "5": {
+      "pistes": [
+       "Si el densímetre s'enfonsa més, el líquid és menys dens."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "S'enfonsarà més en … perquè …"
+      ],
+      "paraules": [
+       "densímetre",
+       "alcohol",
+       "dens"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Crec que passa perquè …"
+      ],
+      "paraules": [
+       "científica",
+       "dona",
+       "conèixer"
+      ]
+     },
+     "5": {
+      "frases": [
+       "El més dens és … perquè …"
+      ],
+      "paraules": [
+       "enfonsar",
+       "dens"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d3guia": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d3repte": {
+   "basics": {
+    "redueix": {
+     "6": "Explica-ho amb el model de partícules. No cal el càlcul."
+    },
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Dins de la pilota hi ha … Les partícules …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "La pilota freda bota menys perquè …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que quan la pilota es refreda, les partícules de l'aire es mouen més … i per això …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Al fred, les partícules es mouen més …",
+       "Xoquen menys contra la pilota, i la pressió …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Dins hi ha …"
+      ],
+      "paraules": [
+       "aire",
+       "partícules",
+       "pilota"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Bota menys perquè …"
+      ],
+      "paraules": [
+       "fred",
+       "pressió",
+       "botar"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que …"
+      ],
+      "paraules": [
+       "refredar",
+       "moure's",
+       "xocar"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Al fred, les partícules …"
+      ],
+      "paraules": [
+       "partícules",
+       "pressió",
+       "temperatura"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "2": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     },
+     "7": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d3f1": {
+   "basics": {
+    "treu": [
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només a) i b).",
+     "5": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Un gas es pot comprimir perquè entre les partícules hi ha …",
+       "Un líquid agafa la forma del got perquè les partícules …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "La sorra no és un líquid perquè cada gra …"
+      ]
+     },
+     "4": {
+      "pistes": [
+       "Gel: partícules juntes i ordenades que vibren.",
+       "Aigua: juntes, però es mouen i llisquen.",
+       "Vapor: separades i molt ràpides."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Es pot comprimir perquè …"
+      ],
+      "paraules": [
+       "partícules",
+       "espai buit",
+       "moure's"
+      ]
+     },
+     "3": {
+      "frases": [
+       "No és un líquid perquè …"
+      ],
+      "paraules": [
+       "gra",
+       "sòlid",
+       "forma"
+      ]
+     },
+     "5": {
+      "frases": [
+       "El globus s'infla perquè …"
+      ],
+      "paraules": [
+       "aire",
+       "partícules",
+       "xocar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d3lab1": {
+   "basics": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "L'aire es pot comprimir perquè entre les partícules hi ha …",
+       "Quan deixes anar l'èmbol, les partícules …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "S'ha barrejat abans a l'aigua … perquè les partícules es mouen més …"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Quan el menjar és calent, les partícules de l'olor …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "L'èmbol torna perquè …"
+      ],
+      "paraules": [
+       "comprimir",
+       "partícules",
+       "empènyer"
+      ]
+     },
+     "4": {
+      "frases": [
+       "S'ha barrejat abans a …"
+      ],
+      "paraules": [
+       "calenta",
+       "freda",
+       "moure's"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Se sent abans perquè …"
+      ],
+      "paraules": [
+       "olor",
+       "calent",
+       "partícules"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d3f2": {
+   "basics": {
+    "treu": [
+     "6",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "1": "Fes només a), b), c) i d).",
+     "5": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Evaporació: només a la superfície i a qualsevol temperatura.",
+       "Ebullició: a tot el líquid i a una temperatura fixa."
+      ]
+     },
+     "4": {
+      "pistes": [
+       "Escalfar: fusió, vaporització, sublimació.",
+       "Refredar: solidificació, condensació, sublimació inversa."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "L'evaporació … i l'ebullició …"
+      ],
+      "paraules": [
+       "superfície",
+       "temperatura",
+       "bombolles"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Cal escalfar per …"
+      ],
+      "paraules": [
+       "escalfar",
+       "refredar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d3lab2": {
+   "basics": {
+    "redueix": {
+     "2": "Anoteu la temperatura cada 2 minuts."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Eix horitzontal: temps (min). Eix vertical: temperatura (°C).",
+       "Marca els punts i uneix-los."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Hi ha un tram on la temperatura no puja, a … °C.",
+       "En aquest tram l'aigua …"
+      ]
+     },
+     "5": {
+      "pistes": [
+       "Pensa en el termòmetre, en la sal de l'aigua i en la pressió de l'aire."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Escala: 1 quadre = 1 min i 1 quadre = 5 °C."
+      ]
+     }
+    }
+   }
+  },
+  "d3f3": {
+   "basics": {
+    "abans_titol": "Com saber l'estat",
+    "abans": "<p>Si la temperatura és més baixa que la de <b>fusió</b>: sòlid. Entre la de fusió i la d'<b>ebullició</b>: líquid. Més alta que la d'ebullició: gas.</p>",
+    "treu": [
+     "6",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "3": "Fes només l'alcohol i el ferro.",
+     "5": "Fes només l'alcohol i el mercuri."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Als trams horitzontals hi ha un canvi d'estat: hi ha dos estats alhora."
+      ]
+     },
+     "4": {
+      "frases": [
+       "A dalt de l'Everest l'aigua bull a 70 °C, i la pasta …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "5": {
+      "passos": [
+       "Compara la temperatura amb la de fusió i la d'ebullició de la taula."
+      ]
+     }
+    }
+   }
+  },
+  "d3f4": {
+   "basics": {
+    "abans_titol": "Recorda",
+    "abans": "<ul><li>1 atm = 760 mmHg = 101 325 Pa ≈ 1013 hPa</li><li>1 bar ≈ 1 atm</li><li>K = °C + 273 · °C = K − 273</li></ul>",
+    "treu": [
+     "5",
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només a) i b).",
+     "2": "Passa a K només 20 °C i 0 °C, i a °C només 300 K.",
+     "8": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "1": {
+      "exemple": "380 mmHg · (1 atm / 760 mmHg) = 0,5 atm."
+     },
+     "3": {
+      "pistes": [
+       "Ben inflada: moltes partícules que xoquen molt. Desinflada: menys partícules."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "380 / 760 = …",
+       "2,5 · 760 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "20 + 273 = …",
+       "0 + 273 = …",
+       "300 − 273 = …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "4": {
+      "frases": [
+       "Ens fan mal les orelles perquè …"
+      ],
+      "paraules": [
+       "pressió",
+       "orella",
+       "fora",
+       "dins"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d3lab3": {
+   "basics": {
+    "redueix": {
+     "2": "Completeu només quatre columnes."
+    },
+    "preguntes": {
+     "1": {
+      "frases": [
+       "Com més petit és el volum, més força he de fer perquè les partícules …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Quan el volum es fa la meitat, la pressió …",
+       "Pressió × amplada dona sempre …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "pressió · amplada = …"
+      ]
+     }
+    }
+   }
+  },
+  "d3f5": {
+   "basics": {
+    "abans_titol": "Boyle-Mariotte",
+    "abans": "<p><b>P₁ · V₁ = P₂ · V₂</b>. Si el volum es fa petit, la pressió es fa gran.</p><p>P₂ = P₁ · V₁ / V₂ · V₂ = P₁ · V₁ / P₂</p>",
+    "treu": [
+     "4",
+     "5",
+     "8",
+     "9"
+    ],
+    "redueix": {
+     "2": "Calcula només el volum."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "Dades: P₁ = 1 atm, V₁ = 0,5 L, V₂ = 0,2 L.",
+       "P₂ = 1 · 0,5 / 0,2 = … atm."
+      ]
+     },
+     "2": {
+      "passos": [
+       "V₂ = 1 · 3 / 0,6 = … L."
+      ]
+     },
+     "3": {
+      "passos": [
+       "V₂ = 2 · 4 / 1 = … mL."
+      ]
+     },
+     "6": {
+      "passos": [
+       "V₂ = 1 · 4 / 2 = … L."
+      ]
+     },
+     "7": {
+      "passos": [
+       "V₂ = 1 · 50 / 2,5 = … mL."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "1 · 0,5 = 0,5",
+       "0,5 / 0,2 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "1 · 3 = 3",
+       "3 / 0,6 = …"
+      ]
+     },
+     "3": {
+      "passos": [
+       "2 · 4 = 8",
+       "8 / 1 = …"
+      ]
+     },
+     "6": {
+      "passos": [
+       "4 / 2 = …"
+      ]
+     },
+     "7": {
+      "passos": [
+       "50 / 2,5 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d3f6": {
+   "basics": {
+    "abans_titol": "Les lleis amb la temperatura",
+    "abans": "<ul><li>Sempre en kelvin: <b>K = °C + 273</b>.</li><li>Charles (pressió constant): <b>V₂ = V₁ · T₂ / T₁</b></li><li>Gay-Lussac (volum constant): <b>P₂ = P₁ · T₂ / T₁</b></li></ul>",
+    "treu": [
+     "3",
+     "4",
+     "9"
+    ],
+    "redueix": {
+     "2": "Calcula només la pressió.",
+     "8": "Calcula només la pressió."
+    },
+    "preguntes": {
+     "1": {
+      "passos": [
+       "T₁ = 18 + 273 = 291 K; T₂ = 45 + 273 = 318 K.",
+       "V₂ = 1,5 · 318 / 291 = … L."
+      ]
+     },
+     "2": {
+      "passos": [
+       "T₁ = 288 K; T₂ = 318 K.",
+       "P₂ = 3,2 · 318 / 288 = … atm."
+      ]
+     },
+     "5": {
+      "pistes": [
+       "Si el recipient no canvia de volum: Gay-Lussac. Si la temperatura no canvia: Boyle. Si la pressió no canvia: Charles."
+      ]
+     },
+     "7": {
+      "passos": [
+       "T₁ = 280 K; T₂ = 320 K.",
+       "P₂ = 2,5 · 320 / 280 = … atm."
+      ]
+     },
+     "8": {
+      "passos": [
+       "T₁ = 293 K; T₂ = 333 K.",
+       "P₂ = 1,5 · 333 / 293 = … atm."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "1,5 · 318 = 477",
+       "477 / 291 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "3,2 · 318 = …",
+       "… / 288 = …"
+      ]
+     },
+     "7": {
+      "passos": [
+       "2,5 · 320 = 800",
+       "800 / 280 = …"
+      ]
+     },
+     "8": {
+      "passos": [
+       "1,5 · 333 = …",
+       "… / 293 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d3lab4": {
+   "basics": {
+    "redueix": {
+     "2": "Feu dos llançaments de cada pilota.",
+     "3": "Calculeu la pressió. No cal el percentatge."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Passa les temperatures a K (°C + 273).",
+       "P freda = 1,55 · T freda / T ambient."
+      ]
+     },
+     "5": {
+      "frases": [
+       "Al fred, les partícules es mouen més … i xoquen …",
+       "A la calor, …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "°C + 273 = … K",
+       "1,55 · T freda = …",
+       "… / T ambient = … atm"
+      ]
+     }
+    }
+   }
+  },
+  "d3taller": {
+   "basics": {
+    "treu": [
+     "3",
+     "4",
+     "5"
+    ],
+    "preguntes": {
+     "1": {
+      "passos": [
+       "T₁ = 298 K; T₂ = 278 K.",
+       "P₂ = 1,8 · 278 / 298 = … atm."
+      ]
+     },
+     "2": {
+      "passos": [
+       "V₂ = 200 · 12 / 1 = … L."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "1,8 · 278 = …",
+       "… / 298 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "200 · 12 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d4repte": {
+   "basics": {
+    "redueix": {
+     "6": "Digues què ha tret la depuradora i per què l'aigua no és potable."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Una substància pura té un sol component. L'aigua del riu té moltes coses."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que sí / no podríem fer potable l'aigua perquè …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "La depuradora ha tret …",
+       "No és potable perquè …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "A l'aigua hi ha …"
+      ],
+      "paraules": [
+       "aigua",
+       "brutícia",
+       "sal",
+       "microbis"
+      ]
+     },
+     "2": {
+      "frases": [
+       "L'aigua del riu és …"
+      ],
+      "paraules": [
+       "mescla",
+       "pura"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que …"
+      ],
+      "paraules": [
+       "potable",
+       "netejar"
+      ]
+     },
+     "6": {
+      "frases": [
+       "La depuradora ha tret …"
+      ],
+      "paraules": [
+       "filtrar",
+       "potable",
+       "sal"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d4f1": {
+   "basics": {
+    "abans_titol": "Recorda",
+    "abans": "<ul><li><b>Substància pura:</b> un sol component.</li><li><b>Mescla homogènia:</b> no se'n veuen les parts (aigua amb sal).</li><li><b>Mescla heterogènia:</b> se'n veuen les parts (aigua amb sorra).</li></ul>",
+    "treu": [
+     "5",
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només sis materials.",
+     "4": "Fes només quatre materials."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Pensa en la densitat o en què queda si l'escalfes fins que s'evapora tota l'aigua."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "Ho podria saber si …"
+      ],
+      "paraules": [
+       "evaporar",
+       "sal",
+       "densitat"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     },
+     "6": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d4lab1": {
+   "basics": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "Primer, l'imant: treu el ferro.",
+       "Després, aigua: la sal es dissol i la sorra no.",
+       "Filtra: la sorra queda al paper.",
+       "Evapora l'aigua: queda la sal."
+      ]
+     },
+     "3": {
+      "passos": [
+       "Suma les tres masses."
+      ]
+     },
+     "4": {
+      "pistes": [
+       "Una mica de cada component queda al paper, al vas o a l'imant."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "ferro + sorra + sal = … g"
+      ]
+     }
+    }
+   }
+  },
+  "d4f2": {
+   "basics": {
+    "abans_titol": "La concentració",
+    "abans": "<ul><li><b>c = massa de solut / volum (en L)</b></li><li>m = c · V · V = m / c</li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
+    "treu": [
+     "4",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "2": "Fes només a) i b).",
+     "3": "Fes només a).",
+     "5": "Fes només a)."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "El dissolvent és el que hi ha en més quantitat."
+      ]
+     },
+     "2": {
+      "passos": [
+       "Passa els mL a L (divideix entre 1000).",
+       "c = massa / volum en L."
+      ]
+     },
+     "3": {
+      "passos": [
+       "m = 38 · 5 = … g."
+      ]
+     },
+     "6": {
+      "passos": [
+       "250 mL = 0,25 L.",
+       "m = 9 · 0,25 = … g."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "250 / 1000 = 0,25 L",
+       "20 / 0,25 = …",
+       "36 / 1 = …"
+      ]
+     },
+     "3": {
+      "passos": [
+       "38 · 5 = …"
+      ]
+     },
+     "5": {
+      "passos": [
+       "500 / 1000 = 0,5 L",
+       "15 / 0,5 = …"
+      ]
+     },
+     "6": {
+      "passos": [
+       "9 · 0,25 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d4f3": {
+   "basics": {
+    "abans_titol": "La concentració",
+    "abans": "<ul><li><b>c = massa de solut / volum (en L)</b></li><li>m = c · V · V = m / c</li><li>250 mL = 0,25 L (divideix entre 1000)</li></ul>",
+    "treu": [
+     "5",
+     "6",
+     "7",
+     "8"
+    ],
+    "preguntes": {
+     "1": {
+      "passos": [
+       "45 · 1,5 = … mg en una ampolla.",
+       "… · 365 = … mg en un any.",
+       "/ 1000 = … g."
+      ]
+     },
+     "2": {
+      "passos": [
+       "1 m³ = 1000 L.",
+       "38 · 1000 = … g = … kg."
+      ]
+     },
+     "3": {
+      "passos": [
+       "c = 212 / 2 = … g/L.",
+       "En 0,25 L: … · 0,25 = … g de sucre.",
+       "/ 4 = … terrossos."
+      ]
+     },
+     "4": {
+      "passos": [
+       "0,08 g/L · 1000 = … mg/L.",
+       "Compara-ho amb 50 mg/L."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "45 · 1,5 = …",
+       "… · 365 = …",
+       "… / 1000 = … g"
+      ]
+     },
+     "2": {
+      "passos": [
+       "38 · 1000 = … g",
+       "… / 1000 = … kg"
+      ]
+     },
+     "3": {
+      "passos": [
+       "212 / 2 = …",
+       "… · 0,25 = …",
+       "… / 4 = …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "0,08 · 1000 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d4lab2": {
+   "basics": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "100 mL = 0,1 L.",
+       "m = 20 · 0,1 = … g."
+      ]
+     },
+     "2": {
+      "passos": [
+       "c = massa pesada / 0,1 L."
+      ]
+     },
+     "3": {
+      "pistes": [
+       "Si poses la meitat de dissolució i la meitat d'aigua, la concentració és c/2."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Al tub 4 sí que hi ha colorant, però …",
+       "Els contaminants poden ser a l'aigua encara que …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "100 / 1000 = 0,1 L",
+       "20 · 0,1 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "massa / 0,1 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d4f4": {
+   "basics": {
+    "treu": [
+     "3",
+     "6",
+     "7",
+     "9"
+    ],
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Busca 20 °C a l'eix horitzontal, puja fins a la corba i llegeix el número de l'eix vertical."
+      ]
+     },
+     "2": {
+      "pistes": [
+       "Si dissols menys que la solubilitat, no està saturada. Si en poses més, el que sobra queda al fons."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Quan l'aigua s'escalfa, s'hi dissol menys …, i els peixos …"
+      ]
+     },
+     "5": {
+      "frases": [
+       "El gas es dissol menys a l'aigua calenta, per això …"
+      ]
+     },
+     "8": {
+      "pistes": [
+       "A 20 °C es dissolen uns 36 g de sal en 100 g d'aigua."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "4": {
+      "frases": [
+       "Els peixos moren perquè …"
+      ],
+      "paraules": [
+       "oxigen",
+       "calent",
+       "dissoldre"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Perd el gas perquè …"
+      ],
+      "paraules": [
+       "gas",
+       "calent",
+       "fred"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d4lab3": {
+   "basics": {
+    "treu": [
+     "5"
+    ],
+    "preguntes": {
+     "2": {
+      "passos": [
+       "Residu = càpsula amb residu − càpsula buida."
+      ]
+     },
+     "3": {
+      "passos": [
+       "50 mL = 0,05 L.",
+       "c = residu / 0,05 = … g/L."
+      ]
+     },
+     "4": {
+      "frases": [
+       "L'aigua de l'aixeta té sals, per tant és una …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "càpsula amb residu − càpsula buida = … g"
+      ]
+     },
+     "3": {
+      "passos": [
+       "residu / 0,05 = … g/L"
+      ]
+     }
+    }
+   }
+  },
+  "d4f5": {
+   "basics": {
+    "treu": [
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "2": "Fes només a), b), c) i d).",
+     "4": "Fes només tres files."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Filtració: mida de les partícules. Decantació: densitat. Evaporació: una substància s'evapora i l'altra no. Destil·lació: temperatures d'ebullició diferents."
+      ]
+     },
+     "5": {
+      "passos": [
+       "Afegeix aigua: la sal es dissol i les serradures suren.",
+       "Recull les serradures de dalt.",
+       "Filtra: la sorra queda al paper.",
+       "Evapora l'aigua: queda la sal."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "L'etapa … és una filtració."
+      ],
+      "paraules": [
+       "filtrar",
+       "decantar",
+       "depurar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d4f6": {
+   "basics": {
+    "treu": [
+     "3"
+    ],
+    "redueix": {
+     "1": "Escriu una frase per a l'ETAP, una per a l'EDAR i la font.",
+     "4": "Resumeix-la en una frase i cita-la."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Comença pel riu o l'embassament i acaba al riu o al mar."
+      ]
+     },
+     "7": {
+      "pistes": [
+       "Pregunta't: qui ho diu? Té dades? Té interès a enganyar?"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "L'ETAP fa l'aigua … L'EDAR …"
+      ],
+      "paraules": [
+       "potable",
+       "depurar",
+       "aigua bruta"
+      ]
+     },
+     "4": {
+      "frases": [
+       "La notícia diu que …"
+      ],
+      "paraules": [
+       "sequera",
+       "embassament",
+       "font"
+      ]
+     },
+     "7": {
+      "frases": [
+       "L'afirmació A no és fiable perquè …"
+      ],
+      "paraules": [
+       "fiable",
+       "font",
+       "dades"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d4guia": {
+   "discalculia": "no_cal",
+   "basics": {
+    "treu": [
+     "4"
+    ],
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "La grava reté els trossos grans, la sorra els petits i el carbó actiu les olors i els colors."
+      ]
+     },
+     "3": {
+      "frases": [
+       "La depuradora no pot treure … perquè …",
+       "Per fer-la potable caldria …"
+      ]
+     }
+    }
+   }
+  },
+  "d4f7": {
+   "basics": {
+    "treu": [
+     "3"
+    ],
+    "redueix": {
+     "1": "Fes només cinc residus.",
+     "4": "El missatge ha de tenir un títol, dos consells i un perquè científic."
+    },
+    "preguntes": {
+     "2": {
+      "frases": [
+       "L'oli no s'ha de llençar a l'aigüera perquè és menys dens que l'aigua i no s'hi …",
+       "Es recull a …"
+      ]
+     },
+     "8": {
+      "frases": [
+       "Inventa una frase curta amb una idea de la SdA: …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "L'oli no s'hi llença perquè …"
+      ],
+      "paraules": [
+       "oli",
+       "dens",
+       "dissoldre",
+       "deixalleria"
+      ]
+     },
+     "4": {
+      "frases": [
+       "El nostre consell és …"
+      ],
+      "paraules": [
+       "consell",
+       "aigüera",
+       "família"
+      ]
+     },
+     "8": {
+      "frases": [
+       "El nostre eslògan és: …"
+      ],
+      "paraules": [
+       "eslògan",
+       "aigua"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "8": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5guia": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d5repte": {
+   "basics": {
+    "redueix": {
+     "6": "Explica només per què puja la massa i per què es daura, amb les paraules reactius i productes."
+    },
+    "preguntes": {
+     "1": {
+      "frases": [
+       "La massa puja perquè …"
+      ]
+     },
+     "2": {
+      "frases": [
+       "No es pot desfer perquè s'ha format …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Fondre xocolata és un canvi … perquè …",
+       "Coure un ou és un canvi … perquè …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que la massa puja perquè … i es daura perquè …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "El llevat transforma el sucre en … (un gas), i per això …",
+       "La crosta es daura perquè …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "La massa puja perquè …"
+      ],
+      "paraules": [
+       "llevat",
+       "gas",
+       "bombolles"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Fondre és … Coure és …"
+      ],
+      "paraules": [
+       "canvi físic",
+       "canvi químic"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que …"
+      ],
+      "paraules": [
+       "pujar",
+       "daurar"
+      ]
+     },
+     "6": {
+      "frases": [
+       "La massa puja perquè …"
+      ],
+      "paraules": [
+       "reactius",
+       "productes",
+       "reacció química"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f1": {
+   "basics": {
+    "treu": [
+     "4",
+     "6"
+    ],
+    "redueix": {
+     "1": "Fes només cinc canvis."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Si apareix una substància nova (color, olor, gas, llum), és químic."
+      ]
+     },
+     "2": {
+      "pistes": [
+       "La cera es fon (físic) i també crema (químic)."
+      ]
+     },
+     "3": {
+      "frases": [
+       "Canvis físics: …",
+       "Canvis químics: …"
+      ]
+     },
+     "5": {
+      "frases": [
+       "És un canvi físic perquè el sucre continua sent …",
+       "El puc recuperar si …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "És físic quan … És químic quan …"
+      ],
+      "paraules": [
+       "fondre",
+       "cremar",
+       "espelma"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Un canvi físic és … Un canvi químic és …"
+      ],
+      "paraules": [
+       "coca",
+       "forn",
+       "llevat"
+      ]
+     },
+     "5": {
+      "frases": [
+       "És físic perquè …"
+      ],
+      "paraules": [
+       "dissoldre",
+       "sucre",
+       "evaporar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5lab1": {
+   "basics": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "El sucre escalfat és un canvi químic perquè …",
+       "El gel que es fon és un canvi físic perquè …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Les bombolles de l'aigua que bull són de … (la mateixa substància).",
+       "A l'estació 1 les bombolles són d'un gas nou: …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "És químic perquè …"
+      ],
+      "paraules": [
+       "sucre",
+       "caramel",
+       "gel",
+       "fondre"
+      ]
+     },
+     "3": {
+      "frases": [
+       "No és químic perquè …"
+      ],
+      "paraules": [
+       "bombolles",
+       "vapor",
+       "gas nou"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f2": {
+   "basics": {
+    "treu": [
+     "5",
+     "6"
+    ],
+    "redueix": {
+     "1": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Els reactius són a l'esquerra de la fletxa i els productes, a la dreta."
+      ]
+     },
+     "3": {
+      "frases": [
+       "Abans hi ha … boles i després …",
+       "Els àtoms no desapareixen: només …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "carboni + … → …"
+      ]
+     },
+     "7": {
+      "frases": [
+       "Es formen substàncies noves perquè els àtoms s'ajunten …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "Abans hi ha … boles."
+      ],
+      "paraules": [
+       "àtom",
+       "igual",
+       "reorganitzar"
+      ]
+     },
+     "7": {
+      "frases": [
+       "Es formen substàncies noves perquè …"
+      ],
+      "paraules": [
+       "àtom",
+       "ajuntar",
+       "substància"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "2": {
+      "model": "Dibuixa pocs elements i posa'ls una etiqueta. Fes servir boles per a les partícules i fletxes per al moviment."
+     }
+    }
+   }
+  },
+  "d5lab2": {
+   "basics": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "Diferència = massa després − massa abans."
+      ]
+     },
+     "3": {
+      "frases": [
+       "A la part A el gas … i per això la massa …",
+       "A la part B el globus …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Els àtoms dels reactius es reorganitzen, però no …, per això la massa …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "massa després − massa abans = … g"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "A la part A el gas …"
+      ],
+      "paraules": [
+       "gas",
+       "globus",
+       "obert",
+       "tancat"
+      ]
+     },
+     "4": {
+      "frases": [
+       "La massa es conserva perquè …"
+      ],
+      "paraules": [
+       "àtom",
+       "massa",
+       "conservar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f3": {
+   "basics": {
+    "abans_titol": "Conservació de la massa",
+    "abans": "<p>En un recipient tancat: <b>massa dels reactius = massa dels productes</b>.</p>",
+    "treu": [
+     "7",
+     "8",
+     "9"
+    ],
+    "preguntes": {
+     "1": {
+      "passos": [
+       "Reactius: 8,4 + 6,0 = … g.",
+       "Productes que coneixem: 8,2 + 1,8 = … g.",
+       "Diòxid de carboni = reactius − productes."
+      ]
+     },
+     "2": {
+      "passos": [
+       "Oxigen = 8,0 − 5,6 = … g."
+      ]
+     },
+     "3": {
+      "frases": [
+       "La massa no s'ha perdut: ha marxat a l'aire en forma de …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "Aigua = 4 + 32 = … g.",
+       "Amb el doble de cada reactiu, el doble d'aigua."
+      ]
+     },
+     "5": {
+      "frases": [
+       "La cera no desapareix: es transforma en … i …, que són gasos."
+      ]
+     },
+     "6": {
+      "passos": [
+       "Oxigen = 4,0 − 2,4 = … g."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "8,4 + 6,0 = …",
+       "8,2 + 1,8 = …",
+       "… − … = … g"
+      ]
+     },
+     "2": {
+      "passos": [
+       "8,0 − 5,6 = …"
+      ]
+     },
+     "4": {
+      "passos": [
+       "4 + 32 = …",
+       "… · 2 = …"
+      ]
+     },
+     "6": {
+      "passos": [
+       "4,0 − 2,4 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d5lab3": {
+   "basics": {
+    "redueix": {
+     "2": "Anoteu el perímetre cada 10 minuts."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Canviem la temperatura. Mesurem el perímetre del globus. Mantenim iguals: l'aigua, el sucre, el llevat i l'ampolla."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Ha anat més de pressa a l'ampolla … perquè …",
+       "La massa es deixa en un lloc tebi perquè …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Eix horitzontal: temps (min). Eix vertical: perímetre (cm)."
+      ]
+     }
+    }
+   }
+  },
+  "d5f4": {
+   "basics": {
+    "treu": [
+     "5",
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "1": "Fes només a), b) i c).",
+     "4": "Escriu dues maneres de conservar els aliments i el factor de cadascuna."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Els factors són: temperatura, superfície de contacte i concentració."
+      ]
+     },
+     "2": {
+      "pistes": [
+       "Triturada i en aigua calenta és la més ràpida."
+      ]
+     },
+     "3": {
+      "frases": [
+       "A la nevera fa fred, per això el llevat …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Tallades a daus, la superfície de contacte és més …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "A la nevera …"
+      ],
+      "paraules": [
+       "fred",
+       "lent",
+       "llevat"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Els aliments es fan malbé perquè …"
+      ],
+      "paraules": [
+       "calor",
+       "nevera",
+       "conservar"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Es couen abans perquè …"
+      ],
+      "paraules": [
+       "superfície",
+       "daus",
+       "ràpid"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f5": {
+   "basics": {
+    "treu": [
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "4": "Escriu dues frases i cita la font.",
+     "8": "Escriu un consell i el perquè."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Maillard: aliments amb proteïnes i sucres (crosta, carn). Caramel·lització: només sucre (caramel)."
+      ]
+     },
+     "2": {
+      "pistes": [
+       "Canvia el color, canvia l'olor, no es pot desfer."
+      ]
+     },
+     "3": {
+      "frases": [
+       "La crosta es forma a fora perquè a fora la temperatura és més …"
+      ]
+     },
+     "5": {
+      "pistes": [
+       "Fondre xocolata no és un canvi químic."
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "La crosta es forma a fora perquè …"
+      ],
+      "paraules": [
+       "temperatura",
+       "forn",
+       "fora"
+      ]
+     },
+     "4": {
+      "frases": [
+       "És millor no cremar les torrades perquè …"
+      ],
+      "paraules": [
+       "cremat",
+       "salut",
+       "font"
+      ]
+     },
+     "8": {
+      "frases": [
+       "Un consell és …"
+      ],
+      "paraules": [
+       "daurar",
+       "cremar",
+       "temperatura"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "8": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f6": {
+   "basics": {
+    "treu": [
+     "6",
+     "8"
+    ],
+    "redueix": {
+     "4": "Escriu tres consells i el perquè d'un."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "El triangle del foc: combustible, oxigen i calor. Per apagar el foc, en traiem un."
+      ]
+     },
+     "2": {
+      "frases": [
+       "L'aigua és més densa que l'oli i va al fons; allà …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Un braser en una habitació tancada fa … perquè no hi ha prou oxigen.",
+       "Per evitar-ho, …"
+      ]
+     },
+     "5": {
+      "pistes": [
+       "La manta i l'extintor de CO₂ treuen l'oxigen. L'aigua treu la calor."
+      ]
+     },
+     "7": {
+      "frases": [
+       "S'han de fer lluny perquè els arbres i els cotxes són …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "No s'hi tira aigua perquè …"
+      ],
+      "paraules": [
+       "oli",
+       "aigua",
+       "densitat",
+       "foc"
+      ]
+     },
+     "3": {
+      "frases": [
+       "És perillós perquè …"
+      ],
+      "paraules": [
+       "monòxid de carboni",
+       "oxigen",
+       "ventilar"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Un consell és …"
+      ],
+      "paraules": [
+       "foguera",
+       "petards",
+       "seguretat"
+      ]
+     },
+     "7": {
+      "frases": [
+       "S'han de fer lluny perquè …"
+      ],
+      "paraules": [
+       "combustible",
+       "arbre",
+       "foc"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d5f7": {
+   "basics": {
+    "treu": [
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només tres mètodes."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "Busca a la taula de pictogrames: corrosiu i perill per al medi ambient."
+      ]
+     },
+     "3": {
+      "frases": [
+       "Trio el problema … La solució és … perquè …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "No hi estic d'acord perquè … Per exemple, …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "La solució és …"
+      ],
+      "paraules": [
+       "reacció",
+       "fred",
+       "llimona"
+      ]
+     },
+     "4": {
+      "frases": [
+       "No hi estic d'acord perquè …"
+      ],
+      "paraules": [
+       "químic",
+       "natural",
+       "exemple"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6repte": {
+   "basics": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "La sopa es refreda perquè la calor passa …"
+      ]
+     },
+     "2": {
+      "frases": [
+       "El glaçó amb abric es fondrà … perquè l'abric …"
+      ]
+     },
+     "3": {
+      "frases": [
+       "El termo té … i per això …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que la millor carmanyola ha de ser de … perquè …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Ha funcionat millor la carmanyola … perquè …"
+      ]
+     },
+     "7": {
+      "frases": [
+       "En un edifici, podem …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "La calor va …"
+      ],
+      "paraules": [
+       "calor",
+       "aire",
+       "refredar"
+      ]
+     },
+     "2": {
+      "frases": [
+       "Es fondrà … perquè …"
+      ],
+      "paraules": [
+       "abric",
+       "aïllant",
+       "calor"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Creiem que …"
+      ],
+      "paraules": [
+       "aïllant",
+       "material",
+       "tapa"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Ha funcionat millor …"
+      ],
+      "paraules": [
+       "conducció",
+       "convecció",
+       "radiació",
+       "aïllant"
+      ]
+     },
+     "7": {
+      "frases": [
+       "Podem …"
+      ],
+      "paraules": [
+       "edifici",
+       "aïllar",
+       "energia"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6f1": {
+   "basics": {
+    "abans_titol": "Recorda",
+    "abans": "<ul><li>1 kcal = 4,18 kJ</li><li>1 kWh = 3 600 000 J</li><li>E = P · t</li></ul>",
+    "treu": [
+     "5",
+     "6"
+    ],
+    "redueix": {
+     "1": "Fes només a), b), c) i d).",
+     "2": "Fes només a) i b).",
+     "3": "Fes només a)."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "180 · 4,18 = … kJ."
+      ]
+     },
+     "4": {
+      "frases": [
+       "La LED aprofita millor l'energia perquè …",
+       "La resta es converteix en …"
+      ]
+     },
+     "7": {
+      "frases": [
+       "No s'ha perdut: s'ha transformat en … i …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "180 · 4,18 = …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "4": {
+      "frases": [
+       "La LED aprofita millor perquè …"
+      ],
+      "paraules": [
+       "bombeta",
+       "calor",
+       "llum"
+      ]
+     },
+     "7": {
+      "frases": [
+       "L'energia ha anat a …"
+      ],
+      "paraules": [
+       "energia",
+       "calor",
+       "so",
+       "transformar"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "7": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6f2": {
+   "basics": {
+    "treu": [
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "1": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "2": {
+      "pistes": [
+       "La tassa té més temperatura. La banyera té molta més aigua."
+      ]
+     },
+     "3": {
+      "frases": [
+       "La calor passa de … a …",
+       "S'atura quan …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Hem d'esperar perquè el termòmetre i el cos …"
+      ]
+     },
+     "5": {
+      "passos": [
+       "100 + 273 = … K",
+       "0 + 273 = … K",
+       "36,5 + 273 = … K"
+      ]
+     },
+     "6": {
+      "frases": [
+       "La calor va del cafè a la llet fins que …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "5": {
+      "passos": [
+       "100 + 273 = …",
+       "0 + 273 = …",
+       "36,5 + 273 = …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "La calor passa de …"
+      ],
+      "paraules": [
+       "calor",
+       "temperatura",
+       "equilibri tèrmic"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Hem d'esperar perquè …"
+      ],
+      "paraules": [
+       "termòmetre",
+       "temperatura",
+       "igual"
+      ]
+     },
+     "6": {
+      "frases": [
+       "La calor va …"
+      ],
+      "paraules": [
+       "cafè",
+       "llet",
+       "calent",
+       "fred"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "6": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6lab1": {
+   "basics": {
+    "redueix": {
+     "3": "Comproveu-ho només amb una barreja."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "Multiplica cada massa per la seva temperatura i suma.",
+       "Divideix entre la suma de les masses."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Una part de la calor ha anat …"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Té raó … perquè la calor passa sempre del cos … al cos …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "m₁ · T₁ = …",
+       "m₂ · T₂ = …",
+       "suma / (m₁ + m₂) = … °C"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "4": {
+      "frases": [
+       "La calor ha anat …"
+      ],
+      "paraules": [
+       "aire",
+       "got",
+       "calor"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Té raó … perquè …"
+      ],
+      "paraules": [
+       "calor",
+       "calent",
+       "fred"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6f3": {
+   "basics": {
+    "abans_titol": "Com es calcula la calor",
+    "abans": "<ul><li><b>Q = m · c · ΔT</b></li><li>c de l'aigua = 4180 J/(kg · °C)</li><li>ΔT = temperatura final − temperatura inicial</li><li>grams → kg: divideix entre 1000</li></ul>",
+    "treu": [
+     "4",
+     "6",
+     "9",
+     "10"
+    ],
+    "preguntes": {
+     "1": {
+      "passos": [
+       "m = 400 g = 0,4 kg.",
+       "ΔT = 75 − 18 = 57 °C.",
+       "Q = 0,4 · 4180 · 57 = … J."
+      ]
+     },
+     "2": {
+      "passos": [
+       "ΔT = 75 − 40 = 35 °C.",
+       "Q = 0,4 · 4180 · 35 = … J (és calor que perd)."
+      ]
+     },
+     "3": {
+      "passos": [
+       "Busca la calor específica de l'oli a la taula.",
+       "Q de cadascun = 1 · c · 40.",
+       "Divideix la més gran entre la més petita."
+      ]
+     },
+     "5": {
+      "frases": [
+       "L'aigua té una calor específica molt …, per això s'escalfa i es refreda …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "1": {
+      "passos": [
+       "0,4 · 4180 = 1672",
+       "1672 · 57 = …"
+      ]
+     },
+     "2": {
+      "passos": [
+       "1672 · 35 = …"
+      ]
+     },
+     "3": {
+      "passos": [
+       "4180 · 40 = …",
+       "c de l'oli · 40 = …"
+      ]
+     }
+    }
+   }
+  },
+  "d6f4": {
+   "basics": {
+    "treu": [
+     "7",
+     "8",
+     "9"
+    ],
+    "redueix": {
+     "3": "Explica com evita el termo una sola forma de propagació.",
+     "5": "Escriu dues idees."
+    },
+    "preguntes": {
+     "1": {
+      "pistes": [
+       "Conducció: tocant. Convecció: el líquid o el gas es mou. Radiació: sense tocar res."
+      ]
+     },
+     "2": {
+      "frases": [
+       "L'aire calent puja, per això el radiador …",
+       "L'aire fred baixa, per això l'aire condicionat …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "El metall condueix millor la calor, per això treu la calor de la mà més …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "El radiador va a baix perquè …"
+      ],
+      "paraules": [
+       "aire calent",
+       "pujar",
+       "baixar"
+      ]
+     },
+     "4": {
+      "frases": [
+       "El metall sembla més fred perquè …"
+      ],
+      "paraules": [
+       "metall",
+       "fusta",
+       "conduir"
+      ]
+     },
+     "5": {
+      "frases": [
+       "Contra la conducció, …"
+      ],
+      "paraules": [
+       "conducció",
+       "convecció",
+       "radiació"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "5": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6lab2": {
+   "basics": {
+    "redueix": {
+     "2": "Anoteu només la temperatura als 0, 6 i 15 minuts."
+    },
+    "preguntes": {
+     "2": {
+      "passos": [
+       "ΔT = temperatura inicial − temperatura final."
+      ]
+     },
+     "3": {
+      "pistes": [
+       "El més aïllant és el que ha perdut menys temperatura (el ΔT més petit)."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Farem servir … perquè ha perdut només … °C."
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "T a 0 min − T a 15 min = … °C"
+      ]
+     }
+    }
+   }
+  },
+  "d6f5": {
+   "basics": {
+    "treu": [
+     "7"
+    ],
+    "redueix": {
+     "1": "Escriu tres llocs.",
+     "2": "Fes només a) i b)."
+    },
+    "preguntes": {
+     "2": {
+      "passos": [
+       "a) 8000 · 30 / 100 = … kWh.",
+       "b) 1 kWh = 3,6 MJ → … · 3,6 = … MJ."
+      ]
+     },
+     "3": {
+      "frases": [
+       "L'aïllament també ajuda a l'estiu perquè …"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Proposem … i …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Les cases es pinten de blanc perquè el blanc …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "2": {
+      "passos": [
+       "8000 · 30 = 240 000",
+       "… / 100 = … kWh",
+       "… · 3,6 = … MJ"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "3": {
+      "frases": [
+       "A l'estiu, …"
+      ],
+      "paraules": [
+       "aïllar",
+       "calor",
+       "fora"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Proposem …"
+      ],
+      "paraules": [
+       "finestra",
+       "persiana",
+       "porta"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Es pinten de blanc perquè …"
+      ],
+      "paraules": [
+       "blanc",
+       "radiació",
+       "Sol"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6guia": {
+   "discalculia": "no_cal",
+   "basics": {
+    "redueix": {
+     "4": "Respon només d'on surten els materials."
+    },
+    "preguntes": {
+     "1": {
+      "frases": [
+       "La meva idea és … Lluita contra …"
+      ]
+     },
+     "2": {
+      "frases": [
+       "Hem decidit … perquè …"
+      ]
+     }
+    }
+   }
+  },
+  "d6f6": {
+   "basics": {
+    "treu": [
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "1": "Fes només tres centrals.",
+     "2": "Escriu un avantatge i un inconvenient.",
+     "3": "Escriu dues accions a casa i una a l'institut.",
+     "4": "Escriu un exemple i la font."
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "6": {
+      "passos": [
+       "400 · 4 = … Wh",
+       "… / 1000 = … kWh al dia",
+       "… · 365 = … kWh a l'any"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "2": {
+      "frases": [
+       "Un avantatge és …"
+      ],
+      "paraules": [
+       "renovable",
+       "preu",
+       "Sol",
+       "vent"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Vol dir que …"
+      ],
+      "paraules": [
+       "estalviar",
+       "apagar",
+       "energia"
+      ]
+     },
+     "4": {
+      "frases": [
+       "Un exemple és …"
+      ],
+      "paraules": [
+       "plaques solars",
+       "comunitat",
+       "font"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "2": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "3": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     },
+     "4": {
+      "model": "Una bona resposta diu <b>què passa</b> i <b>per què</b>, amb una paraula clau del tema. Dues o tres frases n'hi ha prou."
+     }
+    }
+   }
+  },
+  "d6lab3": {
+   "basics": {
+    "redueix": {
+     "3": "Calculeu només la calor de la vostra carmanyola."
+    },
+    "preguntes": {
+     "3": {
+      "passos": [
+       "m = 300 g = 0,3 kg.",
+       "ΔT = temperatura inicial − temperatura final.",
+       "Q = 0,3 · 4180 · ΔT."
+      ]
+     },
+     "4": {
+      "frases": [
+       "Ha guanyat perquè … Nosaltres canviaríem …"
+      ]
+     }
+    }
+   },
+   "discalculia": {
+    "preguntes": {
+     "3": {
+      "passos": [
+       "0,3 · 4180 = 1254",
+       "1254 · ΔT = … J"
+      ]
+     }
+    }
+   }
+  },
+  "d6f7": {
+   "basics": {
+    "redueix": {
+     "1": "Prepara dos arguments, cadascun amb una dada."
+    },
+    "preguntes": {
+     "3": {
+      "frases": [
+       "Proposem … Hi han de participar …"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Entenc el que dius, però … Per exemple, …"
+      ]
+     }
+    }
+   },
+   "nouvingut": {
+    "preguntes": {
+     "1": {
+      "frases": [
+       "El meu argument és …"
+      ],
+      "paraules": [
+       "argument",
+       "dada",
+       "font"
+      ]
+     },
+     "2": {
+      "frases": [
+       "El millor argument de l'altre grup és …"
+      ],
+      "paraules": [
+       "escoltar",
+       "argument"
+      ]
+     },
+     "3": {
+      "frases": [
+       "Proposem …"
+      ],
+      "paraules": [
+       "proposta",
+       "participar"
+      ]
+     },
+     "6": {
+      "frases": [
+       "Entenc el que dius, però …"
+      ],
+      "paraules": [
+       "respecte",
+       "dada"
+      ]
+     }
+    }
+   },
+   "tea": {
+    "preguntes": {
+     "1": {
+      "model": "Escriu frases curtes i concretes. Al debat, espera el teu torn i fes servir les dades."
+     },
+     "2": {
+      "model": "Escriu frases curtes i concretes. Al debat, espera el teu torn i fes servir les dades."
+     },
+     "3": {
+      "model": "Escriu frases curtes i concretes. Al debat, espera el teu torn i fes servir les dades."
+     },
+     "6": {
+      "model": "Escriu frases curtes i concretes. Al debat, espera el teu torn i fes servir les dades."
+     }
+    }
+   }
+  }
+ }
+};

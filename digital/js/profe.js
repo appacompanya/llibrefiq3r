@@ -296,9 +296,13 @@
     }
     // editors de retroacció
     const targets = spec && spec.html ? Object.keys(spec.qs) : spec ? [...FX.allItems(spec).filter((it) => !it.parent).map((it) => it.id), ...spec.blocks.filter((b) => b.type === "group").map((b) => b.id)] : [];
-    const editor = (id, label) => { const f = fb[id] || {}; return `<div class="fbed" data-fb="${id}"><b>${esc(label)}</b><div class="lvs">${LV.map((l) => `<button type="button" data-lv="${l}" class="${f.level === l ? "on" : ""}">${l}</button>`).join("")}</div>
+    const stAd = (students.find((x) => x.id === curStu) || {}).adaptacions || [];
+    const bas = stAd.includes("basics") && (!window.FQAdapt || window.FQAdapt.effective(k, stAd).includes("basics"));
+    const treuts = new Set(window.FQAdapt && bas ? window.FQAdapt.treu(k, stAd) : []);
+    const editor = (id, label) => { const f = fb[id] || {}; return `<div class="fbed" data-fb="${id}"><b>${esc(label)}</b>${bas ? '<small class="note"> · Continguts bàsics: nivell màxim AS</small>' : ""}<div class="lvs">${LV.map((l) => `<button type="button" data-lv="${l}" class="${f.level === l ? "on" : ""}"${bas && (l === "AN" || l === "AE") ? " disabled title=\"Continguts bàsics: nivell màxim AS\"" : ""}>${l}</button>`).join("")}</div>
       <textarea rows="2" placeholder="Comentari per a l'alumne">${esc(f.comment || "")}</textarea>${f.proposal_level || f.proposal_note ? `<div class="prop">Proposta automàtica: <b>${esc(f.proposal_level || "")}</b> ${esc(f.proposal_note || "")}<button type="button" data-accept>Fes-la servir</button></div>` : ""}</div>`; };
     targets.forEach((id) => {
+      if (treuts.has(String(id))) { const tq = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${id}"]`); if (tq) tq.insertAdjacentHTML("afterbegin", '<p class="note"><b>No cal (continguts bàsics):</b> aquesta pregunta no se li mostra i no s\'avalua.</p>'); return; }
       const el = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${id}"]`) || host.querySelector(`.ws-item[data-item="${id}"]`)?.closest(".ws-block");
       if (el) el.insertAdjacentHTML("beforeend", editor(id, id === "diana" ? "Valoració de la diana" : (spec.html ? "Valoració de la pregunta " : "Valoració de l'apartat ") + id));
     });
@@ -328,7 +332,8 @@
       if (!spec) { toast("Les fitxes en foto les has de valorar tu."); return; }
       const b = $("#ai"); b.disabled = true; b.textContent = "Corregint…";
       try {
-        await S.autoCorrect(k, spec.title, sdaOf(k), FX.buildItems(spec, answers), curStu);
+        const stA = (students.find((x) => x.id === curStu) || {}).adaptacions || []; let its = FX.buildItems(spec, answers); if (window.FQAdapt && stA.length) its = window.FQAdapt.forAuto(k, stA, its);
+        await S.autoCorrect(k, spec.title, sdaOf(k), its, curStu);
         await refreshSubs(); await loadSeg(); toast("Correcció automàtica feta. Revisa les propostes abans de retornar."); reviewView();
       } catch (e) { toast(e.message === "missing_api_key" ? "Falta configurar la clau de correcció al servidor." : "No s'ha pogut corregir: " + e.message); b.disabled = false; b.textContent = "Correcció automàtica"; }
     };

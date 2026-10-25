@@ -170,7 +170,8 @@
     if (st) { st.textContent = "Corregint…"; st.className = "wsstat"; }
     try {
       const answers = await S.loadResponses(k);
-      const items = window.FQFitxa.buildItems(spec, answers);
+      let items = window.FQFitxa.buildItems(spec, answers);
+      if (AD() && adapt.length) items = AD().forAuto(k, adapt, items);
       await S.autoCorrect(k, spec.title, sdaOf(k), items);
       return true;
     } catch (e) { if (st) st.textContent = prev; return false; }

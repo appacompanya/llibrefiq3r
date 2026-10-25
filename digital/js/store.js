@@ -369,8 +369,26 @@
     o.getSubmission = (ws, ...a) => st.getSubmission.call(st, String(ws).startsWith(P) && P ? ws : W(ws), ...a);
     return o;
   }
+  /* Continguts bàsics: l'alumne amb aquesta adaptació té com a nivell màxim AS. El topall s'aplica en desar i en llegir
+     les valoracions (del docent i de la correcció automàtica). */
+  function capped(st) {
+    const o = Object.create(st); const bas = new Set(); let mine = null;
+    const cap = (l) => (l === "AN" || l === "AE" ? "AS" : l);
+    const fix = (r) => (r ? { ...r, ...("level" in r ? { level: cap(r.level) } : {}), ...("proposal_level" in r ? { proposal_level: cap(r.proposal_level) } : {}) } : r);
+    const note = (list) => { (list || []).forEach((x) => { if ((x.adaptacions || []).includes("basics")) bas.add(x.id); else bas.delete(x.id); }); return list; };
+    o.isBasics = (sid) => bas.has(sid);
+    o.listStudents = async (...a) => note(await st.listStudents.call(o, ...a));
+    o.setAdaptacions = async (id, list, idioma) => { const r = await st.setAdaptacions.call(o, id, list, idioma); note([{ id, adaptacions: list || [] }]); return r; };
+    o.saveFeedback = (sid, ws, rows) => st.saveFeedback.call(o, sid, ws, bas.has(sid) ? rows.map(fix) : rows);
+    o.feedbackFor = async (sid, ws) => { const r = await st.feedbackFor.call(o, sid, ws); return bas.has(sid) ? r.map(fix) : r; };
+    o.allFeedback = async () => (await st.allFeedback.call(o)).map((r) => (bas.has(r.student_id) ? fix(r) : r));
+    const myBas = async () => { if (mine === null) { try { mine = ((await st.myAdapt.call(o)).perfils || []).includes("basics"); } catch { mine = false; } } return mine; };
+    o.myFeedback = async (ws) => { const r = await st.myFeedback.call(o, ws); return (await myBas()) ? r.map(fix) : r; };
+    o.autoCorrect = async (ws, title, sda, items, sid) => { const r = await st.autoCorrect.call(o, ws, title, sda, items, sid); const b = sid ? bas.has(sid) : await myBas(); return b && Array.isArray(r) ? r.map(fix) : r; };
+    return o;
+  }
   const base = (CFG.SUPABASE_URL && CFG.SUPABASE_ANON_KEY && G.supabase) ? supaStore() : demoStore();
-  G.FQStore = prefixed(base, G.FQ_WSPREFIX || "");
+  G.FQStore = capped(prefixed(base, G.FQ_WSPREFIX || ""));
   G.FQStore.normCode = normCode;
   G.FQStore.isStaff = isStaff;
   G.FQStore.LEVELS = LEVELS;

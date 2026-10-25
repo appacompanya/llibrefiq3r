@@ -1619,6 +1619,13 @@ window.FQ_ADAPT = {
        "Van trobar elements nous perquè van veure unes línies que …"
       ]
      }
+    },
+    "treu": [
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "1": "Dibuixa només el liti i el sodi."
     }
    },
    "nouvingut": {
@@ -1727,6 +1734,12 @@ window.FQ_ADAPT = {
        "Grup 1: +1 · grup 2: +2 · grup 13: +3 · grup 16: −2 · grup 17: −1."
       ]
      }
+    },
+    "redueix": {
+     "2": "Fes només el liti, el coure i l'or.",
+     "3": "Fes només les tres primeres pistes.",
+     "4": "Escriu la distribució d'electrons del liti i del sodi i digues què tenen en comú.",
+     "5": "Fes només el magnesi i l'oxigen."
     }
    },
    "nouvingut": {
@@ -1796,6 +1809,12 @@ window.FQ_ADAPT = {
        "El grafit condueix perquè té electrons que …"
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "2": "Fes només el coure, el silici i l'òxid de liti i cobalt."
     }
    },
    "nouvingut": {
@@ -2178,6 +2197,13 @@ window.FQ_ADAPT = {
        "Segona part: T₂ = P₂ · T₁ / P₁ = 4,5 · 293 / 3,0 = … K. Després resta 273 per passar-ho a °C."
       ]
      }
+    },
+    "treu": [
+     "7",
+     "8"
+    ],
+    "redueix": {
+     "2": "Fes només les dues primeres situacions."
     }
    },
    "discalculia": {
@@ -2278,6 +2304,12 @@ window.FQ_ADAPT = {
        "Per això la pressió és més … i la pilota bota …"
       ]
      }
+    },
+    "treu": [
+     "7"
+    ],
+    "redueix": {
+     "3": "Fes només les tres primeres afirmacions."
     }
    },
    "nouvingut": {
@@ -2406,6 +2438,12 @@ window.FQ_ADAPT = {
        "Amb menys pressió, l'aigua bull a una temperatura més …"
       ]
      }
+    },
+    "treu": [
+     "7"
+    ],
+    "redueix": {
+     "4": "Fes només a), b) i c)."
     }
    },
    "discalculia": {
@@ -2459,6 +2497,10 @@ window.FQ_ADAPT = {
        "Són isòtops si tenen el mateix número de baix (Z) i diferent número de dalt (A)."
       ]
      }
+    },
+    "redueix": {
+     "2": "Fes només les tres primeres files de la taula.",
+     "4": "Fes només a) i b)."
     }
    }
   },
@@ -2502,6 +2544,12 @@ window.FQ_ADAPT = {
        "Hi podríem implicar … fent …"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "3": "Escriu un text curt de dues frases."
     }
    },
    "nouvingut": {
@@ -2609,6 +2657,13 @@ window.FQ_ADAPT = {
        "Recursos: …"
       ]
      }
+    },
+    "treu": [
+     "3"
+    ],
+    "redueix": {
+     "1": "Digues només quina font és més fiable i per què.",
+     "4": "Explica un sol problema en una o dues frases i cita la font."
     }
    },
    "nouvingut": {
@@ -2727,6 +2782,9 @@ window.FQ_ADAPT = {
        "Però no tots són així perquè …"
       ]
      }
+    },
+    "redueix": {
+     "4": "Respon en quatre frases: quina reacció té lloc, d'on surt l'hidrogen, una dada del dossier i quan seria una bona opció."
     }
    },
    "discalculia": {
@@ -2795,6 +2853,11 @@ window.FQ_ADAPT = {
        "Rapidesa mitjana = distància total / temps total = 300 m / 80 s."
       ]
      }
+    },
+    "redueix": {
+     "2": "Completa la taula només fins a t = 40 s (trams 1 i 2).",
+     "5": "Calcula només el pendent del tram 1 de la gràfica v–t i digues què representa.",
+     "6": "Respon només per què la gràfica x–t és una recta al tram 2."
     }
    },
    "discalculia": {
@@ -2864,6 +2927,12 @@ window.FQ_ADAPT = {
        "Amb més temperatura, les partícules …"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "5": "Calcula només el gradient. No cal la concentració a 12 µm."
     }
    },
    "discalculia": {
@@ -2925,6 +2994,14 @@ window.FQ_ADAPT = {
        "Patològic vol dir …"
       ]
      }
+    },
+    "treu": [
+     "4",
+     "9"
+    ],
+    "redueix": {
+     "3": "Llegeix només les dues velocitats a la gràfica.",
+     "5": "Explica'n una sola manera."
     }
    },
    "discalculia": {
@@ -3048,6 +3125,12 @@ window.FQ_ADAPT = {
        "Pensa què li passa a una molla si l'estires massa: torna a la forma inicial?"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "1": "Fes com a mínim quatre mesures."
     }
    },
    "discalculia": {
@@ -3123,6 +3206,14 @@ window.FQ_ADAPT = {
        "A la metàstasi, …"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "2": "Mesura només tres boletes (A, B i C).",
+     "3": "Dibuixa només els tres vectors que has mesurat.",
+     "7": "Explica només a)."
     }
    },
    "discalculia": {
@@ -3175,6 +3266,11 @@ window.FQ_ADAPT = {
        "Pregunta't: qui ho diu? Té interès a vendre alguna cosa? Té dades i referències?"
       ]
      }
+    },
+    "redueix": {
+     "1": "Fes només la central hidràulica.",
+     "2": "Fes només a) i b).",
+     "5": "Valora només la font a)."
     }
    },
    "discalculia": {
@@ -3233,6 +3329,9 @@ window.FQ_ADAPT = {
        "Voto el pla de … perquè …"
       ]
      }
+    },
+    "redueix": {
+     "2": "Copieu només el càlcul en kWh. No cal en euros."
     }
    },
    "discalculia": {
@@ -3359,6 +3458,9 @@ window.FQ_ADAPT = {
        "Ara sé que …"
       ]
      }
+    },
+    "redueix": {
+     "5": "Respon només les tres primeres preguntes de la base d'orientació: què passa amb la temperatura, amb el moviment de les partícules i amb la pressió."
     }
    },
    "nouvingut": {
@@ -3484,6 +3586,12 @@ window.FQ_ADAPT = {
        "A la calor, …"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "2": "Digues només si el volum de cada globus augmentarà o disminuirà. No cal estimar el percentatge."
     }
    },
    "discalculia": {
@@ -3553,6 +3661,15 @@ window.FQ_ADAPT = {
        "Compara els exponents: el més negatiu és el més petit."
       ]
      }
+    },
+    "treu": [
+     "7"
+    ],
+    "redueix": {
+     "3": "Fes només a) i b).",
+     "4": "Fes només a) i b).",
+     "5": "Fes només a) i b).",
+     "6": "Fes només a)."
     }
    },
    "discalculia": {
@@ -3609,6 +3726,14 @@ window.FQ_ADAPT = {
        "La font més fiable és … perquè …"
       ]
      }
+    },
+    "treu": [
+     "3",
+     "4"
+    ],
+    "redueix": {
+     "1": "Fes només a).",
+     "2": "Fes només a) i b)."
     }
    },
    "discalculia": {
@@ -3662,6 +3787,13 @@ window.FQ_ADAPT = {
        "Si dos pots tenen la mateixa densitat, cal una altra prova: el color, l'olor, si condueix el corrent…"
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "1": "Omple la taula només per a cinc pots.",
+     "3": "Calcula l'error només de dos pots."
     }
    },
    "discalculia": {
@@ -3717,6 +3849,9 @@ window.FQ_ADAPT = {
        "Quart, evaporar: la sal queda a la càpsula."
       ]
      }
+    },
+    "redueix": {
+     "1": "Classifica només cinc etiquetes i justifica'n un cas."
     }
    }
   },
@@ -3782,6 +3917,12 @@ window.FQ_ADAPT = {
        "Porta el teu mòbil vell al punt de recollida perquè …"
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "2": "Escriu tres metalls i dos no metalls."
     }
    },
    "nouvingut": {
@@ -3876,6 +4017,10 @@ window.FQ_ADAPT = {
        "L'etapa … serveix per …"
       ]
      }
+    },
+    "redueix": {
+     "1": "Fes només les files de Li⁺, Na⁺, F⁻ i Cl⁻.",
+     "2": "Respon només dues coses: cap a on es mouen els ions Li⁺ quan fas servir el mòbil i per on passen els electrons."
     }
    }
   },
@@ -3907,6 +4052,9 @@ window.FQ_ADAPT = {
        "Al principi pensàvem que … Ara sabem que …"
       ]
      }
+    },
+    "redueix": {
+     "4": "Respon només dues preguntes: la massa total canvia? D'on surt l'hidrogen?"
     }
    },
    "nouvingut": {
@@ -4021,7 +4169,10 @@ window.FQ_ADAPT = {
        "Recorda: el CO₂ posa blanca l'aigua de calç."
       ]
      }
-    }
+    },
+    "treu": [
+     "6"
+    ]
    },
    "discalculia": {
     "preguntes": {
@@ -4074,6 +4225,13 @@ window.FQ_ADAPT = {
        "Si són dos no metalls, posa prefixos: CO = monòxid de carboni."
       ]
      }
+    },
+    "redueix": {
+     "1": "Classifica només H₂, H₂O, Mg i CO₂.",
+     "3": "Fes només les files del Na⁺ i del Mg²⁺.",
+     "4": "Fes només a), b), c) i h).",
+     "5": "Fes només a), b), c) i d).",
+     "6": "Fes només a), b) i d)."
     }
    },
    "discalculia": {
@@ -4118,6 +4276,9 @@ window.FQ_ADAPT = {
        "Busca: bombolles de gas, el magnesi desapareix, canvi de temperatura, so a la flama."
       ]
      }
+    },
+    "redueix": {
+     "2": "Escriu les fórmules i compta els àtoms de cada costat. No cal ajustar l'equació."
     }
    },
    "nouvingut": {
@@ -4226,6 +4387,14 @@ window.FQ_ADAPT = {
        "El que s'acaba primer decideix l'aigua: 10 · 36 / 4 = … g."
       ]
      }
+    },
+    "treu": [
+     "5",
+     "6",
+     "7"
+    ],
+    "redueix": {
+     "2": "Ajusta només les dues primeres equacions."
     }
    },
    "discalculia": {
@@ -4302,7 +4471,11 @@ window.FQ_ADAPT = {
        "Es diu hidrogen verd perquè l'electricitat …"
       ]
      }
-    }
+    },
+    "treu": [
+     "4",
+     "5"
+    ]
    },
    "discalculia": {
     "preguntes": {
@@ -4381,6 +4554,18 @@ window.FQ_ADAPT = {
        "Els factors són: temperatura, concentració i superfície de contacte."
       ]
      }
+    },
+    "treu": [
+     "6",
+     "9"
+    ],
+    "redueix": {
+     "1": "Fes només a), b), c) i d).",
+     "2": "Fes només b) i c).",
+     "3": "Fes només a) i c).",
+     "5": "Fes només a) i b).",
+     "7": "Fes només a), b) i c).",
+     "10": "Fes només a) i b)."
     }
    },
    "discalculia": {
@@ -4491,6 +4676,13 @@ window.FQ_ADAPT = {
        "Una recta horitzontal vol dir que no es mou."
       ]
      }
+    },
+    "treu": [
+     "5"
+    ],
+    "redueix": {
+     "1": "Fes només a), b) i c).",
+     "6": "Fes només a) i b)."
     }
    },
    "discalculia": {
@@ -4557,6 +4749,13 @@ window.FQ_ADAPT = {
        "Un revolt no és recte."
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "2": "Fes només a) i b).",
+     "5": "Fes només a), b) i d)."
     }
    },
    "discalculia": {
@@ -4637,6 +4836,13 @@ window.FQ_ADAPT = {
        "Té sentit fer la mitjana perquè …"
       ]
      }
+    },
+    "treu": [
+     "8"
+    ],
+    "redueix": {
+     "3": "Mesura només els tres primers intervals.",
+     "5": "Calcula només la rapidesa mitjana."
     }
    },
    "discalculia": {
@@ -4724,6 +4930,14 @@ window.FQ_ADAPT = {
        "Iguala: 17t = 60 + 2t → 15t = 60 → t = … min."
       ]
      }
+    },
+    "treu": [
+     "3",
+     "8"
+    ],
+    "redueix": {
+     "5": "Fes només a) i b).",
+     "7": "Fes només a)."
     }
    },
    "discalculia": {
@@ -4829,6 +5043,14 @@ window.FQ_ADAPT = {
        "El neutròfil tot sol pot …, per això és una unitat …"
       ]
      }
+    },
+    "treu": [
+     "5",
+     "8"
+    ],
+    "redueix": {
+     "2": "Calcula només la primera força (80 kg).",
+     "4": "Fes només a) i b)."
     }
    },
    "discalculia": {
@@ -4889,6 +5111,9 @@ window.FQ_ADAPT = {
        "Ara sé que …"
       ]
      }
+    },
+    "redueix": {
+     "5": "Calcula només l'energia d'un dia per a les 30 aules i quant costa aquest dia."
     }
    },
    "discalculia": {
@@ -4960,6 +5185,13 @@ window.FQ_ADAPT = {
        "La sal, en solidificar-se, desprèn energia …"
       ]
      }
+    },
+    "treu": [
+     "6"
+    ],
+    "redueix": {
+     "3": "Fes només a), b) i d).",
+     "5": "Calcula només l'energia de cada bombeta en un any. No cal el cost."
     }
    },
    "discalculia": {
@@ -5038,7 +5270,11 @@ window.FQ_ADAPT = {
        "El magnetotèrmic talla si passa massa corrent. El diferencial talla si hi ha una fuita."
       ]
      }
-    }
+    },
+    "treu": [
+     "4",
+     "7"
+    ]
    },
    "discalculia": {
     "preguntes": {
@@ -5108,6 +5344,12 @@ window.FQ_ADAPT = {
        "Un consell final."
       ]
      }
+    },
+    "treu": [
+     "5"
+    ],
+    "redueix": {
+     "6": "La infografia o el vídeo ha de tenir el fenomen, el dibuix del model i el consell final."
     }
    },
    "discalculia": {
@@ -5180,6 +5422,12 @@ window.FQ_ADAPT = {
        "Segueix l'ordre: pregunta, hipòtesi, disseny, dades, conclusió, errors."
       ]
      }
+    },
+    "treu": [
+     "5"
+    ],
+    "redueix": {
+     "3": "Fes dues repeticions de cada mesura."
     }
    },
    "nouvingut": {
@@ -5271,6 +5519,14 @@ window.FQ_ADAPT = {
        "Un full amb: pictogrames, precaucions, una dada amb unitats, una fórmula."
       ]
      }
+    },
+    "treu": [
+     "5"
+    ],
+    "redueix": {
+     "1": "Fes-ho només per a un producte.",
+     "3": "Fes només el primer càlcul (el detergent).",
+     "4": "Fes només cinc files."
     }
    },
    "discalculia": {
@@ -5314,6 +5570,13 @@ window.FQ_ADAPT = {
        "Fonts al final."
       ]
      }
+    },
+    "treu": [
+     "3"
+    ],
+    "redueix": {
+     "1": "Fes servir dues fonts.",
+     "2": "Dona dos arguments. El contraargument no cal."
     }
    },
    "nouvingut": {
@@ -5387,6 +5650,12 @@ window.FQ_ADAPT = {
        "Hem assolit / no hem assolit l'objectiu perquè …"
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "3": "Fes només el càlcul A."
     }
    },
    "nouvingut": {
@@ -5471,6 +5740,13 @@ window.FQ_ADAPT = {
        "Línia del temps a dalt, la proposta a baix."
       ]
      }
+    },
+    "treu": [
+     "4"
+    ],
+    "redueix": {
+     "1": "Escriu tres fites.",
+     "2": "Explica només una repercussió en la societat i una en el medi ambient."
     }
    },
    "discalculia": {
