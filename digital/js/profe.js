@@ -145,8 +145,8 @@
         <p class="note">Cada alumne rep un codi d'accés de 8 caràcters. Amb aquest codi entra al llibre digital des de qualsevol dispositiu.</p></section>
       <section class="card"><div class="row" style="justify-content:space-between"><h2>Alumnat de ${esc(curName())} (${students.length})</h2><div class="row noprint"><button class="btn ghost" id="csv">Descarrega els codis (CSV)</button><button class="btn ghost" id="prn">Imprimeix targetes</button></div></div>
         ${created && created.length ? `<p class="note" style="color:var(--ok)"><b>Comptes creats:</b> ${created.length}. Ja els tens a la llista.</p>` : ""}
-        <div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Grup</th><th>Codi</th><th class="noprint"></th></tr></thead><tbody>
-        ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td class="noprint"><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn danger" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="4" class="note">Encara no hi ha alumnat. Afegeix-lo amb el formulari.</td></tr>`}
+        <div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Grup</th><th>Codi</th><th class="noprint">Adaptació</th><th class="noprint"></th></tr></thead><tbody>
+        ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td>${esc(s.grup)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td class="noprint"><button class="btn ghost adbtn" data-adapt aria-expanded="false" title="Tria l'adaptació de les fitxes per a aquest alumne">${adLabel(s.adaptacions)}</button></td><td class="noprint"><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn danger" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="5" class="note">Encara no hi ha alumnat. Afegeix-lo amb el formulari.</td></tr>`}
         </tbody></table></div></section></div>
       <section class="codes" id="cards" hidden>${students.map((s) => `<div class="codecard"><span>Física i química · ${LEVEL} d'ESO · llibre digital</span><b>${esc(s.display_name)}</b><code>${esc(s.code || "")}</code><span>${esc(location.origin + location.pathname.replace(/profe\.html$/, ""))}</span></div>`).join("")}</section>`;
     $("#add").onclick = async () => {
@@ -163,12 +163,42 @@
       const id = b.closest("tr").dataset.id; if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? S'esborren totes les respostes"; return; }
       try { await S.deleteStudent(id); students = await S.listStudents(); alumnatView(); toast("Alumne esborrat."); } catch (e) { toast("Error: " + e.message); }
     }));
+    $("#main").querySelectorAll("[data-adapt]").forEach((b) => (b.onclick = () => adaptPanel(b)));
     $("#csv").onclick = () => {
       const rows = [["Nom", "Grup", "Codi"], ...students.map((s) => [s.display_name, s.grup, s.code || ""])];
       const csv = "﻿" + rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\r\n");
       const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = `codis-alumnat-${curName().replace(/[^\w-]+/g, "-")}.csv`; a.click();
     };
     $("#prn").onclick = () => { $("#cards").hidden = false; window.print(); setTimeout(() => ($("#cards").hidden = true), 500); };
+  }
+
+  /* ---------- adaptació de les fitxes (NESE): la tria el docent, l'alumne no la veu ni la pot canviar ---------- */
+  const AD_NAMES = { dislexia: "Dislèxia", nouvingut: "Nouvingut", basics: "Continguts bàsics", discalculia: "Discalcúlia", tdah: "TDAH", tea: "TEA" };
+  const AD_HELP = { dislexia: "Lletra d'alta llegibilitat, interlineat ampli i lectura en veu alta.", nouvingut: "Glossari amb traducció, lectura en veu alta i frases model.", basics: "Exemples resolts, preguntes per passos i pistes.", discalculia: "Taula de passos i calculadora a les preguntes de càlcul.", tdah: "Una pregunta per pantalla, progrés, temporitzador i pauses.", tea: "Guia anticipada de la fitxa i instruccions literals." };
+  (function adCss() { if (document.getElementById("adcss")) return; const st = document.createElement("style"); st.id = "adcss";
+    st.textContent = ".adbtn{white-space:nowrap;font-size:.82rem}.adpanel{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:10px;margin:4px 0}.adpanel legend{font-weight:700;padding:0 6px}.adgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}.adopt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:8px 10px;cursor:pointer}.adopt small{display:block;color:var(--muted);font-size:.78rem;line-height:1.3}.adopt input{margin-top:3px}";
+    document.head.appendChild(st); })();
+  const adLabel = (a) => (a && a.length ? a.map((k) => AD_NAMES[k] || k).join(" · ") : "Sense adaptació");
+  function adaptPanel(btn) {
+    const tr = btn.closest("tr"); const id = tr.dataset.id; const s = students.find((x) => x.id === id) || {};
+    const open = tr.nextElementSibling && tr.nextElementSibling.classList.contains("adrow");
+    $("#main").querySelectorAll(".adrow").forEach((r) => r.remove()); $("#main").querySelectorAll("[data-adapt]").forEach((x) => x.setAttribute("aria-expanded", "false"));
+    if (open) return;
+    btn.setAttribute("aria-expanded", "true");
+    const cur = new Set(s.adaptacions || []);
+    const row = document.createElement("tr"); row.className = "adrow noprint";
+    row.innerHTML = `<td colspan="5"><fieldset class="adpanel"><legend>Adaptació de les fitxes de ${esc(s.display_name || "")}</legend>
+      <p class="note">Les fitxes del llibre se li carregaran sempre amb aquesta adaptació, en digital i en paper, fins que la canviïs. Es poden combinar. Si una fitxa ja és adient per a un perfil, rep l'original. L'alumne no veu el nom del perfil.</p>
+      <div class="adgrid">${(S.ADAPT || Object.keys(AD_NAMES)).map((k) => `<label class="adopt"><input type="checkbox" value="${k}"${cur.has(k) ? " checked" : ""}><span><b>${AD_NAMES[k]}</b><small>${AD_HELP[k]}</small></span></label>`).join("")}</div>
+      <div class="row"><button type="button" class="btn" data-adsave>Desa</button><button type="button" class="btn ghost" data-adnone>Treu l'adaptació</button><button type="button" class="btn ghost" data-adclose>Tanca</button></div></fieldset></td>`;
+    tr.after(row);
+    const doSave = async (list) => {
+      try { await S.setAdaptacions(id, list); s.adaptacions = list; btn.innerHTML = esc(adLabel(list)); row.remove(); btn.setAttribute("aria-expanded", "false"); toast(list.length ? "Adaptació desada." : "Adaptació treta."); }
+      catch (e) { toast("No s'ha pogut desar: " + e.message); }
+    };
+    row.querySelector("[data-adsave]").onclick = () => doSave([...row.querySelectorAll("input:checked")].map((x) => x.value));
+    row.querySelector("[data-adnone]").onclick = () => doSave([]);
+    row.querySelector("[data-adclose]").onclick = () => { row.remove(); btn.setAttribute("aria-expanded", "false"); };
   }
 
   /* ---------- fitxes i lliuraments ---------- */

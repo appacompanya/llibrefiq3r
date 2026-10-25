@@ -277,6 +277,8 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
 <script src="js/store.js"></script>
 <script src="js/fitxa.js"></script>
 <script src="js/tfm.js"></script>
+<script src="js/adaptacions-dades.js"></script>
+<script src="js/adaptacions.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -472,7 +474,10 @@ const SDAS = [
 
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
-function dlBtn(k, ghost){ const d = D[k]; const dg = window.FITXES && window.FITXES[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#${dg ? "fitxa" : "doc"}-${k}">${ICON_DOC}${esc(d.l)}${dg ? '<span class="dig">digital</span>' : ""}</a>`; }
+function dlBtn(k, ghost){ const d = D[k]; const dg = window.FITXES && window.FITXES[k];
+  // l'alumne pot triar fitxes en digital o en paper (alumne.js defineix FQDocLink); el docent veu sempre la versió digital
+  const lk = window.FQDocLink ? window.FQDocLink(k, !!dg) : {href: `#${dg ? "fitxa" : "doc"}-${k}`, tag: dg ? "digital" : ""};
+  return `<a class="btn${ghost||d.t?' ghost':''}" href="${lk.href}">${ICON_DOC}${esc(d.l)}${lk.tag ? `<span class="dig">${lk.tag}</span>` : ""}</a>`; }
 // recursos que s'obren dins del llibre: vídeo (v), imatge (i), animació o simulador propi (a), web incrustable (f)
 const PHET_RE = /^https:\/\/phet\.colorado\.edu\/ca\/simulations\/([a-z0-9-]+)$/, PHET_NOFR = new Set(["sugar-and-salt-solutions"]);
 function inBook(k){ const x = L[k]; if (!x) return null; if (x.v) return "v"; if (x.img) return "i"; if (x.an) return "a"; if (x.fr) return "f";
