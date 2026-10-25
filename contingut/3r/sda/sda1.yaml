@@ -1228,7 +1228,7 @@ evidencies:
 - uid: s1.inf
   id: inf
   versio: 1
-  titol: Informe del repte (grup)
+  titol: Informe del repte i protocol
   instruments:
   - d1inf
   items:

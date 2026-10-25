@@ -3,26 +3,33 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 sda: 6
-versio: 2
+versio: 3
 color: --s6
 titol: L'energia del nostre institut
 repte: Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?
-meta: '3r trimestre · 7 sessions · Producte final: pla d''estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6'
+meta: '3r trimestre · 8 sessions · Producte final: pla d''estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l''estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6'
 publicada: true
 ce_aprovades:
 - CE1
 - CE4
 - CE6
 sessions:
-- titol: Auditoria energètica de l'aula
-  fase: Explorem
-  text: 'La direcció ens demana propostes per reduir el consum d''electricitat de l''institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l''inventari a l''Excel (baixa la plantilla amb el botó d''aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l''energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.'
+- titol: Auditoria energètica i acústica de l'aula
+  fase: Observem
+  text: 'La direcció ens demana propostes per reduir el consum d''electricitat i el soroll de l''institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l''inventari energètic a l''Excel (baixa la plantilla amb el botó d''aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l''energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.'
   docs:
   - d6ruta
   - d6repte
   - d6rub
   enllacos:
   - inv
+  mitja: false
+- titol: Muntem circuits
+  fase: Experimentem
+  text: 'Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se''n fon una bombeta. Amb la simulació PhET (el botó d''aquesta sessió) comprovarem per què la instal·lació elèctrica de l''aula va en paral·lel.'
+  docs: []
+  enllacos:
+  - circuits
   mitja: true
 - titol: Energia, potència i consum
   fase: Aprenem
@@ -34,7 +41,7 @@ sessions:
   mitja: false
 - titol: Mesurem el consum real
   fase: Experimentem
-  text: Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.
+  text: Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Recordarem, amb el que hem vist en muntar circuits, per què la instal·lació elèctrica de l'institut està connectada en paral·lel.
   docs:
   - d6lab
   enllacos:
@@ -111,7 +118,7 @@ professorat:
   url: https://claude.ai/artifact/CtU9znNixhemwYF8QSuFVc
   url_text: Obre el registre
 - bloc: Activitat de demostració i solucionaris
-  text: Activitat de demostració d'assoliment de la sessió 6, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.
+  text: Activitat de demostració d'assoliment de la sessió 7, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.
   docs:
   - d6prova
   - d6solpr
@@ -203,7 +210,7 @@ documents:
     professorat: true
   d6ruta:
     uid: d6ruta
-    versio: 1
+    versio: 2
     fitxer: sda6-01-full-de-ruta.pdf
     titol: Full de ruta
     digital:
@@ -215,12 +222,22 @@ documents:
         id: '1'
         versio: 1
         tipus: auto
-        etiqueta: Auditoria energètica de l'aula
+        etiqueta: Auditoria energètica i acústica de l'aula
         criteris: []
         camps:
         - d6ruta.a1
         - d6ruta.a2
         - d6ruta.a3
+      - uid: d6ruta.8
+        id: '8'
+        versio: 1
+        tipus: auto
+        etiqueta: Muntem circuits
+        criteris: []
+        camps:
+        - d6ruta.a22
+        - d6ruta.a23
+        - d6ruta.a24
       - uid: d6ruta.2
         id: '2'
         versio: 1
@@ -748,7 +765,7 @@ evidencies:
 - uid: s6.prova
   id: prova
   versio: 2
-  titol: Activitat de demostració d'assoliment (sessió 6)
+  titol: Activitat de demostració d'assoliment (sessió 7)
   instruments:
   - d6prova
   - d6solpr

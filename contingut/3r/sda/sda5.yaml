@@ -56,7 +56,7 @@ sessions:
   - d5f4
   enllacos: []
 - titol: Problemes de moviment
-  fase: Ho apliquem
+  fase: Practiquem
   text: 'Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.'
   docs:
   - d5prob

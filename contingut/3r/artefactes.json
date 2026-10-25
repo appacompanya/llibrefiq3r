@@ -949,8 +949,9 @@
   },
   "digital/d6ruta": {
    "depen_de": [
-    "d6ruta@1",
+    "d6ruta@2",
     "d6ruta.1@1",
+    "d6ruta.8@1",
     "d6ruta.2@1",
     "d6ruta.3@1",
     "d6ruta.4@1",
@@ -959,9 +960,9 @@
     "d6ruta.7@1"
    ],
    "document": "d6ruta",
-   "empremta": "d2408bd4df588f52aaf2e6bea6394d4d4ec66028246eb1f68830376971a71a0e",
+   "empremta": "46535ba55939760f3949326e3f626adfb896a3a4c7b65519aa1fee8136bb7571",
    "generador": "build_fitxes_auto.py (a partir del PDF)",
-   "hash": "2fb7ef8ac727f89087b0aac52979fa6f761a33fab34298da8af6243f1f32d548",
+   "hash": "d1251250b12829e8969c6a88a1b78542dfbcc0d5bcc7e6f297701dc304d706fc",
    "tipus": "fitxa-digital"
   },
   "digital/dc0": {
@@ -1446,7 +1447,7 @@
    "document": null,
    "empremta": "95858c85558a736044dc7ba47c038253dcee7ac474a34c1157aa40a6044eb405",
    "generador": "gen_annexos.py",
-   "hash": "035f5b03bc6eccd219536f0d4e775009ecd9fc789d8f9e800297919f0ba1a56e",
+   "hash": "4c23838ffed16d3b8b53e72a960e083b4ad8dcd486f62115b2821ced63c5dd0d",
    "imatges": {},
    "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
    "tipus": "pdf-public"
@@ -2768,8 +2769,9 @@
   },
   "docs/sda6-01-full-de-ruta.pdf": {
    "depen_de": [
-    "d6ruta@1",
+    "d6ruta@2",
     "d6ruta.1@1",
+    "d6ruta.8@1",
     "d6ruta.2@1",
     "d6ruta.3@1",
     "d6ruta.4@1",
@@ -2778,18 +2780,19 @@
     "d6ruta.7@1"
    ],
    "document": "d6ruta",
-   "empremta": "203f411bd0a7fe947f1c44d0b3b8d5ece69718d5347e720a044aeaa2b7e3f41a",
+   "empremta": "273ab6c72ea67586b4564b9c0a326a39e9308dc7148e890a8b03a432d03f1fed",
    "generador": "gen_energia.py",
    "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "0bbe9f26bc64808a5b0213e5e13805e8a903ca808fd0c54aedb7e0a1a0ed691b",
+   "hash": "224da2d974604cbca71fa0a89a8b58f00b8485c778324f3a4c976a3d311caca8",
    "imatges": {
-    "sda6-s1.png": "2b04931f447c4b77",
-    "sda6-s2.png": "7db7de9cc9917e3f",
-    "sda6-s3.png": "539af93e949fdbe5",
-    "sda6-s4.png": "6c0347d9976e3513",
-    "sda6-s5.png": "8528959ff9534993",
-    "sda6-s6.png": "054c87c877382f9c",
-    "sda6-s7.png": "e47f7262f501e600"
+    "sda6-s1.png": "ae5c735f49a85b98",
+    "sda6-s2.png": "e3d6fc23eed03674",
+    "sda6-s3.png": "7db7de9cc9917e3f",
+    "sda6-s4.png": "539af93e949fdbe5",
+    "sda6-s5.png": "6c0347d9976e3513",
+    "sda6-s6.png": "8528959ff9534993",
+    "sda6-s7.png": "054c87c877382f9c",
+    "sda6-s8.png": "965359c9db58b8ce"
    },
    "tipus": "pdf-alumnat"
   },

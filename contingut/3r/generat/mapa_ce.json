@@ -224,7 +224,7 @@
     },
     {
      "uid": "s1.inf",
-     "titol": "Informe del repte (grup)",
+     "titol": "Informe del repte i protocol",
      "versio": 1,
      "tipus": "qualificadora",
      "pes_percent": 40,
@@ -1270,7 +1270,7 @@
    "evidencies": [
     {
      "uid": "s6.prova",
-     "titol": "Activitat de demostració d'assoliment (sessió 6)",
+     "titol": "Activitat de demostració d'assoliment (sessió 7)",
      "versio": 2,
      "tipus": "qualificadora",
      "pes_percent": 30,
