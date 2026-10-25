@@ -166,6 +166,11 @@ professorat:
   docs:
   - d5rub
 documents:
+  d5teo:
+    uid: d5teo
+    versio: 1
+    fitxer: sda5-00-dossier-de-teoria.pdf
+    titol: Dossier de teoria
   d5ruta:
     uid: d5ruta
     versio: 1

@@ -407,7 +407,13 @@ const D = {
   "rub": {"f": "sda2-09-rubriques.pdf", "l": "Rúbriques"},
   "diana": {"f": "sda2-12-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
   "mapa": {"f": "sda2-13-mapa-conceptual.pdf", "l": "Mapa conceptual"},
-  "labc": {"f": "sda2-14-laboratori-corba-i-canvis-destat.pdf", "l": "Full de laboratori"}
+  "labc": {"f": "sda2-14-laboratori-corba-i-canvis-destat.pdf", "l": "Full de laboratori"},
+  "d1teo": {"f": "sda1-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d2teo": {"f": "sda2-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d3teo": {"f": "sda3-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d4teo": {"f": "sda4-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d5teo": {"f": "sda5-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d6teo": {"f": "sda6-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}
 };
 /* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */
 const L = {
@@ -499,7 +505,7 @@ function renderPanel(n){
     <h3 class="sec">Sessió a sessió</h3>
     <div class="sessions">${ses}</div>
     <h3 class="sec">Vols anar més enllà?</h3>
-    <div class="teacher"><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les activitats de demostració d'assoliment) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div><div class="tcard"><b>Tasques de recuperació</b><span>Si en acabar una competència específica no l'has assolida (NA), el professor t'indicarà la tasca de recuperació d'aquella competència. També la pots fer per millorar: si la fas millor, el nivell nou substitueix l'anterior.</span><div class="acts">${(s.meta.match(/CE\d/g)||[]).map(c => dlBtn("dcR"+c.slice(2),true)).join("")}</div></div></div>
+    <div class="teacher"><div class="tcard"><b>Dossier de teoria</b><span>Tota la teoria d'aquesta SdA en un sol document: definicions, fórmules, exemples resolts i paraules clau. Fes-lo servir per estudiar i per repassar abans de la demostració d'assoliment.</span><div class="acts">${dlBtn("d"+s.n+"teo",true)}</div></div><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les activitats de demostració d'assoliment) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div><div class="tcard"><b>Tasques de recuperació</b><span>Si en acabar una competència específica no l'has assolida (NA), el professor t'indicarà la tasca de recuperació d'aquella competència. També la pots fer per millorar: si la fas millor, el nivell nou substitueix l'anterior.</span><div class="acts">${(s.meta.match(/CE\d/g)||[]).map(c => dlBtn("dcR"+c.slice(2),true)).join("")}</div></div></div>
     ${MODE==="profe" ? `<h3 class="sec">Material del professorat</h3><div class="teacher">${teach}</div><section class="aval" id="aval"></section>` : ""}</div>`;
   if (MODE==="profe") { AV.sda = s.n; renderAval(); }
 }

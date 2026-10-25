@@ -120,6 +120,11 @@ professorat:
   docs:
   - d4rub
 documents:
+  d4teo:
+    uid: d4teo
+    versio: 1
+    fitxer: sda4-00-dossier-de-teoria.pdf
+    titol: Dossier de teoria
   d4amp:
     uid: d4amp
     versio: 1

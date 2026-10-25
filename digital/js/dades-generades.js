@@ -540,6 +540,30 @@ window.FQ3_DADES = {
   "labc": {
    "f": "sda2-14-laboratori-corba-i-canvis-destat.pdf",
    "l": "Full de laboratori"
+  },
+  "d1teo": {
+   "f": "sda1-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d2teo": {
+   "f": "sda2-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d3teo": {
+   "f": "sda3-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d4teo": {
+   "f": "sda4-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d5teo": {
+   "f": "sda5-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d6teo": {
+   "f": "sda6-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
   }
  },
  "D_alumne": {
@@ -906,6 +930,30 @@ window.FQ3_DADES = {
   "labc": {
    "f": "sda2-14-laboratori-corba-i-canvis-destat.pdf",
    "l": "Full de laboratori"
+  },
+  "d1teo": {
+   "f": "sda1-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d2teo": {
+   "f": "sda2-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d3teo": {
+   "f": "sda3-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d4teo": {
+   "f": "sda4-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d5teo": {
+   "f": "sda5-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
+  },
+  "d6teo": {
+   "f": "sda6-00-dossier-de-teoria.pdf",
+   "l": "Dossier de teoria"
   }
  },
  "L": {

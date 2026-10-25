@@ -2686,6 +2686,11 @@
   "tipus": "document",
   "versio": 1
  },
+ "d1teo": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d2adap": {
   "sda": null,
   "tipus": "document",
@@ -3150,6 +3155,11 @@
   "versio": 1
  },
  "d2solamp": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
+ "d2teo": {
   "sda": null,
   "tipus": "document",
   "versio": 1
@@ -5558,6 +5568,11 @@
   "tipus": "document",
   "versio": 1
  },
+ "d3teo": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d4adap": {
   "sda": null,
   "tipus": "document",
@@ -7170,6 +7185,11 @@
   "versio": 1
  },
  "d4solpr": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
+ "d4teo": {
   "sda": null,
   "tipus": "document",
   "versio": 1
@@ -9066,6 +9086,11 @@
   "tipus": "document",
   "versio": 1
  },
+ "d5teo": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d5tfm": {
   "sda": 5,
   "tipus": "document",
@@ -10485,6 +10510,11 @@
   "versio": 1
  },
  "d6solpr": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
+ "d6teo": {
   "sda": null,
   "tipus": "document",
   "versio": 1

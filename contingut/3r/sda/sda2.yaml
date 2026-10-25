@@ -123,6 +123,11 @@ professorat:
   docs:
   - rub
 documents:
+  d2teo:
+    uid: d2teo
+    versio: 1
+    fitxer: sda2-00-dossier-de-teoria.pdf
+    titol: Dossier de teoria
   d2amp:
     uid: d2amp
     versio: 1

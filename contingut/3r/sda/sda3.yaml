@@ -129,6 +129,11 @@ professorat:
   docs:
   - d3rub
 documents:
+  d3teo:
+    uid: d3teo
+    versio: 1
+    fitxer: sda3-00-dossier-de-teoria.pdf
+    titol: Dossier de teoria
   d3ruta:
     uid: d3ruta
     versio: 1
