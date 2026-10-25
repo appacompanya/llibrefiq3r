@@ -13830,7 +13830,7 @@
  "s2.video": {
   "sda": 2,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s2.video.v1": {
   "criteris": [
@@ -13843,26 +13843,26 @@
  },
  "s2.video.v2": {
   "criteris": [
-   "4.1"
+   "2.5"
   ],
   "evidencia": "s2.video",
   "sda": 2,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s2.video.v3": {
   "criteris": [
-   "4.1"
+   "2.5"
   ],
   "evidencia": "s2.video",
   "sda": 2,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s3.camp": {
   "sda": 3,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s3.camp.c1": {
   "criteris": [
@@ -13871,7 +13871,7 @@
   "evidencia": "s3.camp",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s3.camp.c2": {
   "criteris": [
@@ -13885,6 +13885,15 @@
  "s3.camp.c3": {
   "criteris": [
    "5.2"
+  ],
+  "evidencia": "s3.camp",
+  "sda": 3,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s3.camp.c4": {
+  "criteris": [
+   "4.1"
   ],
   "evidencia": "s3.camp",
   "sda": 3,
@@ -13931,7 +13940,7 @@
  "s3.prova": {
   "sda": 3,
   "tipus": "evidencia",
-  "versio": 2
+  "versio": 3
  },
  "s3.prova.p1": {
   "criteris": [
@@ -13944,30 +13953,30 @@
  },
  "s3.prova.p2": {
   "criteris": [
-   "1.1"
+   "6.1"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 2
+  "versio": 3
  },
  "s3.prova.p3": {
   "criteris": [
-   "1.2"
+   "6.1"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 2
+  "versio": 3
  },
  "s3.prova.p4": {
   "criteris": [
-   "1.2"
+   "6.1"
   ],
   "evidencia": "s3.prova",
   "sda": 3,
   "tipus": "item_avaluacio",
-  "versio": 2
+  "versio": 3
  },
  "s3.prova.p5": {
   "criteris": [
@@ -14037,7 +14046,7 @@
  "s4.prova": {
   "sda": 4,
   "tipus": "evidencia",
-  "versio": 2
+  "versio": 3
  },
  "s4.prova.p1": {
   "criteris": [
@@ -14050,13 +14059,12 @@
  },
  "s4.prova.p2": {
   "criteris": [
-   "2.2",
-   "1.2"
+   "2.2"
   ],
   "evidencia": "s4.prova",
   "sda": 4,
   "tipus": "item_avaluacio",
-  "versio": 2
+  "versio": 3
  },
  "s4.prova.p3": {
   "criteris": [
@@ -14288,16 +14296,16 @@
  "s6.pla": {
   "sda": 6,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s6.pla.e1": {
   "criteris": [
-   "6.2"
+   "1.2"
   ],
   "evidencia": "s6.pla",
   "sda": 6,
   "tipus": "item_avaluacio",
-  "versio": 1
+  "versio": 2
  },
  "s6.pla.e2": {
   "criteris": [

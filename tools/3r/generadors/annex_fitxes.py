@@ -71,12 +71,13 @@ def fitxa(n):
           + seq + "</table>")
     rows3 = ""
     for r in S["instruments"]:
-        if r[5] in ("—", ""):
-            rows3 += f'<tr><td colspan="2"><b>Avaluació formativa</b> (sense pes): {r[0][0].lower() + r[0][1:]}.</td><td>{r[3]}</td><td>—</td><td>—</td></tr>'
+        paper = r[5] if len(r) > 5 else ""
+        if paper in ("—", ""):
+            rows3 += f'<tr><td colspan="2"><b>Avaluació formativa</b> (no entra al càlcul oficial): {r[0][0].lower() + r[0][1:]}.</td><td>{r[3]}</td><td>—</td></tr>'
         else:
             d = PROVA if r[0].startswith("Demostració") else DESC[r[0]]
-            rows3 += f"<tr><td><b>{r[0]}</b></td><td>{d}</td><td>{r[3]}</td><td>{r[4]}</td><td>{r[5]}</td></tr>"
-    t3 = ('<table><tr><th style="width:19%">Instrument</th><th>Què és</th><th style="width:8%">Sessió</th><th style="width:13%">Criteris</th><th style="width:7%">Pes</th></tr>'
+            rows3 += f"<tr><td><b>{r[0]}</b></td><td>{d}</td><td>{r[3]}</td><td>{r[4]}</td></tr>"
+    t3 = ('<table><tr><th style="width:22%">Instrument</th><th>Què és</th><th style="width:8%">Sessió</th><th style="width:16%">Criteris</th></tr>'
           + rows3 + "</table>")
     body = (f'<div class="head"><div><div class="kick">Fitxa resum · Situació d\'aprenentatge {n}</div><h1>{S["title"]}</h1></div></div>'
             f"{t1}{t2}{t3}")

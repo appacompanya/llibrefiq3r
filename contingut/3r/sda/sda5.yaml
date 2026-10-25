@@ -2,17 +2,21 @@
 # uid = identificador estable (el mateix que a la base de dades). No el canviïs mai ni el reutilitzis.
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
+# Avaluació oficial: nivells NA–AE, sense pesos.
+# Fitxes qualificadores: 3 (d5f3, gràfiques, 1.1), 5 (d5f5, difusió, 2.2 i 2.3) i 6 (d5f6q, febre, 1.1 i 5.3). La resta (1, 2, 4 i 7) són formatives i no entren al càlcul oficial.
+# La resposta al repte de la sessió 13 és formativa (esmena de les hipòtesis). El producte que es qualifica és el full de forces cel·lulars.
+# CE: principals CE1 i CE5. Secundària CE2 (laboratori de difusió, fitxa 5, amb rúbrica de disseny i conclusions).
 sda: 5
-versio: 2
+versio: 3
 color: --s5
 titol: Cèl·lules immunitàries a la caça dels patògens
 repte: Com persegueix un neutròfil un bacteri sense veure'l?
-meta: '2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5'
+meta: '2n i 3r trimestre · 13 sessions · Producte final: full de forces cel·lulars · Competències específiques avaluades: CE1, CE5 i CE2'
 publicada: true
 ce_aprovades:
 - CE1
-- CE2
 - CE5
+- CE2
 sessions:
 - titol: La persecució
   fase: Explorem
@@ -109,7 +113,7 @@ sessions:
   enllacos: []
 - titol: Responc el repte i reflexiono
   fase: Reflexionem
-  text: Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.
+  text: 'Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l''activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l''avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.'
   docs:
   - d5diana
   docs_professorat:
@@ -394,6 +398,7 @@ documents:
         criteris: []
         camps:
         - d5f1.a7
+    avaluacio: formativa
   d5f2:
     uid: d5f2
     versio: 1
@@ -444,6 +449,7 @@ documents:
         criteris: []
         camps:
         - d5f2.a5
+    avaluacio: formativa
   d5f3:
     uid: d5f3
     versio: 1
@@ -519,6 +525,8 @@ documents:
         criteris: []
         camps:
         - d5f3.a23
+    avaluacio: qualificadora
+    nota_avaluacio: 'Qualificadora: evidència s5.graf, criteri 1.1.'
   d5f4:
     uid: d5f4
     versio: 1
@@ -612,6 +620,7 @@ documents:
         criteris: []
         camps:
         - d5f4.a27
+    avaluacio: formativa
   d5f5:
     uid: d5f5
     versio: 1
@@ -681,6 +690,8 @@ documents:
         criteris: []
         camps:
         - d5f5.a17
+    avaluacio: qualificadora
+    nota_avaluacio: 'Qualificadora: evidència s5.difu, criteris 2.2 i 2.3.'
   d5f6q:
     uid: d5f6q
     versio: 1
@@ -774,6 +785,8 @@ documents:
         criteris: []
         camps:
         - d5f6q.a20
+    avaluacio: qualificadora
+    nota_avaluacio: 'Qualificadora: evidència s5.febre, criteris 1.1 i 5.3. La fitxa 7 (d5f6, Newton) és formativa.'
   d5prob:
     uid: d5prob
     versio: 1
@@ -927,6 +940,7 @@ documents:
         criteris: []
         camps:
         - d5f6.a12
+    avaluacio: formativa
   d5hooke:
     uid: d5hooke
     versio: 1
@@ -1321,7 +1335,6 @@ evidencies:
     criteris:
     - '1.2'
     - '5.3'
-  pes: 30
 - uid: s5.tfm
   id: tfm
   versio: 1
@@ -1362,12 +1375,12 @@ evidencies:
       AN: Relaciona les forces cel·lulars amb algun procés de salut
       AS: Esmenta la salut sense justificar-ho
       NA: No relaciona les forces amb la salut
-  pes: 30
 - uid: s5.graf
   id: graf
   versio: 1
   titol: Gràfiques del patinet (fitxa 3, sessió 4)
-  instruments: []
+  instruments:
+  - d5f3
   items:
   - uid: s5.graf.g1
     id: g1
@@ -1391,12 +1404,12 @@ evidencies:
       AN: Calcula els pendents correctament
       AS: Calcula algun pendent
       NA: No calcula els pendents
-  pes: 15
 - uid: s5.febre
   id: febre
   versio: 1
   titol: La febre i la migració (fitxa 6, sessió 8)
-  instruments: []
+  instruments:
+  - d5f6q
   items:
   - uid: s5.febre.f1
     id: f1
@@ -1420,7 +1433,6 @@ evidencies:
       AN: Explica que la febre ajuda la defensa
       AS: Resposta parcial
       NA: No ho relaciona amb la salut
-  pes: 10
 - uid: s5.difu
   id: difu
   versio: 1
@@ -1450,4 +1462,8 @@ evidencies:
       AN: Treu una conclusió coherent i diu si es confirma la hipòtesi
       AS: Conclusió poc relacionada amb les dades
       NA: Sense conclusió
-  pes: 15
+ce_principals:
+- CE1
+- CE5
+ce_secundaria:
+- CE2

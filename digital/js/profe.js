@@ -372,7 +372,7 @@
     const lliurades = sm.reduce((a, p) => a + p.lliurades, 0);
     $("#main").innerHTML = `<div class="seggrid"><section class="card"><h2>Grup</h2><div class="tscroll"><table class="t segtab"><thead><tr><th>Alumne/a</th>${sdas.map((n) => `<th title="${esc(sdaTitle(n))}">${n}</th>`).join("")}<th>Mitjana</th></tr></thead><tbody>
         ${students.map((s) => `<tr class="click${s.id === segStu ? " on" : ""}" data-seg="${s.id}"><td>${esc(s.display_name)}</td>${sdas.map((n) => `<td>${chip(lvFrom((sums[s.id].find((p) => p.sda === n) || {}).mitjana))}</td>`).join("")}<td>${chip(lvFrom(glob(s.id)))}</td></tr>`).join("")}
-        </tbody></table></div><p class="note">Nivell mitjà de les fitxes digitals de cada SdA. Si has retornat la fitxa, compta la teva valoració; si no, la correcció automàtica.</p></section>
+        </tbody></table></div><p class="note">Nivell mitjà de les fitxes digitals de cada SdA: nota orientativa de feedback formatiu. Si has retornat la fitxa, es mostra la teva valoració; si no, la correcció automàtica. No entra al càlcul oficial (NA–AE).</p></section>
       <section class="card segmain"><div class="row" style="justify-content:space-between"><h2>${esc(stu.display_name)}</h2><span class="note">${esc(stu.grup || "")} · ${lliurades} fitxes lliurades</span></div>
         <h3>Progrés d'una SdA a la següent</h3>${progressSvg(sm, groupMean) || '<p class="note">Sense dades.</p>'}
         <h3>Tipus d'error detectats</h3>${errTable}

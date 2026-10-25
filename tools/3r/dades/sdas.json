@@ -1,1 +1,543 @@
-[{"n": 1, "title": "Detectius de la matèria", "q": "Com podem identificar dotze substàncies que han perdut l'etiqueta?", "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5", "sessions": [{"t": "El repte i la seguretat", "p": "Al laboratori hi ha dotze pots sense etiqueta i tenim la llista de les dotze etiquetes possibles. Observarem els pots sense obrir-los i farem les primeres hipòtesis. Abans de tocar res, buscarem els errors d'un laboratori on tothom fa alguna cosa perillosa i farem el nostre decàleg de seguretat.", "half": false}, {"t": "Unitats i notació científica", "p": "Recordarem què és una magnitud, les unitats del Sistema Internacional i com es canvien les unitats de massa, longitud i volum. Veurem que els prefixos són potències de 10 i aprendrem a escriure i operar nombres molt grans i molt petits amb la notació científica.", "half": true}, {"t": "Factors de conversió", "p": "Farem canvis d'unitats encadenats, també amb unitats compostes com la densitat. A casa buscaràs la densitat de les substàncies possibles en fonts fiables i en citaràs la font.", "half": false}, {"t": "Densitat dels pots enigma", "p": "Pesarem els nou pots que contenen líquids i en calcularem la densitat. La compararem amb els valors que has trobat i calcularem l'error absolut i l'error relatiu. Ja podrem assignar les primeres etiquetes!", "half": true}, {"t": "Conductivitat i el clau de ferro", "p": "Repassarem què són les substàncies pures i les mescles. El professor farà dues demostracions i tu en registraràs els resultats: quins líquids condueixen el corrent elèctric i per què, i què passa quan posem un clau de ferro en els tres líquids blaus. Prepararem la separació de la sessió següent.", "half": false}, {"t": "Separem mescles", "p": "Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.", "half": true}, {"t": "La nota anònima", "p": "Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.", "half": false}, {"t": "Resolem el cas", "p": "Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.", "half": true}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", "half": false}, {"t": "Corregeixo i reflexiono", "p": "Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "half": true}], "eval": [{"w": 30, "name": "prova", "c": ["3.2", "2.3", "2.6"]}, {"w": 40, "name": "inf", "c": ["2.1", "2.3", "3.2"]}, {"w": 20, "name": "lab", "c": ["2.3", "3.3"]}, {"w": 10, "name": "ellen", "c": ["2.6"]}]}, {"n": 2, "title": "El desodorant kamikaze", "q": "Per què explota un desodorant dins d'un cotxe a l'agost?", "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1, CE2 i CE4", "sessions": [{"t": "El repte", "p": "Veurem què pot passar quan un esprai es queda dins d'un cotxe a l'estiu i llegirem l'etiqueta d'un aerosol. Dibuixaràs com t'imagines les partícules del gas de l'interior de la llauna i, en grup, formulareu hipòtesis sobre per què pot rebentar.", "half": false}, {"t": "Els globus al fred i a la calor", "p": "Mesurarem el perímetre de dos globus i en calcularem el volum suposant que són esfèrics. Després en deixarem un 20 minuts al congelador i l'altre damunt d'un vas amb aigua calenta, i calcularem en quin percentatge ha variat el volum de cadascun. Mentre esperem, farem prediccions.", "half": true}, {"t": "El model de partícules", "p": "Descobrirem com és la matèria a escala de partícules: partícules en moviment constant i buit entre elles. Amb una simulació veurem que la pressió d'un gas és el resultat dels xocs de les partícules contra les parets del recipient, i entendrem per què ha variat el volum dels globus.", "half": false}, {"t": "Les lleis dels gasos", "p": "Corregirem la fitxa 1. Estudiarem els estats d'agregació i les tres lleis dels gasos, i aprendrem a fer servir l'escala Kelvin.", "half": true}, {"t": "Exercicis de gasos", "p": "Resoldrem problemes de gasos, primer junts i després en parelles. La fitxa 2 l'acabaràs a casa.", "half": false}, {"t": "Corba d'escalfament i canvis d'estat", "p": "Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.", "half": true}, {"t": "Torno al repte", "p": "Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.", "half": false}, {"t": "Gravem el vídeo per a 1r", "p": "Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.", "half": true}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.", "half": false}, {"t": "Corregeixo i reflexiono", "p": "Corregirem la prova entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo i el coavaluarem amb la rúbrica. Faràs la diana per valorar què has après.", "half": true}], "eval": [{"w": 30, "name": "prova", "c": ["1.1", "1.2"]}, {"w": 40, "name": "video", "c": ["1.2", "4.1"]}, {"w": 30, "name": "expl", "c": ["1.2", "1.1"]}]}, {"n": 3, "title": "Què hi ha dins del meu mòbil?", "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?", "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE1, CE5 i CE6", "sessions": [{"t": "Desmuntem el mòbil", "p": "Desmuntarem un model de mòbil peça a peça i, a partir de les etiquetes tècniques, trobarem quins elements químics conté. Farem una hipòtesi: què passaria si el llencéssim al contenidor de rebuig? Presentarem el repte: un punt de recollida de mòbils a l'institut.", "half": false}, {"t": "De Dalton a Bohr", "p": "Veurem com ha canviat la idea d'àtom, des de Dalton fins a Bohr. Amb els simuladors reproduirem l'experiment de Rutherford i construirem àtoms per entendre el nombre atòmic, el nombre màssic i els isòtops.", "half": true}, {"t": "Ions i el camí del reciclatge", "p": "Recordarem què és un ió i veurem, amb el nostre simulador, com es mouen els ions de liti dins de la bateria. Després cada grup explicarà una etapa del camí que fa un mòbil quan es recicla.", "half": false}, {"t": "El liti a la flama", "p": "Començarem amb 15 minuts per recordar el que vam fer abans de les vacances. Primer veurem com es distribueixen els electrons per capes segons el model de Bohr. Després comprovarem que una sal conté liti amb l'assaig a la flama i un espectroscopi: cada element emet uns colors propis, i ho explicarem amb el model de Bohr.", "half": true}, {"t": "La taula periòdica", "p": "Veurem com Mendeléiev va ordenar els elements i va predir-ne de nous. Situarem a la taula els elements del mòbil i descobrirem per què els elements d'un mateix grup s'assemblen.", "half": false}, {"t": "L'enllaç químic", "p": "Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.", "half": true}, {"t": "Per què cremen les bateries?", "p": "Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.", "half": false}, {"t": "Posem en marxa el punt de recollida", "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.", "half": true}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Repassa les fitxes i el mapa conceptual.", "half": false}, {"t": "Corregeixo i reflexiono", "p": "Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "half": true}], "eval": [{"w": 30, "name": "prova", "c": ["6.1", "5.1", "5.2"]}, {"w": 35, "name": "camp", "c": ["5.4", "5.1", "5.2"]}, {"w": 25, "name": "dos", "c": ["5.1", "5.2"]}, {"w": 10, "name": "fit", "c": ["6.1"]}]}, {"n": 4, "title": "Un cotxe que només allibera aigua?", "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?", "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE1, CE2 i CE3", "sessions": [{"t": "El repte i l'espelma", "p": "Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.", "half": false}, {"t": "Lavoisier al laboratori", "p": "Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.", "half": true}, {"t": "Formulació i nomenclatura", "p": "Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.", "half": false}, {"t": "Obtenim hidrogen", "p": "Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.", "half": true}, {"t": "Equacions i càlculs de massa", "p": "Aprendrem a ajustar equacions químiques i a calcular les masses de reactius i productes a partir de les masses atòmiques. Calcularem quanta aigua allibera cada dia un autobús d'hidrogen. La fitxa 2 l'acabaràs a casa.", "half": false}, {"t": "Electròlisi: hidrogen verd", "p": "Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.", "half": true}, {"t": "Taller de problemes", "p": "Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d'una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d'ajust d'equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.", "half": false}, {"t": "Per què no són tots així?", "p": "Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.", "half": true}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.", "half": false}, {"t": "Corregeixo i reflexiono", "p": "Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "half": true}], "eval": [{"w": 30, "name": "prova", "c": ["3.2", "2.2", "2.5", "3.1"]}, {"w": 40, "name": "lab", "c": ["2.2", "2.5", "3.2"]}, {"w": 30, "name": "dos", "c": ["3.1", "2.4"]}]}, {"n": 5, "title": "Cèl·lules immunitàries a la caça dels patògens", "q": "Com persegueix un neutròfil un bacteri sense veure'l?", "meta": "2n i 3r trimestre · 13 sessions · Projecte amb connexió amb Biologia · Competències específiques avaluades: CE1, CE2 i CE5", "sessions": [{"t": "La persecució", "p": "Veurem un vídeo real d'un neutròfil que persegueix un bacteri. Veurem també per què és tan important que les cèl·lules migrin: per defensar-nos de les infeccions, per tancar les ferides i, malauradament, en la metàstasi d'un càncer. En grup, farem una hipòtesi sobre com es mou, si fa força i com sap on és el bacteri. Rebràs les rúbriques de la SdA.", "half": false}, {"t": "El moviment uniforme (MRU)", "p": "Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.", "half": true}, {"t": "El moviment accelerat (MRUA)", "p": "Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l'acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d'un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.", "half": false}, {"t": "Les gràfiques del patinet", "p": "Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.", "half": true}, {"t": "Trajectòria i desplaçament", "p": "Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell com a regle. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.", "half": false}, {"t": "Difusió i gradient", "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.", "half": true}, {"t": "Quimiotaxi i febre", "p": "Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.", "half": false}, {"t": "Problemes de moviment", "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.", "half": true}, {"t": "Les lleis de Newton", "p": "Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s'atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.", "half": false}, {"t": "La llei de Hooke", "p": "Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.", "half": true}, {"t": "Les cèl·lules també fan forces", "p": "Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar la prova.", "half": false}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", "half": true}, {"t": "Responc el repte i reflexiono", "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem la prova entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "half": false}], "eval": [{"w": 35, "name": "prova", "c": ["1.3", "1.1", "1.2", "5.3"]}, {"w": 30, "name": "tfm", "c": ["1.3", "1.2", "5.3"]}, {"w": 20, "name": "graf", "c": ["1.1"]}, {"w": 15, "name": "febre", "c": ["1.1", "5.3"]}]}, {"n": 6, "title": "L'energia del nostre institut", "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?", "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6", "sessions": [{"t": "Auditoria energètica de l'aula", "p": "La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (la plantilla te la dona el professor a l'aula virtual), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.", "half": true}, {"t": "Energia, potència i consum", "p": "Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.", "half": false}, {"t": "Mesurem el consum real", "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", "half": true}, {"t": "D'on ve l'electricitat?", "p": "Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.", "half": false}, {"t": "El pla d'estalvi i el debat", "p": "En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", "half": true}, {"t": "Prova", "p": "Prova escrita amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", "half": false}, {"t": "Corregeixo, votem i reflexiono", "p": "Corregirem la prova entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", "half": true}], "eval": [{"w": 30, "name": "prova", "c": ["6.2", "4.2", "4.3"]}, {"w": 20, "name": "cerca", "c": ["4.3"]}, {"w": 35, "name": "pla", "c": ["6.2"]}, {"w": 15, "name": "debat", "c": ["4.2"]}]}]
+[
+ {
+  "n": 1,
+  "title": "Detectius de la matèria",
+  "q": "Com podem identificar dotze substàncies que han perdut l'etiqueta?",
+  "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5",
+  "sessions": [
+   {
+    "t": "El repte i la seguretat",
+    "p": "Al laboratori hi ha dotze pots sense etiqueta i tenim la llista de les dotze etiquetes possibles. Observarem els pots sense obrir-los i farem les primeres hipòtesis. Abans de tocar res, buscarem els errors d'un laboratori on tothom fa alguna cosa perillosa i farem el nostre decàleg de seguretat.",
+    "half": false
+   },
+   {
+    "t": "Unitats i notació científica",
+    "p": "Recordarem què és una magnitud, les unitats del Sistema Internacional i com es canvien les unitats de massa, longitud i volum. Veurem que els prefixos són potències de 10 i aprendrem a escriure i operar nombres molt grans i molt petits amb la notació científica.",
+    "half": true
+   },
+   {
+    "t": "Factors de conversió",
+    "p": "Farem canvis d'unitats encadenats, també amb unitats compostes com la densitat. A casa buscaràs la densitat de les substàncies possibles en fonts fiables i en citaràs la font.",
+    "half": false
+   },
+   {
+    "t": "Densitat dels pots enigma",
+    "p": "Pesarem els nou pots que contenen líquids i en calcularem la densitat. La compararem amb els valors que has trobat i calcularem l'error absolut i l'error relatiu. Ja podrem assignar les primeres etiquetes!",
+    "half": true
+   },
+   {
+    "t": "Conductivitat i el clau de ferro",
+    "p": "Repassarem què són les substàncies pures i les mescles. El professor farà dues demostracions i tu en registraràs els resultats: quins líquids condueixen el corrent elèctric i per què, i què passa quan posem un clau de ferro en els tres líquids blaus. Prepararem la separació de la sessió següent.",
+    "half": false
+   },
+   {
+    "t": "Separem mescles",
+    "p": "Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.",
+    "half": true
+   },
+   {
+    "t": "La nota anònima",
+    "p": "Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.",
+    "half": false
+   },
+   {
+    "t": "Resolem el cas",
+    "p": "Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.",
+    "half": true
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.",
+    "half": false
+   },
+   {
+    "t": "Corregeixo i reflexiono",
+    "p": "Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+    "half": true
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "3.2",
+     "2.3",
+     "2.6"
+    ]
+   },
+   {
+    "name": "inf",
+    "c": [
+     "2.1",
+     "2.3",
+     "3.2"
+    ]
+   },
+   {
+    "name": "lab",
+    "c": [
+     "2.3",
+     "3.3"
+    ]
+   },
+   {
+    "name": "ellen",
+    "c": [
+     "2.6",
+     "5.1"
+    ]
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "title": "El desodorant kamikaze",
+  "q": "Per què explota un desodorant dins d'un cotxe a l'agost?",
+  "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE2",
+  "sessions": [
+   {
+    "t": "El repte",
+    "p": "Veurem què pot passar quan un esprai es queda dins d'un cotxe a l'estiu i llegirem l'etiqueta d'un aerosol. Dibuixaràs com t'imagines les partícules del gas de l'interior de la llauna i, en grup, formulareu hipòtesis sobre per què pot rebentar.",
+    "half": false
+   },
+   {
+    "t": "Els globus al fred i a la calor",
+    "p": "Mesurarem el perímetre de dos globus i en calcularem el volum suposant que són esfèrics. Després en deixarem un 20 minuts al congelador i l'altre damunt d'un vas amb aigua calenta, i calcularem en quin percentatge ha variat el volum de cadascun. Mentre esperem, farem prediccions.",
+    "half": true
+   },
+   {
+    "t": "El model de partícules",
+    "p": "Descobrirem com és la matèria a escala de partícules: partícules en moviment constant i buit entre elles. Amb una simulació veurem que la pressió d'un gas és el resultat dels xocs de les partícules contra les parets del recipient, i entendrem per què ha variat el volum dels globus.",
+    "half": false
+   },
+   {
+    "t": "Les lleis dels gasos",
+    "p": "Corregirem la fitxa 1. Estudiarem els estats d'agregació i les tres lleis dels gasos, i aprendrem a fer servir l'escala Kelvin.",
+    "half": true
+   },
+   {
+    "t": "Exercicis de gasos",
+    "p": "Resoldrem problemes de gasos, primer junts i després en parelles. La fitxa 2 l'acabaràs a casa.",
+    "half": false
+   },
+   {
+    "t": "Corba d'escalfament i canvis d'estat",
+    "p": "Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.",
+    "half": true
+   },
+   {
+    "t": "Torno al repte",
+    "p": "Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.",
+    "half": false
+   },
+   {
+    "t": "Gravem el vídeo per a 1r",
+    "p": "Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.",
+    "half": true
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.",
+    "half": false
+   },
+   {
+    "t": "Corregeixo i reflexiono",
+    "p": "Corregirem l'activitat de demostració entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo i el coavaluarem amb la rúbrica. Faràs la diana per valorar què has après.",
+    "half": true
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "1.1",
+     "1.2"
+    ]
+   },
+   {
+    "name": "video",
+    "c": [
+     "1.2",
+     "2.5"
+    ]
+   },
+   {
+    "name": "expl",
+    "c": [
+     "1.2",
+     "1.1"
+    ]
+   },
+   {
+    "name": "labc",
+    "c": [
+     "2.3"
+    ]
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "title": "Què hi ha dins del meu mòbil?",
+  "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
+  "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4",
+  "sessions": [
+   {
+    "t": "Desmuntem el mòbil",
+    "p": "Desmuntarem un model de mòbil peça a peça i, a partir de les etiquetes tècniques, trobarem quins elements químics conté. Farem una hipòtesi: què passaria si el llencéssim al contenidor de rebuig? Presentarem el repte: un punt de recollida de mòbils a l'institut.",
+    "half": false
+   },
+   {
+    "t": "De Dalton a Bohr",
+    "p": "Veurem com ha canviat la idea d'àtom, des de Dalton fins a Bohr. Amb els simuladors reproduirem l'experiment de Rutherford i construirem àtoms per entendre el nombre atòmic, el nombre màssic i els isòtops.",
+    "half": true
+   },
+   {
+    "t": "Ions i el camí del reciclatge",
+    "p": "Recordarem què és un ió i veurem, amb el nostre simulador, com es mouen els ions de liti dins de la bateria. Després cada grup explicarà una etapa del camí que fa un mòbil quan es recicla.",
+    "half": false
+   },
+   {
+    "t": "El liti a la flama",
+    "p": "Començarem amb 15 minuts per recordar el que vam fer abans de les vacances. Primer veurem com es distribueixen els electrons per capes segons el model de Bohr. Després comprovarem que una sal conté liti amb l'assaig a la flama i un espectroscopi: cada element emet uns colors propis, i ho explicarem amb el model de Bohr.",
+    "half": true
+   },
+   {
+    "t": "La taula periòdica",
+    "p": "Veurem com Mendeléiev va ordenar els elements i va predir-ne de nous. Situarem a la taula els elements del mòbil i descobrirem per què els elements d'un mateix grup s'assemblen.",
+    "half": false
+   },
+   {
+    "t": "L'enllaç químic",
+    "p": "Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.",
+    "half": true
+   },
+   {
+    "t": "Per què cremen les bateries?",
+    "p": "Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.",
+    "half": false
+   },
+   {
+    "t": "Posem en marxa el punt de recollida",
+    "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió. El punt de recollida funcionarà unes setmanes i en farem el balanç. Al final tens el mapa conceptual de la SdA.",
+    "half": true
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Repassa les fitxes i el mapa conceptual.",
+    "half": false
+   },
+   {
+    "t": "Corregeixo i reflexiono",
+    "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+    "half": true
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "6.1",
+     "5.1",
+     "5.2"
+    ]
+   },
+   {
+    "name": "camp",
+    "c": [
+     "5.4",
+     "5.1",
+     "5.2",
+     "4.1"
+    ]
+   },
+   {
+    "name": "dos",
+    "c": [
+     "5.1",
+     "5.2"
+    ]
+   },
+   {
+    "name": "fit",
+    "c": [
+     "6.1"
+    ]
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "title": "Un cotxe que només allibera aigua?",
+  "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
+  "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
+  "sessions": [
+   {
+    "t": "El repte i l'espelma",
+    "p": "Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.",
+    "half": false
+   },
+   {
+    "t": "Lavoisier al laboratori",
+    "p": "Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.",
+    "half": true
+   },
+   {
+    "t": "Formulació i nomenclatura",
+    "p": "Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.",
+    "half": false
+   },
+   {
+    "t": "Obtenim hidrogen",
+    "p": "Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.",
+    "half": true
+   },
+   {
+    "t": "Equacions i càlculs de massa",
+    "p": "Aprendrem a ajustar equacions químiques i a calcular les masses de reactius i productes a partir de les masses atòmiques. Calcularem quanta aigua allibera cada dia un autobús d'hidrogen. La fitxa 2 l'acabaràs a casa.",
+    "half": false
+   },
+   {
+    "t": "Electròlisi: hidrogen verd",
+    "p": "Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.",
+    "half": true
+   },
+   {
+    "t": "Taller de problemes",
+    "p": "Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d'una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d'ajust d'equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.",
+    "half": false
+   },
+   {
+    "t": "Per què no són tots així?",
+    "p": "Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.",
+    "half": true
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.",
+    "half": false
+   },
+   {
+    "t": "Corregeixo i reflexiono",
+    "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+    "half": true
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "3.2",
+     "2.2",
+     "2.5",
+     "3.1"
+    ]
+   },
+   {
+    "name": "lab",
+    "c": [
+     "2.2",
+     "2.5",
+     "3.2"
+    ]
+   },
+   {
+    "name": "dos",
+    "c": [
+     "3.1",
+     "2.4"
+    ]
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "title": "Cèl·lules immunitàries a la caça dels patògens",
+  "q": "Com persegueix un neutròfil un bacteri sense veure'l?",
+  "meta": "2n i 3r trimestre · 13 sessions · Producte final: full de forces cel·lulars · Competències específiques avaluades: CE1, CE5 i CE2",
+  "sessions": [
+   {
+    "t": "La persecució",
+    "p": "Veurem un vídeo real d'un neutròfil que persegueix un bacteri. Veurem també per què és tan important que les cèl·lules migrin: per defensar-nos de les infeccions, per tancar les ferides i, malauradament, en la metàstasi d'un càncer. En grup, farem una hipòtesi sobre com es mou, si fa força i com sap on és el bacteri. Rebràs les rúbriques de la SdA.",
+    "half": false
+   },
+   {
+    "t": "El moviment uniforme (MRU)",
+    "p": "Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.",
+    "half": true
+   },
+   {
+    "t": "El moviment accelerat (MRUA)",
+    "p": "Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l'acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d'un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.",
+    "half": false
+   },
+   {
+    "t": "Les gràfiques del patinet",
+    "p": "Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.",
+    "half": true
+   },
+   {
+    "t": "Trajectòria i desplaçament",
+    "p": "Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell com a regle. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.",
+    "half": false
+   },
+   {
+    "t": "Difusió i gradient",
+    "p": "Al laboratori veurem com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta: dissenyarem l'experiment, mesurarem i traurem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.",
+    "half": true
+   },
+   {
+    "t": "Quimiotaxi i febre",
+    "p": "Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.",
+    "half": false
+   },
+   {
+    "t": "Problemes de moviment",
+    "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.",
+    "half": true
+   },
+   {
+    "t": "Les lleis de Newton",
+    "p": "Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s'atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.",
+    "half": false
+   },
+   {
+    "t": "La llei de Hooke",
+    "p": "Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.",
+    "half": true
+   },
+   {
+    "t": "Les cèl·lules també fan forces",
+    "p": "Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar la prova.",
+    "half": false
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.",
+    "half": true
+   },
+   {
+    "t": "Responc el repte i reflexiono",
+    "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.",
+    "half": false
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "1.3",
+     "1.1",
+     "1.2",
+     "5.3"
+    ]
+   },
+   {
+    "name": "tfm",
+    "c": [
+     "1.3",
+     "1.2",
+     "5.3"
+    ]
+   },
+   {
+    "name": "graf",
+    "c": [
+     "1.1"
+    ]
+   },
+   {
+    "name": "febre",
+    "c": [
+     "1.1",
+     "5.3"
+    ]
+   },
+   {
+    "name": "difu",
+    "c": [
+     "2.2",
+     "2.3"
+    ]
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "title": "L'energia del nostre institut",
+  "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
+  "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4, CE6 i CE1",
+  "sessions": [
+   {
+    "t": "Auditoria energètica i acústica de l'aula",
+    "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte i l'inventari, a la plantilla d'Excel.",
+    "half": false
+   },
+   {
+    "t": "Muntem circuits",
+    "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel. No hi ha full de laboratori de circuits: el que observeu queda al full de ruta i a la simulació.",
+    "half": true
+   },
+   {
+    "t": "Energia, potència i consum",
+    "p": "Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.",
+    "half": false
+   },
+   {
+    "t": "Mesurem el consum real",
+    "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Recordarem, amb el que hem vist en muntar circuits, per què la instal·lació elèctrica de l'institut està connectada en paral·lel.",
+    "half": true
+   },
+   {
+    "t": "D'on ve l'electricitat?",
+    "p": "Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.",
+    "half": false
+   },
+   {
+    "t": "El pla d'estalvi i el debat",
+    "p": "En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.",
+    "half": true
+   },
+   {
+    "t": "Demostració d'assoliment",
+    "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.",
+    "half": false
+   },
+   {
+    "t": "Corregeixo, votem i reflexiono",
+    "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.",
+    "half": true
+   }
+  ],
+  "eval": [
+   {
+    "name": "prova",
+    "c": [
+     "6.2",
+     "1.2",
+     "4.3",
+     "4.2"
+    ]
+   },
+   {
+    "name": "cerca",
+    "c": [
+     "4.3"
+    ]
+   },
+   {
+    "name": "pla",
+    "c": [
+     "1.2",
+     "6.2"
+    ]
+   },
+   {
+    "name": "debat",
+    "c": [
+     "4.2"
+    ]
+   }
+  ]
+ }
+]
