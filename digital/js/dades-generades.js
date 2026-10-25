@@ -1028,6 +1028,11 @@ window.FQ3_DADES = {
    "l": "Simulador: la bateria de liti per dins",
    "an": 1
   },
+  "joctaula": {
+   "u": "../joc-taula.html?nivell=3r",
+   "l": "Joc: la taula periòdica (símbols, posicions i valències)",
+   "an": 1
+  },
   "simgas": {
    "u": "../sim-gasos.html",
    "l": "Simulador: el model cineticomolecular dels gasos",
@@ -1172,6 +1177,11 @@ window.FQ3_DADES = {
   "simbat": {
    "u": "sim-bateria.html",
    "l": "Simulador: la bateria de liti per dins",
+   "an": 1
+  },
+  "joctaula": {
+   "u": "joc-taula.html?nivell=3r",
+   "l": "Joc: la taula periòdica (símbols, posicions i valències)",
    "an": 1
   },
   "simgas": {
@@ -1662,7 +1672,8 @@ window.FQ3_DADES = {
       "d3f4"
      ],
      "l": [
-      "ptable"
+      "ptable",
+      "joctaula"
      ]
     },
     {
@@ -1812,7 +1823,9 @@ window.FQ3_DADES = {
      "d": [
       "d4f1"
      ],
-     "l": []
+     "l": [
+      "joctaula"
+     ]
     },
     {
      "t": "Obtenim hidrogen",
@@ -2618,7 +2631,8 @@ window.FQ3_DADES = {
       "d3f4"
      ],
      "l": [
-      "ptable"
+      "ptable",
+      "joctaula"
      ]
     },
     {
@@ -2709,7 +2723,9 @@ window.FQ3_DADES = {
      "d": [
       "d4f1"
      ],
-     "l": []
+     "l": [
+      "joctaula"
+     ]
     },
     {
      "t": "Obtenim hidrogen",
