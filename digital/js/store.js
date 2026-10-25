@@ -168,7 +168,7 @@
         const now = new Date().toISOString(); const rows = []; const review = [];
         const errs = (x) => { const e = []; if (!x.answer || x.answer === "(sense resposta)") e.push("incompleta"); else if (x.score != null && x.score < 0.95) { if (/unitat/i.test(String(x.auto))) e.push("unitats"); else e.push(/V |F |tf/.test(x.answer) ? "conceptual" : "càlcul"); } return e; };
         items.forEach((x) => { const blank = x.answer === "(sense resposta)"; const lv = blank ? "NA" : lvOf(x.score); if (!blank && x.score == null) review.push(x.id);
-          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "Aquesta resposta la corregirà el professor (en mode demostració no hi ha IA)." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
+          const note = blank ? "No has respost aquesta pregunta." : x.score == null ? "Aquesta resposta la corregirà el professor." : x.score >= 0.95 ? "Correcte. Bona feina!" : `La comprovació automàtica indica errors (${x.auto}). Revisa el càlcul i les unitats.`;
           rows.push({ item_id: "auto:" + x.id, level: lv, comment: note, released: true, updated_at: now });
           const cur = db.feedback[k(sid, ws, x.id)] || { released: false }; db.feedback[k(sid, ws, x.id)] = { ...cur, proposal_level: lv, proposal_note: note }; });
         const sc = items.map((x) => x.score).filter((v) => v != null); const avg = sc.length ? sc.reduce((a, b) => a + b, 0) / sc.length : null;
