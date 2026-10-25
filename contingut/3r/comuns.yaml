@@ -186,6 +186,10 @@ enllacos:
     u: ../sim-bateria.html
     l: 'Simulador: la bateria de liti per dins'
     an: 1
+  joctaula:
+    u: ../joc-taula.html?nivell=3r
+    l: 'Joc: la taula periòdica (símbols, posicions i valències)'
+    an: 1
   simgas:
     u: ../sim-gasos.html
     l: 'Simulador: el model cineticomolecular dels gasos'
@@ -244,6 +248,7 @@ enllacos:
     u: https://phet.colorado.edu/ca/simulations/states-of-matter-basics
     l: 'Simulació: estats de la matèria'
 enllacos_url_arrel:
+  joctaula: joc-taula.html?nivell=3r
   simbat: sim-bateria.html
   simgas: sim-gasos.html
   anajust: sim-ajust.html

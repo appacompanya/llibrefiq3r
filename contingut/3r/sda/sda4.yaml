@@ -37,7 +37,8 @@ sessions:
   text: Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.
   docs:
   - d4f1
-  enllacos: []
+  enllacos:
+  - joctaula
 - titol: Obtenim hidrogen
   fase: Experimentem
   text: Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.
