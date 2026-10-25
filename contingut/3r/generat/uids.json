@@ -7877,7 +7877,7 @@
  "d5f5": {
   "sda": 5,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "d5f5.1": {
   "document": "d5f5",
@@ -8301,12 +8301,12 @@
  "d5hooke": {
   "sda": 5,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.1": {
   "document": "d5hooke",
   "tipus": "pregunta",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.2": {
   "document": "d5hooke",
@@ -8337,145 +8337,145 @@
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a10": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a11": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a12": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a13": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a14": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a15": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a16": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a17": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a18": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a19": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a2": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a20": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a21": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a22": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a23": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a24": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a25": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a26": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a27": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a28": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a29": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a3": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a30": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a31": {
   "document": "d5hooke",
@@ -8517,37 +8517,37 @@
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a5": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a6": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a7": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a8": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5hooke.a9": {
   "document": "d5hooke",
   "pregunta": "d5hooke.1",
   "tipus": "camp",
-  "versio": 1
+  "versio": 2
  },
  "d5lam": {
   "sda": null,
@@ -8745,7 +8745,7 @@
  "d5rub": {
   "sda": null,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "d5ruta": {
   "sda": 5,
@@ -10849,7 +10849,7 @@
  "dcR1": {
   "sda": 0,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "dcR1.1": {
   "document": "dcR1",
@@ -11398,7 +11398,7 @@
  "dcR4": {
   "sda": 0,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "dcR4.1": {
   "document": "dcR4",
@@ -11805,7 +11805,7 @@
  "dcR6": {
   "sda": 0,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "dcR6.1": {
   "document": "dcR6",
@@ -14097,20 +14097,11 @@
  "s5.difu": {
   "sda": 5,
   "tipus": "evidencia",
-  "versio": 1
+  "versio": 2
  },
  "s5.difu.x1": {
   "criteris": [
    "2.2"
-  ],
-  "evidencia": "s5.difu",
-  "sda": 5,
-  "tipus": "item_avaluacio",
-  "versio": 1
- },
- "s5.difu.x2": {
-  "criteris": [
-   "2.3"
   ],
   "evidencia": "s5.difu",
   "sda": 5,
@@ -14159,6 +14150,29 @@
    "1.1"
   ],
   "evidencia": "s5.graf",
+  "sda": 5,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s5.hooke": {
+  "sda": 5,
+  "tipus": "evidencia",
+  "versio": 1
+ },
+ "s5.hooke.h1": {
+  "criteris": [
+   "2.3"
+  ],
+  "evidencia": "s5.hooke",
+  "sda": 5,
+  "tipus": "item_avaluacio",
+  "versio": 1
+ },
+ "s5.hooke.h2": {
+  "criteris": [
+   "2.3"
+  ],
+  "evidencia": "s5.hooke",
   "sda": 5,
   "tipus": "item_avaluacio",
   "versio": 1
