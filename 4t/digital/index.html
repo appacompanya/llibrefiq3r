@@ -490,9 +490,9 @@ function renderHome(){
   renderCta();
 }
 function renderCta(){
-  const v = lastSda(), s = SDAS.find(x => x.n === v);
-  document.getElementById("cta").innerHTML = s
-    ? `<a class="btn" href="#sda${v}" style="--acc:var(${s.c})">Continua per la SdA ${v}: ${esc(s.title)}</a>`
+  // a la portada: botó petit per obrir el joc de la taula periòdica (dins del llibre)
+  document.getElementById("cta").innerHTML = L.joctaula
+    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>`
     : "";
 }
 
