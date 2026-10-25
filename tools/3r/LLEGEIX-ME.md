@@ -84,7 +84,7 @@ Els PDF, la programació i els annexos segueixen els generadors d'aquesta carpet
 
 ## Adaptacions per perfil (NESE)
 
-- El docent assigna el perfil de cada alumne a la zona del professorat («Alumnat i codis» → botó d'adaptació). Es desa a `profiles.adaptacions` (l'alumne només el llegeix). Perfils: `dislexia`, `nouvingut`, `basics`, `discalculia`, `tdah`, `tea`.
-- L'alumne tria «Fitxes: Digital / Paper» a la barra superior del llibre (`preferencies.mode_fitxes`). En paper, els botons obren el PDF original o, si té adaptació, la vista imprimible adaptada (`#paper-<fitxa>`).
+- El docent assigna el perfil de cada alumne a la zona del professorat («Alumnat i codis» → botó d'adaptació). Es desa a `profiles.adaptacions` (l'alumne només el llegeix). Perfils: `dislexia`, `nouvingut`, `basics`, `discalculia`, `tdah`, `tea`. Si marca nouvingut, tria també la llengua (`profiles.adapt_idioma`, llista a `adaptacions.yaml`).
+- L'alumne tria «Fitxes: Digital / Paper» a la barra superior del llibre (`preferencies.mode_fitxes`). En paper, els botons obren el PDF original o, si té adaptació, la vista imprimible adaptada (`#paper-<fitxa>`). Amb el botó «Ajudes» de la fitxa pot desactivar les seves ajudes (`preferencies.ajudes_off`), però no continguts bàsics.
 - `digital/js/adaptacions.js` aplica les adaptacions automàtiques a totes les fitxes. `contingut/3r/adaptacions.yaml` conté el glossari per SdA i, per fitxa i perfil, `no_cal` o el contingut d'una versió adaptada (`abans`, i per pregunta `exemple`, `passos`, `pistes`, `frases`, `paraules`, `model`). Després d'editar-lo: `python3 -B tools/3r/build_adaptacions.py`.
 - Criteris: document «Adaptacions del llibre digital: criteris per perfil».

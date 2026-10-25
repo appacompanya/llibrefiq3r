@@ -10,6 +10,8 @@
   const LEVELS = ["2n", "3r", "4t"];
   /* perfils d'adaptació (NESE) que pot assignar el docent */
   const ADAPT = ["dislexia", "nouvingut", "basics", "discalculia", "tdah", "tea"];
+  /* ajudes que l'alumne pot desactivar (continguts bàsics no: el decideix el docent) */
+  const AJUDES = ["lletra", "veu", "glossari", "passos", "pantalla", "guia"];
   /* curs triat a la zona del professorat (es recorda en aquest navegador) */
   const CUR_KEY = "fq-curs";
   const getCur = () => { try { return localStorage.getItem(CUR_KEY) || null; } catch { return null; } };
@@ -140,8 +142,11 @@
         if (isSeedStudent(s)) { save(); throw new Error("Els comptes de demostració conserven el codi DEMO."); }
         s.code = newCode(); ensureDemoSeeds(db); save(); return s.code;
       },
-      async setAdaptacions(id, list) { const s = db.students.find((x) => x.id === id); if (!s) throw new Error("bad_student"); s.adaptacions = (list || []).filter((x) => ADAPT.includes(x)); save(); if (me && me.id === id) setMe({ ...me, adaptacions: s.adaptacions }); },
+      async setAdaptacions(id, list, idioma) { const s = db.students.find((x) => x.id === id); if (!s) throw new Error("bad_student"); s.adaptacions = (list || []).filter((x) => ADAPT.includes(x)); s.adapt_idioma = s.adaptacions.includes("nouvingut") ? (idioma || null) : null; save(); },
       async myAdaptacions() { const s = me && db.students.find((x) => x.id === me.id); return (s && s.adaptacions) || []; },
+      async myAdapt() { const s = me && db.students.find((x) => x.id === me.id); return { perfils: (s && s.adaptacions) || [], idioma: (s && s.adapt_idioma) || null }; },
+      async getPrefs() { const s = me && db.students.find((x) => x.id === me.id); return { mode: (s && s.mode_fitxes) || "digital", ajudes_off: (s && s.ajudes_off) || [] }; },
+      async setPrefs(p) { const s = me && db.students.find((x) => x.id === me.id); if (!s) return; if (p.mode) s.mode_fitxes = p.mode === "paper" ? "paper" : "digital"; if (p.ajudes_off) s.ajudes_off = p.ajudes_off.filter((x) => AJUDES.includes(x)); save(); },
       async getMode() { const s = me && db.students.find((x) => x.id === me.id); return (s && s.mode_fitxes) || "digital"; },
       async setMode(m) { const s = me && db.students.find((x) => x.id === me.id); if (s) { s.mode_fitxes = m === "paper" ? "paper" : "digital"; save(); } },
       async deleteStudent(id) {
@@ -205,7 +210,7 @@
     const must = ({ data, error }) => { if (error) throw error; return data; };
     async function loadProfile() {
       const { data: u } = await sb.auth.getUser(); if (!u?.user) { me = null; return null; }
-      const { data } = await sb.from("profiles").select("id, role, display_name, grup, username, course_id, adaptacions").eq("id", u.user.id).maybeSingle();
+      const { data } = await sb.from("profiles").select("id, role, display_name, grup, username, course_id, adaptacions, adapt_idioma").eq("id", u.user.id).maybeSingle();
       me = data || null; courses = null; return me;
     }
     async function fn(name, body) {
@@ -299,14 +304,17 @@
       async myFeedback(ws) { return must(await sb.from("feedback").select("item_id, level, comment").eq("student_id", me.id).eq("worksheet_id", ws).eq("released", true)); },
       // professorat (les regles de la base de dades ja limiten a l'alumnat dels cursos del docent)
       async listStudents(cid = this.curCourse()) {
-        let q = sb.from("profiles").select("id, display_name, grup, code, role, course_id, adaptacions").eq("role", "student");
+        let q = sb.from("profiles").select("id, display_name, grup, code, role, course_id, adaptacions, adapt_idioma").eq("role", "student");
         if (cid) q = q.eq("course_id", cid); else { const ids = (await myCourses()).map((c) => c.id); if (!ids.length) return []; q = q.in("course_id", ids); }
         return must(await q.order("display_name"));
       },
       async createStudents(names, cid = this.curCourse()) { return (await fn("alumnes", { names, course_id: cid })).students.map((s) => ({ id: s.id, display_name: s.name, code: s.code, course_id: cid })); },
       async resetCode(id) { return (await fn("alumnes", { action: "reset", id })).code; },
       async deleteStudent(id) { await fn("alumnes", { action: "delete", id }); },
-      async setAdaptacions(id, list) { must(await sb.from("profiles").update({ adaptacions: (list || []).filter((x) => ADAPT.includes(x)) }).eq("id", id)); },
+      async setAdaptacions(id, list, idioma) { const a = (list || []).filter((x) => ADAPT.includes(x)); must(await sb.from("profiles").update({ adaptacions: a, adapt_idioma: a.includes("nouvingut") ? (idioma || null) : null }).eq("id", id)); },
+      async myAdapt() { if (!me) return { perfils: [], idioma: null }; const r = must(await sb.from("profiles").select("adaptacions, adapt_idioma").eq("id", me.id).maybeSingle()); return { perfils: (r && r.adaptacions) || [], idioma: (r && r.adapt_idioma) || null }; },
+      async getPrefs() { if (!me) return { mode: "digital", ajudes_off: [] }; const r = must(await sb.from("preferencies").select("mode_fitxes, ajudes_off").eq("student_id", me.id).maybeSingle()); return { mode: (r && r.mode_fitxes) || "digital", ajudes_off: (r && r.ajudes_off) || [] }; },
+      async setPrefs(p) { const cur = await this.getPrefs(); const row = { student_id: me.id, mode_fitxes: (p.mode || cur.mode) === "paper" ? "paper" : "digital", ajudes_off: (p.ajudes_off || cur.ajudes_off).filter((x) => AJUDES.includes(x)), updated_at: new Date().toISOString() }; must(await sb.from("preferencies").upsert(row)); },
       async myAdaptacions() { if (!me) return []; const r = must(await sb.from("profiles").select("adaptacions").eq("id", me.id).maybeSingle()); return (r && r.adaptacions) || []; },
       async getMode() { if (!me) return "digital"; const r = must(await sb.from("preferencies").select("mode_fitxes").eq("student_id", me.id).maybeSingle()); return (r && r.mode_fitxes) || "digital"; },
       async setMode(m) { must(await sb.from("preferencies").upsert({ student_id: me.id, mode_fitxes: m === "paper" ? "paper" : "digital", updated_at: new Date().toISOString() })); },
@@ -367,4 +375,5 @@
   G.FQStore.isStaff = isStaff;
   G.FQStore.LEVELS = LEVELS;
   G.FQStore.ADAPT = ADAPT;
+  G.FQStore.AJUDES = AJUDES;
 })(window);

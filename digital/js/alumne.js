@@ -6,7 +6,7 @@
   const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   let settings = { auto_calc: true }, me = null, wsKey = null, wsBack = null, wsFromNav = false, cur = null;
   /* adaptació assignada pel docent (l'alumne no la pot canviar) i mode de les fitxes triat per l'alumne */
-  let adapt = [], mode = "digital";
+  let adapt = [], idioma = null, mode = "digital", ajudesOff = [];
   const AD = () => window.FQAdapt;
   const adaptedFor = (k) => (AD() ? AD().effective(k, adapt).length > 0 : false);
   /* enllaç de cada botó de fitxa de la pàgina de la SdA (index.html, dlBtn) */
@@ -56,8 +56,8 @@
     } catch {}
     const el = $("#fqLogin"); if (el) el.hidden = true;
     try { settings = { auto_calc: true, ...(await S.getSettings()) }; } catch {}
-    try { adapt = S.myAdaptacions ? await S.myAdaptacions() : []; } catch { adapt = []; }
-    try { mode = S.getMode ? await S.getMode() : "digital"; } catch { mode = "digital"; }
+    try { const a = S.myAdapt ? await S.myAdapt() : { perfils: [], idioma: null }; adapt = a.perfils || []; idioma = a.idioma || null; } catch { adapt = []; idioma = null; }
+    try { const pr = S.getPrefs ? await S.getPrefs() : {}; mode = pr.mode || "digital"; ajudesOff = pr.ajudes_off || []; } catch { mode = "digital"; ajudesOff = []; }
     renderUserBar(); refreshSda();
     window.dispatchEvent(new HashChangeEvent("hashchange"));
   }
@@ -67,20 +67,20 @@
     bar.innerHTML = `${S.mode === "demo" ? '<span class="demo-flag">Demostració</span>' : ""}<span>Hola, <b>${esc(me.display_name || "")}</b></span>
       <span class="modesw" role="radiogroup" aria-label="Com vols les fitxes?"><span class="ml">Fitxes:</span><button type="button" role="radio" data-mode="digital" aria-checked="${mode === "digital"}">Digital</button><button type="button" role="radio" data-mode="paper" aria-checked="${mode === "paper"}">Paper</button></span>
       <button type="button" id="fqOut">Surt</button>`;
-    $("#fqOut").onclick = async () => { await S.signOut(); me = null; adapt = []; mode = "digital"; location.hash = "#inici"; showLogin(); refreshSda(); };
+    $("#fqOut").onclick = async () => { await S.signOut(); me = null; adapt = []; idioma = null; mode = "digital"; ajudesOff = []; location.hash = "#inici"; showLogin(); refreshSda(); };
     bar.querySelectorAll("[data-mode]").forEach((b) => (b.onclick = async () => {
       if (b.dataset.mode === mode) return; mode = b.dataset.mode; renderUserBar(); refreshSda();
-      try { await S.setMode(mode); } catch {}
+      try { await S.setPrefs({ mode }); } catch {}
     }));
   }
 
   /* torna a dibuixar els botons de la SdA oberta quan canvia el mode o l'adaptació */
   function refreshSda() { try { if (typeof current !== "undefined" && current && typeof renderPanel === "function") renderPanel(current); } catch {} }
-  (function modeCss() { const st = document.createElement("style"); st.textContent = ".modesw{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px}.modesw .ml{font-size:.8rem;color:var(--muted);padding:0 6px}.modesw button{border:0;background:transparent;color:var(--fg);font:inherit;font-size:.82rem;padding:3px 10px;border-radius:999px;cursor:pointer}.modesw button[aria-checked=true]{background:var(--acc,#2f6db5);color:#fff;font-weight:700}@media print{.userbar,.wsbar{display:none!important}}"; document.head.appendChild(st); })();
+  (function modeCss() { const st = document.createElement("style"); st.textContent = ".modesw{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px}.modesw .ml{font-size:.8rem;color:var(--muted);padding:0 6px}.modesw button{border:0;background:transparent;color:var(--fg);font:inherit;font-size:.82rem;padding:3px 10px;border-radius:999px;cursor:pointer}.ajpanel{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}.ajpanel legend{font-weight:700}.ajpanel label{display:inline-flex;gap:6px;align-items:center}.modesw button[aria-checked=true]{background:var(--acc,#2f6db5);color:#fff;font-weight:700}@media print{.userbar,.wsbar{display:none!important}}"; document.head.appendChild(st); })();
 
   /* ---------- versió paper adaptada: la fitxa amb l'adaptació, per imprimir-la o desar-la en PDF ---------- */
   async function openPaper(k, prevHash) {
-    ensureView(); wsKey = null;
+    ensureView(); { const op = $("#wsAjPanel"); if (op) op.remove(); } wsKey = null;
     const spec = F[k]; const n = sdaOf(k); const s = (window.SDAS || []).find((x) => x.n === n);
     wsBack = prevHash || ("sda" + n); wsFromNav = !!prevHash;
     document.documentElement.style.setProperty("--acc", s ? `var(${s.c})` : "var(--s6)");
@@ -91,7 +91,28 @@
     $("#wsSubmit").hidden = true; $("#wsPdf").textContent = "Imprimeix o desa en PDF"; $("#wsPdf").removeAttribute("href"); $("#wsPdf").onclick = (e) => { e.preventDefault(); window.print(); };
     const note = $("#wsNote"); note.hidden = false; note.innerHTML = `Aquesta és la teva fitxa per treballar en paper. Imprimeix-la o desa-la en PDF, i respon al full. <a href="#doc-${k}">Full original</a> · <a href="#fitxa-${k}">Versió digital</a>`;
     window.FQFitxa.render($("#wsHost"), k, { answers: {}, readonly: true, autoCalc: false, photos: [], feedback: [], photoUrl: async () => "" });
-    if (AD()) AD().apply($("#wsHost"), k, adapt, { mode: "paper" });
+    if (AD()) AD().apply($("#wsHost"), k, adapt, { mode: "paper", idioma, off: ajudesOff });
+    $("#wsAjudes").hidden = true;
+  }
+
+  /* l'alumne pot desactivar les seves ajudes (no la de continguts bàsics, que decideix el docent) */
+  function ajudesBtn(k) {
+    const b = $("#wsAjudes"); if (!b) return;
+    const list = AD() ? AD().aids(k, adapt) : [];
+    b.hidden = !list.length; if (!list.length) return;
+    b.onclick = () => {
+      let pn = $("#wsAjPanel");
+      if (pn) { pn.remove(); b.setAttribute("aria-expanded", "false"); return; }
+      pn = document.createElement("fieldset"); pn.id = "wsAjPanel"; pn.className = "wsnote ajpanel";
+      pn.innerHTML = `<legend>Les meves ajudes</legend>${list.map((a) => `<label><input type="checkbox" value="${a}"${ajudesOff.includes(a) ? "" : " checked"}> ${esc(AD().AJUDA_NOM[a])}</label>`).join("")}<span class="muted">Treu la marca de les ajudes que no et calguin. Les pots tornar a posar quan vulguis.</span>`;
+      $("#wsNote").before(pn); b.setAttribute("aria-expanded", "true");
+      pn.addEventListener("change", async () => {
+        const offNow = list.filter((a) => !pn.querySelector(`input[value="${a}"]`).checked);
+        ajudesOff = [...ajudesOff.filter((a) => !list.includes(a)), ...offNow];
+        try { await S.setPrefs({ ajudes_off: ajudesOff }); } catch {}
+        await openWs(k);
+      });
+    };
   }
 
   /* ---------- vista de fitxa ---------- */
@@ -100,7 +121,7 @@
     const sec = $("#vWs");
     sec.innerHTML = `<div class="wsbar"><button type="button" class="btn ghost" id="wsBack"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="wsBackL">Torna</span></button>
       <div class="vtitle"><span><span class="vk" id="wsKick"></span></span><b id="wsName"></b></div>
-      <span class="wsstat" id="wsStat"></span><a class="btn ghost" id="wsPdf">Versió en PDF</a><button type="button" class="btn" id="wsSubmit">Lliura la fitxa</button></div>
+      <span class="wsstat" id="wsStat"></span><button type="button" class="btn ghost" id="wsAjudes" hidden aria-expanded="false">Ajudes</button><a class="btn ghost" id="wsPdf">Versió en PDF</a><button type="button" class="btn" id="wsSubmit">Lliura la fitxa</button></div>
       <div class="wsnote" id="wsNote" hidden></div><p class="wsnote">En lliurar, les respostes escrites es poden enviar a un proveïdor d'IA per a la correcció assistida. «Possible IA» és un indici per al docent, no la nota oficial. <a href="${iaDoc()}">Més informació</a></p><div id="wsHost"></div>`;
     $("#wsBack").onclick = () => { if (wsFromNav) history.back(); else location.hash = wsBack || "inici"; };
     $("#wsSubmit").onclick = submitWs;
@@ -109,7 +130,7 @@
   const fmtDate = (d) => d ? new Date(d).toLocaleString("ca-ES", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }) : "";
 
   async function openWs(k, fromNav, prevHash) {
-    ensureView(); wsKey = k;
+    ensureView(); { const op = $("#wsAjPanel"); if (op && wsKey !== k) op.remove(); } wsKey = k;
     if (prevHash !== undefined) { wsFromNav = !!fromNav && !!prevHash; wsBack = prevHash || ("sda" + sdaOf(k)); }
     const spec = F[k]; const n = sdaOf(k); const s = (window.SDAS || []).find((x) => x.n === n);
     document.documentElement.style.setProperty("--acc", s ? `var(${s.c})` : "var(--s6)");
@@ -137,7 +158,8 @@
       onPhoto: async (item, file) => { st.textContent = "Pujant la foto…"; try { await S.addPhoto(k, item, await shrink(file)); await openWs(k); } catch (e) { st.textContent = "No s'ha pogut pujar la foto"; } },
       onRemovePhoto: async (path) => { await S.removePhoto(k, path); await openWs(k); },
     });
-    if (AD() && adapt.length) AD().apply($("#wsHost"), k, adapt, { mode: "digital" });
+    if (AD() && adapt.length) AD().apply($("#wsHost"), k, adapt, { mode: "digital", idioma, off: ajudesOff });
+    ajudesBtn(k);
     if (auto.length) window.FQFitxa.showAuto($("#wsHost"), auto);
     else if (sub.status === "submitted" && !autoTried[k]) { autoTried[k] = 1; runAuto(k).then((ok) => ok && wsKey === k && openWs(k)); }
   }

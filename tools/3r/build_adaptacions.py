@@ -7,7 +7,7 @@ for k, v in (d.get("fitxes") or {}).items():
     for p, x in (v or {}).items():
         if p not in P: sys.exit(f"{k}: perfil desconegut {p}")
         if x != "no_cal" and not isinstance(x, dict): sys.exit(f"{k}/{p}: ha de ser no_cal o un diccionari")
-out = {"perfils": d["perfils"], "glossari": {str(k): v for k, v in d["glossari"].items()}, "fitxes": d.get("fitxes") or {}}
+out = {"perfils": d["perfils"], "llengues": d.get("llengues", []), "glossari": {str(k): v for k, v in d["glossari"].items()}, "fitxes": d.get("fitxes") or {}}
 p = os.path.join(ROOT, "digital", "js", "adaptacions-dades.js")
 open(p, "w", encoding="utf-8").write("/* Generat per tools/3r/build_adaptacions.py a partir de contingut/3r/adaptacions.yaml. No l'editis a mà. */\nwindow.FQ_ADAPT = " + json.dumps(out, ensure_ascii=False, indent=1) + ";\n")
 print("Generat", os.path.relpath(p, ROOT), "·", sum(len(v) for v in out["glossari"].values()), "paraules ·", len(out["fitxes"]), "fitxes amb decisions")

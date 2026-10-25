@@ -82,7 +82,11 @@
   }
 
   /* ---------- glossari (nouvingut) ---------- */
-  function glossari(host, k, paper) {
+  function glossari(host, k, paper, idioma) {
+    const LL = (A().llengues || []).find((l) => l.codi === idioma) || null;
+    const trOf = (w) => (LL && w.tr && w.tr[LL.codi]) || "";
+    const gt = (w) => (LL && LL.traductor ? `https://translate.google.com/?sl=ca&tl=${encodeURIComponent(LL.traductor)}&text=${encodeURIComponent(w.ca)}&op=translate` : "");
+    const dir = LL && LL.rtl ? ' dir="rtl"' : "";
     const words = A().glossari[String(sdaOf(k))] || []; if (!words.length) return;
     const ws = host.querySelector(".ws"); if (!ws) return;
     const found = new Set();
@@ -110,7 +114,9 @@
       if (frag) { frag.append(txt); n.replaceWith(frag); }
     });
     const list = [...found].sort((a, b) => a - b).map((i) => words[i]);
-    if (list.length) ws.prepend(card("Paraules clau d'aquesta fitxa", `<table class="ad-gltab"><thead><tr><th>Català</th><th>Castellà</th><th>Anglès</th>${paper ? "<th>La meva llengua</th>" : ""}</tr></thead><tbody>${list.map((w) => `<tr><td><b>${esc(w.ca)}</b></td><td>${esc(w.es)}</td><td>${esc(w.en)}</td>${paper ? "<td></td>" : ""}</tr>`).join("")}</tbody></table>`));
+    const showEs = !LL || LL.codi !== "es";
+    const langCell = (w) => { const t = trOf(w); if (t) return `<td${dir}>${esc(t)}</td>`; const u = gt(w); return `<td>${u && !paper ? `<a href="${u}" target="_blank" rel="noopener">Tradueix ↗</a>` : ""}</td>`; };
+    if (list.length) ws.prepend(card("Paraules clau d'aquesta fitxa", `<table class="ad-gltab"><thead><tr><th>Català</th>${LL ? `<th>${esc(LL.nom)}</th>` : "<th>La meva llengua</th>"}${showEs ? "<th>Castellà</th>" : ""}</tr></thead><tbody>${list.map((w) => `<tr><td><b>${esc(w.ca)}</b></td>${LL ? langCell(w) : "<td></td>"}${showEs ? `<td>${esc((w.tr || {}).es || "")}</td>` : ""}</tr>`).join("")}</tbody></table>${LL && !paper ? '<p class="note ad-noprint">Les traduccions les revisa l\'aula d\'acollida. Si no hi ha traducció, prem «Tradueix».</p>' : ""}`));
     if (paper) return;
     let pop = null;
     host.addEventListener("click", (e) => {
@@ -119,7 +125,8 @@
       if (!b) return;
       const w = words[+b.dataset.g]; const r = b.getBoundingClientRect();
       pop = document.createElement("div"); pop.className = "ad-pop"; pop.setAttribute("role", "dialog");
-      pop.innerHTML = `<b>${esc(w.ca)}</b>${esc(w.def)}<div class="tr">Castellà: ${esc(w.es)} · Anglès: ${esc(w.en)}</div>`;
+      const t = trOf(w), u = gt(w);
+      pop.innerHTML = `<b>${esc(w.ca)}</b>${esc(w.def)}${LL ? `<div class="tr">${esc(LL.nom)}: ${t ? `<span${dir}>${esc(t)}</span>` : "—"}${u ? ` · <a href="${u}" target="_blank" rel="noopener">Tradueix ↗</a>` : ""}</div>` : ""}<div class="tr">Castellà: ${esc((w.tr || {}).es || "")}</div>`;
       pop.append(speakBtn(`${w.ca}. ${w.def}`));
       document.body.appendChild(pop);
       pop.style.left = Math.max(8, Math.min(r.left + G.scrollX, G.scrollX + document.documentElement.clientWidth - pop.offsetWidth - 8)) + "px";
@@ -210,21 +217,28 @@
       <li><b>Si necessito parar:</b> aixeca la targeta de pausa o avisa el professor.</li></ul>`));
   }
 
+  /* ajudes que l'alumne pot desactivar; continguts bàsics no en té (només el docent el decideix) */
+  const AJUDA_NOM = { lletra: "Lletra fàcil de llegir", veu: "Lectura en veu alta", glossari: "Paraules clau i traducció", passos: "Taula de passos i calculadora", pantalla: "Una pregunta per pantalla", guia: "Guia de la fitxa" };
+  const AJUDA_PERFIL = { lletra: ["dislexia"], veu: ["dislexia", "nouvingut"], glossari: ["nouvingut"], passos: ["discalculia"], pantalla: ["tdah"], guia: ["tea"] };
+  const PERFIL_AJUDA = { dislexia: "lletra", nouvingut: "glossari", discalculia: "passos", tdah: "pantalla", tea: "guia" };
+  function aids(k, perfils) { const P = effective(k, perfils); return Object.keys(AJUDA_PERFIL).filter((a) => AJUDA_PERFIL[a].some((p) => P.includes(p))); }
   function apply(host, k, perfils, opts = {}) {
     const P = effective(k, perfils); if (!P.length || !host) return [];
     css();
     const paper = opts.mode === "paper";
+    const off = new Set(opts.off || []);
+    const on = (a) => aids(k, perfils).includes(a) && !off.has(a);
     host.classList.toggle("ad-paper", paper);
     if (paper) host.querySelectorAll(".muted").forEach((m) => { if (/sense foto/.test(m.textContent)) m.outerHTML = '<div class="ad-draw">Dibuixa-ho aquí</div>'; });
-    if (P.includes("dislexia")) host.classList.add("ad-dis");
-    variants(host, k, P);
-    if (P.includes("discalculia")) discalculia(host, paper);
-    if (P.includes("nouvingut")) glossari(host, k, paper);
-    if (!paper && (P.includes("dislexia") || P.includes("nouvingut"))) tts(host);
-    if (P.includes("tea")) tea(host, k, paper);
-    if (P.includes("tdah")) tdah(host, paper);
+    if (on("lletra")) host.classList.add("ad-dis");
+    variants(host, k, P.filter((p) => p === "basics" || !PERFIL_AJUDA[p] || on(PERFIL_AJUDA[p])));
+    if (on("passos")) discalculia(host, paper);
+    if (on("glossari")) glossari(host, k, paper, opts.idioma);
+    if (!paper && on("veu")) tts(host);
+    if (on("guia")) tea(host, k, paper);
+    if (on("pantalla")) tdah(host, paper);
     return P;
   }
 
-  G.FQAdapt = { apply, effective };
+  G.FQAdapt = { apply, effective, aids, AJUDA_NOM };
 })(window);
