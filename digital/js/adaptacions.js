@@ -1,7 +1,9 @@
 /* Adaptacions de les fitxes per perfil (NESE). El perfil l'assigna el docent des de «Alumnat i codis».
    FQAdapt.apply(host, clau, perfils, {mode}) s'aplica després de FQFitxa.render.
    Dades: window.FQ_ADAPT (digital/js/adaptacions-dades.js, generat de contingut/3r/adaptacions.yaml).
-   Criteris: document «Adaptacions del llibre digital: criteris per perfil». Mai no es treu cap pregunta avaluable. */
+   Criteris: document «Adaptacions del llibre digital: criteris per perfil».
+   Continguts bàsics rebaixa l'exigència: treu preguntes (treu) i redueix apartats (redueix). Aquestes preguntes no s'avaluen
+   i el nivell màxim de l'alumne és AS (FQStore aplica el topall). Els altres perfils mai no treuen cap pregunta. */
 (function (G) {
   "use strict";
   const A = () => G.FQ_ADAPT || { perfils: [], glossari: {}, fitxes: {} };
@@ -34,6 +36,7 @@
 .ad-paper.ad-dis .ws :is(p,div,span,td,th,li,label,b,strong,em,i,a,textarea,input,select,output,h3,h4,small,button):not(.uf span):not(.ML__latex *):not(.katex *):not(.n){font-size:1.35rem!important}
 .ad-tts{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:2px 10px;font:inherit;font-size:.8rem;cursor:pointer;margin:4px 0}
 .ad-tts[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.ad-redueix{border-width:2.5px!important;background:color-mix(in srgb,var(--acc) 14%,var(--surface))!important}
 .ad-card{box-sizing:border-box;max-width:100%;overflow-wrap:anywhere;border:1.5px solid var(--acc);border-radius:12px;padding:10px 14px;margin:8px 0;background:color-mix(in srgb,var(--acc) 6%,var(--surface))}
 .ad-card h4{margin:0 0 6px;font-size:.95rem}
 .ad-card ul,.ad-card ol{margin:4px 0 0;padding-left:1.3em}
@@ -56,7 +59,28 @@
   }
 
   /* ---------- peces comunes ---------- */
-  const questions = (host) => [...host.querySelectorAll("[data-qblock], .ws > section.ws-block")];
+  const questions = (host) => [...host.querySelectorAll("[data-qblock], .ws > section.ws-block")].filter((q) => !q.classList.contains("ad-treu"));
+  /* continguts bàsics: preguntes que no ha de fer i apartats reduïts */
+  function treu(k, perfils) { if (!effective(k, perfils).includes("basics")) return []; const v = variant(k, "basics"); return ((v && v.treu) || []).map(String); }
+  function redueix(k, perfils) { if (!effective(k, perfils).includes("basics")) return {}; const v = variant(k, "basics"); return (v && v.redueix) || {}; }
+  const HINT_BAS = "Alumne amb adaptació de continguts bàsics: valora només el contingut bàsic de la pregunta, amb criteris rebaixats. El nivell màxim és AS (no posis mai AN ni AE).";
+  /* ítems per a la correcció automàtica: sense les preguntes tretes i amb el criteri rebaixat */
+  function forAuto(k, perfils, items) {
+    if (!effective(k, perfils).includes("basics")) return items;
+    const T = new Set(treu(k, perfils)); const R = redueix(k, perfils);
+    return items.filter((it) => !T.has(String(it.id))).map((it) => ({ ...it, criteria: [it.criteria, R[it.id] ? "Només s'ha de fer: " + R[it.id].replace(/<[^>]+>/g, "") : "", HINT_BAS].filter(Boolean).join(" ") }));
+  }
+  function hideTreu(host, k, perfils) {
+    const T = treu(k, perfils); const R = redueix(k, perfils);
+    T.forEach((id) => {
+      const el = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${CSS.escape(id)}"]`) || host.querySelector(`.ws-item[data-item="${CSS.escape(id)}"]`);
+      if (el) { el.classList.add("ad-treu"); el.hidden = true; }
+    });
+    Object.entries(R).forEach(([id, txt]) => {
+      const sec = host.querySelector(`[data-qblock="${CSS.escape(id)}"]`) || host.querySelector(`.ws-block[data-block="${CSS.escape(id)}"]`); if (!sec) return;
+      const c = card("Què has de fer", txt, "ad-redueix"); const p = afterQ(sec); if (p && p !== sec) p.after(c); else sec.prepend(c);
+    });
+  }
   const qid = (sec) => sec.dataset.qblock || sec.dataset.block || ((sec.querySelector(".ws-item") || {}).dataset || {}).item || "";
   const promptEl = (sec) => sec.querySelector(":scope > .q > div, :scope .ws-q > div");
   /* lloc on s'afegeixen les ajudes: just després de l'enunciat, a l'amplada de la pregunta */
@@ -281,7 +305,7 @@
     host.classList.toggle("ad-paper", paper);
     if (paper) host.querySelectorAll(".muted").forEach((m) => { if (/sense foto/.test(m.textContent)) m.outerHTML = '<div class="ad-draw">Dibuixa-ho aquí</div>'; });
     if (on("lletra")) host.classList.add("ad-dis");
-    if (P.includes("basics")) { host.classList.add("ad-bas"); basicsAuto(host, k); if (!on("glossari")) vocabCa(host, k); }
+    if (P.includes("basics")) { hideTreu(host, k, perfils); host.classList.add("ad-bas"); basicsAuto(host, k); if (!on("glossari")) vocabCa(host, k); }
     variants(host, k, P.filter((p) => p === "basics" || !PERFIL_AJUDA[p] || on(PERFIL_AJUDA[p])), paper);
     if (on("passos")) discalculia(host, paper, k);
     if (on("glossari")) glossari(host, k, paper, opts.idioma);
@@ -291,5 +315,5 @@
     return P;
   }
 
-  G.FQAdapt = { apply, effective, aids, AJUDA_NOM };
+  G.FQAdapt = { apply, effective, aids, AJUDA_NOM, treu, redueix, forAuto };
 })(window);

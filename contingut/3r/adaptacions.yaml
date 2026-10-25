@@ -1248,6 +1248,11 @@ fitxes:
         '7':
           frases:
           - Van trobar elements nous perquè van veure unes línies que …
+      treu:
+      - '6'
+      - '7'
+      redueix:
+        '1': Dibuixa només el liti i el sodi.
     nouvingut:
       preguntes:
         '3':
@@ -1320,6 +1325,11 @@ fitxes:
         '5':
           pistes:
           - 'Grup 1: +1 · grup 2: +2 · grup 13: +3 · grup 16: −2 · grup 17: −1.'
+      redueix:
+        '2': Fes només el liti, el coure i l'or.
+        '3': Fes només les tres primeres pistes.
+        '4': Escriu la distribució d'electrons del liti i del sodi i digues què tenen en comú.
+        '5': Fes només el magnesi i l'oxigen.
     nouvingut:
       preguntes:
         '4':
@@ -1367,6 +1377,10 @@ fitxes:
         '4':
           frases:
           - El grafit condueix perquè té electrons que …
+      treu:
+      - '4'
+      redueix:
+        '2': Fes només el coure, el silici i l'òxid de liti i cobalt.
     nouvingut:
       preguntes:
         '1':
@@ -1639,6 +1653,11 @@ fitxes:
           - 'Passa a kelvin: 20 °C = 293 K; 65 °C = 338 K.'
           - 'El volum no canvia: P₂ = P₁ · T₂ / T₁ = 3,0 · 338 / 293 = … atm.'
           - 'Segona part: T₂ = P₂ · T₁ / P₁ = 4,5 · 293 / 3,0 = … K. Després resta 273 per passar-ho a °C.'
+      treu:
+      - '7'
+      - '8'
+      redueix:
+        '2': Fes només les dues primeres situacions.
     discalculia:
       preguntes:
         '3':
@@ -1690,6 +1709,10 @@ fitxes:
           - A l'hivern, l'aire de dins de la pilota està més …
           - Les partícules es mouen més … i xoquen … contra les parets.
           - Per això la pressió és més … i la pilota bota …
+      treu:
+      - '7'
+      redueix:
+        '3': Fes només les tres primeres afirmacions.
     nouvingut:
       preguntes:
         '4':
@@ -1772,6 +1795,10 @@ fitxes:
           frases:
           - Quan estirem l'èmbol, la pressió …
           - Amb menys pressió, l'aigua bull a una temperatura més …
+      treu:
+      - '7'
+      redueix:
+        '4': Fes només a), b) i c).
     discalculia:
       preguntes:
         '1':
@@ -1809,6 +1836,9 @@ fitxes:
         '4':
           pistes:
           - Són isòtops si tenen el mateix número de baix (Z) i diferent número de dalt (A).
+      redueix:
+        '2': Fes només les tres primeres files de la taula.
+        '4': Fes només a) i b).
   d3camp:
     basics:
       preguntes:
@@ -1837,6 +1867,10 @@ fitxes:
           frases:
           - Milloraríem …
           - Hi podríem implicar … fent …
+      treu:
+      - '6'
+      redueix:
+        '3': Escriu un text curt de dues frases.
     nouvingut:
       preguntes:
         '2':
@@ -1911,6 +1945,11 @@ fitxes:
           - 'Seguretat: …'
           - 'Medi ambient: …'
           - 'Recursos: …'
+      treu:
+      - '3'
+      redueix:
+        '1': Digues només quina font és més fiable i per què.
+        '4': Explica un sol problema en una o dues frases i cita la font.
     nouvingut:
       preguntes:
         '1':
@@ -1993,6 +2032,8 @@ fitxes:
           frases:
           - El cotxe només allibera aigua perquè …
           - Però no tots són així perquè …
+      redueix:
+        '4': 'Respon en quatre frases: quina reacció té lloc, d''on surt l''hidrogen, una dada del dossier i quan seria una bona opció.'
     discalculia:
       preguntes:
         '1':
@@ -2039,6 +2080,10 @@ fitxes:
           - Al tram 2 la velocitat és constant, per això …
           pistes:
           - Rapidesa mitjana = distància total / temps total = 300 m / 80 s.
+      redueix:
+        '2': Completa la taula només fins a t = 40 s (trams 1 i 2).
+        '5': Calcula només el pendent del tram 1 de la gràfica v–t i digues què representa.
+        '6': Respon només per què la gràfica x–t és una recta al tram 2.
     discalculia:
       preguntes:
         '1':
@@ -2085,6 +2130,10 @@ fitxes:
           - Amb el temps, la concentració de les dues meitats …
           - El gradient es fa més …
           - Amb més temperatura, les partícules …
+      treu:
+      - '6'
+      redueix:
+        '5': Calcula només el gradient. No cal la concentració a 12 µm.
     discalculia:
       preguntes:
         '5':
@@ -2125,6 +2174,12 @@ fitxes:
           frases:
           - Fisiològic vol dir …
           - Patològic vol dir …
+      treu:
+      - '4'
+      - '9'
+      redueix:
+        '3': Llegeix només les dues velocitats a la gràfica.
+        '5': Explica'n una sola manera.
     discalculia:
       preguntes:
         '3':
@@ -2209,6 +2264,10 @@ fitxes:
         '5':
           pistes:
           - 'Pensa què li passa a una molla si l''estires massa: torna a la forma inicial?'
+      treu:
+      - '6'
+      redueix:
+        '1': Fes com a mínim quatre mesures.
     discalculia:
       preguntes:
         '1':
@@ -2259,6 +2318,12 @@ fitxes:
           - Al neutròfil li serveix per …
           - A la ferida, …
           - A la metàstasi, …
+      treu:
+      - '6'
+      redueix:
+        '2': Mesura només tres boletes (A, B i C).
+        '3': Dibuixa només els tres vectors que has mesurat.
+        '7': Explica només a).
     discalculia:
       preguntes:
         '2':
@@ -2292,6 +2357,10 @@ fitxes:
         '5':
           pistes:
           - 'Pregunta''t: qui ho diu? Té interès a vendre alguna cosa? Té dades i referències?'
+      redueix:
+        '1': Fes només la central hidràulica.
+        '2': Fes només a) i b).
+        '5': Valora només la font a).
     discalculia:
       preguntes:
         '3':
@@ -2329,6 +2398,8 @@ fitxes:
         '7':
           frases:
           - Voto el pla de … perquè …
+      redueix:
+        '2': Copieu només el càlcul en kWh. No cal en euros.
     discalculia:
       preguntes:
         '2':
@@ -2413,6 +2484,8 @@ fitxes:
           frases:
           - Al principi pensava que …
           - Ara sé que …
+      redueix:
+        '5': 'Respon només les tres primeres preguntes de la base d''orientació: què passa amb la temperatura, amb el moviment de les partícules i amb la pressió.'
     nouvingut:
       preguntes:
         '3':
@@ -2499,6 +2572,10 @@ fitxes:
           frases:
           - Al fred, les partícules d'aire es mouen més …
           - A la calor, …
+      treu:
+      - '6'
+      redueix:
+        '2': Digues només si el volum de cada globus augmentarà o disminuirà. No cal estimar el percentatge.
     discalculia:
       preguntes:
         '3':
@@ -2548,6 +2625,13 @@ fitxes:
           passos:
           - 'Passa-ho tot a metres: nm = 10⁻⁹ m, µm = 10⁻⁶ m, mm = 10⁻³ m.'
           - 'Compara els exponents: el més negatiu és el més petit.'
+      treu:
+      - '7'
+      redueix:
+        '3': Fes només a) i b).
+        '4': Fes només a) i b).
+        '5': Fes només a) i b).
+        '6': Fes només a).
     discalculia:
       preguntes:
         '3':
@@ -2585,6 +2669,12 @@ fitxes:
           frases:
           - He trobat valors diferents perquè la densitat depèn de …
           - La font més fiable és … perquè …
+      treu:
+      - '3'
+      - '4'
+      redueix:
+        '1': Fes només a).
+        '2': Fes només a) i b).
     discalculia:
       preguntes:
         '2':
@@ -2619,6 +2709,11 @@ fitxes:
         '5':
           pistes:
           - 'Si dos pots tenen la mateixa densitat, cal una altra prova: el color, l''olor, si condueix el corrent…'
+      treu:
+      - '4'
+      redueix:
+        '1': Omple la taula només per a cinc pots.
+        '3': Calcula l'error només de dos pots.
     discalculia:
       preguntes:
         '1':
@@ -2655,6 +2750,8 @@ fitxes:
           - 'Segon, l''aigua: les serradures suren i les recollim.'
           - 'Tercer, filtrar: la sorra queda al paper.'
           - 'Quart, evaporar: la sal queda a la càpsula.'
+      redueix:
+        '1': Classifica només cinc etiquetes i justifica'n un cas.
   d1sep:
     basics:
       preguntes:
@@ -2694,6 +2791,10 @@ fitxes:
         '5':
           frases:
           - Porta el teu mòbil vell al punt de recollida perquè …
+      treu:
+      - '4'
+      redueix:
+        '2': Escriu tres metalls i dos no metalls.
     nouvingut:
       preguntes:
         '2':
@@ -2757,6 +2858,9 @@ fitxes:
         '4':
           frases:
           - L'etapa … serveix per …
+      redueix:
+        '1': Fes només les files de Li⁺, Na⁺, F⁻ i Cl⁻.
+        '2': 'Respon només dues coses: cap a on es mouen els ions Li⁺ quan fas servir el mòbil i per on passen els electrons.'
   d4repte:
     basics:
       preguntes:
@@ -2775,6 +2879,8 @@ fitxes:
         '5':
           frases:
           - Al principi pensàvem que … Ara sabem que …
+      redueix:
+        '4': 'Respon només dues preguntes: la massa total canvia? D''on surt l''hidrogen?'
     nouvingut:
       preguntes:
         '1':
@@ -2850,6 +2956,8 @@ fitxes:
         '6':
           pistes:
           - 'Recorda: el CO₂ posa blanca l''aigua de calç.'
+      treu:
+      - '6'
     discalculia:
       preguntes:
         '3':
@@ -2885,6 +2993,12 @@ fitxes:
           pistes:
           - 'Si hi ha un metall, no posis prefixos: NaCl = clorur de sodi.'
           - 'Si són dos no metalls, posa prefixos: CO = monòxid de carboni.'
+      redueix:
+        '1': Classifica només H₂, H₂O, Mg i CO₂.
+        '3': Fes només les files del Na⁺ i del Mg²⁺.
+        '4': Fes només a), b), c) i h).
+        '5': Fes només a), b), c) i d).
+        '6': Fes només a), b) i d).
     discalculia:
       preguntes:
         '3':
@@ -2912,6 +3026,8 @@ fitxes:
         '5':
           pistes:
           - 'Busca: bombolles de gas, el magnesi desapareix, canvi de temperatura, so a la flama.'
+      redueix:
+        '2': Escriu les fórmules i compta els àtoms de cada costat. No cal ajustar l'equació.
     nouvingut:
       preguntes:
         '1':
@@ -2987,6 +3103,12 @@ fitxes:
           - 10 g d'H₂ necessiten 10 · 32 / 4 = … g d'O₂.
           - 'En tenim 100 g: en sobra o en falta?'
           - 'El que s''acaba primer decideix l''aigua: 10 · 36 / 4 = … g.'
+      treu:
+      - '5'
+      - '6'
+      - '7'
+      redueix:
+        '2': Ajusta només les dues primeres equacions.
     discalculia:
       preguntes:
         '3':
@@ -3036,6 +3158,9 @@ fitxes:
           frases:
           - És endotèrmic perquè …
           - Es diu hidrogen verd perquè l'electricitat …
+      treu:
+      - '4'
+      - '5'
     discalculia:
       preguntes:
         '1':
@@ -3086,6 +3211,16 @@ fitxes:
         '10':
           pistes:
           - 'Els factors són: temperatura, concentració i superfície de contacte.'
+      treu:
+      - '6'
+      - '9'
+      redueix:
+        '1': Fes només a), b), c) i d).
+        '2': Fes només b) i c).
+        '3': Fes només a) i c).
+        '5': Fes només a) i b).
+        '7': Fes només a), b) i c).
+        '10': Fes només a) i b).
     discalculia:
       preguntes:
         '3':
@@ -3158,6 +3293,11 @@ fitxes:
           - Com més inclinada és la recta, més de pressa va.
           - 'v = canvi de x / canvi de t: agafa dos punts de cada recta.'
           - Una recta horitzontal vol dir que no es mou.
+      treu:
+      - '5'
+      redueix:
+        '1': Fes només a), b) i c).
+        '6': Fes només a) i b).
     discalculia:
       preguntes:
         '3':
@@ -3203,6 +3343,11 @@ fitxes:
           pistes:
           - 'MRU: recta i velocitat constant. MRUA: recta i la velocitat canvia igual cada segon.'
           - Un revolt no és recte.
+      treu:
+      - '4'
+      redueix:
+        '2': Fes només a) i b).
+        '5': Fes només a), b) i d).
     discalculia:
       preguntes:
         '1':
@@ -3256,6 +3401,11 @@ fitxes:
           frases:
           - No és un MRU perquè la velocitat …
           - Té sentit fer la mitjana perquè …
+      treu:
+      - '8'
+      redueix:
+        '3': Mesura només els tres primers intervals.
+        '5': Calcula només la rapidesa mitjana.
     discalculia:
       preguntes:
         '1':
@@ -3314,6 +3464,12 @@ fitxes:
           passos:
           - 'Neutròfil: x = 17 · t. Bacteri: x = 60 + 2 · t.'
           - 'Iguala: 17t = 60 + 2t → 15t = 60 → t = … min.'
+      treu:
+      - '3'
+      - '8'
+      redueix:
+        '5': Fes només a) i b).
+        '7': Fes només a).
     discalculia:
       preguntes:
         '1':
@@ -3382,6 +3538,12 @@ fitxes:
         '8':
           frases:
           - El neutròfil tot sol pot …, per això és una unitat …
+      treu:
+      - '5'
+      - '8'
+      redueix:
+        '2': Calcula només la primera força (80 kg).
+        '4': Fes només a) i b).
     discalculia:
       preguntes:
         '2':
@@ -3421,6 +3583,8 @@ fitxes:
         '6':
           frases:
           - Ara sé que …
+      redueix:
+        '5': Calcula només l'energia d'un dia per a les 30 aules i quant costa aquest dia.
     discalculia:
       preguntes:
         '3':
@@ -3469,6 +3633,11 @@ fitxes:
           frases:
           - Potser no la coneixem perquè …
           - La sal, en solidificar-se, desprèn energia …
+      treu:
+      - '6'
+      redueix:
+        '3': Fes només a), b) i d).
+        '5': Calcula només l'energia de cada bombeta en un any. No cal el cost.
     discalculia:
       preguntes:
         '2':
@@ -3520,6 +3689,9 @@ fitxes:
           pistes:
           - 'Molta potència fa passar molt de corrent: el cable s''escalfa.'
           - El magnetotèrmic talla si passa massa corrent. El diferencial talla si hi ha una fuita.
+      treu:
+      - '4'
+      - '7'
     discalculia:
       preguntes:
         '1':
@@ -3567,6 +3739,10 @@ fitxes:
           - La gràfica o la dada.
           - La predicció.
           - Un consell final.
+      treu:
+      - '5'
+      redueix:
+        '6': La infografia o el vídeo ha de tenir el fenomen, el dibuix del model i el consell final.
     discalculia:
       preguntes:
         '1':
@@ -3614,6 +3790,10 @@ fitxes:
         '6':
           pistes:
           - 'Segueix l''ordre: pregunta, hipòtesi, disseny, dades, conclusió, errors.'
+      treu:
+      - '5'
+      redueix:
+        '3': Fes dues repeticions de cada mesura.
     nouvingut:
       preguntes:
         '1':
@@ -3673,6 +3853,12 @@ fitxes:
         '6':
           pistes:
           - 'Un full amb: pictogrames, precaucions, una dada amb unitats, una fórmula.'
+      treu:
+      - '5'
+      redueix:
+        '1': Fes-ho només per a un producte.
+        '3': Fes només el primer càlcul (el detergent).
+        '4': Fes només cinc files.
     discalculia:
       preguntes:
         '3':
@@ -3701,6 +3887,11 @@ fitxes:
           - Tres arguments amb dades (2 min).
           - Contraargument i resposta (30 s).
           - Fonts al final.
+      treu:
+      - '3'
+      redueix:
+        '1': Fes servir dues fonts.
+        '2': Dona dos arguments. El contraargument no cal.
     nouvingut:
       preguntes:
         '2':
@@ -3747,6 +3938,10 @@ fitxes:
           frases:
           - Abans … i després …
           - Hem assolit / no hem assolit l'objectiu perquè …
+      treu:
+      - '4'
+      redueix:
+        '3': Fes només el càlcul A.
     nouvingut:
       preguntes:
         '2':
@@ -3802,6 +3997,11 @@ fitxes:
         '5':
           pistes:
           - Línia del temps a dalt, la proposta a baix.
+      treu:
+      - '4'
+      redueix:
+        '1': Escriu tres fites.
+        '2': Explica només una repercussió en la societat i una en el medi ambient.
     discalculia:
       preguntes:
         '1':
