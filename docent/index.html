@@ -10,6 +10,7 @@
 <script src="../digital/js/config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="../digital/js/store.js"></script>
+<script src="../digital/js/adapt-panel.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
 <style>
@@ -140,11 +141,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
     open = id; const c = courses.find((x) => x.id === id); const box = $("#stuPanel"); if (!c) { box.hidden = true; return; }
     box.hidden = false; if (!keep) box.innerHTML = '<div class="spin"></div>';
     students = await S.listStudents(id);
+    try { await window.FQAdaptUI.loadLangs(); } catch {}
     const base = location.origin + (LV[c.level].app || LV[c.level].book.replace("..", ""));
     box.innerHTML = `<div class="row" style="justify-content:space-between"><h2>Alumnat de ${esc(c.name)} (${students.length})</h2><div class="row"><button class="btn ghost" id="csv">Descarrega els codis (CSV)</button><button class="btn ghost" id="prn">Imprimeix targetes</button><button class="btn ghost" id="close">Tanca</button></div></div>
       ${created ? `<p class="note" style="color:var(--ok)"><b>Comptes creats:</b> ${created}. Ja els tens a la llista.</p>` : ""}
-      <div class="grid2"><div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Codi</th><th></th></tr></thead><tbody>
-        ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn ghost" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="3" class="note">Encara no hi ha alumnat en aquest curs.</td></tr>`}
+      <div class="grid2"><div class="tscroll"><table class="t"><thead><tr><th>Nom</th><th>Codi</th><th>Adaptació</th><th></th></tr></thead><tbody>
+        ${students.map((s) => `<tr data-id="${s.id}"><td>${esc(s.display_name)}</td><td><code class="c">${esc(s.code || "—")}</code></td><td><button class="btn ghost adbtn" data-adapt aria-expanded="false" title="Tria l'adaptació de les fitxes del llibre digital per a aquest alumne">${esc(window.FQAdaptUI.label(s.adaptacions, s.adapt_idioma))}</button></td><td><div class="row"><button class="btn ghost" data-reset>Codi nou</button><button class="btn ghost" data-del>Esborra</button></div></td></tr>`).join("") || `<tr><td colspan="4" class="note">Encara no hi ha alumnat en aquest curs.</td></tr>`}
       </tbody></table></div>
       <div style="display:grid;gap:8px;align-content:start"><label class="f">Afegeix alumnat (un nom per línia)<textarea id="names" rows="7" placeholder="Nom Cognom"></textarea></label><button class="btn" id="add" style="justify-self:start">Crea els comptes</button>
         <p class="note">Cada alumne rep un codi d'accés de 8 caràcters ${c.level === "3r" ? `per entrar al llibre digital (${esc(base)})` : "per entrar al llibre digital quan estigui fet"}.</p></div></div>`;
@@ -156,6 +158,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
       try { const out = await S.createStudents(names, id); created = out.length; if (teachers) teachers = await S.listTeachers(); render(); }
       catch (e) { toast("No s'han pogut crear els comptes: " + e.message); b.disabled = false; b.textContent = "Crea els comptes"; }
     };
+    box.querySelectorAll("[data-adapt]").forEach((b) => (b.onclick = () => { const st = students.find((x) => x.id === b.closest("tr").dataset.id); if (st) window.FQAdaptUI.open(b, st, { colspan: 4, toast, scope: box }); }));
     box.querySelectorAll("[data-reset]").forEach((b) => (b.onclick = async () => {
       if (b.dataset.c !== "1") { b.dataset.c = "1"; b.textContent = "Segur? El codi antic deixarà de funcionar"; return; }
       try { await S.resetCode(b.closest("tr").dataset.id); toast("Codi nou creat."); showStudents(id, true); } catch (e) { toast(msg(e)); }
