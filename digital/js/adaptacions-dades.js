@@ -8,6 +8,282 @@ window.FQ_ADAPT = {
   "tdah",
   "tea"
  ],
+ "llengues": [
+  {
+   "codi": "ar",
+   "nom": "Àrab",
+   "paisos": "Marroc, Algèria, Síria, Egipte…",
+   "traductor": "ar",
+   "rtl": true
+  },
+  {
+   "codi": "ber",
+   "nom": "Amazic (tamazight)",
+   "paisos": "Marroc, Algèria",
+   "traductor": ""
+  },
+  {
+   "codi": "ur",
+   "nom": "Urdú",
+   "paisos": "Pakistan",
+   "traductor": "ur",
+   "rtl": true
+  },
+  {
+   "codi": "pa",
+   "nom": "Panjabi",
+   "paisos": "Pakistan, Índia",
+   "traductor": "pa"
+  },
+  {
+   "codi": "bn",
+   "nom": "Bengalí",
+   "paisos": "Bangladesh",
+   "traductor": "bn"
+  },
+  {
+   "codi": "hi",
+   "nom": "Hindi",
+   "paisos": "Índia",
+   "traductor": "hi"
+  },
+  {
+   "codi": "ne",
+   "nom": "Nepalès",
+   "paisos": "Nepal",
+   "traductor": "ne"
+  },
+  {
+   "codi": "zh",
+   "nom": "Xinès",
+   "paisos": "Xina",
+   "traductor": "zh-CN"
+  },
+  {
+   "codi": "tl",
+   "nom": "Tagal (filipí)",
+   "paisos": "Filipines",
+   "traductor": "tl"
+  },
+  {
+   "codi": "ro",
+   "nom": "Romanès",
+   "paisos": "Romania, Moldàvia",
+   "traductor": "ro"
+  },
+  {
+   "codi": "bg",
+   "nom": "Búlgar",
+   "paisos": "Bulgària",
+   "traductor": "bg"
+  },
+  {
+   "codi": "uk",
+   "nom": "Ucraïnès",
+   "paisos": "Ucraïna",
+   "traductor": "uk"
+  },
+  {
+   "codi": "ru",
+   "nom": "Rus",
+   "paisos": "Rússia, Ucraïna, Geòrgia, Bielorússia…",
+   "traductor": "ru"
+  },
+  {
+   "codi": "ka",
+   "nom": "Georgià",
+   "paisos": "Geòrgia",
+   "traductor": "ka"
+  },
+  {
+   "codi": "hy",
+   "nom": "Armeni",
+   "paisos": "Armènia",
+   "traductor": "hy"
+  },
+  {
+   "codi": "pl",
+   "nom": "Polonès",
+   "paisos": "Polònia",
+   "traductor": "pl"
+  },
+  {
+   "codi": "sq",
+   "nom": "Albanès",
+   "paisos": "Albània, Kosovo",
+   "traductor": "sq"
+  },
+  {
+   "codi": "es",
+   "nom": "Castellà",
+   "paisos": "Amèrica Llatina, Espanya",
+   "traductor": "es"
+  },
+  {
+   "codi": "qu",
+   "nom": "Quítxua",
+   "paisos": "Perú, Bolívia, Equador",
+   "traductor": "qu"
+  },
+  {
+   "codi": "gn",
+   "nom": "Guaraní",
+   "paisos": "Paraguai",
+   "traductor": "gn"
+  },
+  {
+   "codi": "pt",
+   "nom": "Portuguès",
+   "paisos": "Brasil, Portugal, Angola…",
+   "traductor": "pt"
+  },
+  {
+   "codi": "fr",
+   "nom": "Francès",
+   "paisos": "Senegal, Mali, Guinea, Costa d'Ivori, França…",
+   "traductor": "fr"
+  },
+  {
+   "codi": "en",
+   "nom": "Anglès",
+   "paisos": "Nigèria, Gàmbia, Ghana, Pakistan, Regne Unit…",
+   "traductor": "en"
+  },
+  {
+   "codi": "wo",
+   "nom": "Wòlof",
+   "paisos": "Senegal, Gàmbia",
+   "traductor": "wo"
+  },
+  {
+   "codi": "ff",
+   "nom": "Fula (pulaar)",
+   "paisos": "Senegal, Guinea, Mali",
+   "traductor": "ff"
+  },
+  {
+   "codi": "mnk",
+   "nom": "Mandinga",
+   "paisos": "Gàmbia, Senegal, Mali, Guinea",
+   "traductor": ""
+  },
+  {
+   "codi": "snk",
+   "nom": "Soninké",
+   "paisos": "Senegal, Mali, Gàmbia",
+   "traductor": ""
+  },
+  {
+   "codi": "bm",
+   "nom": "Bambara",
+   "paisos": "Mali",
+   "traductor": "bm"
+  },
+  {
+   "codi": "tw",
+   "nom": "Twi",
+   "paisos": "Ghana",
+   "traductor": "ak"
+  },
+  {
+   "codi": "ig",
+   "nom": "Igbo",
+   "paisos": "Nigèria",
+   "traductor": "ig"
+  },
+  {
+   "codi": "yo",
+   "nom": "Ioruba",
+   "paisos": "Nigèria",
+   "traductor": "yo"
+  },
+  {
+   "codi": "ha",
+   "nom": "Haussa",
+   "paisos": "Nigèria, Níger",
+   "traductor": "ha"
+  },
+  {
+   "codi": "fa",
+   "nom": "Persa (farsi, dari)",
+   "paisos": "Iran, Afganistan",
+   "traductor": "fa",
+   "rtl": true
+  },
+  {
+   "codi": "ps",
+   "nom": "Paixtu",
+   "paisos": "Afganistan, Pakistan",
+   "traductor": "ps",
+   "rtl": true
+  },
+  {
+   "codi": "tr",
+   "nom": "Turc",
+   "paisos": "Turquia",
+   "traductor": "tr"
+  },
+  {
+   "codi": "ku",
+   "nom": "Kurd",
+   "paisos": "Turquia, Síria, Iraq",
+   "traductor": "ku"
+  },
+  {
+   "codi": "it",
+   "nom": "Italià",
+   "paisos": "Itàlia, Argentina",
+   "traductor": "it"
+  },
+  {
+   "codi": "de",
+   "nom": "Alemany",
+   "paisos": "Alemanya, Àustria, Suïssa",
+   "traductor": "de"
+  },
+  {
+   "codi": "nl",
+   "nom": "Neerlandès",
+   "paisos": "Països Baixos, Bèlgica",
+   "traductor": "nl"
+  },
+  {
+   "codi": "vi",
+   "nom": "Vietnamita",
+   "paisos": "Vietnam",
+   "traductor": "vi"
+  },
+  {
+   "codi": "ko",
+   "nom": "Coreà",
+   "paisos": "Corea del Sud",
+   "traductor": "ko"
+  },
+  {
+   "codi": "ja",
+   "nom": "Japonès",
+   "paisos": "Japó",
+   "traductor": "ja"
+  },
+  {
+   "codi": "ti",
+   "nom": "Tigrinya",
+   "paisos": "Eritrea, Etiòpia",
+   "traductor": "ti"
+  },
+  {
+   "codi": "am",
+   "nom": "Amhàric",
+   "paisos": "Etiòpia",
+   "traductor": "am"
+  },
+  {
+   "codi": "so",
+   "nom": "Somali",
+   "paisos": "Somàlia",
+   "traductor": "so"
+  }
+ ],
  "glossari": {
   "1": [
    {
@@ -17,8 +293,18 @@ window.FQ_ADAPT = {
      "magnituds"
     ],
     "def": "propietat d'un cos, una substància o un fenomen que es pot mesurar i expressar amb un nombre i una unitat",
-    "es": "magnitud",
-    "en": "(physical) quantity"
+    "tr": {
+     "es": "magnitud",
+     "en": "(physical) quantity",
+     "fr": "grandeur physique",
+     "pt": "grandeza física",
+     "ro": "mărime fizică",
+     "ru": "физическая величина",
+     "uk": "фізична величина",
+     "ar": "كمية فيزيائية",
+     "zh": "物理量",
+     "ur": "طبعی مقدار"
+    }
    },
    {
     "ca": "unitat de mesura",
@@ -26,8 +312,18 @@ window.FQ_ADAPT = {
      "unitat de mesura"
     ],
     "def": "valor d'una magnitud, fixat per convenció, amb què es comparen els altres de la mateixa magnitud",
-    "es": "unidad de medida",
-    "en": "unit of measurement"
+    "tr": {
+     "es": "unidad de medida",
+     "en": "unit of measurement",
+     "fr": "unité de mesure",
+     "pt": "unidade de medida",
+     "ro": "unitate de măsură",
+     "ru": "единица измерения",
+     "uk": "одиниця вимірювання",
+     "ar": "وحدة القياس",
+     "zh": "计量单位",
+     "ur": "پیمائش کی اکائی"
+    }
    },
    {
     "ca": "densitat",
@@ -35,8 +331,18 @@ window.FQ_ADAPT = {
      "densitat"
     ],
     "def": "massa per unitat de volum d'una substància (kg/m³, g/cm³)",
-    "es": "densidad",
-    "en": "density"
+    "tr": {
+     "es": "densidad",
+     "en": "density",
+     "fr": "masse volumique",
+     "pt": "densidade",
+     "ro": "densitate",
+     "ru": "плотность",
+     "uk": "густина",
+     "ar": "الكثافة",
+     "zh": "密度",
+     "ur": "کثافت"
+    }
    },
    {
     "ca": "notació científica",
@@ -44,8 +350,18 @@ window.FQ_ADAPT = {
      "notació científica"
     ],
     "def": "manera d'escriure un nombre com a·10ⁿ, amb 1 ≤ a < 10",
-    "es": "notación científica",
-    "en": "scientific notation"
+    "tr": {
+     "es": "notación científica",
+     "en": "scientific notation",
+     "fr": "notation scientifique",
+     "pt": "notação científica",
+     "ro": "notație științifică",
+     "ru": "стандартный вид числа",
+     "uk": "стандартний вигляд числа",
+     "ar": "الكتابة العلمية للأعداد",
+     "zh": "科学记数法",
+     "ur": "سائنسی ترقیم"
+    }
    },
    {
     "ca": "error relatiu",
@@ -53,8 +369,18 @@ window.FQ_ADAPT = {
      "error relatiu"
     ],
     "def": "quocient entre l'error absolut i el valor de referència; sovint s'expressa en %",
-    "es": "error relativo",
-    "en": "relative error"
+    "tr": {
+     "es": "error relativo",
+     "en": "relative error",
+     "fr": "erreur relative",
+     "pt": "erro relativo",
+     "ro": "eroare relativă",
+     "ru": "относительная погрешность",
+     "uk": "відносна похибка",
+     "ar": "الخطأ النسبي",
+     "zh": "相对误差",
+     "ur": "نسبتی غلطی"
+    }
    },
    {
     "ca": "substància pura",
@@ -62,8 +388,18 @@ window.FQ_ADAPT = {
      "substància pura"
     ],
     "def": "matèria amb una composició fixa i unes propietats característiques (densitat, punt de fusió…)",
-    "es": "sustancia pura",
-    "en": "pure substance"
+    "tr": {
+     "es": "sustancia pura",
+     "en": "pure substance",
+     "fr": "corps pur",
+     "pt": "substância pura",
+     "ro": "substanță pură",
+     "ru": "чистое вещество",
+     "uk": "чиста речовина",
+     "ar": "مادة نقية",
+     "zh": "纯净物",
+     "ur": "خالص مادہ"
+    }
    },
    {
     "ca": "mescla",
@@ -72,8 +408,18 @@ window.FQ_ADAPT = {
      "mescles"
     ],
     "def": "matèria formada per dues o més substàncies que conserven les seves propietats",
-    "es": "mezcla",
-    "en": "mixture"
+    "tr": {
+     "es": "mezcla",
+     "en": "mixture",
+     "fr": "mélange",
+     "pt": "mistura",
+     "ro": "amestec",
+     "ru": "смесь",
+     "uk": "суміш",
+     "ar": "خليط",
+     "zh": "混合物",
+     "ur": "آمیزہ"
+    }
    },
    {
     "ca": "dissolució",
@@ -81,8 +427,18 @@ window.FQ_ADAPT = {
      "dissolució"
     ],
     "def": "mescla homogènia d'un o més soluts en un dissolvent",
-    "es": "disolución",
-    "en": "solution"
+    "tr": {
+     "es": "disolución",
+     "en": "solution",
+     "fr": "solution",
+     "pt": "solução",
+     "ro": "soluție",
+     "ru": "раствор",
+     "uk": "розчин",
+     "ar": "محلول",
+     "zh": "溶液",
+     "ur": "محلول"
+    }
    },
    {
     "ca": "decantació",
@@ -90,8 +446,18 @@ window.FQ_ADAPT = {
      "decantació"
     ],
     "def": "separació, per diferència de densitat, de dos líquids no miscibles o d'un sòlid sedimentat i un líquid",
-    "es": "decantación",
-    "en": "decantation"
+    "tr": {
+     "es": "decantación",
+     "en": "decantation",
+     "fr": "décantation",
+     "pt": "decantação",
+     "ro": "decantare",
+     "ru": "декантация (отстаивание)",
+     "uk": "декантація (відстоювання)",
+     "ar": "الترويق",
+     "zh": "倾析",
+     "ur": "نتھارنا"
+    }
    },
    {
     "ca": "filtració",
@@ -99,8 +465,18 @@ window.FQ_ADAPT = {
      "filtració"
     ],
     "def": "separació d'un sòlid insoluble d'un líquid fent-los passar per un filtre",
-    "es": "filtración",
-    "en": "filtration"
+    "tr": {
+     "es": "filtración",
+     "en": "filtration",
+     "fr": "filtration",
+     "pt": "filtração",
+     "ro": "filtrare",
+     "ru": "фильтрование",
+     "uk": "фільтрування",
+     "ar": "الترشيح",
+     "zh": "过滤",
+     "ur": "چھاننا"
+    }
    },
    {
     "ca": "cromatografia",
@@ -108,8 +484,18 @@ window.FQ_ADAPT = {
      "cromatografia"
     ],
     "def": "separació dels components d'una mescla perquè un dissolvent els arrossega a velocitats diferents per un suport",
-    "es": "cromatografía",
-    "en": "chromatography"
+    "tr": {
+     "es": "cromatografía",
+     "en": "chromatography",
+     "fr": "chromatographie",
+     "pt": "cromatografia",
+     "ro": "cromatografie",
+     "ru": "хроматография",
+     "uk": "хроматографія",
+     "ar": "الكروماتوغرافيا",
+     "zh": "色谱法",
+     "ur": "کرومیٹوگرافی"
+    }
    },
    {
     "ca": "pictograma de perill",
@@ -117,8 +503,18 @@ window.FQ_ADAPT = {
      "pictograma de perill"
     ],
     "def": "símbol normalitzat que indica el perill d'un producte químic",
-    "es": "pictograma de peligro",
-    "en": "hazard pictogram"
+    "tr": {
+     "es": "pictograma de peligro",
+     "en": "hazard pictogram",
+     "fr": "pictogramme de danger",
+     "pt": "pictograma de perigo",
+     "ro": "pictogramă de pericol",
+     "ru": "пиктограмма опасности",
+     "uk": "піктограма небезпеки",
+     "ar": "رمز الخطر",
+     "zh": "危险象形图",
+     "ur": "خطرے کی علامت"
+    }
    }
   ],
   "2": [
@@ -129,8 +525,18 @@ window.FQ_ADAPT = {
      "partícules"
     ],
     "def": "component molt petit de la matèria (àtom, molècula o ió) que es mou constantment",
-    "es": "partícula",
-    "en": "particle"
+    "tr": {
+     "es": "partícula",
+     "en": "particle",
+     "fr": "particule",
+     "pt": "partícula",
+     "ro": "particulă",
+     "ru": "частица",
+     "uk": "частинка",
+     "ar": "جسيم",
+     "zh": "粒子",
+     "ur": "ذرہ"
+    }
    },
    {
     "ca": "pressió",
@@ -138,8 +544,18 @@ window.FQ_ADAPT = {
      "pressió"
     ],
     "def": "força perpendicular per unitat de superfície (Pa); en un gas, la causen els xocs de les partícules",
-    "es": "presión",
-    "en": "pressure"
+    "tr": {
+     "es": "presión",
+     "en": "pressure",
+     "fr": "pression",
+     "pt": "pressão",
+     "ro": "presiune",
+     "ru": "давление",
+     "uk": "тиск",
+     "ar": "الضغط",
+     "zh": "压强",
+     "ur": "دباؤ"
+    }
    },
    {
     "ca": "temperatura",
@@ -147,8 +563,18 @@ window.FQ_ADAPT = {
      "temperatura"
     ],
     "def": "magnitud relacionada amb l'energia cinètica mitjana de les partícules",
-    "es": "temperatura",
-    "en": "temperature"
+    "tr": {
+     "es": "temperatura",
+     "en": "temperature",
+     "fr": "température",
+     "pt": "temperatura",
+     "ro": "temperatură",
+     "ru": "температура",
+     "uk": "температура",
+     "ar": "درجة الحرارة",
+     "zh": "温度",
+     "ur": "درجۂ حرارت"
+    }
    },
    {
     "ca": "kelvin",
@@ -156,8 +582,18 @@ window.FQ_ADAPT = {
      "kelvin"
     ],
     "def": "unitat de temperatura del SI; 0 K = −273,15 °C (zero absolut)",
-    "es": "kelvin",
-    "en": "kelvin"
+    "tr": {
+     "es": "kelvin",
+     "en": "kelvin",
+     "fr": "kelvin",
+     "pt": "kelvin",
+     "ro": "kelvin",
+     "ru": "кельвин",
+     "uk": "кельвін",
+     "ar": "كلفن",
+     "zh": "开尔文",
+     "ur": "کیلون"
+    }
    },
    {
     "ca": "estat d'agregació",
@@ -165,8 +601,18 @@ window.FQ_ADAPT = {
      "estat d'agregació"
     ],
     "def": "forma en què es presenta la matèria: sòlid, líquid o gas",
-    "es": "estado de agregación",
-    "en": "state of matter"
+    "tr": {
+     "es": "estado de agregación",
+     "en": "state of matter",
+     "fr": "état physique",
+     "pt": "estado físico",
+     "ro": "stare de agregare",
+     "ru": "агрегатное состояние",
+     "uk": "агрегатний стан",
+     "ar": "الحالة الفيزيائية للمادة",
+     "zh": "物态",
+     "ur": "مادے کی حالت"
+    }
    },
    {
     "ca": "punt de fusió",
@@ -174,8 +620,18 @@ window.FQ_ADAPT = {
      "punt de fusió"
     ],
     "def": "temperatura a què una substància pura passa de sòlid a líquid, a una pressió determinada",
-    "es": "punto de fusión",
-    "en": "melting point"
+    "tr": {
+     "es": "punto de fusión",
+     "en": "melting point",
+     "fr": "point de fusion",
+     "pt": "ponto de fusão",
+     "ro": "punct de topire",
+     "ru": "температура плавления",
+     "uk": "температура плавлення",
+     "ar": "درجة الانصهار",
+     "zh": "熔点",
+     "ur": "نقطۂ پگھلاؤ"
+    }
    },
    {
     "ca": "punt d'ebullició",
@@ -183,8 +639,18 @@ window.FQ_ADAPT = {
      "punt d'ebullició"
     ],
     "def": "temperatura a què una substància pura bull, a una pressió determinada",
-    "es": "punto de ebullición",
-    "en": "boiling point"
+    "tr": {
+     "es": "punto de ebullición",
+     "en": "boiling point",
+     "fr": "point d'ébullition",
+     "pt": "ponto de ebulição",
+     "ro": "punct de fierbere",
+     "ru": "температура кипения",
+     "uk": "температура кипіння",
+     "ar": "درجة الغليان",
+     "zh": "沸点",
+     "ur": "نقطۂ جوش"
+    }
    },
    {
     "ca": "vaporització",
@@ -192,8 +658,18 @@ window.FQ_ADAPT = {
      "vaporització"
     ],
     "def": "pas de líquid a gas: per evaporació (a la superfície) o per ebullició (a tot el líquid)",
-    "es": "vaporización",
-    "en": "vaporisation"
+    "tr": {
+     "es": "vaporización",
+     "en": "vaporisation",
+     "fr": "vaporisation",
+     "pt": "vaporização",
+     "ro": "vaporizare",
+     "ru": "парообразование",
+     "uk": "пароутворення",
+     "ar": "التبخر",
+     "zh": "汽化",
+     "ur": "تبخیر"
+    }
    },
    {
     "ca": "condensació",
@@ -201,8 +677,18 @@ window.FQ_ADAPT = {
      "condensació"
     ],
     "def": "pas de gas a líquid",
-    "es": "condensación",
-    "en": "condensation"
+    "tr": {
+     "es": "condensación",
+     "en": "condensation",
+     "fr": "condensation",
+     "pt": "condensação",
+     "ro": "condensare",
+     "ru": "конденсация",
+     "uk": "конденсація",
+     "ar": "التكاثف",
+     "zh": "液化（凝结）",
+     "ur": "تکثیف"
+    }
    },
    {
     "ca": "corba d'escalfament",
@@ -210,8 +696,18 @@ window.FQ_ADAPT = {
      "corba d'escalfament"
     ],
     "def": "gràfica temperatura–temps d'una substància que s'escalfa",
-    "es": "curva de calentamiento",
-    "en": "heating curve"
+    "tr": {
+     "es": "curva de calentamiento",
+     "en": "heating curve",
+     "fr": "courbe d'échauffement",
+     "pt": "curva de aquecimento",
+     "ro": "curbă de încălzire",
+     "ru": "кривая нагревания",
+     "uk": "крива нагрівання",
+     "ar": "منحنى التسخين",
+     "zh": "加热曲线",
+     "ur": "گرم کرنے کا خم"
+    }
    }
   ],
   "3": [
@@ -222,8 +718,18 @@ window.FQ_ADAPT = {
      "àtoms"
     ],
     "def": "partícula formada per un nucli (protons i neutrons) i electrons; unitat més petita d'un element químic",
-    "es": "átomo",
-    "en": "atom"
+    "tr": {
+     "es": "átomo",
+     "en": "atom",
+     "fr": "atome",
+     "pt": "átomo",
+     "ro": "atom",
+     "ru": "атом",
+     "uk": "атом",
+     "ar": "ذرة",
+     "zh": "原子",
+     "ur": "ایٹم"
+    }
    },
    {
     "ca": "protó",
@@ -232,8 +738,18 @@ window.FQ_ADAPT = {
      "protons"
     ],
     "def": "partícula del nucli amb càrrega positiva",
-    "es": "protón",
-    "en": "proton"
+    "tr": {
+     "es": "protón",
+     "en": "proton",
+     "fr": "proton",
+     "pt": "protão (próton)",
+     "ro": "proton",
+     "ru": "протон",
+     "uk": "протон",
+     "ar": "بروتون",
+     "zh": "质子",
+     "ur": "پروٹون"
+    }
    },
    {
     "ca": "neutró",
@@ -242,8 +758,18 @@ window.FQ_ADAPT = {
      "neutrons"
     ],
     "def": "partícula del nucli sense càrrega",
-    "es": "neutrón",
-    "en": "neutron"
+    "tr": {
+     "es": "neutrón",
+     "en": "neutron",
+     "fr": "neutron",
+     "pt": "neutrão (nêutron)",
+     "ro": "neutron",
+     "ru": "нейтрон",
+     "uk": "нейтрон",
+     "ar": "نيوترون",
+     "zh": "中子",
+     "ur": "نیوٹرون"
+    }
    },
    {
     "ca": "electró",
@@ -252,8 +778,18 @@ window.FQ_ADAPT = {
      "electrons"
     ],
     "def": "partícula amb càrrega negativa que es mou al voltant del nucli",
-    "es": "electrón",
-    "en": "electron"
+    "tr": {
+     "es": "electrón",
+     "en": "electron",
+     "fr": "électron",
+     "pt": "eletrão (elétron)",
+     "ro": "electron",
+     "ru": "электрон",
+     "uk": "електрон",
+     "ar": "إلكترون",
+     "zh": "电子",
+     "ur": "الیکٹران"
+    }
    },
    {
     "ca": "nombre atòmic (Z)",
@@ -261,8 +797,18 @@ window.FQ_ADAPT = {
      "nombre atòmic"
     ],
     "def": "nombre de protons del nucli; identifica l'element",
-    "es": "número atómico (Z)",
-    "en": "atomic number"
+    "tr": {
+     "es": "número atómico (Z)",
+     "en": "atomic number",
+     "fr": "numéro atomique (Z)",
+     "pt": "número atómico (Z)",
+     "ro": "număr atomic (Z)",
+     "ru": "порядковый (атомный) номер (Z)",
+     "uk": "порядковий (атомний) номер (Z)",
+     "ar": "العدد الذري (Z)",
+     "zh": "原子序数 (Z)",
+     "ur": "ایٹمی نمبر (Z)"
+    }
    },
    {
     "ca": "isòtops",
@@ -271,8 +817,18 @@ window.FQ_ADAPT = {
      "isòtops"
     ],
     "def": "àtoms d'un mateix element (igual Z) amb un nombre diferent de neutrons",
-    "es": "isótopos",
-    "en": "isotopes"
+    "tr": {
+     "es": "isótopos",
+     "en": "isotopes",
+     "fr": "isotopes",
+     "pt": "isótopos",
+     "ro": "izotopi",
+     "ru": "изотопы",
+     "uk": "ізотопи",
+     "ar": "النظائر",
+     "zh": "同位素",
+     "ur": "آئسوٹوپس"
+    }
    },
    {
     "ca": "ió",
@@ -281,8 +837,18 @@ window.FQ_ADAPT = {
      "ions"
     ],
     "def": "àtom o grup d'àtoms amb càrrega perquè ha guanyat o perdut electrons",
-    "es": "ion",
-    "en": "ion"
+    "tr": {
+     "es": "ion",
+     "en": "ion",
+     "fr": "ion",
+     "pt": "ião (íon)",
+     "ro": "ion",
+     "ru": "ион",
+     "uk": "іон",
+     "ar": "أيون",
+     "zh": "离子",
+     "ur": "آئن"
+    }
    },
    {
     "ca": "grup",
@@ -290,8 +856,18 @@ window.FQ_ADAPT = {
      "grup"
     ],
     "def": "columna de la taula periòdica",
-    "es": "grupo",
-    "en": "group"
+    "tr": {
+     "es": "grupo",
+     "en": "group",
+     "fr": "groupe",
+     "pt": "grupo",
+     "ro": "grupă",
+     "ru": "группа",
+     "uk": "група",
+     "ar": "مجموعة",
+     "zh": "族",
+     "ur": "گروپ"
+    }
    },
    {
     "ca": "període",
@@ -299,8 +875,18 @@ window.FQ_ADAPT = {
      "període"
     ],
     "def": "fila de la taula periòdica",
-    "es": "periodo",
-    "en": "period"
+    "tr": {
+     "es": "periodo",
+     "en": "period",
+     "fr": "période",
+     "pt": "período",
+     "ro": "perioadă",
+     "ru": "период",
+     "uk": "період",
+     "ar": "دورة",
+     "zh": "周期",
+     "ur": "پیریڈ"
+    }
    },
    {
     "ca": "enllaç químic",
@@ -308,8 +894,18 @@ window.FQ_ADAPT = {
      "enllaç químic"
     ],
     "def": "unió entre àtoms (iònic, covalent o metàl·lic)",
-    "es": "enlace químico",
-    "en": "chemical bond"
+    "tr": {
+     "es": "enlace químico",
+     "en": "chemical bond",
+     "fr": "liaison chimique",
+     "pt": "ligação química",
+     "ro": "legătură chimică",
+     "ru": "химическая связь",
+     "uk": "хімічний зв'язок",
+     "ar": "رابطة كيميائية",
+     "zh": "化学键",
+     "ur": "کیمیائی بانڈ"
+    }
    },
    {
     "ca": "matèria primera crítica",
@@ -317,8 +913,18 @@ window.FQ_ADAPT = {
      "matèria primera crítica"
     ],
     "def": "matèria primera de gran importància econòmica amb un risc alt de problemes de subministrament (llista de la UE)",
-    "es": "materia prima crítica",
-    "en": "critical raw material"
+    "tr": {
+     "es": "materia prima crítica",
+     "en": "critical raw material",
+     "fr": "matière première critique",
+     "pt": "matéria-prima crítica",
+     "ro": "materie primă critică",
+     "ru": "критически важное сырьё",
+     "uk": "критично важлива сировина",
+     "ar": "مادة خام حرجة",
+     "zh": "关键原材料",
+     "ur": "اہم خام مال"
+    }
    }
   ],
   "4": [
@@ -328,8 +934,18 @@ window.FQ_ADAPT = {
      "reacció química"
     ],
     "def": "procés en què unes substàncies (reactius) es transformen en unes altres (productes)",
-    "es": "reacción química",
-    "en": "chemical reaction"
+    "tr": {
+     "es": "reacción química",
+     "en": "chemical reaction",
+     "fr": "réaction chimique",
+     "pt": "reação química",
+     "ro": "reacție chimică",
+     "ru": "химическая реакция",
+     "uk": "хімічна реакція",
+     "ar": "تفاعل كيميائي",
+     "zh": "化学反应",
+     "ur": "کیمیائی تعامل"
+    }
    },
    {
     "ca": "reactiu",
@@ -338,8 +954,18 @@ window.FQ_ADAPT = {
      "reactius"
     ],
     "def": "substància que es consumeix en una reacció",
-    "es": "reactivo",
-    "en": "reactant"
+    "tr": {
+     "es": "reactivo",
+     "en": "reactant",
+     "fr": "réactif",
+     "pt": "reagente",
+     "ro": "reactant",
+     "ru": "реагент",
+     "uk": "реагент",
+     "ar": "متفاعل",
+     "zh": "反应物",
+     "ur": "متعامل"
+    }
    },
    {
     "ca": "producte",
@@ -348,8 +974,18 @@ window.FQ_ADAPT = {
      "productes"
     ],
     "def": "substància que es forma en una reacció",
-    "es": "producto",
-    "en": "product"
+    "tr": {
+     "es": "producto",
+     "en": "product",
+     "fr": "produit",
+     "pt": "produto",
+     "ro": "produs de reacție",
+     "ru": "продукт реакции",
+     "uk": "продукт реакції",
+     "ar": "ناتج",
+     "zh": "生成物",
+     "ur": "حاصل"
+    }
    },
    {
     "ca": "equació química",
@@ -357,8 +993,18 @@ window.FQ_ADAPT = {
      "equació química"
     ],
     "def": "representació d'una reacció amb fórmules i coeficients",
-    "es": "ecuación química",
-    "en": "chemical equation"
+    "tr": {
+     "es": "ecuación química",
+     "en": "chemical equation",
+     "fr": "équation chimique",
+     "pt": "equação química",
+     "ro": "ecuație chimică",
+     "ru": "химическое уравнение",
+     "uk": "хімічне рівняння",
+     "ar": "معادلة كيميائية",
+     "zh": "化学方程式",
+     "ur": "کیمیائی مساوات"
+    }
    },
    {
     "ca": "coeficient estequiomètric",
@@ -366,8 +1012,18 @@ window.FQ_ADAPT = {
      "coeficient estequiomètric"
     ],
     "def": "nombre davant d'una fórmula que ajusta l'equació",
-    "es": "coeficiente estequiométrico",
-    "en": "stoichiometric coefficient"
+    "tr": {
+     "es": "coeficiente estequiométrico",
+     "en": "stoichiometric coefficient",
+     "fr": "coefficient stœchiométrique",
+     "pt": "coeficiente estequiométrico",
+     "ro": "coeficient stoechiometric",
+     "ru": "стехиометрический коэффициент",
+     "uk": "стехіометричний коефіцієнт",
+     "ar": "المعامل الستوكيومتري",
+     "zh": "化学计量数",
+     "ur": "سٹوکیومیٹرک عددی سر"
+    }
    },
    {
     "ca": "sistema tancat",
@@ -375,8 +1031,18 @@ window.FQ_ADAPT = {
      "sistema tancat"
     ],
     "def": "sistema que intercanvia energia però no matèria amb l'entorn",
-    "es": "sistema cerrado",
-    "en": "closed system"
+    "tr": {
+     "es": "sistema cerrado",
+     "en": "closed system",
+     "fr": "système fermé",
+     "pt": "sistema fechado",
+     "ro": "sistem închis",
+     "ru": "замкнутая система",
+     "uk": "замкнена система",
+     "ar": "نظام مغلق",
+     "zh": "封闭系统",
+     "ur": "بند نظام"
+    }
    },
    {
     "ca": "reacció exotèrmica",
@@ -384,8 +1050,18 @@ window.FQ_ADAPT = {
      "reacció exotèrmica"
     ],
     "def": "reacció que allibera energia a l'entorn",
-    "es": "reacción exotérmica",
-    "en": "exothermic reaction"
+    "tr": {
+     "es": "reacción exotérmica",
+     "en": "exothermic reaction",
+     "fr": "réaction exothermique",
+     "pt": "reação exotérmica",
+     "ro": "reacție exotermă",
+     "ru": "экзотермическая реакция",
+     "uk": "екзотермічна реакція",
+     "ar": "تفاعل ناشر للحرارة",
+     "zh": "放热反应",
+     "ur": "حرارت خارج کرنے والا تعامل"
+    }
    },
    {
     "ca": "reacció endotèrmica",
@@ -393,8 +1069,18 @@ window.FQ_ADAPT = {
      "reacció endotèrmica"
     ],
     "def": "reacció que absorbeix energia de l'entorn",
-    "es": "reacción endotérmica",
-    "en": "endothermic reaction"
+    "tr": {
+     "es": "reacción endotérmica",
+     "en": "endothermic reaction",
+     "fr": "réaction endothermique",
+     "pt": "reação endotérmica",
+     "ro": "reacție endotermă",
+     "ru": "эндотермическая реакция",
+     "uk": "ендотермічна реакція",
+     "ar": "تفاعل ماص للحرارة",
+     "zh": "吸热反应",
+     "ur": "حرارت جذب کرنے والا تعامل"
+    }
    },
    {
     "ca": "electròlisi",
@@ -402,8 +1088,18 @@ window.FQ_ADAPT = {
      "electròlisi"
     ],
     "def": "descomposició d'una substància amb corrent elèctric",
-    "es": "electrólisis",
-    "en": "electrolysis"
+    "tr": {
+     "es": "electrólisis",
+     "en": "electrolysis",
+     "fr": "électrolyse",
+     "pt": "eletrólise",
+     "ro": "electroliză",
+     "ru": "электролиз",
+     "uk": "електроліз",
+     "ar": "التحليل الكهربائي",
+     "zh": "电解",
+     "ur": "برق پاشیدگی"
+    }
    },
    {
     "ca": "combustió",
@@ -411,8 +1107,18 @@ window.FQ_ADAPT = {
      "combustió"
     ],
     "def": "reacció ràpida d'un combustible amb oxigen que allibera energia",
-    "es": "combustión",
-    "en": "combustion"
+    "tr": {
+     "es": "combustión",
+     "en": "combustion",
+     "fr": "combustion",
+     "pt": "combustão",
+     "ro": "ardere (combustie)",
+     "ru": "горение",
+     "uk": "горіння",
+     "ar": "الاحتراق",
+     "zh": "燃烧",
+     "ur": "احتراق"
+    }
    },
    {
     "ca": "velocitat de reacció",
@@ -420,8 +1126,18 @@ window.FQ_ADAPT = {
      "velocitat de reacció"
     ],
     "def": "rapidesa amb què es consumeixen els reactius o es formen els productes",
-    "es": "velocidad de reacción",
-    "en": "rate of reaction"
+    "tr": {
+     "es": "velocidad de reacción",
+     "en": "rate of reaction",
+     "fr": "vitesse de réaction",
+     "pt": "velocidade de reação",
+     "ro": "viteză de reacție",
+     "ru": "скорость реакции",
+     "uk": "швидкість реакції",
+     "ar": "سرعة التفاعل",
+     "zh": "反应速率",
+     "ur": "تعامل کی رفتار"
+    }
    }
   ],
   "5": [
@@ -431,8 +1147,18 @@ window.FQ_ADAPT = {
      "posició"
     ],
     "def": "lloc on és un cos respecte d'un origen",
-    "es": "posición",
-    "en": "position"
+    "tr": {
+     "es": "posición",
+     "en": "position",
+     "fr": "position",
+     "pt": "posição",
+     "ro": "poziție",
+     "ru": "положение (координата)",
+     "uk": "положення (координата)",
+     "ar": "الموضع",
+     "zh": "位置",
+     "ur": "مقام"
+    }
    },
    {
     "ca": "desplaçament",
@@ -440,8 +1166,18 @@ window.FQ_ADAPT = {
      "desplaçament"
     ],
     "def": "canvi de posició entre dos instants (en línia recta, amb sentit)",
-    "es": "desplazamiento",
-    "en": "displacement"
+    "tr": {
+     "es": "desplazamiento",
+     "en": "displacement",
+     "fr": "déplacement",
+     "pt": "deslocamento",
+     "ro": "deplasare",
+     "ru": "перемещение",
+     "uk": "переміщення",
+     "ar": "الإزاحة",
+     "zh": "位移",
+     "ur": "نقل مکانی"
+    }
    },
    {
     "ca": "trajectòria",
@@ -449,8 +1185,18 @@ window.FQ_ADAPT = {
      "trajectòria"
     ],
     "def": "línia que descriu un cos en moure's",
-    "es": "trayectoria",
-    "en": "trajectory, path"
+    "tr": {
+     "es": "trayectoria",
+     "en": "trajectory, path",
+     "fr": "trajectoire",
+     "pt": "trajetória",
+     "ro": "traiectorie",
+     "ru": "траектория",
+     "uk": "траєкторія",
+     "ar": "المسار",
+     "zh": "轨迹",
+     "ur": "راستہ"
+    }
    },
    {
     "ca": "velocitat",
@@ -459,8 +1205,18 @@ window.FQ_ADAPT = {
      "velocitats"
     ],
     "def": "desplaçament per unitat de temps (m/s)",
-    "es": "velocidad",
-    "en": "velocity"
+    "tr": {
+     "es": "velocidad",
+     "en": "velocity",
+     "fr": "vitesse",
+     "pt": "velocidade",
+     "ro": "viteză",
+     "ru": "скорость",
+     "uk": "швидкість",
+     "ar": "السرعة",
+     "zh": "速度",
+     "ur": "رفتار"
+    }
    },
    {
     "ca": "acceleració",
@@ -468,8 +1224,18 @@ window.FQ_ADAPT = {
      "acceleració"
     ],
     "def": "variació de la velocitat per unitat de temps (m/s²)",
-    "es": "aceleración",
-    "en": "acceleration"
+    "tr": {
+     "es": "aceleración",
+     "en": "acceleration",
+     "fr": "accélération",
+     "pt": "aceleração",
+     "ro": "accelerație",
+     "ru": "ускорение",
+     "uk": "прискорення",
+     "ar": "التسارع",
+     "zh": "加速度",
+     "ur": "اسراع"
+    }
    },
    {
     "ca": "MRU / MRUA",
@@ -478,8 +1244,18 @@ window.FQ_ADAPT = {
      "MRUA"
     ],
     "def": "moviment rectilini uniforme / moviment rectilini uniformement accelerat",
-    "es": "MRU / MRUA",
-    "en": "uniform linear motion / uniformly accelerated linear motion"
+    "tr": {
+     "es": "MRU / MRUA",
+     "en": "uniform linear motion / uniformly accelerated linear motion",
+     "fr": "mouvement rectiligne uniforme / uniformément accéléré",
+     "pt": "MRU / MRUV (movimento retilíneo uniforme / uniformemente variado)",
+     "ro": "mișcare rectilinie uniformă / uniform accelerată",
+     "ru": "равномерное / равноускоренное прямолинейное движение",
+     "uk": "рівномірний / рівноприскорений прямолінійний рух",
+     "ar": "الحركة المستقيمة المنتظمة / المتسارعة بانتظام",
+     "zh": "匀速直线运动 / 匀加速直线运动",
+     "ur": "یکساں / یکساں اسراع والی سیدھی حرکت"
+    }
    },
    {
     "ca": "força",
@@ -488,8 +1264,18 @@ window.FQ_ADAPT = {
      "forces"
     ],
     "def": "interacció que pot canviar l'estat de moviment d'un cos o deformar-lo (N)",
-    "es": "fuerza",
-    "en": "force"
+    "tr": {
+     "es": "fuerza",
+     "en": "force",
+     "fr": "force",
+     "pt": "força",
+     "ro": "forță",
+     "ru": "сила",
+     "uk": "сила",
+     "ar": "القوة",
+     "zh": "力",
+     "ur": "قوت"
+    }
    },
    {
     "ca": "inèrcia",
@@ -497,8 +1283,18 @@ window.FQ_ADAPT = {
      "inèrcia"
     ],
     "def": "tendència d'un cos a mantenir el seu estat de repòs o de moviment",
-    "es": "inercia",
-    "en": "inertia"
+    "tr": {
+     "es": "inercia",
+     "en": "inertia",
+     "fr": "inertie",
+     "pt": "inércia",
+     "ro": "inerție",
+     "ru": "инерция",
+     "uk": "інерція",
+     "ar": "القصور الذاتي",
+     "zh": "惯性",
+     "ur": "جمود"
+    }
    },
    {
     "ca": "constant elàstica",
@@ -506,8 +1302,18 @@ window.FQ_ADAPT = {
      "constant elàstica"
     ],
     "def": "força per unitat d'allargament d'una molla (N/m)",
-    "es": "constante elástica",
-    "en": "spring constant"
+    "tr": {
+     "es": "constante elástica",
+     "en": "spring constant",
+     "fr": "constante de raideur",
+     "pt": "constante elástica",
+     "ro": "constantă elastică",
+     "ru": "жёсткость пружины",
+     "uk": "жорсткість пружини",
+     "ar": "ثابت المرونة",
+     "zh": "劲度系数",
+     "ur": "اسپرنگ مستقل"
+    }
    },
    {
     "ca": "gradient",
@@ -515,8 +1321,18 @@ window.FQ_ADAPT = {
      "gradient"
     ],
     "def": "variació d'una magnitud d'un punt a un altre de l'espai",
-    "es": "gradiente",
-    "en": "gradient"
+    "tr": {
+     "es": "gradiente",
+     "en": "gradient",
+     "fr": "gradient",
+     "pt": "gradiente",
+     "ro": "gradient",
+     "ru": "градиент",
+     "uk": "градієнт",
+     "ar": "التدرج",
+     "zh": "梯度",
+     "ur": "گریڈینٹ"
+    }
    },
    {
     "ca": "quimiotaxi",
@@ -524,8 +1340,18 @@ window.FQ_ADAPT = {
      "quimiotaxi"
     ],
     "def": "moviment d'una cèl·lula orientat per un gradient de concentració d'una substància",
-    "es": "quimiotaxis",
-    "en": "chemotaxis"
+    "tr": {
+     "es": "quimiotaxis",
+     "en": "chemotaxis",
+     "fr": "chimiotactisme",
+     "pt": "quimiotaxia",
+     "ro": "chemotaxie",
+     "ru": "хемотаксис",
+     "uk": "хемотаксис",
+     "ar": "الانجذاب الكيميائي",
+     "zh": "趋化性",
+     "ur": "کیموٹیکسس"
+    }
    }
   ],
   "6": [
@@ -535,8 +1361,18 @@ window.FQ_ADAPT = {
      "energia"
     ],
     "def": "capacitat d'un sistema de produir canvis (J, kWh)",
-    "es": "energía",
-    "en": "energy"
+    "tr": {
+     "es": "energía",
+     "en": "energy",
+     "fr": "énergie",
+     "pt": "energia",
+     "ro": "energie",
+     "ru": "энергия",
+     "uk": "енергія",
+     "ar": "الطاقة",
+     "zh": "能量",
+     "ur": "توانائی"
+    }
    },
    {
     "ca": "potència",
@@ -544,8 +1380,18 @@ window.FQ_ADAPT = {
      "potència"
     ],
     "def": "energia transformada per unitat de temps (W)",
-    "es": "potencia",
-    "en": "power"
+    "tr": {
+     "es": "potencia",
+     "en": "power",
+     "fr": "puissance",
+     "pt": "potência",
+     "ro": "putere",
+     "ru": "мощность",
+     "uk": "потужність",
+     "ar": "القدرة",
+     "zh": "功率",
+     "ur": "طاقت"
+    }
    },
    {
     "ca": "quilowatt hora",
@@ -554,8 +1400,18 @@ window.FQ_ADAPT = {
      "kWh"
     ],
     "def": "energia que transforma un aparell d'1 kW en 1 h (1 kWh = 3,6·10⁶ J)",
-    "es": "kilovatio hora",
-    "en": "kilowatt-hour"
+    "tr": {
+     "es": "kilovatio hora",
+     "en": "kilowatt-hour",
+     "fr": "kilowattheure",
+     "pt": "quilowatt-hora",
+     "ro": "kilowatt-oră",
+     "ru": "киловатт-час",
+     "uk": "кіловат-година",
+     "ar": "كيلوواط ساعة",
+     "zh": "千瓦时",
+     "ur": "کلو واٹ گھنٹہ"
+    }
    },
    {
     "ca": "rendiment",
@@ -563,8 +1419,18 @@ window.FQ_ADAPT = {
      "rendiment"
     ],
     "def": "percentatge de l'energia consumida que es converteix en energia útil",
-    "es": "rendimiento",
-    "en": "efficiency"
+    "tr": {
+     "es": "rendimiento",
+     "en": "efficiency",
+     "fr": "rendement",
+     "pt": "rendimento",
+     "ro": "randament",
+     "ru": "КПД (коэффициент полезного действия)",
+     "uk": "ККД (коефіцієнт корисної дії)",
+     "ar": "المردود",
+     "zh": "效率",
+     "ur": "کارکردگی"
+    }
    },
    {
     "ca": "consum en espera",
@@ -572,8 +1438,18 @@ window.FQ_ADAPT = {
      "consum en espera"
     ],
     "def": "energia que consumeix un aparell apagat o en espera però endollat (consum fantasma)",
-    "es": "consumo en espera",
-    "en": "standby power consumption"
+    "tr": {
+     "es": "consumo en espera",
+     "en": "standby power consumption",
+     "fr": "consommation en veille",
+     "pt": "consumo em modo de espera",
+     "ro": "consum în standby",
+     "ru": "потребление в режиме ожидания",
+     "uk": "споживання в режимі очікування",
+     "ar": "الاستهلاك في وضع الاستعداد",
+     "zh": "待机能耗",
+     "ur": "اسٹینڈ بائی کھپت"
+    }
    },
    {
     "ca": "circuit en sèrie",
@@ -581,8 +1457,18 @@ window.FQ_ADAPT = {
      "circuit en sèrie"
     ],
     "def": "aparells connectats un darrere l'altre, pels quals passa el mateix corrent",
-    "es": "circuito en serie",
-    "en": "series circuit"
+    "tr": {
+     "es": "circuito en serie",
+     "en": "series circuit",
+     "fr": "circuit en série",
+     "pt": "circuito em série",
+     "ro": "circuit în serie",
+     "ru": "последовательное соединение",
+     "uk": "послідовне з'єднання",
+     "ar": "دارة على التسلسل",
+     "zh": "串联电路",
+     "ur": "سلسلہ وار سرکٹ"
+    }
    },
    {
     "ca": "circuit en paral·lel",
@@ -590,8 +1476,18 @@ window.FQ_ADAPT = {
      "circuit en paral·lel"
     ],
     "def": "aparells connectats a la mateixa tensió, de manera independent",
-    "es": "circuito en paralelo",
-    "en": "parallel circuit"
+    "tr": {
+     "es": "circuito en paralelo",
+     "en": "parallel circuit",
+     "fr": "circuit en parallèle",
+     "pt": "circuito em paralelo",
+     "ro": "circuit în paralel",
+     "ru": "параллельное соединение",
+     "uk": "паралельне з'єднання",
+     "ar": "دارة على التوازي",
+     "zh": "并联电路",
+     "ur": "متوازی سرکٹ"
+    }
    },
    {
     "ca": "alternador",
@@ -599,8 +1495,18 @@ window.FQ_ADAPT = {
      "alternador"
     ],
     "def": "generador que transforma energia cinètica de rotació en energia elèctrica de corrent altern",
-    "es": "alternador",
-    "en": "alternator"
+    "tr": {
+     "es": "alternador",
+     "en": "alternator",
+     "fr": "alternateur",
+     "pt": "alternador",
+     "ro": "alternator",
+     "ru": "генератор переменного тока",
+     "uk": "генератор змінного струму",
+     "ar": "المنوب",
+     "zh": "交流发电机",
+     "ur": "آلٹرنیٹر"
+    }
    },
    {
     "ca": "font d'energia renovable",
@@ -608,8 +1514,18 @@ window.FQ_ADAPT = {
      "font d'energia renovable"
     ],
     "def": "font d'energia que es regenera de manera natural i no s'esgota a escala humana",
-    "es": "fuente de energía renovable",
-    "en": "renewable energy source"
+    "tr": {
+     "es": "fuente de energía renovable",
+     "en": "renewable energy source",
+     "fr": "source d'énergie renouvelable",
+     "pt": "fonte de energia renovável",
+     "ro": "sursă de energie regenerabilă",
+     "ru": "возобновляемый источник энергии",
+     "uk": "відновлюване джерело енергії",
+     "ar": "مصدر طاقة متجددة",
+     "zh": "可再生能源",
+     "ur": "قابل تجدید توانائی کا ذریعہ"
+    }
    },
    {
     "ca": "matriu energètica",
@@ -617,10 +1533,154 @@ window.FQ_ADAPT = {
      "matriu energètica"
     ],
     "def": "combinació de fonts d'energia que fa servir un territori; en electricitat, el percentatge de cada font en la generació",
-    "es": "matriz energética",
-    "en": "energy mix"
+    "tr": {
+     "es": "matriz energética",
+     "en": "energy mix",
+     "fr": "mix énergétique",
+     "pt": "matriz energética",
+     "ro": "mix energetic",
+     "ru": "энергобаланс",
+     "uk": "енергетичний баланс",
+     "ar": "المزيج الطاقي",
+     "zh": "能源结构",
+     "ur": "توانائی کا امتزاج"
+    }
    }
   ]
  },
- "fitxes": {}
+ "fitxes": {
+  "dc0": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "dcT": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d5ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d5diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d3ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d3lab": {
+   "discalculia": "no_cal"
+  },
+  "d3f4": {
+   "discalculia": "no_cal"
+  },
+  "d3f5": {
+   "discalculia": "no_cal"
+  },
+  "d3diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d1amp": {
+   "basics": "no_cal"
+  },
+  "d2amp": {
+   "basics": "no_cal"
+  },
+  "d2coav": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d3amp": {
+   "basics": "no_cal"
+  },
+  "d4amp": {
+   "basics": "no_cal"
+  },
+  "d5amp": {
+   "basics": "no_cal"
+  },
+  "d6amp": {
+   "basics": "no_cal"
+  },
+  "d6ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d6diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d4ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d4diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d1ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d1reg": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d1seg": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  },
+  "d1crom": {
+   "discalculia": "no_cal"
+  },
+  "d1inf": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "d1diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "ruta": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal",
+   "tea": "no_cal"
+  },
+  "video": {
+   "basics": "no_cal"
+  },
+  "diana": {
+   "basics": "no_cal",
+   "discalculia": "no_cal",
+   "tdah": "no_cal"
+  },
+  "d1ellen": {
+   "basics": "no_cal",
+   "discalculia": "no_cal"
+  }
+ }
 };
