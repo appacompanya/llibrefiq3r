@@ -10,11 +10,12 @@ versio: 3
 color: --s4
 titol: Un cotxe que només allibera aigua?
 repte: Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?
-meta: '2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3'
+meta: '2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2, CE3 i CE4'
 publicada: true
 ce_aprovades:
 - CE2
 - CE3
+- CE4
 sessions:
 - titol: El repte i l'espelma
   fase: Explorem
@@ -869,7 +870,7 @@ documents:
     avaluacio: formativa
   d4dos:
     uid: d4dos
-    versio: 1
+    versio: 2
     fitxer: sda4-09-dossier-hidrogen.pdf
     titol: Dossier sobre l'hidrogen
     digital:
@@ -921,7 +922,7 @@ documents:
         - d4dos.a3
   d4rub:
     uid: d4rub
-    versio: 1
+    versio: 2
     fitxer: sda4-10-rubriques.pdf
     titol: Rúbriques
   d4prova:
@@ -1076,22 +1077,33 @@ evidencies:
       NA: No aplica les unitats ni els càlculs
 - uid: s4.dos
   id: dos
-  versio: 1
+  versio: 2
   titol: Dossier i resposta del grup al repte (sessió 8)
   instruments:
   - d4dos
   items:
   - uid: s4.dos.d1
     id: d1
-    versio: 1
+    versio: 2
     titol: Dades de fonts diverses
     criteris:
     - '3.1'
     descriptors:
-      AE: Fa servir com a mínim tres dades del dossier, en cita la font i les relaciona amb la química de la SdA
-      AN: Fa servir dades del dossier i en cita la font
-      AS: Fa servir alguna dada sense citar-ne la font
+      AE: Fa servir com a mínim tres dades del dossier, les interpreta bé i les relaciona amb la química de la SdA
+      AN: Fa servir dades del dossier i les relaciona amb la resposta
+      AS: Fa servir alguna dada aïllada, sense relacionar-la amb la resposta
       NA: No fa servir dades
+  - uid: s4.dos.d3
+    id: d3
+    versio: 1
+    titol: Fonts fiables i citades
+    criteris:
+    - '4.3'
+    descriptors:
+      AE: Tria les fonts més fiables del dossier, explica per què ho són i les cita totes correctament
+      AN: Fa servir fonts fiables i les cita
+      AS: Cita alguna font o en fa servir alguna de poc fiable
+      NA: No cita cap font
   - uid: s4.dos.d2
     id: d2
     versio: 1
@@ -1106,4 +1118,5 @@ evidencies:
 ce_principals:
 - CE2
 - CE3
-ce_secundaria: []
+ce_secundaria:
+- CE4

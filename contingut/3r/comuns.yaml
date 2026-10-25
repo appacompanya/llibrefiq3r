@@ -540,7 +540,7 @@ documents:
     titol: Glossari del curs
   dannex:
     uid: dannex
-    versio: 1
+    versio: 2
     fitxer: programacio-annexos.pdf
     titol: Annexos de la programació
     professorat: true

@@ -4,19 +4,19 @@
 # Els camps d'una pregunta hereten la versio de la pregunta.
 # Avaluació oficial: nivells NA–AE, sense pesos.
 # Fitxes: la 2 (d3f2, evolució dels models) és qualificadora (evidència s3.fit, criteri 6.1). Les fitxes 1, 3, 4 i 5 són formatives i no entren al càlcul oficial.
-# CE: principals CE5 i CE6. Secundària CE4 (4.1 al cartell i la difusió de la campanya, que sí defensen un punt de vista ecosocial). Sense CE1: només sortia a tres activitats de la demostració, sense rúbrica.
+# CE (mapa de la programació, 25/10/2026): principals CE1 i CE5. Secundària CE6, només a la fitxa 2 (6.1). La demostració avalua el model atòmic, la taula periòdica i l'enllaç amb 1.1 i 1.2, i l'activitat 5 amb 5.1 i 5.2. La campanya no avalua el 4.1 (passa a la presentació del pla de la SdA 6).
 # El balanç del punt de recollida es comenta a la SdA 4; aquí es qualifica la campanya.
 sda: 3
 versio: 3
 color: --s3
 titol: Què hi ha dins del meu mòbil?
 repte: Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?
-meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4'
+meta: '1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE1, CE5 i CE6'
 publicada: true
 ce_aprovades:
+- CE1
 - CE5
 - CE6
-- CE4
 sessions:
 - titol: Desmuntem el mòbil
   fase: Explorem
@@ -1091,7 +1091,7 @@ documents:
 evidencies:
 - uid: s3.prova
   id: prova
-  versio: 3
+  versio: 4
   titol: Activitat de demostració d'assoliment (sessió 9)
   instruments:
   - d3prova
@@ -1099,28 +1099,28 @@ evidencies:
   items:
   - uid: s3.prova.p1
     id: p1
-    versio: 1
+    versio: 2
     titol: Activitat 1 · Models atòmics
     criteris:
-    - '6.1'
+    - '1.1'
   - uid: s3.prova.p2
     id: p2
-    versio: 3
+    versio: 4
     titol: Activitat 2 · Àtoms, ions i isòtops
     criteris:
-    - '6.1'
+    - '1.1'
   - uid: s3.prova.p3
     id: p3
-    versio: 3
+    versio: 4
     titol: Activitat 3 · La taula periòdica
     criteris:
-    - '6.1'
+    - '1.2'
   - uid: s3.prova.p4
     id: p4
-    versio: 3
+    versio: 4
     titol: Activitat 4 · El liti a la flama
     criteris:
-    - '6.1'
+    - '1.2'
   - uid: s3.prova.p5
     id: p5
     versio: 1
@@ -1130,7 +1130,7 @@ evidencies:
     - '5.2'
 - uid: s3.camp
   id: camp
-  versio: 2
+  versio: 3
   titol: Campanya del punt de recollida (producte final)
   instruments:
   - d3camp
@@ -1168,17 +1168,6 @@ evidencies:
       AN: Proposa hàbits concrets
       AS: Proposa hàbits genèrics
       NA: No proposa hàbits
-  - uid: s3.camp.c4
-    id: c4
-    versio: 1
-    titol: Difusió del punt de vista ecosocial
-    criteris:
-    - '4.1'
-    descriptors:
-      AE: El cartell o el missatge defensa, amb arguments i un format clar, per què els mòbils no han d'anar al rebuig
-      AN: El missatge defensa la recollida selectiva amb algun argument
-      AS: El missatge anuncia la recollida sense defensar el punt de vista
-      NA: No hi ha cartell ni missatge de difusió
 - uid: s3.dos
   id: dos
   versio: 1
@@ -1222,7 +1211,7 @@ evidencies:
     criteris:
     - '6.1'
 ce_principals:
+- CE1
 - CE5
-- CE6
 ce_secundaria:
-- CE4
+- CE6

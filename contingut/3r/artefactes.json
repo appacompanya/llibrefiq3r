@@ -1436,18 +1436,18 @@
   },
   "docs/programacio-annexos.pdf": {
    "depen_de": [
-    "curriculum@1",
-    "sda1@1",
-    "sda2@1",
-    "sda3@1",
-    "sda4@1",
-    "sda5@1",
-    "sda6@1"
+    "curriculum@2",
+    "sda1@2",
+    "sda2@3",
+    "sda3@3",
+    "sda4@3",
+    "sda5@3",
+    "sda6@4"
    ],
    "document": null,
-   "empremta": "95858c85558a736044dc7ba47c038253dcee7ac474a34c1157aa40a6044eb405",
+   "empremta": "8aa73c80136f09f7fcc1c68014643ec3252051267f0ded3b0214930f7d4df61b",
    "generador": "gen_annexos.py",
-   "hash": "4c23838ffed16d3b8b53e72a960e083b4ad8dcd486f62115b2821ced63c5dd0d",
+   "hash": "7f7205bb3216de655fd3c7174cb22a973f159e37fedd7838b761c270a7e32029",
    "imatges": {},
    "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
    "tipus": "pdf-public"
@@ -1865,32 +1865,32 @@
   "docs/sda2-08-guio-del-video.pdf": {
    "depen_de": [
     "video@1",
-    "s2.video@1",
+    "s2.video@2",
     "s2.video.v1@1",
-    "s2.video.v2@1",
-    "s2.video.v3@1",
+    "s2.video.v2@2",
+    "s2.video.v3@2",
     "video.1@1",
     "video.2@1",
     "video.3@1",
     "video._@1"
    ],
    "document": "video",
-   "empremta": "16c5a3d391d2389bc09686648a82e15eee47b23364bb15b280e6f5d2c77fc32e",
+   "empremta": "b8efedbb73acd1f723b502f8da4166345c1a293449bd96730538a2d469f1d017",
    "generador": "gen_sda1.py",
-   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
-   "hash": "fac31e654cace7b5f8c794ec0b1fb44586200f917e57a39941bc7f9ef201ff4d",
+   "generador_hash": null,
+   "hash": "2edcffe35aab88a154b375be8ecb89f10d153f6488b2bb38886d0f723e9e6c2d",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda2-09-rubriques.pdf": {
    "depen_de": [
-    "rub@1"
+    "rub@2"
    ],
    "document": "rub",
-   "empremta": "f65a1b8054e1321a94f0fdd1cf703650ea0ec8a89ef8489c47da16213e1580ea",
+   "empremta": "448a25b1e339ab2175b443b2e179734ed48d8727fe28d1368e5be9fc8b8e165f",
    "generador": "gen_sda1.py",
-   "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
-   "hash": "47d2bed87e7dcb96a1df33d9b5f64aa174462f7274f1bdafb628dc322eb8206d",
+   "generador_hash": null,
+   "hash": "b66beae1d275682a88a969f5c2d8976c0558a91bbf2bec275d44a56a9f954794",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2134,8 +2134,8 @@
   "docs/sda3-11-pla-de-campanya-punt-de-recollida.pdf": {
    "depen_de": [
     "d3camp@1",
-    "s3.camp@1",
-    "s3.camp.c1@1",
+    "s3.camp@3",
+    "s3.camp.c1@2",
     "s3.camp.c2@1",
     "s3.camp.c3@1",
     "d3camp.1@1",
@@ -2147,10 +2147,10 @@
     "d3camp._@1"
    ],
    "document": "d3camp",
-   "empremta": "6eda4d7aaf57446e6d59c26f5fafd0279c0943d689f88a82f9b87dd5b06a077d",
+   "empremta": "8cbe14dc6925c8409cec139e73c272dc3399eeb14344491ffb52c06cd016a2d4",
    "generador": "gen_mobil.py",
-   "generador_hash": "5e7514e4f7a6265e61201515e20645692419f831ab8da3f25d46c4ed71dc5051",
-   "hash": "08ff6cfe848df16bc903efca4c99db8bd196a9cc19ae96f9cd8c42a45b383409",
+   "generador_hash": null,
+   "hash": "2f45e08dbe528ba3cfbf23fe5d62b88f35d4a69252e7ecd820f812019ad6680b",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2382,9 +2382,10 @@
   },
   "docs/sda4-09-dossier-hidrogen.pdf": {
    "depen_de": [
-    "d4dos@1",
-    "s4.dos@1",
-    "s4.dos.d1@1",
+    "d4dos@2",
+    "s4.dos@2",
+    "s4.dos.d1@2",
+    "s4.dos.d3@1",
     "s4.dos.d2@1",
     "d4dos.1@1",
     "d4dos.2@1",
@@ -2393,22 +2394,22 @@
     "d4dos._@1"
    ],
    "document": "d4dos",
-   "empremta": "00d845c4132d725d58c5583bfc6a68ec9189d4301ce66ff6fc5e44b2226ea984",
+   "empremta": "3710f1a91f96e9d1744fb9d02b40272bee838dcfb5a2e6d252336e4dd3ae959c",
    "generador": "gen_hidrogen.py",
-   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
-   "hash": "0b9783a84fcd3b275d0457a9a9641214778b4d6f7267d1a4a1d7c2a7f63b37ca",
+   "generador_hash": null,
+   "hash": "3dd3c6a1f697d82d60649245361ff146a605ceed16c426971000602d837cd026",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda4-10-rubriques.pdf": {
    "depen_de": [
-    "d4rub@1"
+    "d4rub@2"
    ],
    "document": "d4rub",
-   "empremta": "7af439c0380f60f2729c3befd7d857d98b1b1ec92074bd37d4813acefbd31b11",
+   "empremta": "41227471842bcd8e2d4219eab40bc84994a49056336634793956982ecef5740e",
    "generador": "gen_hidrogen.py",
-   "generador_hash": "8e4e1c325a731e49d9efac23a49b737b23b38ee470129fd21084a31f9da2d99e",
-   "hash": "8042d348c09007b36f18bb70cff401f13b2740b4fdff3f815caf8dbf4c1a076d",
+   "generador_hash": null,
+   "hash": "8b46876f6ef5fbc43ee41bc46930ed7865e15220597b5bab31592af5a828590f",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2798,7 +2799,7 @@
   },
   "docs/sda6-02-full-del-repte.pdf": {
    "depen_de": [
-    "d6repte@1",
+    "d6repte@2",
     "d6repte.1@1",
     "d6repte.2@1",
     "d6repte.3@1",
@@ -2807,16 +2808,16 @@
     "d6repte.6@1"
    ],
    "document": "d6repte",
-   "empremta": "9f2ab41ab785773c514fc2472cad0f5914123a764125b065f563770a7718aa04",
+   "empremta": "4dc8934395ef271a458cb96c924fc39258387f96acfd03ae23a9cd440bc1280e",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "7b48e0dd3ad122bd71f79ad5fa1c857a15ee4d2f1bfed9287ebea872128139fb",
+   "generador_hash": null,
+   "hash": "83c8424eeab3dcfc2a89270c1e710c5dc95c88fa4fdcc7ba91c2a84bc41478cf",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-03-fitxa-1-energia-potencia-i-consum.pdf": {
    "depen_de": [
-    "d6f1@1",
+    "d6f1@2",
     "d6f1.1@1",
     "d6f1.2@1",
     "d6f1.3@1",
@@ -2826,16 +2827,16 @@
     "d6f1.7@1"
    ],
    "document": "d6f1",
-   "empremta": "1f84ee7caf48d4c7e812eddbbc5f02ec93b675abaeac5d4b14ef588135d78199",
+   "empremta": "8bba86af761fea1c7485475d044d090d7c247c0517ed3a28d69ebd39359bf9a0",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "750d9745c39923a2acacbe51b23e193cc71f734c68278e06130dc80655b267c0",
+   "generador_hash": null,
+   "hash": "05570b69033e9c0d1bf840a25f90dd8a21c90484d1b2fa9bd35cb16f61e3134e",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-04-laboratori-consum-real.pdf": {
    "depen_de": [
-    "d6lab@1",
+    "d6lab@2",
     "d6lab.1@1",
     "d6lab.2@1",
     "d6lab.3@1",
@@ -2846,16 +2847,19 @@
     "d6lab._@1"
    ],
    "document": "d6lab",
-   "empremta": "44ff955dd948037b1c6850b3ade16a662547344b31d3cb2c66852469f3447457",
+   "empremta": "41aeff0600f3b754c1b93274157874af29fbab454ca750943916ca5f3512d201",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "795368c74a3ce12d3dc4ce801fe396254361cc988c7f27f556b798070ec42596",
+   "generador_hash": null,
+   "hash": "d33ddd2434c21d9d45c390912387c048b4476b7d9d5aa81709e31ecdd687acfa",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-05-fitxa-2-don-ve-lelectricitat.pdf": {
    "depen_de": [
-    "d6f2@1",
+    "d6f2@2",
+    "s6.cerca@1",
+    "s6.cerca.c1@1",
+    "s6.cerca.c2@1",
     "d6f2.1@1",
     "d6f2.2@1",
     "d6f2.3@1",
@@ -2864,19 +2868,20 @@
     "d6f2._@1"
    ],
    "document": "d6f2",
-   "empremta": "7b3b7138b3a67679a717a3e3d1fe9aebac4b641c800145ec0366744fef84d73f",
+   "empremta": "ac686ebceed6b5f40a0e9f55c6f206eb34d8867b7c790585df9e9985f12b8632",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "87e29085de6ff9fd35254a91e3c1d3994028d6ce9505a947fcf0442c044d0827",
+   "generador_hash": null,
+   "hash": "1b2507cee1c3fad561b4bbb69db1490be6b0cf76d35526f321dac23b852a3e5c",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-06-pla-destalvi-i-debat.pdf": {
    "depen_de": [
-    "d6pla@1",
-    "s6.pla@1",
-    "s6.pla.e1@1",
+    "d6pla@2",
+    "s6.pla@3",
+    "s6.pla.e1@2",
     "s6.pla.e2@1",
+    "s6.pla.e3@1",
     "d6pla.1@1",
     "d6pla.2@1",
     "d6pla.3@1",
@@ -2887,38 +2892,38 @@
     "d6pla._@1"
    ],
    "document": "d6pla",
-   "empremta": "1bb715297435044e7e0a44380bfa1ac205d04e684baed1f762a16dc0a7f404c3",
+   "empremta": "8ec55947a8d2eb508a62691bd6430d49757fde9118e9e27aeb5c24a981f7b933",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "2da5a61994dc6a9c30fbccd365aeaafe097eb6512c7198ec0f7b8c4b80521441",
+   "generador_hash": null,
+   "hash": "15defbe5bc98d1e528267db6f274f6bbbea617695183c3c7f08e94a29aa11bd0",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-07-rubriques.pdf": {
    "depen_de": [
-    "d6rub@1"
+    "d6rub@2"
    ],
    "document": "d6rub",
-   "empremta": "514a9a339e3f4fee2c7e61c3b9edb56aa0efd141a4bd6de982862348b82550c1",
+   "empremta": "5e6de79eacec230db21f99587195ec60e8df560d01377aa27e38961a1c7122fe",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "2935baded96df06c37387ab9f7da35481c61dfed28a8e059104df3097b35a74b",
+   "generador_hash": null,
+   "hash": "9e448a3ecd2f0e9a64cf21dd8c7b8d0a21297cf31401b31bcfbc135875ef18a3",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
   "docs/sda6-11-diana-autoavaluacio.pdf": {
    "depen_de": [
-    "d6diana@1",
+    "d6diana@2",
     "d6diana.1@1",
     "d6diana.2@1",
     "d6diana.3@1",
     "d6diana.diana@1"
    ],
    "document": "d6diana",
-   "empremta": "b1f28ef64b75c9183ce415724f877d30975c6399aa0dd3e080ebcfc14a28dcf8",
+   "empremta": "4ade9322ad9792958e5d05c6742dbca27bf5d89c7704bb4914981915649d8e08",
    "generador": "gen_energia.py",
-   "generador_hash": "1958573521f3b6507b3942ee25641aa94f6181f288154d64b7fc394280a1fcf7",
-   "hash": "591f86726f59b5113bbb36d52b585220725f4fc2256a95935f01017c01967883",
+   "generador_hash": null,
+   "hash": "5a11e7b80feee37b3d010f8d87d3c1fee288bbf6a0b0434e4c8d95bd897bd451",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },

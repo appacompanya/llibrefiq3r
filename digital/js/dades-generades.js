@@ -1554,7 +1554,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -1732,7 +1732,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2, CE3 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -2213,7 +2213,7 @@ window.FQ3_DADES = {
     {
      "t": "Corregeixo, votem i reflexiono",
      "ph": "Reflexionem",
-     "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.",
+     "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran i defensaran els plans d'estalvi amb el full de càlcul i un gràfic, i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.",
      "d": [
       "d6diana",
       "d6pla"
@@ -2516,7 +2516,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE5, CE6 i CE4",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -2629,7 +2629,7 @@ window.FQ3_DADES = {
    "c": "--s4",
    "title": "Un cotxe que només allibera aigua?",
    "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?",
-   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2 i CE3",
+   "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2, CE3 i CE4",
    "ready": true,
    "sessions": [
     {
@@ -2994,7 +2994,7 @@ window.FQ3_DADES = {
     {
      "t": "Corregeixo, votem i reflexiono",
      "ph": "Reflexionem",
-     "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran els plans d'estalvi i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.",
+     "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran i defensaran els plans d'estalvi amb el full de càlcul i un gràfic, i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.",
      "d": [
       "d6diana",
       "d6pla"
@@ -3336,28 +3336,28 @@ window.FQ3_DADES = {
       "id": "p1",
       "l": "Activitat 1 · Models atòmics",
       "c": [
-       "6.1"
+       "1.1"
       ]
      },
      {
       "id": "p2",
       "l": "Activitat 2 · Àtoms, ions i isòtops",
       "c": [
-       "6.1"
+       "1.1"
       ]
      },
      {
       "id": "p3",
       "l": "Activitat 3 · La taula periòdica",
       "c": [
-       "6.1"
+       "1.2"
       ]
      },
      {
       "id": "p4",
       "l": "Activitat 4 · El liti a la flama",
       "c": [
-       "6.1"
+       "1.2"
       ]
      },
      {
@@ -3411,19 +3411,6 @@ window.FQ3_DADES = {
        "AN": "Proposa hàbits concrets",
        "AS": "Proposa hàbits genèrics",
        "NA": "No proposa hàbits"
-      }
-     },
-     {
-      "id": "c4",
-      "l": "Difusió del punt de vista ecosocial",
-      "c": [
-       "4.1"
-      ],
-      "d": {
-       "AE": "El cartell o el missatge defensa, amb arguments i un format clar, per què els mòbils no han d'anar al rebuig",
-       "AN": "El missatge defensa la recollida selectiva amb algun argument",
-       "AS": "El missatge anuncia la recollida sense defensar el punt de vista",
-       "NA": "No hi ha cartell ni missatge de difusió"
       }
      }
     ]
@@ -3573,10 +3560,23 @@ window.FQ3_DADES = {
        "3.1"
       ],
       "d": {
-       "AE": "Fa servir com a mínim tres dades del dossier, en cita la font i les relaciona amb la química de la SdA",
-       "AN": "Fa servir dades del dossier i en cita la font",
-       "AS": "Fa servir alguna dada sense citar-ne la font",
+       "AE": "Fa servir com a mínim tres dades del dossier, les interpreta bé i les relaciona amb la química de la SdA",
+       "AN": "Fa servir dades del dossier i les relaciona amb la resposta",
+       "AS": "Fa servir alguna dada aïllada, sense relacionar-la amb la resposta",
        "NA": "No fa servir dades"
+      }
+     },
+     {
+      "id": "d3",
+      "l": "Fonts fiables i citades",
+      "c": [
+       "4.3"
+      ],
+      "d": {
+       "AE": "Tria les fonts més fiables del dossier, explica per què ho són i les cita totes correctament",
+       "AN": "Fa servir fonts fiables i les cita",
+       "AS": "Cita alguna font o en fa servir alguna de poc fiable",
+       "NA": "No cita cap font"
       }
      },
      {
@@ -3857,7 +3857,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "pla",
-    "l": "Pla d'estalvi del grup",
+    "l": "Pla d'estalvi del grup i presentació",
     "items": [
      {
       "id": "e1",
@@ -3883,6 +3883,19 @@ window.FQ3_DADES = {
        "AN": "Implica la comunitat i revisa el repartiment de tasques",
        "AS": "Implicació poc concreta o repartiment no revisat",
        "NA": "No hi ha implicació de la comunitat"
+      }
+     },
+     {
+      "id": "e3",
+      "l": "Presentació i defensa amb recursos digitals",
+      "c": [
+       "4.1"
+      ],
+      "d": {
+       "AE": "Defensa el pla amb el full de càlcul, un gràfic i dades citades de Red Eléctrica, i respon les preguntes amb arguments",
+       "AN": "Defensa el pla amb el full de càlcul o un gràfic i alguna dada",
+       "AS": "Presenta el pla sense recursos digitals o sense defensar-lo",
+       "NA": "No presenta el pla"
       }
      }
     ]
