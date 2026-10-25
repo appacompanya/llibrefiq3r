@@ -784,7 +784,7 @@ function renderHome(){
 function renderCta(){
   // a la portada: botó petit per obrir el joc de la taula periòdica (dins del llibre)
   document.getElementById("cta").innerHTML = L.joctaula
-    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>`
+    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>` + (L.joctaularank ? ` <button type="button" class="btn ghost vid" data-open="joctaularank" style="font-size:.92rem;padding:8px 14px;min-height:40px">🏆 Rànquing</button>` : "")
     : "";
 }
 

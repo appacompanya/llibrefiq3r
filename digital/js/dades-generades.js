@@ -1028,6 +1028,11 @@ window.FQ3_DADES = {
    "l": "Simulador: la bateria de liti per dins",
    "an": 1
   },
+  "joctaularank": {
+   "u": "../joc-taula.html?nivell=3r&vista=ranquing",
+   "l": "Rànquing del joc de la taula periòdica",
+   "an": 1
+  },
   "joctaula": {
    "u": "../joc-taula.html?nivell=3r",
    "l": "Joc: la taula periòdica (símbols, posicions i valències)",
@@ -1177,6 +1182,11 @@ window.FQ3_DADES = {
   "simbat": {
    "u": "sim-bateria.html",
    "l": "Simulador: la bateria de liti per dins",
+   "an": 1
+  },
+  "joctaularank": {
+   "u": "joc-taula.html?nivell=3r&vista=ranquing",
+   "l": "Rànquing del joc de la taula periòdica",
    "an": 1
   },
   "joctaula": {

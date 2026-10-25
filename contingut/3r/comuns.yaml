@@ -186,6 +186,10 @@ enllacos:
     u: ../sim-bateria.html
     l: 'Simulador: la bateria de liti per dins'
     an: 1
+  joctaularank:
+    u: ../joc-taula.html?nivell=3r&vista=ranquing
+    l: 'Rànquing del joc de la taula periòdica'
+    an: 1
   joctaula:
     u: ../joc-taula.html?nivell=3r
     l: 'Joc: la taula periòdica (símbols, posicions i valències)'
@@ -249,6 +253,7 @@ enllacos:
     l: 'Simulació: estats de la matèria'
 enllacos_url_arrel:
   joctaula: joc-taula.html?nivell=3r
+  joctaularank: joc-taula.html?nivell=3r&vista=ranquing
   simbat: sim-bateria.html
   simgas: sim-gasos.html
   anajust: sim-ajust.html

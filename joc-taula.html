@@ -507,7 +507,9 @@ h2{font-family:var(--display);font-weight:700;font-size:1.15rem;margin:0 0 8px}
   document.querySelector("#end .row").insertAdjacentHTML("beforeend", '<button class="btn ghost" id="endRank">Rànquing</button>');
   $("#endRank").onclick = () => showRank(true);
 
-  renderSetup(); loadMe();
+  renderSetup();
+  loadMe().then(() => { if (/vista=ranquing/.test(location.search)) showRank(false); });
+  if (/vista=ranquing/.test(location.search)) showRank(false);
 })();
 </script>
 </body>
