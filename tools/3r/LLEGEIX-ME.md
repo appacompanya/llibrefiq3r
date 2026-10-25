@@ -81,3 +81,10 @@ Els PDF, la programació i els annexos segueixen els generadors d'aquesta carpet
 - `artefactes.py` guarda el hash de les imatges de cada PDF; si una canvia, `--check` diu `CAL REGENERAR … (imatge img/<id> canviada)` per a cada PDF afectat.
 - **Per substituir una imatge:** sobreescriu `img/<id>` amb el mateix nom → `python3 tools/3r/artefactes.py --check` → regenera els PDF que surten → `--registra-imatges` (o `--registra` quan tot estigui al dia). El web la mostra nova sense fer res més.
 - `supabase/functions/imatges4` és dels llibres de 2n i 4t (imatges generades, versionades per nom a `privat.imatges4`): no afecta 3r.
+
+## Adaptacions per perfil (NESE)
+
+- El docent assigna el perfil de cada alumne a la zona del professorat («Alumnat i codis» → botó d'adaptació). Es desa a `profiles.adaptacions` (l'alumne només el llegeix). Perfils: `dislexia`, `nouvingut`, `basics`, `discalculia`, `tdah`, `tea`.
+- L'alumne tria «Fitxes: Digital / Paper» a la barra superior del llibre (`preferencies.mode_fitxes`). En paper, els botons obren el PDF original o, si té adaptació, la vista imprimible adaptada (`#paper-<fitxa>`).
+- `digital/js/adaptacions.js` aplica les adaptacions automàtiques a totes les fitxes. `contingut/3r/adaptacions.yaml` conté el glossari per SdA i, per fitxa i perfil, `no_cal` o el contingut d'una versió adaptada (`abans`, i per pregunta `exemple`, `passos`, `pistes`, `frases`, `paraules`, `model`). Després d'editar-lo: `python3 -B tools/3r/build_adaptacions.py`.
+- Criteris: document «Adaptacions del llibre digital: criteris per perfil».
