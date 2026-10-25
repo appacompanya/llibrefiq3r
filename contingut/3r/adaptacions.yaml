@@ -1300,6 +1300,64 @@ fitxes:
   d1ellen:
     basics: no_cal
     discalculia: no_cal
+    nouvingut:
+      preguntes:
+        '2':
+          frases:
+          - Many people got ill because …
+          - Ellen measured the amount of …
+          - The “Normal Chlorine Map” shows …
+          paraules:
+          - water
+          - dirty
+          - chloride
+          - sample
+          - map
+        '3':
+          frases:
+          - El clorur prové de …
+          - El pot que en conté és …
+          - El vam detectar perquè …
+          paraules:
+          - sal
+          - clorur de sodi
+          - conduir el corrent
+          - ions
+        '4':
+          frases:
+          - Nosaltres també vam comparar … amb un valor de referència quan …
+          paraules:
+          - densitat
+          - valor de referència
+          - error
+        '5':
+          frases:
+          - Les normes són importants perquè …
+          - 'L''aigua de l''aixeta de Barcelona ve de … (font: …)'
+          paraules:
+          - salut
+          - qualitat
+          - riu
+          - font
+        '6':
+          frases:
+          - Una raó pot ser que …
+          - Una altra raó és que a l'època …
+          paraules:
+          - dona
+          - universitat
+          - reconeixement
+          - època
+    tea:
+      preguntes:
+        '3':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '4':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '5':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '6':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
   f2:
     basics:
       abans_titol: Com es resol un problema de gasos
@@ -1453,6 +1511,651 @@ fitxes:
           model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
         '7':
           model: 'Una bona resposta diu <b>què passa</b> amb les partícules i <b>per què</b>, i fa servir una paraula clau: moviment, xocs, distància o temperatura. Dues o tres frases n''hi ha prou.'
+  labc:
+    basics:
+      abans_titol: Abans de començar
+      abans: '<ul><li>Mentre l''aigua <b>bull</b>, la temperatura <b>no puja</b>: l''energia serveix per separar les partícules.</li><li>Per passar de sòlid a líquid i de líquid a gas cal <b>absorbir</b> energia. Al revés,
+        se''n <b>desprèn</b>.</li></ul>'
+      preguntes:
+        '1':
+          passos:
+          - 'Mira la taula: quina temperatura es repeteix quan l''aigua bull?'
+          - Aquesta és la temperatura d'ebullició.
+          - Per què no és 100 °C? Pensa en el termòmetre, en la sal de l'aigua de l'aixeta o en la pressió de l'aire.
+        '2':
+          pistes:
+          - 'Fusió: de sòlid a líquid. Solidificació: de líquid a sòlid.'
+          - 'Vaporització: de líquid a gas. Condensació: de gas a líquid.'
+          - 'Sublimació: de sòlid a gas directament.'
+        '3':
+          pistes:
+          - Si les partícules s'han de separar (sòlid → líquid → gas), cal absorbir energia.
+        '4':
+          pistes:
+          - Pensa en l'estat de l'inici i en el del final de cada situació.
+        '5':
+          frases:
+          - L'evaporació passa només a la … i a qualsevol …
+          - L'ebullició passa a tot el … i a una temperatura …
+        '6':
+          frases:
+          - Mentre l'aigua bull, l'energia serveix per …
+          - Per això la temperatura …
+        '7':
+          frases:
+          - Quan estirem l'èmbol, la pressió …
+          - Amb menys pressió, l'aigua bull a una temperatura més …
+    discalculia:
+      preguntes:
+        '1':
+          passos:
+          - Busca a la taula les lectures on l'estat és L + G.
+          - Mira quin número de temperatura es repeteix.
+          - 'Escriu-lo amb la unitat: … °C.'
+  d3f2:
+    basics:
+      abans_titol: Les tres partícules de l'àtom
+      abans: '<ul><li><b>Protó:</b> càrrega +, massa 1 u, al nucli.</li><li><b>Neutró:</b> sense càrrega, massa 1 u, al nucli.</li><li><b>Electró:</b> càrrega −, massa gairebé 0, al voltant del nucli.</li></ul><p><b>Z</b>
+        = protons. <b>A</b> = protons + neutrons. Neutrons = A − Z. Àtom neutre: electrons = protons.</p>'
+      preguntes:
+        '1':
+          pistes:
+          - Amb el model de Thomson, les partícules α passen totes gairebé rectes.
+          - 'Amb l''àtom de Rutherford, la majoria passen recte i unes poques reboten: hi ha un nucli petit i amb càrrega positiva.'
+          frases:
+          - La majoria de partícules … perquè l'àtom és gairebé …
+          - Unes poques … perquè xoquen amb el …
+        '2':
+          exemple: 'Exemple amb el liti, ⁷₃Li: Z = 3 → 3 protons; A = 7 → neutrons = 7 − 3 = 4; àtom neutre → 3 electrons.'
+          passos:
+          - 'Z és el número de baix: protons.'
+          - A és el número de dalt.
+          - Neutrons = A − Z.
+          - Electrons = protons.
+        '3':
+          passos:
+          - '⁶₃Li: protons = 3, neutrons = 6 − 3 = 3, electrons = 3.'
+          - '⁷₃Li: protons = 3, neutrons = 4, electrons = 3.'
+          - 'Compara: què canvia i què no?'
+          frases:
+          - Tenen les mateixes propietats químiques perquè tenen els mateixos …
+        '4':
+          pistes:
+          - Són isòtops si tenen el mateix número de baix (Z) i diferent número de dalt (A).
+  d3camp:
+    basics:
+      preguntes:
+        '1':
+          frases:
+          - Volem recollir … mòbils entre el … i el …
+          - Els reciclarem amb …
+        '2':
+          passos:
+          - 'Tria les tres raons de la sessió 7: seguretat, medi ambient i recursos.'
+          - Escriu-ne una frase curta per a cadascuna.
+          - Afegeix una dada amb la font (per exemple, del dossier).
+        '3':
+          frases:
+          - Porta el teu mòbil vell al punt de recollida perquè …
+          - 'Una dada: … (font: …)'
+        '4':
+          passos:
+          - 'Mira el registre: quants mòbils cada setmana?'
+          - Fes una barra per setmana.
+          - Compara el total amb l'objectiu.
+        '5':
+          pistes:
+          - Pensa en la funda, la bateria, les reparacions i en no canviar de mòbil cada any.
+        '6':
+          frases:
+          - Milloraríem …
+          - Hi podríem implicar … fent …
+    nouvingut:
+      preguntes:
+        '2':
+          frases:
+          - Porta el mòbil perquè …
+          - La bateria pot …
+          - Els metalls es poden …
+          paraules:
+          - reciclar
+          - bateria
+          - metall
+          - perill
+          - mòbil
+        '3':
+          frases:
+          - Porta el teu mòbil vell al punt de recollida perquè …
+          paraules:
+          - campanya
+          - reciclar
+          - dada
+          - font
+        '5':
+          frases:
+          - Un hàbit és …
+          paraules:
+          - funda
+          - reparar
+          - bateria
+          - durar
+        '6':
+          frases:
+          - Milloraríem …
+          paraules:
+          - barri
+          - famílies
+          - cartell
+    tea:
+      preguntes:
+        '2':
+          model: Escriu frases curtes i concretes. Feu primer l'esborrany i després el text final.
+        '3':
+          model: Escriu frases curtes i concretes. Feu primer l'esborrany i després el text final.
+        '5':
+          model: Escriu frases curtes i concretes. Feu primer l'esborrany i després el text final.
+        '6':
+          model: Escriu frases curtes i concretes. Feu primer l'esborrany i després el text final.
+  d3dos:
+    basics:
+      preguntes:
+        '1':
+          passos:
+          - 'Mira qui ha escrit cada font: el Govern (oficial), una organització o un diari.'
+          - La font oficial sol ser la més fiable.
+          - Les xifres poden ser baixes perquè no tots els incendis es compten.
+        '2':
+          frases:
+          - Quan el camió aixafa la bateria, …
+          - Llavors l'ànode toca el càtode i …
+          - La bateria s'escalfa, l'electròlit … i comença el foc.
+          - És difícil d'apagar perquè …
+        '3':
+          frases:
+          - Són crítics perquè són molt importants i …
+          - Si un país deixés de vendre'n, …
+        '4':
+          passos:
+          - Busca «cobalt Congo» en una font fiable (una ONG coneguda, un diari, un organisme oficial).
+          - Tria un sol problema (ambiental o social).
+          - Explica'l en dues frases i cita la font.
+        '5':
+          frases:
+          - 'Seguretat: …'
+          - 'Medi ambient: …'
+          - 'Recursos: …'
+    nouvingut:
+      preguntes:
+        '1':
+          frases:
+          - La font més fiable és … perquè …
+          paraules:
+          - font
+          - oficial
+          - fiable
+          - xifra
+        '2':
+          frases:
+          - La bateria s'escalfa perquè …
+          - És difícil d'apagar perquè …
+          paraules:
+          - bateria
+          - curtcircuit
+          - calor
+          - foc
+        '3':
+          frases:
+          - Són crítics perquè …
+          paraules:
+          - material
+          - país
+          - falta
+        '4':
+          frases:
+          - 'Un problema és … (font: …)'
+          paraules:
+          - mineria
+          - contaminació
+          - treball infantil
+        '5':
+          frases:
+          - 'Seguretat: …'
+          - 'Medi ambient: …'
+          - 'Recursos: …'
+          paraules:
+          - seguretat
+          - medi ambient
+          - recursos
+          - reciclar
+    tea:
+      preguntes:
+        '1':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '2':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '3':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '4':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '5':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+  d4dos:
+    basics:
+      preguntes:
+        '1':
+          passos:
+          - 'Dades: 20 kg d''hidrogen al dia; cada kg emet entre 10 i 12 kg de CO₂.'
+          - 'Mínim: 20 · 10 = … kg de CO₂.'
+          - 'Màxim: 20 · 12 = … kg de CO₂.'
+          - Hi ha emissions? Llavors, «zero emissions» és correcte?
+        '2':
+          passos:
+          - 'Bateria: aprofita uns 75 % (entre 70 i 80).'
+          - 'Hidrogen: aprofita uns 30 % (entre 25 i 35).'
+          - 'Divideix: 75 / 30 = … vegades més.'
+        '3':
+          pistes:
+          - Pensa en vehicles grans o que fan molts quilòmetres i no poden parar gaire a carregar.
+        '4':
+          passos:
+          - 'Quina reacció té lloc: hidrogen + oxigen → aigua.'
+          - Allibera energia.
+          - 'D''on surt l''hidrogen: gris, blau o verd?'
+          - Tres dades del dossier amb la font.
+          - Quan seria una bona opció?
+          frases:
+          - El cotxe només allibera aigua perquè …
+          - Però no tots són així perquè …
+    discalculia:
+      preguntes:
+        '1':
+          passos:
+          - 20 · 10 = … kg de CO₂.
+          - 20 · 12 = … kg de CO₂.
+        '2':
+          passos:
+          - 'Agafa el valor del mig de cada interval: 75 % i 30 %.'
+          - 75 / 30 = …
+  d5f3:
+    basics:
+      abans_titol: Les equacions que necessites
+      abans: '<ul><li>MRUA: <b>v = v₀ + a·t</b> i <b>x = x₀ + v₀·t + ½·a·t²</b></li><li>MRU: <b>x = x₀ + v·t</b></li></ul><p>Tram 1: accelera. Tram 2: velocitat constant. Tram 3: frena.</p>'
+      preguntes:
+        '1':
+          passos:
+          - 'Tram 1: v = 0 + 0,25 · 20 = … m/s.'
+          - 'Tram 3: el temps de frenada és t = v / 0,25 = …'
+          - 'Durada total: 20 s + 40 s + temps de frenada.'
+        '2':
+          exemple: 'A t = 10 s (tram 1): v = 0,25 · 10 = 2,5 m/s; x = ½ · 0,25 · 10² = 12,5 m.'
+          pistes:
+          - 'Al final del tram 1 (20 s): v = 5 m/s i x = 50 m.'
+          - 'Al tram 2, x augmenta 5 m cada segon: x = 50 + 5 · (t − 20).'
+        '3':
+          passos:
+          - Mira el valor més gran de x a la taula i tria una escala que hi càpiga.
+          - Marca cada punt de la taula.
+          - 'Uneix-los: corba al tram 1 i 3, recta al tram 2.'
+        '4':
+          passos:
+          - 'Tram 1: la velocitat puja de 0 a 5 m/s (recta que puja).'
+          - 'Tram 2: es manté a 5 m/s (recta horitzontal).'
+          - 'Tram 3: baixa de 5 a 0 (recta que baixa).'
+        '5':
+          passos:
+          - Pendent = (canvi de v) / (canvi de t).
+          - 'Tram 1: (5 − 0) / 20 = … m/s². Representa l''acceleració.'
+          - 'Tram 2 a la x–t: (250 − 50) / 40 = … m/s. Representa la velocitat.'
+        '6':
+          frases:
+          - Als trams 1 i 3 la velocitat canvia, per això la gràfica x–t és …
+          - Al tram 2 la velocitat és constant, per això …
+          pistes:
+          - Rapidesa mitjana = distància total / temps total = 300 m / 80 s.
+    discalculia:
+      preguntes:
+        '1':
+          passos:
+          - v = 0,25 · 20 = …
+          - t = 5 / 0,25 = …
+          - 20 + 40 + … = … s
+        '5':
+          passos:
+          - (5 − 0) / 20 = …
+          - (0 − 5) / 20 = …
+          - (250 − 50) / 40 = …
+        '6':
+          passos:
+          - 300 / 80 = … m/s
+  d5f5:
+    basics:
+      preguntes:
+        '1':
+          frases:
+          - Volem saber si la temperatura …
+          - Crec que a l'aigua calenta la tinta es repartirà més … perquè les partícules …
+        '2':
+          pistes:
+          - La que canviem és la temperatura de l'aigua.
+          - La que mesurem és el temps que triga el color a ser uniforme.
+          - 'Les que mantenim iguals: la quantitat d''aigua, la mida de la gota, el tipus de proveta…'
+        '3':
+          passos:
+          - Posa la mateixa quantitat d'aigua a les tres provetes.
+          - Mesura la temperatura de cada una.
+          - Deixa caure una gota igual a cada una alhora.
+          - Posa el cronòmetre en marxa i atura'l quan el color sigui igual a tota la proveta.
+        '4':
+          frases:
+          - La hipòtesi es confirma / no es confirma perquè …
+          - Un problema és que la tinta també …
+        '5':
+          exemple: Gradient = (canvi de concentració) / (distància) = (20 − 100) / 40 = −80 / 40 = −2 nM/µm.
+          pistes:
+          - Per cada µm, la concentració baixa 2 nM. En 12 µm, baixa 2 · 12 = …
+        '6':
+          frases:
+          - Amb el temps, la concentració de les dues meitats …
+          - El gradient es fa més …
+          - Amb més temperatura, les partícules …
+    discalculia:
+      preguntes:
+        '5':
+          passos:
+          - 20 − 100 = −80
+          - −80 / 40 = … nM/µm
+          - 2 · 12 = … nM
+  d5f6q:
+    basics:
+      preguntes:
+        '1':
+          frases:
+          - El bacteri allibera …
+          - El neutròfil té … que detecten aquestes molècules.
+          - La part que en detecta més …, i així avança cap al bacteri.
+        '2':
+          pistes:
+          - La concentració és més alta just al costat del bacteri.
+          - El neutròfil canvia de direcció i el segueix.
+        '3':
+          passos:
+          - Busca 35 °C a l'eix horitzontal, puja fins a la recta i mira la velocitat.
+          - Fes el mateix amb 39 °C.
+          - Pendent = (velocitat a 39 °C − velocitat a 35 °C) / (39 − 35).
+        '4':
+          passos:
+          - 'Augment de temperatura: 39,5 − 37 = 2,5 °C.'
+          - Augment de velocitat = pendent · 2,5.
+          - Temps = 120 µm / velocitat. Calcula-ho a 37 °C i a 39,5 °C i resta.
+        '5':
+          frases:
+          - Primer, amb febre les cèl·lules es mouen més …
+          - Segon, les cèl·lules s'enganxen millor a …
+        '6':
+          frases:
+          - La febre no és la causa sinó …
+        '7':
+          frases:
+          - Fisiològic vol dir …
+          - Patològic vol dir …
+    discalculia:
+      preguntes:
+        '3':
+          passos:
+          - Llegeix les dues velocitats a la gràfica.
+          - Resta-les.
+          - Divideix entre 4 °C.
+        '4':
+          passos:
+          - 39,5 − 37 = 2,5
+          - pendent · 2,5 = …
+          - 120 / velocitat = … min
+    nouvingut:
+      preguntes:
+        '1':
+          frases:
+          - El neutròfil segueix …
+          paraules:
+          - bacteri
+          - neutròfil
+          - molècula
+          - concentració
+        '5':
+          frases:
+          - La febre ajuda perquè …
+          paraules:
+          - febre
+          - velocitat
+          - enganxar-se
+          - infecció
+        '6':
+          frases:
+          - La febre és …
+          paraules:
+          - causa
+          - conseqüència
+          - malaltia
+        '7':
+          frases:
+          - Fisiològic vol dir …
+          paraules:
+          - normal
+          - malaltia
+          - temperatura
+    tea:
+      preguntes:
+        '1':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '5':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '6':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+        '7':
+          model: Una bona resposta diu <b>què passa</b>, <b>per què</b> (amb una idea del tema) i fa servir una paraula clau. Dues o tres frases n'hi ha prou.
+  d5hooke:
+    basics:
+      abans_titol: Fórmules d'aquest laboratori
+      abans: '<ul><li>Pes: <b>F = m · 9,8</b> (m en kg). 50 g = 0,050 kg.</li><li>Allargament: <b>Δx = longitud − longitud sense massa</b>.</li><li>Llei de Hooke: <b>F = k · Δx</b>.</li></ul>'
+      preguntes:
+        '1':
+          exemple: 50 g = 0,050 kg → F = 0,050 · 9,8 = 0,49 N. Si la molla fa 10,0 cm sense massa i 12,5 cm amb la massa, Δx = 2,5 cm = 0,025 m.
+          passos:
+          - Passa cada massa a kg (divideix entre 1 000).
+          - 'Calcula el pes: kg · 9,8.'
+          - Resta la longitud inicial per trobar l'allargament.
+          - Passa l'allargament a metres (divideix entre 100).
+        '2':
+          passos:
+          - 'Eix horitzontal: Δx (m). Eix vertical: F (N).'
+          - Tria escales que hi càpiguen.
+          - Marca un punt per cada fila de la taula.
+        '3':
+          passos:
+          - Si és una recta que passa per l'origen, F i Δx són proporcionals.
+          - 'Agafa un punt de la recta: k = F / Δx.'
+          - 'Escriu: F = … · Δx.'
+        '4':
+          passos:
+          - Passa l'allargament a metres.
+          - F = k · Δx.
+          - Massa = F / 9,8.
+        '5':
+          pistes:
+          - 'Pensa què li passa a una molla si l''estires massa: torna a la forma inicial?'
+    discalculia:
+      preguntes:
+        '1':
+          passos:
+          - 50 / 1000 = 0,050 kg
+          - 0,050 · 9,8 = 0,49 N
+          - Allargament = longitud − longitud inicial
+        '3':
+          passos:
+          - k = F / Δx = … N/m
+        '4':
+          passos:
+          - Δx en m = cm / 100
+          - F = k · Δx
+          - m = F / 9,8
+  d5tfm:
+    basics:
+      preguntes:
+        '1':
+          pistes:
+          - Les boletes llunyanes no es mouen. Les boletes del costat de la cèl·lula sí.
+        '2':
+          exemple: Si una fletxa fa 8 mm a la làmina i la barra d'escala diu 4 mm = 1 µm, el desplaçament real és 8 / 4 = 2 µm. Després, força = k · Δx.
+          passos:
+          - Mesura la fletxa en mm.
+          - Divideix entre els mm que fa 1 µm a la barra d'escala.
+          - Multiplica per la constant del gel per obtenir la força en nN.
+          - 1 nN = 1 · 10⁻⁹ N.
+        '3':
+          passos:
+          - Cada 1 nN = 5 mm de fletxa.
+          - Comença la fletxa a la boleta i dibuixa-la en la direcció del desplaçament.
+          - 'Prolonga les fletxes: on es tallen?'
+        '4':
+          pistes:
+          - Posa les fletxes una darrere l'altra. Si tornes al punt de sortida, la resultant és zero.
+        '5':
+          frases:
+          - La cèl·lula estira el gel i el gel estira la cèl·lula amb una força … i de sentit …
+          - Així la cèl·lula pot …
+        '6':
+          passos:
+          - Suma les sis forces en N.
+          - Divideix 9,8 · 10⁻³ N entre aquesta suma.
+          - Escriu el resultat en notació científica.
+        '7':
+          frases:
+          - Al neutròfil li serveix per …
+          - A la ferida, …
+          - A la metàstasi, …
+    discalculia:
+      preguntes:
+        '2':
+          passos:
+          - mm / (mm d'1 µm) = µm
+          - µm · k = nN
+          - nN · 10⁻⁹ = N
+        '6':
+          passos:
+          - Suma de les sis forces = … N
+          - 9,8 · 10⁻³ / suma = …
+  d6f2:
+    basics:
+      preguntes:
+        '1':
+          exemple: 'Central hidràulica: energia potencial de l''aigua → energia cinètica de l''aigua → la turbina gira → l''alternador genera energia elèctrica.'
+          pistes:
+          - 'Al cicle combinat, primer el gas es crema: energia química → energia tèrmica.'
+        '2':
+          pistes:
+          - 'Renovables: hidràulica, eòlica, solar. No renovables: nuclear, cicle combinat (gas), cogeneració.'
+        '3':
+          passos:
+          - Si 7 160 GWh són el 19,1 %, el total és 7 160 / 0,191 = … GWh.
+          - 'Compara el total amb el consum: 44 113 GWh.'
+          - Si el consum és més gran, Catalunya ha de …
+        '4':
+          frases:
+          - 'Font 1: … (any). Títol. Adreça. És fiable perquè …'
+          - 'Font 2: …'
+        '5':
+          pistes:
+          - 'Pregunta''t: qui ho diu? Té interès a vendre alguna cosa? Té dades i referències?'
+    discalculia:
+      preguntes:
+        '3':
+          passos:
+          - 19,1 % = 0,191
+          - 7 160 / 0,191 = … GWh
+          - 44 113 − … = … GWh que falten
+  d6pla:
+    basics:
+      preguntes:
+        '1':
+          frases:
+          - L'aparell que gasta més és …
+          - Podem estalviar més energia en …
+        '2':
+          exemple: 'Canviar 10 tubs de 36 W per LED de 18 W, 6 h al dia, 175 dies: estalvi = (36 − 18) · 10 · 6 · 175 / 1000 = 189 kWh/any; 189 · 0,15 = 28,35 €.'
+          passos:
+          - Potència abans − potència després (W).
+          - Multiplica per les hores i els dies.
+          - Divideix entre 1 000 per tenir kWh.
+          - Multiplica per 0,15 per tenir euros.
+        '3':
+          pistes:
+          - Mireu si les tasques tècniques i les de comunicació estan repartides entre nois i noies.
+        '4':
+          frases:
+          - La meva mesura és … perquè estalvia … kWh.
+        '5':
+          frases:
+          - M'ha fet pensar que …
+        '6':
+          frases:
+          - La mesura prioritària és … perquè …
+          - Una objecció és …, però …
+        '7':
+          frases:
+          - Voto el pla de … perquè …
+    discalculia:
+      preguntes:
+        '2':
+          passos:
+          - 36 − 18 = 18 W
+          - 18 · 10 · 6 · 175 = … Wh
+          - … / 1000 = … kWh
+          - … · 0,15 = … €
+    nouvingut:
+      preguntes:
+        '1':
+          frases:
+          - Podem estalviar en …
+          paraules:
+          - consum
+          - energia
+          - aparell
+          - llum
+        '4':
+          frases:
+          - La meva mesura és …
+          paraules:
+          - mesura
+          - estalvi
+          - kWh
+        '5':
+          frases:
+          - M'ha fet pensar que …
+          paraules:
+          - opinió
+          - argument
+        '6':
+          frases:
+          - La mesura prioritària és … perquè …
+          paraules:
+          - acord
+          - dada
+          - objecció
+        '7':
+          frases:
+          - Voto … perquè …
+          paraules:
+          - vot
+          - pla
+    tea:
+      preguntes:
+        '4':
+          model: Escriu una frase amb la idea principal i una dada. En el debat, espera el teu torn i fes servir les normes.
+        '5':
+          model: Escriu una frase amb la idea principal i una dada. En el debat, espera el teu torn i fes servir les normes.
+        '6':
+          model: Escriu una frase amb la idea principal i una dada. En el debat, espera el teu torn i fes servir les normes.
+        '7':
+          model: Escriu una frase amb la idea principal i una dada. En el debat, espera el teu torn i fes servir les normes.
 pendents:
   d5repte:
   - basics
@@ -1463,38 +2166,19 @@ pendents:
   d5f2:
   - basics
   - discalculia
-  d5f3:
-  - basics
-  - discalculia
   d5f4:
   - basics
   - discalculia
-  d5f5:
-  - basics
-  - discalculia
-  d5f6q:
-  - nouvingut
-  - basics
-  - discalculia
-  - tea
   d5prob:
   - basics
   - discalculia
   d5f6:
   - basics
   - discalculia
-  d5hooke:
-  - basics
-  - discalculia
-  d5tfm:
-  - basics
-  - discalculia
   d3f1:
   - nouvingut
   - basics
   - tea
-  d3f2:
-  - basics
   d3f3:
   - basics
   d3lab:
@@ -1506,10 +2190,6 @@ pendents:
   - basics
   - tea
   d3f5:
-  - nouvingut
-  - basics
-  - tea
-  d3dos:
   - nouvingut
   - basics
   - tea
@@ -1543,14 +2223,6 @@ pendents:
   d6lab:
   - basics
   - discalculia
-  d6f2:
-  - basics
-  - discalculia
-  d6pla:
-  - nouvingut
-  - basics
-  - discalculia
-  - tea
   d4repte:
   - nouvingut
   - basics
@@ -1574,9 +2246,6 @@ pendents:
   d4f3:
   - basics
   - discalculia
-  d4dos:
-  - basics
-  - discalculia
   d1dens:
   - basics
   - discalculia
@@ -1595,19 +2264,9 @@ pendents:
   lab:
   - basics
   - discalculia
-  labc:
-  - basics
-  - discalculia
   d1f1:
   - basics
   - discalculia
   d1f2:
   - basics
   - discalculia
-  d1ellen:
-  - nouvingut
-  - tea
-  d3camp:
-  - nouvingut
-  - basics
-  - tea
