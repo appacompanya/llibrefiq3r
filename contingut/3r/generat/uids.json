@@ -10288,7 +10288,7 @@
  "d6ruta": {
   "sda": 6,
   "tipus": "document",
-  "versio": 1
+  "versio": 2
  },
  "d6ruta.1": {
   "document": "d6ruta",
@@ -10321,6 +10321,11 @@
   "versio": 1
  },
  "d6ruta.7": {
+  "document": "d6ruta",
+  "tipus": "pregunta",
+  "versio": 1
+ },
+ "d6ruta.8": {
   "document": "d6ruta",
   "tipus": "pregunta",
   "versio": 1
@@ -10406,6 +10411,24 @@
  "d6ruta.a21": {
   "document": "d6ruta",
   "pregunta": "d6ruta.7",
+  "tipus": "camp",
+  "versio": 1
+ },
+ "d6ruta.a22": {
+  "document": "d6ruta",
+  "pregunta": "d6ruta.8",
+  "tipus": "camp",
+  "versio": 1
+ },
+ "d6ruta.a23": {
+  "document": "d6ruta",
+  "pregunta": "d6ruta.8",
+  "tipus": "camp",
+  "versio": 1
+ },
+ "d6ruta.a24": {
+  "document": "d6ruta",
+  "pregunta": "d6ruta.8",
   "tipus": "camp",
   "versio": 1
  },

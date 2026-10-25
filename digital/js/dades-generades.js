@@ -1554,7 +1554,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE1, CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils al centre, amb el balanç del que s'ha recollit · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -1961,7 +1961,7 @@ window.FQ3_DADES = {
     },
     {
      "t": "Problemes de moviment",
-     "ph": "Ho apliquem",
+     "ph": "Practiquem",
      "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.",
      "d": [
       "d5prob"
@@ -2107,13 +2107,13 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
+   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
    "ready": true,
    "sessions": [
     {
-     "t": "Auditoria energètica de l'aula",
-     "ph": "Explorem",
-     "p": "La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
+     "t": "Auditoria energètica i acústica de l'aula",
+     "ph": "Observem",
+     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
      "d": [
       "d6ruta",
       "d6repte",
@@ -2121,6 +2121,16 @@ window.FQ3_DADES = {
      ],
      "l": [
       "inv"
+     ],
+     "half": false
+    },
+    {
+     "t": "Muntem circuits",
+     "ph": "Experimentem",
+     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel.",
+     "d": [],
+     "l": [
+      "circuits"
      ],
      "half": true
     },
@@ -2139,7 +2149,7 @@ window.FQ3_DADES = {
     {
      "t": "Mesurem el consum real",
      "ph": "Experimentem",
-     "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.",
+     "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Recordarem, amb el que hem vist en muntar circuits, per què la instal·lació elèctrica de l'institut està connectada en paral·lel.",
      "d": [
       "d6lab"
      ],
@@ -2252,7 +2262,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Activitat de demostració i solucionaris",
-     "s": "Activitat de demostració d'assoliment de la sessió 6, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.",
+     "s": "Activitat de demostració d'assoliment de la sessió 7, solucionari amb criteris, solucionari de les fitxes i del laboratori de consum. La plantilla d'Excel de l'inventari i el seu solucionari es pengen a l'aula virtual del grup.",
      "d": [
       "d6prova",
       "d6solpr",
@@ -2493,7 +2503,7 @@ window.FQ3_DADES = {
    "c": "--s3",
    "title": "Què hi ha dins del meu mòbil?",
    "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?",
-   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils a l'institut · Competències específiques avaluades: CE1, CE5 i CE6",
+   "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya i punt de recollida de mòbils al centre, amb el balanç del que s'ha recollit · Competències específiques avaluades: CE1, CE5 i CE6",
    "ready": true,
    "sessions": [
     {
@@ -2784,7 +2794,7 @@ window.FQ3_DADES = {
     },
     {
      "t": "Problemes de moviment",
-     "ph": "Ho apliquem",
+     "ph": "Practiquem",
      "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.",
      "d": [
       "d5prob"
@@ -2869,13 +2879,13 @@ window.FQ3_DADES = {
    "c": "--s6",
    "title": "L'energia del nostre institut",
    "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?",
-   "meta": "3r trimestre · 7 sessions · Producte final: pla d'estalvi energètic del grup i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
+   "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE1, CE4 i CE6",
    "ready": true,
    "sessions": [
     {
-     "t": "Auditoria energètica de l'aula",
-     "ph": "Explorem",
-     "p": "La direcció ens demana propostes per reduir el consum d'electricitat de l'institut. Començarem per la nostra aula: en grup, escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
+     "t": "Auditoria energètica i acústica de l'aula",
+     "ph": "Observem",
+     "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA.",
      "d": [
       "d6ruta",
       "d6repte",
@@ -2883,6 +2893,16 @@ window.FQ3_DADES = {
      ],
      "l": [
       "inv"
+     ],
+     "half": false
+    },
+    {
+     "t": "Muntem circuits",
+     "ph": "Experimentem",
+     "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel.",
+     "d": [],
+     "l": [
+      "circuits"
      ],
      "half": true
     },
@@ -2901,7 +2921,7 @@ window.FQ3_DADES = {
     {
      "t": "Mesurem el consum real",
      "ph": "Experimentem",
-     "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Al final veurem per què la instal·lació elèctrica de l'institut està connectada en paral·lel.",
+     "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Recordarem, amb el que hem vist en muntar circuits, per què la instal·lació elèctrica de l'institut està connectada en paral·lel.",
      "d": [
       "d6lab"
      ],
@@ -3012,7 +3032,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "inf",
-    "l": "Informe del repte (grup)",
+    "l": "Informe del repte i protocol",
     "items": [
      {
       "id": "i1",
@@ -3726,7 +3746,7 @@ window.FQ3_DADES = {
   "6": [
    {
     "id": "prova",
-    "l": "Activitat de demostració d'assoliment (sessió 6)",
+    "l": "Activitat de demostració d'assoliment (sessió 7)",
     "items": [
      {
       "id": "p1",
