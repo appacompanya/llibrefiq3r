@@ -6,7 +6,7 @@
 # Fulls reals a docs/: ruta, repte, fitxa 1, laboratori de consum real, fitxa 2, pla d'estalvi i debat, rúbriques, diana, mapa, i la plantilla d'Excel de l'inventari. No hi ha «full de l'auditoria» ni «full de laboratori de circuits».
 # Fitxes: la 1 és formativa. De la fitxa 2, només la part C (cerca i cita de fonts) és qualificadora (evidència s6.cerca, criteri 4.3).
 # CE: principals CE4 i CE6. Secundària CE1: el càlcul d'energia, kWh i rendiment del pla (1.2), no el 6.2. El 6.2 queda a la implicació ciutadana i a la demostració. El 4.1 s'avalua a la presentació del pla (sessions 6 i 8).
-# Les recuperacions de la CE4 i la CE6 es lliuren a la sessió de tancament, després d'avaluar-les a aquesta SdA, no a l'inici.
+# Les recuperacions de la CE1, la CE4 i la CE6 es lliuren a la sessió 1 d'aquesta SdA a qui tingui la CE en NA i es defensen oralment a la sessió de tancament.
 sda: 6
 versio: 4
 color: --s6
@@ -101,7 +101,7 @@ professorat:
   docs:
   - d6adap
 - bloc: Tasques de recuperació (una per CE)
-  text: Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les a la SdA 6, i no a l'inici d'aquesta SdA. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.
+  text: Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE1, la CE4 i la CE6 es lliuren a la sessió 1 de la SdA 6 a qui tingui la CE en NA i es defensen oralment a la sessió de tancament, abans de l'avaluació final. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.
   docs:
   - dcR1
   - dcR2
@@ -110,7 +110,7 @@ professorat:
   - dcR5
   - dcR6
 - bloc: Sessió de tancament del curs
-  text: Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre).
+  text: Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre). Mentre el grup treballa, l'alumnat que té una tasca de recuperació de la CE1, la CE4 o la CE6 la defensa oralment (3 minuts) amb la rúbrica de la tasca.
   docs:
   - dcT
   - dcE

@@ -3,9 +3,9 @@
 # versio: puja-la quan el canvi sigui de fons (canvia què es pregunta o què s'avalua); les errates no.
 # Els camps d'una pregunta hereten la versio de la pregunta.
 # Avaluació oficial: nivells NA–AE, sense pesos.
-# Fitxes qualificadores: 3 (d5f3, gràfiques, 1.1), 5 (d5f5, difusió, 2.2 i 2.3) i 6 (d5f6q, febre, 1.1 i 5.3). La resta (1, 2, 4 i 7) són formatives i no entren al càlcul oficial.
+# Fitxes qualificadores: 3 (d5f3, gràfiques, 1.1), 5 (d5f5, disseny de la difusió, 2.2) i 6 (d5f6q, febre, 1.1 i 5.3), i el laboratori de Hooke (d5hooke, 2.3). La resta (1, 2, 4 i 7) són formatives i no entren al càlcul oficial.
 # La resposta al repte de la sessió 13 és formativa (esmena de les hipòtesis). El producte que es qualifica és el full de forces cel·lulars.
-# CE: principals CE1 i CE5. Secundària CE2 (demostració de difusió en grup sencer, sessió 7, fitxa 5, amb rúbrica de disseny i conclusions).
+# CE: principals CE1 i CE5. Secundària CE2: 2.2 al disseny de la demostració de difusió (grup sencer, sessió 7, fitxa 5) i 2.3 al laboratori de Hooke (mig grup, per parelles, sessió 10), on l'alumnat mesura de debò.
 # Grup: mitja false = grup sencer (GS), mitja true = mig grup (MG). Horari: 1 GS + 2 migs (el docent repeteix la sessió de mig grup). La sessió 7 és GS: demostració del docent, no laboratori en mig grup.
 sda: 5
 versio: 3
@@ -100,7 +100,7 @@ sessions:
   mitja: false
 - titol: La llei de Hooke
   fase: Experimentem
-  text: Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.
+  text: Per parelles, penjareu masses d'una molla, en mesurareu l'allargament amb el regle i trobareu la constant elàstica a partir de la gràfica. Les mesures i la gràfica s'avaluen amb la rúbrica (criteri 2.3).
   docs:
   - d5hooke
   enllacos: []
@@ -637,7 +637,7 @@ documents:
     avaluacio: formativa
   d5f5:
     uid: d5f5
-    versio: 1
+    versio: 2
     fitxer: sda5-07-fitxa-5-difusio-i-gradient.pdf
     titol: 'Fitxa 5: difusió i gradient'
     digital:
@@ -957,7 +957,7 @@ documents:
     avaluacio: formativa
   d5hooke:
     uid: d5hooke
-    versio: 1
+    versio: 2
     fitxer: sda5-11-laboratori-llei-de-hooke.pdf
     titol: Laboratori de Hooke
     digital:
@@ -967,9 +967,9 @@ documents:
       preguntes:
       - uid: d5hooke.1
         id: '1'
-        versio: 1
+        versio: 2
         tipus: auto
-        etiqueta: 1 Dades de la demostració. Copia les masses penjades i els allargaments que anotem a la p…
+        etiqueta: 1 Les vostres mesures. Mesureu la longitud de la molla sense cap massa. Després pengeu les…
         criteris: []
         camps:
         - d5hooke.a1
@@ -1148,7 +1148,7 @@ documents:
     professorat: true
   d5rub:
     uid: d5rub
-    versio: 1
+    versio: 2
     fitxer: sda5-14-rubriques.pdf
     titol: Rúbriques
   d5prova:
@@ -1449,8 +1449,8 @@ evidencies:
       NA: No ho relaciona amb la salut
 - uid: s5.difu
   id: difu
-  versio: 1
-  titol: Demostració de difusió (fitxa 5, sessió 7, grup sencer)
+  versio: 2
+  titol: Disseny de l'experiment de difusió (fitxa 5, sessió 7, grup sencer)
   instruments:
   - d5f5
   items:
@@ -1465,17 +1465,35 @@ evidencies:
       AN: Identifica les variables i escriu un procediment amb algun control que falta
       AS: Procediment incomplet o variables confoses
       NA: No dissenya l'experiment
-  - uid: s5.difu.x2
-    id: x2
+- uid: s5.hooke
+  id: hooke
+  versio: 1
+  titol: Laboratori de la llei de Hooke (sessió 10, per parelles)
+  instruments:
+  - d5hooke
+  items:
+  - uid: s5.hooke.h1
+    id: h1
     versio: 1
-    titol: Conclusions i límits
+    titol: Mesura i registre de dades
     criteris:
     - '2.3'
     descriptors:
-      AE: Treu una conclusió coherent amb les dades, diu si es confirma la hipòtesi i proposa una millora tenint en compte els límits (la tinta també cau per gravetat)
-      AN: Treu una conclusió coherent i diu si es confirma la hipòtesi
-      AS: Conclusió poc relacionada amb les dades
-      NA: Sense conclusió
+      AE: Mesura amb cura i amb seguretat totes les longituds, calcula bé el pes i l'allargament de cada massa i registra les dades amb unitats
+      AN: Mesura i registra les dades amb unitats, amb algun error menor de càlcul
+      AS: Registre incomplet o sense unitats
+      NA: No mesura ni registra les dades
+  - uid: s5.hooke.h2
+    id: h2
+    versio: 1
+    titol: Gràfica, constant elàstica i límits
+    criteris:
+    - '2.3'
+    descriptors:
+      AE: Fa la gràfica F–Δx amb escala i unitats, en calcula el pendent com a k en N/m, l'aplica a una força desconeguda i explica el límit d'elasticitat
+      AN: Fa la gràfica i calcula k amb alguna imprecisió
+      AS: Gràfica amb errors o k sense unitats
+      NA: No fa la gràfica ni calcula k
 ce_principals:
 - CE1
 - CE5

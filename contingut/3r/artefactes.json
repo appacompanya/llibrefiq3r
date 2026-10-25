@@ -1320,7 +1320,7 @@
   },
   "docs/curs-06-recuperacio-ce1.pdf": {
    "depen_de": [
-    "dcR1@1",
+    "dcR1@2",
     "dcR1.1@1",
     "dcR1.2@1",
     "dcR1.3@1",
@@ -1329,10 +1329,10 @@
     "dcR1.6@1"
    ],
    "document": "dcR1",
-   "empremta": "b730f17ef9219ab80a4f5fe76845e40d0e89dabe125cec8b26474abd45168bef",
+   "empremta": "e9a64c4b704011019bf4cad9fff2006026f4b9d778a6c7f012ffcea5c7d27dc6",
    "generador": "mn_recup.py",
-   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
-   "hash": "7137a4afd8e7aa014823abc46a49ef013117671ad59856bcad782e329437aa05",
+   "generador_hash": "ea3744ac03519fa24bf5be15b27c19e562dfd2aca09b45f175dbca3d21a80dd8",
+   "hash": "3e65048e592610e487e4fe53ddea2b15c060225c0ef8988e34b96bd5e19eb161",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -1384,7 +1384,7 @@
   },
   "docs/curs-09-recuperacio-ce4.pdf": {
    "depen_de": [
-    "dcR4@1",
+    "dcR4@2",
     "dcR4.1@1",
     "dcR4.2@1",
     "dcR4.3@1",
@@ -1392,10 +1392,10 @@
     "dcR4.5@1"
    ],
    "document": "dcR4",
-   "empremta": "7d206bba2ca4f0f23e2333a12eb8cbdc67cf7d63f3957338ee2b7164badd254e",
+   "empremta": "5fb20182b6427ca88fb1269ed4441777935c4a75abbec74dd7b3779809670539",
    "generador": "mn_recup.py",
-   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
-   "hash": "a8096168b613fde525664b0db3e55de0352d09b66a4011953765e98dca26fab5",
+   "generador_hash": "ea3744ac03519fa24bf5be15b27c19e562dfd2aca09b45f175dbca3d21a80dd8",
+   "hash": "7c0c22050bbbb799fa015ea62b5e2df818f9dd905931ac685f323800dfae3a91",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -1419,7 +1419,7 @@
   },
   "docs/curs-11-recuperacio-ce6.pdf": {
    "depen_de": [
-    "dcR6@1",
+    "dcR6@2",
     "dcR6.1@1",
     "dcR6.2@1",
     "dcR6.3@1",
@@ -1427,10 +1427,10 @@
     "dcR6.5@1"
    ],
    "document": "dcR6",
-   "empremta": "548507e0ea195a41feca0b4f6b0499f304ca15bde0785d826002a4aac28b9262",
+   "empremta": "0b51edeeb65ebfa322854ef848c028751ff93841b5105fc47f85a1d627417171",
    "generador": "mn_recup.py",
-   "generador_hash": "9a139989edb2bf4a7af570bc3286a1594a0e1fac6cb4b222c136046e892e1295",
-   "hash": "fd96b9a602c817a489f61973d155918dc1f873a2b1fdc1406042ff281c2b9eb2",
+   "generador_hash": "ea3744ac03519fa24bf5be15b27c19e562dfd2aca09b45f175dbca3d21a80dd8",
+   "hash": "85dda1d95827f67530c11b3f73d1c8d065a64c3ad510a201c052fe5491375ac8",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2590,7 +2590,9 @@
   },
   "docs/sda5-07-fitxa-5-difusio-i-gradient.pdf": {
    "depen_de": [
-    "d5f5@1",
+    "d5f5@2",
+    "s5.difu@2",
+    "s5.difu.x1@1",
     "d5f5.1@1",
     "d5f5.2@1",
     "d5f5.3@1",
@@ -2599,10 +2601,10 @@
     "d5f5.6@1"
    ],
    "document": "d5f5",
-   "empremta": "6c4d9038006623388a53850eaaaabfa3fa85b7c815d18274230080623292fdaa",
+   "empremta": "e9827edc7ef65bf2d36fcc3aa855efd87837be6a684979ca3e3c5ea64ad28ac6",
    "generador": "gen_cel.py",
-   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
-   "hash": "f84a003deaadaff9fbefbb03919ba40426d68d6ef4968b78406e38cba1ff37cd",
+   "generador_hash": null,
+   "hash": "0a58158ff761425625b19f9d1dd0d43ecce3f2b05b23c3f8ece25bcdf97517df",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2669,8 +2671,11 @@
   },
   "docs/sda5-11-laboratori-llei-de-hooke.pdf": {
    "depen_de": [
-    "d5hooke@1",
-    "d5hooke.1@1",
+    "d5hooke@2",
+    "s5.hooke@1",
+    "s5.hooke.h1@1",
+    "s5.hooke.h2@1",
+    "d5hooke.1@2",
     "d5hooke.2@1",
     "d5hooke.3@1",
     "d5hooke.4@1",
@@ -2678,10 +2683,10 @@
     "d5hooke.6@1"
    ],
    "document": "d5hooke",
-   "empremta": "6a92022f5ad1c89ca7b4ddfa33c9000f2c1b025ce1766fec10027b0acf1f0dcb",
+   "empremta": "3bbe6e9b6b5bdd4235d6748fa83c6bbf89a944faf3dd2173b31ad4e9ffa54450",
    "generador": "gen_cel.py",
-   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
-   "hash": "9f541f5f2399553552fe64409f9ce7afd313345947501b3b19fe0c63897d9791",
+   "generador_hash": null,
+   "hash": "b96c84354a7279e851f7a571b51d9f04b3a69cf8a9f1a044210a468c904fd693",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2710,13 +2715,13 @@
   },
   "docs/sda5-14-rubriques.pdf": {
    "depen_de": [
-    "d5rub@1"
+    "d5rub@2"
    ],
    "document": "d5rub",
-   "empremta": "f17d87106982a9e814916716e045b493c458540b26017de3288bac492a6706ba",
+   "empremta": "db0f811a0433f67b70bdb683c22a1b47ec2ae4c7ae3e7ef022bacdb4cbb2c0e4",
    "generador": "gen_cel.py",
-   "generador_hash": "227d769a9a89558634c740ffa1d5b8a518aec45ca116bf07fe64b5c04945fd7b",
-   "hash": "c101bc87564a39f49f54170ddda83417c9bb67e1a144dd94bbf84d1ccb8fa91c",
+   "generador_hash": null,
+   "hash": "5f9227545e02437e303a3dd5259aab0a07578b1e3cfaeb49ef5c8ea9dbba4ce3",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },

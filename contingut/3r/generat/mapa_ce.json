@@ -1262,8 +1262,8 @@
     },
     {
      "uid": "s5.difu",
-     "titol": "Demostració de difusió (fitxa 5, sessió 7, grup sencer)",
-     "versio": 1,
+     "titol": "Disseny de l'experiment de difusió (fitxa 5, sessió 7, grup sencer)",
+     "versio": 2,
      "tipus": "qualificadora",
      "instruments": [
       {
@@ -1275,8 +1275,7 @@
       }
      ],
      "criteris": [
-      "2.2",
-      "2.3"
+      "2.2"
      ],
      "ce": [
       "CE2"
@@ -1289,10 +1288,41 @@
         "2.2"
        ],
        "versio": 1
+      }
+     ]
+    },
+    {
+     "uid": "s5.hooke",
+     "titol": "Laboratori de la llei de Hooke (sessió 10, per parelles)",
+     "versio": 1,
+     "tipus": "qualificadora",
+     "instruments": [
+      {
+       "uid": "d5hooke",
+       "fitxer": "sda5-11-laboratori-llei-de-hooke.pdf",
+       "titol": "Laboratori de Hooke",
+       "on": "docs/ (alumnat)",
+       "avaluacio": null
+      }
+     ],
+     "criteris": [
+      "2.3"
+     ],
+     "ce": [
+      "CE2"
+     ],
+     "items": [
+      {
+       "uid": "s5.hooke.h1",
+       "titol": "Mesura i registre de dades",
+       "criteris": [
+        "2.3"
+       ],
+       "versio": 1
       },
       {
-       "uid": "s5.difu.x2",
-       "titol": "Conclusions i límits",
+       "uid": "s5.hooke.h2",
+       "titol": "Gràfica, constant elàstica i límits",
        "criteris": [
         "2.3"
        ],
@@ -1732,7 +1762,7 @@
   }
  },
  "resum": {
-  "evidencies": 24,
+  "evidencies": 25,
   "criteris_coberts": "21/21",
   "criteris_una_sola_sda": [
    "1.3",

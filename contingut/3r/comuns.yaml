@@ -546,7 +546,7 @@ documents:
     professorat: true
   dcR1:
     uid: dcR1
-    versio: 1
+    versio: 2
     fitxer: curs-06-recuperacio-ce1.pdf
     titol: Recuperació CE1
     digital:
@@ -776,7 +776,7 @@ documents:
         - dcR3.a21
   dcR4:
     uid: dcR4
-    versio: 1
+    versio: 2
     fitxer: curs-09-recuperacio-ce4.pdf
     titol: Recuperació CE4
     digital:
@@ -930,7 +930,7 @@ documents:
         - dcR5.a38
   dcR6:
     uid: dcR6
-    versio: 1
+    versio: 2
     fitxer: curs-11-recuperacio-ce6.pdf
     titol: Recuperació CE6
     digital:

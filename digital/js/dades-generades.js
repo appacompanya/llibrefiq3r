@@ -2015,7 +2015,7 @@ window.FQ3_DADES = {
     {
      "t": "La llei de Hooke",
      "ph": "Experimentem",
-     "p": "Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.",
+     "p": "Per parelles, penjareu masses d'una molla, en mesurareu l'allargament amb el regle i trobareu la constant elàstica a partir de la gràfica. Les mesures i la gràfica s'avaluen amb la rúbrica (criteri 2.3).",
      "d": [
       "d5hooke"
      ],
@@ -2243,7 +2243,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Tasques de recuperació (una per CE)",
-     "s": "Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE4 i la CE6 es lliuren a la sessió de tancament del curs, després d'avaluar-les a la SdA 6, i no a l'inici d'aquesta SdA. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.",
+     "s": "Sis tasques amb el mateix format (repte, parts guiades, calendari, defensa oral i rúbrica per criteris). Es fan quan una CE queda en NA en acabar la darrera SdA on s'avalua, o per millorar. Les de la CE1, la CE4 i la CE6 es lliuren a la sessió 1 de la SdA 6 a qui tingui la CE en NA i es defensen oralment a la sessió de tancament, abans de l'avaluació final. El nivell nou substitueix l'anterior si és més alt. Al registre d'avaluació hi ha la columna per anotar-ne el resultat.",
      "d": [
       "dcR1",
       "dcR2",
@@ -2255,7 +2255,7 @@ window.FQ3_DADES = {
     },
     {
      "b": "Sessió de tancament del curs",
-     "s": "Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre).",
+     "s": "Tornen a respondre el sondeig de la sessió 0 i el comparen, revisen les sis dianes i fan la reflexió final. Enquesta anònima de valoració (també al final de cada trimestre). Mentre el grup treballa, l'alumnat que té una tasca de recuperació de la CE1, la CE4 o la CE6 la defensa oralment (3 minuts) amb la rúbrica de la tasca.",
      "d": [
       "dcT",
       "dcE"
@@ -2861,7 +2861,7 @@ window.FQ3_DADES = {
     {
      "t": "La llei de Hooke",
      "ph": "Experimentem",
-     "p": "Penjarem masses d'una molla, en mesurarem l'allargament i trobarem la constant elàstica a partir de la gràfica.",
+     "p": "Per parelles, penjareu masses d'una molla, en mesurareu l'allargament amb el regle i trobareu la constant elàstica a partir de la gràfica. Les mesures i la gràfica s'avaluen amb la rúbrica (criteri 2.3).",
      "d": [
       "d5hooke"
      ],
@@ -3750,7 +3750,7 @@ window.FQ3_DADES = {
    },
    {
     "id": "difu",
-    "l": "Demostració de difusió (fitxa 5, sessió 7, grup sencer)",
+    "l": "Disseny de l'experiment de difusió (fitxa 5, sessió 7, grup sencer)",
     "items": [
      {
       "id": "x1",
@@ -3764,18 +3764,37 @@ window.FQ3_DADES = {
        "AS": "Procediment incomplet o variables confoses",
        "NA": "No dissenya l'experiment"
       }
-     },
+     }
+    ]
+   },
+   {
+    "id": "hooke",
+    "l": "Laboratori de la llei de Hooke (sessió 10, per parelles)",
+    "items": [
      {
-      "id": "x2",
-      "l": "Conclusions i límits",
+      "id": "h1",
+      "l": "Mesura i registre de dades",
       "c": [
        "2.3"
       ],
       "d": {
-       "AE": "Treu una conclusió coherent amb les dades, diu si es confirma la hipòtesi i proposa una millora tenint en compte els límits (la tinta també cau per gravetat)",
-       "AN": "Treu una conclusió coherent i diu si es confirma la hipòtesi",
-       "AS": "Conclusió poc relacionada amb les dades",
-       "NA": "Sense conclusió"
+       "AE": "Mesura amb cura i amb seguretat totes les longituds, calcula bé el pes i l'allargament de cada massa i registra les dades amb unitats",
+       "AN": "Mesura i registra les dades amb unitats, amb algun error menor de càlcul",
+       "AS": "Registre incomplet o sense unitats",
+       "NA": "No mesura ni registra les dades"
+      }
+     },
+     {
+      "id": "h2",
+      "l": "Gràfica, constant elàstica i límits",
+      "c": [
+       "2.3"
+      ],
+      "d": {
+       "AE": "Fa la gràfica F–Δx amb escala i unitats, en calcula el pendent com a k en N/m, l'aplica a una força desconeguda i explica el límit d'elasticitat",
+       "AN": "Fa la gràfica i calcula k amb alguna imprecisió",
+       "AS": "Gràfica amb errors o k sense unitats",
+       "NA": "No fa la gràfica ni calcula k"
       }
      }
     ]
