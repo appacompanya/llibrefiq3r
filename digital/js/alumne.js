@@ -90,6 +90,7 @@
     const note = $("#wsNote"); note.hidden = false; note.innerHTML = `Aquesta és la teva fitxa per treballar en paper. Imprimeix-la o desa-la en PDF, i respon al full. <a href="#doc-${k}">Full original</a> · <a href="#fitxa-${k}">Versió digital</a>`;
     window.FQFitxa.render($("#wsHost"), k, { answers: {}, readonly: true, autoCalc: false, photos: [], feedback: [], photoUrl: async () => "" });
     if (AD()) AD().apply($("#wsHost"), k, adapt, { mode: "paper", idioma, off: ajudesOff });
+    setTimeout(() => { try { if (window.MathLive && window.MathLive.renderMathInElement) window.MathLive.renderMathInElement($("#wsHost")); } catch {} }, 1200);
     $("#wsAjudes").hidden = true;
   }
 
