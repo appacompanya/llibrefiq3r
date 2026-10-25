@@ -157,90 +157,319 @@ table.grp .nt{font-weight:700;font-variant-numeric:tabular-nums}
 .scard img,.scard svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
 .scard .num{position:absolute;left:10px;top:10px;z-index:2;background:var(--surface);color:var(--fg);border-radius:8px;padding:3px 8px 4px;font-family:var(--font-display);font-weight:800;font-size:.95rem;line-height:1.1;display:grid;box-shadow:0 2px 6px rgba(0,0,0,.18)}
 .scard .num small{font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
-.scard .chip{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;justify-self:start;max-width:max-content;background:rgba(20,22,26,.55);backdrop-filter:blur(6px);color:#fff;border-radius:8px;padding:4px 8px;font-size:.78rem;font-weight:700;line-height:1.2}
-.scard:hover img,.scard:hover svg{transform:scale(1.04)}
-.scard:focus-visible{outline:2px solid #fff;outline-offset:-4px}
-
+.scard .chip{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;justify-self:start;max-width:max-content;background:rgba(20,22,26,.72);color:#fff;border-radius:999px;padding:4px 12px;font-weight:700;font-size:.78rem;line-height:1.25;transition:opacity .2s ease}
+.scard .sov{position:absolute;inset:0;z-index:1;display:grid;align-content:end;gap:4px;padding:12px 14px;background:color-mix(in srgb,var(--c) 80%,transparent);opacity:0;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease}
+.sov .smeta{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;opacity:.9}
+.sov h3{font-family:var(--font-display);font-weight:800;font-size:clamp(1rem,6.4cqi,1.45rem);line-height:1.1;margin:0;text-wrap:balance}
+.sov p{margin:0;font-size:clamp(.82rem,4.5cqi,1.02rem);line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@container (max-width:260px){.sov p,.sov .smeta{display:none}}
+.sov .sgo{margin-top:4px;justify-self:start;background:#fff;color:var(--c);border-radius:999px;padding:4px 12px;font-weight:700;font-size:.84rem}
+.scard:hover .sov,.scard:focus-visible .sov{opacity:1;transform:none}
+.scard:hover .chip,.scard:focus-visible .chip,.scard:hover .num,.scard:focus-visible .num{opacity:0}
+.scard .num{transition:opacity .2s ease}
+.scard:hover img,.scard:focus-visible img{transform:scale(1.04)}
+.scard:focus-visible{outline:3px solid var(--fg);outline-offset:-3px}
+.rcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rcard{--c:var(--s1);display:grid;grid-template-rows:auto 1fr;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;color:var(--fg);text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.rcard:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 10px 26px -14px var(--c)}
+.rart{position:relative;aspect-ratio:3/2;background:var(--c);overflow:hidden}
+.rart img,.rart svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rart .num{position:absolute;left:12px;top:12px;background:var(--surface);color:var(--fg);border-radius:8px;padding:3px 8px 4px;font-family:var(--font-display);font-weight:800;font-size:.95rem;line-height:1.1;display:grid}
+.rart .num small{font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.rbody{display:grid;gap:6px;padding:14px 16px 16px;align-content:start}
+.rbody .smeta{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.rbody h3{font-family:var(--font-display);font-weight:800;font-size:1.22rem;line-height:1.12;margin:0;text-wrap:balance}
+.rbody p{margin:0;color:var(--muted);font-size:.9rem}
+.rbody .sgo{margin-top:4px;font-weight:700;font-size:.86rem;color:var(--c)}
+@media (max-width:860px){.rcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.rcards{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ses,.ses .pic{transition:none}.rcard{transition:none}.rcard:hover{transform:none}}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.dtile{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--fg);text-decoration:none;min-width:0}
+.dtile:hover{border-color:var(--fg)}
+.dtile .pg{width:30px;height:38px;border:1.5px solid var(--fg);border-radius:3px 9px 3px 3px;background:var(--paper);display:grid;align-content:center;gap:3px;padding:0 5px}
+.dtile .pg i{display:block;height:2px;background:var(--line)}
+.dtile b{font-size:.9rem;line-height:1.2;display:block}
+.dtile span{font-size:.76rem;color:var(--muted)}
+.dtile.lnk .pg{border-style:dashed}
+.profe-band{background:var(--ink);color:var(--ink-fg);border-radius:18px;padding:18px 20px;display:grid;gap:8px}
+.profe-band h2{margin:0;font-family:var(--font-display);font-size:1.3rem}
+.profe-band p{margin:0;opacity:.85;font-size:.92rem;max-width:80ch}
+.profe-band .warn{justify-self:start;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:2px 10px}
+.qlinks{display:flex;flex-wrap:wrap;gap:8px}
+.qlinks a.btn{color:var(--ink-fg);border-color:rgba(255,255,255,.35);background:transparent}
+.foot{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;color:var(--muted);font-size:.84rem}
+.foot b{color:var(--fg)}
+/* ===== Barra de la SdA ===== */
+.sbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.home-link{font-weight:700;font-size:.9rem;color:var(--fg);text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:6px 12px 6px 8px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface)}
+.home-link:hover{border-color:var(--fg)}
+nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
+.sbtn{font:inherit;cursor:pointer;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;display:inline-flex;align-items:center;gap:7px;font-size:.86rem}
+.sbtn .dot{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.sbtn .tt{display:none}
+.sbtn[aria-selected="true"]{border-color:var(--c);background:var(--c);color:#fff}
+.sbtn[aria-selected="true"] .dot{background:#fff}
+.sbtn[aria-selected="true"] .tt{display:inline}
+.sbtn:hover{border-color:var(--c)}
+.hero .thumb{width:100%;max-width:100%;aspect-ratio:3/2;border-radius:18px;overflow:hidden;position:relative;background:var(--acc)}
+.hero .thumb img,.hero .thumb svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .hacts{display:grid;gap:12px;justify-items:end;min-width:0}
+.hero .hacts .thumb{justify-self:stretch}
 /* ===== Visor ===== */
 .viewer{display:grid;gap:14px;min-width:0}
-.vbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.vbar h3{margin:0;font-family:var(--font-display);font-size:1.05rem;flex:1;min-width:0}
-.vbar .acts{margin-left:auto}
-.vmsg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px 20px;display:grid;gap:8px;justify-items:start}
+.vbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line)}
+.vtitle{flex:1;min-width:0;display:grid;gap:1px}
+.vtitle b{font-family:var(--font-display);font-size:1.15rem;line-height:1.15;overflow-wrap:anywhere}
+.vtitle span{font-size:.78rem;color:var(--muted)}
+.vtitle .vk{font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--acc)}
+.vtools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.zoom{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:var(--surface)}
+.zoom button{font:inherit;font-weight:700;width:34px;height:32px;border:0;background:transparent;color:var(--fg);cursor:pointer;border-radius:999px}
+.zoom button:disabled{opacity:.35;cursor:default}
+.zoom output{min-width:52px;text-align:center;font-size:.82rem;font-variant-numeric:tabular-nums}
+.vdesk{background:var(--desk);border-radius:16px;padding:18px 12px;overflow-x:auto}
+.vpages{display:grid;gap:30px;justify-items:center;margin:0 auto;width:calc(min(100%, 860px) * var(--z,1))}
+.vpage{position:relative;width:100%;background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.18),0 8px 22px -12px rgba(0,0,0,.35);border-radius:2px}
+.vpage canvas{position:absolute;inset:0;width:100%;height:100%}
+.vpage .pn{position:absolute;right:-2px;bottom:-22px;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.vmsg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;justify-items:start;max-width:560px;margin:0 auto}
 .vmsg b{font-family:var(--font-display);font-size:1.1rem}
-.vmsg span{color:var(--muted)}
-.pages{display:grid;gap:16px}
-.page{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 4px 12px -8px rgba(0,0,0,.2)}
-.page canvas{display:block;width:100%;height:auto}
-
-/* ===== Tema i navegació ===== */
-.theme{position:fixed;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));z-index:20;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:grid;place-items:center}
-.theme svg{width:18px;height:18px}
-
-/* ===== Responsive ===== */
-@media (max-width:720px){
-  .hero{grid-template-columns:1fr}
-  .hero .hacts{order:-1;justify-items:start}
+.spin{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--acc);animation:sp 0.9s linear infinite;margin:30px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}.scard img,.scard .sov,.scard .chip{transition:none}}
+@media (hover:none){.scard .sov{display:none}}
+@media (max-width:620px){
   .cover{grid-template-columns:1fr}
-  .cards{grid-template-columns:1fr}
-  .ses{grid-template-columns:1fr}
-  .ses.sel{grid-template-columns:1fr}
+  .cover-art{order:-1}
+  .cards{margin-top:0}
+  .scard .chip{display:none}
+  .scard .num{left:6px;top:6px;padding:2px 6px 3px;font-size:.8rem}
+  .tile{left:12px;bottom:12px;width:120px;height:136px}.tile .tsym{top:14px}.tile .sym{font-size:2.8rem}.tile .sup,.tile .sub{font-size:.95rem}.tile .tg{font-size:.56rem}.tile .nm{font-size:.66rem;left:9px;bottom:8px}.tile .nm small{font-size:.55rem}
+  .hero .hacts{order:-1;justify-items:start}
+  .vtools{width:100%;justify-content:space-between}
+  .vdesk{padding:10px 6px;border-radius:12px}
+}
+@media (max-width:620px){
   .avgrid{grid-template-columns:1fr}
   .stulist{position:static}
+  .hero{grid-template-columns:1fr}
+  .ses{grid-template-columns:1fr}
+  .ses .pic{width:100%;height:110px}
+  .ses.sel{grid-template-columns:1fr}
+  .ses.sel .pic{height:240px}
 }
+.uf{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 .12em}.uf>span{display:block;padding:0 .14em;white-space:nowrap}.uf>span:first-child{border-bottom:.08em solid currentColor}
 </style>
+
 </head>
 <body>
-<button type="button" class="theme" id="themeBtn" aria-label="Canvia el tema" title="Canvia el tema">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-</button>
-<div class="wrap" id="app">
-  <div id="cover" class="view" hidden></div>
-  <div id="book" class="view" hidden>
-    <div class="top">
-      <div class="eyebrow">Física i química · 3r ESO</div>
-      <h1>Llibre digital</h1>
-      <p class="lead">Sis reptes per entendre la física i la química del dia a dia. Aquí tens, sessió a sessió, què farem, els fulls que necessites i les simulacions.</p>
-    </div>
-    <div class="tabs" id="tabs" role="tablist"></div>
-    <div id="panel"></div>
+<div class="wrap">
+  <div class="view" id="vHome">
+    <section class="cover" aria-labelledby="h1">
+      <div class="cover-txt">
+        <div class="eyebrow">3r d'ESO</div>
+        <h1 id="h1">Física i química per entendre el món</h1>
+        <p class="lead">Sis reptes per entendre la física i la química del dia a dia. Aquí tens, sessió a sessió, què farem, els fulls que necessites i les simulacions.</p>
+        <p class="credit">Llibre digital dinàmic creat per <span class="sig" id="author"></span></p>
+        <div class="cover-cta" id="cta"></div>
+      </div>
+      <div class="cover-art" id="coverArt"></div>
+    </section>
+    <section class="view" style="gap:14px" aria-labelledby="hReptes">
+      <div class="sechd"><h2 id="hReptes">Els sis reptes</h2></div>
+      <nav class="cards" id="cards" aria-label="Les sis situacions d'aprenentatge"></nav>
+    </section>
+    <div id="profeBand"></div>
+    <section class="view" style="gap:14px" aria-labelledby="hCurs">
+      <div class="sechd"><h2 id="hCurs">Per a tot el curs</h2><span>Clica un full per obrir-lo</span></div>
+      <div class="shelf" id="shelf"></div>
+    </section>
   </div>
-  <div id="vDoc" class="viewer" hidden aria-label="Visor de fulls">
+
+  <div class="view" id="vSda" hidden>
+    <div class="sbar"><a class="home-link" href="#inici"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Totes les SdA</a>
+      <nav class="sdas" role="tablist" aria-label="Situacions d'aprenentatge" id="tabs"></nav></div>
+    <main id="panel" role="tabpanel"></main>
+    <p class="note">Clica un full per obrir-lo aquí mateix. Des del visor el pots descarregar en PDF.</p>
+  </div>
+
+  <section class="viewer" id="vDoc" hidden aria-label="Visor de fulls">
     <div class="vbar">
-      <button type="button" class="btn ghost" id="vBack">← Torna</button>
-      <h3 id="vTitle"></h3>
-      <div class="acts" id="vDl"></div>
+      <button type="button" class="btn ghost" id="vBack"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="vBackL">Torna</span></button>
+      <div class="vtitle"><span><span class="vk" id="vKick"></span> <span id="vInfo"></span></span><b id="vName"></b></div>
+      <div class="vtools">
+        <div class="zoom" role="group" aria-label="Mida"><button type="button" id="zOut" aria-label="Redueix">−</button><output id="zLbl">100 %</output><button type="button" id="zIn" aria-label="Amplia">+</button></div>
+        <a class="btn ghost" id="vDig" hidden target="_blank" rel="noopener">Fes-la al llibre digital</a>
+        <button type="button" class="btn" id="vDl"></button>
+      </div>
     </div>
-    <div class="pages" id="vPages"></div>
-  </div>
-  <div id="vVid" class="viewer" hidden aria-label="Visor de vídeo">
-    <div class="vbar">
-      <button type="button" class="btn ghost" id="vidBack">← Torna</button>
-      <h3 id="vidTitle"></h3>
-    </div>
-    <iframe id="vidFr" title="" hidden allow="fullscreen" allowfullscreen></iframe>
-    <img id="vidImg" alt="" hidden style="max-width:100%;border-radius:12px">
-  </div>
+    <div class="vdesk"><div class="vpages" id="vPages"></div></div>
+  </section>
 </div>
-<div id="toast" hidden></div>
+<div id="toast" hidden aria-live="polite"></div>
+
 <script>
-/* ===== Dades ===== */
-const MODE = new URLSearchParams(location.search).get("mode") || "alumne";
-const ICON_DL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>`;
-const ICON_DOC = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>`;
-const ICON_LINK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>`;
-function esc(s){ return String(s||"").replace(/[&<>"]/g, c => ({"&":"&","<":"<",">":">",'"':"""}[c])); }
-function ufr(s){ return s.replace(/\b(UR|FR)\b/g, '<abbr title="Unitat de referència / Fitxa de referència">$1</abbr>'); }
-function toast(msg){ const t = document.getElementById("toast"); t.textContent = msg; t.hidden = false; clearTimeout(t._t); t._t = setTimeout(() => t.hidden = true, 3200); }
+const ICON_DL = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_DOC = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.8h5.2L12.5 5v9.2h-8.5z M9 2v3.2h3.3 M6.3 8.2h4 M6.3 10.8h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+const ICON_LINK = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9 3h4v4M13 3L7 9M11 9.5V13H3V5h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-/* ===== Dades dels documents i SdA ===== */
-const D = {"d1ruta": {"f": "sda1-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d1repte": {"f": "sda1-02-full-del-repte.pdf", "l": "Full del repte"}, "d1f1": {"f": "sda1-03-fitxa-1-seguretat.pdf", "l": "Fitxa 1 · La seguretat al laboratori"}, "d1lab1": {"f": "sda1-04-laboratori-1-material-i-volums.pdf", "l": "Laboratori 1 · Material i volums"}, "d1f2": {"f": "sda1-05-fitxa-2-magnituds-i-unitats.pdf", "l": "Fitxa 2 · Magnituds i unitats"}, "d1f3": {"f": "sda1-06-fitxa-3-factors-de-conversio.pdf", "l": "Fitxa 3 · Factors de conversió"}, "d1equiv": {"f": "sda1-22-full-d-equivalencies.pdf", "l": "Full d'equivalències (per a tot el curs)"}, "d1lab2": {"f": "sda1-07-laboratori-2-mesurem-l-aula.pdf", "l": "Laboratori 2 · Mesurem l'aula"}, "d1f4": {"f": "sda1-08-fitxa-4-superficie-i-volum.pdf", "l": "Fitxa 4 · Superfície i volum"}, "d1f5": {"f": "sda1-09-fitxa-5-notacio-cientifica.pdf", "l": "Fitxa 5 · Notació científica"}, "d1lab3": {"f": "sda1-10-laboratori-3-l-aixeta-que-goteja.pdf", "l": "Laboratori 3 · L'aixeta que goteja"}, "d1f6": {"f": "sda1-11-fitxa-6-l-aigua-de-l-institut.pdf", "l": "Fitxa 6 · L'aigua de l'institut"}, "d1guia": {"f": "sda1-12-guia-infografia.pdf", "l": "Guia de la infografia"}, "d1rub": {"f": "sda1-13-rubriques.pdf", "l": "Rúbriques"}, "d1diana": {"f": "sda1-17-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d1mapa": {"f": "sda1-18-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d1amp": {"f": "sda1-19-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d1adap": {"f": "sda1-21-adaptada-tdah-factors-de-conversio.pdf", "l": "Fitxa 3 adaptada · TDAH (TDAH)"}, "d2ruta": {"f": "sda2-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d2repte": {"f": "sda2-02-full-del-repte.pdf", "l": "Full del repte"}, "d2f1": {"f": "sda2-03-fitxa-1-massa-i-volum.pdf", "l": "Fitxa 1 · Massa i volum"}, "d2lab1": {"f": "sda2-04-laboratori-1-liquids.pdf", "l": "Laboratori 1 · Massa i volum de líquids"}, "d2f2": {"f": "sda2-05-fitxa-2-la-densitat.pdf", "l": "Fitxa 2 · La densitat"}, "d2f3": {"f": "sda2-06-fitxa-3-practiquem.pdf", "l": "Fitxa 3 · Practiquem la densitat"}, "d2lab2": {"f": "sda2-07-laboratori-2-solids.pdf", "l": "Laboratori 2 · La densitat dels sòlids"}, "d2f4": {"f": "sda2-08-fitxa-4-sura-o-s-enfonsa.pdf", "l": "Fitxa 4 · Sura o s'enfonsa?"}, "d2lab3": {"f": "sda2-09-laboratori-3-l-ou-que-sura.pdf", "l": "Laboratori 3 · L'ou que sura"}, "d2f5": {"f": "sda2-10-fitxa-5-arquimedes.pdf", "l": "Fitxa 5 · Arquimedes i la corona"}, "d2f6": {"f": "sda2-11-fitxa-6-hipatia.pdf", "l": "Fitxa 6 · Hipàtia i el densímetre"}, "d2guia": {"f": "sda2-12-guia-torre-i-informe.pdf", "l": "Guia de la torre i l'informe"}, "d2rub": {"f": "sda2-13-rubriques.pdf", "l": "Rúbriques"}, "d2diana": {"f": "sda2-17-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d2mapa": {"f": "sda2-18-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d2amp": {"f": "sda2-19-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d2adap": {"f": "sda2-21-adaptada-nouvingut-densitat.pdf", "l": "Fitxa 2 adaptada · nouvingut (nouvingut)"}, "d3ruta": {"f": "sda3-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d3repte": {"f": "sda3-02-full-del-repte.pdf", "l": "Full del repte"}, "d3f1": {"f": "sda3-03-fitxa-1-solids-liquids-gasos.pdf", "l": "Fitxa 1 · Sòlids, líquids i gasos"}, "d3lab1": {"f": "sda3-04-laboratori-1-comprimim-i-barregem.pdf", "l": "Laboratori 1 · Comprimim i barregem"}, "d3f2": {"f": "sda3-05-fitxa-2-canvis-d-estat.pdf", "l": "Fitxa 2 · Els canvis d'estat"}, "d3lab2": {"f": "sda3-06-laboratori-2-corba-d-escalfament.pdf", "l": "Laboratori 2 · La corba d'escalfament"}, "d3f3": {"f": "sda3-07-fitxa-3-corbes-d-escalfament.pdf", "l": "Fitxa 3 · Corbes d'escalfament"}, "d3f4": {"f": "sda3-08-fitxa-4-pressio-i-kelvin.pdf", "l": "Fitxa 4 · La pressió i el kelvin"}, "d3lab3": {"f": "sda3-09-laboratori-3-xeringa-i-simulacio.pdf", "l": "Laboratori 3 · La xeringa i la simulació"}, "d3f5": {"f": "sda3-10-fitxa-5-boyle-mariotte.pdf", "l": "Fitxa 5 · Boyle-Mariotte"}, "d3f6": {"f": "sda3-11-fitxa-6-charles-i-gay-lussac.pdf", "l": "Fitxa 6 · Charles i Gay-Lussac"}, "d3lab4": {"f": "sda3-12-laboratori-4-pilota-i-globus.pdf", "l": "Laboratori 4 · La pilota i el globus"}, "d3taller": {"f": "sda3-13-taller-de-gasos.pdf", "l": "Taller de gasos 1-2-4"}, "d3guia": {"f": "sda3-14-guia-fitxa-tecnica.pdf", "l": "Guia de la fitxa tècnica"}, "d3rub": {"f": "sda3-15-rubriques.pdf", "l": "Rúbriques"}, "d3diana": {"f": "sda3-19-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d3mapa": {"f": "sda3-20-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d3amp": {"f": "sda3-21-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d3adap": {"f": "sda3-23-adaptada-dislexia-charles.pdf", "l": "Fitxa 6 adaptada · dislèxia (dislèxia)"}, "d4ruta": {"f": "sda4-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d4repte": {"f": "sda4-02-full-del-repte.pdf", "l": "Full del repte"}, "d4f1": {"f": "sda4-03-fitxa-1-substances-pures-i-mescles.pdf", "l": "Fitxa 1 · Substàncies pures i mescles"}, "d4lab1": {"f": "sda4-04-laboratori-1-separem-una-mescla.pdf", "l": "Laboratori 1 · Separem una mescla"}, "d4f2": {"f": "sda4-05-fitxa-2-dissolucions-i-concentracio.pdf", "l": "Fitxa 2 · Dissolucions i concentració"}, "d4f3": {"f": "sda4-06-fitxa-3-practiquem-la-concentracio.pdf", "l": "Fitxa 3 · Practiquem la concentració"}, "d4lab2": {"f": "sda4-07-laboratori-2-preparem-dissolucions.pdf", "l": "Laboratori 2 · Preparem dissolucions"}, "d4f4": {"f": "sda4-08-fitxa-4-la-solubilitat.pdf", "l": "Fitxa 4 · La solubilitat"}, "d4lab3": {"f": "sda4-09-laboratori-3-la-sal-de-l-aigua-de-mar.pdf", "l": "Laboratori 3 · La sal de l'aigua de mar"}, "d4f5": {"f": "sda4-10-fitxa-5-tecniques-de-separacio.pdf", "l": "Fitxa 5 · Tècniques de separació"}, "d4f6": {"f": "sda4-11-fitxa-6-d-on-ve-l-aigua-i-on-va.pdf", "l": "Fitxa 6 · D'on ve l'aigua i on va?"}, "d4guia": {"f": "sda4-12-guia-depuradora-casolana.pdf", "l": "Guia de la depuradora casolana"}, "d4f7": {"f": "sda4-13-fitxa-7-la-campanya-de-l-aiguera.pdf", "l": "Fitxa 7 · La campanya de l'aigüera"}, "d4rub": {"f": "sda4-14-rubriques.pdf", "l": "Rúbriques"}, "d4diana": {"f": "sda4-18-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d4mapa": {"f": "sda4-19-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d4amp": {"f": "sda4-20-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d4adap": {"f": "sda4-22-adaptada-tea-dissolucions.pdf", "l": "Fitxa 2 adaptada · TEA (TEA)"}, "d5ruta": {"f": "sda5-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d5repte": {"f": "sda5-02-full-del-repte.pdf", "l": "Full del repte"}, "d5f1": {"f": "sda5-03-fitxa-1-canvis-fisics-i-quimics.pdf", "l": "Fitxa 1 · Canvis físics i químics"}, "d5lab1": {"f": "sda5-04-laboratori-1-busquem-evidencies.pdf", "l": "Laboratori 1 · Busquem evidències"}, "d5f2": {"f": "sda5-05-fitxa-2-la-reaccio-quimica.pdf", "l": "Fitxa 2 · La reacció química"}, "d5lab2": {"f": "sda5-06-laboratori-2-lavoisier-i-el-globus.pdf", "l": "Laboratori 2 · Lavoisier i el globus"}, "d5f3": {"f": "sda5-07-fitxa-3-conservacio-de-la-massa.pdf", "l": "Fitxa 3 · Conservació de la massa"}, "d5lab3": {"f": "sda5-08-laboratori-3-el-llevat.pdf", "l": "Laboratori 3 · El llevat"}, "d5f4": {"f": "sda5-09-fitxa-4-la-velocitat-de-les-reaccions.pdf", "l": "Fitxa 4 · La velocitat de les reaccions"}, "d5f5": {"f": "sda5-10-fitxa-5-la-quimica-de-la-cuina.pdf", "l": "Fitxa 5 · La química de la cuina"}, "d5f6": {"f": "sda5-11-fitxa-6-la-combustio-i-la-revetlla.pdf", "l": "Fitxa 6 · La combustió i la revetlla"}, "d5f7": {"f": "sda5-12-fitxa-7-quimica-i-salut-a-casa.pdf", "l": "Fitxa 7 · Química i salut a casa"}, "d5guia": {"f": "sda5-13-guia-recepta-cientifica.pdf", "l": "Guia de la recepta científica"}, "d5rub": {"f": "sda5-14-rubriques.pdf", "l": "Rúbriques"}, "d5diana": {"f": "sda5-18-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d5mapa": {"f": "sda5-19-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d5amp": {"f": "sda5-20-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d5adap": {"f": "sda5-22-adaptada-retard-canvis.pdf", "l": "Fitxa 1 adaptada · retard en l'aprenentatge (retard en l'aprenentatge)"}, "d6ruta": {"f": "sda6-01-full-de-ruta.pdf", "l": "Full de ruta"}, "d6repte": {"f": "sda6-02-full-del-repte.pdf", "l": "Full del repte"}, "d6f1": {"f": "sda6-03-fitxa-1-l-energia.pdf", "l": "Fitxa 1 · L'energia"}, "d6f2": {"f": "sda6-04-fitxa-2-calor-i-temperatura.pdf", "l": "Fitxa 2 · Calor i temperatura"}, "d6lab1": {"f": "sda6-05-laboratori-1-equilibri-termic.pdf", "l": "Laboratori 1 · L'equilibri tèrmic"}, "d6f3": {"f": "sda6-06-fitxa-3-calculem-la-calor.pdf", "l": "Fitxa 3 · Calculem la calor"}, "d6f4": {"f": "sda6-07-fitxa-4-propagacio.pdf", "l": "Fitxa 4 · Com viatja la calor"}, "d6lab2": {"f": "sda6-08-laboratori-2-conductors-i-aillants.pdf", "l": "Laboratori 2 · Conductors i aïllants"}, "d6f5": {"f": "sda6-09-fitxa-5-aillar-una-casa.pdf", "l": "Fitxa 5 · Aïllar una casa"}, "d6guia": {"f": "sda6-10-guia-carmanyola.pdf", "l": "Guia de la carmanyola"}, "d6f6": {"f": "sda6-11-fitxa-6-fonts-d-energia.pdf", "l": "Fitxa 6 · Les fonts d'energia"}, "d6lab3": {"f": "sda6-12-laboratori-3-test-de-la-carmanyola.pdf", "l": "Laboratori 3 · El test de la carmanyola"}, "d6f7": {"f": "sda6-13-fitxa-7-debat.pdf", "l": "Fitxa 7 · Debat sobre l'estalvi"}, "d6rub": {"f": "sda6-14-rubriques.pdf", "l": "Rúbriques"}, "d6diana": {"f": "sda6-18-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"}, "d6mapa": {"f": "sda6-19-mapa-conceptual.pdf", "l": "Mapa conceptual"}, "d6amp": {"f": "sda6-20-ampliacio.pdf", "l": "Reptes d'ampliació"}, "d6adap": {"f": "sda6-22-adaptada-discalculia-calor.pdf", "l": "Fitxa 3 adaptada · discalcúlia (discalcúlia)"}, "dcF": {"f": "curs-formulari.pdf", "l": "Formulari del curs"}, "dcG": {"f": "curs-glossari.pdf", "l": "Glossari del curs"}, "dcR1": {"f": "curs-recuperacio-ce1.pdf", "l": "Recuperació CE1"}, "dcR2": {"f": "curs-recuperacio-ce2.pdf", "l": "Recuperació CE2"}, "dcR3": {"f": "curs-recuperacio-ce3.pdf", "l": "Recuperació CE3"}, "dcR4": {"f": "curs-recuperacio-ce4.pdf", "l": "Recuperació CE4"}, "dcR5": {"f": "curs-recuperacio-ce5.pdf", "l": "Recuperació CE5"}, "d1teo": {"f": "sda1-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}, "d2teo": {"f": "sda2-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}, "d3teo": {"f": "sda3-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}, "d4teo": {"f": "sda4-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}, "d5teo": {"f": "sda5-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}, "d6teo": {"f": "sda6-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}};
+const MODE = "alumne";
+/* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */
+const D = {
+  "dc0": {"f": "curs-01-sessio-0-sondeig-idees-previes.pdf", "l": "Sessió 0: sondeig d'idees prèvies"},
+  "dcT": {"f": "curs-02-sessio-de-tancament.pdf", "l": "Sessió de tancament"},
+  "dcE": {"f": "curs-03-enquesta-de-valoracio.pdf", "l": "Enquesta de valoració (anònima)"},
+  "d5ruta": {"f": "sda5-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "d5repte": {"f": "sda5-02-full-del-repte.pdf", "l": "Full del repte"},
+  "d5f1": {"f": "sda5-03-fitxa-1-mru.pdf", "l": "Fitxa 1"},
+  "d5f2": {"f": "sda5-04-fitxa-2-mrua.pdf", "l": "Fitxa 2"},
+  "d5f3": {"f": "sda5-05-fitxa-3-grafiques-del-patinet.pdf", "l": "Fitxa 3: gràfiques"},
+  "d5f4": {"f": "sda5-06-fitxa-4-trajectoria.pdf", "l": "Fitxa 4"},
+  "d5f5": {"f": "sda5-07-fitxa-5-difusio-i-gradient.pdf", "l": "Fitxa 5: difusió i gradient"},
+  "d5f6q": {"f": "sda5-08-fitxa-6-quimiotaxi-febre-i-salut.pdf", "l": "Fitxa 6: quimiotaxi, febre i salut"},
+  "d5prob": {"f": "sda5-09-problemes-de-moviment.pdf", "l": "Problemes"},
+  "d5f6": {"f": "sda5-10-fitxa-7-newton-i-citoesquelet.pdf", "l": "Fitxa 7 · Newton i citoesquelet"},
+  "d5hooke": {"f": "sda5-11-laboratori-llei-de-hooke.pdf", "l": "Laboratori de Hooke"},
+  "d5tfm": {"f": "sda5-12-forces-cellulars.pdf", "l": "Full de forces cel·lulars"},
+  "d5rub": {"f": "sda5-14-rubriques.pdf", "l": "Rúbriques"},
+  "d5diana": {"f": "sda5-18-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "d5mapa": {"f": "sda5-19-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "d3ruta": {"f": "sda3-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "d3f1": {"f": "sda3-03-fitxa-1-desmuntem-el-mobil.pdf", "l": "Fitxa 1"},
+  "d3f2": {"f": "sda3-04-fitxa-2-models-atomics-i-isotops.pdf", "l": "Fitxa 2"},
+  "d3f3": {"f": "sda3-05-fitxa-3-ions-i-bateria.pdf", "l": "Fitxa 3"},
+  "d3lab": {"f": "sda3-07-laboratori-assaig-a-la-flama.pdf", "l": "Laboratori: assaig a la flama"},
+  "d3f4": {"f": "sda3-08-fitxa-4-taula-periodica.pdf", "l": "Fitxa 4"},
+  "d3f5": {"f": "sda3-09-fitxa-5-enllac-quimic.pdf", "l": "Fitxa 5"},
+  "d3dos": {"f": "sda3-10-dossier-incendis-i-elements-critics.pdf", "l": "Dossier"},
+  "d3camp": {"f": "sda3-11-pla-de-campanya-punt-de-recollida.pdf", "l": "Pla de campanya"},
+  "d3rub": {"f": "sda3-12-rubriques.pdf", "l": "Rúbriques"},
+  "d3diana": {"f": "sda3-16-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "d3mapa": {"f": "sda3-17-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "d1amp": {"f": "sda1-18-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "d2amp": {"f": "sda2-15-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "d2coav": {"f": "sda2-19-avaluem-els-videos.pdf", "l": "Avaluem els vídeos (auto i coavaluació)"},
+  "d3amp": {"f": "sda3-18-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "d4amp": {"f": "sda4-16-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "d5amp": {"f": "sda5-20-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "d6amp": {"f": "sda6-14-ampliacio.pdf", "l": "Reptes d'ampliació"},
+  "dcF": {"f": "curs-04-formulari.pdf", "l": "Formulari del curs"},
+  "dcG": {"f": "curs-05-glossari.pdf", "l": "Glossari del curs"},
+  "dcR1": {"f": "curs-06-recuperacio-ce1.pdf", "l": "Recuperació CE1"},
+  "dcR2": {"f": "curs-07-recuperacio-ce2.pdf", "l": "Recuperació CE2"},
+  "dcR3": {"f": "curs-08-recuperacio-ce3.pdf", "l": "Recuperació CE3"},
+  "dcR4": {"f": "curs-09-recuperacio-ce4.pdf", "l": "Recuperació CE4"},
+  "dcR5": {"f": "curs-10-recuperacio-ce5.pdf", "l": "Recuperació CE5"},
+  "dcR6": {"f": "curs-11-recuperacio-ce6.pdf", "l": "Recuperació CE6"},
+  "d6ruta": {"f": "sda6-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "d6repte": {"f": "sda6-02-full-del-repte.pdf", "l": "Full del repte"},
+  "d6f1": {"f": "sda6-03-fitxa-1-energia-potencia-i-consum.pdf", "l": "Fitxa 1"},
+  "d6lab": {"f": "sda6-04-laboratori-consum-real.pdf", "l": "Laboratori: mesurem el consum real"},
+  "d6f2": {"f": "sda6-05-fitxa-2-don-ve-lelectricitat.pdf", "l": "Fitxa 2"},
+  "d6pla": {"f": "sda6-06-pla-destalvi-i-debat.pdf", "l": "Pla d'estalvi i debat"},
+  "d6rub": {"f": "sda6-07-rubriques.pdf", "l": "Rúbriques"},
+  "d6diana": {"f": "sda6-11-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "d6mapa": {"f": "sda6-12-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "d4ruta": {"f": "sda4-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "d4repte": {"f": "sda4-02-full-del-repte.pdf", "l": "Full del repte"},
+  "d4lab1": {"f": "sda4-03-laboratori-conservacio-de-la-massa.pdf", "l": "Laboratori: es conserva la massa?"},
+  "d4f1": {"f": "sda4-04-fitxa-1-formulacio-i-nomenclatura.pdf", "l": "Fitxa 1"},
+  "d4lab2": {"f": "sda4-05-laboratori-obtenim-hidrogen.pdf", "l": "Laboratori: obtenim hidrogen"},
+  "d4f2": {"f": "sda4-06-fitxa-2-equacions-i-calculs-de-massa.pdf", "l": "Fitxa 2"},
+  "d4lab3": {"f": "sda4-07-laboratori-electrolisi-de-laigua.pdf", "l": "Laboratori: electròlisi de l'aigua"},
+  "d4f3": {"f": "sda4-08-fitxa-3-taller-de-problemes.pdf", "l": "Fitxa 3"},
+  "d4dos": {"f": "sda4-09-dossier-hidrogen.pdf", "l": "Dossier sobre l'hidrogen"},
+  "d4rub": {"f": "sda4-10-rubriques.pdf", "l": "Rúbriques"},
+  "d4diana": {"f": "sda4-14-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "d4mapa": {"f": "sda4-15-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "d1ruta": {"f": "sda1-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "d1reg": {"f": "sda1-02-registre-del-detectiu.pdf", "l": "Registre del detectiu"},
+  "d1seg": {"f": "sda1-03-seguretat-al-laboratori.pdf", "l": "Seguretat al laboratori"},
+  "d1f1": {"f": "sda1-04-fitxa-1-magnituds-i-unitats.pdf", "l": "Fitxa 1"},
+  "d1f2": {"f": "sda1-05-fitxa-2-factors-de-conversio.pdf", "l": "Fitxa 2 i cerca de densitats"},
+  "d1dens": {"f": "sda1-06-laboratori-densitat.pdf", "l": "Laboratori de densitat"},
+  "d1prov": {"f": "sda1-07-proves-conductivitat-i-ferro.pdf", "l": "Full de proves"},
+  "d1sep": {"f": "sda1-08-laboratori-separacio.pdf", "l": "Laboratori de separació"},
+  "d1crom": {"f": "sda1-09-cromatografia.pdf", "l": "Cromatografia"},
+  "d1ellen": {"f": "sda1-10-reading-ellen-swallow-richards.pdf", "l": "Reading: Ellen Swallow Richards"},
+  "d1inf": {"f": "sda1-11-guio-informe-i-protocol.pdf", "l": "Guió de l'informe i protocol"},
+  "d1rub": {"f": "sda1-12-rubriques.pdf", "l": "Rúbriques"},
+  "d1diana": {"f": "sda1-16-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "d1mapa": {"f": "sda1-17-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "ruta": {"f": "sda2-01-full-de-ruta.pdf", "l": "Full de ruta"},
+  "repte": {"f": "sda2-02-full-del-repte.pdf", "l": "Full del repte"},
+  "lab": {"f": "sda2-03-laboratori-globus.pdf", "l": "Full de laboratori"},
+  "f1": {"f": "sda2-04-fitxa-1-model-cineticomolecular.pdf", "l": "Fitxa 1"},
+  "f2": {"f": "sda2-05-fitxa-2-lleis-dels-gasos.pdf", "l": "Fitxa 2"},
+  "inf": {"f": "sda2-07-guio-informe-de-practica.pdf", "l": "Guió de l'informe"},
+  "video": {"f": "sda2-08-guio-del-video.pdf", "l": "Guió del vídeo"},
+  "rub": {"f": "sda2-09-rubriques.pdf", "l": "Rúbriques"},
+  "diana": {"f": "sda2-12-diana-autoavaluacio.pdf", "l": "Diana d'autoavaluació"},
+  "mapa": {"f": "sda2-13-mapa-conceptual.pdf", "l": "Mapa conceptual"},
+  "labc": {"f": "sda2-14-laboratori-corba-i-canvis-destat.pdf", "l": "Full de laboratori"},
+  "d1teo": {"f": "sda1-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d2teo": {"f": "sda2-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d3teo": {"f": "sda3-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d4teo": {"f": "sda4-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d5teo": {"f": "sda5-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d6teo": {"f": "sda6-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}
+};
+/* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */
+const L = {
+  "inv": {"u": "https://llibrefiq3r.cat/docs/sda6-00-plantilla-inventari-energetic.xlsx", "l": "Plantilla d'Excel: inventari energètic i pla d'estalvi"},
+  "reecat": {"u": "https://ree.es/sites/default/files/07_SALA_PRENSA/Documentos/2025/NP_Cataluna.pdf", "l": "Red Eléctrica: balanç elèctric de Catalunya 2024"},
+  "circuits": {"u": "https://phet.colorado.edu/ca/simulations/circuit-construction-kit-dc", "l": "Simulació: kit de construcció de circuits"},
+  "telkes": {"u": "https://ethw.org/M%C3%A1ria_Telkes", "l": "Mária Telkes, pionera de l'energia solar", "fr": 1},
+  "tmbh2": {"u": "https://noticies.tmb.cat/sala-de-premsa/barcelona-rep-primer-bus-dhidrogen-que-es-proveira-properament-planta-diberdrola", "l": "Notícia: TMB rep el primer bus d'hidrogen (2021)"},
+  "ajust": {"u": "https://phet.colorado.edu/ca/simulations/balancing-chemical-equations", "l": "Simulació: ajust d'equacions químiques"},
+  "ferida": {"u": "https://www.cellimagelibrary.org/images/44511", "l": "Vídeo: unes cèl·lules tanquen una ferida (migració col·lectiva)", "v": "https://cildata.crbs.ucsd.edu/media/videos/44511/44511_web.mp4", "cr": "Cèl·lules epitelials de ronyó (MDCK) tancant una ferida de 300 µm. Assaf Zaritsky i Doron Kaplan, Cell Image Library CIL:44511 (domini públic)."},
+  "metastasi": {"u": "https://www.cellimagelibrary.org/images/42160", "l": "Vídeo: cèl·lules d'un tumor de mama envaeixen el teixit", "v": "https://cildata.crbs.ucsd.edu/media/videos/42160/42160_web.mp4", "cr": "Fragment de tumor de mama humà que envaeix una matriu (una imatge cada 20 minuts; barra: 50 µm). Andrew Ewald, PNAS 2012. Cell Image Library CIL:42160 (CC BY)."},
+  "cito": {"u": "https://commons.wikimedia.org/wiki/File:FluorescentCells.jpg", "l": "Imatge: el citoesquelet al microscopi de fluorescència", "img": "https://upload.wikimedia.org/wikipedia/commons/0/09/FluorescentCells.jpg", "alt": "Cèl·lules endotelials amb el nucli en blau, els microtúbuls en verd i els filaments d'actina en vermell", "cr": "Nucli en blau (DAPI), microtúbuls en verd (tubulina) i filaments d'actina en vermell. Imatge de domini públic, Wikimedia Commons."},
+  "febre": {"u": "https://www.nature.com/articles/s41598-022-10858-w", "l": "Article citat a la fitxa 6 (Khachaturyan et al., 2022)"},
+  "rogers": {"u": "https://embryology.med.unsw.edu.au/embryology/index.php/Movie_-_Neutrophil_chasing_bacteria", "l": "Vídeo: un neutròfil persegueix un bacteri (D. Rogers)", "v": "https://embryology.med.unsw.edu.au/embryology/images/3/36/Neutrophil_chasing_bacteria_movie.mp4", "cr": "Pel·lícula de David Rogers (Universitat Vanderbilt, anys cinquanta). Font: UNSW Embryology (Dr Mark Hill)."},
+  "difusio": {"u": "https://phet.colorado.edu/ca/simulations/diffusion", "l": "Simulació: difusió"},
+  "rutherford": {"u": "https://phet.colorado.edu/ca/simulations/rutherford-scattering", "l": "Simulació: dispersió de Rutherford"},
+  "buildatom": {"u": "https://phet.colorado.edu/ca/simulations/build-an-atom", "l": "Simulació: construeix un àtom"},
+  "simbat": {"u": "sim-bateria.html", "l": "Simulador: la bateria de liti per dins", "an": 1},
+  "joctaularank": {"u": "joc-taula.html?nivell=3r&vista=ranquing", "l": "Rànquing del joc de la taula periòdica", "an": 1},
+  "joctaula": {"u": "joc-taula.html?nivell=3r", "l": "Joc: la taula periòdica (símbols, posicions i valències)", "an": 1},
+  "simgas": {"u": "sim-gasos.html", "l": "Simulador: el model cineticomolecular dels gasos", "an": 1},
+  "anajust": {"u": "sim-ajust.html", "l": "Animació: com s'ajusta una equació química", "an": 1},
+  "anenllac": {"u": "sim-enllac.html", "l": "Animació: enllaç iònic, covalent i metàl·lic", "an": 1},
+  "ancol": {"u": "sim-colisions.html", "l": "Animació: teoria de col·lisions i velocitat de reacció", "an": 1},
+  "anpila": {"u": "sim-pila.html", "l": "Animació: com funciona una pila de combustible", "an": 1},
+  "anmrua": {"u": "sim-mrua.html", "l": "Animació: MRU i MRUA amb la gràfica velocitat–temps", "an": 1},
+  "labmru": {"u": "sim-lab-mru.html", "l": "Simulador: laboratori del MRU (tria la velocitat)", "an": 1},
+  "labmrua": {"u": "sim-lab-mrua.html", "l": "Simulador: laboratori del MRUA (tria la velocitat inicial i l'acceleració)", "an": 1},
+  "phetforces": {"u": "https://phet.colorado.edu/ca/simulations/forces-and-motion-basics", "l": "Simulació: forces i moviment"},
+  "phetfaraday": {"u": "https://phet.colorado.edu/ca/simulations/faradays-electromagnetic-lab", "l": "Simulació: laboratori electromagnètic de Faraday"},
+  "ptable": {"u": "https://ptable.com/", "l": "Taula periòdica interactiva", "fr": 1},
+  "density": {"u": "https://phet.colorado.edu/ca/simulations/density", "l": "Simulació: densitat"},
+  "sugarsalt": {"u": "https://phet.colorado.edu/ca/simulations/sugar-and-salt-solutions", "l": "Simulació: sucre i sal en dissolució"},
+  "gasprop": {"u": "https://phet.colorado.edu/ca/simulations/gas-properties", "l": "Simulació: propietats dels gasos"},
+  "gasintro": {"u": "https://phet.colorado.edu/ca/simulations/gases-intro", "l": "Simulació: introducció als gasos"},
+  "states": {"u": "https://phet.colorado.edu/ca/simulations/states-of-matter-basics", "l": "Simulació: estats de la matèria"}
+};
 
-/* ===== SdA ===== */
-const SDAS = [{"n": 1, "c": "--s1", "title": "L'institut en xifres", "q": "Com podem mesurar i expressar les magnituds de l'institut?", "meta": "1r trimestre · 12 sessions · Producte final: infografia · Competències específiques avaluades: CE1, CE2 i CE5", "ready": true, "sessions": [{"t": "El repte i la seguretat", "ph": "Explorem", "p": "Presentem el repte de l'infografia de l'institut. Repassem les normes de seguretat al laboratori i el material bàsic. Rebreu les rúbriques de la SdA.", "d": ["d1ruta", "d1repte", "d1f1", "d1rub"], "l": []}, {"t": "Material i volums", "ph": "Experimentem", "p": "Al laboratori mesurarem volums amb provetes, pipetes i matràs aforats. Aprendrem a llegir correctament els instruments i a estimar la incertesa.", "d": ["d1lab1"], "l": []}, {"t": "Magnituds i unitats", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem les magnituds fonamentals i derivades, el Sistema Internacional i els prefixos. Practiquem la conversió d'unitats.", "d": ["d1f2"], "l": []}, {"t": "Factors de conversió", "ph": "Aprenem", "p": "Aprofundim en els factors de conversió. Resolem problemes de canvi d'unitats amb factors. Portem la fitxa per acabar a casa.", "d": ["d1f3", "d1equiv"], "l": []}, {"t": "Mesurem l'aula", "ph": "Experimentem", "p": "Al laboratori mesurem longituds, superfícies i volums de l'aula i del material. Calculem àrees i volums a partir de les mesures.", "d": ["d1lab2"], "l": []}, {"t": "Superfície i volum", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem les fórmules de superfície i volum de figures senzilles. Practiquem càlculs i notació científica.", "d": ["d1f4", "d1f5"], "l": []}, {"t": "L'aixeta que goteja", "ph": "Experimentem", "p": "Al laboratori mesurem el cabal d'una aixeta que goteja i estimem quanta aigua es perd en un dia, un mes i un any.", "d": ["d1lab3"], "l": []}, {"t": "L'aigua de l'institut", "ph": "Aprenem", "p": "Corregim el laboratori. Analitzem el consum d'aigua de l'institut i proposem mesures d'estalvi. Treballem amb notació científica i factors de conversió.", "d": ["d1f6"], "l": []}, {"t": "La infografia", "ph": "Creem", "p": "Amb les dades recollides elaborem la infografia del repte. Seguiu la guia per organitzar la informació i fer-la visual.", "d": ["d1guia"], "l": []}, {"t": "Presentem i avaluem", "ph": "Avaluem", "p": "Presentem les infografies. Fem la diana d'autoavaluació i comentem el mapa conceptual.", "d": ["d1diana", "d1mapa"], "l": []}, {"t": "Reptes d'ampliació", "ph": "Aprofundim", "p": "Qui vulgui pot fer els reptes d'ampliació. El professor donarà el solucionari quan els acabeu.", "d": ["d1amp"], "l": []}, {"t": "Adaptacions", "ph": "Suport", "p": "Fitxa adaptada per a alumnat amb TDAH sobre factors de conversió.", "d": ["d1adap"], "l": []}], "teacher": []}, {"n": 2, "c": "--s2", "title": "Un arc de Sant Martí dins d'un got", "q": "Per què sura o s'enfonsa un objecte?", "meta": "1r trimestre · 11 sessions · Producte final: torre i informe · Competències específiques avaluades: CE1, CE2 i CE5", "ready": true, "sessions": [{"t": "El repte i la densitat", "ph": "Explorem", "p": "Presentem el repte de construir una torre que suri. Introduïm la densitat com a relació entre massa i volum.", "d": ["d2ruta", "d2repte", "d2f1"], "l": []}, {"t": "Massa i volum de líquids", "ph": "Experimentem", "p": "Al laboratori mesurem la massa i el volum de diferents líquids i calculem la seva densitat.", "d": ["d2lab1"], "l": []}, {"t": "La densitat", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem la fórmula de la densitat, les unitats i com predir si un objecte sura o s'enfonsa.", "d": ["d2f2"], "l": []}, {"t": "Practiquem la densitat", "ph": "Aprenem", "p": "Resolem problemes de densitat. Practiquem el càlcul de massa, volum o densitat a partir de les altres dues magnituds.", "d": ["d2f3"], "l": []}, {"t": "La densitat dels sòlids", "ph": "Experimentem", "p": "Al laboratori mesurem la densitat de diferents sòlids regulars i irregulars.", "d": ["d2lab2"], "l": []}, {"t": "Sura o s'enfonsa?", "ph": "Aprenem", "p": "Corregim el laboratori. Analitzem per què alguns objectes suren i altres s'enfonsen. Introduïm el principi d'Arquimedes.", "d": ["d2f4"], "l": []}, {"t": "L'ou que sura", "ph": "Experimentem", "p": "Al laboratori fem l'experiment de l'ou que sura en aigua salada. Mesurem la densitat de la dissolució.", "d": ["d2lab3"], "l": []}, {"t": "Arquimedes i la corona", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem el principi d'Arquimedes i el resolvem amb la història de la corona d'or.", "d": ["d2f5"], "l": []}, {"t": "Hipàtia i el densímetre", "ph": "Aprenem", "p": "Estudiem com funciona un densímetre i com el va utilitzar Hipàtia. Practiquem càlculs.", "d": ["d2f6"], "l": []}, {"t": "La torre i l'informe", "ph": "Creem", "p": "Construïm la torre que sura i elaborem l'informe seguint la guia.", "d": ["d2guia"], "l": []}, {"t": "Presentem i avaluem", "ph": "Avaluem", "p": "Presentem les torres. Fem la diana d'autoavaluació i el mapa conceptual.", "d": ["d2diana", "d2mapa"], "l": []}], "teacher": []}, {"n": 3, "c": "--s3", "title": "La pilota que no bota", "q": "Què passa quan escalfem o refredem un gas?", "meta": "2n trimestre · 12 sessions · Producte final: fitxa tècnica · Competències específiques avaluades: CE1, CE2 i CE5", "ready": true, "sessions": [{"t": "El repte i els estats", "ph": "Explorem", "p": "Presentem el repte de la fitxa tècnica d'un gas. Repassem els estats de la matèria i els canvis d'estat.", "d": ["d3ruta", "d3repte", "d3f1"], "l": []}, {"t": "Comprimim i barregem", "ph": "Experimentem", "p": "Al laboratori comprimim aire amb una xeringa i barregem líquids i sòlids. Observem el comportament dels gasos.", "d": ["d3lab1"], "l": []}, {"t": "Els canvis d'estat", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem els canvis d'estat i les temperatures de canvi. Introduïm la teoria cinètica.", "d": ["d3f2"], "l": []}, {"t": "La corba d'escalfament", "ph": "Experimentem", "p": "Al laboratori escalfem aigua i dibuixem la corba d'escalfament. Identifiquem els canvis d'estat.", "d": ["d3lab2"], "l": []}, {"t": "Corbes d'escalfament", "ph": "Aprenem", "p": "Corregim el laboratori. Analitzem corbes d'escalfament i de refredament. Practiquem la interpretació de gràfics.", "d": ["d3f3"], "l": []}, {"t": "La pressió i el kelvin", "ph": "Aprenem", "p": "Estudiem la pressió dels gasos i l'escala Kelvin. Relacionem temperatura, pressió i volum.", "d": ["d3f4"], "l": []}, {"t": "La xeringa i la simulació", "ph": "Experimentem", "p": "Al laboratori i amb simulació estudiem la llei de Boyle-Mariotte. Mesurem pressió i volum.", "d": ["d3lab3"], "l": []}, {"t": "Boyle-Mariotte", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem la llei de Boyle-Mariotte i la resolem amb problemes.", "d": ["d3f5"], "l": []}, {"t": "Charles i Gay-Lussac", "ph": "Aprenem", "p": "Estudiem les lleis de Charles i Gay-Lussac. Practiquem càlculs amb temperatura absoluta.", "d": ["d3f6"], "l": []}, {"t": "La pilota i el globus", "ph": "Experimentem", "p": "Al laboratori observem el comportament d'una pilota i un globus amb canvis de temperatura.", "d": ["d3lab4"], "l": []}, {"t": "Taller de gasos", "ph": "Creem", "p": "Fem el taller de gasos 1-2-4 i elaborem la fitxa tècnica seguint la guia.", "d": ["d3taller", "d3guia"], "l": []}, {"t": "Presentem i avaluem", "ph": "Avaluem", "p": "Presentem les fitxes tècniques. Fem la diana i el mapa conceptual.", "d": ["d3diana", "d3mapa"], "l": []}], "teacher": []}, {"n": 4, "c": "--s4", "title": "Un cotxe que només allibera aigua?", "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?", "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2, CE3 i CE4", "ready": true, "sessions": [{"t": "El repte i l'espelma", "ph": "Explorem", "p": "Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.", "d": ["d4ruta", "d4repte", "d4rub"], "l": ["tmbh2"]}, {"t": "Lavoisier al laboratori", "ph": "Experimentem", "p": "Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.", "d": ["d4lab1"], "l": []}, {"t": "Formulació i nomenclatura", "ph": "Aprenem", "p": "Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.", "d": ["d4f1"], "l": ["joctaula"]}, {"t": "Obtenim hidrogen", "ph": "Experimentem", "p": "Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.", "d": ["d4lab2"], "l": []}, {"t": "Ajustem equacions", "ph": "Aprenem", "p": "Corregirem el full de laboratori. Aprendrem a ajustar equacions químiques perquè es compleixi la llei de conservació de la massa. La fitxa 2 l'acabaràs a casa.", "d": ["d4f2"], "l": ["simajust"]}, {"t": "Practiquem la concentració", "ph": "Aprenem", "p": "Corregirem la fitxa 2. Practiquem el càlcul de la concentració d'una dissolució i la preparació de dissolucions.", "d": ["d4f3"], "l": []}, {"t": "Preparem dissolucions", "ph": "Experimentem", "p": "Al laboratori preparem dissolucions de concentració coneguda. Mesurem masses i volums amb precisió.", "d": ["d4lab2"], "l": []}, {"t": "La solubilitat", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem la solubilitat i els factors que l'afecten. Practiquem càlculs.", "d": ["d4f4"], "l": []}, {"t": "La sal de l'aigua de mar", "ph": "Experimentem", "p": "Al laboratori separem la sal de l'aigua de mar per evaporació. Calculem el percentatge de sal.", "d": ["d4lab3"], "l": []}, {"t": "Tècniques de separació", "ph": "Aprenem", "p": "Corregim el laboratori. Repassem les tècniques de separació de mescles: filtració, decantació, destil·lació, cristal·lització.", "d": ["d4f5"], "l": []}, {"t": "D'on ve l'aigua i on va?", "ph": "Aprenem", "p": "Estudiem el cicle de l'aigua i el tractament de l'aigua residual. Introduïm la campanya de l'aigüera.", "d": ["d4f6"], "l": []}, {"t": "La depuradora casolana", "ph": "Creem", "p": "Construïm una depuradora casolana seguint la guia i elaborem l'informe.", "d": ["d4guia"], "l": []}, {"t": "La campanya de l'aigüera", "ph": "Creem", "p": "Dissenyem i fem la campanya de l'aigüera per reduir el consum d'aigua a casa.", "d": ["d4f7"], "l": []}, {"t": "Presentem i avaluem", "ph": "Avaluem", "p": "Presentem els treballs. Fem la diana i el mapa conceptual.", "d": ["d4diana", "d4mapa"], "l": []}], "teacher": []}, {"n": 5, "c": "--s5", "title": "La química de la coca de Sant Joan", "q": "Com canvia la matèria quan cuinem?", "meta": "3r trimestre · 12 sessions · Producte final: recepta científica · Competències específiques avaluades: CE1, CE2 i CE5", "ready": true, "sessions": [{"t": "El repte i els canvis", "ph": "Explorem", "p": "Presentem el repte de la recepta científica. Distingim canvis físics i químics amb exemples de la cuina.", "d": ["d5ruta", "d5repte", "d5f1"], "l": []}, {"t": "Busquem evidències", "ph": "Experimentem", "p": "Al laboratori observem evidències de reacció química: canvi de color, gas, precipitat, canvi de temperatura.", "d": ["d5lab1"], "l": []}, {"t": "La reacció química", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem què és una reacció química, els reactius i els productes, i com es representa.", "d": ["d5f2"], "l": []}, {"t": "Lavoisier i el globus", "ph": "Experimentem", "p": "Al laboratori comprovem la conservació de la massa amb la reacció del vinagre i el bicarbonat en un globus.", "d": ["d5lab2"], "l": []}, {"t": "Conservació de la massa", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem la llei de conservació de la massa i l'ajust d'equacions.", "d": ["d5f3"], "l": []}, {"t": "El llevat", "ph": "Experimentem", "p": "Al laboratori observem la fermentació del llevat i mesurem el gas produït.", "d": ["d5lab3"], "l": []}, {"t": "La velocitat de les reaccions", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem els factors que afecten la velocitat d'una reacció química.", "d": ["d5f4"], "l": []}, {"t": "La química de la cuina", "ph": "Aprenem", "p": "Analitzem reaccions químiques que passen a la cuina: caramel·lització, Maillard, fermentació, àcids i bases.", "d": ["d5f5"], "l": []}, {"t": "La combustió i la revetlla", "ph": "Aprenem", "p": "Estudiem la combustió i els productes que es formen. Relacionem amb la revetlla de Sant Joan.", "d": ["d5f6"], "l": []}, {"t": "Química i salut a casa", "ph": "Aprenem", "p": "Analitzem productes de neteja i la seva química. Parlem de seguretat a casa.", "d": ["d5f7"], "l": []}, {"t": "La recepta científica", "ph": "Creem", "p": "Elaborem la recepta científica seguint la guia. Identifiquem els canvis físics i químics.", "d": ["d5guia"], "l": []}, {"t": "Presentem i avaluem", "ph": "Avaluem", "p": "Presentem les receptes. Fem la diana i el mapa conceptual.", "d": ["d5diana", "d5mapa"], "l": []}], "teacher": []}, {"n": 6, "c": "--s6", "title": "La carmanyola calenta", "q": "Com podem mantenir el menjar calent?", "meta": "3r trimestre · 11 sessions · Producte final: carmanyola aïllada · Competències específiques avaluades: CE1, CE2 i CE5", "ready": true, "sessions": [{"t": "El repte i l'energia", "ph": "Explorem", "p": "Presentem el repte de la carmanyola que manté el menjar calent. Introduïm el concepte d'energia i les seves formes.", "d": ["d6ruta", "d6repte", "d6f1"], "l": []}, {"t": "Calor i temperatura", "ph": "Aprenem", "p": "Distingim calor i temperatura. Estudiem com es transfereix l'energia tèrmica.", "d": ["d6f2"], "l": []}, {"t": "L'equilibri tèrmic", "ph": "Experimentem", "p": "Al laboratori mesclem aigua calenta i freda i observem l'equilibri tèrmic.", "d": ["d6lab1"], "l": []}, {"t": "Calculem la calor", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem la fórmula de la calor i la capacitat calorífica. Practiquem càlculs.", "d": ["d6f3"], "l": []}, {"t": "Com viatja la calor", "ph": "Aprenem", "p": "Estudiem la conducció, la convecció i la radiació. Identifiquem exemples de cada mecanisme.", "d": ["d6f4"], "l": []}, {"t": "Conductors i aïllants", "ph": "Experimentem", "p": "Al laboratori comparem materials conductors i aïllants. Mesurem com es refreda l'aigua en diferents recipients.", "d": ["d6lab2"], "l": []}, {"t": "Aïllar una casa", "ph": "Aprenem", "p": "Corregim el laboratori. Estudiem com aïllar una casa i els materials aïllants. Practiquem càlculs de calor.", "d": ["d6f5"], "l": []}, {"t": "La carmanyola", "ph": "Creem", "p": "Dissenyem i construïm la carmanyola aïllada seguint la guia.", "d": ["d6guia"], "l": []}, {"t": "Les fonts d'energia", "ph": "Aprenem", "p": "Estudiem les fonts d'energia renovables i no renovables. Debatem sobre l'estalvi energètic.", "d": ["d6f6"], "l": []}, {"t": "El test de la carmanyola", "ph": "Experimentem", "p": "Al laboratori testejem la carmanyola: mesurem quant de temps manté la temperatura.", "d": ["d6lab3"], "l": []}, {"t": "Debat sobre l'estalvi", "ph": "Reflexionem", "p": "Debatem sobre mesures d'estalvi energètic a casa i a l'institut. Fem la diana i el mapa conceptual.", "d": ["d6f7", "d6diana", "d6mapa"], "l": []}], "teacher": []}];
+/* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */
+const SDAS = [
+  {"n": 1, "c": "--s1", "title": "Detectius de la matèria", "q": "Com podem identificar dotze substàncies que han perdut l'etiqueta?", "meta": "1r trimestre · 10 sessions · Producte final: informe del grup i protocol d'identificació de substàncies · Competències específiques avaluades: CE2, CE3 i CE5", "ready": true, "sessions": [{"t": "El repte i la seguretat", "ph": "Explorem", "p": "Al laboratori hi ha dotze pots sense etiqueta i tenim la llista de les dotze etiquetes possibles. Observarem els pots sense obrir-los i farem les primeres hipòtesis. Abans de tocar res, buscarem els errors d'un laboratori on tothom fa alguna cosa perillosa i farem el nostre decàleg de seguretat.", "d": ["d1ruta", "d1reg", "d1seg", "d1rub"], "l": []}, {"t": "Unitats i notació científica", "ph": "Recordem", "p": "Recordarem què és una magnitud, les unitats del Sistema Internacional i com es canvien les unitats de massa, longitud i volum. Veurem que els prefixos són potències de 10 i aprendrem a escriure i operar nombres molt grans i molt petits amb la notació científica.", "d": ["d1f1"], "l": []}, {"t": "Factors de conversió", "ph": "Recordem", "p": "Farem canvis d'unitats encadenats, també amb unitats compostes com la densitat. A casa buscaràs la densitat de les substàncies possibles en fonts fiables i en citaràs la font.", "d": ["d1f2"], "l": []}, {"t": "Densitat dels pots enigma", "ph": "Experimentem", "p": "Pesarem els nou pots que contenen líquids i en calcularem la densitat. La compararem amb els valors que has trobat i calcularem l'error absolut i l'error relatiu. Ja podrem assignar les primeres etiquetes!", "d": ["d1dens"], "l": ["density"]}, {"t": "Conductivitat i el clau de ferro", "ph": "Aprenem", "p": "Repassarem què són les substàncies pures i les mescles. El professor farà dues demostracions i tu en registraràs els resultats: quins líquids condueixen el corrent elèctric i per què, i què passa quan posem un clau de ferro en els tres líquids blaus. Prepararem la separació de la sessió següent.", "d": ["d1prov"], "l": ["sugarsalt"]}, {"t": "Separem mescles", "ph": "Experimentem", "p": "Comprovarem quins líquids es barregen amb l'aigua i separarem l'oli de l'aigua per decantació. Després separarem una mescla de sorra, llimadures de ferro, serradures i aigua salada. A casa llegiràs un text en anglès sobre Ellen Swallow Richards.", "d": ["d1sep", "d1ellen"], "l": []}, {"t": "La nota anònima", "ph": "Ho apliquem", "p": "Amb una cromatografia descobrirem amb quin retolador s'ha escrit cada nota anònima. Mentre esperem, revisarem l'assignació dels pots i debatrem sobre Ellen Swallow Richards.", "d": ["d1crom"], "l": []}, {"t": "Resolem el cas", "ph": "Ho apliquem", "p": "Cada grup presentarà l'assignació final dels dotze pots amb dues proves per a cadascun. Ens posarem d'acord i farem el protocol per identificar qualsevol substància. Si no hi ha temps perquè presentin tots els grups, els que falten ho faran a la sessió 10. Al final tens el mapa conceptual de la SdA.", "d": ["d1inf", "d1mapa"], "l": []}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", "d": [], "l": []}, {"t": "Corregeixo i reflexiono", "ph": "Reflexionem", "p": "Si algun grup no va poder presentar a la sessió 8, ho farà ara. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "d": ["d1diana"], "l": []}], "teacher": []},
+  {"n": 2, "c": "--s2", "title": "El desodorant kamikaze", "q": "Per què explota un desodorant dins d'un cotxe a l'agost?", "meta": "1r trimestre · 10 sessions · Producte final: un vídeo per a l'alumnat de 1r d'ESO · Competències específiques avaluades: CE1 i CE2", "ready": true, "sessions": [{"t": "El repte", "ph": "Explorem", "p": "Veurem què pot passar quan un esprai es queda dins d'un cotxe a l'estiu i llegirem l'etiqueta d'un aerosol. Dibuixaràs com t'imagines les partícules del gas de l'interior de la llauna i, en grup, formulareu hipòtesis sobre per què pot rebentar.", "d": ["ruta", "repte", "rub"], "l": []}, {"t": "Els globus al fred i a la calor", "ph": "Experimentem", "p": "Mesurarem el perímetre de dos globus i en calcularem el volum suposant que són esfèrics. Després en deixarem un 20 minuts al congelador i l'altre damunt d'un vas amb aigua calenta, i calcularem en quin percentatge ha variat el volum de cadascun. Mentre esperem, farem prediccions.", "d": ["lab"], "l": []}, {"t": "El model de partícules", "ph": "Aprenem", "p": "Descobrirem com és la matèria a escala de partícules: partícules en moviment constant i buit entre elles. Amb una simulació veurem que la pressió d'un gas és el resultat dels xocs de les partícules contra les parets del recipient, i entendrem per què ha variat el volum dels globus.", "d": ["f1"], "l": ["simgas", "gasprop", "states"]}, {"t": "Les lleis dels gasos", "ph": "Aprenem", "p": "Corregirem la fitxa 1. Estudiarem els estats d'agregació i les tres lleis dels gasos, i aprendrem a fer servir l'escala Kelvin.", "d": [], "l": ["simgas", "gasintro"]}, {"t": "Exercicis de gasos", "ph": "Practiquem", "p": "Resoldrem problemes de gasos, primer junts i després en parelles. La fitxa 2 l'acabaràs a casa.", "d": ["f2"], "l": []}, {"t": "Corba d'escalfament i canvis d'estat", "ph": "Experimentem", "p": "Escalfarem aigua i n'anotarem la temperatura cada 2 minuts fins que bulli, fent torns dins del grup. Mentre l'aigua s'escalfa, aprendrem els canvis d'estat i respondrem les preguntes del full. Al final veurem com l'aigua a uns 50 °C bull dins d'una xeringa tapada quan reduïm la pressió. Recull bé les dades per a l'informe.", "d": ["labc", "inf"], "l": []}, {"t": "Torno al repte", "ph": "Ho apliquem", "p": "Tornaràs a explicar per què pot rebentar la llauna del desodorant, compararàs el dibuix nou amb el del primer dia i corregiràs els teus errors. Després, cada grup triarà el fenomen del vídeo. Al final tens el mapa conceptual de tot el que hem après.", "d": ["repte", "video", "mapa"], "l": []}, {"t": "Gravem el vídeo per a 1r", "ph": "Ho apliquem", "p": "Començarem a gravar el vídeo per explicar un fenomen a l'alumnat de 1r d'ESO. L'acabareu de gravar i editar a casa i el presentareu als companys a la sessió 10. Lliurament de l'informe de pràctica.", "d": ["rub"], "l": []}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa la fitxa 2 i el mapa conceptual.", "d": [], "l": []}, {"t": "Corregeixo i reflexiono", "ph": "Reflexionem", "p": "Corregirem l'activitat de demostració entre tots i esmenaràs les teves respostes amb bolígraf verd, sense esborrar res. Cada grup presentarà el seu vídeo: t'avaluaràs, avaluaràs un company, avaluareu el vostre grup i un altre grup (full «Avaluem els vídeos»). Faràs la diana per valorar què has après.", "d": ["d2coav", "diana"], "l": []}], "teacher": []},
+  {"n": 3, "c": "--s3", "title": "Què hi ha dins del meu mòbil?", "q": "Quins elements químics fan funcionar un mòbil i què n'hem de fer quan el llencem?", "meta": "1r i 2n trimestre · 10 sessions · Producte final: campanya del punt de recollida de mòbils (objectiu, rols, cartell i arguments) · Competències específiques avaluades: CE1, CE5 i CE6", "ready": true, "sessions": [{"t": "Desmuntem el mòbil", "ph": "Explorem", "p": "Desmuntarem un model de mòbil peça a peça i, a partir de les etiquetes tècniques, trobarem quins elements químics conté. Farem una hipòtesi: què passaria si el llencéssim al contenidor de rebuig? Presentarem el repte: un punt de recollida de mòbils a l'institut.", "d": ["d3ruta", "d3f1", "d3rub"], "l": []}, {"t": "De Dalton a Bohr", "ph": "Aprenem", "p": "Veurem com ha canviat la idea d'àtom, des de Dalton fins a Bohr. Amb els simuladors reproduirem l'experiment de Rutherford i construirem àtoms per entendre el nombre atòmic, el nombre màssic i els isòtops.", "d": ["d3f2"], "l": ["rutherford", "buildatom"]}, {"t": "Ions i el camí del reciclatge", "ph": "Aprenem", "p": "Recordarem què és un ió i veurem, amb el nostre simulador, com es mouen els ions de liti dins de la bateria. Després cada grup explicarà una etapa del camí que fa un mòbil quan es recicla.", "d": ["d3f3"], "l": ["simbat"]}, {"t": "El liti a la flama", "ph": "Experimentem", "p": "Començarem amb 15 minuts per recordar el que vam fer abans de les vacances. Primer veurem com es distribueixen els electrons per capes segons el model de Bohr. Després comprovarem que una sal conté liti amb l'assaig a la flama i un espectroscopi: cada element emet uns colors propis, i ho explicarem amb el model de Bohr.", "d": ["d3lab"], "l": []}, {"t": "La taula periòdica", "ph": "Aprenem", "p": "Veurem com Mendeléiev va ordenar els elements i va predir-ne de nous. Situarem a la taula els elements del mòbil i descobrirem per què els elements d'un mateix grup s'assemblen.", "d": ["d3f4"], "l": ["ptable", "joctaula"]}, {"t": "L'enllaç químic", "ph": "Aprenem", "p": "Veurem per què s'uneixen els àtoms i com són els enllaços iònic, covalent i metàl·lic. Explicarem per què els cables són de coure i el separador de la bateria és de plàstic.", "d": ["d3f5"], "l": ["anenllac"]}, {"t": "Per què cremen les bateries?", "ph": "Ho apliquem", "p": "Analitzarem notícies d'incendis en camions de les escombraries i en plantes de residus, i explicarem què passa dins d'una bateria aixafada. També veurem quins elements del mòbil la Unió Europea considera crítics.", "d": ["d3dos"], "l": ["simbat"]}, {"t": "Posem en marxa el punt de recollida", "ph": "Ho apliquem", "p": "Organitzarem la campanya: objectiu, normes, rols, cartell i difusió del punt de vista (per què no llençar el mòbil al rebuig). El punt de recollida es posa en marxa. El recompte del que s'ha recollit es comenta en tancar la SdA 4 i no forma part del producte que es qualifica aquí. Al final tens el mapa conceptual de la SdA.", "d": ["d3camp", "d3mapa"], "l": []}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Repassa les fitxes i el mapa conceptual.", "d": [], "l": []}, {"t": "Corregeixo i reflexiono", "ph": "Reflexionem", "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après.", "d": ["d3diana"], "l": []}], "teacher": []},
+  {"n": 4, "c": "--s4", "title": "Un cotxe que només allibera aigua?", "q": "Un cotxe que només allibera aigua pel tub d'escapament? Per què no són tots així?", "meta": "2n trimestre · 10 sessions · Producte final: resposta argumentada del grup amb dades citades · Competències específiques avaluades: CE2, CE3 i CE4", "ready": true, "sessions": [{"t": "El repte i l'espelma", "ph": "Explorem", "p": "Barcelona té autobusos d'hidrogen que, pel tub d'escapament, només alliberen vapor d'aigua. Per què no funcionen així tots els vehicles? El professor farà una demostració amb una espelma per descobrir quines substàncies es formen quan crema un combustible. En grup, escriureu la primera hipòtesi. Rebràs les rúbriques de la SdA.", "d": ["d4ruta", "d4repte", "d4rub"], "l": ["tmbh2"]}, {"t": "Lavoisier al laboratori", "ph": "Experimentem", "p": "Farem reaccionar vinagre i bicarbonat en un sistema obert i en un sistema tancat, i en mesurarem la massa abans i després de la reacció. Comprovarem la llei de conservació de la massa i mesurarem la temperatura per saber si la reacció absorbeix o allibera energia.", "d": ["d4lab1"], "l": []}, {"t": "Formulació i nomenclatura", "ph": "Aprenem", "p": "Corregirem el full de laboratori. Aprendrem a escriure i anomenar substàncies simples, ions monoatòmics i compostos binaris segons les normes de la IUPAC. La fitxa 1 l'acabaràs a casa.", "d": ["d4f1"], "l": ["joctaula"]}, {"t": "Obtenim hidrogen", "ph": "Experimentem", "p": "Corregirem la fitxa 1. Obtindrem hidrogen fent reaccionar magnesi amb àcid clorhídric, el recollirem en un tub i el professor l'acostarà a una flama. Mesurarem la temperatura i compararem aquesta reacció amb la de la sessió 2.", "d": ["d4lab2"], "l": []}, {"t": "Equacions i càlculs de massa", "ph": "Aprenem", "p": "Aprendrem a ajustar equacions químiques i a calcular les masses de reactius i productes a partir de les masses atòmiques. Calcularem quanta aigua allibera cada dia un autobús d'hidrogen. La fitxa 2 l'acabaràs a casa.", "d": ["d4f2"], "l": ["anajust", "ajust"]}, {"t": "Electròlisi: hidrogen verd", "ph": "Experimentem", "p": "Corregirem la fitxa 2. Construirem el nostre propi dispositiu d'electròlisi amb un pot, dues xinxetes i una pila, i descompondrem l'aigua en hidrogen i oxigen. Mesurarem el volum de gas de cada tub cada 2 minuts i en calcularem la relació.", "d": ["d4lab3"], "l": []}, {"t": "Taller de problemes", "ph": "Practiquem", "p": "Començarem amb tres demostracions del professor per descobrir de què depèn la velocitat d'una reacció: la concentració, la superfície de contacte i la temperatura. Després resoldrem problemes de formulació, d'ajust d'equacions i de càlculs de massa, primer junts i després individualment o en parelles. El que no acabis, ho faràs a casa. Al final tens el mapa conceptual de la SdA.", "d": ["d4f3", "d4mapa"], "l": ["ancol", "ajust"]}, {"t": "Per què no són tots així?", "ph": "Ho apliquem", "p": "Corregirem la fitxa 3. En grups de tres, cada membre llegirà un aspecte del dossier (d'on surt l'hidrogen, eficiència i emmagatzematge, seguretat i usos) i l'explicarà als altres. Després escriureu la resposta del grup al repte amb dades citades i en farem una posada en comú. A casa esmenaràs la hipòtesi del full del repte.", "d": ["d4dos", "d4repte"], "l": ["anpila"]}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, els fulls de laboratori i el mapa conceptual.", "d": [], "l": []}, {"t": "Corregeixo i reflexiono", "ph": "Reflexionem", "p": "Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. El punt de recollida de mòbils de la SdA 3 ja haurà funcionat unes setmanes: en comentarem el recompte, sense qualificar-lo, perquè a la SdA 3 es qualifica la campanya.", "d": ["d4diana"], "l": []}], "teacher": []},
+  {"n": 5, "c": "--s5", "title": "Cèl·lules immunitàries a la caça dels patògens", "q": "Com persegueix un neutròfil un bacteri sense veure'l?", "meta": "2n i 3r trimestre · 13 sessions · Producte final: full de forces cel·lulars · Competències específiques avaluades: CE1, CE5 i CE2", "ready": true, "sessions": [{"t": "La persecució", "ph": "Explorem", "p": "Veurem un vídeo real d'un neutròfil que persegueix un bacteri. Veurem també per què és tan important que les cèl·lules migrin: per defensar-nos de les infeccions, per tancar les ferides i, malauradament, en la metàstasi d'un càncer. En grup, farem una hipòtesi sobre com es mou, si fa força i com sap on és el bacteri. Rebràs les rúbriques de la SdA.", "d": ["d5ruta", "d5repte", "d5rub"], "l": ["rogers", "ferida", "metastasi"], "half": false}, {"t": "El moviment uniforme (MRU)", "ph": "Aprenem", "p": "Fotografiarem el moviment d'un cotxe i d'una moto cada segon i descobrirem quan un moviment és uniforme. Aprendrem què és la velocitat, a passar de km/h a m/s, a escriure l'equació de posició i a llegir gràfiques posició-temps amb cotxes, motos i patinets.", "d": ["d5f1"], "l": ["labmru"], "half": true}, {"t": "El moviment accelerat (MRUA)", "ph": "Aprenem", "p": "Comentarem les rúbriques abans de la primera activitat avaluada. Estudiarem l'acceleració i les equacions del moviment rectilini uniformement accelerat: una moto que surt d'un semàfor, un cotxe que frena i per què la velocitat es limita a 30 km/h a prop de les escoles.", "d": ["d5f2"], "l": ["anmrua", "labmrua"], "half": false}, {"t": "Les gràfiques del patinet", "ph": "Ho apliquem", "p": "Un patinet accelera, va a velocitat constant i frena. Farem la taula i les gràfiques posició-temps i velocitat-temps i interpretarem els pendents.", "d": ["d5f3"], "l": ["anmrua", "labmru", "labmrua"], "half": true}, {"t": "Trajectòria i desplaçament", "ph": "Aprenem", "p": "Ja coneixem els moviments ideals; ara veurem com es mou de veritat una cèl·lula. Mesurarem les cèl·lules fent servir un glòbul vermell (eritròcit, 7,5 µm de diàmetre) com a escala de referència i calcularem l'augment del dibuix. Després, en una sola imatge veurem la posició d'un neutròfil cada minut. Dibuixarem la trajectòria i calcularem la distància recorreguda, el desplaçament, la rapidesa mitjana i la velocitat mitjana.", "d": ["d5f4"], "l": [], "half": false}, {"t": "Problemes de moviment", "ph": "Practiquem", "p": "Problemes de MRU i MRUA: trobades, arrencades i frenades, i la persecució del neutròfil.", "d": ["d5prob"], "l": [], "half": true}, {"t": "Difusió i gradient", "ph": "Experimentem", "p": "El docent fa, amb el grup sencer, la demostració de com es difon una gota de tinta en aigua freda, a temperatura ambient i calenta. No és un laboratori en mig grup: observem, registrem el disseny i les mesures a la fitxa 5 i en traiem conclusions. Després aprendrem què és un gradient de concentració i l'observarem amb una simulació.", "d": ["d5f5"], "l": ["difusio"], "half": false}, {"t": "Quimiotaxi i febre", "ph": "Aprenem", "p": "Veurem com el neutròfil segueix el gradient de les substàncies que alliberen els bacteris i ho comprovarem tornant a mirar el vídeo de la sessió 1. Amb una gràfica de recerca descobrirem per què la febre ajuda les cèl·lules immunitàries, i distingirem una malaltia dels seus símptomes.", "d": ["d5f6q"], "l": ["rogers", "febre"], "half": true}, {"t": "Les lleis de Newton", "ph": "Aprenem", "p": "Les tres lleis de Newton i el newton, aplicades al patinet i a la cèl·lula: per què avança quan estira el substrat i per què s'atura de cop quan deixa de fer força. En una píndola de 10 minuts veurem la cèl·lula per dins: el citoesquelet i les adhesions focals amb què fa força.", "d": ["d5f6"], "l": ["cito", "phetforces"], "half": false}, {"t": "La llei de Hooke", "ph": "Experimentem", "p": "Per parelles, penjareu masses d'una molla, en mesurareu l'allargament amb el regle i trobareu la constant elàstica a partir de la gràfica. Les mesures i la gràfica s'avaluen amb la rúbrica (criteri 2.3).", "d": ["d5hooke"], "l": [], "half": true}, {"t": "Les cèl·lules també fan forces", "ph": "Ho apliquem", "p": "Farem servir una tècnica de recerca actual, la microscòpia de forces de tracció, que el vostre professor va fer servir durant el doctorat a l'IBEC. Superposarem dues imatges de microscòpia de fluorescència d'un gel amb boletes, sense cèl·lula i amb cèl·lula, mesurarem el desplaçament de les boletes i calcularem les forces que fa la cèl·lula. Al final tens el mapa conceptual per preparar l'activitat de demostració d'assoliment.", "d": ["d5tfm", "d5mapa"], "l": [], "half": false}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes i el mapa conceptual.", "d": [], "l": [], "half": true}, {"t": "Responc el repte i reflexiono", "ph": "Reflexionem", "p": "Respondrem el repte de la sessió 1 amb tot el que hem après i esmenarem les hipòtesis. Corregirem l'activitat de demostració entre tots. Esmenaràs les teves respostes amb bolígraf verd, sense esborrar res, i faràs la diana per valorar què has après. Aquesta resposta al repte és formativa: no és una evidència de l'avaluació oficial. El producte que es qualifica és el full de forces cel·lulars.", "d": ["d5diana"], "l": [], "half": false}], "teacher": []},
+  {"n": 6, "c": "--s6", "title": "L'energia del nostre institut", "q": "Quanta energia gasta la nostra aula i com podem estalviar-ne a tot l'institut?", "meta": "3r trimestre · 8 sessions · Producte final: pla d'estalvi del grup amb tres mesures (hàbits sostenibles, eficiència i generació renovable) amb l'estalvi calculat, i votació del pla que es presenta a la direcció · Competències específiques avaluades: CE4, CE6 i CE1", "ready": true, "sessions": [{"t": "Auditoria energètica i acústica de l'aula", "ph": "Observem", "p": "La direcció ens demana propostes per reduir el consum d'electricitat i el soroll de l'institut. Començarem per la nostra aula: amb un sonòmetre mesurarem el soroll en diversos punts i en farem un mapa, i en grup escriureu una hipòtesi sobre quin aparell gasta més energia. Després fareu l'inventari energètic a l'Excel (baixa la plantilla amb el botó d'aquesta sessió), amb la potència de les etiquetes i fórmules per calcular l'energia diària, i comprovareu si la hipòtesi era correcta. Rebràs les rúbriques de la SdA. No hi ha un full d'auditoria a part: les hipòtesis van al full del repte i l'inventari, a la plantilla d'Excel.", "d": ["d6ruta", "d6repte", "d6rub"], "l": ["inv"], "half": false}, {"t": "Muntem circuits", "ph": "Experimentem", "p": "Muntarem circuits en sèrie i en paral·lel amb piles, bombetes i interruptors, i compararem la brillantor i què passa si se'n fon una bombeta. Amb la simulació PhET (el botó d'aquesta sessió) comprovarem per què la instal·lació elèctrica de l'aula va en paral·lel. No hi ha full de laboratori de circuits: el que observeu queda al full de ruta i a la simulació.", "d": [], "l": ["circuits"], "half": true}, {"t": "Energia, potència i consum", "ph": "Aprenem", "p": "Veurem que l'energia es transforma però es conserva, i què és el rendiment. Compararem una bombeta d'incandescència amb una de LED i calcularem el consum en kWh i el que costa. Coneixeràs Mária Telkes, pionera de l'energia solar. La fitxa 1 l'acabaràs a casa.", "d": ["d6f1"], "l": ["telkes"], "half": false}, {"t": "Mesurem el consum real", "ph": "Experimentem", "p": "Corregirem la fitxa 1. Amb un wattímetre d'endoll mesurarem la potència real dels portàtils i els carregadors, el ventilador, la pissarra digital i dues bombetes, en marxa i en espera, i calcularem quanta energia consumeixen en un any. Recordarem, amb el que hem vist en muntar circuits, per què la instal·lació elèctrica de l'institut està connectada en paral·lel.", "d": ["d6lab"], "l": ["inv"], "half": true}, {"t": "D'on ve l'electricitat?", "ph": "Investiguem", "p": "Veurem com es genera l'electricitat amb una turbina i un alternador, i analitzarem d'on va venir l'electricitat de Catalunya el 2024. En parelles, investigareu una tecnologia en fonts fiables i en citareu les fonts.", "d": ["d6f2"], "l": ["reecat", "phetfaraday"], "half": false}, {"t": "El pla d'estalvi i el debat", "ph": "Ho apliquem", "p": "En grups de tres, elaborareu el pla d'estalvi de l'institut amb tres mesures: una d'hàbits sostenibles, una d'eficiència i una de generació renovable, amb l'estalvi calculat i amb la participació de tota la comunitat. Després debatreu quina mesura és la prioritària, amb arguments i escoltant els altres. Al final tens el mapa conceptual de la SdA.", "d": ["d6pla", "d6repte", "d6mapa"], "l": ["inv"], "half": true}, {"t": "Demostració d'assoliment", "ph": "Avaluem", "p": "Activitat de demostració d'assoliment, individual, amb situacions noves. Porta la calculadora i repassa les fitxes, el laboratori i el mapa conceptual.", "d": [], "l": [], "half": false}, {"t": "Corregeixo, votem i reflexiono", "ph": "Reflexionem", "p": "Corregirem l'activitat de demostració entre tots i l'esmenaràs amb bolígraf verd, sense esborrar res. Els portaveus presentaran i defensaran els plans d'estalvi amb el full de càlcul i un gràfic, i votarem quin es presenta a la direcció. Faràs la diana per valorar què has après.", "d": ["d6diana", "d6pla"], "l": [], "half": true}], "teacher": []}
+];
 
-/* ===== Funcions de botons ===== */
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+const ufr=(t)=>t.replace(/(^|[^\w\/])((?:k|c|m|µ)?(?:m|g|L)|kWh|€)\/((?:k|c|m)?(?:h|s|min|L|m³|mL|kWh|m))(?![\w\/])/g,(m,a,b,c)=>`${a}<span class="uf"><span>${b}</span><span>${c}</span></span>`);
 function dlBtn(k, ghost){ const d = D[k]; return `<a class="btn${ghost||d.t?' ghost':''}" href="#doc-${k}">${ICON_DOC}${esc(d.l)}</a>`; }
+// recursos que s'obren dins del llibre: vídeo (v), imatge (i), animació o simulador propi (a), web incrustable (f)
+const PHET_RE = /^https:\/\/phet\.colorado\.edu\/ca\/simulations\/([a-z0-9-]+)$/, PHET_NOFR = new Set(["sugar-and-salt-solutions"]);
+function inBook(k){ const x = L[k]; if (!x) return null; if (x.v) return "v"; if (x.img) return "i"; if (x.an) return "a"; if (x.fr) return "f";
+  const m = PHET_RE.exec(x.u || ""); return m && !PHET_NOFR.has(m[1]) ? "f" : null; }
+function inBookSrc(x){ if (x.an) return x.u + "?emb=1"; const m = PHET_RE.exec(x.u || ""); if (m) return `https://phet.colorado.edu/sims/html/${m[1]}/latest/${m[1]}_all.html?locale=ca`; return x.fr === 1 ? x.u : x.fr; }
 function linkBtn(u, l, k){
   if (k && inBook(k)) return `<button type="button" class="btn link vid" data-open="${k}">${inBook(k)==="i"?"🔍":"▶"} ${esc(l)}</button>`; const ext = /^https?:/.test(u); const dl = /\.xlsx$/.test(u); return `<a class="btn link" href="${u}"${ext ? ' target="_blank" rel="noopener"' : ""}${dl ? " download" : ""}>${ICON_LINK}${esc(l)}</a>`; }
 
@@ -274,20 +503,83 @@ function renderPanel(n){
   const teach = s.teacher.map(t => `<div class="tcard"><b>${esc(t.b)}</b><span>${esc(t.s)}</span><div class="acts">${t.u?linkBtn(t.u,t.ul):""}${(t.d||[]).map(k=>dlBtn(k,true)).join("")}</div></div>`).join("");
   p.innerHTML = `<div style="display:grid;gap:22px">
     <div class="hero"><div><div class="no">SdA ${s.n}</div><h2>${esc(s.title)}</h2><p class="kq">${esc(s.q)}</p><div class="meta">${esc(s.meta)}</div></div>
-      <div class="hacts"><div class="thumb">${art(s.n)}</div>${dlBtn("d"+s.n+"teo")}</div></div>
+      <div class="hacts"><div class="thumb">${art(s.n)}</div><button type="button" class="btn" data-all="${s.n}">${ICON_DL}${MODE==="profe"?"Tot el material (ZIP)":"Tots els fulls (ZIP)"}</button></div></div>
     <h3 class="sec">Sessió a sessió</h3>
     <div class="sessions">${ses}</div>
     <h3 class="sec">Vols anar més enllà?</h3>
     <div class="teacher"><div class="tcard"><b>Dossier de teoria</b><span>Tota la teoria d'aquesta SdA en un sol document: definicions, fórmules, exemples resolts i paraules clau. Fes-lo servir per estudiar i per repassar abans de la demostració d'assoliment.</span><div class="acts">${dlBtn("d"+s.n+"teo",true)}</div></div><div class="tcard"><b>Formulari i glossari del curs</b><span>Totes les fórmules del curs en una pàgina (el pots fer servir a les activitats de demostració d'assoliment) i les paraules clau de cada SdA amb la traducció a l'anglès i una columna per a les teves anotacions.</span><div class="acts">${dlBtn("dcF",true)}${dlBtn("dcG",true)}</div></div><div class="tcard"><b>Reptes d'ampliació</b><span>Problemes i reptes més avançats relacionats amb aquesta SdA. Tria'ls quan acabis la feina o si vols aprofundir-hi. Quan n'acabis un, demana'n el solucionari al professor.</span><div class="acts">${dlBtn("d"+s.n+"amp",true)}</div></div><div class="tcard"><b>Tasques de recuperació</b><span>Si en acabar una competència específica no l'has assolida (NA), el professor t'indicarà la tasca de recuperació d'aquella competència. També la pots fer per millorar: si la fas millor, el nivell nou substitueix l'anterior.</span><div class="acts">${(s.meta.match(/CE\d/g)||[]).map(c => dlBtn("dcR"+c.slice(2),true)).join("")}</div></div></div>
-  </div>`;
+    ${MODE==="profe" ? `<h3 class="sec">Material del professorat</h3><div class="teacher">${teach}</div><section class="aval" id="aval"></section>` : ""}</div>`;
+  if (MODE==="profe") { AV.sda = s.n; renderAval(); }
 }
 
-/* ===== Navegació i visor ===== */
+let current = 0;
+function select(n){ current = n; renderTabs(n); renderPanel(n); try{ localStorage.setItem("fq3-sda", String(n)); }catch(e){} }
+document.getElementById("tabs").addEventListener("click", e => { const b = e.target.closest("[data-sda]"); if (b) location.replace("#sda" + b.dataset.sda); });
+document.getElementById("tabs").addEventListener("keydown", e => {
+  if (e.key!=="ArrowRight" && e.key!=="ArrowLeft") return;
+  const n = e.key==="ArrowRight" ? (current%6)+1 : ((current+4)%6)+1; location.replace("#sda" + n); setTimeout(() => document.getElementById("tab"+n).focus(), 0);
+});
+
+function toast(t){ const el = document.getElementById("toast"); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(()=>{ el.hidden = true; }, 3200); }
+let downloadsP = null;
+function getDownloads(){ return Promise.resolve({save: async ({filename, data}) => { const blob = data instanceof Blob ? data : new Blob([data], {type: "text/plain;charset=utf-8"}); const u = URL.createObjectURL(blob); const a = document.createElement("a"); a.href = u; a.download = filename; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 5000); }}); }
+
+function pickSes(art){
+  const was = art.classList.contains("sel");
+  document.querySelectorAll(".ses.sel").forEach(a => { a.classList.remove("sel"); a.setAttribute("aria-expanded","false"); });
+  if (!was){ art.classList.add("sel"); art.setAttribute("aria-expanded","true"); }
+}
+document.getElementById("panel").addEventListener("click", e => {
+  if (e.target.closest("a,button,input,textarea,select,summary")) return;
+  const art = e.target.closest(".ses"); if (art) pickSes(art);
+});
+document.getElementById("panel").addEventListener("keydown", e => {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("ses")) { e.preventDefault(); pickSes(e.target); }
+});
+document.getElementById("panel").addEventListener("click", async e => {
+  const b = e.target.closest("[data-all]"); if (!b) return;
+  b.disabled = true;
+  try {
+    const dl = await getDownloads();
+    if (!dl) { toast("No s'han pogut descarregar els fulls."); return; }
+    let file, blob;
+    if (b.dataset.all) {
+      if (!window.JSZip) throw {code:"fetch"};
+      toast("Preparant el ZIP…");
+      const zip = new JSZip();
+      const prefix = "sda" + b.dataset.all + "-";
+      const files = Object.values(D).filter(d => MODE==="profe" || !d.t).map(d => d.f).filter(f => f.startsWith(prefix));
+      for (const f of files) { const r = await fetch("docs/" + f); if (!r.ok) throw {code:"fetch"}; zip.file(f, await r.blob()); }
+      blob = await zip.generateAsync({type:"blob"});
+      file = prefix + (MODE==="profe" ? "material-professorat.zip" : "fulls-alumnat.zip");
+    }
+    await dl.save({filename:file, data:blob});
+    toast("Descarregat: " + file);
+  } catch(err) {
+    const c = err && err.code;
+    if (c === "declined") toast("Descàrrega cancel·lada.");
+    else if (c === "rate_limited") toast("Ja hi ha una descàrrega oberta. Torna-ho a provar d'aquí a un moment.");
+    else if (c === "fetch") toast("No s'ha pogut carregar el fitxer. Torna-ho a provar.");
+    else toast("No s'ha pogut descarregar en aquesta vista.");
+  } finally { b.disabled = false; }
+});
+
+/* ===== Portada, navegació i visor de fulls ===== */
 const AUTHOR = "Macià Esteve Pallarès Pallarès";
 const COVERS = {"portada": "img/portada.webp", "portada-profe": "img/portada-profe.webp", "sda1": "img/coberta-sda1.webp", "sda2": "img/coberta-sda2.webp", "sda3": "img/coberta-sda3.webp", "sda4": "img/coberta-sda4.webp", "sda5": "img/coberta-sda5.webp", "sda6": "img/coberta-sda6.webp"};
 const LINKS = {};
-const SHELF = [];
-const MOTIF = {"1": "<circle cx=\"150\" cy=\"100\" r=\"40\"/>", "2": "<path d=\"M150 40q40 60 0 120q-40-60 0-120z\"/>", "3": "<circle cx=\"150\" cy=\"100\" r=\"40\"/>", "4": "<rect x=\"110\" y=\"60\" width=\"80\" height=\"80\"/>", "5": "<circle cx=\"150\" cy=\"100\" r=\"40\"/>", "6": "<ellipse cx=\"150\" cy=\"100\" rx=\"70\" ry=\"30\"/>"};
+const SHELF = [
+  ["dc0", "Abans de la SdA 1"], ["dcF", "Totes les fórmules en una pàgina"], ["dcG", "Paraules clau en català i anglès"],
+  ["dcT", "Després de la SdA 6"], ["dcE", "Al final de cada trimestre"]
+];
+const MOTIF = {
+ 1:'<path d="M132 46h36M139 46v34l-33 62q-6 12 8 12h72q14 0 8-12l-33-62V46"/><path d="M118 124h64" opacity=".6"/><circle cx="214" cy="74" r="24"/><path d="M231 91l24 24"/><circle cx="140" cy="140" r="4"/><circle cx="158" cy="132" r="3"/>',
+ 2:'<ellipse cx="150" cy="86" rx="48" ry="56"/><path d="M144 142l6 8 6-8M150 150q-8 14 4 26"/><circle cx="133" cy="70" r="5"/><circle cx="165" cy="62" r="5"/><circle cx="160" cy="98" r="5"/><circle cx="130" cy="106" r="5"/><path d="M118 70h-10M176 58l8-6M170 104l9 4M122 114l-8 6" opacity=".6"/>',
+ 3:'<rect x="108" y="28" width="84" height="146" rx="14"/><path d="M138 38h24" opacity=".6"/><circle cx="150" cy="102" r="6" fill="currentColor"/><ellipse cx="150" cy="102" rx="32" ry="11"/><ellipse cx="150" cy="102" rx="32" ry="11" transform="rotate(60 150 102)"/><ellipse cx="150" cy="102" rx="32" ry="11" transform="rotate(120 150 102)"/>',
+ 4:'<circle cx="128" cy="104" r="30"/><circle cx="174" cy="104" r="30"/><path d="M118 92v24M138 92v24M118 104h20M164 92v24M184 92v24M164 104h20"/><circle cx="214" cy="64" r="7"/><circle cx="230" cy="40" r="5"/><circle cx="88" cy="58" r="6"/><circle cx="76" cy="36" r="4"/>',
+ 5:'<path d="M118 78q10-30 42-26t38 34q4 26-24 40t-46 2q-18-18-10-50z"/><circle cx="152" cy="94" r="12"/><path d="M98 66l-28-16M70 50h12M70 50l6 11M206 104l32 12M238 116l-12 2M238 116l-7-10M150 142v30M150 172l-6-10M150 172l6-10"/>',
+ 6:'<path d="M160 28l-46 82h34l-14 66 54-92h-36z"/><path d="M216 120h20v28q0 12-10 12h0q-10 0-10-12zM221 120v-12M231 120v-12M226 160v18" opacity=".8"/>'
+};
 function art(n, big){
   const c = COVERS["sda" + n];
   if (c) return `<img src="${c}" alt="" loading="${big?"eager":"lazy"}">`;
@@ -296,87 +588,239 @@ function art(n, big){
     <rect width="300" height="200" fill="url(#g${n}${big?"b":""})"/>
     <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${MOTIF[n]}</g></svg>`;
 }
+const sdaOfFile = f => { const m = /^sda(\d)-/.exec(f); return m ? +m[1] : 0; };
+function lastSda(){ try { const v = +localStorage.getItem("fq3-sda"); return v>=1 && v<=6 ? v : 0; } catch(e){ return 0; } }
 
-function showCover(){
-  document.getElementById("cover").hidden = false;
-  document.getElementById("book").hidden = true;
-  document.getElementById("vDoc").hidden = true;
-  document.getElementById("vVid").hidden = true;
-  history.replaceState(null, "", location.pathname);
+function docTile(k, sub){
+  const d = D[k];
+  return `<a class="dtile" href="#doc-${k}"><span class="pg"><i></i><i></i><i></i><i></i></span><span><b>${esc(d.l)}</b><span>${esc(sub)}</span></span></a>`;
 }
-function showBook(n){
-  document.getElementById("cover").hidden = true;
-  document.getElementById("book").hidden = false;
-  document.getElementById("vDoc").hidden = true;
-  document.getElementById("vVid").hidden = true;
-  renderTabs(n);
-  renderPanel(n);
-  history.replaceState(null, "", "#sda"+n);
-}
-function openDoc(k){
-  const d = D[k]; if (!d) return;
-  document.getElementById("cover").hidden = true;
-  document.getElementById("book").hidden = true;
-  document.getElementById("vVid").hidden = true;
-  document.getElementById("vDoc").hidden = false;
-  document.getElementById("vTitle").textContent = d.l;
-  document.getElementById("vDl").innerHTML = `<a class="btn" href="docs/${d.f}" download>${ICON_DL}Descarrega</a>`;
-  const pages = document.getElementById("vPages");
-  pages.innerHTML = `<div class="vmsg"><b>Carregant el PDF…</b></div>`;
-  pdfjsLib.getDocument("docs/" + d.f).promise.then(pdf => {
-    pages.innerHTML = "";
-    const renderPage = (num) => {
-      pdf.getPage(num).then(page => {
-        const scale = 1.5;
-        const viewport = page.getViewport({scale});
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-        const div = document.createElement("div");
-        div.className = "page";
-        div.appendChild(canvas);
-        pages.appendChild(div);
-        page.render({canvasContext: ctx, viewport}).promise.then(() => {
-          if (num < pdf.numPages) renderPage(num+1);
-        });
-      });
-    };
-    renderPage(1);
-  }).catch(() => {
-    pages.innerHTML = `<div class="vmsg"><b>Aquest full no es pot mostrar aquí</b><span>Descarrega'l i obre'l amb el lector de PDF del dispositiu.</span><a class="btn" href="docs/${d.f}" download>${ICON_DL}Descarrega el PDF</a></div>`;
-  });
-  history.replaceState(null, "", "#doc-"+k);
+function linkTile(o){
+  return `<a class="dtile lnk" href="${o.u}" target="_blank" rel="noopener"><span class="pg"><i></i><i></i><i></i></span><span><b>${esc(o.l)} ↗</b><span>${esc(o.s)}</span></span></a>`;
 }
 
-/* ===== Esdeveniments ===== */
-document.addEventListener("click", e => {
-  const tab = e.target.closest("[data-sda]");
-  if (tab) { showBook(+tab.dataset.sda); return; }
-  const back = e.target.closest("#vBack, #vidBack");
-  if (back) { const h = location.hash; if (h.startsWith("#sda")) showBook(+h.slice(4)); else showCover(); return; }
-  const doc = e.target.closest("a[href^='#doc-']");
-  if (doc) { e.preventDefault(); openDoc(doc.getAttribute("href").slice(5)); return; }
-  const ses = e.target.closest(".ses");
-  if (ses && !e.target.closest("a, button")) {
-    ses.classList.toggle("sel");
-    ses.setAttribute("aria-expanded", ses.classList.contains("sel"));
+let homeDone = false;
+function renderHome(){
+  document.documentElement.style.setProperty("--acc", "var(--s6)");
+  if (homeDone) { renderCta(); return; }
+  homeDone = true;
+  document.getElementById("author").textContent = AUTHOR;
+  const pc = COVERS[MODE==="profe" ? "portada-profe" : "portada"] || COVERS.portada;
+  document.getElementById("coverArt").innerHTML = (pc ? `<img class="photo" src="${pc}" alt="" >` :
+    `<svg class="orb" viewBox="0 0 400 275" aria-hidden="true"><g fill="none" stroke-width="2.5">
+      <ellipse cx="250" cy="130" rx="120" ry="42" stroke="var(--s3)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(60 250 130)" stroke="var(--s2)"/><ellipse cx="250" cy="130" rx="120" ry="42" transform="rotate(120 250 130)" stroke="var(--s1)"/></g>
+      <circle cx="250" cy="130" r="13" fill="var(--s5)"/><circle cx="370" cy="130" r="7" fill="var(--s6)"/><circle cx="190" cy="27" r="7" fill="var(--s4)"/><circle cx="190" cy="233" r="7" fill="var(--s2)"/></svg>`)
+    + `<div class="tile" aria-hidden="true"><div class="tsym"><span class="sup">6</span><span class="tg t1">reptes</span><span class="sym">Fq</span><span class="sub">3</span><span class="tg t2">ESO</span></div><span class="nm">Física i química<small>reptes del món actual</small></span></div>`;
+  document.getElementById("cards").innerHTML = SDAS.map(s => {
+    const when = s.meta.split(" · ")[0];
+    return `<a class="scard" href="#sda${s.n}" style="--c:var(${s.c})" aria-label="SdA ${s.n}: ${esc(s.title)}">${art(s.n)}<span class="num"><small>SdA</small>${s.n}</span>
+      <div class="sov" aria-hidden="true"><span class="smeta">SdA ${s.n} · ${esc(when)} · ${s.sessions ? s.sessions.length : 0} sessions</span><h3>${esc(s.title)}</h3><p>${esc(s.q)}</p><span class="sgo">Entra a la SdA →</span></div></a>`;
+  }).join("");
+  let shelf = SHELF.map(([k, sub]) => docTile(k, sub)).join("");
+  if (MODE === "profe") shelf += docTile("dannex", "20 pàgines, format de les bases") + linkTile(LINKS.prog) + linkTile(LINKS.reg);
+  document.getElementById("shelf").innerHTML = shelf;
+  if (MODE === "profe") {
+    document.getElementById("profeBand").innerHTML = `<section class="profe-band" aria-label="Zona del professorat">
+      <span class="warn">Només per al professorat</span><h2>Què hi ha en aquesta zona</h2>
+      <p>Cada SdA inclou, a més del material de l'alumnat, l'activitat de demostració d'assoliment i els solucionaris, les rúbriques, el material multinivell i, al final, l'eina d'avaluació per criteris de cada alumne. L'alumnat té el seu propi llibre, sense aquest material.</p>
+      <div class="qlinks">${SDAS.map(s => `<a class="btn ghost" href="#sda${s.n}" data-aval="1">Avaluació SdA ${s.n}</a>`).join("")}</div></section>`;
   }
-});
+  renderCta();
+}
+function renderCta(){
+  // a la portada: botó petit per obrir el joc de la taula periòdica (dins del llibre)
+  document.getElementById("cta").innerHTML = L.joctaula
+    ? `<button type="button" class="btn ghost vid" data-open="joctaula" style="font-size:.92rem;padding:8px 14px;min-height:40px">⚛ Joc de la taula periòdica</button>` + (L.joctaularank ? ` <button type="button" class="btn ghost vid" data-open="joctaularank" style="font-size:.92rem;padding:8px 14px;min-height:40px">🏆 Rànquing</button>` : "")
+    : "";
+}
 
-/* ===== Tema ===== */
-const themeBtn = document.getElementById("themeBtn");
-function setTheme(t){ document.documentElement.dataset.theme = t; localStorage.setItem("theme", t); }
-themeBtn.onclick = () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
-if (localStorage.getItem("theme")) setTheme(localStorage.getItem("theme"));
-else if (matchMedia("(prefers-color-scheme: dark)").matches) setTheme("dark");
+/* --- vistes i historial --- */
+const VIEW = {home: "vHome", sda: "vSda", doc: "vDoc"};
+let viewName = null, viewKey = null, fromNav = false, backHash = null;
+const memo = {};
+function setView(name, key){
+  const prev = viewName;
+  if (viewKey) memo[viewKey] = window.scrollY;
+  Object.entries(VIEW).forEach(([n, id]) => document.getElementById(id).hidden = n !== name);
+  viewName = name; viewKey = key;
+  const y = (prev === "doc" && memo[key] != null) ? memo[key] : 0;
+  window.scrollTo(0, y);
+}
+function route(nav){
+  const h = location.hash.slice(1);
+  let m;
+  if ((m = /^doc-(\w+)$/.exec(h)) && D[m[1]] && (MODE === "profe" || !D[m[1]].t)) {
+    if (viewName !== "doc") { backHash = viewName === "sda" ? "sda" + current : (viewName === "home" ? "inici" : null); fromNav = !!nav && !!backHash; }
+    openDoc(m[1]); return;
+  }
+  if ((m = /^sda([1-6])-s(\d+)$/.exec(h))) {
+    const n = +m[1], k = +m[2];
+    if (current !== n) select(n);
+    document.documentElement.style.setProperty("--acc", `var(${SDAS[n-1].c})`); setView("sda", "sda" + n); closeDoc();
+    setTimeout(() => { const a = document.getElementById("s" + k); if (a) { document.querySelectorAll(".ses.sel").forEach(x => { x.classList.remove("sel"); x.setAttribute("aria-expanded","false"); }); a.classList.add("sel"); a.setAttribute("aria-expanded","true"); a.scrollIntoView({block:"center"}); } }, 60);
+    return;
+  }
+  if ((m = /^sda([1-6])$/.exec(h))) {
+    const n = +m[1];
+    if (current !== n) { select(n); setView("sda", h); window.scrollTo(0, 0); }
+    else { document.documentElement.style.setProperty("--acc", `var(${SDAS[n-1].c})`); setView("sda", h); }
+    closeDoc();
+    if (toAval) { toAval = false; const a = document.getElementById("aval"); if (a) a.scrollIntoView(); }
+    return;
+  }
+  renderHome(); setView("home", "inici"); closeDoc();
+}
+window.addEventListener("hashchange", () => route(true));
+let toAval = false;
+document.addEventListener("click", e => { if (e.target.closest("[data-aval]")) toAval = true; });
 
-/* ===== Inici ===== */
+/* --- visor PDF --- */
+const DIGITAL = new Set(["d1f1", "d1f2", "d1ellen", "dc0", "dcT", "d5ruta", "d5repte", "d5f1", "d5f2", "d5f3", "d5f4", "d5f5", "d5f6q", "d5prob", "d5f6", "d5hooke", "d5tfm", "d5diana", "d3ruta", "d3f1", "d3f2", "d3f3", "d3lab", "d3f4", "d3f5", "d3dos", "d3camp", "d3diana", "d1amp", "d2amp", "d2coav", "d3amp", "d4amp", "d5amp", "d6amp", "dcR1", "dcR2", "dcR3", "dcR4", "dcR5", "dcR6", "d6ruta", "d6repte", "d6f1", "d6lab", "d6f2", "d6pla", "d6diana", "d4ruta", "d4repte", "d4lab1", "d4f1", "d4lab2", "d4f2", "d4lab3", "d4f3", "d4dos", "d4diana", "d1ruta", "d1reg", "d1seg", "d1dens", "d1prov", "d1sep", "d1crom", "d1inf", "d1diana", "ruta", "repte", "lab", "f1", "f2", "video", "diana", "labc"]);
+const pdfCache = {};
+const ZOOMS = [0.75, 1, 1.25, 1.5, 2];
+let zi = 1, docTok = 0, vPages = [], io = null, docKey = null;
+if (window.pdfjsLib) { try { pdfjsLib.GlobalWorkerOptions.workerSrc = "lib/pdf.worker.min.js"; } catch(e){} }
+
+function closeDoc(){ docTok++; if (io) io.disconnect(); vPages = []; docKey = null; document.getElementById("vPages").innerHTML = ""; }
+function docFail(){
+  document.getElementById("vPages").innerHTML = `<div class="vmsg"><b>Aquest full no es pot mostrar aquí</b><span>Descarrega'l i obre'l amb el lector de PDF del dispositiu.</span><button type="button" class="btn" data-save="1">${ICON_DL}Descarrega el PDF</button></div>`;
+}
+async function openDoc(k){
+  const d = D[k], n = sdaOfFile(d.f), s = SDAS.find(x => x.n === n);
+  setView("doc", "doc-" + k);
+  closeDoc(); docKey = k;
+  document.documentElement.style.setProperty("--acc", s ? `var(${s.c})` : "var(--s6)");
+  document.getElementById("vKick").textContent = s ? `SdA ${n} · ${s.title}` : "Tot el curs";
+  document.getElementById("vInfo").textContent = "";
+  document.getElementById("vName").textContent = d.l;
+  const back = backHash || (n ? "sda" + n : "inici");
+  document.getElementById("vBackL").textContent = back.startsWith("sda") ? `Torna a la SdA ${back.slice(3)}` : "Torna a l'inici";
+  document.getElementById("vDl").innerHTML = ICON_DL + "Descarrega";
+  { const g = document.getElementById("vDig"); const ok = DIGITAL.has(k) && !d.t; g.hidden = !ok; if (ok) g.href = "https://llibrefiq3r.cat/digital/#fitxa-" + k; }
+  document.title = d.l + " · " + "Física i química 3r ESO";
+  const host = document.getElementById("vPages");
+  host.innerHTML = `<div class="spin" role="status" aria-label="S'està carregant el full"></div>`;
+  const tok = ++docTok;
+  if (!window.pdfjsLib) { docFail(); return; }
+  try {
+    const pdf = await (pdfCache[d.f] = pdfCache[d.f] || pdfjsLib.getDocument({url: "docs/" + d.f, isEvalSupported: false}).promise);
+    if (tok !== docTok) return;
+    document.getElementById("vInfo").textContent = "· " + pdf.numPages + (pdf.numPages === 1 ? " pàgina" : " pàgines");
+    const pages = [];
+    for (let i = 1; i <= pdf.numPages; i++) pages.push(await pdf.getPage(i));
+    if (tok !== docTok) return;
+    host.innerHTML = "";
+    io = new IntersectionObserver(es => es.forEach(e => { const p = vPages[+e.target.dataset.i]; if (!p) return; p.vis = e.isIntersecting; if (p.vis) drawPage(p, tok); }), {rootMargin: "800px 0px"});
+    pages.forEach((page, i) => {
+      const vp = page.getViewport({scale: 1});
+      const div = document.createElement("div");
+      div.className = "vpage"; div.dataset.i = i;
+      div.style.aspectRatio = vp.width + " / " + vp.height;
+      div.setAttribute("role", "img"); div.setAttribute("aria-label", `${d.l}, pàgina ${i+1} de ${pages.length}`);
+      if (pages.length > 1) div.innerHTML = `<span class="pn">${i+1} / ${pages.length}</span>`;
+      host.appendChild(div);
+      vPages.push({page, div, w: vp.width, drawn: 0, vis: false, busy: false});
+      io.observe(div);
+    });
+  } catch(e) {
+    delete pdfCache[d.f];
+    if (tok === docTok) docFail();
+  }
+}
+async function drawPage(p, tok){
+  const css = p.div.clientWidth; if (!css) return;
+  const want = Math.round(css * Math.min(window.devicePixelRatio || 1, 2.5));
+  if (p.busy || Math.abs(p.drawn - want) < 4) return;
+  p.busy = true;
+  try {
+    const vp = p.page.getViewport({scale: want / p.w});
+    const cv = document.createElement("canvas");
+    cv.width = Math.round(vp.width); cv.height = Math.round(vp.height);
+    await p.page.render({canvasContext: cv.getContext("2d"), viewport: vp}).promise;
+    if (tok !== docTok) return;
+    const old = p.div.querySelector("canvas"); if (old) old.remove();
+    p.div.prepend(cv); p.drawn = want;
+  } catch(e) {} finally { p.busy = false; }
+  if (p.vis && Math.abs(p.drawn - Math.round(p.div.clientWidth * Math.min(window.devicePixelRatio || 1, 2.5))) >= 4) drawPage(p, tok);
+}
+function setZoom(i){
+  zi = Math.max(0, Math.min(ZOOMS.length - 1, i));
+  document.getElementById("vPages").style.setProperty("--z", ZOOMS[zi]);
+  document.getElementById("zLbl").textContent = Math.round(ZOOMS[zi] * 100) + " %";
+  document.getElementById("zOut").disabled = zi === 0;
+  document.getElementById("zIn").disabled = zi === ZOOMS.length - 1;
+  const tok = docTok; vPages.forEach(p => { if (p.vis) drawPage(p, tok); });
+}
+let rzT; window.addEventListener("resize", () => { clearTimeout(rzT); rzT = setTimeout(() => { const tok = docTok; vPages.forEach(p => { if (p.vis) drawPage(p, tok); }); }, 200); });
+document.getElementById("zOut").addEventListener("click", () => setZoom(zi - 1));
+document.getElementById("zIn").addEventListener("click", () => setZoom(zi + 1));
+function goBack(){
+  if (fromNav) history.back();
+  else { const n = docKey ? sdaOfFile(D[docKey].f) : 0; location.hash = backHash || (n ? "sda" + n : "inici"); }
+}
+document.getElementById("vBack").addEventListener("click", goBack);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && viewName === "doc") goBack(); });
+
+function dlError(err){
+  const c = err && err.code;
+  if (c === "declined") toast("Descàrrega cancel·lada.");
+  else if (c === "rate_limited") toast("Ja hi ha una descàrrega oberta. Torna-ho a provar d'aquí a un moment.");
+  else if (c === "fetch") toast("No s'ha pogut carregar el fitxer. Torna-ho a provar.");
+  else toast("No s'ha pogut descarregar en aquesta vista.");
+}
+async function saveDoc(btn){
+  if (!docKey) return;
+  const file = D[docKey].f;
+  btn.disabled = true;
+  try {
+    const dl = await getDownloads();
+    if (!dl) { toast("No s'ha pogut descarregar el full."); return; }
+    const r = await fetch("docs/" + file); if (!r.ok) throw {code: "fetch"};
+    await dl.save({filename: file, data: await r.blob()});
+    toast("Descarregat: " + file);
+  } catch(err) { dlError(err); } finally { btn.disabled = false; }
+}
+document.getElementById("vDoc").addEventListener("click", e => { const b = e.target.closest("#vDl,[data-save]"); if (b) saveDoc(b); });
+setZoom(1);
+
+
+route();
+</script>
+<dialog id="vidDlg" aria-labelledby="vidTitle">
+  <div class="vd-head"><b id="vidTitle"></b><button type="button" class="btn ghost" id="vidClose">Tanca ✕</button></div>
+  <video id="vidEl" controls playsinline preload="metadata" hidden></video>
+  <iframe id="vidFr" title="" hidden allow="fullscreen" allowfullscreen></iframe>
+  <figure id="vidFig" hidden><img id="vidImg" alt=""></figure>
+  <p class="vd-err" id="vidErr" hidden>No s'ha pogut carregar aquí. <a id="vidSrc2" target="_blank" rel="noopener">Obre-ho a la font original</a>.</p>
+  <p class="vd-cr"><span id="vidCr"></span> <a id="vidSrc" target="_blank" rel="noopener">Obre-ho en una pestanya nova ↗</a></p>
+</dialog>
+<style>
+#vidDlg{border:0;border-radius:14px;padding:14px;width:min(920px,94vw);max-height:94vh;background:#fff;color:#1f2328;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#vidDlg::backdrop{background:rgba(15,20,25,.72)}
+#vidDlg .vd-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+#vidDlg video{width:100%;max-height:70vh;background:#000;border-radius:8px;display:block}
+#vidDlg.wide{width:min(1200px,96vw)}#vidDlg iframe{width:100%;height:min(78vh,720px);border:0;border-radius:8px;display:block;background:#f6f5f2}
+#vidDlg figure{margin:0}#vidDlg img{display:block;max-width:100%;max-height:74vh;margin:0 auto;border-radius:8px}
+#vidDlg .vd-cr{font-size:13px;color:#5d646d;margin:8px 0 0}#vidDlg .vd-err{color:#B4570F}
+</style>
+<script>
 (function(){
-  const h = location.hash;
-  if (h.startsWith("#doc-")) openDoc(h.slice(5));
-  else if (h.startsWith("#sda")) showBook(+h.slice(4));
-  else showCover();
+  const $i=id=>document.getElementById(id);
+  const dlg=$i("vidDlg"), v=$i("vidEl"), fr=$i("vidFr"), fig=$i("vidFig"), img=$i("vidImg");
+  function open(k){ const x=L[k], t=inBook(k); if(!t) return;
+    let tt=x.l.replace(/^(Vídeo|Animació|Simulació|Simulador|Imatge):\s*/,""); tt=tt.charAt(0).toUpperCase()+tt.slice(1); $i("vidTitle").textContent=tt;
+    v.hidden=fr.hidden=fig.hidden=true; $i("vidErr").hidden=true;
+    $i("vidCr").textContent=x.cr||""; ["vidSrc","vidSrc2"].forEach(id=>$i(id).href=x.u); $i("vidSrc").hidden=!!x.an;
+    dlg.classList.toggle("wide", t==="a"||t==="f");
+    if(t==="v"){ v.hidden=false; v.src=x.v; dlg.showModal(); v.play().catch(()=>{}); return; }
+    if(t==="i"){ fig.hidden=false; img.alt=x.alt||tt; img.src=x.img; dlg.showModal(); return; }
+    fr.hidden=false; fr.title=tt; fr.src=inBookSrc(x); dlg.showModal(); setTimeout(()=>{try{fr.focus();}catch(e){}},300); }
+  v.addEventListener("error",()=>{ if(v.getAttribute("src")) $i("vidErr").hidden=false;});
+  img.addEventListener("error",()=>{ if(img.getAttribute("src")) $i("vidErr").hidden=false;});
+  document.addEventListener("click",e=>{const b=e.target.closest("[data-open]"); if(b){e.preventDefault(); open(b.dataset.open);}});
+  $i("vidClose").onclick=()=>dlg.close();
+  dlg.addEventListener("close",()=>{ if (dlg.open) return; v.pause(); v.removeAttribute("src"); v.load(); fr.removeAttribute("src"); img.removeAttribute("src");});
+  dlg.addEventListener("click",e=>{if(e.target===dlg) dlg.close();});
 })();
 </script>
 </body>
