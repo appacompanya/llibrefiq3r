@@ -11,7 +11,11 @@ Quan canvies el YAML o un generador, l'empremta canvia i --check diu CAL REGENER
   python3 tools/3r/artefactes.py --registra   recalcula i desa contingut/3r/artefactes.json (després de regenerar)
   python3 tools/3r/artefactes.py --check      compara amb el registre i diu què cal regenerar o què falta
   python3 tools/3r/artefactes.py --registra-imatges   desa el hash de les imatges que fa servir cada PDF (sense tocar res més)
-  --bucket FITXER.json  llista d'objectes del bucket (per defecte contingut/3r/generat/bucket-professorat.json)"""
+  python3 tools/3r/artefactes.py --impacte REF   graf d'impacte (el càlcul és a tools/3r/impacte.py)
+  python3 tools/3r/artefactes.py --actua REF     igual, i executa només el pas segur (build_dades.py)
+  --bucket FITXER.json  llista d'objectes del bucket (per defecte contingut/3r/generat/bucket-professorat.json)
+
+--impacte / --actua no criden --registra: un PDF no regenerat ha de continuar sortint com a deriva."""
 import hashlib, json, os, re, subprocess, sys, glob
 import yaml
 
@@ -186,6 +190,11 @@ def fix_suggestion(name, orfes):
 
 def main():
     a = sys.argv[1:]
+    if any(f in a for f in ("--impacte", "--actua", "--comprova")):
+        if "--registra" in a or "--registra-imatges" in a:
+            sys.stderr.write("Avís: impacte/actua no registra res. S'ignora --registra.\n")
+        import impacte
+        sys.exit(impacte.des_de_artefactes(a))
     bf = a[a.index("--bucket") + 1] if "--bucket" in a else os.path.join(C, "generat", "bucket-professorat.json")
     A, orfes, docs_orfes, tp = compute(bf)
     for k, x in A.items():
