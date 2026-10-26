@@ -441,7 +441,7 @@ def sda6():
     b += F("Llei d'Ohm: V = I · R", "Potència elèctrica: P = V · I", "Energia elèctrica: E = P · t = V · I · t", note="A casa i a l'institut, la tensió és de 230 V.")
     b += EX("Exemple", "Un bullidor de 2 000 W connectat a 230 V: I = P / V = 2 000 / 230 ≈ 8,7 A. Si funciona 3 minuts (0,05 h) gasta 2 kW · 0,05 h = 0,1 kWh.")
     b += S(9, "Circuits en sèrie i en paral·lel")
-    b += En.circuits_svg()
+    b += figs.fig(T2.circuits_serie_paralel(), "Dues bombetes en sèrie i en paral·lel.", "140mm")
     b += T(["", "En sèrie", "En paral·lel"],
            [["Connexió", "Un darrere l'altre, pel mateix camí", "Cadascun en una branca diferent"], ["Intensitat", "La mateixa per tots els receptors", "Es reparteix entre les branques"], ["Tensió", "Es reparteix entre els receptors", "Tots reben la mateixa tensió (230 V a casa)"],
             ["Si un receptor es fon o es desconnecta", "S'apaguen tots (el circuit s'obre)", "Els altres continuen funcionant"], ["Dues bombetes iguals", "Fan menys llum que una de sola", "Cadascuna fa la llum normal (però es gasta el doble d'energia)"]], w=["28%", "36%", "36%"])

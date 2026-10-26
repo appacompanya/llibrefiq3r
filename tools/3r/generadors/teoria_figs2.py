@@ -405,9 +405,9 @@ def circuit_mesura(A="#2F6DB5"):
     # interruptor
     b += f'<rect x="70" y="110" width="0" height="0"/><circle cx="60" cy="100" r="3" fill="{INK}"/><circle cx="60" cy="150" r="3" fill="{INK}"/><rect x="54" y="103" width="12" height="44" fill="#fff"/><line x1="60" y1="100" x2="80" y2="140" stroke="{INK}" stroke-width="2"/>' + txt(86, 132, "interruptor", 10, "start")
     # bombeta
-    b += f'<rect x="185" y="45" width="50" height="30" fill="#fff"/><circle cx="210" cy="60" r="14" fill="#fff6c9" stroke="{INK}" stroke-width="1.8"/><line x1="200" y1="50" x2="220" y2="70" stroke="{INK}" stroke-width="1.4"/><line x1="220" y1="50" x2="200" y2="70" stroke="{INK}" stroke-width="1.4"/>' + txt(210, 32, "receptor (bombeta)", 10)
+    b += f'<circle cx="210" cy="60" r="14" fill="#fff6c9" stroke="{INK}" stroke-width="1.8"/><line x1="200" y1="50" x2="220" y2="70" stroke="{INK}" stroke-width="1.4"/><line x1="220" y1="50" x2="200" y2="70" stroke="{INK}" stroke-width="1.4"/>' + txt(210, 32, "receptor (bombeta)", 10)
     # amperímetre en sèrie
-    b += f'<rect x="300" y="45" width="40" height="30" fill="#fff"/><circle cx="320" cy="60" r="14" fill="#fff" stroke="{A}" stroke-width="2"/>' + txt(320, 65, "A", 13, fill=A, weight=700) + txt(320, 95, "amperímetre", 9.5, fill=A) + txt(320, 108, "(en sèrie)", 9.5, fill=A)
+    b += f'<circle cx="320" cy="60" r="14" fill="#fff" stroke="{A}" stroke-width="2"/>' + txt(320, 65, "A", 13, fill=A, weight=700) + txt(320, 95, "amperímetre", 9.5, fill=A) + txt(320, 108, "(en sèrie)", 9.5, fill=A)
     # voltímetre en paral·lel a la bombeta
     b += f'<path d="M180 60 L180 120 L195 120 M225 120 L240 120 L240 60" fill="none" stroke="{A}" stroke-width="1.6"/><circle cx="210" cy="120" r="14" fill="#fff" stroke="{A}" stroke-width="2"/>' + txt(210, 125, "V", 13, fill=A, weight=700) + txt(210, 150, "voltímetre (en paral·lel)", 9.5, fill=A)
     b += f'<path d="M400 120 l-6 -10 l12 0 Z" fill="{INK}"/>' + txt(412, 124, "sentit del corrent", 9.5, "start", MUT)
@@ -466,3 +466,22 @@ def electrolisi_neta(A="#3F9A5A"):
     b += txt(500, 150, "2 H₂O → 2 H₂ + O₂", 12, "start", A, 700)
     b += txt(500, 200, "aigua amb una mica de", 10, "start", MUT) + txt(500, 214, "carbonat de sodi", 10, "start", MUT) + txt(500, 228, "(perquè condueixi)", 10, "start", MUT)
     return svg(660, 318, b, "150mm")
+
+
+def circuits_serie_paralel(A="#2F6DB5"):
+    """Dues bombetes en sèrie i en paral·lel (amb la pila en una branca lateral, com als llibres)."""
+    def bulb(x, y):
+        return (f'<circle cx="{x}" cy="{y}" r="13" fill="#fff6c9" stroke="{INK}" stroke-width="1.8"/>'
+                f'<line x1="{x-9}" y1="{y-9}" x2="{x+9}" y2="{y+9}" stroke="{INK}" stroke-width="1.5"/><line x1="{x-9}" y1="{y+9}" x2="{x+9}" y2="{y-9}" stroke="{INK}" stroke-width="1.5"/>')
+    def pila_v(x, y):  # pila en un fil vertical: plaques horitzontals, + a dalt
+        return (f'<rect x="{x-14}" y="{y-8}" width="28" height="16" fill="#fff"/><line x1="{x-16}" y1="{y-6}" x2="{x+16}" y2="{y-6}" stroke="{INK}" stroke-width="2.4"/>'
+                f'<line x1="{x-9}" y1="{y+6}" x2="{x+9}" y2="{y+6}" stroke="{INK}" stroke-width="4.5"/>' + txt(x - 24, y - 6, "+", 12, weight=700) + txt(x - 24, y + 14, "−", 13, weight=700))
+    b = ""
+    # sèrie: rectangle amb la pila a l'esquerra i les dues bombetes a dalt
+    b += f'<path d="M50 40 L250 40 L250 150 L50 150 Z" fill="none" stroke="{INK}" stroke-width="2"/>' + pila_v(50, 95) + bulb(115, 40) + bulb(190, 40)
+    b += txt(115, 70, "B1", 11) + txt(190, 70, "B2", 11) + txt(150, 18, "Circuit en sèrie", 13, weight=700) + txt(150, 175, "un sol camí per al corrent", 10, fill=MUT)
+    # paral·lel: escala amb la pila a l'esquerra i una bombeta a cada graó
+    b += f'<path d="M340 40 L540 40 L540 150 L340 150 Z M440 40 L440 150" fill="none" stroke="{INK}" stroke-width="2"/>' + pila_v(340, 95) + bulb(440, 95) + bulb(540, 95)
+    for x in (440, 540): b += f'<circle cx="{x}" cy="40" r="3" fill="{INK}"/><circle cx="{x}" cy="150" r="3" fill="{INK}"/>' if x == 440 else ""
+    b += txt(462, 99, "B1", 11, "start") + txt(562, 99, "B2", 11, "start") + txt(450, 18, "Circuit en paral·lel", 13, weight=700) + txt(450, 175, "cada bombeta en una branca", 10, fill=MUT)
+    return svg(600, 185, b, "140mm")
