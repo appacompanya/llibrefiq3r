@@ -171,6 +171,11 @@ documents:
     versio: 1
     fitxer: sda5-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d5dpr:
+    uid: d5dpr
+    versio: 1
+    fitxer: sda5-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d5ruta:
     uid: d5ruta
     versio: 1

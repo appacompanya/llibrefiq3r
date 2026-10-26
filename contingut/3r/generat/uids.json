@@ -882,6 +882,11 @@
   "tipus": "pregunta",
   "versio": 1
  },
+ "d1dpr": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d1ellen": {
   "sda": 1,
   "tipus": "document",
@@ -3154,6 +3159,11 @@
   "tipus": "camp",
   "versio": 1
  },
+ "d2dpr": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d2solamp": {
   "sda": null,
   "tipus": "document",
@@ -3800,6 +3810,11 @@
   "document": "d3dos",
   "pregunta": "d3dos.5",
   "tipus": "camp",
+  "versio": 1
+ },
+ "d3dpr": {
+  "sda": null,
+  "tipus": "document",
   "versio": 1
  },
  "d3f1": {
@@ -5823,6 +5838,11 @@
   "tipus": "camp",
   "versio": 1
  },
+ "d4dpr": {
+  "sda": null,
+  "tipus": "document",
+  "versio": 1
+ },
  "d4f1": {
   "sda": 4,
   "tipus": "document",
@@ -7375,6 +7395,11 @@
  "d5diana.diana": {
   "document": "d5diana",
   "tipus": "pregunta",
+  "versio": 1
+ },
+ "d5dpr": {
+  "sda": null,
+  "tipus": "document",
   "versio": 1
  },
  "d5f1": {
@@ -9541,6 +9566,11 @@
  "d6diana.diana": {
   "document": "d6diana",
   "tipus": "pregunta",
+  "versio": 1
+ },
+ "d6dpr": {
+  "sda": null,
+  "tipus": "document",
   "versio": 1
  },
  "d6f1": {

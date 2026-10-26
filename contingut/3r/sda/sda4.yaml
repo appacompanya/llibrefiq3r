@@ -126,6 +126,11 @@ documents:
     versio: 1
     fitxer: sda4-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d4dpr:
+    uid: d4dpr
+    versio: 1
+    fitxer: sda4-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d4amp:
     uid: d4amp
     versio: 1

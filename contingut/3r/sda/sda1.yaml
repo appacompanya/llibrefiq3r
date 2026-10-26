@@ -137,6 +137,11 @@ documents:
     versio: 1
     fitxer: sda1-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d1dpr:
+    uid: d1dpr
+    versio: 1
+    fitxer: sda1-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d1amp:
     uid: d1amp
     versio: 1

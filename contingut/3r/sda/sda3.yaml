@@ -135,6 +135,11 @@ documents:
     versio: 1
     fitxer: sda3-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d3dpr:
+    uid: d3dpr
+    versio: 1
+    fitxer: sda3-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d3ruta:
     uid: d3ruta
     versio: 1

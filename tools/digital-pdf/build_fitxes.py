@@ -15,7 +15,7 @@ tpl = open(os.path.join(ROOT, LEVEL, "index.html"), encoding="utf-8").read()
 DD = json.loads(re.search(r"^const D = (\{.*?\});$", tpl, re.M).group(1))
 D = {k: (v["f"], bool(v.get("t"))) for k, v in DD.items()}
 SKIP_KEYS = set()
-SKIP_FILE = re.compile(r"mapa-conceptual|rubriques|formulari|glossari|enquesta|lamines|solucionari|prova|adaptada|equivalencies")
+SKIP_FILE = re.compile(r"mapa-conceptual|rubriques|formulari|glossari|enquesta|lamines|solucionari|prova|adaptada|equivalencies|dossier-de-")
 
 def extra_widgets(key, body):
     pass

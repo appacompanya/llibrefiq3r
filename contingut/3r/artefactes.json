@@ -1452,6 +1452,18 @@
    "nota": "còpia pública dels annexos (el document dannex enllaça la del bucket)",
    "tipus": "pdf-public"
   },
+  "docs/sda1-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d1dpr@1"
+   ],
+   "document": "d1dpr",
+   "empremta": "befad714cc41d500c3ee35823c9b8d9334cfb4f2ff1cc046f50139d9f67a35de",
+   "generador": "gen_detectius.py",
+   "generador_hash": null,
+   "hash": "2a16fce5ea2e2a4308ac99ea74db68a7c61b2506236ca180f897393aa5c3ccc6",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
   "docs/sda1-00-dossier-de-teoria.pdf": {
    "depen_de": [
     "d1teo@1"
@@ -1749,6 +1761,18 @@
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
+  "docs/sda2-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d2dpr@1"
+   ],
+   "document": "d2dpr",
+   "empremta": "affd317841bcad63eed9b32126b64f2eb284ae8b649ac1d92b5066cbfbd430e9",
+   "generador": "gen_sda1.py",
+   "generador_hash": null,
+   "hash": "0891bf3effec44cfbf948925b8c2dbd607f516fe9c735d6f9ec71f7d7e81d2cd",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
   "docs/sda2-00-dossier-de-teoria.pdf": {
    "depen_de": [
     "d2teo@1"
@@ -1994,6 +2018,18 @@
    "generador": "gen_sda1.py",
    "generador_hash": "945db340ba6180af0735129f376d577da24260b3a34ad3192244a68a343df61c",
    "hash": "def1ad84333f4d47f32b5fbff0d28363e634bbcd2a51f5896e379bee2cda733a",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda3-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d3dpr@1"
+   ],
+   "document": "d3dpr",
+   "empremta": "68c736efbe97ae4d759ebc4758672ddd4e7051df9e998439aeadd29e638014ad",
+   "generador": "gen_mobil.py",
+   "generador_hash": null,
+   "hash": "01a5d54662f81b1a651ce9b21ead64def9665098457b4c7bdd9616cf05f6923f",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2246,6 +2282,18 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "1a919df66a9a5e7fa818915bd326dc760f5ed4c1d3f145c112ab4af453ed6525",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda4-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d4dpr@1"
+   ],
+   "document": "d4dpr",
+   "empremta": "e35fb5543c4ef7a7324c0d8fc83ec3b7909af1d1b7487cb3a60ab0e36ccca76a",
+   "generador": "gen_hidrogen.py",
+   "generador_hash": null,
+   "hash": "73c3b62ac948e9a8757b4399e88ac961d76d2441dbccf2b0bf3e3449544a0e38",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2505,6 +2553,18 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "04fe56a1dd39c1277b15a80926025c908bb27bf44faa93549842dcac774b33b1",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda5-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d5dpr@1"
+   ],
+   "document": "d5dpr",
+   "empremta": "0eb71d95798977a05900de73c2aecfd839a8c1069e1327cb9977ff045af46151",
+   "generador": "gen_cel.py",
+   "generador_hash": null,
+   "hash": "d4f3986f352905e0c5c325f5e379461c66acc9ddf9bd9c24cbb2ae07f564f2fc",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },
@@ -2830,6 +2890,18 @@
    "generador": "mn_ampl.py",
    "generador_hash": "3be185b3bca018deacbf3f6e2593c7bd4021f61c8cc5b6bfa8fdaac091f93083",
    "hash": "12d54e91dc150436936d844f25b6f27984add7d02c234a94b1577c7d0b0f2a59",
+   "imatges": {},
+   "tipus": "pdf-alumnat"
+  },
+  "docs/sda6-00-dossier-de-problemes.pdf": {
+   "depen_de": [
+    "d6dpr@1"
+   ],
+   "document": "d6dpr",
+   "empremta": "f63735a736e4cdef7881545bd2c646741c5ce04c901eef048109d47d2bc56232",
+   "generador": "gen_energia.py",
+   "generador_hash": null,
+   "hash": "bc8af6fa954168fae972df57ae11d5da2df901c59da2e8ed558540b3e9634934",
    "imatges": {},
    "tipus": "pdf-alumnat"
   },

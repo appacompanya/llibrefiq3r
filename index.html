@@ -246,7 +246,7 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
   .scard .chip{display:none}
   .scard .num{left:6px;top:6px;padding:2px 6px 3px;font-size:.8rem}
   .tile{left:12px;bottom:12px;width:120px;height:136px}.tile .tsym{top:14px}.tile .sym{font-size:2.8rem}.tile .sup,.tile .sub{font-size:.95rem}.tile .tg{font-size:.56rem}.tile .nm{font-size:.66rem;left:9px;bottom:8px}.tile .nm small{font-size:.55rem}
-  .hero .hacts{order:-1;justify-items:start}
+  .hero .hacts{order:-1;justify-items:start} .hero .hacts .dossiers{justify-content:flex-start}
   .vtools{width:100%;justify-content:space-between}
   .vdesk{padding:10px 6px;border-radius:12px}
 }
@@ -260,6 +260,7 @@ nav.sdas{display:flex;gap:6px;flex-wrap:wrap}
   .ses.sel .pic{height:240px}
 }
 .uf{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;font-size:.9em;line-height:1.05;margin:0 .12em}.uf>span{display:block;padding:0 .14em;white-space:nowrap}.uf>span:first-child{border-bottom:.08em solid currentColor}
+.hacts .dossiers{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 </style>
 
 </head>
@@ -409,11 +410,17 @@ const D = {
   "mapa": {"f": "sda2-13-mapa-conceptual.pdf", "l": "Mapa conceptual"},
   "labc": {"f": "sda2-14-laboratori-corba-i-canvis-destat.pdf", "l": "Full de laboratori"},
   "d1teo": {"f": "sda1-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d1dpr": {"f": "sda1-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"},
   "d2teo": {"f": "sda2-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d2dpr": {"f": "sda2-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"},
   "d3teo": {"f": "sda3-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d3dpr": {"f": "sda3-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"},
   "d4teo": {"f": "sda4-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d4dpr": {"f": "sda4-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"},
   "d5teo": {"f": "sda5-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
-  "d6teo": {"f": "sda6-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"}
+  "d5dpr": {"f": "sda5-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"},
+  "d6teo": {"f": "sda6-00-dossier-de-teoria.pdf", "l": "Dossier de teoria"},
+  "d6dpr": {"f": "sda6-00-dossier-de-problemes.pdf", "l": "Dossier de problemes"}
 };
 /* generat per tools/3r/build_dades.py a partir de contingut/3r: no l'editis a mà */
 const L = {
@@ -503,7 +510,7 @@ function renderPanel(n){
   const teach = s.teacher.map(t => `<div class="tcard"><b>${esc(t.b)}</b><span>${esc(t.s)}</span><div class="acts">${t.u?linkBtn(t.u,t.ul):""}${(t.d||[]).map(k=>dlBtn(k,true)).join("")}</div></div>`).join("");
   p.innerHTML = `<div style="display:grid;gap:22px">
     <div class="hero"><div><div class="no">SdA ${s.n}</div><h2>${esc(s.title)}</h2><p class="kq">${esc(s.q)}</p><div class="meta">${esc(s.meta)}</div></div>
-      <div class="hacts"><div class="thumb">${art(s.n)}</div>${D["d"+s.n+"teo"] ? dlBtn("d"+s.n+"teo").replace('class="btn ghost"','class="btn"') : ""}</div></div>
+      <div class="hacts"><div class="thumb">${art(s.n)}</div><div class="dossiers">${["teo","dpr"].map(k => D["d"+s.n+k] ? dlBtn("d"+s.n+k).replace('class="btn ghost"','class="btn"') : "").join("")}</div></div></div>
     <h3 class="sec">Sessió a sessió</h3>
     <div class="sessions">${ses}</div>
     <h3 class="sec">Vols anar més enllà?</h3>

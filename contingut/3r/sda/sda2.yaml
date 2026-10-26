@@ -128,6 +128,11 @@ documents:
     versio: 1
     fitxer: sda2-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d2dpr:
+    uid: d2dpr
+    versio: 1
+    fitxer: sda2-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d2amp:
     uid: d2amp
     versio: 1
