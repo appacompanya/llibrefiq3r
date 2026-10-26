@@ -454,7 +454,7 @@
       if (bb) {
         const fid = bb.dataset.board; const w0 = bb.closest(".work");
         const fq = (spec.fields && spec.fields[fid] || {}).q, qt = (spec.qs || {})[fq];
-        try { Board.open({ data: (answers[fid] || {}).board, title: qt ? String(qt).replace(/<[^>]+>/g, "").replace(/^(.{0,150})\s.*$/s, "$1…") : spec.title, onSave: async (board, file) => {
+        try { Board.open({ data: (answers[fid] || {}).board, title: qt ? String(qt).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : spec.title, onSave: async (board, file) => {
           const val = { ...(w0 ? readWork(w0) : answers[fid] || {}), board }; answers[fid] = val; clearTimeout(timers[fid]);
           if (opts.onSave) await opts.onSave(fid, val);
           for (const p of photos.filter((x) => x.item === fid)) { try { await opts.onRemovePhoto(p.path); } catch {} }
