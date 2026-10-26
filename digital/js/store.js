@@ -163,6 +163,7 @@
       async reopen(sid, ws) { const s = sub(sid, ws); if (s) { s.status = "draft"; s.review = null; s.review_items = []; } Object.keys(db.feedback).forEach((kk) => { if (kk.startsWith(k(sid, ws) + "|auto:")) delete db.feedback[kk]; }); save(); },
       async markReviewed(sid, ws) { const s = sub(sid, ws); if (s) { s.review = "done"; save(); } },
       // correcció automàtica (demostració: només amb la comprovació automàtica de la fitxa, sense IA)
+      async checkWork() { return { known: false }; },
       async autoCorrect(ws, title, sda, items, sid = me.id) {
         const lvOf = (sc) => sc == null ? null : sc >= 0.95 ? "AE" : sc >= 0.75 ? "AN" : sc >= 0.5 ? "AS" : "NA";
         const now = new Date().toISOString(); const rows = []; const review = [];
@@ -330,6 +331,7 @@
       async markReviewed(sid, ws) { must(await sb.from("submissions").update({ review: "done" }).eq("student_id", sid).eq("worksheet_id", ws)); },
       async proposeAI(sid, ws, items) { return fn("corregeix", { student_id: sid, worksheet_id: ws, items }); },
       async autoCorrect(ws, title, sda, items, sid) { return (await fn("autocorregeix", { worksheet_id: ws, title, sda, items, ...(sid ? { student_id: sid } : {}) })).rows || null; },
+      async checkWork(ws, fid, payload) { return await fn("autocorregeix", { action: "comprova", worksheet_id: ws, fid, ...payload }); },
       async deleteAuto(sid, ws) { must(await sb.from("feedback").delete().eq("student_id", sid).eq("worksheet_id", ws).like("item_id", "auto:%")); },
       async allFeedback() { return must(await sb.from("feedback").select("student_id, worksheet_id, item_id, level, proposal_level, released")); },
       async errorsAll() { const rows = must(await sb.from("kv").select("path, data").like("path", "errors/%")); return rows.map((r) => ({ student_id: r.path.split("/")[1], worksheet_id: r.path.split("/")[2], ...r.data })); },
@@ -356,7 +358,7 @@
     const mine = (id) => P ? String(id).startsWith(P) : !String(id).includes(":");
     const un = (rows) => (rows || []).filter((r) => mine(r.worksheet_id)).map((r) => ({ ...r, worksheet_id: String(r.worksheet_id).slice(P.length) }));
     const o = Object.create(st);
-    ["loadResponses", "saveResponse", "getSubmission", "submit", "addPhoto", "removePhoto", "myFeedback", "autoCorrect"].forEach((m) => {
+    ["loadResponses", "saveResponse", "getSubmission", "submit", "addPhoto", "removePhoto", "myFeedback", "autoCorrect", "checkWork"].forEach((m) => {
       o[m] = (ws, ...a) => st[m].call(o, W(ws), ...a);
     });
     ["feedbackFor", "saveFeedback", "release", "reopen", "markReviewed", "deleteAuto", "proposeAI"].forEach((m) => {

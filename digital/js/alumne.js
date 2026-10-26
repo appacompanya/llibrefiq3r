@@ -156,6 +156,7 @@
       onSave: async (id, val) => { st.textContent = "Desant…"; st.className = "wsstat"; try { await S.saveResponse(k, id, val); st.textContent = "Desat"; st.className = "wsstat saved"; } catch (e) { st.textContent = "No s'ha pogut desar"; st.className = "wsstat"; } },
       onPhoto: async (item, file) => { st.textContent = "Pujant la foto…"; try { await S.addPhoto(k, item, await shrink(file)); await openWs(k); } catch (e) { st.textContent = "No s'ha pogut pujar la foto"; } },
       onRemovePhoto: async (path) => { await S.removePhoto(k, path); await openWs(k); },
+      onCheck: (fid, payload) => S.checkWork(k, fid, payload),
     });
     if (AD() && adapt.length) AD().apply($("#wsHost"), k, adapt, { mode: "digital", idioma, off: ajudesOff });
     ajudesBtn(k);
