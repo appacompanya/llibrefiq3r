@@ -545,25 +545,49 @@ window.FQ3_DADES = {
    "f": "sda1-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d1dpr": {
+   "f": "sda1-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d2teo": {
    "f": "sda2-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d2dpr": {
+   "f": "sda2-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   },
   "d3teo": {
    "f": "sda3-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d3dpr": {
+   "f": "sda3-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d4teo": {
    "f": "sda4-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d4dpr": {
+   "f": "sda4-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   },
   "d5teo": {
    "f": "sda5-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d5dpr": {
+   "f": "sda5-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d6teo": {
    "f": "sda6-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d6dpr": {
+   "f": "sda6-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   }
  },
  "D_alumne": {
@@ -935,25 +959,49 @@ window.FQ3_DADES = {
    "f": "sda1-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d1dpr": {
+   "f": "sda1-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d2teo": {
    "f": "sda2-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d2dpr": {
+   "f": "sda2-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   },
   "d3teo": {
    "f": "sda3-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d3dpr": {
+   "f": "sda3-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d4teo": {
    "f": "sda4-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d4dpr": {
+   "f": "sda4-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   },
   "d5teo": {
    "f": "sda5-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
   },
+  "d5dpr": {
+   "f": "sda5-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
+  },
   "d6teo": {
    "f": "sda6-00-dossier-de-teoria.pdf",
    "l": "Dossier de teoria"
+  },
+  "d6dpr": {
+   "f": "sda6-00-dossier-de-problemes.pdf",
+   "l": "Dossier de problemes"
   }
  },
  "L": {

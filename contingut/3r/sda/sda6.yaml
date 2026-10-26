@@ -138,6 +138,11 @@ documents:
     versio: 1
     fitxer: sda6-00-dossier-de-teoria.pdf
     titol: Dossier de teoria
+  d6dpr:
+    uid: d6dpr
+    versio: 1
+    fitxer: sda6-00-dossier-de-problemes.pdf
+    titol: Dossier de problemes
   d6amp:
     uid: d6amp
     versio: 1
