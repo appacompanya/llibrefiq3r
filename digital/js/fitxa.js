@@ -88,8 +88,15 @@
       const p = { ...(answers._paste || {}) }; p[k] = (p[k] || 0) + n; save("_paste", p);
     });
   }
+  /* cada vegada que es torna a dibuixar una fitxa al mateix contenidor, se'n fa un de nou: si no, els gestors
+     d'esdeveniments s'acumulen (un toc obria dues pissarres, «+ text» afegia dues línies…) */
+  function freshHost(host) {
+    if (!host || !host.parentNode || !host.dataset.fqr) { if (host) host.dataset.fqr = "1"; return host; }
+    const n = host.cloneNode(false); host.replaceWith(n); return n;
+  }
   function render(host, key, opts) {
     ensureUnitList();
+    host = freshHost(host);
     const spec = G.FITXES[key];
     if (spec.html) return renderHtml(host, key, opts); const st = { answers: { ...(opts.answers || {}) }, auto: !!opts.autoCalc, ro: !!opts.readonly };
     const photosByItem = {}; (opts.photos || []).forEach((p) => (photosByItem[p.item || "full"] = photosByItem[p.item || "full"] || []).push(p));
@@ -236,18 +243,34 @@
       strokes.forEach((st) => { for (let i = 0; i < st.p.length; i += 2) { x0 = Math.min(x0, st.p[i]); x1 = Math.max(x1, st.p[i]); y0 = Math.min(y0, st.p[i + 1]); y1 = Math.max(y1, st.p[i + 1]); } });
       return isFinite(x0) ? [x0, y0, x1, y1] : null;
     }
-    /* imatge retallada a la zona escrita, traç fosc sobre blanc, com a màxim 1200 px: llegible i lleugera */
-    function exportPng(strokes) {
-      const bb = bbox(strokes); if (!bb) return Promise.resolve(null);
-      const pad = 18, w = bb[2] - bb[0] + 2 * pad, h = bb[3] - bb[1] + 2 * pad, k = Math.min(1.6, 1200 / Math.max(w, h));
-      const cv = document.createElement("canvas"); cv.width = Math.max(1, Math.round(w * k)); cv.height = Math.max(1, Math.round(h * k));
+    /* pàgines («papers») d'una pissarra desada: format nou {pg:[[…],[…]]} o antic {s:[…]} */
+    const pagesOf = (d) => (d && Array.isArray(d.pg) ? d.pg : [d && d.s ? d.s : []]);
+    const count = (d) => pagesOf(d).reduce((n, pg) => n + (pg ? pg.length : 0), 0);
+    /* una sola imatge: cada paper retallat a la zona escrita i apilats de dalt a baix (traç fosc sobre blanc, lleugera) */
+    function exportPng(pages) {
+      if (pages.length && !Array.isArray(pages[0])) pages = [pages];
+      const parts = pages.map((st) => ({ st, bb: bbox(st) })).filter((x) => x.bb);
+      if (!parts.length) return Promise.resolve(null);
+      const pad = 18, gap = 26;
+      parts.forEach((x) => { x.w = x.bb[2] - x.bb[0] + 2 * pad; x.h = x.bb[3] - x.bb[1] + 2 * pad; });
+      const W = Math.max(...parts.map((x) => x.w)), H = parts.reduce((n, x) => n + x.h, 0) + gap * (parts.length - 1);
+      const k = Math.min(1.6, 1200 / W, 4000 / H);
+      const cv = document.createElement("canvas"); cv.width = Math.max(1, Math.round(W * k)); cv.height = Math.max(1, Math.round(H * k));
       const c = cv.getContext("2d"); c.fillStyle = "#fff"; c.fillRect(0, 0, cv.width, cv.height);
-      strokes.forEach((st) => drawStroke(c, st, k, bb[0] - pad, bb[1] - pad));
+      let y = 0;
+      parts.forEach((x, i) => {
+        if (i) { c.strokeStyle = "#b8c0cc"; c.lineWidth = 1.5; c.setLineDash([8, 6]); c.beginPath(); c.moveTo(0, (y - gap / 2) * k); c.lineTo(cv.width, (y - gap / 2) * k); c.stroke(); c.setLineDash([]); }
+        if (parts.length > 1) { c.fillStyle = "#8a929c"; c.font = `${Math.round(12 * k)}px sans-serif`; c.fillText(`Paper ${pages.indexOf(x.st) + 1}`, 4 * k, (y + 13) * k); }
+        x.st.forEach((st) => drawStroke(c, st, k, x.bb[0] - pad, x.bb[1] - pad - y));
+        y += x.h + gap;
+      });
       return new Promise((res) => cv.toBlob((b) => res(b ? new File([b], "pissarra.png", { type: "image/png" }) : null), "image/png"));
     }
     function open({ data, title, onSave }) {
       const W0 = data && data.w ? data.w : null;
-      let strokes = (data && data.s ? data.s : []).map((x) => ({ ...x, p: [...x.p] })); const redo = [];
+      const pages = pagesOf(data).map((pg) => (pg || []).map((x) => ({ ...x, p: [...x.p] })));
+      let pi = 0, strokes = pages[0]; const redo = [];
+      const sync = () => { pages[pi] = strokes; };
       let tool = "pen", col = COLS[0], grid = data ? data.g !== 0 : true, penSeen = false;
       const ov = document.createElement("div"); ov.className = "pz"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-label", "Pissarra");
       // estils essencials en línia: la pissarra s'obre a pantalla completa encara que el full d'estils sigui antic (memòria cau) o el navegador no conegui «inset» (iPad antics)
@@ -256,6 +279,7 @@
         <div class="pz-g">${[["pen", "✏️", "Llapis"], ["arrow", "↗", "Fletxa (forces, vectors)"], ["line", "╱", "Línia recta"], ["erase", "⌫", "Goma: toca un traç per esborrar-lo"]].map(([t, i, l]) => `<button type="button" data-tool="${t}" title="${l}" aria-label="${l}">${i}</button>`).join("")}</div>
         <div class="pz-g">${COLS.map((c) => `<button type="button" class="sw" data-col="${c}" style="--c:${c}" aria-label="Color"></button>`).join("")}</div>
         <div class="pz-g"><button type="button" data-act="undo" title="Desfés" aria-label="Desfés">↶</button><button type="button" data-act="redo" title="Refés" aria-label="Refés">↷</button><button type="button" data-act="grid" title="Quadrícula" aria-label="Quadrícula">▦</button><button type="button" data-act="clear" title="Esborra-ho tot" aria-label="Esborra-ho tot">🗑</button></div>
+        <div class="pz-g pz-pg" aria-label="Papers"></div>
         <span class="pz-t">${esc(title || "")}</span>
         <div class="pz-g end"><button type="button" class="pz-x" data-act="cancel">Cancel·la</button><button type="button" class="pz-ok" data-act="save">Desa</button></div></div>
         <div class="pz-c"><canvas></canvas></div>`;
@@ -284,7 +308,12 @@
         ov.querySelectorAll("[data-tool]").forEach((b) => b.classList.toggle("on", b.dataset.tool === tool));
         ov.querySelectorAll("[data-col]").forEach((b) => b.classList.toggle("on", b.dataset.col === col));
         ov.querySelector('[data-act="grid"]').classList.toggle("on", grid);
+        const pg = ov.querySelector(".pz-pg");
+        pg.innerHTML = pages.map((_, i) => `<button type="button" data-pg="${i}" class="${i === pi ? "on" : ""}" aria-label="Paper ${i + 1}" title="Paper ${i + 1}">${i + 1}</button>`).join("")
+          + `<button type="button" data-act="addpg" title="Paper nou" aria-label="Paper nou">＋ Paper</button>`
+          + (pages.length > 1 ? `<button type="button" data-act="delpg" title="Treu aquest paper" aria-label="Treu aquest paper">－ Paper</button>` : "");
       }
+      function goPage(i) { sync(); pi = Math.max(0, Math.min(pages.length - 1, i)); strokes = pages[pi]; redo.length = 0; cur = null; paint(); }
       const pt = (e) => { const r = cv.getBoundingClientRect(); return [Math.round((e.clientX - r.left) / k * 10) / 10, Math.round((e.clientY - r.top) / k * 10) / 10]; };
       function eraseAt(p) { const R = 12 / k; const n = strokes.length; strokes = strokes.filter((st) => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - p[0], st.p[i + 1] - p[1]) < R) return false; if (st.t !== "f" && st.p.length >= 4) { const [x1, y1] = st.p, x2 = st.p[st.p.length - 2], y2 = st.p[st.p.length - 1]; const L = Math.hypot(x2 - x1, y2 - y1) || 1; const t = Math.max(0, Math.min(1, ((p[0] - x1) * (x2 - x1) + (p[1] - y1) * (y2 - y1)) / (L * L))); if (Math.hypot(x1 + t * (x2 - x1) - p[0], y1 + t * (y2 - y1) - p[1]) < R) return false; } return true; }); if (strokes.length !== n) { redo.length = 0; paint(); } }
       cv.addEventListener("pointerdown", (e) => {
@@ -307,7 +336,14 @@
         const b = e.target.closest("button"); if (!b) return;
         if (b.dataset.tool) { tool = b.dataset.tool; paint(); return; }
         if (b.dataset.col) { col = b.dataset.col; if (tool === "erase") tool = "pen"; paint(); return; }
+        if (b.dataset.pg) { goPage(+b.dataset.pg); return; }
         const a = b.dataset.act;
+        if (a === "addpg") { sync(); if (pages.length >= 8) return; pages.push([]); goPage(pages.length - 1); return; }
+        if (a === "delpg" && pages.length > 1) {
+          if (!strokes.length || b.dataset.sure === "1") { sync(); pages.splice(pi, 1); pi = Math.min(pi, pages.length - 1); strokes = pages[pi]; redo.length = 0; paint(); }
+          else { b.dataset.sure = "1"; b.textContent = "Segur?"; setTimeout(() => { if (b.isConnected) { b.dataset.sure = ""; b.textContent = "－ Paper"; } }, 2500); }
+          return;
+        }
         if (a === "undo" && strokes.length) { redo.push(strokes.pop()); paint(); }
         if (a === "redo" && redo.length) { strokes.push(redo.pop()); paint(); }
         if (a === "grid") { grid = !grid; paint(); }
@@ -316,13 +352,16 @@
         if (a === "save") {
           b.disabled = true; b.textContent = "Desant…";
           const r = host.getBoundingClientRect(); const w = W0 || Math.round(r.width);
-          const out = { w, g: grid ? 1 : 0, s: strokes.map((st) => ({ t: st.t, c: st.c, w: st.w, p: st.p.map((v) => Math.round(v * 10) / 10) })) };
-          try { await onSave(out, await exportPng(out.s)); close(); } catch (err) { b.disabled = false; b.textContent = "Desa"; console.warn(err); }
+          sync();
+          const clean = (st) => ({ t: st.t, c: st.c, w: st.w, p: st.p.map((v) => Math.round(v * 10) / 10) });
+          const pg = pages.filter((x, i) => x.length || i === 0).map((x) => x.map(clean));
+          const out = { w, g: grid ? 1 : 0, pg };
+          try { await onSave(out, await exportPng(pg)); close(); } catch (err) { b.disabled = false; b.textContent = "Desa"; console.warn(err); }
         }
       });
       window.addEventListener("resize", onRs); window.addEventListener("orientationchange", onRs); requestAnimationFrame(() => { fit(); size(); });
     }
-    return { open, exportPng };
+    return { open, exportPng, count };
   })();
   G.FQBoard = Board;
 
@@ -340,7 +379,7 @@
     return `<div class="wl wl-text" data-wl="${i}"${lab}${ln.ph ? ` data-ph="${esc(ln.ph)}"` : ""}>${ln.lab ? `<span class="wl-tag">${esc(ln.lab)}</span>` : ""}<textarea class="ws-text" rows="${ln.rows || 2}" data-wt${ln.ph ? ` placeholder="${esc(ln.ph)}"` : ""}${dis}>${esc(ln.v || "")}</textarea>${i > 0 ? del : ""}</div>`;
   }
   let curPhotos = [];
-  const boardHas = (a) => !!(a && a.board && a.board.s && a.board.s.length);
+  const boardHas = (a) => !!(a && a.board && Board.count(a.board));
   function boardHtml(fid, a, ro) {
     const ph = curPhotos.filter((p) => p.item === fid);
     const prev = ph.length ? `<span class="bprev">${ph.map((p) => `<img alt="Pissarra" data-src="${esc(p.path)}">`).join("")}</span>` : "";
@@ -480,7 +519,7 @@
   }
   function answerSummary(spec, fid, a) {
     const f = spec.fields[fid]; if (!a) return "";
-    if (f.k === "work") return ((a.board && a.board.s && a.board.s.length) ? "[pissarra: dibuix adjunt] " : "") + (a.lines || []).map((l) => { const lb = l.lab ? l.lab + ": " : ""; const t = l.t === "math" ? (l.v ? `[${l.v}]` : "") : l.t === "res" ? (l.v ? `${l.v} ${l.u || ""}` : "") : l.t === "chain" ? ((l.factors || []).some((x) => x.nv || x.dv) || l.rv ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : "") : l.v; return t ? lb + t : ""; }).filter(Boolean).join(" | ");
+    if (f.k === "work") return (boardHas(a) ? `[pissarra: dibuix adjunt${(a.board.pg || []).length > 1 ? `, ${a.board.pg.length} papers` : ""}] ` : "") + (a.lines || []).map((l) => { const lb = l.lab ? l.lab + ": " : ""; const t = l.t === "math" ? (l.v ? `[${l.v}]` : "") : l.t === "res" ? (l.v ? `${l.v} ${l.u || ""}` : "") : l.t === "chain" ? ((l.factors || []).some((x) => x.nv || x.dv) || l.rv ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : "") : l.v; return t ? lb + t : ""; }).filter(Boolean).join(" | ");
     if (f.coef) return a.v ? `[${a.v}]` : "[ ]";
     if (f.k === "check") return a.v ? "[x]" : "[ ]";
     return String(a.v ?? "");
