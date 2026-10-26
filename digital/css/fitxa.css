@@ -186,3 +186,31 @@ math-field.mf:focus-within{border-color:var(--acc)}
 .ws-auto p{margin:0}
 .ws-auto-g .ws-auto{border-style:solid}
 .ws .chip{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:0 9px;margin:2px 1px;font-size:.88em;font-weight:600}
+/* ---- respostes adaptades al tipus de pregunta (apartats, factors de conversió, equacions, problemes) ---- */
+.wsh .subs{display:grid;gap:8px;margin-top:6px}
+.wsh .subq{display:grid;grid-template-columns:26px minmax(0,1fr);gap:4px 8px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--acc) 3%,var(--surface))}
+.wsh .subq .sl{font-weight:800;color:var(--acc);padding-top:1px}
+.wsh .subq .st{min-width:0}
+.wsh .subq .sa{grid-column:2;min-width:0}
+.work.sub .ws-text{min-height:2.4em}
+.work.scaf>.wl{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--surface)}
+.work.scaf>.wl-math,.work.scaf>.wl-chain{background:color-mix(in srgb,var(--acc) 4%,var(--surface))}
+.wl-text .wl-tag{margin-bottom:2px}
+.wl-res{border:1.5px solid color-mix(in srgb,var(--acc) 45%,var(--line));border-radius:10px;padding:8px 10px;display:flex!important;flex-wrap:wrap;gap:8px;align-items:center;background:color-mix(in srgb,var(--acc) 7%,var(--surface))}
+.wl-res .ws-final{display:inline-flex;gap:6px;align-items:center}
+.wl-res .ws-in.v{width:8.5rem}.wl-res .ws-in.u{width:6.5rem}
+.wsh .eqw{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:1.08rem;margin:4px 0;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--acc) 6%,var(--surface));border:1px dashed color-mix(in srgb,var(--acc) 40%,var(--line))}
+.wsh .eqw .eqs{font-weight:600;margin-right:2px}
+.wsh .eqw .eqp,.wsh .eqw .eqa{color:var(--muted);font-weight:700;margin:0 2px}
+.wsh .eqw .eqc.fixed{font-weight:700}
+.ws-in.coef{width:2.6rem;text-align:center;font-weight:700;padding:4px 2px;font-size:1rem}
+.ws-in.coef:placeholder-shown{border-style:dashed}
+.ws-in.cellf.wide{width:min(16rem,100%)}
+.wsh .ws-chain .ws-final .ws-in.v{width:6rem}
+@media (max-width:620px){.wsh .subq{grid-template-columns:22px minmax(0,1fr);padding:8px}.wl-res .ws-in.v{width:7rem}}
+.work.sub .wadd{display:none}.work.sub:focus-within .wadd,.work.sub:hover .wadd{display:flex}
+.wsh .ws-chain .ws-in.v{width:4.6rem}.wsh .ws-chain .ws-in.u{width:4.2rem}
+.wsh .ws-chain{row-gap:6px}
+.legacy{border:1px dashed var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:4px}
+.wsh .ws-chain .ws-in::placeholder,.wl-res .ws-in::placeholder{font-size:.82em}
+.wsh .wl-chain{padding-bottom:4px}.wsh .wl-chain .ws-calc:empty{display:none}

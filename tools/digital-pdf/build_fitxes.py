@@ -20,6 +20,48 @@ SKIP_FILE = re.compile(r"mapa-conceptual|rubriques|formulari|glossari|enquesta|l
 def extra_widgets(key, body):
     pass
 
+
+# ---------------- widgets adaptats a cada tipus de pregunta ----------------
+UT = r"(?:°C|mmHg|kWh|kcal|cal|atm|bar|hPa|kPa|Pa|mol|min|dies|dia|[kKhdcmµn]?(?:m|g|L|s|J|W|N)|h|K|t)[²³]?"
+UNIT = UT + r"(?:/" + UT + r")?"
+NUM = r"-?\d[\d.]*(?:,\d+)?(?:\s?·\s?10[⁰¹²³⁴⁵⁶⁷⁸⁹⁻]+)?"
+QTY = re.compile(r"(?<![\w,.·])(" + NUM + r")\s?(" + UNIT + r")(?![\w/²³])")
+TGT = re.compile(r"(?:\b(?:a|en)\s+|passa-ho a\s+)(" + UNIT + r")(?![\w/²³])")
+SP = r"(?:\d+\s)?(?:[A-Z][a-z]?[₀-₉]*|\((?:[A-Z][a-z]?[₀-₉]*)+\)[₀-₉]*)+"
+EQN = re.compile(r"(" + SP + r"(?:\s*\+\s*" + SP + r")*)\s*→\s*((?:" + SP + r"(?:\s*\+\s*" + SP + r")*)?(?:\s*…)?(?:\s*\+\s*" + SP + r")*)")
+CALCV = re.compile(r"\b(calcula|calculeu|quant[ae]?s?|quina|quines|quin|quins|troba|determina|a quina|en quant|quanta)\b", re.I)
+CONV = re.compile(r"\bfactors?\b|(?<!li )(?<!què )\bpassa(?:-ho|-la|-les|-los)?\s+(?:a|en)\b|(?<!li )(?<!què )\bpassa a\b|\bpasseu\b|\bexpressa\b|converteix|canvia d'unitat|unitats? del SI", re.I)
+CALCQ = re.compile(r"\b(calcula|calculeu|quant[ae]?s?\b|quin(?:a|s|es)? (?:volum|massa|pressió|temperatura|concentració|densitat|velocitat|energia|calor|força|distància|temps|molaritat|percentatge|potència|acceleració|empenta|altura|superfície|cost|preu|rendiment|intensitat)|a quina (?:temperatura|altura|velocitat|profunditat)|de quin (?:metall|material|líquid)|quin pot ser|és d'or|troba|determina)", re.I)
+NOCALC = re.compile(r"dissenya|variable|classifica|ordena|hipòtesi|en quin estat|creieu|creus|prediu|marca", re.I)
+EXPL = re.compile(r"per què|explica|justifica|raona|què passa|compara|interpreta|conclusió|com ", re.I)
+
+def plain(el):
+    """Text pla d'un fragment HTML, amb les unitats apilades (span.uf) escrites com a a/b."""
+    frag = BeautifulSoup(str(el), "html.parser")
+    for uf in frag.select("span.uf"):
+        sp = uf.find_all("span", recursive=False)
+        if len(sp) == 2: uf.replace_with(f"{sp[0].get_text()}/{sp[1].get_text()}")
+    return re.sub(r"\s+", " ", frag.get_text(" ", strip=True)).replace(" /", "/").replace("/ ", "/")
+
+def num_si(v):
+    v = v.replace(" ", "")
+    return v.replace(".", "") if re.fullmatch(r"-?\d{1,3}(\.\d{3})+(,\d+)?", v) else v
+
+def split_subs(html):
+    """Separa «a) … b) …» (o «a. … b. …») d'un paràgraf. Retorna (intro, [(lletra, html), …]) o None."""
+    marks = []; want = "a"; pos = 0
+    for m in re.finditer(r"(?:(?<=^)|(?<=[\s>(;:.,]))([a-h])[).]\s", html):
+        if m.group(1) == want and m.start() >= pos:
+            marks.append(m); want = chr(ord(want) + 1); pos = m.end()
+    if len(marks) < 2: return None
+    intro = html[:marks[0].start()]
+    subs = []
+    for i, m in enumerate(marks):
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(html)
+        subs.append((m.group(1), html[m.end():end].strip().rstrip(";").strip()))
+    # tanca etiquetes obertes a la introducció (p. ex. <b> sense tancar)
+    return BeautifulSoup(intro, "html.parser").decode(), [(l, BeautifulSoup(h, "html.parser").decode()) for l, h in subs]
+
 DRAW = re.compile(r"\b(pinta|esbós|representeu|dibuixa|dibuixeu|dibuix|esquema|representa gràficament|enganxa|fes la gràfica|dibuixa la gràfica|construeix la gràfica|traça)", re.I)
 GRAPH = re.compile(r"\b(Representa (la|les|el|els) |Dibuixa la gràfica|fes (la|una) gràfica|construeix (la|una) gràfica|fes un dibuix|fes un esquema)", re.I)
 
@@ -134,6 +176,118 @@ for key, (fn, teacher) in D.items():
                     shutil.copy2(p, os.path.join(IMGDIR, os.path.basename(p))); im["src"] = "fimg/" + os.path.basename(p)
         return el
 
+
+    sn = [0]
+    def sfid(kind, q, **kw):
+        sn[0] += 1; i = f"s{sn[0]}"; fields[i] = {"k": kind, "q": q, **kw}; return i
+    def eq_widget(frag_html, q, ctx):
+        """Equació per ajustar: casella per al coeficient davant de cada espècie i, si cal, casella per als productes."""
+        txt = plain(frag_html)
+        ms = list(EQN.finditer(txt))
+        if not ms: return None
+        def side(sd):
+            out = []
+            for sp in [x.strip() for x in sd.split("+") if x.strip()]:
+                if sp == "…":
+                    i = sfid("cell", q, wide=1, ph="productes"); out.append(f'<span class="fld" data-fid="{i}"></span>'); continue
+                mm = re.match(r"(\d+)\s(.+)", sp)
+                if mm: out.append(f'<span class="eqc fixed">{mm.group(1)}</span><span class="eqs">{mm.group(2)}</span>')
+                else:
+                    i = sfid("cell", q, coef=1); out.append(f'<span class="fld" data-fid="{i}"></span><span class="eqs">{sp}</span>')
+            return '<span class="eqp">+</span>'.join(out)
+        w = ""
+        for m in ms:
+            lhs, rhs = m.group(1), m.group(2).strip()
+            if not rhs or rhs == "…":
+                i = sfid("cell", q, wide=1, ph="productes"); R = f'<span class="fld" data-fid="{i}"></span>'
+            else: R = side(rhs)
+            w += f'<div class="eqw">{side(lhs)}<span class="eqa">→</span>{R}</div>'
+        rest = (txt[:ms[0].start()] + " " + txt[ms[-1].end():]).strip(" .;:,")
+        return w, rest
+
+    def chain_init(t, ctx):
+        """Factors de conversió preparats: quantitat de partida i unitat a què cal passar."""
+        if "\\(" in t: return None
+        qm = QTY.search(t)
+        if not qm: return None
+        if qm.group(2) in ("°C", "K") or "×" in t: return None
+        tg = [x for x in TGT.findall(t[qm.end():]) if x != qm.group(2) and x not in ("°C", "K")]
+        if not tg and not CONV.search(t) and not CONV.search(ctx): return None
+        if CALCQ.search(t) and not CONV.search(t): return None
+        if not tg and re.search(r"unitats? del SI", ctx, re.I): tg = ["SI"]
+        tg = tg or [""]
+        return [{"t": "chain", "sv": num_si(qm.group(1)), "su": qm.group(2), "rt": x or "unitat", "lab": "Factors de conversió" + (f" → {x}" if x else "")} for x in tg[:2]]
+
+    def scaffold(t, ctx, sub=False):
+        if sub: return [{"t": "math", "lab": "Càlcul"}, {"t": "res", "lab": "Resultat"}]
+        lines = [{"t": "text", "lab": "Dades", "rows": 1, "ph": "Dades amb unitats i què et demanen"},
+                 {"t": "math", "lab": "Fórmula i càlcul"}, {"t": "res", "lab": "Resultat"}]
+        if EXPL.search(t): lines.append({"t": "text", "lab": "Explicació", "rows": 2})
+        return lines
+
+    def smart(qdiv, q, ctx_title):
+        """Adapta la resposta al tipus de pregunta. Retorna True si ha creat els camps."""
+        d = qdiv.find("div", recursive=False)
+        if not d: return False
+        p = d.find("p", recursive=False)
+        others = [c for c in d.find_all(recursive=False) if c is not p]
+        if not p or not others or any(not (c.name == "div" and "lines" in (c.get("class") or [])) for c in others): return False
+        if PLAIN: return False
+        ptxt = plain(p); ctx = ctx_title + " " + ptxt
+        if DRAW.search(ptxt) or GRAPH.search(ptxt): return False
+        nlines = sum(len(c.find_all("div", class_="l")) for c in others)
+        inner = p.decode_contents(); sp = split_subs(inner)
+        def remove_lines():
+            leg = ""
+            for c in others:
+                ls = c.find_all("div", class_="l", recursive=False)
+                if ls:
+                    i = fid("work", q, rows=max(2, len(ls)), legacy=1); leg += f'<div class="fld" data-fid="{i}"></div>'
+                c.decompose()
+            if leg: d.append(BeautifulSoup(leg, "html.parser"))
+        if sp:
+            intro, subs = sp
+            if len(subs) > 8: return False
+            rows = []
+            for letter, h in subs:
+                t = plain(h); w = ""
+                if "→" in t and re.search(r"ajust|complet|formula", ctx, re.I):
+                    r = eq_widget(h, q, ctx)
+                    if r:
+                        ew, rest = r
+                        rows.append(f'<div class="subq"><span class="sl">{letter})</span><div class="st">{ew}' + (f'<div class="small">{rest}</div>' if rest and len(rest) > 2 else "") + "</div></div>"); continue
+                if (CONV.search(ctx) or TGT.search(t)) and QTY.search(t):
+                    init = chain_init(t, ctx)
+                    if init: i = sfid("work", q, init=init, sub=1); w = f'<div class="fld" data-fid="{i}"></div>'
+                if not w and CALCQ.search(t) and re.search(r"\d", t + ptxt) and not NOCALC.search(t):
+                    i = sfid("work", q, init=scaffold(t, ctx, True), sub=1); w = f'<div class="fld" data-fid="{i}"></div>'
+                if not w:
+                    i = sfid("work", q, rows=1, sub=1); w = f'<div class="fld" data-fid="{i}"></div>'
+                rows.append(f'<div class="subq"><span class="sl">{letter})</span><div class="st">{h}</div><div class="sa">{w}</div></div>')
+            extra = ""
+            if re.search(r"ajust|complet", ctx, re.I) and re.search(r"escriu|proporci|llegeix|quants|per què|explica", intro + " " + ptxt.split("a)")[-1][-120:], re.I):
+                i = sfid("work", q, rows=2); extra = f'<div class="fld" data-fid="{i}"></div>'
+            new = BeautifulSoup(f'<p>{intro}</p><div class="subs">{"".join(rows)}</div>{extra}', "html.parser")
+            p.replace_with(new); remove_lines(); return True
+        # sense apartats
+        if "→" in ptxt and re.search(r"ajusta", ptxt, re.I) and not re.search(r"escriu i ajusta", ptxt, re.I):
+            r = eq_widget(inner, q, ctx)
+            if r:
+                ew, rest = r
+                i = sfid("work", q, rows=2)
+                p.insert_after(BeautifulSoup(ew + f'<div class="fld" data-fid="{i}"></div>', "html.parser")); remove_lines(); return True
+        if re.search(r"escriu i ajusta|escriu.{0,40}equació", ptxt, re.I):
+            init = [{"t": "text", "lab": "Equació ajustada", "rows": 1, "ph": "Ex.: 2 H₂ + O₂ → 2 H₂O"}]
+            if "?" in ptxt or EXPL.search(ptxt): init.append({"t": "text", "lab": "Resposta", "rows": 2})
+            i = sfid("work", q, init=init); p.insert_after(BeautifulSoup(f'<div class="fld" data-fid="{i}"></div>', "html.parser")); remove_lines(); return True
+        if CONV.search(ptxt) and len(QTY.findall(ptxt)) == 1 and not CALCV.search(ptxt):
+            init = chain_init(ptxt, ctx)
+            if init:
+                i = sfid("work", q, init=init); p.insert_after(BeautifulSoup(f'<div class="fld" data-fid="{i}"></div>', "html.parser")); remove_lines(); return True
+        if CALCQ.search(ptxt) and QTY.search(ptxt) and nlines >= 2 and not NOCALC.search(ptxt):
+            i = sfid("work", q, init=scaffold(ptxt, ctx)); p.insert_after(BeautifulSoup(f'<div class="fld" data-fid="{i}"></div>', "html.parser")); remove_lines(); return True
+        return False
+
     html = []
     for kind, b in blocks:
         if kind == "raw":
@@ -160,6 +314,8 @@ for key, (fn, teacher) in D.items():
             html.append(str(el)); continue
         q = b["q"]
         qs[q] = text(b["els"][0])[:1200]  # (s'actualitza abans de convertir: el text de dibuix decideix foto)
+        try: smart(b["els"][0], q, title + " " + sec)
+        except Exception as ex: print("  avís smart", key, q, ex)
         inner = []
         for el in b["els"]: inner.append(str(convert(el, q)))
         has_photo = any(f["k"] == "photo" and f["q"] == q for f in fields.values())
