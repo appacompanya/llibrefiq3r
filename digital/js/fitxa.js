@@ -213,23 +213,132 @@
     u.onend = () => setPlaying(false); G.speechSynthesis.speak(u); setPlaying(true);
   }
 
+
+  /* ================= Pissarra: tota la pantalla per escriure i dibuixar a mà ================= */
+  const Board = (function () {
+    const COLS = ["#1f2328", "#2563eb", "#dc2626"];
+    function drawStroke(c, st, k, ox = 0, oy = 0) {
+      const P = st.p; if (!P || !P.length) return;
+      c.strokeStyle = st.c; c.fillStyle = st.c; c.lineWidth = (st.w || 2.6) * k; c.lineCap = "round"; c.lineJoin = "round";
+      const X = (i) => (P[i] - ox) * k, Y = (i) => (P[i + 1] - oy) * k;
+      c.beginPath(); c.moveTo(X(0), Y(0));
+      const L = P.length - 2;
+      if (st.t === "l" || st.t === "a") { c.lineTo(X(L), Y(L)); c.stroke(); }
+      else if (P.length === 2) { c.arc(X(0), Y(0), c.lineWidth / 2, 0, 7); c.fill(); return; }
+      else { for (let i = 2; i < L; i += 2) { const mx = (X(i) + X(i + 2)) / 2, my = (Y(i) + Y(i + 2)) / 2; c.quadraticCurveTo(X(i), Y(i), mx, my); } c.lineTo(X(L), Y(L)); c.stroke(); }
+      if (st.t === "a" && P.length >= 4) {
+        const x1 = X(0), y1 = Y(0), x2 = X(L), y2 = Y(L), a = Math.atan2(y2 - y1, x2 - x1), h = Math.max(10 * k, c.lineWidth * 4);
+        c.beginPath(); c.moveTo(x2, y2); c.lineTo(x2 - h * Math.cos(a - 0.45), y2 - h * Math.sin(a - 0.45)); c.lineTo(x2 - h * Math.cos(a + 0.45), y2 - h * Math.sin(a + 0.45)); c.closePath(); c.fill();
+      }
+    }
+    function bbox(strokes) {
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      strokes.forEach((st) => { for (let i = 0; i < st.p.length; i += 2) { x0 = Math.min(x0, st.p[i]); x1 = Math.max(x1, st.p[i]); y0 = Math.min(y0, st.p[i + 1]); y1 = Math.max(y1, st.p[i + 1]); } });
+      return isFinite(x0) ? [x0, y0, x1, y1] : null;
+    }
+    /* imatge retallada a la zona escrita, traç fosc sobre blanc, com a màxim 1200 px: llegible i lleugera */
+    function exportPng(strokes) {
+      const bb = bbox(strokes); if (!bb) return Promise.resolve(null);
+      const pad = 18, w = bb[2] - bb[0] + 2 * pad, h = bb[3] - bb[1] + 2 * pad, k = Math.min(1.6, 1200 / Math.max(w, h));
+      const cv = document.createElement("canvas"); cv.width = Math.max(1, Math.round(w * k)); cv.height = Math.max(1, Math.round(h * k));
+      const c = cv.getContext("2d"); c.fillStyle = "#fff"; c.fillRect(0, 0, cv.width, cv.height);
+      strokes.forEach((st) => drawStroke(c, st, k, bb[0] - pad, bb[1] - pad));
+      return new Promise((res) => cv.toBlob((b) => res(b ? new File([b], "pissarra.png", { type: "image/png" }) : null), "image/png"));
+    }
+    function open({ data, title, onSave }) {
+      const W0 = data && data.w ? data.w : null;
+      let strokes = (data && data.s ? data.s : []).map((x) => ({ ...x, p: [...x.p] })); const redo = [];
+      let tool = "pen", col = COLS[0], grid = data ? data.g !== 0 : true, penSeen = false;
+      const ov = document.createElement("div"); ov.className = "pz"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-label", "Pissarra");
+      ov.innerHTML = `<div class="pz-bar">
+        <div class="pz-g">${[["pen", "✏️", "Llapis"], ["arrow", "↗", "Fletxa (forces, vectors)"], ["line", "╱", "Línia recta"], ["erase", "⌫", "Goma: toca un traç per esborrar-lo"]].map(([t, i, l]) => `<button type="button" data-tool="${t}" title="${l}" aria-label="${l}">${i}</button>`).join("")}</div>
+        <div class="pz-g">${COLS.map((c) => `<button type="button" class="sw" data-col="${c}" style="--c:${c}" aria-label="Color"></button>`).join("")}</div>
+        <div class="pz-g"><button type="button" data-act="undo" title="Desfés" aria-label="Desfés">↶</button><button type="button" data-act="redo" title="Refés" aria-label="Refés">↷</button><button type="button" data-act="grid" title="Quadrícula" aria-label="Quadrícula">▦</button><button type="button" data-act="clear" title="Esborra-ho tot" aria-label="Esborra-ho tot">🗑</button></div>
+        <span class="pz-t">${esc(title || "")}</span>
+        <div class="pz-g end"><button type="button" class="pz-x" data-act="cancel">Cancel·la</button><button type="button" class="pz-ok" data-act="save">Desa</button></div></div>
+        <div class="pz-c"><canvas></canvas></div>`;
+      document.body.appendChild(ov); document.documentElement.classList.add("pz-on");
+      const host = ov.querySelector(".pz-c"), cv = ov.querySelector("canvas"), c = cv.getContext("2d");
+      let k = 1, cur = null;
+      function size() {
+        const r = host.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+        cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr); cv.style.width = r.width + "px"; cv.style.height = r.height + "px";
+        k = W0 ? r.width / W0 : 1; c.setTransform(dpr, 0, 0, dpr, 0, 0); paint();
+      }
+      function paint() {
+        const r = host.getBoundingClientRect(); c.clearRect(0, 0, r.width, r.height);
+        if (grid) { c.strokeStyle = "#e3e8ef"; c.lineWidth = 1; c.beginPath(); for (let x = 24; x < r.width; x += 24) { c.moveTo(x + .5, 0); c.lineTo(x + .5, r.height); } for (let y = 24; y < r.height; y += 24) { c.moveTo(0, y + .5); c.lineTo(r.width, y + .5); } c.stroke(); }
+        strokes.forEach((st) => drawStroke(c, st, k)); if (cur) drawStroke(c, cur, k);
+        ov.querySelectorAll("[data-tool]").forEach((b) => b.classList.toggle("on", b.dataset.tool === tool));
+        ov.querySelectorAll("[data-col]").forEach((b) => b.classList.toggle("on", b.dataset.col === col));
+        ov.querySelector('[data-act="grid"]').classList.toggle("on", grid);
+      }
+      const pt = (e) => { const r = cv.getBoundingClientRect(); return [Math.round((e.clientX - r.left) / k * 10) / 10, Math.round((e.clientY - r.top) / k * 10) / 10]; };
+      function eraseAt(p) { const R = 12 / k; const n = strokes.length; strokes = strokes.filter((st) => { for (let i = 0; i < st.p.length; i += 2) if (Math.hypot(st.p[i] - p[0], st.p[i + 1] - p[1]) < R) return false; if (st.t !== "f" && st.p.length >= 4) { const [x1, y1] = st.p, x2 = st.p[st.p.length - 2], y2 = st.p[st.p.length - 1]; const L = Math.hypot(x2 - x1, y2 - y1) || 1; const t = Math.max(0, Math.min(1, ((p[0] - x1) * (x2 - x1) + (p[1] - y1) * (y2 - y1)) / (L * L))); if (Math.hypot(x1 + t * (x2 - x1) - p[0], y1 + t * (y2 - y1) - p[1]) < R) return false; } return true; }); if (strokes.length !== n) { redo.length = 0; paint(); } }
+      cv.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "pen") penSeen = true; else if (penSeen && e.pointerType === "touch") return; // el palmell no pinta si s'usa llapis
+        cv.setPointerCapture(e.pointerId); const p = pt(e);
+        if (tool === "erase") { eraseAt(p); cur = { erase: true }; return; }
+        cur = { t: tool === "pen" ? "f" : tool === "arrow" ? "a" : "l", c: col, w: 2.6, p: [...p, ...(tool === "pen" ? [] : p)] }; paint();
+      });
+      cv.addEventListener("pointermove", (e) => {
+        if (!cur) return; const p = pt(e);
+        if (cur.erase) { eraseAt(p); return; }
+        if (cur.t === "f") { const n = cur.p.length; if (Math.hypot(cur.p[n - 2] - p[0], cur.p[n - 1] - p[1]) >= 1.5 / k) cur.p.push(p[0], p[1]); }
+        else { cur.p[2] = p[0]; cur.p[3] = p[1]; }
+        paint();
+      });
+      const end = () => { if (cur && !cur.erase && cur.p.length >= 2) { strokes.push(cur); redo.length = 0; } cur = null; paint(); };
+      cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
+      function close() { window.removeEventListener("resize", size); document.documentElement.classList.remove("pz-on"); ov.remove(); }
+      ov.addEventListener("click", async (e) => {
+        const b = e.target.closest("button"); if (!b) return;
+        if (b.dataset.tool) { tool = b.dataset.tool; paint(); return; }
+        if (b.dataset.col) { col = b.dataset.col; if (tool === "erase") tool = "pen"; paint(); return; }
+        const a = b.dataset.act;
+        if (a === "undo" && strokes.length) { redo.push(strokes.pop()); paint(); }
+        if (a === "redo" && redo.length) { strokes.push(redo.pop()); paint(); }
+        if (a === "grid") { grid = !grid; paint(); }
+        if (a === "clear" && strokes.length) { if (b.dataset.sure === "1") { redo.push(...strokes.reverse()); strokes = []; b.dataset.sure = ""; b.textContent = "🗑"; paint(); } else { b.dataset.sure = "1"; b.textContent = "Segur?"; setTimeout(() => { b.dataset.sure = ""; b.textContent = "🗑"; }, 2500); } }
+        if (a === "cancel") close();
+        if (a === "save") {
+          b.disabled = true; b.textContent = "Desant…";
+          const r = host.getBoundingClientRect(); const w = W0 || Math.round(r.width);
+          const out = { w, g: grid ? 1 : 0, s: strokes.map((st) => ({ t: st.t, c: st.c, w: st.w, p: st.p.map((v) => Math.round(v * 10) / 10) })) };
+          try { await onSave(out, await exportPng(out.s)); close(); } catch (err) { b.disabled = false; b.textContent = "Desa"; console.warn(err); }
+        }
+      });
+      window.addEventListener("resize", size); requestAnimationFrame(size);
+    }
+    return { open, exportPng };
+  })();
+  G.FQBoard = Board;
+
   /* ================= Fitxes convertides dels fulls (spec.html) ================= */
   function workLineHtml(ln, i, ro) {
     const dis = ro ? " disabled" : "";
     const lab = ln.lab ? ` data-lab="${esc(ln.lab)}"` : "";
     const del = ro || ln.lab ? "" : `<button type="button" class="wl-x" data-wdel="${i}" aria-label="Treu aquesta línia">${ICON.x}</button>`;
-    if (ln.t === "res") return `<div class="wl wl-res" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Resultat")}</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-rk="v" value="${esc(ln.v || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-rk="u" value="${esc(ln.u || "")}" placeholder="${esc(ln.ut || "unitat")}"${dis}></span>${del}</div>`;
-    if (ln.t === "math") return `<div class="wl wl-math" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Equació")}</span><div class="mtools">${ro ? "" : '<button type="button" data-ins="\\frac{#@}{#?}" title="Fracció">a/b</button><button type="button" data-ins="\\cdot 10^{#?}" title="Potència de 10">·10ⁿ</button><button type="button" data-ins="#@^{#?}" title="Potència">xⁿ</button><button type="button" data-ins="\\cdot" title="Per">·</button><button type="button" data-ins="\\left(#?\\right)" title="Parèntesis">( )</button><button type="button" data-ins="\\sqrt{#?}" title="Arrel">√</button><button type="button" data-ins="\\Delta" title="Increment">Δ</button>'}</div><math-field class="mf" math-virtual-keyboard-policy="manual"${ro ? " read-only" : ""}>${esc(ln.v || "")}</math-field><output class="ws-calc" data-calc></output>${del}</div>`;
+    if (ln.t === "res") return `<div class="wl wl-res" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Resultat")}</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-rk="v" value="${esc(ln.v || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-rk="u" value="${esc(ln.u || "")}" placeholder="${esc(ln.ut || "unitat")}"${dis}></span><span class="lchk" aria-live="polite"></span>${del}</div>`;
+    if (ln.t === "math") return `<div class="wl wl-math" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Equació")}</span><div class="mtools">${ro ? "" : '<button type="button" data-ins="\\frac{#@}{#?}" title="Fracció">a/b</button><button type="button" data-ins="\\cdot 10^{#?}" title="Potència de 10">·10ⁿ</button><button type="button" data-ins="#@^{#?}" title="Potència">xⁿ</button><button type="button" data-ins="\\cdot" title="Per">·</button><button type="button" data-ins="\\left(#?\\right)" title="Parèntesis">( )</button><button type="button" data-ins="\\sqrt{#?}" title="Arrel">√</button><button type="button" data-ins="\\Delta" title="Increment">Δ</button>'}</div><math-field class="mf" math-virtual-keyboard-policy="manual"${ro ? " read-only" : ""}>${esc(ln.v || "")}</math-field><output class="ws-calc" data-calc></output><span class="lchk" aria-live="polite"></span>${del}</div>`;
     if (ln.t === "chain") {
       const fs = ln.factors && ln.factors.length ? ln.factors : [{ nv: "", nu: "", dv: "", du: "" }];
-      return `<div class="wl wl-chain" data-wl="${i}"${lab}${ln.rt ? ` data-rt="${esc(ln.rt)}"` : ""}><span class="wl-tag">${esc(ln.lab || "Factors de conversió")}</span><div class="ws-chain"><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="sv" value="${esc(ln.sv || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-ck="su" value="${esc(ln.su || "")}" placeholder="unitat"${dis}></span>${fs.map((f, j) => `<span class="dot">·</span><span class="frac" data-f="${j}"><span class="fn"><input class="ws-in v" inputmode="decimal" data-fk="nv" value="${esc(f.nv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="nu" value="${esc(f.nu)}" placeholder="unitat"${dis}></span><span class="fd"><input class="ws-in v" inputmode="decimal" data-fk="dv" value="${esc(f.dv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="du" value="${esc(f.du)}" placeholder="unitat"${dis}></span>${ro ? "" : `<button type="button" class="fx" data-fdel="${j}" aria-label="Treu el factor">${ICON.x}</button>`}<i class="fchk" data-fchk="${j}"></i></span>`).join("")}${ro ? "" : '<button type="button" class="addf" data-fadd>+ factor</button>'}<span class="eq">=</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="rv" value="${esc(ln.rv || "")}" placeholder="resultat"${dis}><input class="ws-in u" list="fq-units" data-ck="ru" value="${esc(ln.ru || "")}" placeholder="${esc(ln.rt || "unitat")}"${dis}></span></div><output class="ws-calc" data-calc></output>${del}</div>`;
+      return `<div class="wl wl-chain" data-wl="${i}"${lab}${ln.rt ? ` data-rt="${esc(ln.rt)}"` : ""}><span class="wl-tag">${esc(ln.lab || "Factors de conversió")}</span><div class="ws-chain"><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="sv" value="${esc(ln.sv || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-ck="su" value="${esc(ln.su || "")}" placeholder="unitat"${dis}></span>${fs.map((f, j) => `<span class="dot">·</span><span class="frac" data-f="${j}"><span class="fn"><input class="ws-in v" inputmode="decimal" data-fk="nv" value="${esc(f.nv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="nu" value="${esc(f.nu)}" placeholder="unitat"${dis}></span><span class="fd"><input class="ws-in v" inputmode="decimal" data-fk="dv" value="${esc(f.dv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="du" value="${esc(f.du)}" placeholder="unitat"${dis}></span>${ro ? "" : `<button type="button" class="fx" data-fdel="${j}" aria-label="Treu el factor">${ICON.x}</button>`}<i class="fchk" data-fchk="${j}"></i></span>`).join("")}${ro ? "" : '<button type="button" class="addf" data-fadd>+ factor</button>'}<span class="eq">=</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="rv" value="${esc(ln.rv || "")}" placeholder="resultat"${dis}><input class="ws-in u" list="fq-units" data-ck="ru" value="${esc(ln.ru || "")}" placeholder="${esc(ln.rt || "unitat")}"${dis}></span><span class="lchk" aria-live="polite"></span></div><output class="ws-calc" data-calc></output>${del}</div>`;
     }
     return `<div class="wl wl-text" data-wl="${i}"${lab}${ln.ph ? ` data-ph="${esc(ln.ph)}"` : ""}>${ln.lab ? `<span class="wl-tag">${esc(ln.lab)}</span>` : ""}<textarea class="ws-text" rows="${ln.rows || 2}" data-wt${ln.ph ? ` placeholder="${esc(ln.ph)}"` : ""}${dis}>${esc(ln.v || "")}</textarea>${i > 0 ? del : ""}</div>`;
   }
+  let curPhotos = [];
+  const boardHas = (a) => !!(a && a.board && a.board.s && a.board.s.length);
+  function boardHtml(fid, a, ro) {
+    const ph = curPhotos.filter((p) => p.item === fid);
+    const prev = ph.length ? `<span class="bprev">${ph.map((p) => `<img alt="Pissarra" data-src="${esc(p.path)}">`).join("")}</span>` : "";
+    if (ro) return prev ? `<div class="bwrap">${prev}</div>` : "";
+    return `<div class="bwrap">${prev}<button type="button" class="bbtn" data-board="${fid}">${boardHas(a) ? "✏️ Continua a la pissarra" : "✏️ Pissarra: escriu i dibuixa a mà"}</button></div>`;
+  }
   function workHtml(fid, f, a, ro) {
     const lines = a && a.lines && a.lines.length ? a.lines : (f.init && f.init.length ? f.init.map((x) => ({ ...x, factors: x.t === "chain" ? [{ nv: "", nu: "", dv: "", du: "" }] : undefined })) : [{ t: "text", v: "", rows: f.rows || 2 }]);
-    if (ro && !(a && a.lines)) return `<div class="work ro" data-fid="${fid}"><div class="wl wl-text"><textarea class="ws-text" rows="${f.rows || 2}" disabled></textarea></div></div>`;
-    return `<div class="work${f.init ? " scaf" : ""}${f.sub ? " sub" : ""}" data-fid="${fid}">${lines.map((ln, i) => workLineHtml(ln, i, ro)).join("")}${ro || f.plain ? "" : `<div class="wadd"><button type="button" data-wadd="text">+ text</button><button type="button" data-wadd="math">+ equació</button><button type="button" data-wadd="chain">+ factors de conversió</button><button type="button" data-wadd="res">+ resultat</button></div>`}</div>`;
+    if (ro && !(a && a.lines)) return `<div class="work ro" data-fid="${fid}"><div class="wl wl-text"><textarea class="ws-text" rows="${f.rows || 2}" disabled></textarea></div>${boardHtml(fid, a, ro)}</div>`;
+    return `<div class="work${f.init ? " scaf" : ""}${f.sub ? " sub" : ""}" data-fid="${fid}">${lines.map((ln, i) => workLineHtml(ln, i, ro)).join("")}${ro || f.plain ? "" : `<div class="wadd"><button type="button" data-wadd="text">+ text</button><button type="button" data-wadd="math">+ equació</button><button type="button" data-wadd="chain">+ factors de conversió</button><button type="button" data-wadd="res">+ resultat</button></div>`}${f.plain ? "" : boardHtml(fid, a, ro)}</div>`;
   }
   function photoFieldHtml(fid, f, photos, ro) {
     const ps = photos.filter((p) => p.item === fid);
@@ -264,7 +373,7 @@
   }
   function renderHtml(host, key, opts) {
     const spec = G.FITXES[key]; const ro = !!opts.readonly; const answers = { ...(opts.answers || {}) }; let auto = !!opts.autoCalc;
-    const photos = opts.photos || []; const fb = {}; (opts.feedback || []).forEach((f) => (fb[f.item_id] = f));
+    const photos = opts.photos || []; curPhotos = photos; const fb = {}; (opts.feedback || []).forEach((f) => (fb[f.item_id] = f));
     const timers = {};
     const save = (fid, val) => { answers[fid] = val; if (ro) return; clearTimeout(timers[fid]); timers[fid] = setTimeout(() => opts.onSave && opts.onSave(fid, val), 600); };
     const wrap = document.createElement("div"); wrap.innerHTML = spec.html;
@@ -276,6 +385,7 @@
     host.querySelectorAll("img[data-src]").forEach(async (img) => { try { img.src = await opts.photoUrl(img.dataset.src); } catch {} });
     drawRadar(host, spec, answers);
 
+    const keepBoard = (fid, v) => (answers[fid] && answers[fid].board ? { ...v, board: answers[fid].board } : v);
     const readWork = (w) => ({ lines: [...w.querySelectorAll(":scope > .wl")].map((l) => {
       const lab = l.dataset.lab ? { lab: l.dataset.lab } : {};
       if (l.classList.contains("wl-math")) return { t: "math", v: l.querySelector("math-field").value, ...lab };
@@ -295,10 +405,27 @@
     host.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine);
     if (ro) return { answers };
 
+    /* comprovació en directe del resultat i dels passos (al servidor) */
+    const known = {}, ctimers = {};
+    function liveCheck(w) {
+      const fid = w.dataset.fid; if (!opts.onCheck || known[fid] === false) return;
+      clearTimeout(ctimers[fid]); ctimers[fid] = setTimeout(async () => {
+        const r = resultsOf(fid, readWork(w)); if (!r) { w.querySelectorAll(".lchk").forEach((x) => { x.className = "lchk"; x.textContent = ""; }); return; }
+        let out; try { out = await opts.onCheck(fid, { res: r.res, steps: r.steps }); } catch { return; }
+        if (!out || out.known === false) { known[fid] = false; return; }
+        known[fid] = true;
+        const mark = (el, ok) => { if (!el) return; el.className = "lchk" + (ok === true ? " ok" : ok === false ? " ko" : ""); el.textContent = ok === true ? "✓" : ok === false ? "✗" : ""; el.title = ok === true ? "Correcte" : ok === false ? "Revisa-ho" : ""; };
+        const resEls = [...w.querySelectorAll(".wl-res"), ...w.querySelectorAll(".wl-chain")].filter((l) => l.classList.contains("wl-res") ? (l.querySelector('[data-rk="v"]') || {}).value : (l.querySelector('[data-ck="rv"]') || {}).value);
+        resEls.forEach((l, i) => mark(l.querySelector(".lchk"), (out.res || [])[i]));
+        [...w.querySelectorAll(".wl-math")].filter((l) => l.querySelector("math-field").value).forEach((l, i) => mark(l.querySelector(".lchk"), (out.steps || [])[i]));
+      }, 900);
+    }
+    host.addEventListener("change", (e) => { const w = e.target.closest && e.target.closest(".work"); if (w) liveCheck(w); });
+    host.addEventListener("focusout", (e) => { const w = e.target.closest && e.target.closest(".work"); if (w && (e.target.tagName === "MATH-FIELD" || e.target.closest(".wl-res, .wl-chain"))) liveCheck(w); });
     trackPaste(host, answers, save, (t) => { if (!t.closest) return null; const w = t.closest(".work"); if (w) return w.dataset.fid; const c = t.closest("[data-cf]"); return c && c.dataset.cf; });
     host.addEventListener("input", (e) => {
       const w = e.target.closest(".work");
-      if (w) { const l = e.target.closest(".wl"); if (l) calcLine(l); save(w.dataset.fid, readWork(w)); return; }
+      if (w) { const l = e.target.closest(".wl"); if (l) calcLine(l); save(w.dataset.fid, keepBoard(w.dataset.fid, readWork(w))); return; }
       const c = e.target.closest("[data-cf]"); if (c && c.type !== "radio" && c.type !== "checkbox") save(c.dataset.cf, { v: c.value });
     });
     host.addEventListener("change", (e) => {
@@ -311,6 +438,17 @@
     host.addEventListener("click", (e) => {
       const ins = e.target.closest("[data-ins]"); if (ins) { const mf = ins.closest(".wl").querySelector("math-field"); mf.focus(); mf.executeCommand(["insert", ins.dataset.ins]); return; }
       const px = e.target.closest(".ph-x"); if (px) { opts.onRemovePhoto(px.closest(".ph").dataset.path); return; }
+      const bb = e.target.closest("[data-board]");
+      if (bb) {
+        const fid = bb.dataset.board; const w0 = bb.closest(".work");
+        Board.open({ data: (answers[fid] || {}).board, title: (spec.qs || {})[spec.fields[fid].q] ? String(spec.qs[spec.fields[fid].q]).slice(0, 140) : spec.title, onSave: async (board, file) => {
+          const val = { ...(w0 ? readWork(w0) : answers[fid] || {}), board }; answers[fid] = val; clearTimeout(timers[fid]);
+          if (opts.onSave) await opts.onSave(fid, val);
+          for (const p of photos.filter((x) => x.item === fid)) { try { await opts.onRemovePhoto(p.path); } catch {} }
+          if (file && opts.onPhoto) await opts.onPhoto(fid, file);
+        } });
+        return;
+      }
       const w = e.target.closest(".work"); if (!w) return;
       const st = readWork(w);
       const wa = e.target.closest("[data-wadd]"), wd = e.target.closest("[data-wdel]"), fa = e.target.closest("[data-fadd]"), fd = e.target.closest("[data-fdel]");
@@ -321,22 +459,32 @@
       if (fa) st.lines[li].factors.push({ nv: "", nu: "", dv: "", du: "" });
       if (fd) st.lines[li].factors.splice(+fd.dataset.fdel, 1);
       const t = document.createElement("div"); t.innerHTML = workHtml(w.dataset.fid, spec.fields[w.dataset.fid], st, false); const nw = t.firstElementChild; w.replaceWith(nw);
-      nw.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine); save(nw.dataset.fid, st);
+      nw.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine); save(nw.dataset.fid, keepBoard(nw.dataset.fid, st));
+      nw.querySelectorAll("img[data-src]").forEach(async (img) => { try { img.src = await opts.photoUrl(img.dataset.src); } catch {} });
       if (wa) { const last = nw.querySelectorAll(".wl"); const el = last[last.length - 1]; const f = el.querySelector("math-field, input, textarea"); if (f) setTimeout(() => f.focus(), 30); }
     });
     return { answers, setAuto(v) { auto = v; host.querySelectorAll(".wl-math, .wl-chain").forEach(calcLine); } };
   }
   function answerSummary(spec, fid, a) {
     const f = spec.fields[fid]; if (!a) return "";
-    if (f.k === "work") return (a.lines || []).map((l) => { const lb = l.lab ? l.lab + ": " : ""; const t = l.t === "math" ? (l.v ? `[${l.v}]` : "") : l.t === "res" ? (l.v ? `${l.v} ${l.u || ""}` : "") : l.t === "chain" ? ((l.factors || []).some((x) => x.nv || x.dv) || l.rv ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : "") : l.v; return t ? lb + t : ""; }).filter(Boolean).join(" | ");
+    if (f.k === "work") return ((a.board && a.board.s && a.board.s.length) ? "[pissarra: dibuix adjunt] " : "") + (a.lines || []).map((l) => { const lb = l.lab ? l.lab + ": " : ""; const t = l.t === "math" ? (l.v ? `[${l.v}]` : "") : l.t === "res" ? (l.v ? `${l.v} ${l.u || ""}` : "") : l.t === "chain" ? ((l.factors || []).some((x) => x.nv || x.dv) || l.rv ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : "") : l.v; return t ? lb + t : ""; }).filter(Boolean).join(" | ");
     if (f.coef) return a.v ? `[${a.v}]` : "[ ]";
     if (f.k === "check") return a.v ? "[x]" : "[ ]";
     return String(a.v ?? "");
   }
+  /* resultats (valor + unitat) i passos escrits a cada camp: es comproven al servidor */
+  function resultsOf(fid, a) {
+    if (!a || !a.lines) return null;
+    const res = a.lines.filter((l) => l.t === "res" && l.v).map((l) => ({ v: l.v, u: l.u || "" }));
+    a.lines.filter((l) => l.t === "chain" && l.rv).forEach((l) => res.push({ v: l.rv, u: l.ru || "" }));
+    const steps = a.lines.filter((l) => l.t === "math" && l.v).map((l) => l.v);
+    return res.length || steps.length ? { fid, res, steps } : null;
+  }
   function htmlItems(spec, answers) {
     return Object.entries(spec.qs).map(([q, prompt]) => {
       const fids = Object.keys(spec.fields).filter((k) => spec.fields[k].q === q);
-      return { id: q, prompt, answer: fids.map((k) => answerSummary(spec, k, answers[k])).filter(Boolean).join(" · ") || "(sense resposta)", photos: fids.filter((k) => spec.fields[k].k === "photo").length, photo_ids: fids.filter((k) => spec.fields[k].k === "photo") };
+      const pids = fids.filter((k) => spec.fields[k].k === "photo" || boardHas(answers[k]));
+      return { id: q, prompt, answer: fids.map((k) => answerSummary(spec, k, answers[k])).filter(Boolean).join(" · ") || "(sense resposta)", photos: pids.length, photo_ids: pids, results: fids.map((k) => resultsOf(k, answers[k])).filter(Boolean) };
     });
   }
 
@@ -357,7 +505,7 @@
     const pz = (answers && answers._paste) || {}; const pasted = (ids) => ids.reduce((a, k) => a + (+pz[k] || 0), 0);
     const strip = (h) => String(h || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     const expOf = (it) => typeof it.expected === "object" ? `${it.expected.v} ${it.expected.u}` : (it.expected || "");
-    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La pregunta inclou un dibuix o una gràfica que l'alumne adjunta en foto." : "", answer: x.answer, auto: null, score: null, photos: x.photos, photo_ids: x.photo_ids, pasted: pasted(Object.keys(spec.fields).filter((k) => spec.fields[k].q === x.id)) }));
+    if (spec.html) return htmlItems(spec, answers).map((x) => ({ id: x.id, prompt: x.prompt, expected: "", criteria: x.photos ? "La resposta inclou un dibuix o un càlcul fet a mà (foto o pissarra) que s'adjunta." : "", answer: x.answer, auto: null, score: null, photos: x.photos, photo_ids: x.photo_ids, results: x.results, pasted: pasted(Object.keys(spec.fields).filter((k) => spec.fields[k].q === x.id)) }));
     return spec.blocks.filter((b) => b.id).map((b) => {
       if (b.type !== "group") { const r = checkItem(b, answers[b.id]); return { pasted: pasted([b.id]), photos: b.photo ? 1 : 0, photo_ids: b.photo ? [b.id] : [], id: b.id, prompt: strip(b.prompt), expected: expOf(b), criteria: b.criteria || "", answer: answerText(b, answers[b.id]), auto: r.ok === null ? null : (r.detail ? `${r.ok ? "correcte" : "incorrecte"} (${r.detail})` : r.ok), score: r.score ?? (r.ok === null ? null : r.ok ? 1 : 0) }; }
       const parts = b.items.map((it) => ({ it, r: checkItem(it, answers[it.id]) }));
