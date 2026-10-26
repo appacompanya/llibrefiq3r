@@ -11,6 +11,8 @@ on:
       - "4t/docs/**"
       - "4t/index.html"
       - "tools/digital-pdf/**"
+      - "digital/js/**"
+      - "digital/css/**"
   workflow_dispatch:
 
 permissions:

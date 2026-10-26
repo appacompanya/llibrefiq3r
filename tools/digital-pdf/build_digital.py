@@ -12,6 +12,17 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from nivell import LEVEL, ROOT
 SRC = os.path.join(ROOT, LEVEL, "index.html")
+
+import hashlib as _hl
+def versiona(html):
+    """afegeix ?v=<hash del fitxer> als css/js compartits perquè el navegador (iPad) no faci servir versions velles"""
+    def rp(m):
+        f = os.path.join(ROOT, "digital", m.group(2))
+        try: v = _hl.sha1(open(f, "rb").read()).hexdigest()[:8]
+        except OSError: return m.group(0)
+        return f'{m.group(1)}{m.group(2)}?v={v}"'
+    return re.sub(r'(\.\./\.\./digital/)((?:css|js)/[\w-]+\.(?:css|js))(?:\?v=\w+)?"', rp, html)
+
 OUTDIR = os.path.join(ROOT, LEVEL, "digital")
 s = open(SRC, encoding="utf-8").read()
 
@@ -67,7 +78,7 @@ rep("</body>", '<script src="../../digital/js/alumne.js"></script>\n</body>')
 s = s.replace('g.href = "https://llibrefiq3r.cat/' + LEVEL + '/digital/#fitxa-" + k;', 'g.href = "#fitxa-" + k;')
 
 os.makedirs(os.path.join(OUTDIR, "js"), exist_ok=True)
-open(os.path.join(OUTDIR, "index.html"), "w", encoding="utf-8").write(s)
+open(os.path.join(OUTDIR, "index.html"), "w", encoding="utf-8").write(versiona(s))
 
 # 5) dades per a la zona del professorat
 D = json.loads(re.search(r"^const D = (\{.*?\});$", web, re.M).group(1))
@@ -124,5 +135,5 @@ h1,h2{{font-family:var(--font-display);font-weight:800;margin:0}}
 </body>
 </html>
 """
-open(os.path.join(OUTDIR, "profe.html"), "w", encoding="utf-8").write(profe)
+open(os.path.join(OUTDIR, "profe.html"), "w", encoding="utf-8").write(versiona(profe))
 print(LEVEL + "/digital:", len(keys), "fitxes digitals")
