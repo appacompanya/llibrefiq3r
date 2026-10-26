@@ -17,7 +17,7 @@ def models_atomics(A="#7A4CC2"):
     random.seed(1)
     b = ""
     labs = [("Dalton (1808)", "esfera massissa i indivisible"), ("Thomson (1904)", "esfera positiva amb electrons"), ("Rutherford (1911)", "nucli petit i dens; electrons al voltant"),
-            ("Bohr (1913)", "electrons en òrbites; d'energia fixa"), ("Actual", "orbitals: zones on és; probable trobar l'electró")]
+            ("Bohr (1913)", "òrbites d'energia fixa; (sodi: 2, 8, 1)"), ("Actual", "orbitals: zones on és; probable trobar l'electró")]
     for i, (t, s) in enumerate(labs):
         cx, cy = 62 + i * 124, 70
         if i == 0:
@@ -39,8 +39,10 @@ def models_atomics(A="#7A4CC2"):
             for r in (16, 28, 40):
                 b += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{MUT}" stroke-width="1"/>'
             b += f'<circle cx="{cx}" cy="{cy}" r="6" fill="{RED}" stroke="{INK}"/>'
-            for r, a in ((16, 0.5), (16, 3.6), (28, 1.2), (28, 2.5), (28, 4.4), (40, 5.5)):
-                b += f'<circle cx="{cx+r*math.cos(a):.0f}" cy="{cy+r*math.sin(a):.0f}" r="3.5" fill="{BLUE}"/>'
+            for r, n in ((16, 2), (28, 8), (40, 1)):   # sodi: 2, 8, 1
+                for k in range(n):
+                    a = 2 * math.pi * k / n - math.pi / 2 + (0.6 if r == 40 else 0)
+                    b += f'<circle cx="{cx+r*math.cos(a):.1f}" cy="{cy+r*math.sin(a):.1f}" r="3.2" fill="{BLUE}" stroke="{INK}" stroke-width=".6"/>'
         else:
             for k in range(260):
                 r = abs(random.gauss(0, 15)); a = random.uniform(0, 6.28)
