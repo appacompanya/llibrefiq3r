@@ -214,10 +214,11 @@ def col_lisions(A="#3F9A5A"):
     for i, (t, sub, ok, rot) in enumerate(cases):
         x0 = 20 + i * 200
         b += f'<rect x="{x0}" y="10" width="180" height="150" rx="10" fill="#fff" stroke="{INK}" stroke-width="1.3"/>'
-        b += atom2(x0 + 40, 60, 0) + mol(x0 + 135, 60, rot)
+        r1, r2 = (90, 90) if i in (0, 2) else (0, 90)
+        b += atom2(x0 + 45, 60, r1) + mol(x0 + 135, 60, r2)
         w = 2.4 if i != 2 else 1.1
-        b += f'<line x1="{x0+58}" y1="60" x2="{x0+85}" y2="60" stroke="{INK}" stroke-width="{w}" marker-end="url(#ac)"/><line x1="{x0+112}" y1="{60}" x2="{x0+95}" y2="60" stroke="{INK}" stroke-width="{w}" marker-end="url(#ac)"/>'
-        if ok: b += f'<text x="{x0+90}" y="120" font-size="22" text-anchor="middle" fill="{A}" font-weight="700">✓</text>' + atom2(x0 + 55, 130, 0, BLUE, RED) + atom2(x0 + 125, 130, 0, "#fff", RED)
+        b += f'<line x1="{x0+(60 if r1==90 else 66)}" y1="60" x2="{x0+86}" y2="60" stroke="{INK}" stroke-width="{w}" marker-end="url(#ac)"/><line x1="{x0+120}" y1="60" x2="{x0+98}" y2="60" stroke="{INK}" stroke-width="{w}" marker-end="url(#ac)"/>'
+        if ok: b += f'<text x="{x0+90}" y="113" font-size="20" text-anchor="middle" fill="{A}" font-weight="700">✓</text>' + atom2(x0 + 58, 138, 0, BLUE, RED) + atom2(x0 + 122, 138, 0, "#fff", RED)
         else: b += f'<text x="{x0+90}" y="125" font-size="22" text-anchor="middle" fill="{RED}" font-weight="700">✗</text>'
         b += txt(x0 + 90, 178, t, 11, weight=700) + txt(x0 + 90, 192, sub, 9.5, fill=MUT)
     return svg(620, 200, b, "160mm")
@@ -432,3 +433,36 @@ def fonts_energia(A="#2F6DB5"):
             b += f'<rect x="{x-26}" y="{y-6}" width="36" height="30" fill="#cfd3d8" stroke="{INK}"/><rect x="{x+14}" y="{y-30}" width="9" height="54" fill="#9aa1a8" stroke="{INK}"/><path d="M{x-10} {y+6} q6 -12 12 0 q-6 6 -12 0" fill="{ORA}"/>'
         b += txt(x, y + 62, t, 10.5, weight=700) + txt(x, y + 76, r, 9.5, fill=GRN if r == "renovable" else RED)
     return svg(600, 155, b, "160mm")
+
+
+def electrolisi_neta(A="#3F9A5A"):
+    random.seed(8)
+    LIQ = "#d6eaf8"
+    b = arrow_defs("ael")
+    # recipient i líquid (un sol color)
+    b += f'<path d="M80 110 L80 250 Q80 266 96 266 L424 266 Q440 266 440 250 L440 110" fill="none" stroke="{INK}" stroke-width="2.2"/>'
+    b += f'<path d="M82 140 L438 140 L438 250 Q438 264 424 264 L96 264 Q82 264 82 250 Z" fill="{LIQ}"/>'
+    b += f'<line x1="82" y1="140" x2="438" y2="140" stroke="#9cc9e8" stroke-width="1.5"/>'
+    # tubs capgirats: plens de líquid i amb el gas a dalt (H2 = el doble de volum que O2)
+    def tub(cx, gas_h, lab):
+        top, bot, r = 50, 230, 16
+        s = f'<path d="M{cx-r} {bot} L{cx-r} {top+r} A{r} {r} 0 0 1 {cx+r} {top+r} L{cx+r} {bot}" fill="{LIQ}" stroke="none"/>'
+        g = f'M{cx-r+1.5} {top+gas_h} L{cx-r+1.5} {top+r} A{r-1.5} {r-1.5} 0 0 1 {cx+r-1.5} {top+r} L{cx+r-1.5} {top+gas_h} Z'
+        s += f'<path d="{g}" fill="#ffffff"/>'
+        s += f'<line x1="{cx-r+1.5}" y1="{top+gas_h}" x2="{cx+r-1.5}" y2="{top+gas_h}" stroke="#9cc9e8" stroke-width="1.5"/>'
+        for k in range(7):
+            s += f'<circle cx="{cx+random.uniform(-9,9):.1f}" cy="{top+gas_h+12+k*(bot-top-gas_h-20)/7:.1f}" r="{random.uniform(1.6,3):.1f}" fill="#fff" stroke="#7fb3d9" stroke-width=".8"/>'
+        s += f'<path d="M{cx-r} {bot} L{cx-r} {top+r} A{r} {r} 0 0 1 {cx+r} {top+r} L{cx+r} {bot}" fill="none" stroke="{INK}" stroke-width="1.8"/>'
+        s += txt(cx, top + gas_h / 2 + 8, lab, 12, weight=700)
+        # elèctrode
+        s += f'<rect x="{cx-4}" y="205" width="8" height="59" fill="#8c9096" stroke="{INK}" stroke-width="1"/>'
+        return s
+    b += tub(200, 92, "H₂") + tub(320, 46, "O₂")
+    # connexions i pila
+    b += f'<path d="M200 264 L200 290 L40 290 L40 30 L190 30" fill="none" stroke="{INK}" stroke-width="1.6"/><path d="M320 264 L320 290 L480 290 L480 30 L330 30" fill="none" stroke="{INK}" stroke-width="1.6"/>'
+    b += f'<rect x="190" y="14" width="140" height="32" rx="5" fill="#f4f5f7" stroke="{INK}" stroke-width="1.8"/>' + txt(260, 35, "pila", 13, weight=700) + txt(202, 36, "−", 17, weight=700) + txt(318, 36, "+", 17, weight=700)
+    b += txt(200, 310, "càtode (−)", 10.5) + txt(320, 310, "ànode (+)", 10.5)
+    b += txt(500, 90, "hidrogen: el doble", 10.5, "start", INK, 700) + txt(500, 104, "de volum que l'oxigen", 10.5, "start") + f'<line x1="218" y1="100" x2="552" y2="96" stroke="{MUT}" stroke-width=".8" stroke-dasharray="3 3" opacity=".0"/>'
+    b += txt(500, 150, "2 H₂O → 2 H₂ + O₂", 12, "start", A, 700)
+    b += txt(500, 200, "aigua amb una mica de", 10, "start", MUT) + txt(500, 214, "carbonat de sodi", 10, "start", MUT) + txt(500, 228, "(perquè condueixi)", 10, "start", MUT)
+    return svg(660, 318, b, "150mm")

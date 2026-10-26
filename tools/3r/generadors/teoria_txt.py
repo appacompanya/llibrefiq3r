@@ -302,7 +302,7 @@ def sda4():
     b += T(["Diagrama d'energia", "Exotèrmica", "Endotèrmica"],
            [["Energia dels productes", "Més baixa que la dels reactius", "Més alta que la dels reactius"], ["Energia d'activació", "Sí: cal superar el «turó» per començar", "Sí: cal superar el «turó» i, a més, aportar l'energia que falta"], ["Temperatura de l'entorn", "Puja", "Baixa (o cal escalfar)"]])
     b += P("A l'<b>electròlisi</b>, el corrent elèctric aporta l'energia per descompondre l'aigua: 2 H₂O → 2 H₂ + O₂. Es forma el <b>doble de volum d'hidrogen</b> (al càtode, −) que d'oxigen (a l'ànode, +), perquè per cada molècula d'oxigen se'n formen dues d'hidrogen i, en les mateixes condicions, volums iguals de gasos contenen el mateix nombre de molècules. En massa, en canvi, la proporció és 4 g d'H₂ per 32 g d'O₂.")
-    b += electrolisi_teoria()
+    b += figs.fig(T2.electrolisi_neta(), "Electròlisi de l'aigua: al càtode es forma el doble de volum d'hidrogen que d'oxigen a l'ànode.", "150mm")
     b += S(9, "La velocitat de les reaccions")
     b += P("La <b>velocitat de reacció</b> indica quanta quantitat de reactiu desapareix (o de producte es forma) per unitat de temps. Segons la teoria de les col·lisions, tot el que augmenta el nombre de <b>xocs eficaços</b> per segon fa la reacció més ràpida:")
     b += T(["Factor", "Per què augmenta la velocitat", "Exemple"],
