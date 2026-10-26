@@ -25,9 +25,10 @@ EXTRA = """
 h2{margin-top:6mm}
 """
 
+CURS = "3r ESO"
 def H(n, sub):
     t = COL[n][0]
-    return (f'<div class="dh"><div><div class="kick">Física i química · 3r ESO · SdA {n} · {t}</div><h1>Dossier de teoria</h1>'
+    return (f'<div class="dh"><div><div class="kick">Física i química · {CURS} · SdA {n} · {t}</div><h1>Dossier de teoria</h1>'
             f'<p class="intro" style="margin:1mm 0 0">{sub}</p></div><span class="tag">Teoria</span></div>')
 def S(k, t): return f'<h2><span class="k">{k}</span> {t}</h2>'
 def P(*t): return "".join(f"<p>{x}</p>" for x in t)
