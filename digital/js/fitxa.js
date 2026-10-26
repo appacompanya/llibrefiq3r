@@ -250,6 +250,8 @@
       let strokes = (data && data.s ? data.s : []).map((x) => ({ ...x, p: [...x.p] })); const redo = [];
       let tool = "pen", col = COLS[0], grid = data ? data.g !== 0 : true, penSeen = false;
       const ov = document.createElement("div"); ov.className = "pz"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-label", "Pissarra");
+      // estils essencials en línia: la pissarra s'obre a pantalla completa encara que el full d'estils sigui antic (memòria cau) o el navegador no conegui «inset» (iPad antics)
+      ov.style.cssText = "position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:" + window.innerHeight + "px;z-index:2147483000;background:#fff;display:flex;flex-direction:column;touch-action:none;-webkit-user-select:none;user-select:none";
       ov.innerHTML = `<div class="pz-bar">
         <div class="pz-g">${[["pen", "✏️", "Llapis"], ["arrow", "↗", "Fletxa (forces, vectors)"], ["line", "╱", "Línia recta"], ["erase", "⌫", "Goma: toca un traç per esborrar-lo"]].map(([t, i, l]) => `<button type="button" data-tool="${t}" title="${l}" aria-label="${l}">${i}</button>`).join("")}</div>
         <div class="pz-g">${COLS.map((c) => `<button type="button" class="sw" data-col="${c}" style="--c:${c}" aria-label="Color"></button>`).join("")}</div>
@@ -258,7 +260,17 @@
         <div class="pz-g end"><button type="button" class="pz-x" data-act="cancel">Cancel·la</button><button type="button" class="pz-ok" data-act="save">Desa</button></div></div>
         <div class="pz-c"><canvas></canvas></div>`;
       document.body.appendChild(ov); document.documentElement.classList.add("pz-on");
+      // la pàgina de sota no es mou mentre s'escriu amb el dit (iPad: overflow:hidden no n'hi ha prou)
+      const sy = window.scrollY, bs = document.body.style, prevBody = bs.cssText;
+      bs.position = "fixed"; bs.top = -sy + "px"; bs.left = "0"; bs.right = "0"; bs.overflow = "hidden";
+      const noScroll = (e) => { if (!e.target.closest || !e.target.closest(".pz-bar")) e.preventDefault(); };
+      ov.addEventListener("touchmove", noScroll, { passive: false });
+      ov.addEventListener("gesturestart", (e) => e.preventDefault());
       const host = ov.querySelector(".pz-c"), cv = ov.querySelector("canvas"), c = cv.getContext("2d");
+      host.style.cssText = "flex:1 1 auto;position:relative;min-height:0;overflow:hidden;touch-action:none";
+      cv.style.touchAction = "none"; cv.style.display = "block";
+      const fit = () => { ov.style.height = window.innerHeight + "px"; };
+      const onRs = () => { fit(); size(); };
       let k = 1, cur = null;
       function size() {
         const r = host.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
@@ -290,7 +302,7 @@
       });
       const end = () => { if (cur && !cur.erase && cur.p.length >= 2) { strokes.push(cur); redo.length = 0; } cur = null; paint(); };
       cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
-      function close() { window.removeEventListener("resize", size); document.documentElement.classList.remove("pz-on"); ov.remove(); }
+      function close() { window.removeEventListener("resize", onRs); window.removeEventListener("orientationchange", onRs); document.documentElement.classList.remove("pz-on"); ov.remove(); bs.cssText = prevBody; window.scrollTo(0, sy); }
       ov.addEventListener("click", async (e) => {
         const b = e.target.closest("button"); if (!b) return;
         if (b.dataset.tool) { tool = b.dataset.tool; paint(); return; }
@@ -308,7 +320,7 @@
           try { await onSave(out, await exportPng(out.s)); close(); } catch (err) { b.disabled = false; b.textContent = "Desa"; console.warn(err); }
         }
       });
-      window.addEventListener("resize", size); requestAnimationFrame(size);
+      window.addEventListener("resize", onRs); window.addEventListener("orientationchange", onRs); requestAnimationFrame(() => { fit(); size(); });
     }
     return { open, exportPng };
   })();
@@ -441,12 +453,13 @@
       const bb = e.target.closest("[data-board]");
       if (bb) {
         const fid = bb.dataset.board; const w0 = bb.closest(".work");
-        Board.open({ data: (answers[fid] || {}).board, title: (spec.qs || {})[spec.fields[fid].q] ? String(spec.qs[spec.fields[fid].q]).slice(0, 140) : spec.title, onSave: async (board, file) => {
+        const fq = (spec.fields && spec.fields[fid] || {}).q, qt = (spec.qs || {})[fq];
+        try { Board.open({ data: (answers[fid] || {}).board, title: qt ? String(qt).replace(/<[^>]+>/g, "").replace(/^(.{0,150})\s.*$/s, "$1…") : spec.title, onSave: async (board, file) => {
           const val = { ...(w0 ? readWork(w0) : answers[fid] || {}), board }; answers[fid] = val; clearTimeout(timers[fid]);
           if (opts.onSave) await opts.onSave(fid, val);
           for (const p of photos.filter((x) => x.item === fid)) { try { await opts.onRemovePhoto(p.path); } catch {} }
           if (file && opts.onPhoto) await opts.onPhoto(fid, file);
-        } });
+        } }); } catch (err) { console.error(err); alert("No s'ha pogut obrir la pissarra. Torna-ho a provar o actualitza la pàgina."); }
         return;
       }
       const w = e.target.closest(".work"); if (!w) return;

@@ -220,7 +220,7 @@ math-field.mf:focus-within{border-color:var(--acc)}
 .bbtn:hover{background:color-mix(in srgb,var(--acc) 16%,var(--surface))}
 .bprev img{max-height:130px;max-width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;display:block}
 html.pz-on,html.pz-on body{overflow:hidden}
-.pz{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;grid-template-rows:auto 1fr;touch-action:none}
+.pz{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:#fff;display:grid;grid-template-rows:auto 1fr;touch-action:none}
 .pz-bar{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;padding:8px 10px;border-bottom:1px solid #d9dee5;background:#f6f7f9}
 .pz-g{display:flex;gap:4px;align-items:center}.pz-g.end{margin-left:auto}
 .pz-bar button{font:inherit;font-size:1.05rem;min-width:40px;height:40px;border:1px solid #d0d5dc;background:#fff;border-radius:10px;cursor:pointer;color:#1f2328;padding:0 8px}
