@@ -1,6 +1,7 @@
 """Contingut dels dossiers de teoria de 3r d'ESO (versió ampliada). El fa servir gen_teoria.py."""
 from gen_teoria import H, S, P, UL, OL, TIP, EX, F, T, TOC, KW, taula_familia, electrolisi_teoria
 import gen_sda1 as G, figs, gen_hidrogen as Hd, gen_energia as En
+import teoria_figs as TF, teoria_figs2 as T2
 
 PB = '<div class="pb"></div>'
 def DEF(t, h): return f'<div class="fbox" style="background:#fff"><b>{t}.</b> {h}</div>'
@@ -38,7 +39,9 @@ def sda1():
            "Cap mesura no és exacta. Hi ha dos tipus d'errors:")
     b += UL("<b>Errors sistemàtics:</b> sempre en el mateix sentit, per un instrument mal calibrat o un mètode incorrecte (una balança que no marca zero, llegir sempre el menisc des de dalt). No es corregeixen repetint la mesura, sinó revisant el mètode.",
             "<b>Errors aleatoris:</b> a l'atzar, de vegades per sobre i de vegades per sota (petites variacions en la lectura, en el temps de reacció). Es redueixen <b>repetint la mesura</b> diverses vegades i fent la <b>mitjana</b>.")
+    b += figs.fig(TF.proveta_menisc(), "Com es llegeix una proveta: els ulls a l'altura de la part de baix del menisc.", "125mm")
     b += P("Una mesura és <b>exacta</b> si s'acosta al valor real, i és <b>precisa</b> si en repetir-la surten valors molt semblants. Per saber com d'exacta és, la comparem amb un <b>valor de referència</b> (el d'una taula de dades fiable):")
+    b += figs.fig(TF.dianes(), "Exactitud i precisió: quatre sèries de mesures comparades amb el valor real (el centre).", "160mm")
     b += F("E<sub>a</sub> = | valor mesurat − valor de referència |", "E<sub>r</sub> (%) = E<sub>a</sub> / valor de referència · 100",
            note="L'error absolut té les unitats de la mesura. L'error relatiu, en percentatge, permet comparar la qualitat de mesures diferents.")
     b += EX("Exemple", "Mesurem 0,82 g/mL per a l'etanol i la referència és 0,79 g/mL: E<sub>a</sub> = 0,03 g/mL; E<sub>r</sub> = 0,03 / 0,79 · 100 ≈ 3,8 %. Un error relatiu gran no vol dir sempre que ens hem equivocat de substància: l'etanol de farmàcia (96 %) porta aigua i té una densitat més alta que el pur.")
@@ -47,9 +50,11 @@ def sda1():
            "La <b>densitat</b> és la massa de cada unitat de volum d'una substància. No depèn de la quantitat: un clau de ferro i una biga de ferro tenen la mateixa densitat. Sí que depèn de la <b>temperatura</b>, perquè en escalfar un material el volum augmenta una mica i la densitat disminueix.")
     b += F("ρ = m / V", note="ρ en g/cm³ (= g/mL) o en kg/m³ · 1 g/cm³ = 1 000 kg/m³")
     b += P("Per mesurar-la: la massa amb una balança i el volum amb una proveta. Si el sòlid és irregular, el submergim en una proveta amb aigua: el seu volum és el que puja l'aigua (<b>mètode del desplaçament</b>). Si és un líquid en un pot, la massa del líquid és la massa del pot ple menys la del pot buit (la <b>tara</b>).")
+    b += figs.fig(TF.desplacament(), "Mètode del desplaçament: el volum de la pedra és el que puja l'aigua.", "125mm")
     b += T(["Substància (20 °C)", "ρ (g/cm³)", "Substància (20 °C)", "ρ (g/cm³)"],
            [["Aire", "0,0012", "Aigua de mar", "1,03"], ["Etanol", "0,79", "Glicerina", "1,26"], ["Oli d'oliva", "0,92", "Alumini", "2,70"], ["Gel", "0,92", "Ferro", "7,87"], ["Aigua", "1,00", "Or", "19,3"]])
     b += EX("Exemple", "Un pot ple té una massa de 160 g i buit, 60 g. El líquid té 100 g i ocupa 125 mL: ρ = 100 / 125 = 0,800 g/mL. Pot ser etanol, però cal confirmar-ho amb una altra prova.")
+    b += figs.fig(TF.columna_densitat(), "Columna de densitats: els líquids menys densos suren damunt dels més densos.", "135mm")
     b += P("Un cos <b>sura</b> en un líquid si la seva densitat és més petita que la del líquid, i s'enfonsa si és més gran. Dos líquids que no es barregen es col·loquen en capes, amb el més dens a sota. Com que dues substàncies poden tenir densitats molt semblants, cap prova sola no és suficient: cal combinar <b>proves convergents</b> (densitat, conductivitat, miscibilitat, reaccions…).")
     b += S(6, "Substàncies pures i mescles")
     b += P("Una <b>substància pura</b> té una composició fixa i unes propietats característiques constants: es fon i bull a una temperatura fixa. Pot ser:")
@@ -59,6 +64,7 @@ def sda1():
     b += UL("<b>Mescla homogènia o dissolució:</b> no se'n distingeixen els components, ni amb microscopi. Té la mateixa composició a tot arreu (aigua amb sal, aire, bronze).",
             "<b>Mescla heterogènia:</b> se'n distingeixen els components a simple vista o amb una lupa (aigua i sorra, granit, oli i aigua).",
             "<b>Col·loide:</b> sembla homogeni, però al microscopi se'n veuen les parts (llet, maionesa, boira). Dispersa la llum d'un feix làser.")
+    b += figs.fig(TF.particules_materia(), "Com es veuen amb el model de partícules les substàncies pures i les mescles.", "160mm")
     b += S(7, "Dissolucions i concentració")
     b += P("En una dissolució, el component que hi ha en més quantitat és el <b>dissolvent</b> (sovint l'aigua) i el que hi ha en menys quantitat, el <b>solut</b>. La <b>concentració</b> indica quant solut hi ha en una quantitat de dissolució:")
     b += F("c (g/L) = massa de solut (g) / volum de dissolució (L)", "% en massa = massa de solut / massa de dissolució · 100")
@@ -72,14 +78,17 @@ def sda1():
             ["Destil·lació", "Temperatures d'ebullició diferents: el vapor es condensa i es recull", "Aigua i alcohol; aigua pura de l'aigua de mar"],
             ["Cromatografia", "Afinitat diferent de cada component per la fase mòbil i pel paper", "Pigments d'una tinta"]], w=["24%", "46%", "30%"])
     b += EX("Exemple", "Mescla de sorra, llimadures de ferro, serradures i aigua salada: 1) imant (ferro); 2) les serradures suren i es recullen; 3) filtració (la sorra queda al paper); 4) evaporació de l'aigua (queda la sal).")
-    b += figs.fig(figs.cromatografia(), "Cromatografia en paper: l'aigua puja per capil·laritat i separa els pigments de la tinta.", "95mm")
+    b += figs.fig(TF.separacio(), "Quatre tècniques de separació i la propietat en què es basa cadascuna.", "170mm")
+    b += figs.cromatografia()
     b += S(9, "Conductivitat elèctrica i ions")
     b += P("Per conduir el corrent elèctric calen partícules amb càrrega que es puguin moure. Els metalls condueixen perquè tenen electrons lliures. L'aigua pura gairebé no condueix. Quan una substància com el clorur de sodi es dissol, es <b>dissocia</b> en <b>ions</b> (partícules amb càrrega): NaCl → Na⁺ + Cl⁻. Els ions es mouen per la dissolució i transporten la càrrega: la dissolució és conductora i en diem un <b>electròlit</b>. El sucre es dissol, però no forma ions, i per això l'aigua amb sucre no condueix.")
-    b += figs.fig(figs.circuit_conductivitat(), "Muntatge per provar la conductivitat: si el líquid conté ions, el LED s'encén.", "90mm")
+    b += figs.fig(TF.dissociacio(), "En dissoldre's, el clorur de sodi es dissocia en ions que es poden moure.", "140mm")
+    b += figs.circuit_conductivitat()
     b += S(10, "Canvis físics i canvis químics")
     b += UL("<b>Canvi físic:</b> la substància continua sent la mateixa; només canvia l'estat, la forma o la mida (fondre gel, dissoldre sucre, trencar un vidre). Normalment és reversible.",
             "<b>Canvi químic</b> o <b>reacció química:</b> unes substàncies (els <b>reactius</b>) es transformen en unes altres de noves (els <b>productes</b>), amb propietats diferents. Evidències: canvi de color, formació d'un gas (bombolles), formació d'un sòlid (precipitat), alliberament o absorció d'energia (calor, llum), canvi d'olor.")
     b += EX("Exemple", "Un clau de ferro en una dissolució blava de sulfat de coure: el clau es recobreix d'una capa vermellosa de coure i el color blau es va perdent. Fe + CuSO₄ → FeSO₄ + Cu. S'han format substàncies noves: és un canvi químic.")
+    b += figs.fig(TF.clau_coure(), "Un canvi químic: el ferro reacciona amb el sulfat de coure i es forma coure.", "135mm")
     b += S(11, "Seguretat al laboratori")
     b += P("Les etiquetes dels productes perillosos porten <b>pictogrames</b> (rombes amb la vora vermella, segons el reglament CLP de la Unió Europea), una <b>paraula d'avís</b> (<b>Perill</b> per als perills greus i <b>Atenció</b> per als menys greus) i frases d'indicacions de perill i de consells de prudència.")
     b += figs.picto_table(cols=3, size="11mm")
@@ -117,17 +126,20 @@ def sda2():
             ["Moviment", "Vibren al seu lloc", "Llisquen les unes sobre les altres", "Es desplacen lliurement i molt de pressa"],
             ["Forma", "Pròpia", "La del recipient", "La del recipient"], ["Volum", "Propi", "Propi", "Ocupa tot el recipient"],
             ["Compressibilitat", "No es comprimeix", "Gairebé no es comprimeix", "Es comprimeix fàcilment"], ["Fluïdesa", "No flueix", "Flueix", "Flueix"]], w=["20%", "26%", "27%", "27%"])
+    b += figs.fig(T2.estats_particules(), "Model de partícules dels tres estats d'agregació.", "150mm")
     b += P("La sorra «raja» com un líquid, però és un sòlid: cada gra és un sòlid amb forma i volum propis.")
     b += S(5, "La pressió")
     b += P("La <b>pressió</b> és la força que es fa per unitat de superfície: P = F / S. Es mesura en <b>pascals</b> (1 Pa = 1 N/m²). En un gas, la pressió és l'efecte dels <b>xocs de les partícules</b> contra les parets del recipient: com més xocs per segon i com més forts, més pressió. La pressió del gas augmenta si hi ha més partícules, si el volum és més petit (xoquen més sovint) o si la temperatura és més alta (xoquen més sovint i amb més força).",
            "L'aire que ens envolta també fa pressió: la <b>pressió atmosfèrica</b>, que al nivell del mar val aproximadament 1 atm i disminueix amb l'altura. Es mesura amb el <b>baròmetre</b>; la pressió d'un gas tancat (una roda, una bombona) es mesura amb el <b>manòmetre</b>.")
     b += F("1 atm = 760 mmHg = 101 325 Pa ≈ 1 013 hPa ≈ 1 bar")
+    b += figs.fig(T2.boyle_embol(), "Si el volum es redueix a la meitat, les partícules xoquen el doble de vegades amb les parets: la pressió es duplica.", "120mm")
     b += S(6, "Les lleis dels gasos")
     b += P("L'estat d'un gas es descriu amb tres magnituds: <b>pressió</b>, <b>volum</b> i <b>temperatura</b>. Si en mantenim una de constant, les altres dues es relacionen d'una manera senzilla. Les tres lleis es van descobrir experimentalment i el model cineticomolecular les explica.")
     b += T(["Llei", "Constant", "Relació", "Fórmula", "Explicació amb el model", "Gràfica"],
            [["Boyle-Mariotte (1662)", "T", "Inversament proporcionals: si V es fa la meitat, P es fa el doble", "P₁ · V₁ = P₂ · V₂", "Amb menys volum, les partícules xoquen més sovint contra les parets", "P–V: hipèrbola"],
             ["Charles (1787)", "P", "Directament proporcionals: si T (K) es duplica, V es duplica", "V₁ / T₁ = V₂ / T₂", "Les partícules es mouen més de pressa i empenyen les parets fins que el volum augmenta", "V–T: recta que passa per 0 K"],
             ["Gay-Lussac (1802)", "V", "Directament proporcionals: si T (K) es duplica, P es duplica", "P₁ / T₁ = P₂ / T₂", "Les partícules xoquen més sovint i més fort contra les parets", "P–T: recta que passa per 0 K"]], w=["14%", "8%", "22%", "15%", "26%", "15%"])
+    b += figs.fig(T2.lleis_gasos(), "Gràfiques de les tres lleis dels gasos.", "160mm")
     b += EX("Exemple (Boyle)", "Una xeringa tapada té 40 mL d'aire a 1 atm i l'empenyem fins a 10 mL: P₂ = 1 · 40 / 10 = 4 atm.")
     b += EX("Exemple (Charles)", "Un globus de 2,0 L a 27 °C (300 K) es posa al congelador a −18 °C (255 K): V₂ = 2,0 · 255 / 300 = 1,7 L.")
     b += EX("Exemple (Gay-Lussac)", "Un desodorant a 3,0 atm i 20 °C (293 K) arriba a 65 °C (338 K) dins d'un cotxe: P₂ = 3,0 · 338 / 293 ≈ 3,5 atm.")
@@ -145,10 +157,12 @@ def sda2():
     b += P("La vaporització pot ser de dues maneres:")
     b += UL("<b>Evaporació:</b> passa només a la <b>superfície</b> del líquid i a <b>qualsevol temperatura</b>. Les partícules de la superfície que es mouen més de pressa escapen. És més ràpida com més alta és la temperatura, com més superfície hi ha i si fa vent. Refreda el líquid que queda (per això la suor ens refreda).",
             "<b>Ebullició:</b> passa a <b>tot el líquid</b>, amb bombolles de vapor que es formen a dins, a una temperatura fixa: la <b>temperatura d'ebullició</b>. Aquesta temperatura depèn de la pressió exterior: a dalt de l'Everest l'aigua bull a uns 70 °C; a l'olla a pressió, a uns 120 °C; i en una xeringa on reduïm la pressió, l'aigua pot bullir a 50 °C.")
+    b += figs.fig(T2.evaporacio_ebullicio(), "Evaporació i ebullició.", "145mm")
     b += S(9, "Les corbes d'escalfament i de refredament")
     b += P("Si escalfem gel a −20 °C i anotem la temperatura cada minut, obtenim una gràfica temperatura–temps amb <b>trams inclinats</b> (la temperatura puja i la substància és en un sol estat) i <b>trams horitzontals</b> (canvi d'estat: hi conviuen dos estats). Mentre dura el canvi d'estat la temperatura <b>no puja</b>, encara que continuem escalfant: l'energia serveix per vèncer les forces d'atracció i separar les partícules, no per fer-les anar més de pressa. La quantitat d'energia que cal per fondre o vaporitzar un quilogram d'una substància és la seva <b>calor latent</b>.",
            "La corba de <b>refredament</b> és la inversa: els trams horitzontals apareixen a les mateixes temperatures, perquè una substància pura es fon i se solidifica a la mateixa temperatura.",
            "Les temperatures de fusió i d'ebullició són propietats característiques: ens permeten identificar una substància i saber en quin estat és a una temperatura donada. Si la temperatura és més baixa que la de fusió, és sòlida; entre la de fusió i la d'ebullició, líquida; per sobre de la d'ebullició, gas. L'aigua pura es fon a 0 °C i bull a 100 °C a 1 atm. Una mescla, en canvi, no té trams horitzontals perfectes.")
+    b += figs.fig(T2.corba_escalfament(), "Corba d'escalfament de l'aigua des de −20 °C.", "140mm")
     b += S(10, "El repte i la seguretat")
     b += P("Dins del cotxe a l'agost la temperatura pot arribar a 60–70 °C. Les partícules del gas de la llauna es mouen més de pressa, xoquen més sovint i amb més força contra les parets i la <b>pressió augmenta</b> (llei de Gay-Lussac, perquè el volum de la llauna és constant). A més, dins de la llauna hi ha propel·lent en estat líquid: amb la calor se'n vaporitza més i la pressió puja encara més. Si la llauna no resisteix aquesta pressió, <b>rebenta</b>; i com que el gas és inflamable, pot provocar un incendi.")
     b += TIP("Seguretat", "Les etiquetes dels aerosols diuen: «Recipient a pressió: pot rebentar si s'escalfa. Protegiu-lo de la llum del sol. No l'exposeu a temperatures superiors a 50 °C. No el perforeu ni el cremeu, ni tan sols quan ja s'hagi acabat.» Porten el pictograma de flama (inflamable) i el de bombona (gas a pressió).")
@@ -185,12 +199,14 @@ def sda3():
     b += P("Un <b>ió</b> és un àtom (o un grup d'àtoms) que ha guanyat o perdut electrons i, per tant, té càrrega elèctrica. El nombre de protons no canvia mai: si canviés, seria un altre element.")
     b += UL("<b>Catió</b> (+): ha <b>perdut</b> electrons. Li → Li⁺ + e⁻ · Mg → Mg²⁺ + 2 e⁻. Els <b>metalls</b> tendeixen a formar cations.",
             "<b>Anió</b> (−): ha <b>guanyat</b> electrons. F + e⁻ → F⁻ · O + 2 e⁻ → O²⁻. Els <b>no metalls</b> tendeixen a formar anions.")
+    b += figs.fig(T2.ions_formacio(), "Formació d'un catió (Na⁺) i d'un anió (Cl⁻) amb el model de capes.", "165mm")
     b += F("electrons d'un ió = Z − càrrega", note="Na⁺ (Z = 11): 10 electrons · O²⁻ (Z = 8): 8 + 2 = 10 electrons · Co²⁺ (Z = 27): 25 electrons")
     b += S(6, "Els electrons en capes i l'assaig a la flama")
     b += P("Al model de Bohr, els electrons s'ordenen en capes al voltant del nucli. A la primera capa hi caben 2 electrons; a la segona, 8; a 3r d'ESO omplim la tercera fins a 8 i comencem la quarta. Els electrons de l'<b>última capa</b> (electrons de valència) decideixen les propietats químiques de l'element.")
     b += T(["Element", "Z", "Capes", "Element", "Z", "Capes"],
            [["Hidrogen", "1", "1", "Neó", "10", "2, 8"], ["Heli", "2", "2", "Sodi", "11", "2, 8, 1"], ["Liti", "3", "2, 1", "Clor", "17", "2, 8, 7"], ["Carboni", "6", "2, 4", "Argó", "18", "2, 8, 8"],
             ["Oxigen", "8", "2, 6", "Potassi", "19", "2, 8, 8, 1"], ["Fluor", "9", "2, 7", "Calci", "20", "2, 8, 8, 2"]])
+    b += figs.fig(T2.bohr_atoms(), "Electrons per capes (model de Bohr) del liti, l'oxigen, el sodi i el clor.", "160mm")
     b += P("Quan escalfem una sal a la flama, alguns electrons <b>absorbeixen energia</b> i salten a una capa més allunyada del nucli (estat excitat). En tornar a la seva capa, <b>emeten aquesta energia en forma de llum</b>. Com que les capes de cada element tenen unes energies concretes, cada element emet uns colors propis: el liti, vermell intens; el sodi, groc; el potassi, lila; el coure, verd blavós; l'estronci, vermell. L'<b>espectroscopi</b> separa la llum en línies de colors (l'<b>espectre d'emissió</b>), que és com l'empremta dactilar de l'element i és més fiable que el color a ull nu (el liti i l'estronci fan tots dos vermell). El color identifica l'<b>element</b>, no el compost. Bunsen i Kirchhoff van descobrir així el cesi i el rubidi (1860–1861), i l'heli es va descobrir primer a l'espectre del Sol.")
     b += PB + S(7, "La taula periòdica")
     b += P("El 1869, Dmitri <b>Mendeléiev</b> va ordenar els 63 elements coneguts per massa atòmica i va col·locar en una mateixa columna els que tenien propietats semblants. Va deixar forats per a elements encara no descoberts i en va predir les propietats; quan es van descobrir el gal·li, l'escandi i el germani, les prediccions es van complir. Avui la taula s'ordena per <b>nombre atòmic Z</b>.")
@@ -213,6 +229,7 @@ def sda3():
            [["Iònic", "metall + no metall", "El metall en cedeix i el no metall en capta; els ions de càrrega oposada s'atrauen", "Xarxa cristal·lina de cations i anions", "Sòlids durs i fràgils, temperatures de fusió altes; molts es dissolen en aigua; condueixen fosos o dissolts, no en estat sòlid", "NaCl, LiF, LiCoO₂"],
             ["Covalent", "no metall + no metall", "Es comparteixen parells d'electrons", "Molècules (H₂, O₂, H₂O, CO₂) o xarxes covalents (diamant, grafit, SiO₂)", "Molècules: sovint gasos o líquids, temperatures de fusió baixes. Xarxes: molt dures i temperatures de fusió molt altes. No condueixen (excepte el grafit)", "H₂O, CO₂, SiO₂, plàstics"],
             ["Metàl·lic", "metall + metall", "Els àtoms deixen anar els electrons de valència, que formen un «núvol» que es mou per tot el metall", "Xarxa de cations envoltats d'electrons lliures", "Condueixen el corrent i la calor, brillants, dúctils i mal·leables", "Cu, Au, Al, aliatges"]], w=["10%", "13%", "21%", "18%", "26%", "12%"])
+    b += figs.fig(T2.enllacos(), "Els tres tipus d'enllaç químic.", "155mm")
     b += EX("Exemple d'enllaç iònic", "LiF: el liti (2, 1) cedeix el seu electró de valència al fluor (2, 7). Es formen Li⁺ (2) i F⁻ (2, 8), els dos amb la configuració d'un gas noble. Les càrregues + i − s'atrauen; el compost és neutre perquè hi ha el mateix nombre de cations que d'anions.")
     b += EX("Exemple d'enllaç covalent", "A la molècula d'aigua, l'oxigen (6 electrons de valència) comparteix un parell d'electrons amb cada hidrogen: així l'oxigen arriba a 8 i cada hidrogen a 2.")
     b += P("Al mòbil: els cables i les pistes són de <b>coure</b> (metàl·lic, condueix); el separador de la bateria és de <b>plàstic</b> (covalent, aïllant); el vidre de la pantalla és <b>SiO₂</b> (xarxa covalent, dur). El <b>grafit</b> és carboni amb enllaços covalents, però cada àtom té un electró lliure que es pot moure entre les capes: per això condueix i es fa servir a l'ànode de la bateria.")
@@ -222,6 +239,7 @@ def sda3():
     b += P("Una bateria transforma energia química en energia elèctrica. La de liti té dos elèctrodes: l'<b>ànode</b> de grafit, on hi ha el liti, i el <b>càtode</b> d'òxid de liti i cobalt (LiCoO₂), separats per un <b>electròlit</b> (un líquid amb ions) i un <b>separador</b> de plàstic.",
            "Quan fem servir el mòbil (descàrrega), cada àtom de liti de l'ànode perd un electró: Li → Li⁺ + e⁻. Els ions Li⁺ viatgen a través de l'electròlit fins al càtode; els electrons no poden passar per l'electròlit i fan el camí pel circuit del mòbil: aquest corrent d'electrons fa funcionar el mòbil. Quan la carreguem, el carregador aporta energia i fa tornar el liti a l'ànode.",
            "Si la bateria es perfora, s'aixafa (per exemple, dins del camió de les escombraries) o s'escalfa massa, el separador es pot trencar: l'ànode i el càtode es toquen, hi ha un <b>curtcircuit</b>, la bateria s'escalfa molt de pressa, l'electròlit (inflamable) es crema i el foc és molt difícil d'apagar.")
+    b += figs.fig(T2.bateria_liti(), "La bateria de liti mentre fem servir el mòbil.", "145mm")
     b += S(12, "Mòbils, recursos i reciclatge")
     b += P("Molts materials del mòbil són <b>matèries primeres crítiques</b>: són imprescindibles per a la tecnologia i se n'obtenen en pocs països, de vegades amb greus problemes ambientals (contaminació, desforestació) i socials (treball infantil, conflictes armats), com el cobalt i el coltan de la República Democràtica del Congo. Per això cal, per ordre: <b>reduir</b> (no canviar de mòbil si no cal), <b>reutilitzar</b> (reparar-lo, donar-lo) i <b>reciclar</b> (portar-lo a un punt de recollida, on es recuperen els elements, per exemple dissolent els metalls i separant-ne els ions). Mai al contenidor de rebuig.")
     b += KW(("Element", "substància amb un sol tipus d'àtom"), ("Nucli", "part central de l'àtom, amb protons i neutrons"), ("Nombre atòmic (Z)", "nombre de protons; identifica l'element"), ("Nombre màssic (A)", "protons + neutrons"),
@@ -243,11 +261,13 @@ def sda4():
             "El xoc ha de tenir prou <b>energia</b>: l'energia cinètica de les partícules ha de ser igual o més gran que l'<b>energia d'activació</b> (E<sub>a</sub>), l'energia mínima necessària per trencar els enllaços dels reactius.",
             "Les partícules han de xocar amb l'<b>orientació adequada</b>: les parts de les molècules que han de reaccionar s'han de trobar.")
     b += P("Un xoc que compleix les tres condicions és un <b>xoc eficaç</b> i hi forma els productes. La majoria de xocs no són eficaços: les partícules reboten i continuen sent reactius. L'energia d'activació és com un turó que cal superar: per això el paper no crema sol a temperatura ambient, però sí quan hi apropem un llumí, que aporta l'energia per començar la reacció; després, la calor que desprèn la mateixa combustió la manté.")
+    b += figs.fig(T2.col_lisions(), "Teoria de les col·lisions: només els xocs amb prou energia i ben orientats formen productes.", "160mm")
     b += F("xoc eficaç = xoc + energia ≥ E<sub>a</sub> + orientació adequada")
     b += S(3, "La conservació de la massa i les proporcions")
     b += P("<b>Llei de Lavoisier o de conservació de la massa (1789):</b> en una reacció química en un sistema tancat, la massa total dels reactius és igual a la massa total dels productes. S'explica perquè els àtoms no es creen ni es destrueixen: només es reorganitzen.",
            "En un <b>sistema obert</b> sembla que la massa canvia perquè hi entren o en surten gasos: en el vas amb vinagre i bicarbonat, el CO₂ s'escapa i la massa baixa; quan es rovella un clau o crema magnesi, l'oxigen de l'aire s'hi incorpora i la massa del sòlid puja. En un <b>sistema tancat</b> la massa es manté constant.",
            "<b>Llei de Proust o de les proporcions definides (1799):</b> quan dos elements es combinen per formar un compost, ho fan sempre en la mateixa proporció en massa. 4 g d'hidrogen reaccionen amb 32 g d'oxigen i formen 36 g d'aigua (proporció 1 : 8); amb 8 g d'hidrogen calen 64 g d'oxigen i es formen 72 g d'aigua. Si hi posem 10 g d'hidrogen i 64 g d'oxigen, sobraran 2 g d'hidrogen.")
+    b += figs.fig(T2.sistema_obert_tancat(), "La massa es conserva en un sistema tancat; en un d'obert, el gas s'escapa.", "140mm")
     b += S(4, "Massa atòmica i massa molecular")
     b += P("La <b>massa atòmica</b> d'un element és la massa dels seus àtoms en unitats de massa atòmica (u); la trobem a la taula periòdica. La <b>massa molecular</b> d'una substància és la suma de les masses atòmiques dels àtoms que indica la fórmula.")
     b += T(["Element", "H", "C", "N", "O", "Na", "Mg", "Al", "S", "Cl", "Ca", "Fe"], [["Massa (u)", "1", "12", "14", "16", "23", "24", "27", "32", "35,5", "40", "56"]])
@@ -278,6 +298,7 @@ def sda4():
     b += P("En una reacció, trencar els enllaços dels reactius <b>absorbeix</b> energia i formar els enllaços dels productes en <b>desprèn</b>. El balanç decideix si la reacció és:")
     b += UL("<b>Exotèrmica:</b> allibera energia a l'entorn (normalment en forma de calor i, de vegades, de llum); l'entorn s'escalfa. Els productes tenen menys energia que els reactius. Combustions, la respiració cel·lular, el magnesi amb àcid clorhídric, l'hidrogen amb l'oxigen.",
             "<b>Endotèrmica:</b> absorbeix energia de l'entorn (l'entorn es refreda) o cal subministrar-n'hi contínuament. Els productes tenen més energia que els reactius. El vinagre amb el bicarbonat, l'electròlisi de l'aigua, la fotosíntesi, coure un ou.")
+    b += figs.fig(T2.diagrames_energia(), "Diagrames d'energia d'una reacció exotèrmica i d'una d'endotèrmica.", "160mm")
     b += T(["Diagrama d'energia", "Exotèrmica", "Endotèrmica"],
            [["Energia dels productes", "Més baixa que la dels reactius", "Més alta que la dels reactius"], ["Energia d'activació", "Sí: cal superar el «turó» per començar", "Sí: cal superar el «turó» i, a més, aportar l'energia que falta"], ["Temperatura de l'entorn", "Puja", "Baixa (o cal escalfar)"]])
     b += P("A l'<b>electròlisi</b>, el corrent elèctric aporta l'energia per descompondre l'aigua: 2 H₂O → 2 H₂ + O₂. Es forma el <b>doble de volum d'hidrogen</b> (al càtode, −) que d'oxigen (a l'ànode, +), perquè per cada molècula d'oxigen se'n formen dues d'hidrogen i, en les mateixes condicions, volums iguals de gasos contenen el mateix nombre de molècules. En massa, en canvi, la proporció és 4 g d'H₂ per 32 g d'O₂.")
@@ -289,6 +310,7 @@ def sda4():
             ["Concentració", "Hi ha més partícules de reactiu en el mateix volum: més xocs per segon", "L'àcid més concentrat fa més bombolles amb el magnesi"],
             ["Superfície de contacte", "Si el sòlid està més dividit, hi ha més partícules exposades que poden xocar", "Les estelles cremen abans que un tronc; una pastilla triturada es dissol abans"],
             ["Catalitzadors", "Substàncies que ofereixen un camí amb una energia d'activació més baixa; no es gasten en la reacció", "Els enzims de la digestió; el catalitzador del tub d'escapament dels cotxes"]], w=["20%", "48%", "32%"])
+    b += figs.fig(T2.factors_velocitat(), "Factors que augmenten la velocitat de les reaccions.", "160mm")
     b += S(10, "Reaccions importants")
     b += UL("<b>Combustió:</b> reacció d'un combustible amb l'oxigen, molt exotèrmica. Si el combustible conté carboni i hidrogen i hi ha prou oxigen, es formen CO₂ i H₂O; si falta oxigen, es pot formar monòxid de carboni (CO), un gas tòxic i sense olor.",
             "<b>Oxidació dels metalls:</b> el ferro es rovella en contacte amb l'oxigen i l'aigua (formació d'òxids de ferro); és una reacció lenta.",
@@ -314,6 +336,7 @@ def sda5():
             "<b>Trajectòria</b>: línia que dibuixa el mòbil en moure's. Pot ser rectilínia o curvilínia (circular, parabòlica…).",
             "<b>Distància recorreguda</b> (d): longitud de la trajectòria. Sempre és positiva.",
             "<b>Desplaçament</b> (Δx = x − x₀): canvi de posició, la fletxa recta que va de la posició inicial a la final. Si anem i tornem al punt de partida, hem recorregut distància però el desplaçament és zero.")
+    b += figs.fig(T2.trajectoria_desplacament(), "Trajectòria i desplaçament.", "120mm")
     b += S(2, "Magnituds escalars i vectorials")
     b += P("Les magnituds <b>escalars</b> queden definides amb un nombre i una unitat (massa, temps, temperatura, distància). Les <b>vectorials</b> necessiten, a més, una <b>direcció</b> i un <b>sentit</b>, i es representen amb una fletxa (<b>vector</b>) la longitud de la qual és el <b>mòdul</b>: desplaçament, velocitat, acceleració, força.")
     b += S(3, "La velocitat")
@@ -336,6 +359,7 @@ def sda5():
     b += T(["", "Gràfica x–t", "Gràfica v–t", "Gràfica a–t"],
            [["Repòs", "Recta horitzontal", "Recta sobre l'eix (v = 0)", "a = 0"], ["MRU", "Recta inclinada; el <b>pendent</b> és la velocitat (com més inclinada, més ràpid)", "Recta horitzontal", "a = 0"],
             ["MRUA", "Corba (paràbola)", "Recta inclinada; el <b>pendent</b> és l'acceleració", "Recta horitzontal"]])
+    b += figs.fig(T2.grafiques_moviment(), "Gràfiques x–t i v–t del MRU i del MRUA.", "165mm")
     b += P("El <b>pendent</b> d'una recta es calcula amb dos punts: pendent = (canvi de l'eix vertical) / (canvi de l'eix horitzontal). A la gràfica v–t, l'<b>àrea</b> sota la línia és el desplaçament (la distància, si no canvia el sentit): un rectangle (base · altura) per als trams de velocitat constant i un triangle (base · altura / 2) per als que acceleren des de zero.")
     b += EX("Exemple", "Un patinet passa de 0 a 4 m/s en 2 s, manté 4 m/s durant 6 s i frena fins a aturar-se en 4 s. Acceleracions: 2 m/s², 0 i −1 m/s². Distància = 2 · 4 / 2 + 6 · 4 + 4 · 4 / 2 = 4 + 24 + 8 = 36 m.")
     b += S(8, "Com es resol un problema de moviment")
@@ -348,20 +372,24 @@ def sda5():
            "Un <b>gradient de concentració</b> és la variació de la concentració per unitat de distància. Els bacteris alliberen molècules (pèptids) que es difonen al seu voltant: la concentració és més alta a prop del bacteri i va baixant en allunyar-se'n.")
     b += F("gradient = Δconcentració / Δdistància", note="Exemple: de 100 nM a 20 nM en 40 µm → (20 − 100) / 40 = −2 nM/µm (la concentració baixa 2 nM per cada µm)")
     b += P("El neutròfil té <b>receptors</b> a la membrana que detecten aquestes molècules. La banda de la cèl·lula que en detecta més (la que mira cap al bacteri) es <b>polaritza</b>: hi creix l'actina i la cèl·lula avança cap allà. Aquest moviment guiat per un gradient químic es diu <b>quimiotaxi</b>. Amb febre, les cèl·lules immunitàries es mouen més de pressa.")
+    b += figs.fig(T2.quimiotaxi(), "Quimiotaxi: el neutròfil segueix el gradient de concentració fins als bacteris.", "165mm")
     b += S(11, "Les forces")
     b += P("Una <b>força</b> és tota acció capaç de canviar l'estat de moviment d'un cos (posar-lo en moviment, aturar-lo, canviar-ne la velocitat o la direcció) o de <b>deformar-lo</b>. És una magnitud vectorial i es mesura en <b>newtons</b> (N) amb un <b>dinamòmetre</b>. Les forces poden ser <b>de contacte</b> (empènyer, fregament, la força normal d'una taula) o <b>a distància</b> (gravitatòria, elèctrica, magnètica).",
            "El <b>pes</b> és la força amb què la Terra atrau un cos: P = m · g, amb g = 9,8 N/kg. La massa (kg) és la mateixa a tot arreu; el pes (N) depèn d'on som: a la Lluna, on g = 1,6 N/kg, pesaríem unes sis vegades menys. Una massa de 50 g pesa 0,050 · 9,8 = 0,49 N.",
            "Quan sobre un cos actuen diverses forces, les podem substituir per una de sola, la <b>força resultant</b>. Si tenen la mateixa direcció i sentit, se sumen; si tenen sentits contraris, es resten i la resultant té el sentit de la més gran; si són perpendiculars, el mòdul de la resultant es calcula amb el teorema de Pitàgores. Gràficament, posem les fletxes una a continuació de l'altra: la resultant va de l'origen de la primera a l'extrem de l'última.")
+    b += figs.fig(T2.forces_resultant(), "Força resultant en tres casos.", "155mm")
     b += S(12, "La llei de Hooke")
     b += P("Els cossos <b>elàstics</b> (una molla, una goma) recuperen la forma quan deixem de fer força; els <b>plàstics</b> (la plastilina) no. En un cos elàstic, l'allargament és proporcional a la força aplicada, mentre no superem el <b>límit d'elasticitat</b>: si l'estirem massa, queda deformat o es trenca. Els dinamòmetres funcionen gràcies a aquesta llei.")
     b += F("F = k · Δx", note="k: constant elàstica (N/m), el pendent de la gràfica F–Δx · Δx: allargament (m) = longitud − longitud inicial")
     b += EX("Exemple", "Una molla s'allarga 0,025 m amb un pes de 0,49 N: k = 0,49 / 0,025 ≈ 20 N/m. Si s'allarga 0,05 m, la força és 20 · 0,05 = 1 N, i la massa penjada és 1 / 9,8 ≈ 0,10 kg.")
+    b += figs.fig(T2.hooke(), "Llei de Hooke: l'allargament és proporcional a la força.", "160mm")
     b += S(13, "Les lleis de Newton")
     b += T(["Llei", "Què diu", "Exemple"],
            [["1a · Inèrcia", "Si la força resultant sobre un cos és zero, el cos manté el seu estat: si estava en repòs, continua en repòs; si es movia, continua amb MRU", "Si el patinet frena de cop, el cos del conductor continua endavant (per això porta casc i els cotxes, cinturó)"],
             ["2a · Força i acceleració", "La força resultant és igual a la massa per l'acceleració: F = m · a (1 N = 1 kg · m/s²). L'acceleració té la direcció i el sentit de la força resultant", "Amb la mateixa força, un patinet més carregat accelera menys"],
             ["3a · Acció i reacció", "Si un cos A fa una força sobre un cos B, B fa sobre A una força igual i de sentit contrari. Les dues forces actuen sobre cossos diferents i no s'anul·len", "Per avançar, empenyem el terra cap enrere i el terra ens empeny cap endavant; un coet expulsa gasos i els gasos l'empenyen"]], w=["18%", "47%", "35%"])
     b += EX("Exemple", "Un patinet amb el conductor (80 kg) passa de 0 a 6 m/s en 4 s: a = 6 / 4 = 1,5 m/s² i F = 80 · 1,5 = 120 N. Si frena amb a = −3 m/s², la força de frenada és 80 · (−3) = −240 N.")
+    b += figs.fig(T2.accio_reaccio(), "Acció i reacció: per avançar, empenyem (o estirem) el terra cap enrere.", "165mm")
     b += S(14, "Les forces de les cèl·lules")
     b += P("Per dins, la cèl·lula té un <b>citoesquelet</b>, una xarxa de filaments de proteïnes. Els filaments d'<b>actina</b> creixen a la part del davant i empenyen la membrana endavant; a la vegada, a través de les <b>adhesions focals</b> (punts on la cèl·lula s'enganxa al substrat), estiren el substrat cap enrere. Per la 3a llei de Newton, el substrat estira la cèl·lula cap endavant, i la cèl·lula avança. Els <b>microtúbuls</b> fan de vies de transport dins de la cèl·lula.",
            "Les forces de les cèl·lules són de l'ordre dels <b>nanonewtons</b> (1 nN = 10⁻⁹ N). Es mesuren posant la cèl·lula sobre un gel tou amb boletes fluorescents: el gel es comporta com un conjunt de molles i, pel desplaçament de les boletes i la llei de Hooke, en calculem la força. A l'escala de la cèl·lula, el fregament de l'aigua és enorme comparat amb la massa de la cèl·lula: quan deixa de fer força, s'atura gairebé a l'instant (la inèrcia no hi té gaire paper).")
@@ -385,6 +413,7 @@ def sda6():
     b += F("E<sub>c</sub> = ½ · m · v²", "E<sub>p</sub> = m · g · h", "E<sub>m</sub> = E<sub>c</sub> + E<sub>p</sub>", note="m en kg, v en m/s, h en m, g = 9,8 m/s² → energia en J")
     b += P("L'energia cinètica depèn del quadrat de la velocitat: si un cotxe va el doble de ràpid, té quatre vegades més energia (i necessita quatre vegades més distància per frenar). Si no hi ha fregament, l'energia mecànica es conserva: quan un cos cau, l'energia potencial es transforma en cinètica.")
     b += EX("Exemple", "Un cotxe de 1 000 kg a 20 m/s (72 km/h) té E<sub>c</sub> = ½ · 1 000 · 20² = 200 000 J. 1 m³ d'aigua (1 000 kg) a 100 m d'altura en un embassament té E<sub>p</sub> = 1 000 · 9,8 · 100 = 980 000 J.")
+    b += figs.fig(T2.energia_mecanica(), "Conservació de l'energia mecànica en una muntanya russa sense fregament.", "145mm")
     b += S(3, "Treball i calor: com es transfereix l'energia")
     b += P("L'energia passa d'un sistema a un altre de dues maneres. Per <b>treball</b>, quan una força desplaça un cos: W = F · d (en J, si la força té la direcció del desplaçament). Per <b>calor</b>, quan dos cossos a temperatures diferents són en contacte: l'energia passa del més calent al més fred fins que arriben a la mateixa temperatura (equilibri tèrmic). La calor no és una forma d'energia que un cos «té», sinó energia en trànsit.")
     b += S(4, "Conservació i degradació de l'energia")
@@ -408,6 +437,7 @@ def sda6():
     b += T(["Magnitud", "Què és", "Unitat", "Es mesura amb"],
            [["Intensitat (I)", "Quantitat de càrrega que travessa el conductor cada segon", "ampere (A)", "Amperímetre (en sèrie)"], ["Tensió o voltatge (V)", "Energia que el generador dona a cada unitat de càrrega: l'«impuls» del corrent", "volt (V)", "Voltímetre (en paral·lel)"],
             ["Resistència (R)", "Oposició d'un material al pas del corrent", "ohm (Ω)", "Ohmímetre"]], w=["20%", "45%", "15%", "20%"])
+    b += figs.fig(T2.circuit_mesura(), "Elements d'un circuit i com es connecten l'amperímetre i el voltímetre.", "135mm")
     b += F("Llei d'Ohm: V = I · R", "Potència elèctrica: P = V · I", "Energia elèctrica: E = P · t = V · I · t", note="A casa i a l'institut, la tensió és de 230 V.")
     b += EX("Exemple", "Un bullidor de 2 000 W connectat a 230 V: I = P / V = 2 000 / 230 ≈ 8,7 A. Si funciona 3 minuts (0,05 h) gasta 2 kW · 0,05 h = 0,1 kWh.")
     b += S(9, "Circuits en sèrie i en paral·lel")
@@ -428,6 +458,7 @@ def sda6():
     b += S(12, "Les fonts d'energia")
     b += T(["Renovables", "No renovables"], [["Es regeneren de manera natural al ritme que les fem servir: hidràulica, eòlica, solar (fotovoltaica i tèrmica), biomassa, geotèrmica, mareomotriu.", "Se n'esgoten les reserves, perquè es van formar en milions d'anys: petroli, carbó i gas natural (combustibles fòssils) i urani (nuclear)."],
             ["Avantatges: no s'esgoten, gairebé no emeten CO₂ en funcionar i són autòctones. Inconvenients: depenen del temps (sol, vent, pluja), ocupen territori i tenen impacte en el paisatge i en la fauna, i cal emmagatzemar l'energia (bateries, embassaments).", "Avantatges: produeixen quan cal i de manera constant. Inconvenients: s'esgoten, els combustibles fòssils emeten CO₂ (canvi climàtic) i contaminants de l'aire, i la nuclear genera residus radioactius de llarga durada."]])
+    b += figs.fig(T2.fonts_energia(), "Algunes fonts d'energia per generar electricitat.", "160mm")
     b += P("Molta de l'energia que fem servir ve, en el fons, del Sol: el vent (escalfament desigual de l'aire), el cicle de l'aigua (hidràulica), la biomassa (fotosíntesi) i fins i tot els combustibles fòssils (restes d'éssers vius de fa milions d'anys).",
            "A Catalunya, l'any 2024 les renovables van generar el 19,1 % de l'electricitat, segons Red Eléctrica, i la nuclear va ser la primera font. Catalunya consumeix més electricitat de la que genera i n'importa d'altres territoris.",
            "La millor energia és la que no es gasta. Un pla d'estalvi combina <b>hàbits sostenibles</b> (apagar llums i aparells, aprofitar la llum natural), <b>eficiència</b> (LED, electrodomèstics de classe A, bon aïllament) i <b>generació renovable</b> (plaques solars, comunitats energètiques), amb la participació de tota la comunitat.")
