@@ -216,18 +216,20 @@
   /* ================= Fitxes convertides dels fulls (spec.html) ================= */
   function workLineHtml(ln, i, ro) {
     const dis = ro ? " disabled" : "";
-    const del = ro ? "" : `<button type="button" class="wl-x" data-wdel="${i}" aria-label="Treu aquesta línia">${ICON.x}</button>`;
-    if (ln.t === "math") return `<div class="wl wl-math" data-wl="${i}"><span class="wl-tag">Equació</span><div class="mtools">${ro ? "" : '<button type="button" data-ins="\\frac{#@}{#?}" title="Fracció">a/b</button><button type="button" data-ins="\\cdot 10^{#?}" title="Potència de 10">·10ⁿ</button><button type="button" data-ins="#@^{#?}" title="Potència">xⁿ</button><button type="button" data-ins="\\cdot" title="Per">·</button><button type="button" data-ins="\\left(#?\\right)" title="Parèntesis">( )</button><button type="button" data-ins="\\sqrt{#?}" title="Arrel">√</button><button type="button" data-ins="\\Delta" title="Increment">Δ</button>'}</div><math-field class="mf" math-virtual-keyboard-policy="manual"${ro ? " read-only" : ""}>${esc(ln.v || "")}</math-field><output class="ws-calc" data-calc></output>${del}</div>`;
+    const lab = ln.lab ? ` data-lab="${esc(ln.lab)}"` : "";
+    const del = ro || ln.lab ? "" : `<button type="button" class="wl-x" data-wdel="${i}" aria-label="Treu aquesta línia">${ICON.x}</button>`;
+    if (ln.t === "res") return `<div class="wl wl-res" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Resultat")}</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-rk="v" value="${esc(ln.v || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-rk="u" value="${esc(ln.u || "")}" placeholder="${esc(ln.ut || "unitat")}"${dis}></span>${del}</div>`;
+    if (ln.t === "math") return `<div class="wl wl-math" data-wl="${i}"${lab}><span class="wl-tag">${esc(ln.lab || "Equació")}</span><div class="mtools">${ro ? "" : '<button type="button" data-ins="\\frac{#@}{#?}" title="Fracció">a/b</button><button type="button" data-ins="\\cdot 10^{#?}" title="Potència de 10">·10ⁿ</button><button type="button" data-ins="#@^{#?}" title="Potència">xⁿ</button><button type="button" data-ins="\\cdot" title="Per">·</button><button type="button" data-ins="\\left(#?\\right)" title="Parèntesis">( )</button><button type="button" data-ins="\\sqrt{#?}" title="Arrel">√</button><button type="button" data-ins="\\Delta" title="Increment">Δ</button>'}</div><math-field class="mf" math-virtual-keyboard-policy="manual"${ro ? " read-only" : ""}>${esc(ln.v || "")}</math-field><output class="ws-calc" data-calc></output>${del}</div>`;
     if (ln.t === "chain") {
       const fs = ln.factors && ln.factors.length ? ln.factors : [{ nv: "", nu: "", dv: "", du: "" }];
-      return `<div class="wl wl-chain" data-wl="${i}"><span class="wl-tag">Factors de conversió</span><div class="ws-chain"><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="sv" value="${esc(ln.sv || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-ck="su" value="${esc(ln.su || "")}" placeholder="unitat"${dis}></span>${fs.map((f, j) => `<span class="dot">·</span><span class="frac" data-f="${j}"><span class="fn"><input class="ws-in v" inputmode="decimal" data-fk="nv" value="${esc(f.nv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="nu" value="${esc(f.nu)}" placeholder="unitat"${dis}></span><span class="fd"><input class="ws-in v" inputmode="decimal" data-fk="dv" value="${esc(f.dv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="du" value="${esc(f.du)}" placeholder="unitat"${dis}></span>${ro ? "" : `<button type="button" class="fx" data-fdel="${j}" aria-label="Treu el factor">${ICON.x}</button>`}<i class="fchk" data-fchk="${j}"></i></span>`).join("")}${ro ? "" : '<button type="button" class="addf" data-fadd>+ factor</button>'}<span class="eq">=</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="rv" value="${esc(ln.rv || "")}" placeholder="resultat"${dis}><input class="ws-in u" list="fq-units" data-ck="ru" value="${esc(ln.ru || "")}" placeholder="unitat"${dis}></span></div><output class="ws-calc" data-calc></output>${del}</div>`;
+      return `<div class="wl wl-chain" data-wl="${i}"${lab}${ln.rt ? ` data-rt="${esc(ln.rt)}"` : ""}><span class="wl-tag">${esc(ln.lab || "Factors de conversió")}</span><div class="ws-chain"><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="sv" value="${esc(ln.sv || "")}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-ck="su" value="${esc(ln.su || "")}" placeholder="unitat"${dis}></span>${fs.map((f, j) => `<span class="dot">·</span><span class="frac" data-f="${j}"><span class="fn"><input class="ws-in v" inputmode="decimal" data-fk="nv" value="${esc(f.nv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="nu" value="${esc(f.nu)}" placeholder="unitat"${dis}></span><span class="fd"><input class="ws-in v" inputmode="decimal" data-fk="dv" value="${esc(f.dv)}" placeholder="valor"${dis}><input class="ws-in u" list="fq-units" data-fk="du" value="${esc(f.du)}" placeholder="unitat"${dis}></span>${ro ? "" : `<button type="button" class="fx" data-fdel="${j}" aria-label="Treu el factor">${ICON.x}</button>`}<i class="fchk" data-fchk="${j}"></i></span>`).join("")}${ro ? "" : '<button type="button" class="addf" data-fadd>+ factor</button>'}<span class="eq">=</span><span class="ws-final"><input class="ws-in v" inputmode="decimal" data-ck="rv" value="${esc(ln.rv || "")}" placeholder="resultat"${dis}><input class="ws-in u" list="fq-units" data-ck="ru" value="${esc(ln.ru || "")}" placeholder="${esc(ln.rt || "unitat")}"${dis}></span></div><output class="ws-calc" data-calc></output>${del}</div>`;
     }
-    return `<div class="wl wl-text" data-wl="${i}"><textarea class="ws-text" rows="${ln.rows || 2}" data-wt${dis}>${esc(ln.v || "")}</textarea>${i > 0 ? del : ""}</div>`;
+    return `<div class="wl wl-text" data-wl="${i}"${lab}${ln.ph ? ` data-ph="${esc(ln.ph)}"` : ""}>${ln.lab ? `<span class="wl-tag">${esc(ln.lab)}</span>` : ""}<textarea class="ws-text" rows="${ln.rows || 2}" data-wt${ln.ph ? ` placeholder="${esc(ln.ph)}"` : ""}${dis}>${esc(ln.v || "")}</textarea>${i > 0 ? del : ""}</div>`;
   }
   function workHtml(fid, f, a, ro) {
-    const lines = a && a.lines && a.lines.length ? a.lines : [{ t: "text", v: "", rows: f.rows || 2 }];
+    const lines = a && a.lines && a.lines.length ? a.lines : (f.init && f.init.length ? f.init.map((x) => ({ ...x, factors: x.t === "chain" ? [{ nv: "", nu: "", dv: "", du: "" }] : undefined })) : [{ t: "text", v: "", rows: f.rows || 2 }]);
     if (ro && !(a && a.lines)) return `<div class="work ro" data-fid="${fid}"><div class="wl wl-text"><textarea class="ws-text" rows="${f.rows || 2}" disabled></textarea></div></div>`;
-    return `<div class="work" data-fid="${fid}">${lines.map((ln, i) => workLineHtml(ln, i, ro)).join("")}${ro || f.plain ? "" : `<div class="wadd"><button type="button" data-wadd="text">+ text</button><button type="button" data-wadd="math">+ equació</button><button type="button" data-wadd="chain">+ factors de conversió</button></div>`}</div>`;
+    return `<div class="work${f.init ? " scaf" : ""}${f.sub ? " sub" : ""}" data-fid="${fid}">${lines.map((ln, i) => workLineHtml(ln, i, ro)).join("")}${ro || f.plain ? "" : `<div class="wadd"><button type="button" data-wadd="text">+ text</button><button type="button" data-wadd="math">+ equació</button><button type="button" data-wadd="chain">+ factors de conversió</button><button type="button" data-wadd="res">+ resultat</button></div>`}</div>`;
   }
   function photoFieldHtml(fid, f, photos, ro) {
     const ps = photos.filter((p) => p.item === fid);
@@ -237,9 +239,12 @@
   function fieldHtml(fid, f, a, ro, photos) {
     const dis = ro ? " disabled" : "";
     switch (f.k) {
-      case "work": return workHtml(fid, f, a, ro);
+      case "work":
+        if (f.legacy) { const has = a && (a.lines || []).some((l) => l.v || l.rv || l.sv || (l.factors || []).some((x) => x.nv || x.dv)); return has ? `<div class="legacy"><span class="wl-tag">La teva resposta anterior</span>${workHtml(fid, { ...f, plain: 1 }, a, ro)}</div>` : ""; }
+        return workHtml(fid, f, a, ro);
       case "cell": if (f.opts) return `<select class="ws-in cellf" data-cf="${fid}"${dis}><option value=""></option>${f.opts.map((o) => `<option${a && a.v === o ? " selected" : ""}>${esc(o)}</option>`).join("")}</select>`;
-        return `<input class="ws-in cellf" data-cf="${fid}" value="${esc((a && a.v) || "")}"${dis} aria-label="Resposta">`;
+        if (f.coef) return `<input class="ws-in coef" data-cf="${fid}" inputmode="numeric" maxlength="3" value="${esc((a && a.v) || "")}"${dis} aria-label="Coeficient" title="Coeficient (deixa-ho buit si és 1)">`;
+        return `<input class="ws-in cellf${f.wide ? " wide" : ""}" data-cf="${fid}" value="${esc((a && a.v) || "")}"${f.ph ? ` placeholder="${esc(f.ph)}"` : ""}${dis} aria-label="Resposta">`;
       case "check": return `<input type="checkbox" class="chkf" data-cf="${fid}"${a && a.v ? " checked" : ""}${dis} aria-label="Marca">`;
       case "rate": return `<span class="ratef" data-rate="${fid}">${[1, 2, 3, 4].map((n) => `<label><input type="radio" name="r-${fid}" value="${n}" data-cf="${fid}"${a && +a.v === n ? " checked" : ""}${dis}>${n}</label>`).join("")}</span>`;
       case "photo": return photoFieldHtml(fid, f, photos, ro);
@@ -272,9 +277,11 @@
     drawRadar(host, spec, answers);
 
     const readWork = (w) => ({ lines: [...w.querySelectorAll(":scope > .wl")].map((l) => {
-      if (l.classList.contains("wl-math")) return { t: "math", v: l.querySelector("math-field").value };
-      if (l.classList.contains("wl-chain")) { const g = (k) => (l.querySelector(`[data-ck="${k}"]`) || {}).value || ""; return { t: "chain", sv: g("sv"), su: g("su"), rv: g("rv"), ru: g("ru"), factors: [...l.querySelectorAll("[data-f]")].map((fr) => { const q = (k) => fr.querySelector(`[data-fk="${k}"]`).value; return { nv: q("nv"), nu: q("nu"), dv: q("dv"), du: q("du") }; }) }; }
-      const ta = l.querySelector("textarea"); return { t: "text", v: ta.value, rows: +ta.getAttribute("rows") || 2 };
+      const lab = l.dataset.lab ? { lab: l.dataset.lab } : {};
+      if (l.classList.contains("wl-math")) return { t: "math", v: l.querySelector("math-field").value, ...lab };
+      if (l.classList.contains("wl-res")) { const g = (k) => (l.querySelector(`[data-rk="${k}"]`) || {}).value || ""; const u = l.querySelector('[data-rk="u"]'); return { t: "res", v: g("v"), u: g("u"), ut: u && u.placeholder !== "unitat" ? u.placeholder : undefined, ...lab }; }
+      if (l.classList.contains("wl-chain")) { const g = (k) => (l.querySelector(`[data-ck="${k}"]`) || {}).value || ""; return { t: "chain", sv: g("sv"), su: g("su"), rv: g("rv"), ru: g("ru"), rt: l.dataset.rt || undefined, ...lab, factors: [...l.querySelectorAll("[data-f]")].map((fr) => { const q = (k) => fr.querySelector(`[data-fk="${k}"]`).value; return { nv: q("nv"), nu: q("nu"), dv: q("dv"), du: q("du") }; }) }; }
+      const ta = l.querySelector("textarea"); return { t: "text", v: ta.value, rows: +ta.getAttribute("rows") || 2, ph: l.dataset.ph || undefined, ...lab };
     }) });
     function calcLine(l) {
       const out = l.querySelector("[data-calc]"); if (!out) return;
@@ -308,7 +315,7 @@
       const st = readWork(w);
       const wa = e.target.closest("[data-wadd]"), wd = e.target.closest("[data-wdel]"), fa = e.target.closest("[data-fadd]"), fd = e.target.closest("[data-fdel]");
       if (!(wa || wd || fa || fd)) return;
-      if (wa) st.lines.push(wa.dataset.wadd === "text" ? { t: "text", v: "", rows: 2 } : wa.dataset.wadd === "math" ? { t: "math", v: "" } : { t: "chain", factors: [{ nv: "", nu: "", dv: "", du: "" }] });
+      if (wa) st.lines.push(wa.dataset.wadd === "text" ? { t: "text", v: "", rows: 2 } : wa.dataset.wadd === "math" ? { t: "math", v: "" } : wa.dataset.wadd === "res" ? { t: "res", v: "", u: "" } : { t: "chain", factors: [{ nv: "", nu: "", dv: "", du: "" }] });
       if (wd) st.lines.splice(+wd.dataset.wdel, 1);
       const li = (fa || fd) ? +e.target.closest(".wl").dataset.wl : -1;
       if (fa) st.lines[li].factors.push({ nv: "", nu: "", dv: "", du: "" });
@@ -321,7 +328,8 @@
   }
   function answerSummary(spec, fid, a) {
     const f = spec.fields[fid]; if (!a) return "";
-    if (f.k === "work") return (a.lines || []).map((l) => l.t === "math" ? `[${l.v}]` : l.t === "chain" ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : l.v).filter(Boolean).join(" | ");
+    if (f.k === "work") return (a.lines || []).map((l) => { const lb = l.lab ? l.lab + ": " : ""; const t = l.t === "math" ? (l.v ? `[${l.v}]` : "") : l.t === "res" ? (l.v ? `${l.v} ${l.u || ""}` : "") : l.t === "chain" ? ((l.factors || []).some((x) => x.nv || x.dv) || l.rv ? `${l.sv} ${l.su} ${(l.factors || []).map((x) => `·(${x.nv} ${x.nu})/(${x.dv} ${x.du})`).join(" ")} = ${l.rv} ${l.ru}` : "") : l.v; return t ? lb + t : ""; }).filter(Boolean).join(" | ");
+    if (f.coef) return a.v ? `[${a.v}]` : "[ ]";
     if (f.k === "check") return a.v ? "[x]" : "[ ]";
     return String(a.v ?? "");
   }
