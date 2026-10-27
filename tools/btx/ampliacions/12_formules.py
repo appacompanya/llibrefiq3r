@@ -19,11 +19,11 @@ BLOCKS = [
     dict(file="fenomens-ondulatoris", id="clau-snell", where=("after", "<ul><li>Llei de la reflexió"), html=clau(
         "Fórmules clau: reflexió i refracció", r"\theta_1'=\theta_1\qquad\qquad n_1\sin\theta_1=n_2\sin\theta_2\qquad\qquad \frac{\sin\theta_1}{\sin\theta_2}=\frac{v_1}{v_2}=\frac{\lambda_1}{\lambda_2}",
         note="Angles mesurats respecte de la normal. La freqüència no canvia en passar d’un medi a un altre.")),
-    dict(file="fenomens-ondulatoris", id="clau-interf", where=("after", "<ul><li>Interferència constructiva"), html=clau(
+    dict(file="fenomens-ondulatoris", id="clau-interf", where=("replace", "<ul><li>Interferència constructiva"), html=clau(
         "Fórmules clau: condicions d’interferència (fonts en fase)",
-        r"\text{Constructiva (màxim, }A_R=2A\text{):}\qquad |r_1-r_2|=n\,\lambda",
-        r"\text{Destructiva (mínim, }A_R=0\text{):}\qquad |r_1-r_2|=(2n+1)\,\frac{\lambda}{2}",
-        note="Amb $n=0,1,2,\\dots$ La diferència de camins $|r_1-r_2|$ és la diferència entre les distàncies del punt a cada font.")),
+        r"\text{Constructiva (màxim, les ones arriben en fase):}\qquad |r_1-r_2|=n\,\lambda",
+        r"\text{Destructiva (mínim, arriben en oposició de fase):}\qquad |r_1-r_2|=(2n+1)\,\frac{\lambda}{2}",
+        note="Amb $n=0,1,2,\\dots$ La diferència de camins $|r_1-r_2|$ és la diferència entre les distàncies del punt a cada font. Sense valor absolut: $r_1-r_2=n\\lambda$ amb $n\\in\\mathbb Z$ (també valors negatius).")),
     dict(file="fenomens-ondulatoris", id="clau-nodes", where=("after", "<ul><li>Nodes:"), html=clau(
         "Fórmules clau: nodes i ventres (x des d’un extrem fix)",
         r"\text{Nodes:}\quad x=n\,\frac{\lambda}{2}\qquad\qquad \text{Ventres:}\quad x=(2n+1)\,\frac{\lambda}{4}",
