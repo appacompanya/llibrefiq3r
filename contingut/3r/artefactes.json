@@ -3281,9 +3281,9 @@
    "empremta": "deb0c75d8cccfe1e5990dbc2efd57591044258231f70f9851b8213e27d4d0e21",
    "generador": "mn_adapt.py",
    "generador_hash": "472f0ee6afad842efdba4b91a75cf5c3b01d3185666972260353fb530f08cde0",
-   "hash": "401e58866a6e16630ca9254c4d06f8f75d5161ea064e0140a9eb776b32b60fc7",
+   "hash": "4998032c79bccb16442f18a4709a25152785fff1d582d69bbd8d51e084453755",
    "imatges": {},
-   "nota": "no és al bucket; la còpia que s'obre és docs/",
+   "nota": "no és al bucket; la còpia que s'obre és docs/. Fixada a mà (27/10/2026): és la mateixa fitxa que l'annex 15 de la programació; no regenerar amb mn_adapt.py.",
    "tipus": "pdf-professorat"
   },
   "professorat/sda3-02-model-de-mobil-per-plastificar.pdf": {
