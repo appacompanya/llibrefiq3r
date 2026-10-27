@@ -29,7 +29,13 @@ AMP = Path(__file__).resolve().parent / "ampliacions"
 CSS_EXTRA = """/*amp-css*/.box.def{--k:#0b6e6e;--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z'/%3E%3Cpath d='M9 9h6M9 13h6'/%3E%3C/svg%3E")}
 .box.def dl{margin:.4em 0}.box.def dt{font-weight:700;margin-top:.5em}.box.def dd{margin:.15em 0 0 1.2em}
 .amp-tab td,.amp-tab th{vertical-align:top}
-h4.amp{font-family:var(--sans);font-size:1.12rem;margin:1.9em 0 .6em;padding:.1em 0 .1em .6em;border-left:4px solid var(--c,#1b1f24);color:var(--c,#1b1f24)}/*/amp-css*/"""
+h4.amp{font-family:var(--sans);font-size:1.12rem;margin:1.9em 0 .6em;padding:.1em 0 .1em .6em;border-left:4px solid var(--c,#1b1f24);color:var(--c,#1b1f24)}
+.box.clau{--k:var(--c,#1f3f7f);--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9h12M6 15h12'/%3E%3C/svg%3E");background:color-mix(in srgb,var(--k) 11%,#fff);border:2px solid var(--k);border-left-width:8px}
+.box.clau>.lead{color:color-mix(in srgb,var(--k) 85%,#000)}
+.box.clau .katex-display,.box.res .katex-display{font-size:1.14em}
+.box.res{--k:var(--c,#1b1f24);background:color-mix(in srgb,var(--c,#888) 8%,#fff);border:2px solid var(--c,#1b1f24);border-left-width:6px}
+section.fm{border:2px solid var(--c,#555)!important;background:color-mix(in srgb,var(--c,#888) 5%,#fff)!important;border-radius:12px;padding:.3em 1em .8em}
+section.fm td:nth-child(2){font-size:1.06em}/*/amp-css*/"""
 
 # només per al llibre sencer (btx/teoria.html), que és el que es fa servir per al PDF: títols més diferenciats i
 # regles de paginació (el títol no queda mai sol a final de pàgina; els blocs curts no es parteixen, els llargs sí)
@@ -57,6 +63,8 @@ p:has(+ .kd){break-after:avoid;page-break-after:avoid}
 
 def load_blocks():
     blocks, figs = [], {}
+    global RENAMES
+    RENAMES = []
     for f in sorted(AMP.glob("*.py")):
         if f.name.startswith("_"):
             continue
@@ -65,6 +73,7 @@ def load_blocks():
         spec.loader.exec_module(mod)
         blocks += getattr(mod, "BLOCKS", [])
         figs.update(getattr(mod, "FIGS", {}))
+        RENAMES += getattr(mod, "RENAMES", [])
     return blocks, figs
 
 
@@ -133,6 +142,14 @@ def find_pos(s: str, where, label: str) -> int:
         if i < 0:
             raise SystemExit(f"[{label}] no trobo la secció {arg}")
         return end_of_element(s, i) - len("</section>")
+    if kind == "fm":
+        # final de la taula del formulari del tema (al llibre sencer, dins el capítol corresponent)
+        c = s.find(f'<section class="chap" id="{arg}"')
+        j = s.find('<section class="fm"', max(c, 0))
+        k = s.find("</tbody>", j)
+        if j < 0 or k < 0:
+            raise SystemExit(f"[{label}] no trobo el formulari de {arg}")
+        return k
     if kind == "start":
         i = s.find(f'<section id="{arg}">')
         m = re.compile(r"</h3>").search(s, i)
@@ -196,6 +213,8 @@ def main():
     for p in BTX.rglob("*.html"):
         t = p.read_text(encoding="utf-8")
         t2 = re.sub(r"book\.css\?v=\w+", f"book.css?v={v}", t)
+        for old, new in RENAMES:
+            t2 = t2.replace(old, new)
         if t2 != t:
             p.write_text(t2, encoding="utf-8")
     print("figures:", ", ".join(sorted(figs)) or "cap")
