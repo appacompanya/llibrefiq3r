@@ -19,6 +19,7 @@
 <script src="js/adaptacions-dades.js"></script>
 <script src="js/adaptacions.js"></script>
 <script src="js/profe-shim.js"></script>
+<script src="js/fulls-classe.js?v=20261027a"></script>
 <script>window.FQ_EMBED = true;</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -555,7 +556,7 @@ function renderPanel(n){
   const ses = s.sessions.map((x,i) => {
     const docs = x.d.map(k => dlBtn(k)).join("") + (MODE==="profe" ? (x.dt||[]).map(k => dlBtn(k)).join("") : "");
     const links = x.l.map(k => linkBtn(L[k].u, L[k].l, k)).join("");
-    const acts = docs + links;
+    const acts = docs + links + (MODE==="profe" && x.d.length ? `<button type="button" class="btn ghost" data-classe="${i}" title="Totes les còpies per a la classe: originals i adaptades segons l'alumnat del curs">🖨 Fulls per a la classe</button>` : "");
     const fig = x.fig ? `<figure class="fig"><img src="${x.fig.src}" alt="${esc(x.fig.alt)}" loading="lazy"><figcaption>${esc(x.fig.cap)}</figcaption></figure>` : "";
     const pic = x.pic === false ? `<span class="pend">Il·lustració<br>pendent</span>` : `<img src="../img/sda${s.n}-s${i+1}.png" alt="" loading="lazy">`;
     return `<article class="ses" id="s${i+1}" tabindex="0" aria-expanded="false" data-ses="${i}"><div class="pic">${pic}</div>
@@ -592,6 +593,8 @@ function pickSes(art){
   if (!was){ art.classList.add("sel"); art.setAttribute("aria-expanded","true"); }
 }
 document.getElementById("panel").addEventListener("click", e => {
+  const fc = e.target.closest("[data-classe]");
+  if (fc && window.FQFullsClasse) { const s = SDAS.find(x => x.n === current), i = +fc.dataset.classe; window.FQFullsClasse.open({ sda: s, ses: i, docs: s.sessions[i].d.map(k => ({ k, f: D[k].f, l: D[k].l })) }); return; }
   if (e.target.closest("a,button,input,textarea,select,summary")) return;
   const art = e.target.closest(".ses"); if (art) pickSes(art);
 });
