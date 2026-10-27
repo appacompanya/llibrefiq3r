@@ -47,12 +47,17 @@ figure img,figure svg,img{max-width:100%;height:auto}
 .box.def dl{margin:.4em 0}.box.def dt{font-weight:700;margin-top:.5em}.box.def dd{margin:.15em 0 0 1.2em}
 .amp-tab td,.amp-tab th{vertical-align:top}
 h4.amp{font-family:var(--sans);font-size:1.12rem;margin:1.9em 0 .6em;padding:.1em 0 .1em .6em;border-left:4px solid var(--c,#1b1f24);color:var(--c,#1b1f24)}/*/amp-css*//*amp-book*/
+/* colors de cada bloc, els mateixos de la web (btx/assets/book.css) */
+.chap{--c:#1f3f7f}
+#mhs,#ones,#fen{--c:#12857A}#grav{--c:#2F6FB5}#elec{--c:#C7651A}#mag,#ind{--c:#B83A7A}
+#quant,#rel,#nucl{--c:#C63D3D}#opt{--c:#A86F12}#formulari{--c:#5f6670}
 h2,h3,h4,.box .lead{font-family:"DejaVu Sans",Arial,Helvetica,sans-serif}
-h2{font-size:1.7em;color:#1f3f7f;border-bottom:3px solid #1f3f7f;padding-bottom:.2em;letter-spacing:-.01em}
-h3{font-size:1.22em;color:#fff;background:#1f3f7f;padding:.28em .65em;border-radius:4px;margin:1.9em 0 .7em}
-h4,h4.amp{font-size:1.06em;color:#1f3f7f;border:0;border-bottom:1.5px solid #9fb3d9;padding:0 0 .15em;margin:1.5em 0 .55em}
+h2{font-size:1.7em;color:var(--c);border-bottom:3px solid var(--c);padding-bottom:.2em;letter-spacing:-.01em}
+h3{font-size:1.22em;color:#fff;background:var(--c);padding:.28em .65em;border-radius:4px;margin:1.9em 0 .7em}
+h4,h4.amp{font-size:1.06em;color:var(--c);border:0;border-bottom:1.5px solid color-mix(in srgb,var(--c) 40%,#fff);padding:0 0 .15em;margin:1.5em 0 .55em}
 .box .lead{font-size:.93em;color:#1b1f24;margin-bottom:.45em}
-.box.def{border-left-color:#0b6e6e}.box.def .lead,.box.def dt{color:#0b6e6e}
+.box.def{border-left-color:var(--c)}.box.def .lead,.box.def dt{color:var(--c)}
+.box.dem{border-left-color:var(--c)}
 h2,h3,h4,.box .lead,dt{break-after:avoid;page-break-after:avoid}
 h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
 p,li,dd{orphans:3;widows:3}
