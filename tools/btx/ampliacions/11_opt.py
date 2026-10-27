@@ -56,7 +56,7 @@ FIGS = {
 BLOCKS = [
     dict(file=F, id="opt-elements", where=("start", "opt-s4"), html=r"""
 <div class="box def"><div class="lead">Elements d’una lent prima i tipus d’imatge</div><dl>
-<dt>Eix òptic i centre òptic O</dt><dd>L’eix òptic és la recta perpendicular a la lent que passa pel seu centre; el centre òptic O és el punt de la lent on un raig passa sense desviar-se (la lent hi és com una làmina de cares paral·leles molt prima).</dd>
+<dt>Eix òptic i centre òptic O</dt><dd>L’eix òptic és la recta perpendicular a la lent que passa pel seu centre; el centre òptic O és el punt de la lent on un raig passa sense desviar-se (en aquest punt la lent es comporta com una làmina de cares paral·leles molt prima).</dd>
 <dt>Focus imatge F′</dt><dd>Punt de l’eix on convergeixen (o d’on semblen sortir, en una lent divergent) els raigs que arriben paral·lels a l’eix. La seva distància a O és la distància focal imatge $f'$: positiva per a una lent convergent i negativa per a una divergent.</dd>
 <dt>Focus objecte F</dt><dd>Punt de l’eix tal que els raigs que hi passen (o que s’hi dirigeixen) surten de la lent paral·lels a l’eix. Si hi ha el mateix medi a banda i banda de la lent, F i F′ són simètrics respecte d’O: $f=-f'$.</dd>
 <dt>Imatge real</dt><dd>La formen els raigs <i>mateixos</i> en tallar-se després de la lent ($s'>0$). Es pot recollir en una pantalla (projector, càmera, retina).</dd>
@@ -85,13 +85,13 @@ $$m=\frac{y'}{y}=\frac{s'}{s}$$</div></div>
 <tr><td><b>Al focus objecte $F$</b> ($|s|=f'$)</td><td><b>A l’infinit</b>: no es forma</td><td>Els raigs surten paral·lels</td><td>Focus, far, col·limador</td></tr>
 <tr><td>Entre $F$ i la lent ($|s|<f'$)</td><td>Davant la lent, $s'<0$</td><td>Virtual, dreta, més gran ($m>1$)</td><td>Lupa</td></tr>
 </tbody></table>
-<p>A mesura que l’objecte s’acosta a $F$ des de fora, la imatge real s’allunya i es fa cada cop més gran; quan el supera, la imatge passa a ser virtual i ve «des de l’infinit» per l’altra banda. Una lent divergent, en canvi, dona sempre una imatge virtual, dreta i més petita (figura 11.3).</p>
+<p>A mesura que l’objecte s’acosta a $F$ des de fora, la imatge real s’allunya i es fa cada cop més gran; quan l’objecte passa entre el focus i la lent, la imatge esdevé virtual: apareix molt lluny, al mateix costat que l’objecte, i s’acosta a la lent a mesura que l’objecte s’hi acosta. Una lent divergent, en canvi, dona sempre una imatge virtual, dreta i més petita (figura 11.3).</p>
 <div class="box ex"><div class="lead">Exemple resolt: què passa si l’objecte és al focus d’una lent convergent?</div>
 <p>Una lent convergent té $f'=3{,}0$ cm i posem l’objecte a $s=-3{,}0$ cm, just al focus objecte. L’equació de les lents dona</p>
 $$\frac{1}{s'}=\frac{1}{f'}+\frac{1}{s}=\frac{1}{3{,}0}+\frac{1}{-3{,}0}=0\quad\Rightarrow\quad s'\to\infty$$
 <p>No hi ha cap valor finit de $s'$ que compleixi l’equació: la imatge «es forma a l’infinit». L’augment $m=s'/s$ tampoc no té un valor finit.</p>
 <p><b>Diagrama de raigs</b> (figura 11.7). Des de l’extrem superior de l’objecte: (1) el raig paral·lel a l’eix es refracta passant per $F'$; (2) el raig que passa pel centre òptic no es desvia. Com que l’extrem de l’objecte és sobre el pla focal, aquests dos raigs —i qualsevol altre que surti del mateix punt— emergeixen <i>paral·lels entre si</i>. Rectes paral·leles no es tallen: no hi ha imatge real. Les prolongacions cap enrere també són paral·leles: tampoc no hi ha imatge virtual.</p>
-<p><b>Interpretació física.</b> Cada punt de l’objecte dona un feix de raigs paral·lels, és a dir, la lent converteix la llum que surt d’un punt del focus en un feix «col·limat». Així funcionen els fars i els focus (la bombeta es col·loca al focus d’una lent o d’un mirall). Un ull relaxat, que enfoca objectes llunyans, sí que veu nítidament aquest feix: és la manera més còmoda de fer servir una lupa, amb l’objecte al focus.</p></div>
+<p><b>Interpretació física.</b> De cada punt de l’objecte en surt, després de la lent, un feix de raigs paral·lels (un feix col·limat). Així funcionen els fars i els focus (la bombeta es col·loca al focus d’una lent o d’un mirall). Un ull relaxat, enfocat a l’infinit, sí que forma a la retina una imatge nítida d’aquest feix: per això la manera més còmoda de fer servir una lupa és posar l’objecte al focus.</p></div>
 [[fig-11.7]]
 """),
 ]

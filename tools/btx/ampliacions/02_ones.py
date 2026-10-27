@@ -4,7 +4,7 @@ F = "ones"
 BLOCKS = [
     dict(file=F, id="ones-front", where=("end", "ones-s2"), html=r"""
 <div class="box def"><div class="lead">Front d’ona, raig i ona harmònica</div><dl>
-<dt>Front d’ona</dt><dd>Superfície formada pels punts del medi que, en un instant, vibren en fase (tenen la mateixa fase). En una ona que surt d’un focus puntual en un medi homogeni, els fronts d’ona són esferes (ona esfèrica); molt lluny del focus, un tros petit de front és pràcticament pla (ona plana).</dd>
+<dt>Front d’ona</dt><dd>Superfície formada pels punts del medi que, en un instant donat, vibren en fase (tenen la mateixa fase). En una ona que surt d’un focus puntual en un medi homogeni, els fronts d’ona són esferes (ona esfèrica); molt lluny del focus, un tros petit de front és pràcticament pla (ona plana).</dd>
 <dt>Raig</dt><dd>Línia perpendicular als fronts d’ona que indica la direcció de propagació.</dd>
 <dt>Ona harmònica</dt><dd>Ona en què el focus fa un MHS. Cada punt del medi repeteix el MHS del focus amb un retard, de manera que tots els punts vibren amb la mateixa freqüència i (si no hi ha pèrdues) la mateixa amplitud.</dd>
 </dl></div>
@@ -33,6 +33,6 @@ $$y(x,t)=0{,}050\sin\!\left(20\pi t+\pi x+\frac{\pi}{2}\right)\ (\text{SI})$$
 <p>Pas 3. Igualem les dues proporcionalitats: $A^2\propto 1/r^2$.</p>
 <div class="box res"><div class="lead">Resultat</div>
 $$I\propto A^2,\qquad A\propto\frac1r,\qquad \frac{A_2}{A_1}=\frac{r_1}{r_2}$$</div>
-<p>La intensitat d’una ona esfèrica disminueix amb $1/r^2$ però l’amplitud només amb $1/r$ (atenuació per repartiment de l’energia). A més, els medis reals absorbeixen part de l’energia (absorció), i la intensitat disminueix encara més ràpid.</p></div>
+<p>En una ona esfèrica la intensitat és inversament proporcional a $r^2$, i l’amplitud, inversament proporcional a $r$: l’energia es reparteix en una superfície cada cop més gran. A més, els medis reals absorbeixen part de l’energia (absorció), i la intensitat disminueix encara més ràpid.</p></div>
 """),
 ]

@@ -52,7 +52,7 @@ $$r=\frac{1}{B}\sqrt{\frac{2m\,\Delta V}{|q|}}\qquad(r\propto\sqrt m)$$</div>
 <p>Pas 2. Sumem les forces de Lorentz de totes les càrregues del tram (tenen la mateixa direcció): $F=\Delta Q\,vB\sin\alpha$.</p>
 <div class="box res"><div class="lead">Resultat</div>
 $$F=I\,L\,B\sin\alpha,\qquad \vec F=I\,\vec L\times\vec B$$</div>
-<p>La força sobre el conductor és la suma de les forces magnètiques sobre les càrregues que s’hi mouen; per això té la mateixa regla de sentit, amb $\vec L$ en el sentit del corrent.</p></div>
+<p>La força sobre el conductor és la suma de les forces magnètiques sobre les càrregues que s’hi mouen; per això el sentit es troba amb la mateixa regla, prenent $\vec L$ en el sentit del corrent.</p></div>
 """),
     dict(file=F, id="mag-ampere", where=("end", "mag-s4"), html=r"""
 <div class="box rec"><div class="lead">Recorda: l’ampere i els motors</div>
