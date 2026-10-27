@@ -45,7 +45,7 @@ def fig_45():
         s.arrow(p1[0], p1[1], p2[0], p2[1], GREEN, 1.9, 9)
     q = P(rA + 62, 22)
     s.text(q[0] + 4, q[1] - 6, "g", 14, "start", GREEN, True, True)
-    s.text(470, 36, "El treball de A a B és el", 13, "start", INK)
+    s.text(470, 36, "El treball d’A a B és el", 13, "start", INK)
     s.text(470, 54, "mateix pels dos camins:", 13, "start", INK)
     s.text(470, 72, "només depèn de r" + sub("A") + "<tspan dy='-4'> i r</tspan>" + sub("B"), 13, "start", INK)
     s.line(470, 98, 500, 98, GREY, 1.1, "5 5")
@@ -54,7 +54,7 @@ def fig_45():
 
 
 FIGS = {
-    "fig-4.5": (fig_45(), "La força gravitatòria és conservativa. Per anar de A a B, el camí 2 segueix primer un arc centrat en M "
+    "fig-4.5": (fig_45(), "La força gravitatòria és conservativa. Per anar d’A a B, el camí 2 segueix primer un arc centrat en M "
                 "(perpendicular a la força: no hi ha treball) i després un tram radial. Qualsevol camí, com el camí 1, es pot "
                 "aproximar per una escala de trams d’arc i trams radials; només els radials fan treball i la seva suma només "
                 "depèn de r<sub>A</sub> i r<sub>B</sub>. Les circumferències discontínues són superfícies equipotencials; "
@@ -73,7 +73,7 @@ BLOCKS = [
 $$G\frac{M_T}{x^2}=G\frac{M_L}{(D-x)^2}\;\Rightarrow\;\frac{x}{D-x}=\sqrt{\frac{M_T}{M_L}}=9\;\Rightarrow\;x=\frac{9}{10}D=3{,}46\cdot10^{8}\ \text{m}$$
 <p>(Hem pres l’arrel positiva perquè el punt és entre els dos astres.) El punt és molt més a prop de la Lluna, que té menys massa.</p></div>
 <div class="box noav"><div class="lead">Per ampliar – no avaluable a la PAU: el camp a l’interior d’un planeta</div>
-<p>A l’interior d’una esfera homogènia, a una distància $r<R$ del centre, només atreu la massa que queda «per sota», $M(r)=M\,r^3/R^3$; la de l’escorça exterior s’anul·la. Aleshores $g(r)=G\,M(r)/r^2=g_0\,r/R$: el camp creix linealment des de zero al centre fins a $g_0$ a la superfície, i a partir d’aquí disminueix com $1/r^2$.</p></div>
+<p>A l’interior d’una esfera homogènia, a una distància $r<R$ del centre, només contribueix al camp la massa de l’esfera interior de radi $r$, $M(r)=M\,r^3/R^3$; l’atracció de la capa exterior s’anul·la. Aleshores $g(r)=G\,M(r)/r^2=g_0\,r/R$: el camp creix linealment des de zero al centre fins a $g_0$ a la superfície, i a partir d’aquí disminueix com $1/r^2$.</p></div>
 """),
     dict(file=F, id="grav-treball", where=("start", "grav-s3"), html=r"""
 <h4 class="amp">Treball de la força gravitatòria: per què és conservativa</h4>
@@ -134,7 +134,7 @@ $$W=\Delta E_m=-1{,}43\cdot10^{10}-(-3{,}13\cdot10^{10})=1{,}70\cdot10^{10}\ \te
     dict(file=F, id="grav-central", where=("before", '<div class="box dem"><div class="lead">Demostració: relació entre les velocitats al periheli'), html=r"""
 <div class="box def"><div class="lead">Força central, moment d’una força i conservació del moment angular</div><dl>
 <dt>Força central</dt><dd>Força dirigida en tot moment cap a un punt fix (el centre) o des d’ell. La força gravitatòria que fa el Sol sobre un planeta és central.</dd>
-<dt>Moment d’una força respecte d’un punt O</dt><dd>$\vec M_O=\vec r\times\vec F$, on $\vec r$ va de O al punt d’aplicació; mòdul $M_O=rF\sin\alpha$. Mesura la capacitat de la força de fer girar el cos al voltant de O.</dd>
+<dt>Moment d’una força respecte d’un punt O</dt><dd>$\vec M_O=\vec r\times\vec F$, on $\vec r$ va d’O al punt d’aplicació; mòdul $M_O=rF\sin\alpha$. Mesura la capacitat de la força de fer girar el cos al voltant de O.</dd>
 <dt>Teorema del moment angular</dt><dd>La variació del moment angular per unitat de temps és igual al moment de la força resultant: $\dfrac{d\vec L}{dt}=\vec M_O$. Si la força és central, $\vec r$ i $\vec F$ són paral·lels, $\sin\alpha=0$ i $\vec M_O=\vec 0$: el moment angular es conserva.</dd>
 </dl>
 <p>Atenció: es conserva el moment angular, no la velocitat. En una òrbita el·líptica la velocitat canvia (en mòdul i direcció), però el producte $r\,v\sin\alpha$ es manté constant.</p></div>

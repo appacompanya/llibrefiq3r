@@ -63,7 +63,7 @@ $$x_0^2+\left(\frac{v_0}{\omega}\right)^2=A^2\left(\sin^2\varphi_0+\cos^2\varphi
 <div class="box res"><div class="lead">Resultat</div>
 $$A=\sqrt{x_0^2+\frac{v_0^2}{\omega^2}},\qquad \sin\varphi_0=\frac{x_0}{A},\qquad \cos\varphi_0=\frac{v_0}{A\omega}$$
 </div>
-<p>La tangent sola no n’hi ha prou (dos angles tenen la mateixa tangent): el quadrant de $\varphi_0$ el fixen els signes de $\sin\varphi_0$ (el de $x_0$) i de $\cos\varphi_0$ (el de $v_0$).</p></div>
+<p>Amb la tangent no n’hi ha prou, perquè hi ha dos angles (que difereixen en $\pi$) amb la mateixa tangent. Per triar el correcte, cal mirar els signes: $\sin\varphi_0$ té el signe de $x_0$, i $\cos\varphi_0$, el de $v_0$.</p></div>
 <table class="amp-tab"><thead><tr><th>Situació a $t=0$ (amb $x=A\sin(\omega t+\varphi_0)$)</th><th>$x_0$</th><th>$v_0$</th><th>$\varphi_0$</th></tr></thead><tbody>
 <tr><td>Passa per l’equilibri cap a $x$ positives</td><td>$0$</td><td>$+A\omega$</td><td>$0$</td></tr>
 <tr><td>És a l’extrem positiu (es deixa anar des del repòs)</td><td>$+A$</td><td>$0$</td><td>$\pi/2$</td></tr>
@@ -97,7 +97,7 @@ $$\omega=\sqrt{\frac{k}{m}}=\sqrt{\frac{g}{\Delta l}},\qquad T=2\pi\sqrt{\frac{m
 <div class="box def"><div class="lead">Treball d’una força</div><dl>
 <dt>Força constant i desplaçament rectilini</dt><dd>El treball $W$ que fa una força constant $\vec F$ sobre un cos que es desplaça $\Delta\vec r$ és el producte escalar
 $$W=\vec F\cdot\Delta\vec r=F\,\Delta r\cos\alpha$$
-on $\alpha$ és l’angle entre la força i el desplaçament. És una magnitud escalar; s’expressa en joules ($1\ \mathrm{J}=1\ \mathrm{N\cdot m}$). Només treballa la component de la força en la direcció del desplaçament, $F\cos\alpha$.</dd>
+on $\alpha$ és l’angle entre la força i el desplaçament. És una magnitud escalar; s’expressa en joules ($1\ \mathrm{J}=1\ \mathrm{N\cdot m}$). Només fa treball la component de la força en la direcció del desplaçament, $F\cos\alpha$.</dd>
 <dt>Signe del treball</dt><dd>Si $\alpha<90°$, $W>0$: la força afavoreix el moviment i hi aporta energia (força motriu). Si $\alpha=90°$, $W=0$: les forces perpendiculars al desplaçament no fan treball (la normal en un pla horitzontal, la força centrípeta en un moviment circular, la força magnètica). Si $\alpha>90°$, $W<0$: la força s’oposa al moviment i en treu energia (fregament).</dd>
 <dt>Força variable o trajectòria corba</dt><dd>Dividim el camí en desplaçaments $\Delta\vec r_i$ tan petits que, en cadascun, la força sigui pràcticament constant, i sumem: $W_{A\to B}=\sum_i\vec F_i\cdot\Delta\vec r_i$. En el límit de trossos infinitament petits la suma és una integral, $W_{A\to B}=\int_A^B\vec F\cdot d\vec r$. En una dimensió, el treball és l’<i>àrea</i> (amb signe) compresa entre la gràfica $F(x)$ i l’eix $x$.</dd>
 <dt>Treball total</dt><dd>Si actuen diverses forces, el treball total és la suma dels treballs de cadascuna, que és igual al treball de la força resultant.</dd>
@@ -106,9 +106,9 @@ on $\alpha$ és l’angle entre la força i el desplaçament. És una magnitud e
 $$W_{\text{total}}=\Delta E_c=\tfrac12mv_B^2-\tfrac12mv_A^2$$
 <p>El treball de totes les forces que actuen sobre un cos és igual a la variació de la seva energia cinètica. Justificació per a una força resultant constant en una recta: $F\,\Delta x=ma\,\Delta x$ i, pel MRUA, $v_B^2-v_A^2=2a\,\Delta x$; per tant $F\,\Delta x=\tfrac12mv_B^2-\tfrac12mv_A^2$. El teorema val en general (forces variables, camins corbs).</p></div>
 <div class="box def"><div class="lead">Forces conservatives i no conservatives</div>
-<p>Una força és <b>conservativa</b> si el treball que fa sobre un cos que va d’un punt $A$ a un punt $B$ depèn només de $A$ i de $B$, i no del camí seguit. De manera equivalent: el treball que fa en <i>qualsevol camí tancat</i> és zero, $\oint\vec F\cdot d\vec r=0$. (Si anem de $A$ a $B$ pel camí 1 i tornem pel camí 2, $W=W_1-W_2=0$ perquè $W_1=W_2$.)</p>
+<p>Una força és <b>conservativa</b> si el treball que fa sobre un cos que va d’un punt $A$ a un punt $B$ només depèn d’$A$ i de $B$, i no del camí seguit. De manera equivalent: el treball que fa en <i>qualsevol camí tancat</i> és zero, $\oint\vec F\cdot d\vec r=0$. (Si anem d’$A$ a $B$ pel camí 1 i tornem pel camí 2, el treball total és $W_1-W_2=0$, perquè $W_1=W_2$.)</p>
 <ul><li><b>Conservatives:</b> la força gravitatòria (i el pes), la força elàstica d’una molla ideal, la força elèctrica entre càrregues en repòs.</li>
-<li><b>No conservatives:</b> el fregament i la resistència de l’aire (el seu treball és negatiu en qualsevol camí i, com més llarg és el camí, més energia dissipen: $W_{fr}=-\mu N\,L$), les forces que fan motors, músculs o cordes.</li>
+<li><b>No conservatives:</b> el fregament i la resistència de l’aire (fan sempre un treball negatiu, i com més llarg és el camí, més energia dissipen: $W_{fr}=-\mu N\,L$), les forces que fan motors, músculs o cordes.</li>
 <li>La <b>força magnètica</b> sobre una càrrega és sempre perpendicular a la velocitat i no fa mai treball.</li></ul></div>
 <div class="box def"><div class="lead">Funció d’estat</div>
 <p>Una magnitud és una <b>funció d’estat</b> si el seu valor depèn només de l’estat del sistema (posició, velocitat, temperatura…) i no de com s’hi ha arribat. Per això la seva variació entre dos estats, $\Delta X=X_B-X_A$, només depèn de l’estat inicial i del final.</p>

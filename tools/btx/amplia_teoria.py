@@ -8,6 +8,7 @@ a executar: primer treu els blocs antics i després hi posa els actuals.
 Fórmules: $…$ (en línia) i $$…$$ (en bloc), renderitzades amb KaTeX 0.16.47 (la versió de btx/assets/katex.css):
     cd tools/btx && npm i katex@0.16.47     (o bé KATEX_DIR=<carpeta node_modules>)
 Ús:  python3 tools/btx/amplia_teoria.py
+     node tools/btx/pdf_teoria.js && python3 tools/btx/pdf_portada.py      (PDF descarregable)
 """
 from __future__ import annotations
 
@@ -28,7 +29,25 @@ AMP = Path(__file__).resolve().parent / "ampliacions"
 CSS_EXTRA = """/*amp-css*/.box.def{--k:#0b6e6e;--ico:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z'/%3E%3Cpath d='M9 9h6M9 13h6'/%3E%3C/svg%3E")}
 .box.def dl{margin:.4em 0}.box.def dt{font-weight:700;margin-top:.5em}.box.def dd{margin:.15em 0 0 1.2em}
 .amp-tab td,.amp-tab th{vertical-align:top}
-h4.amp{font-family:var(--sans);font-size:1.08rem;margin:1.6em 0 .4em;color:var(--c,#1b1f24)}/*/amp-css*/"""
+h4.amp{font-family:var(--sans);font-size:1.12rem;margin:1.9em 0 .6em;padding:.1em 0 .1em .6em;border-left:4px solid var(--c,#1b1f24);color:var(--c,#1b1f24)}/*/amp-css*/"""
+
+# només per al llibre sencer (btx/teoria.html), que és el que es fa servir per al PDF: títols més diferenciats i
+# regles de paginació (el títol no queda mai sol a final de pàgina; els blocs curts no es parteixen, els llargs sí)
+CSS_BOOK = """/*amp-book*/
+h2,h3,h4,.box .lead{font-family:"DejaVu Sans",Arial,Helvetica,sans-serif}
+h2{font-size:1.7em;color:#1f3f7f;border-bottom:3px solid #1f3f7f;padding-bottom:.2em;letter-spacing:-.01em}
+h3{font-size:1.22em;color:#fff;background:#1f3f7f;padding:.28em .65em;border-radius:4px;margin:1.9em 0 .7em}
+h4,h4.amp{font-size:1.06em;color:#1f3f7f;border:0;border-bottom:1.5px solid #9fb3d9;padding:0 0 .15em;margin:1.5em 0 .55em}
+.box .lead{font-size:.93em;color:#1b1f24;margin-bottom:.45em}
+.box.def{border-left-color:#0b6e6e}.box.def .lead,.box.def dt{color:#0b6e6e}
+h2,h3,h4,.box .lead,dt{break-after:avoid;page-break-after:avoid}
+h2,h3,h4{break-inside:avoid;page-break-inside:avoid}
+p,li,dd{orphans:3;widows:3}
+.kd,.katex-display,tr,dt,figure{break-inside:avoid;page-break-inside:avoid}
+p:has(+ .kd){break-after:avoid;page-break-after:avoid}
+.box{break-inside:auto;page-break-inside:auto}
+.box.keep,table.keep,figure.keep{break-inside:avoid;page-break-inside:avoid}
+/*/amp-book*/"""
 
 
 def load_blocks():
@@ -154,8 +173,9 @@ def main():
     c = re.sub(r"/\*amp-css\*/.*?/\*/amp-css\*/", "", css.read_text(encoding="utf-8"), flags=re.S).rstrip() + "\n" + CSS_EXTRA + "\n"
     css.write_text(c, encoding="utf-8")
     big = re.sub(r"/\*amp-css\*/.*?/\*/amp-css\*/", "", big, flags=re.S)
+    big = re.sub(r"/\*amp-book\*/.*?/\*/amp-book\*/", "", big, flags=re.S)
     k = big.find("</style>")
-    big = big[:k] + CSS_EXTRA + big[k:]
+    big = big[:k] + CSS_EXTRA + CSS_BOOK + big[k:]
     (BTX / "teoria.html").write_text(big, encoding="utf-8")
     v = hashlib.sha1(c.encode()).hexdigest()[:8]
     for p in BTX.rglob("*.html"):

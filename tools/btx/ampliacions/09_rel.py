@@ -10,7 +10,7 @@ BLOCKS = [
 <dt>Longitud pròpia $L_0$</dt><dd>Longitud d’un objecte mesurada per un observador en repòs respecte d’ell. És la més gran: qualsevol observador respecte del qual l’objecte es mou hi mesura $L=L_0/\gamma<L_0$ en la direcció del moviment.</dd>
 </dl></div>
 <div class="box rec"><div class="lead">Recorda: la simultaneïtat és relativa</div>
-<p>Si la velocitat de la llum és la mateixa per a tots els observadors, dos esdeveniments simultanis per a un observador poden no ser-ho per a un altre que es mou respecte del primer. Exemple: una bombeta encesa al centre d’un vagó il·lumina alhora les dues portes per a un passatger; per a un observador de l’andana, la porta del darrere «va a trobar» la llum i s’il·lumina abans. No hi ha un temps absolut compartit per tots els observadors.</p></div>
+<p>Si la velocitat de la llum és la mateixa per a tots els observadors, dos esdeveniments simultanis per a un observador poden no ser-ho per a un altre que es mou respecte del primer. Exemple: una bombeta encesa al centre d’un vagó il·lumina alhora les dues portes per a un passatger; per a un observador de l’andana, la porta del darrere avança cap a la llum i s’il·lumina abans que la del davant. No hi ha un temps absolut compartit per tots els observadors.</p></div>
 """),
     dict(file=F, id="rel-ec", where=("end", "rel-s4"), html=r"""
 <div class="box dem"><div class="lead">Demostració: a velocitats petites, $E_c=(m-m_0)c^2$ es redueix a $\tfrac12m_0v^2$</div>

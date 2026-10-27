@@ -84,7 +84,7 @@ $$\frac{\sin\theta_1}{\sin\theta_2}=\frac{v_1}{v_2}=\frac{n_2}{n_1}\quad\Longlef
 """),
     dict(file=F, id="fen-estac", where=("before", "<p>Corda fixa pels dos extrems"), html=r"""
 <table class="amp-tab"><thead><tr><th></th><th>Ona viatgera (harmònica)</th><th>Ona estacionària</th></tr></thead><tbody>
-<tr><td>Propagació</td><td>Avança amb velocitat $v$</td><td>No avança: el perfil oscil·la «on és»</td></tr>
+<tr><td>Propagació</td><td>Avança amb velocitat $v$</td><td>No avança: el perfil oscil·la sense desplaçar-se</td></tr>
 <tr><td>Energia</td><td>La transporta en el sentit de propagació</td><td>No hi ha transport net: l’energia queda confinada entre nodes</td></tr>
 <tr><td>Amplitud de cada punt</td><td>La mateixa, $A$, per a tots els punts</td><td>Depèn de la posició: $2A\,|\sin kx|$ (0 als nodes, $2A$ als ventres)</td></tr>
 <tr><td>Fase de cada punt</td><td>Varia contínuament amb $x$ ($kx$)</td><td>Tots els punts entre dos nodes consecutius vibren en fase; a banda i banda d’un node, en oposició de fase</td></tr>
