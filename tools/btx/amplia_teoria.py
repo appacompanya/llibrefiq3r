@@ -109,7 +109,9 @@ def fig_html(fid: str, svg: str, cap: str, inline: bool) -> str:
 
 # ---------- inserció ----------
 def strip_old(s: str) -> str:
-    return re.sub(r"<!--amp:[\w.-]+-->.*?<!--/amp:[\w.-]+-->", "", s, flags=re.S)
+    s = re.sub(r"<!--amp:[\w.-]+-->.*?<!--/amp:[\w.-]+-->", "", s, flags=re.S)
+    # blocs originals substituïts: es tornen a posar tal com eren
+    return re.sub(r'<template data-amp-orig="[\w.-]+">(.*?)</template>', r"\1", s, flags=re.S)
 
 
 def end_of_element(s: str, i: int) -> int:
@@ -145,6 +147,17 @@ def find_pos(s: str, where, label: str) -> int:
     raise SystemExit(kind)
 
 
+def insert(s: str, where, frag: str, label: str) -> str:
+    if where[0] == "replace":
+        # substitueix un element original sencer; l'original queda amagat dins un <template> per poder-lo restaurar
+        i = find_pos(s, ("before", where[1]), label)
+        j = end_of_element(s, i)
+        bid = re.search(r"<!--amp:([\w.-]+)-->", frag).group(1)
+        return s[:i] + frag + f'<template data-amp-orig="{bid}">' + s[i:j] + "</template>" + s[j:]
+    i = find_pos(s, where, label)
+    return s[:i] + frag + s[i:]
+
+
 def main():
     blocks, figs = load_blocks()
     rendered = render_math([b["html"] for b in blocks])
@@ -164,12 +177,9 @@ def main():
         s = strip_old(p.read_text(encoding="utf-8"))
         for b in [x for x in blocks if x["file"] == f]:
             frag = f'<!--amp:{b["id"]}-->{expand(b["out"], False)}<!--/amp:{b["id"]}-->'
-            i = find_pos(s, b["where"], b["id"])
-            s = s[:i] + frag + s[i:]
-            where = b["where"]
             fragb = f'<!--amp:{b["id"]}-->{expand(b["out"], True)}<!--/amp:{b["id"]}-->'
-            j = find_pos(big, where, b["id"] + " (llibre sencer)")
-            big = big[:j] + fragb + big[j:]
+            s = insert(s, b["where"], frag, b["id"])
+            big = insert(big, b["where"], fragb, b["id"] + " (llibre sencer)")
         p.write_text(s, encoding="utf-8")
         print(f"teoria/{f}.html: {sum(1 for x in blocks if x['file'] == f)} blocs")
 

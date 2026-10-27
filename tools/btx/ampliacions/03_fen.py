@@ -92,3 +92,43 @@ $$\frac{\sin\theta_1}{\sin\theta_2}=\frac{v_1}{v_2}=\frac{n_2}{n_1}\quad\Longlef
 </tbody></table>
 """),
 ]
+
+BLOCKS += [
+    dict(file=F, id="fen-interf-dem", where=("replace", '<div class="box noav"><div class="lead">Per ampliar – no avaluable a la PAU: deducció de l’amplitud resultant</div>'), html=r"""
+<div class="box noav"><div class="lead">Per ampliar – no avaluable a la PAU: deducció de l’amplitud resultant</div>
+<p>Hipòtesis: dues fonts en fase emeten ones de la mateixa amplitud $A$ i la mateixa freqüència. Al punt P, a distàncies $r_1$ i $r_2$ de les fonts, arriben les ones</p>
+$$y_1=A\sin(\omega t-kr_1),\qquad y_2=A\sin(\omega t-kr_2)$$
+<div class="box rec"><div class="lead">Recorda</div>
+<p>Suma de sinus (1r de Batxillerat): $\sin a+\sin b=2\sin\dfrac{a+b}{2}\cos\dfrac{a-b}{2}$.</p></div>
+<p>Pas 1. Pel principi de superposició, la pertorbació a P és la suma: $y=y_1+y_2=A\left[\sin(\omega t-kr_1)+\sin(\omega t-kr_2)\right]$.</p>
+<p>Pas 2. Apliquem la suma de sinus amb $a=\omega t-kr_1$ i $b=\omega t-kr_2$:</p>
+$$\frac{a+b}{2}=\omega t-k\,\frac{r_1+r_2}{2},\qquad \frac{a-b}{2}=\frac{k\,(r_2-r_1)}{2}$$
+$$y=\underbrace{2A\cos\frac{k\,(r_2-r_1)}{2}}_{\text{no depèn de }t}\;\sin\!\left(\omega t-k\,\frac{r_1+r_2}{2}\right)$$
+<p>Pas 3. Interpretació. Per a un punt P concret, $r_1$ i $r_2$ són fixos: el primer factor és un nombre constant, i el segon és un sinus que oscil·la entre $-1$ i $1$. Per tant P fa un MHS de pulsació $\omega$, i la seva amplitud és el valor absolut d’aquest nombre (una amplitud sempre és positiva).</p>
+<div class="box res"><div class="lead">Resultat</div>
+$$A_R=\left|\,2A\cos\frac{\pi\,(r_2-r_1)}{\lambda}\,\right|\qquad\left(\text{amb }k=\frac{2\pi}{\lambda}\right)$$</div>
+<p>Pas 4. Màxims i mínims.</p>
+<ul><li><b>Màxim</b> ($A_R=2A$) quan $\left|\cos\dfrac{\pi(r_2-r_1)}{\lambda}\right|=1$, és a dir, quan l’argument és un múltiple de $\pi$: $\dfrac{\pi|r_1-r_2|}{\lambda}=n\pi\;\Rightarrow\;|r_1-r_2|=n\lambda$.</li>
+<li><b>Mínim</b> ($A_R=0$) quan el cosinus val zero, és a dir, quan l’argument és un múltiple senar de $\pi/2$: $\dfrac{\pi|r_1-r_2|}{\lambda}=(2n+1)\dfrac{\pi}{2}\;\Rightarrow\;|r_1-r_2|=(2n+1)\dfrac{\lambda}{2}$.</li></ul>
+<p>Són les condicions d’interferència constructiva i destructiva del text ($n\in\mathbb N$).</p></div>
+"""),
+    dict(file=F, id="fen-estac-dem", where=("replace", '<div class="box noav"><div class="lead">Per ampliar – no avaluable a la PAU: expressió de l’ona estacionària</div>'), html=r"""
+<div class="box noav"><div class="lead">Per ampliar – no avaluable a la PAU: expressió de l’ona estacionària</div>
+<p>Hipòtesis: una ona $y_1=A\sin(\omega t-kx)$ avança cap a les $x$ positives i es reflecteix en un extrem fix situat a $x=0$. En reflectir-se s’inverteix (canvia de signe) i torna cap a les $x$ negatives amb la mateixa amplitud:</p>
+$$y_1=A\sin(\omega t-kx),\qquad y_2=-A\sin(\omega t+kx)$$
+<div class="box rec"><div class="lead">Recorda</div>
+<p>Diferència de sinus: $\sin a-\sin b=2\cos\dfrac{a+b}{2}\sin\dfrac{a-b}{2}$. A més, $\sin(-\alpha)=-\sin\alpha$.</p></div>
+<p>Pas 1. Pel principi de superposició, cada punt de la corda té un desplaçament $y=y_1+y_2=A\left[\sin(\omega t-kx)-\sin(\omega t+kx)\right]$.</p>
+<p>Pas 2. Apliquem la diferència de sinus amb $a=\omega t-kx$ i $b=\omega t+kx$:</p>
+$$\frac{a+b}{2}=\frac{2\omega t}{2}=\omega t,\qquad \frac{a-b}{2}=\frac{-2kx}{2}=-kx$$
+$$y=2A\cos(\omega t)\,\sin(-kx)=-2A\sin(kx)\cos(\omega t)$$
+<p>Pas 3. Interpretació. Fixem-nos en un punt concret de la corda (una $x$ fixa). El factor $-2A\sin(kx)$ és aleshores un nombre constant, i $\cos(\omega t)$ oscil·la entre $-1$ i $1$. Per tant, cada punt fa un MHS de pulsació $\omega$ amb una amplitud igual al valor absolut d’aquell nombre (una amplitud sempre és positiva):</p>
+<div class="box res"><div class="lead">Resultat</div>
+$$y(x,t)=-2A\sin(kx)\cos(\omega t)\qquad\Rightarrow\qquad A(x)=\left|\,2A\sin(kx)\,\right|$$</div>
+<p>A diferència d’una ona viatgera, la posició i el temps apareixen en factors separats (no hi ha cap combinació $\omega t\pm kx$): la forma de l’ona no avança, només canvia d’amplitud de punt a punt.</p>
+<p>Pas 4. Nodes i ventres (amb $k=2\pi/\lambda$, de manera que $x=\dfrac{kx}{k}=\dfrac{\lambda}{2\pi}\,kx$):</p>
+<ul><li><b>Nodes</b> (no vibren, $A(x)=0$): $\sin(kx)=0\;\Rightarrow\;kx=n\pi\;\Rightarrow\;x=n\dfrac{\lambda}{2}$.</li>
+<li><b>Ventres</b> (amplitud màxima, $A(x)=2A$): $|\sin(kx)|=1\;\Rightarrow\;kx=(2n+1)\dfrac{\pi}{2}\;\Rightarrow\;x=(2n+1)\dfrac{\lambda}{4}$.</li></ul>
+<p>Amb $n\in\mathbb N$. L’extrem fix ($x=0$) és un node, com havia de ser.</p></div>
+"""),
+]
