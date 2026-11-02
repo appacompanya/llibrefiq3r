@@ -10,6 +10,13 @@
   const LEVELS = ["2n", "3r", "4t"];
   /* perfils d'adaptació (NESE) que pot assignar el docent */
   const ADAPT = ["dislexia", "nouvingut", "basics", "discalculia", "tdah", "tea"];
+  /* A la base de dades no es guarda cap diagnòstic: només el tipus d'ajuda del material (codis neutres).
+     El client hi tradueix els perfils interns en llegir i en desar. */
+  const AJ_DB = { dislexia: "lletra", nouvingut: "glossari", basics: "basics", discalculia: "passos", tdah: "pantalla", tea: "guia" };
+  const AJ_IN = Object.fromEntries(Object.entries(AJ_DB).map(([k, v]) => [v, k]));
+  const fromDb = (a) => (a || []).map((x) => AJ_IN[x] || x).filter((x) => ADAPT.includes(x));
+  const toDb = (a) => (a || []).filter((x) => ADAPT.includes(x)).map((x) => AJ_DB[x]);
+  const rowIn = (r) => (r ? { ...r, adaptacions: fromDb(r.adaptacions) } : r);
   /* ajudes que l'alumne pot desactivar (continguts bàsics no: el decideix el docent) */
   const AJUDES = ["lletra", "veu", "glossari", "passos", "pantalla", "guia"];
   /* curs triat a la zona del professorat (es recorda en aquest navegador) */
@@ -212,7 +219,7 @@
     async function loadProfile() {
       const { data: u } = await sb.auth.getUser(); if (!u?.user) { me = null; return null; }
       const { data } = await sb.from("profiles").select("id, role, display_name, grup, username, course_id, adaptacions, adapt_idioma").eq("id", u.user.id).maybeSingle();
-      me = data || null; courses = null; return me;
+      me = rowIn(data) || null; courses = null; return me;
     }
     async function fn(name, body) {
       const { data, error } = await sb.functions.invoke(name, { body });
@@ -307,16 +314,16 @@
       async listStudents(cid = this.curCourse()) {
         let q = sb.from("profiles").select("id, display_name, grup, code, role, course_id, adaptacions, adapt_idioma").eq("role", "student");
         if (cid) q = q.eq("course_id", cid); else { const ids = (await myCourses()).map((c) => c.id); if (!ids.length) return []; q = q.in("course_id", ids); }
-        return must(await q.order("display_name"));
+        return must(await q.order("display_name")).map(rowIn);
       },
       async createStudents(names, cid = this.curCourse()) { return (await fn("alumnes", { names, course_id: cid })).students.map((s) => ({ id: s.id, display_name: s.name, code: s.code, course_id: cid })); },
       async resetCode(id) { return (await fn("alumnes", { action: "reset", id })).code; },
       async deleteStudent(id) { await fn("alumnes", { action: "delete", id }); },
-      async setAdaptacions(id, list, idioma) { const a = (list || []).filter((x) => ADAPT.includes(x)); must(await sb.from("profiles").update({ adaptacions: a, adapt_idioma: a.includes("nouvingut") ? (idioma || null) : null }).eq("id", id)); },
-      async myAdapt() { if (!me) return { perfils: [], idioma: null }; const r = must(await sb.from("profiles").select("adaptacions, adapt_idioma").eq("id", me.id).maybeSingle()); return { perfils: (r && r.adaptacions) || [], idioma: (r && r.adapt_idioma) || null }; },
+      async setAdaptacions(id, list, idioma) { const a = (list || []).filter((x) => ADAPT.includes(x)); must(await sb.from("profiles").update({ adaptacions: toDb(a), adapt_idioma: a.includes("nouvingut") ? (idioma || null) : null }).eq("id", id)); },
+      async myAdapt() { if (!me) return { perfils: [], idioma: null }; const r = must(await sb.from("profiles").select("adaptacions, adapt_idioma").eq("id", me.id).maybeSingle()); return { perfils: fromDb(r && r.adaptacions), idioma: (r && r.adapt_idioma) || null }; },
       async getPrefs() { if (!me) return { mode: "digital", ajudes_off: [] }; const r = must(await sb.from("preferencies").select("mode_fitxes, ajudes_off").eq("student_id", me.id).maybeSingle()); return { mode: (r && r.mode_fitxes) || "digital", ajudes_off: (r && r.ajudes_off) || [] }; },
       async setPrefs(p) { const cur = await this.getPrefs(); const row = { student_id: me.id, mode_fitxes: (p.mode || cur.mode) === "paper" ? "paper" : "digital", ajudes_off: (p.ajudes_off || cur.ajudes_off).filter((x) => AJUDES.includes(x)), updated_at: new Date().toISOString() }; must(await sb.from("preferencies").upsert(row)); },
-      async myAdaptacions() { if (!me) return []; const r = must(await sb.from("profiles").select("adaptacions").eq("id", me.id).maybeSingle()); return (r && r.adaptacions) || []; },
+      async myAdaptacions() { if (!me) return []; const r = must(await sb.from("profiles").select("adaptacions").eq("id", me.id).maybeSingle()); return fromDb(r && r.adaptacions); },
       async getMode() { if (!me) return "digital"; const r = must(await sb.from("preferencies").select("mode_fitxes").eq("student_id", me.id).maybeSingle()); return (r && r.mode_fitxes) || "digital"; },
       async setMode(m) { must(await sb.from("preferencies").upsert({ student_id: me.id, mode_fitxes: m === "paper" ? "paper" : "digital", updated_at: new Date().toISOString() })); },
       async listSubmissions() { return must(await sb.from("submissions").select("*")); },
