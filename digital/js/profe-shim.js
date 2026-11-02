@@ -48,7 +48,8 @@
   G.fqDocUrl = async function (f) {
     const teacher = G.D && Object.values(G.D).some((d) => d.f === f && d.t);
     const pub = "../docs/" + f;
-    if (!teacher || !sb) return pub;
+    /* els annexos de la programació es mantenen a docs/ (la versió del bucket queda antiga) */
+    if (!teacher || !sb || f === "programacio-annexos.pdf") return pub;
     if (signed[f] && signed[f].exp > Date.now()) return signed[f].url;
     const { data, error } = await sb.storage.from("professorat").createSignedUrl(f, 3600);
     if (!error && data && data.signedUrl) {
