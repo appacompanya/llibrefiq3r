@@ -1,3 +1,8 @@
+# OBSOLET (3/11/2026). No l'executis: generava una versió antiga de la programació amb una regla de
+# qualificació que ja no és vigent («arrodonida a l'alça», 4 de 6 CE). La regla vigent (apartat 7.4):
+# criteri = mitjana dels aspectes; CE = mitjana dels criteris; matèria = mitjana de les sis CE;
+# arrodoniment convencional; amb dues CE o més en NA, la matèria és NA.
+raise SystemExit("build_prog_final.py és obsolet: la programació vigent no es genera amb aquest script.")
 """Versió final de la programació: format legal (Arial 11, interlineat 1,5, marges d'1,8 cm, taules a 9 punts)
 i continguts actualitzats (avaluació sense notes, activitat de demostració d'assoliment, recuperació per CE,
 grups heterogenis, 1-2-4, dossier, inclusió per perfils, calendari i annexos nous)."""

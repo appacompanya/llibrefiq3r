@@ -1,3 +1,5 @@
+> **Nota (3/11/2026).** Aquest document és una versió de treball antiga. La regla de qualificació que hi surt («arrodonida a l'alça») ja no és vigent. La vigent: criteri = mitjana dels aspectes; CE = mitjana dels criteris; matèria = mitjana de les sis CE; arrodoniment convencional; amb dues CE o més en NA, la matèria és NA.
+
 **Especialitat:** Física i química · **Nivell:** 3r d'educació secundària obligatòria · **Curs:** 2026-2027
 
 **Centre de referència:** Institut Anna Gironella de Mundet (Barcelona) · **Convocatòria:** procés selectiu 125/2026 de l'Ajuntament de Barcelona
