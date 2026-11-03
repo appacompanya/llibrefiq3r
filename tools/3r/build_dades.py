@@ -176,8 +176,8 @@ def mapa(cur, sdas, docs):
            "terminologia": "«activitat de demostració d'assoliment» (no «prova»): és el terme del web, del llibre i de la programació; "
                            "l'identificador intern de l'evidència continua sent «prova» (uid sN.prova) perquè no es pot canviar. "
                            "Es conserva «prova de la flama» com a procediment de laboratori.",
-           "avaluacio": "Qualitativa (NA, AS, AN, AE). Sense pesos: el nivell d'un criteri i d'una CE és la mitjana no ponderada "
-                        "dels aspectes on apareixen, arrodonida a l'alça. Dues CE principals per SdA i, com a màxim, una de secundària "
+           "avaluacio": "Qualitativa (NA, AS, AN, AE). Sense pesos: el nivell d'un criteri és la mitjana dels seus aspectes, "
+                        "el d'una CE és la mitjana dels seus criteris i el de la matèria, la de les sis CE, amb arrodoniment convencional; amb dues CE o més en NA, la matèria és NA. Dues CE principals per SdA i, com a màxim, una de secundària "
                         "si té evidència amb rúbrica. La nota automàtica de les fitxes digitals formatives és orientativa i no entra "
                         "a la mitjana oficial. Les fitxes qualificadores es valoren a la rúbrica de l'evidència, no amb el nivell automàtic agregat.",
            "competencies": {ce["id"]: ce["text"] for ce in cur["competencies"]}, "criteris": crit, "sda": []}
