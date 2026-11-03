@@ -901,7 +901,7 @@ let ST = null; // {db, uid}
 const saveTimers = {};
 
 function critList(n){ const s = new Set(); EVAL[n].forEach(i => i.items.forEach(it => it.c.forEach(c => s.add(c)))); return [...s].sort((a,b)=>parseFloat(a)-parseFloat(b) || a.localeCompare(b,undefined,{numeric:true})); }
-function lvFromAvg(v){ if (v==null) return null; return LV[Math.min(3, Math.max(0, Math.ceil(v - 1e-9) - 1))]; }  // mitjana 1–4 arrodonida a l'alça
+function lvFromAvg(v){ if (v==null) return null; return LV[Math.min(3, Math.max(0, Math.floor(v + 0.5 + 1e-9) - 1))]; }  // mitjana 1–4 amb arrodoniment convencional (x,5 puja)
 const avgOf = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : null;
 const mk = (n, sid) => n + "|" + sid;
 function summary(n, sid){
@@ -914,17 +914,23 @@ function summary(n, sid){
   });
   const dig = digOf(n, sid);
   const critLv = {}; Object.entries(crit).forEach(([c,v]) => critLv[c] = lvFromAvg(avgOf(v)));
-  const ceLv = {}; Object.entries(ce).forEach(([c,v]) => ceLv[c] = lvFromAvg(avgOf(v)));
+  // nivell de la CE = mitjana dels nivells dels seus criteris (cada criteri pesa igual)
+  const ceLv = {}; CES.forEach(k => { const v = Object.keys(critLv).filter(c => ceOf(c) === k).map(c => LVN[critLv[c]]); if (v.length) ceLv[k] = lvFromAvg(avgOf(v)); });
   const complete = EVAL[n].every(ins => ins.items.every(it => m[it.id]));
-  return {crit:critLv, ce:ceLv, ceRaw:ce, inst, complete, dig};
+  return {crit:critLv, ce:ceLv, ceRaw:ce, critRaw:crit, inst, complete, dig};
 }
 // assoliment de cada CE al llarg del curs (totes les SdA) i recuperació
 function course(sid){
-  const all = {};
-  Object.keys(EVAL).forEach(n => { const r = summary(Number(n), sid); Object.entries(r.ceRaw).forEach(([c,v]) => (all[c] = all[c] || []).push(...v)); });
+  // criteri = mitjana dels aspectes de tot el curs; CE = mitjana dels seus criteris; arrodoniment convencional
+  const allCrit = {};
+  Object.keys(EVAL).forEach(n => { const r = summary(Number(n), sid); Object.entries(r.critRaw).forEach(([c,v]) => (allCrit[c] = allCrit[c] || []).push(...v)); });
+  const critLv = {}; Object.entries(allCrit).forEach(([c,v]) => critLv[c] = lvFromAvg(avgOf(v)));
   const rec = AV.marks[mk("rec", sid)] || {};
   const out = {};
-  CES.forEach(c => { const lv = all[c] ? lvFromAvg(avgOf(all[c])) : null; const r = rec[c]; out[c] = {lv, rec:r || null, fin: (r && (!lv || LVN[r] > LVN[lv])) ? r : lv}; });
+  CES.forEach(k => { const v = Object.keys(critLv).filter(c => ceOf(c) === k).map(c => LVN[critLv[c]]); const lv = v.length ? lvFromAvg(avgOf(v)) : null; const r = rec[k]; out[k] = {lv, rec:r || null, fin: (r && (!lv || LVN[r] > LVN[lv])) ? r : lv}; });
+  // matèria: mitjana de les sis CE; amb dues CE o més en NA, la matèria és NA
+  const fins = CES.map(k => out[k].fin).filter(Boolean);
+  out.materia = fins.length === CES.length ? (fins.filter(l => l === "NA").length >= 2 ? "NA" : lvFromAvg(avgOf(fins.map(l => LVN[l])))) : null;
   return out;
 }
 const ceChips = (ce) => CES.filter(c => ce[c]).map(c => `<span class="cechip">${c} ${chip(ce[c])}</span>`).join("");
@@ -1003,7 +1009,7 @@ function renderAval(){
   const grid = AV.students.length ? `<div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${crits.map(c=>`<th title="${esc(CRIT_NAMES[c]||"")}">${c}</th>`).join("")}${AV.dig?"<th>Fitxes</th>":""}${sdaCes(n).map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${AV.students.map(s => { const r = summary(n, s.id); return `<tr><th scope="row">${esc(s.name)}</th>${crits.map(c=>`<td>${chip(r.crit[c])}</td>`).join("")}${AV.dig?`<td>${chip(r.dig && r.dig.lv)}</td>`:""}${sdaCes(n).map(c=>`<td>${chip(r.ce[c])}</td>`).join("")}</tr>`; }).join("")}</tbody></table></div>
     <div class="acts"><button type="button" class="btn" id="avcsv">${ICON_DL}Descarrega el resum (CSV)</button></div>` : "";
   host.innerHTML = `<h3 class="sec">Avaluació de la SdA ${n}</h3>
-    <p class="note">${note}${AV.dig ? " L'alumnat del llibre digital s'hi afegeix sol. El nivell automàtic de les fitxes és una nota orientativa de feedback formatiu i no entra a la mitjana oficial." : ""} No hi ha notes numèriques ni percentatges: cada aspecte es valora amb NA (1), AS (2), AN (3) o AE (4). El nivell de cada criteri i de cada competència específica és la mitjana no ponderada dels aspectes on apareix, <b>arrodonida a l'alça</b> (2,3 → AN). Les fitxes qualificadores es marquen a la rúbrica de l'evidència, no amb aquest nivell automàtic.</p>
+    <p class="note">${note}${AV.dig ? " L'alumnat del llibre digital s'hi afegeix sol. El nivell automàtic de les fitxes és una nota orientativa de feedback formatiu i no entra a la mitjana oficial." : ""} No hi ha notes numèriques ni percentatges: cada aspecte es valora amb NA (1), AS (2), AN (3) o AE (4). El nivell de cada criteri és la mitjana dels aspectes on apareix, i el de cada competència específica, la mitjana dels seus criteris, amb <b>arrodoniment convencional</b> (2,5 → AN; 2,4 → AS). Les fitxes qualificadores es marquen a la rúbrica de l'evidència, no amb aquest nivell automàtic.</p>
     <div class="avgrid"><aside class="stulist"><div class="stus">${list}</div>${empty}
       <label for="avnames" class="lbl">Afegeix alumnat (un nom per línia)</label><textarea id="avnames" rows="4" placeholder="Nom Cognom"></textarea><button type="button" class="btn ghost" id="avadd">Afegeix</button></aside>
       <div class="avmain">${main}</div></div>
@@ -1016,10 +1022,10 @@ function courseHtml(){
   const rows = AV.students.map(s => { const c = course(s.id);
     return `<tr><th scope="row">${esc(s.name)}</th>${CES.map(k => { const x = c[k];
       const recSel = (x.lv === "NA" || x.rec) ? `<select class="recsel" data-rec="${k}" data-sid="${s.id}" title="Nivell de la tasca de recuperació"><option value="">recup.</option>${LV.map(l => `<option${x.rec===l?" selected":""}>${l}</option>`).join("")}</select>` : "";
-      return `<td>${chip(x.fin)}${x.rec && x.lv ? `<span class="w"> (abans ${x.lv})</span>` : ""}${recSel}</td>`; }).join("")}</tr>`; }).join("");
+      return `<td>${chip(x.fin)}${x.rec && x.lv ? `<span class="w"> (abans ${x.lv})</span>` : ""}${recSel}</td>`; }).join("")}<td>${chip(c.materia)}</td></tr>`; }).join("");
   return `<h4 class="sub">Assoliment de les competències específiques al llarg del curs</h4>
-    <p class="note">Mitjana de totes les evidències de cada CE a les sis SdA, arrodonida a l'alça. Si una CE queda en NA, l'alumne fa la tasca de recuperació d'aquella CE (${CES.map(k => `<a href="#doc-${REC_DOC[k]}">${k}</a>`).join(" · ")}); marca'n el nivell al desplegable: si és més alt, substitueix l'anterior.</p>
-    <div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${CES.map(k=>`<th>${k}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
+    <p class="note">Nivell de cada criteri: mitjana dels seus aspectes a tot el curs; nivell de la CE: mitjana dels seus criteris; matèria: mitjana de les sis CE (arrodoniment convencional). Amb dues CE o més en NA, la matèria queda en NA. Si una CE queda en NA, l'alumne fa la tasca de recuperació d'aquella CE (${CES.map(k => `<a href="#doc-${REC_DOC[k]}">${k}</a>`).join(" · ")}); marca'n el nivell al desplegable: si és més alt, substitueix l'anterior.</p>
+    <div class="tscroll"><table class="grp"><thead><tr><th>Alumne/a</th>${CES.map(k=>`<th>${k}</th>`).join("")}<th>Matèria</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
 document.addEventListener("change", e => {
   const sel = e.target.closest && e.target.closest(".recsel"); if (!sel) return;
