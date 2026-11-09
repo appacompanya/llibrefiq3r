@@ -1,13 +1,13 @@
 """Figures SVG originals (no copiades) del dossier de Biologia."""
 from pathlib import Path
 
-from svg import arr, box, cover, defs_arrow, svg, tx
+from svg import arr, box, cover, defs_arrow, strip_footers, svg, tx
 
 FIGS: dict[str, str] = {}
 
 
 def add(fid: str, w: int, h: int, body: str) -> None:
-    FIGS[fid] = svg(w, h, defs_arrow() + body)
+    FIGS[fid] = svg(w, h, defs_arrow() + strip_footers(body))
 
 
 # ---------- 1 Biomolècules ----------

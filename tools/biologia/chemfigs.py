@@ -68,23 +68,18 @@ def rdkit_svg(smi: str, w: int, h: int, add_h: bool = False) -> str:
     return svg
 
 
-def frame(w: int, draw_h: int, title: str, drawing: str, notes: list[str]) -> str:
-    """draw_h és l'alçada reservada al dibuix, sota el títol i per damunt de les notes."""
-    y0 = 36
-    note_y = y0 + draw_h + 22
-    note = "".join(
-        f'<text x="16" y="{note_y + 18*i}" font-size="13" fill="#3b4148" '
-        f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">{t}</text>'
-        for i, t in enumerate(notes)
-    )
-    total = note_y + 18 * len(notes) + 10
+def frame(w: int, draw_h: int, title: str, drawing: str, notes: list[str] | None = None) -> str:
+    """El dibuix, sense el bloc de notes: l'explicació va al text o al peu."""
+    del notes
+    y0 = 30
+    total = y0 + draw_h + 6
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {total}" '
         f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">'
         f'<rect width="{w}" height="{total}" fill="#fff"/>'
-        f'<text x="16" y="22" font-size="15" font-weight="700" fill="#0E7C66">{title}</text>'
+        f'<text x="16" y="20" font-size="15" font-weight="700" fill="#0E7C66">{title}</text>'
         f'<g transform="translate(0,{y0})">{drawing}</g>'
-        f'{note}</svg>'
+        f'</svg>'
     )
 
 
@@ -161,77 +156,40 @@ def fig_water() -> str:
 
     atoms = [(m["o"], ro) for m in mols] + [(h, rh) for m in mols for h in m["h"]]
 
-    def hits(p, w, hgt, taken):
-        x0, y0, x1, y1 = p[0] - w / 2, p[1] - hgt / 2, p[0] + w / 2, p[1] + hgt / 2
-        for (ax, ay), r in atoms:
-            cx, cy = min(max(ax, x0), x1), min(max(ay, y0), y1)
-            if math.hypot(cx - ax, cy - ay) < r + 10:
-                return True
-        for q, qw, qh in taken:
-            if abs(p[0] - q[0]) < (w + qw) / 2 + 16 and abs(p[1] - q[1]) < (hgt + qh) / 2 + 10:
-                return True
-        return False
-
-    def park(anchor, direction, text, fill, taken, base):
+    def glue(anchor, direction, text, fill, dist):
+        """La càrrega queda enganxada a l'àtom. No s'allunya cap al buit entre molècules."""
         px, py = direction
         n = math.hypot(px, py) or 1
-        px, py = px / n, py / n
-        w, hgt = (32, 18) if "−" in text else (28, 18)
-        for dist in range(int(base), int(base) + 90, 3):
-            q = (anchor[0] + px * dist, anchor[1] + py * dist)
-            if not hits(q, w, hgt, taken):
-                taken.append((q, w, hgt))
-                return _atom(q, text, fill, dy=5, size=15)
-        q = (anchor[0] + px * (base + 90), anchor[1] + py * (base + 90))
-        taken.append((q, w, hgt))
-        return _atom(q, text, fill, dy=5, size=15)
+        q = (anchor[0] + px / n * dist, anchor[1] + py / n * dist)
+        taken.append((q, 26, 16))
+        return _atom(q, text, fill, dy=5, size=14)
 
     taken = []
     charges = []
     for m in mols:
         h1, h2 = m["h"]
-        # δ+ fora de l'angle H–O–H, al costat oposat de l'altre hidrogen.
         for h, sib in ((h1, h2), (h2, h1)):
             px, py = _perp(m["o"], h)
+            # Costat de fora de l'angle, no cap a l'altre hidrogen ni cap al pont.
             if (sib[0] - h[0]) * px + (sib[1] - h[1]) * py > 0:
                 px, py = -px, -py
-            charges.append(park(h, (px, py), "δ+", "#8E2438", taken, rh + 18))
+            charges.append(glue(h, (px, py), "δ+", "#8E2438", rh + 20))
         if m["kind"] == "don":
-            # Més enllà de l'oxigen, a l'exterior: el pont queda a l'altre costat.
+            # Els parells no enllaçants miren enfora: el pont és a l'hidrogen de dins.
             direction = (m["o"][0] - centre[0], m["o"][1] - centre[1])
         elif m["kind"] == "acc":
-            # Perpendicular al pont, no sobre la línia discontínua.
+            # Al costat de l'oxigen, una mica cap al parell que rep el pont, mai sobre la línia.
+            ix, iy = centre[0] - m["o"][0], centre[1] - m["o"][1]
+            inn = math.hypot(ix, iy) or 1
+            ix, iy = ix / inn, iy / inn
             px, py = _perp(centre, m["o"])
             if (h1[0] - m["o"][0]) * px + (h1[1] - m["o"][1]) * py > 0:
                 px, py = -px, -py
-            direction = (px, py)
+            direction = (ix * 0.2 + px, iy * 0.2 + py)
         else:
-            direction = (-1.0, 0.15)  # buit entre els dos ponts de l'esquerra
-        charges.append(park(m["o"], direction, "δ−", "#C0392B", taken, ro + 16))
-
-    # Pont de dalt a la dreta: el rètol surt en perpendicular, cap al buit.
-    phi = 90 - half
-    bridge_h = _at(centre, gap, phi)
-    a = _inset(bridge_h, centre, rh + 2)
-    b = _inset(centre, bridge_h, ro + 2)
-    mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
-    px, py = _perp(centre, bridge_h)
-
-    obstacles = [p for p, _r in atoms] + [q for q, _w, _h in taken]
-
-    def clearance(sign, dist):
-        q = (mid[0] + sign * px * dist, mid[1] + sign * py * dist)
-        return min(math.hypot(q[0] - p[0], q[1] - p[1]) for p in obstacles)
-
-    sign = 1 if clearance(1, 130) >= clearance(-1, 130) else -1
-    lx, ly_ = sign * px, sign * py
-    label_at = (mid[0] + lx * 132, mid[1] + ly_ * 132)
-    leader = (
-        f'<line x1="{mid[0]+lx*8:.1f}" y1="{mid[1]+ly_*8:.1f}" x2="{label_at[0]-lx*46:.1f}" y2="{label_at[1]-ly_*10:.1f}" '
-        f'stroke="#0E7C66" stroke-width="1.3"/>'
-        f'<circle cx="{mid[0]:.1f}" cy="{mid[1]:.1f}" r="2.6" fill="#0E7C66"/>'
-        + _atom(label_at, "pont d’hidrogen", "#0E7C66", dy=4, size=14)
-    )
+            # Bisectriu dels dos parells, enganxada a l'oxigen central (cap amunt).
+            direction = (0.0, -1.0)
+        charges.append(glue(m["o"], direction, "δ−", "#C0392B", ro + 20))
 
     parts = []
     for h, o_acc in hbonds:
@@ -257,11 +215,9 @@ def fig_water() -> str:
             )
             parts.append(_atom(h, "H", "#1b1f24", dy=5, size=16))
     parts.extend(charges)
-    parts.append(leader)
 
     extents = [(p[0] - r - 2, p[1] - r - 2, p[0] + r + 2, p[1] + r + 2) for p, r in atoms]
     extents += [(q[0] - qw / 2 - 2, q[1] - qh / 2 - 2, q[0] + qw / 2 + 2, q[1] + 6) for q, qw, qh in taken]
-    extents.append((label_at[0] - 68, label_at[1] - 14, label_at[0] + 68, label_at[1] + 6))
     minx = min(a[0] for a in extents)
     maxx = max(a[2] for a in extents)
     miny = min(a[1] for a in extents)
@@ -291,133 +247,132 @@ def fig_water() -> str:
     )
 
 
-# --- Haworth: hexàgon regular. L'oxigen és el vèrtex superior dret (entre C5 i C1). ---
-def _regular_ring():
-    cx, cy, r = 160, 130, 56
-    names = ["C1", "C2", "C3", "C4", "C5", "O"]
-    pts = {}
-    for name, ang in zip(names, (0, 60, 120, 180, 240, 300)):
-        a = math.radians(ang)
-        pts[name] = (cx + r * math.cos(a), cy + r * math.sin(a))
-    return pts
+def _haworth_glc(ox: float, oy: float, anomer: str = "alpha", c1: str = "oh", c4: str = "oh") -> tuple[str, dict]:
+    """Projecció de Haworth de la D-glucopiranosa.
 
-
-_RING = _regular_ring()
-
-
-def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
-    """α: OH del C1 avall. β: OH del C1 amunt. La resta és D-glucosa.
-
-    c1: 'oh' | 'alpha-link' (el substituent de baix el dibuixa qui crida).
-    c4: 'oh' | 'link'.
-    Els H no es rotulen: cada carboni de l'anell en porta un al costat oposat de l'OH.
+    Hexàgon en perspectiva: O darrere a la dreta, C1 a la dreta, C2–C3
+    l'aresta de davant (traç gruixut), C4 a l'esquerra, C5 darrere a l'esquerra.
+    Cada substituent és una línia vertical. L'H va al costat oposat.
+    c1: 'oh' o 'link' (el pont α el dibuixa qui crida, cap avall).
+    c4: 'oh' o 'link'.
     """
-    pts = {k: (ox + x - 160, oy + y - 40) for k, (x, y) in _RING.items()}
-    parts = []
-    order = ["C5", "O", "C1", "C2", "C3", "C4", "C5"]
-    for a, b in zip(order, order[1:]):
+    pts = {
+        "C5": (ox + 86, oy + 34),
+        "O": (ox + 176, oy + 26),
+        "C1": (ox + 228, oy + 96),
+        "C2": (ox + 186, oy + 162),
+        "C3": (ox + 76, oy + 162),
+        "C4": (ox + 34, oy + 96),
+    }
+    parts: list[str] = []
+    thin = [("C5", "O"), ("O", "C1"), ("C1", "C2"), ("C3", "C4"), ("C4", "C5")]
+    for a, b in thin:
         x1, y1 = pts[a]
         x2, y2 = pts[b]
         parts.append(
-            f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="2.4" stroke-linecap="round"/>'
+            f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
+            f'stroke="#1b1f24" stroke-width="2.2" stroke-linecap="round"/>'
         )
-    # números fora de l'anell, lluny dels substituents
-    labels = {"C1": (16, -10, "1"), "C2": (16, 4, "2"), "C3": (10, 16, "3"), "C4": (14, -12, "4"), "C5": (12, 14, "5")}
-    for name, (dx, dy, lab) in labels.items():
-        x, y = pts[name]
-        parts.append(
-            f'<text x="{x+dx:.0f}" y="{y+dy:.0f}" font-size="11" text-anchor="middle" fill="#5c6570" font-weight="700">{lab}</text>'
-        )
-    x, y = pts["O"]
-    parts.append(f'<text x="{x:.0f}" y="{y-14:.0f}" font-size="15" text-anchor="middle" fill="#1F6AA5" font-weight="700">O</text>')
+    x1, y1 = pts["C2"]
+    x2, y2 = pts["C3"]
+    parts.append(
+        f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
+        f'stroke="#1b1f24" stroke-width="6" stroke-linecap="round"/>'
+    )
 
-    def arm(atom, up, label, color="#1b1f24"):
+    def vertical(atom: str, up: bool, label: str, color: str = "#1b1f24") -> None:
         x, y = pts[atom]
-        # Direccions explícites, fora de l'anell: C3 amunt-esquerra, C4 avall, C2 avall, C1 α avall / β amunt, C5 amunt.
-        vx, vy = {
-            ("C5", True): (0.0, -1.0),
-            ("C2", False): (0.05, 1.0),
-            ("C3", True): (-1.0, -0.2),
-            ("C4", False): (0.0, 1.0),
-            ("C1", False): (0.25, 1.0),
-            ("C1", True): (0.55, -0.85),
-        }[(atom, up)]
-        n2 = math.hypot(vx, vy) or 1
-        vx, vy = vx / n2, vy / n2
-        x2, y2 = x + vx * 40, y + vy * 40
-        # C3 i C4 són veïns: el rètol de l'un va cap a l'esquerra i el de l'altre cap avall.
-        if atom == "C3" and up:
-            # Gairebé horitzontal, una mica amunt: queda a l'alçada del C3, no del C4.
-            x2, y2 = x - 36, y - 8
-            tx, ty = x - 64, y - 4
-        elif atom == "C4" and not up:
-            # Gairebé horitzontal, una mica avall: separat del substituent del C3.
-            x2, y2 = x - 36, y + 10
-            tx, ty = x - 64, y + 16
-        else:
-            tx, ty = x2 + vx * 16, y2 + vy * 14 + 4
-        parts.append(f'<line x1="{x:.0f}" y1="{y:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="1.8"/>')
+        y2 = y - 38 if up else y + 38
         parts.append(
-            f'<text x="{tx:.0f}" y="{ty:.0f}" font-size="13" text-anchor="middle" fill="{color}" font-weight="700">{label}</text>'
+            f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{x:.1f}" y2="{y2:.1f}" '
+            f'stroke="{color}" stroke-width="1.8" stroke-linecap="round"/>'
+        )
+        ty = y2 - 6 if up else y2 + 16
+        parts.append(
+            f'<text x="{x:.1f}" y="{ty:.1f}" font-size="14" text-anchor="middle" '
+            f'fill="{color}" font-weight="700">{label}</text>'
         )
 
-    arm("C5", True, "CH₂OH", "#0E7C66")
-    arm("C2", False, "OH")
-    arm("C3", True, "OH")
+    # Substituents de la D-glucosa. L'H és gris i va al costat oposat.
+    vertical("C5", True, "CH₂OH", "#0E7C66")
+    vertical("C5", False, "H", "#8b939e")
+    vertical("C4", True, "H", "#8b939e")
     if c4 == "oh":
-        arm("C4", False, "OH")
+        vertical("C4", False, "OH")
+    vertical("C3", False, "H", "#8b939e")
+    vertical("C3", True, "OH")
+    vertical("C2", True, "H", "#8b939e")
+    vertical("C2", False, "OH")
     if c1 == "oh" and anomer == "alpha":
-        arm("C1", False, "OH", "#B23A52")
+        vertical("C1", True, "H", "#8b939e")
+        vertical("C1", False, "OH", "#B23A52")
     elif c1 == "oh" and anomer == "beta":
-        arm("C1", True, "OH", "#1F6AA5")
+        vertical("C1", False, "H", "#8b939e")
+        vertical("C1", True, "OH", "#1F6AA5")
+    elif c1 == "link":
+        vertical("C1", True, "H", "#8b939e")
+
+    # Els números queden dins l'anell, fora de la línia vertical de l'H o de l'OH.
+    for name, num, dx, dy in (
+        ("C1", "1", -22, 2),
+        ("C2", "2", -18, -18),
+        ("C3", "3", 20, -18),
+        ("C4", "4", 26, -6),
+        ("C5", "5", 36, 18),
+    ):
+        x, y = pts[name]
+        parts.append(f'<circle cx="{x+dx:.1f}" cy="{y+dy-4:.1f}" r="8" fill="#fff"/>')
+        parts.append(
+            f'<text x="{x+dx:.1f}" y="{y+dy:.1f}" font-size="12" text-anchor="middle" '
+            f'fill="#5c6570" font-weight="700">{num}</text>'
+        )
+    ox_, oy_ = pts["O"]
+    parts.append(f'<circle cx="{ox_:.1f}" cy="{oy_:.1f}" r="11" fill="#fff"/>')
+    parts.append(
+        f'<text x="{ox_:.1f}" y="{oy_+5:.1f}" font-size="16" text-anchor="middle" '
+        f'fill="#1F6AA5" font-weight="700">O</text>'
+    )
     return "".join(parts), pts
 
 
+def _svg(w: float, h: float, body: str) -> str:
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}" '
+        f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">'
+        f'<rect width="{w:.0f}" height="{h:.0f}" fill="#fff"/>{body}</svg>'
+    )
+
+
 def fig_glucose() -> str:
-    a, _ = _haworth_glc(170, 48, "alpha")
-    b, _ = _haworth_glc(520, 48, "beta")
+    a, _ = _haworth_glc(28, 52, "alpha")
+    b, _ = _haworth_glc(352, 52, "beta")
     body = (
-        '<text x="220" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#0E7C66">α-D-glucopiranosa</text>'
-        '<text x="580" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#1F6AA5">β-D-glucopiranosa</text>'
+        '<text x="156" y="20" font-size="15" font-weight="700" text-anchor="middle" fill="#0E7C66">α-D-glucopiranosa</text>'
+        '<text x="480" y="20" font-size="15" font-weight="700" text-anchor="middle" fill="#1F6AA5">β-D-glucopiranosa</text>'
         + a + b
     )
-    return frame(
-        820, 280, "Haworth de la D-glucopiranosa",
-        body,
-        [
-            "L’oxigen és un vèrtex de l’anell, entre C5 i C1. C1 a la dreta; C2 i C3 a baix; C4 a l’esquerra.",
-            "Sèrie D: el CH₂OH del C5 mira amunt. α: l’OH del C1 és avall. β: l’OH del C1 és amunt.",
-            "C2–OH avall, C3–OH amunt, C4–OH avall. L’H de cada carboni, no escrit, és al costat oposat de l’OH.",
-        ],
-    )
+    return _svg(620, 292, body)
 
 
 def fig_maltose() -> str:
-    left, p1 = _haworth_glc(150, 56, "alpha", c1="alpha-link", c4="oh")
-    right, p2 = _haworth_glc(520, 56, "beta", c1="oh", c4="link")
+    left, p1 = _haworth_glc(16, 52, "alpha", c1="link", c4="oh")
+    right, p2 = _haworth_glc(268, 52, "beta", c1="oh", c4="link")
     c1, c4 = p1["C1"], p2["C4"]
-    # El pont baixa per sota dels OH del C2, perquè l'enllaç α surt cap avall.
-    low = max(p1["C2"][1], p1["C3"][1], p2["C2"][1], p2["C3"][1]) + 78
-    ox, oy = (c1[0] + c4[0]) / 2, low
+    # Dos trams curts cap avall i l'oxigen entremig, a la mateixa alçada.
+    yb = c1[1] + 28
     bridge = (
-        f'<line x1="{c1[0]:.0f}" y1="{c1[1]:.0f}" x2="{ox:.0f}" y2="{oy:.0f}" stroke="#B23A52" stroke-width="2.3"/>'
-        f'<line x1="{ox:.0f}" y1="{oy:.0f}" x2="{c4[0]:.0f}" y2="{c4[1]:.0f}" stroke="#B23A52" stroke-width="2.3"/>'
-        f'<text x="{ox:.0f}" y="{oy+18:.0f}" font-size="14" text-anchor="middle" fill="#B23A52" font-weight="700">O</text>'
+        f'<line x1="{c1[0]:.1f}" y1="{c1[1]:.1f}" x2="{c1[0]:.1f}" y2="{yb:.1f}" stroke="#B23A52" stroke-width="2.2"/>'
+        f'<line x1="{c1[0]:.1f}" y1="{yb:.1f}" x2="{c4[0]:.1f}" y2="{yb:.1f}" stroke="#B23A52" stroke-width="2.2"/>'
+        f'<line x1="{c4[0]:.1f}" y1="{yb:.1f}" x2="{c4[0]:.1f}" y2="{c4[1]:.1f}" stroke="#B23A52" stroke-width="2.2"/>'
+        f'<circle cx="{(c1[0]+c4[0])/2:.1f}" cy="{yb:.1f}" r="11" fill="#fff" stroke="#B23A52" stroke-width="1.4"/>'
+        f'<text x="{(c1[0]+c4[0])/2:.1f}" y="{yb+5:.1f}" font-size="15" text-anchor="middle" fill="#B23A52" font-weight="700">O</text>'
     )
     body = (
-        '<text x="200" y="16" font-size="14" font-weight="700" fill="#0E7C66">α-D-Glc</text>'
-        '<text x="570" y="16" font-size="14" font-weight="700" fill="#1F6AA5">D-Glc, extrem reductor</text>'
+        '<text x="148" y="20" font-size="15" font-weight="700" text-anchor="middle" fill="#0E7C66">α-D-glucopiranosa</text>'
+        '<text x="400" y="20" font-size="15" font-weight="700" text-anchor="middle" fill="#1F6AA5">D-glucosa, extrem reductor</text>'
         + left + right + bridge
     )
-    return frame(
-        860, 360, "Maltosa: enllaç glicosídic α(1→4)",
-        body,
-        [
-            "L’oxigen vermell surt del C1 (posició α, avall) i arriba al C4 de la segona glucosa.",
-            "És una condensació: en formar-se l’enllaç surt aigua. L’anomèric de la dreta queda lliure.",
-            "La cel·lulosa fa servir els mateixos carbonis, però l’enllaç és β(1→4).",
-        ],
-    )
+    return _svg(540, 292, body)
 
 
 def fig_lipids() -> str:

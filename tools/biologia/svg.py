@@ -56,9 +56,64 @@ def _wrap_notes(body: str, width: int) -> tuple[str, int]:
     return body, int(extra_total + 8) if extra_total else 0
 
 
+def strip_footers(body: str) -> str:
+    """Treu les notes de sota el dibuix. L'explicació va al text o al peu."""
+    bottoms = []
+    for tag in re.findall(r'<(?:line|rect|circle|ellipse|polygon)\b[^>]*>', body):
+        for attr in ("y1", "y2"):
+            m = re.search(rf'\b{attr}="([\d.]+)"', tag)
+            if m:
+                bottoms.append(float(m.group(1)))
+        y = re.search(r'\by="([\d.]+)"', tag)
+        ht = re.search(r'\bheight="([\d.]+)"', tag)
+        if y:
+            bottoms.append(float(y.group(1)) + (float(ht.group(1)) if ht else 0))
+        cy = re.search(r'\bcy="([\d.]+)"', tag)
+        rad = re.search(r'\b(?:r|ry)="([\d.]+)"', tag)
+        if cy:
+            bottoms.append(float(cy.group(1)) + (float(rad.group(1)) if rad else 0))
+    for d in re.findall(r'\bd="([^"]+)"', body):
+        for cmd, args in re.findall(r'([MLQC])([^A-Za-z]*)', d):
+            nums = [float(n) for n in re.findall(r'-?\d*\.?\d+', args)]
+            bottoms.extend(nums[1::2])
+    if not bottoms:
+        return re.sub(
+            r'<text\b(?![^>]*font-weight="700")[^>]*>([^<]{55,})</text>',
+            "",
+            body,
+        )
+    limit = max(bottoms) + 8
+
+    def drop(m: re.Match) -> str:
+        y = float(m.group(1))
+        weight = m.group(2) or "400"
+        text = m.group(3)
+        if y > limit and weight != "700" and len(text) > 18:
+            return ""
+        return m.group(0)
+
+    return re.sub(
+        r'<text\b[^>]*\by="([\d.]+)"[^>]*?(?:font-weight="(\d+)")?[^>]*>([^<]*)</text>',
+        drop,
+        body,
+    )
+
+
+def _content_bottom(body: str) -> float:
+    ys = [0.0]
+    for m in re.finditer(r'\b(?:y|y1|y2|cy)="([\d.]+)"', body):
+        ys.append(float(m.group(1)))
+    for y, ht in re.findall(r'\by="([\d.]+)"[^>]*\bheight="([\d.]+)"', body):
+        ys.append(float(y) + float(ht))
+    for cy, r in re.findall(r'\bcy="([\d.]+)"[^>]*\br="([\d.]+)"', body):
+        ys.append(float(cy) + float(r))
+    return max(ys) + 16
+
+
 def svg(w: int, h: int, body: str) -> str:
     body, extra = _wrap_notes(body, w)
-    h += extra
+    h = max(_content_bottom(body), 48)
+    del extra
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" '
         f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">'
