@@ -29,7 +29,7 @@ def main() -> None:
     ]
     proc = subprocess.Popen(cmd)
     try:
-        proc.wait(timeout=90)
+        proc.wait(timeout=180)
     except subprocess.TimeoutExpired:
         proc.kill()
     if not OUT.is_file() or OUT.stat().st_size < 10000:

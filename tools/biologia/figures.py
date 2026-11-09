@@ -1,4 +1,6 @@
 """Figures SVG originals (no copiades) del dossier de Biologia."""
+from pathlib import Path
+
 from svg import arr, box, cover, defs_arrow, svg, tx
 
 FIGS: dict[str, str] = {}
@@ -899,6 +901,14 @@ add(
 from chemfigs import molecules
 
 FIGS.update(molecules())
+
+# Làmines amb llicència oberta (traduïdes al català quan el text és editable).
+_ART = Path(__file__).resolve().parent / "art"
+if _ART.is_dir():
+    for _p in _ART.glob("*.svg"):
+        FIGS[_p.stem] = _p.read_text(encoding="utf-8", errors="replace")
+    if "fig-2.3a" in FIGS:
+        FIGS["fig-2.3"] = FIGS.pop("fig-2.3a")
 
 COVERS = {
     "biomolecules": cover("1", "Biomolècules", "#0E7C66", '<circle cx="980" cy="520" r="70" fill="#fff" opacity=".9"/><text x="980" y="530" text-anchor="middle" font-size="28" fill="#0E7C66" font-weight="700">H₂O</text>'),

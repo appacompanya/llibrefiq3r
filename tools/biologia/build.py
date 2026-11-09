@@ -17,6 +17,7 @@ BIO = ROOT / "biologia"
 CAPS = Path(__file__).resolve().parent / "caps"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import figures  # noqa: E402
+from depth import deepen  # noqa: E402
 
 ICON = (
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E"
@@ -488,10 +489,15 @@ def print_book(bodies: dict[str, str]) -> str:
     extra = """
 body{max-width:180mm;margin:0 auto;padding:0 0 24px;background:#fff}
 h1{font-family:"Bricolage Grotesque","Atkinson Hyperlegible",sans-serif;font-weight:800;font-size:2rem;margin:.2em 0}
-h2{font-size:1.55em;color:var(--c);border-bottom:3px solid var(--c);padding-bottom:.15em;break-before:page}
+h2{font-size:1.55em;color:var(--c);border-bottom:3px solid var(--c);padding-bottom:.15em;break-before:auto;page-break-before:auto}
 h2.first{break-before:auto}
-h3{font-size:1.05em;color:#fff;background:var(--c);padding:.28em .6em;border-radius:6px}
-.box.keep,table.keep,figure.keep{break-inside:avoid}
+h3{font-size:1.05em;color:#fff;background:var(--c);padding:.28em .6em;border-radius:6px;break-after:avoid}
+.box{break-inside:auto;page-break-inside:auto}
+ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
+ol.qlist>li .q{break-after:avoid;page-break-after:avoid}
+details.sol{break-before:avoid;page-break-before:avoid}
+figure{break-inside:avoid;page-break-inside:avoid}
+.qa-fig{display:block;width:min(100%,440px);height:auto;margin:.5em auto .8em;background:#fff}
 figure svg,figure img{max-width:100%}
 nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
 """
@@ -514,13 +520,23 @@ nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
 
 
 MOL_CREDIT = {
-    "fig-1.1": ("RDKit a partir de l’aigua, PubChem CID 962. El pont d’hidrogen és una anotació pròpia.", "Estructura de domini públic (PubChem); dibuix RDKit (BSD).", "correspon a 1.1 Aigua: dos enllaços O–H, δ−/δ+ i pont d’hidrogen d’un H a un O"),
-    "fig-1.2": ("Plantilla de Haworth (hexàgon regular, O entre C5 i C1) contrastada amb els CID 79025 (α) i 64689 (β).", "Esquema propi; estereoquímica la de PubChem.", "correspon a 1.2 Glúcids: α-D-glucopiranosa (OH del C1 avall) i β (OH del C1 amunt)"),
-    "fig-1.3": ("Mateixa plantilla. Enllaç α(1→4), coherent amb la maltosa CID 439186.", "Esquema propi.", "correspon a 1.2 Glúcids: maltosa, pont des del C1 α fins al C4"),
-    "fig-1.4": ("RDKit. Triacilglicerol de cues curtes (mateix èster que el tripalmitin CID 11147), fosfolípid CID 10072611, colesterol CID 5997.", "Estructures PubChem; dibuix RDKit (BSD).", "correspon a 1.3 Lípids: triacilglicerol, fosfolípid amb cap polar i colesterol"),
-    "fig-1.5": ("RDKit. L-alanina zwitterió a partir del CID 5950; glicilglicina CID 11163 amb càrregues de pH 7.", "Connectivitat PubChem; dibuix RDKit (BSD).", "correspon a 1.4 Proteïnes: zwitterió i enllaç peptídic"),
-    "fig-1.7": ("RDKit del dAMP, CID 12599, més l’esquema d’aparellament A–T / G–C.", "Estructura PubChem; dibuix RDKit (BSD).", "correspon a 1.6 Àcids nucleics: nucleòtid de DNA i ponts d’hidrogen"),
-    "fig-3.9": ("RDKit de l’ATP, PubChem CID 5957.", "Estructura PubChem; dibuix RDKit (BSD).", "correspon a 3.1 Visió general: l’ATP com a transportador d’energia"),
+    "fig-1.1": ("Elaboració pròpia", "—", "correspon a 1.1 Aigua: dos enllaços O–H, δ−/δ+ i pont d’hidrogen d’un H a un O"),
+    "fig-1.2": ("Elaboració pròpia", "—", "correspon a 1.2 Glúcids: α-D-glucopiranosa (OH del C1 avall) i β (OH del C1 amunt)"),
+    "fig-1.3": ("Elaboració pròpia", "—", "correspon a 1.2 Glúcids: maltosa, pont des del C1 α fins al C4"),
+    "fig-1.4": ("Elaboració pròpia", "—", "correspon a 1.3 Lípids: triacilglicerol, fosfolípid amb cap polar i colesterol"),
+    "fig-1.5": ("Elaboració pròpia", "—", "correspon a 1.4 Proteïnes: zwitterió i enllaç peptídic"),
+    "fig-1.7": ("Elaboració pròpia", "—", "correspon a 1.6 Àcids nucleics: nucleòtid de DNA i ponts d’hidrogen"),
+    "fig-3.9": ("Elaboració pròpia", "—", "correspon a 3.1 Visió general: l’ATP com a transportador d’energia"),
+    "fig-2.2": ("Mariana Ruiz (LadyofHats), Wikimedia Commons, Cell membrane detailed diagram.", "Domini públic.", "correspon a 2.3 Membrana: bicapa, proteïnes, glicocàlix, colesterol i citoesquelet"),
+    "fig-2.3": ("LadyofHats; adaptació al català de Gerard Duenas, Animal cell structure ca.", "Domini públic.", "correspon a 2.5 Cèl·lula animal: nucli, reticle, Golgi, mitocondri, centríols, sense paret"),
+    "fig-2.3b": ("LadyofHats, Plant cell structure.", "Domini públic.", "correspon a 2.5 Cèl·lula vegetal: paret, vacúol, cloroplast i nucli"),
+    "fig-2.4": ("LadyofHats, Animal mitochondrion diagram.", "Domini públic.", "correspon a 2.5 Mitocondri: doble membrana, crestes i matriu"),
+    "fig-2.5": ("Kelvinsong, Chloroplast II. https://commons.wikimedia.org/wiki/File:Chloroplast_II.svg", "CC BY 3.0", "correspon a 2.5 i 3.8 Cloroplast: tilacoide (fase lluminosa) i estroma (Calvin)"),
+    "fig-2.6": ("Jpablo cad i Juliana Osorio. https://commons.wikimedia.org/wiki/File:Mitosis_schematic_diagram-en.svg", "CC BY-SA 3.0", "correspon a 2.7 Mitosi: profase, prometafase, metafase, anafase i telofase"),
+    "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi: meiosi I (se separen homòlegs) i meiosi II (se separen cromàtides)"),
+    "fig-5.2": ("LadyofHats, DNA replication.", "Domini públic.", "correspon a 5.2 Replicació: forquilla, cadena líder i retardada, fragments d’Okazaki"),
+    "fig-5.4": ("LadyofHats, Ribosome mRNA translation.", "Domini públic.", "correspon a 5.4 Traducció: subunitats, llocs A i P, RNAm i RNAt"),
+    "fig-7.2": ("Adenosine, a partir de Pbroks13, Tevenphage. https://commons.wikimedia.org/wiki/File:Tevenphage.svg", "CC BY-SA 2.5", "correspon a 7.6 Virus: bacteriòfag amb cap, cua, placa basal i fibres"),
 }
 
 
@@ -531,7 +547,7 @@ def write_credits_and_gallery(bodies: dict[str, str]) -> None:
             caps[fid] = re.sub(r"\s+", " ", cap).strip()
     rows = []
     cards = []
-    for fid in sorted(figures.FIGS, key=lambda s: [int(x) if x.isdigit() else x for x in re.split(r"[.-]", s)]):
+    for fid in sorted(figures.FIGS):
         if fid in MOL_CREDIT:
             font, lic, comp = MOL_CREDIT[fid]
         else:
@@ -550,8 +566,7 @@ def write_credits_and_gallery(bodies: dict[str, str]) -> None:
         )
     table = (
         '<header class="hero"><div class="eyebrow">Figures</div><h1>Crèdits</h1>'
-        '<p>Cap figura molecular està dibuixada a mà. Les estructures surten de RDKit o d’una plantilla de Haworth contrastada amb PubChem. '
-        'Els esquemes (mapes, quadres de Punnett, gràfics) són originals. No s’ha reutilitzat cap làmina que no encaixés amb el text.</p></header>'
+        '<p>Les figures amb llicència CC BY o CC BY-SA porten l’atribució que la llicència exigeix. La resta és elaboració pròpia del dossier.</p></header>'
         '<table><thead><tr><th>Figura</th><th>Peu</th><th>Font</th><th>Llicència</th><th>Comprovació</th></tr></thead><tbody>'
         + "".join(rows) + "</tbody></table>"
     )
@@ -589,7 +604,7 @@ def main() -> None:
     (BIO / "teoria").mkdir(parents=True, exist_ok=True)
     bodies = {}
     for ch in CHAPTERS:
-        raw = (CAPS / ch["file"]).read_text()
+        raw = deepen((CAPS / ch["file"]).read_text())
         bodies[ch["slug"]] = raw
         body = expand_figs(raw, inline=False)
         cover = (

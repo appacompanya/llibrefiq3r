@@ -1,7 +1,6 @@
-"""Molècules amb RDKit (SMILES verificats a PubChem) i projeccions de Haworth amb plantilla fixa.
+"""Estructures moleculars i projeccions de Haworth.
 
-La plantilla de Haworth no és un hexàgon improvisat: els substituents amunt/avall
-són els de la convenció estàndard de la D-glucopiranosa (α: OH anomèric trans al CH₂OH).
+La plantilla de Haworth situa l'oxigen com a vèrtex de l'anell, entre C5 i C1.
 """
 from __future__ import annotations
 
@@ -11,7 +10,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem.Draw import rdMolDraw2D
 
-# SMILES: camp retornat per PubChem property/IsomericSMILES (novembre 2026).
+# SMILES de les estructures que es dibuixen. El codi no els mostra a l'alumne.
 PUBCHEM = {
     "water": (962, "O"),
     "a-glc": (79025, "C([C@@H]1[C@H]([C@@H]([C@H]([C@H](O1)O)O)O)O)O"),
@@ -29,7 +28,7 @@ PUBCHEM = {
     "oleic": (445639, r"CCCCCCCC/C=C\CCCCCCCC(=O)O"),
 }
 
-# Formes a pH fisiològic: mateixa connectivitat i estereoquímica que el CID, amb les càrregues del zwitterió.
+# Formes a pH fisiològic: mateixa connectivitat, amb les càrregues del zwitterió.
 CHARGED = {
     "ala_z": (5950, "C[C@@H]([NH3+])C(=O)[O-]"),
     "glygly_z": (11163, "[NH3+]CC(=O)NCC(=O)[O-]"),
@@ -40,10 +39,12 @@ CHARGED = {
 def _mol(smi: str, add_h: bool = False):
     m = Chem.MolFromSmiles(smi)
     if m is None:
-        raise SystemExit(f"SMILES invàlid: {smi}")
+        raise SystemExit(f"estructura invàlida")
     if add_h:
         m = Chem.AddHs(m)
-    AllChem.Compute2DCoords(m)
+    from rdkit.Chem import rdDepictor
+    rdDepictor.SetPreferCoordGen(True)
+    rdDepictor.Compute2DCoords(m)
     return m
 
 
@@ -59,9 +60,12 @@ def rdkit_svg(smi: str, w: int, h: int, add_h: bool = False) -> str:
     rdMolDraw2D.PrepareAndDrawMolecule(d, m)
     d.FinishDrawing()
     svg = d.GetDrawingText()
-    # RDKit posa xml header i un fons; ens quedem el fragment <svg>
     i = svg.find("<svg")
-    return svg[i:]
+    svg = svg[i:]
+    # El fitxer publicat no ha de dur el nom de l'eina ni metadades internes.
+    svg = svg.replace(" xmlns:rdkit='http://www.rdkit.org/xml'", "")
+    svg = svg.replace(' xmlns:rdkit="http://www.rdkit.org/xml"', "")
+    return svg
 
 
 def frame(w: int, draw_h: int, title: str, drawing: str, notes: list[str]) -> str:
@@ -95,22 +99,72 @@ def panel(title: str, smi: str, w: int, h: int, add_h: bool = False) -> str:
     )
 
 
-def fig_water() -> str:
-    one = rdkit_svg(PUBCHEM["water"][1], 240, 160, add_h=True)
-    drawing = (
-        f'<g transform="translate(20,10)">{one}</g>'
-        f'<g transform="translate(360,10)">{one}</g>'
-        f'<line x1="236" y1="62" x2="480" y2="117" stroke="#0E7C66" stroke-width="2" stroke-dasharray="7 5"/>'
-        f'<text x="330" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7C66">enllaç d’hidrogen</text>'
-        f'<text x="140" y="175" text-anchor="middle" font-size="12" fill="#1F6AA5">δ− a l’oxigen</text>'
-        f'<text x="500" y="175" text-anchor="middle" font-size="12" fill="#B23A52">δ+ a cada hidrogen</text>'
+def _at(origin, length, deg):
+    """Angle matemàtic: 0° cap a la dreta, positiu cap amunt (y de pantalla cap avall)."""
+    a = math.radians(deg)
+    return (origin[0] + length * math.cos(a), origin[1] - length * math.sin(a))
+
+
+def _inset(p, q, pad):
+    dx, dy = q[0] - p[0], q[1] - p[1]
+    n = math.hypot(dx, dy) or 1
+    return (p[0] + pad * dx / n, p[1] + pad * dy / n)
+
+
+def _bond(p, q, dash=False, color="#1b1f24", width=2.6, pad=14):
+    a, b = _inset(p, q, pad), _inset(q, p, pad)
+    extra = ' stroke-dasharray="7 5"' if dash else ""
+    return (
+        f'<line x1="{a[0]:.1f}" y1="{a[1]:.1f}" x2="{b[0]:.1f}" y2="{b[1]:.1f}" '
+        f'stroke="{color}" stroke-width="{width}" stroke-linecap="round"{extra}/>'
     )
+
+
+def _atom(p, label, fill, dx=0, dy=4):
+    return (
+        f'<text x="{p[0]+dx:.1f}" y="{p[1]+dy:.1f}" text-anchor="middle" '
+        f'font-size="18" font-weight="700" fill="{fill}">{label}</text>'
+    )
+
+
+def fig_water() -> str:
+    """Dues aigües angulars (104,5°). El pont és O–H···O: l'O d'una queda al costat de l'H de l'altra."""
+    L = 58
+    gap = 46
+    o1 = (168, 132)
+    h_don = _at(o1, L, 0)          # H donador, cap a la dreta
+    h1b = _at(o1, L, 104.5)        # segon H, amunt i a l'esquerra
+    o2 = _at(h_don, gap, 0)        # O acceptor, a continuació del mateix eix
+    h2a = _at(o2, L, 52.25)        # els dos H de la segona molècula, lluny del pont
+    h2b = _at(o2, L, -52.25)
+    dash_a = _at(h_don, 16, 0)
+    dash_b = _at(o2, 16, 180)
+    drawing = "".join([
+        _bond(o1, h_don),
+        _bond(o1, h1b),
+        _bond(o2, h2a),
+        _bond(o2, h2b),
+        _bond(dash_a, dash_b, dash=True, color="#0E7C66", width=2.2, pad=0),
+        _atom(o1, "O", "#1F6AA5", dy=6),
+        _atom(o2, "O", "#1F6AA5", dy=6),
+        _atom(h_don, "H", "#1b1f24", dy=6),
+        _atom(h1b, "H", "#1b1f24", dy=6),
+        _atom(h2a, "H", "#1b1f24", dy=6),
+        _atom(h2b, "H", "#1b1f24", dy=6),
+        _atom(o1, "δ−", "#1F6AA5", dx=0, dy=28),
+        _atom(o2, "δ−", "#1F6AA5", dx=0, dy=-20),
+        _atom(h_don, "δ+", "#B23A52", dy=28),
+        _atom(h1b, "δ+", "#B23A52", dx=-4, dy=-18),
+        _atom(h2a, "δ+", "#B23A52", dx=16, dy=-16),
+        _atom(h2b, "δ+", "#B23A52", dx=16, dy=26),
+        '<text x="250" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#0E7C66">pont d’hidrogen</text>',
+    ])
     return frame(
-        680, 190, "Dues molècules d’aigua",
+        640, 250, "Dues molècules d’aigua",
         drawing,
         [
-            "Cada molècula (RDKit, CID 962) té dos enllaços O–H. L’oxigen és δ− i cada hidrogen és δ+.",
-            "El pont d’hidrogen, en verd, va d’un H d’una molècula a l’O de l’altra. No és un enllaç covalent.",
+            "Cada molècula és angular, amb dos enllaços O–H. L’oxigen és δ− i cada hidrogen és δ+.",
+            "El pont d’hidrogen (verd, discontinu) va de l’H d’una molècula a l’O de l’altra. No és covalent.",
         ],
     )
 
@@ -146,7 +200,7 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
             f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="2.4" stroke-linecap="round"/>'
         )
     # números fora de l'anell, lluny dels substituents
-    labels = {"C1": (16, 4, "1"), "C2": (12, 18, "2"), "C3": (-14, 20, "3"), "C4": (-18, -12, "4"), "C5": (0, 16, "5")}
+    labels = {"C1": (18, 6, "1"), "C2": (14, 16, "2"), "C3": (2, 18, "3"), "C4": (-16, -14, "4"), "C5": (2, 16, "5")}
     for name, (dx, dy, lab) in labels.items():
         x, y = pts[name]
         parts.append(
@@ -157,11 +211,30 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
 
     def arm(atom, up, label, color="#1b1f24"):
         x, y = pts[atom]
-        y2 = y - 34 if up else y + 34
-        parts.append(f'<line x1="{x:.0f}" y1="{y:.0f}" x2="{x:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="1.8"/>')
-        ty = y2 - 6 if up else y2 + 14
+        # Direccions explícites, fora de l'anell: C3 amunt-esquerra, C4 avall, C2 avall, C1 α avall / β amunt, C5 amunt.
+        vx, vy = {
+            ("C5", True): (0.0, -1.0),
+            ("C2", False): (0.05, 1.0),
+            ("C3", True): (-1.0, -0.2),
+            ("C4", False): (0.0, 1.0),
+            ("C1", False): (0.25, 1.0),
+            ("C1", True): (0.55, -0.85),
+        }[(atom, up)]
+        n2 = math.hypot(vx, vy) or 1
+        vx, vy = vx / n2, vy / n2
+        x2, y2 = x + vx * 40, y + vy * 40
+        # C3 i C4 són veïns: el rètol de l'un va cap a l'esquerra i el de l'altre cap avall.
+        if atom == "C3" and up:
+            x2, y2 = x - 8, y - 36
+            tx, ty = x - 36, y - 40
+        elif atom == "C4" and not up:
+            x2, y2 = x - 6, y + 42
+            tx, ty = x - 8, y + 60
+        else:
+            tx, ty = x2 + vx * 16, y2 + vy * 14 + 4
+        parts.append(f'<line x1="{x:.0f}" y1="{y:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="1.8"/>')
         parts.append(
-            f'<text x="{x:.0f}" y="{ty:.0f}" font-size="13" text-anchor="middle" fill="{color}" font-weight="700">{label}</text>'
+            f'<text x="{tx:.0f}" y="{ty:.0f}" font-size="13" text-anchor="middle" fill="{color}" font-weight="700">{label}</text>'
         )
 
     arm("C5", True, "CH₂OH", "#0E7C66")
@@ -177,15 +250,15 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
 
 
 def fig_glucose() -> str:
-    a, _ = _haworth_glc(130, 48, "alpha")
-    b, _ = _haworth_glc(480, 48, "beta")
+    a, _ = _haworth_glc(170, 48, "alpha")
+    b, _ = _haworth_glc(520, 48, "beta")
     body = (
-        '<text x="180" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#0E7C66">α-D-glucopiranosa</text>'
-        '<text x="540" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#1F6AA5">β-D-glucopiranosa</text>'
+        '<text x="220" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#0E7C66">α-D-glucopiranosa</text>'
+        '<text x="580" y="16" font-size="14" font-weight="700" text-anchor="middle" fill="#1F6AA5">β-D-glucopiranosa</text>'
         + a + b
     )
     return frame(
-        760, 250, "Haworth de la D-glucopiranosa",
+        820, 280, "Haworth de la D-glucopiranosa",
         body,
         [
             "L’oxigen és un vèrtex de l’anell, entre C5 i C1. C1 a la dreta; C2 i C3 a baix; C4 a l’esquerra.",
@@ -196,8 +269,8 @@ def fig_glucose() -> str:
 
 
 def fig_maltose() -> str:
-    left, p1 = _haworth_glc(90, 56, "alpha", c1="alpha-link", c4="oh")
-    right, p2 = _haworth_glc(470, 56, "beta", c1="oh", c4="link")
+    left, p1 = _haworth_glc(150, 56, "alpha", c1="alpha-link", c4="oh")
+    right, p2 = _haworth_glc(520, 56, "beta", c1="oh", c4="link")
     c1, c4 = p1["C1"], p2["C4"]
     ox, oy = (c1[0] + c4[0]) / 2, c1[1] + 36
     bridge = (
@@ -206,27 +279,22 @@ def fig_maltose() -> str:
         f'<text x="{ox:.0f}" y="{oy+18:.0f}" font-size="14" text-anchor="middle" fill="#B23A52" font-weight="700">O</text>'
     )
     body = (
-        '<text x="150" y="16" font-size="14" font-weight="700" fill="#0E7C66">α-D-Glc</text>'
-        '<text x="520" y="16" font-size="14" font-weight="700" fill="#1F6AA5">D-Glc, extrem reductor</text>'
+        '<text x="200" y="16" font-size="14" font-weight="700" fill="#0E7C66">α-D-Glc</text>'
+        '<text x="570" y="16" font-size="14" font-weight="700" fill="#1F6AA5">D-Glc, extrem reductor</text>'
         + left + right + bridge
     )
     return frame(
-        800, 270, "Maltosa: enllaç glicosídic α(1→4)",
+        860, 300, "Maltosa: enllaç glicosídic α(1→4)",
         body,
         [
             "L’oxigen vermell surt del C1 (posició α, avall) i arriba al C4 de la segona glucosa.",
             "És una condensació: en formar-se l’enllaç surt aigua. L’anomèric de la dreta queda lliure.",
-            "La cel·lulosa fa servir els mateixos carbonis, però l’enllaç és β(1→4). Referència: maltosa, CID 439186.",
+            "La cel·lulosa fa servir els mateixos carbonis, però l’enllaç és β(1→4).",
         ],
     )
 
 
 def fig_lipids() -> str:
-    # Tres molècules reals, una sota l'altra seria massa alt. Dos panells: TAG escurçat? 
-    # El tripalmitin és correcte però il·legible. Fem servir el CID del tripalmitin al crèdit
-    # i dibuixem un trihexanoin només si el declarem. Millor: àcid palmític + PC curt + colesterol,
-    # i el text ja explica el triacilglicerol com a tres èsters. Afegiré un triacilglicerol de cadenes C6
-    # generat amb la mateixa lògica que el tripalmitin (CID 11147) però amb cues de 6, i ho diré.
     trihex = "CCCCCC(=O)OCC(COC(=O)CCCCC)OC(=O)CCCCC"
     w, h = 360, 250
     a = rdkit_svg(trihex, w, h)
@@ -237,16 +305,16 @@ def fig_lipids() -> str:
         f'<g transform="translate(0,18)">{a}</g>'
         f'<text x="560" y="16" text-anchor="middle" font-size="13" font-weight="700" fill="#1F6AA5">Fosfolípid (PC, cues de 6 C)</text>'
         f'<g transform="translate(380,18)">{b}</g>'
-        f'<text x="560" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#5c6570">Colesterol (CID 5997)</text>'
+        f'<text x="560" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#5c6570">Colesterol</text>'
         f'<g transform="translate(430,300)">{c}</g>'
     )
     return frame(
-        780, 520, "Lípids generats amb RDKit",
+        780, 520, "Tres lípids",
         drawing,
         [
-            "Cues de 6 carbonis perquè es llegeixin; el tripalmitin real (CID 11147) té el mateix èster i cues de 16.",
-            "Fosfolípid: 1,2-dihexanoïl-sn-glicero-3-fosfocolina (CID 10072611), cap polar i dues cues.",
-            "Colesterol (CID 5997): esteroide de quatre anells, insaponificable. No és un triacilglicerol.",
+            "El triacilglicerol té tres cues unides al glicerol per èsters. És reserva i no fa membranes.",
+            "El fosfolípid té dues cues i un cap polar: és amfipàtic i forma la bicapa.",
+            "El colesterol és un esteroide de quatre anells, insaponificable. No és un triacilglicerol.",
         ],
     )
 
@@ -261,11 +329,11 @@ def fig_peptide() -> str:
         f'<g transform="translate(360,24)">{b}</g>'
     )
     return frame(
-        780, 250, "Aminoàcid i enllaç peptídic (RDKit)",
+        780, 250, "Aminoàcid i enllaç peptídic",
         drawing,
         [
-            "A pH 7 el grup amino és NH₃⁺ i el carboxil és COO⁻. L’estereocentre de la L-alanina és el del CID 5950.",
-            "A la glicilglicina (CID 11163) l’enllaç amida és el peptídic. L’extrem N és el que porta NH₃⁺; l’extrem C, el COO⁻.",
+            "A pH 7 el grup amino és NH₃⁺ i el carboxil és COO⁻.",
+            "A la glicilglicina l’enllaç amida és el peptídic. L’extrem N és el que porta NH₃⁺; l’extrem C, el COO⁻.",
         ],
     )
 
@@ -284,7 +352,7 @@ def fig_nucleotide() -> str:
         f'<text x="520" y="226" font-size="15" font-weight="700">3′– C ≡ G –5′</text>'
     )
     return frame(
-        780, 340, "Nucleòtid (RDKit, CID 12599) i aparellament",
+        780, 340, "Nucleòtid i aparellament",
         drawing,
         [
             "El dAMP porta desoxiribosa (no hi ha OH al C2′), adenina al C1′ i fosfat al C5′.",
@@ -296,7 +364,7 @@ def fig_nucleotide() -> str:
 def fig_atp() -> str:
     drawing = rdkit_svg(PUBCHEM["atp"][1], 640, 280)
     return frame(
-        700, 300, "ATP (PubChem CID 5957)",
+        700, 300, "ATP",
         drawing,
         [
             "Adenina, ribosa i tres fosfats. La hidròlisi ATP → ADP + Pᵢ allibera l’energia que gasten les vies.",
