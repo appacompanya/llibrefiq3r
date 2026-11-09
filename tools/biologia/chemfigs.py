@@ -293,6 +293,18 @@ def fig_nucleotide() -> str:
     )
 
 
+def fig_atp() -> str:
+    drawing = rdkit_svg(PUBCHEM["atp"][1], 640, 280)
+    return frame(
+        700, 300, "ATP (PubChem CID 5957)",
+        drawing,
+        [
+            "Adenina, ribosa i tres fosfats. La hidròlisi ATP → ADP + Pᵢ allibera l’energia que gasten les vies.",
+            "No és un magatzem: la cèl·lula el recicla. El NADPH, no dibuixat aquí, és el poder reductor de l’anabolisme.",
+        ],
+    )
+
+
 def molecules() -> dict[str, str]:
     return {
         "fig-1.1": fig_water(),
@@ -301,4 +313,5 @@ def molecules() -> dict[str, str]:
         "fig-1.4": fig_lipids(),
         "fig-1.5": fig_peptide(),
         "fig-1.7": fig_nucleotide(),
+        "fig-3.9": fig_atp(),
     }

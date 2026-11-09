@@ -505,7 +505,9 @@ nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
         f'<nav class="toc"><h2 class="first">Índex</h2><ol>{toc}</ol></nav>',
     ]
     for ch in CHAPTERS:
-        body = expand_figs(bodies[ch["slug"]], inline=True)
+        body = expand_figs(bodies[ch["slug"]], inline=True).replace(
+            '<details class="sol">', '<details class="sol" open>'
+        )
         parts.append(f'<section class="chap" id="{ch["id"]}"><h2>{esc(ch["n"])}. {esc(ch["title"])}</h2>{body}</section>')
     parts.append("</body></html>")
     return "".join(parts)
@@ -518,6 +520,7 @@ MOL_CREDIT = {
     "fig-1.4": ("RDKit. Triacilglicerol de cues curtes (mateix èster que el tripalmitin CID 11147), fosfolípid CID 10072611, colesterol CID 5997.", "Estructures PubChem; dibuix RDKit (BSD).", "correspon a 1.3 Lípids: triacilglicerol, fosfolípid amb cap polar i colesterol"),
     "fig-1.5": ("RDKit. L-alanina zwitterió a partir del CID 5950; glicilglicina CID 11163 amb càrregues de pH 7.", "Connectivitat PubChem; dibuix RDKit (BSD).", "correspon a 1.4 Proteïnes: zwitterió i enllaç peptídic"),
     "fig-1.7": ("RDKit del dAMP, CID 12599, més l’esquema d’aparellament A–T / G–C.", "Estructura PubChem; dibuix RDKit (BSD).", "correspon a 1.6 Àcids nucleics: nucleòtid de DNA i ponts d’hidrogen"),
+    "fig-3.9": ("RDKit de l’ATP, PubChem CID 5957.", "Estructura PubChem; dibuix RDKit (BSD).", "correspon a 3.1 Visió general: l’ATP com a transportador d’energia"),
 }
 
 

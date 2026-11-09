@@ -23,6 +23,7 @@ fig-3.5	Les dues fermentacions regeneren NAD⁺. El guany és el de la glucòlis
 fig-3.6	Esquema en Z. L’aigua es trenca al fotosistema II. El NADPH es forma al final del fotosistema I.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-3.7	Calvin a l’estroma. La rubisco fixa el CO₂. El balanç per CO₂ és 3 ATP i 2 NADPH.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-3.8	Localització en una cèl·lula eucariota. Els procariotes fan les mateixes químiques a la membrana i al citoplasma, sense orgànuls.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.9	ATP: adenina, ribosa i tres fosfats (CID 5957). L’enllaç que la cèl·lula fa servir és el dels fosfats, no l’esquelet del nucleòtid.	RDKit de l’ATP, PubChem CID 5957.	Estructura PubChem; dibuix RDKit (BSD).	comprovat: correspon a 3.1 Visió general: l’ATP com a transportador d’energia
 fig-4.1	Punnett d’Aa × Aa. Genotips 1:2:1. Amb dominància completa, fenotips 3:1.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-4.3	Dos no afectats amb un fill afectat: patró compatible amb un recessiu. Cal mirar més generacions abans de tancar-ho.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-4.4	Mare portadora i pare sa: la meitat dels fills homes, en esperança, són afectats. Cap filla no ho és, però la meitat són portadores.	Esquema original	Original	comprovat: correspon al peu del capítol
@@ -34,17 +35,17 @@ fig-5.4	Llocs A, P i E. La cadena creix per l’extrem carboxil. L’RNAm es lle
 fig-5.5	Les tres temperatures d’un cicle de PCR. La polimerasa de l’extensió ha de ser termostable.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-5.6	L’RNA guia porta el Cas9 a la diana. El tall es repara amb errors o amb un motlle.	Esquema original	Original	comprovat: correspon al peu del capítol
 fig-5.7	Restricció, ligasa, plasmidi i les dues tècniques que amplien o editen: PCR i CRISPR.	Esquema original	Original	comprovat: correspon al peu del capítol
-fig-6.1		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-6.2		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-6.3		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-6.4		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-7.1		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-7.2		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-7.3		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-7.4		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-7.5		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-8.1		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-8.2		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-8.3		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-8.4		Esquema original	Original	comprovat: correspon al peu del capítol
-fig-9.1		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.1	Les evidències no es llegeixen soles: encaixen entre elles. Homòleg no és el mateix que anàleg.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.2	Les tres condicions han de donar-se alhora. Sense herència, la selecció d’una generació no canvia la següent.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.3	Al·lopàtrica: primer la geografia. Simpàtrica: la barrera és reproductiva sense allunyar les poblacions.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.4	El que canvia p i q. L’aparellament no aleatori, tot sol, canvia les freqüències dels genotips, no les dels al·lels.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.1	Esquema d’un bacteri: paret, nucleoide i, si n’hi ha, plasmidi. Els arqueus s’hi assemblen per fora i se’n separen per la paret i els lípids.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.2	Dos esquemes suficients per a la prova: virus amb embolcall i bacteriòfag. El genoma pot ser DNA o RNA.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.3	Lític: el virus es multiplica i trenca la cèl·lula. Lisogènic: el genoma s’integra i espera.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.4	Cicle del nitrogen. Els passos bacterians que cal saber dir: fixació, nitrificació, desnitrificació i amonificació.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.5	Tres formes acel·lulars. El virus és l’única que porta àcid nucleic i càpsida.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.1	La secundària puja abans, més amunt i sobretot amb IgG, perquè ja hi ha cèl·lules de memòria.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.2	IgG: forma d’Y, dues pesants i dues lleugeres. El lloc d’unió a l’antigen és la regió variable.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.3	Humoral: B i anticossos. Cel·lular: T col·laboradors i T citotòxics. Els col·laboradors no substitueixen els citotòxics.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.4	De la barrera a la memòria. La vacuna és activa i artificial; el sèrum, passiu i artificial.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-9.1	Cinc peces. Si en falta el control o les rèpliques, el disseny no aguanta una pregunta de la PAU.	Esquema original	Original	comprovat: correspon al peu del capítol

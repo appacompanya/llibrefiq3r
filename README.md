@@ -1,6 +1,6 @@
 # Física i química · 2n, 3r, 4t d'ESO i batxillerat
 
-Llibres digitals creats per Macià Esteve Pallarès Pallarès. L'arrel del repositori és el de **3r** (`index.html`, `digital/`, `docs/`, `contingut/3r/`). 2n és a `2n/`, 4t a `4t/` i el batxillerat a `btx/`. Com es construeix cada un: [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
+Llibres digitals creats per Macià Esteve Pallarès Pallarès. L'arrel del repositori és el de **3r** (`index.html`, `digital/`, `docs/`, `contingut/3r/`). 2n és a `2n/`, 4t a `4t/`, el batxillerat de Física a `btx/` i el dossier de Biologia de 2n de batxillerat a `biologia/` (`/biologia`, el mateix desplegament estàtic que `/btx`). Com es construeix cada un: [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md).
 
 Web de 3r: `index.html` + `docs/` (fulls en PDF) + `img/` + `lib/` (visor de PDF).
 El llibre de l'alumnat no inclou les activitats de demostració ni els solucionaris.
