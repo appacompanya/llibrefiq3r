@@ -505,8 +505,8 @@ ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
 ol.qlist>li .q{break-after:avoid;page-break-after:avoid}
 details.sol{break-before:avoid;page-break-before:avoid}
 figure{break-inside:avoid;page-break-inside:avoid}
-figure img,figure svg{max-height:92mm;width:auto!important;height:auto!important}
-figure.tall img,figure.tall svg{max-height:118mm;width:100%!important;height:auto!important}
+figure{overflow:visible;max-width:100%}
+figure img,figure svg{max-width:100%!important;max-height:175mm;width:100%!important;height:auto!important}
 .qa-fig{display:block;width:min(100%,440px);height:auto;margin:.5em auto .8em;background:#fff}
 figure svg,figure img{max-width:100%}
 nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
@@ -533,7 +533,12 @@ nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
 CC_CREDIT = {
     "fig-2.5": ("Kelvinsong, Chloroplast II. https://commons.wikimedia.org/wiki/File:Chloroplast_II.svg", "CC BY 3.0", "correspon a 2.5 i 3.8 Cloroplast: tilacoide (fase lluminosa) i estroma (Calvin)"),
     "fig-2.6": ("Jpablo cad i Juliana Osorio. https://commons.wikimedia.org/wiki/File:Mitosis_schematic_diagram-en.svg", "CC BY-SA 3.0", "correspon a 2.7 Mitosi: profase, prometafase, metafase, anafase i telofase"),
-    "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi: meiosi I (se separen homòlegs) i meiosi II (se separen cromàtides)"),
+    "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi I: profase, metafase, anafase i telofase"),
+    "fig-2.9": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi II: se separen les cromàtides germanes"),
+    "fig-1.12": ("Sponk, Difference DNA RNA. https://commons.wikimedia.org/wiki/File:Difference_DNA_RNA-EN.svg", "CC BY-SA 3.0", "correspon a 1.6 DNA amb timina i RNA amb uracil"),
+    "fig-3.12": ("Lisawerner9, Lactic acid fermentation. https://commons.wikimedia.org/wiki/File:Lactic_Acid_Fermentation.svg", "CC BY-SA 4.0", "correspon a 3.5 Fermentació làctica: piruvat a lactat i regeneració del NAD"),
+    "fig-5.8": ("Yikrazuul, adaptació, The tRNA cloverleaf. https://commons.wikimedia.org/wiki/File:The_tRNA_cloverleaf_general-es.svg", "CC BY-SA 3.0", "correspon a 5.1 RNAt: braç acceptor, anticodó, braços D i T"),
+    "fig-5.9": ("Madprime, Genetic code. https://commons.wikimedia.org/wiki/File:Genetic_code.svg", "CC BY-SA 3.0", "correspon a 5.1 Del DNA a l’RNAm i a la cadena d’aminoàcids"),
     "fig-7.2": ("Adenosine, a partir de Pbroks13, Tevenphage. https://commons.wikimedia.org/wiki/File:Tevenphage.svg", "CC BY-SA 2.5", "correspon a 7.6 Virus: bacteriòfag amb cap, cua, placa basal i fibres"),
     "fig-3.10": ("Zlir'a, Cellular respiration. https://commons.wikimedia.org/wiki/File:Cellular_respiration_EN.svg", "CC BY-SA 4.0", "correspon a 3 Respiració: glucòlisi al citosol, Krebs a la matriu, cadena i ATP-sintasa a la membrana interna"),
     "fig-3.11": ("Yikrazuul, adaptació d’AngelHerraez, Thylakoid membrane. https://commons.wikimedia.org/wiki/File:Thylakoid_membrane_(es).svg", "CC BY-SA 3.0", "correspon a 3.8 Fase lluminosa a la membrana del tilacoide i Calvin a l’estroma"),
