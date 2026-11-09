@@ -492,7 +492,7 @@ h1{font-family:"Bricolage Grotesque","Atkinson Hyperlegible",sans-serif;font-wei
 h2{font-size:1.55em;color:var(--c);border-bottom:3px solid var(--c);padding-bottom:.15em;break-before:auto;page-break-before:auto}
 h2.first{break-before:auto}
 h3{font-size:1.05em;color:#fff;background:var(--c);padding:.28em .6em;border-radius:6px;break-after:avoid}
-.box{break-inside:auto;page-break-inside:auto}
+.box{break-inside:avoid;page-break-inside:avoid}
 ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
 ol.qlist>li .q{break-after:avoid;page-break-after:avoid}
 details.sol{break-before:avoid;page-break-before:avoid}

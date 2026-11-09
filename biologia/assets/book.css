@@ -222,7 +222,7 @@ section.err li::before{content:"!";position:absolute;left:0;top:.18em;width:1.1e
   .card:hover,.pn a:hover{transform:none}
   a{color:#000;text-decoration:none}
   .page h3{break-after:avoid}
-  .box{break-inside:auto;background:#fff}
+  .box{break-inside:avoid;page-break-inside:avoid;background:#fff}
   ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
   details.sol{break-before:avoid}
   .katex,.katex *{color:#000!important}

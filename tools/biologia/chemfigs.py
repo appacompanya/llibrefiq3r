@@ -134,84 +134,160 @@ def _perp(p, q):
 
 
 def fig_water() -> str:
-    """Cinc aigües. Angle H–O–H de 104,5°. Cada pont és O–H···O, gairebé lineal.
-
-    La molècula central dona dos ponts pels seus H i en rep dos per la banda
-    dels parells no enllaçants (disposició tetraèdrica, en projecció).
-    """
-    L = 44.0
-    gap = 78.0
+    """Cinc aigües, angle 104,5°, cada pont O–H···O col·lineal. ViewBox ajustat al dibuix."""
+    L = 82.0
+    gap = 74.0
     half = 52.25
-    centre = (460.0, 330.0)
-    parts: list[str] = []
+    ro, rh = 26.0, 18.0
+    centre = (0.0, 0.0)
 
     def water_at(o, bisector):
-        return o, _at(o, L, bisector + half), _at(o, L, bisector - half)
+        return {"o": o, "h": (_at(o, L, bisector + half), _at(o, L, bisector - half)), "bis": bisector, "kind": "acc"}
 
-    molecules = [water_at(centre, -90)]
-    # Acceptores: l'O veí queda sobre l'eix de cada H central, més enllà de l'H.
+    mols = [water_at(centre, -90) | {"kind": "centre"}]
+    hbonds = []
     for theta in (-90 + half, -90 - half):
-        acc_o = _at(centre, L + gap, theta)
-        molecules.append(water_at(acc_o, theta))
-    # Donadores: un H apunta al parell no enllaçant de la central. O–H···O lineal.
-    donors = []
-    for phi in (90 + half, 90 - half):
+        acc = water_at(_at(centre, L + gap, theta), theta)
+        mols.append(acc)
+        hbonds.append((_at(centre, L, theta), acc["o"]))
+    for phi in (90 - half, 90 + half):
         h = _at(centre, gap, phi)
         o = _at(centre, gap + L, phi)
         alpha = phi + 180
-        alt_a = _at(o, L, alpha + 104.5)
-        alt_b = _at(o, L, alpha - 104.5)
-        alt = alt_a if math.hypot(alt_a[0] - centre[0], alt_a[1] - centre[1]) > math.hypot(alt_b[0] - centre[0], alt_b[1] - centre[1]) else alt_b
-        molecules.append((o, h, alt))
-        donors.append(h)
+        alts = (_at(o, L, alpha + 104.5), _at(o, L, alpha - 104.5))
+        alt = max(alts, key=lambda p: math.hypot(p[0] - centre[0], p[1] - centre[1]))
+        mols.append({"o": o, "h": (h, alt), "bis": alpha, "kind": "don"})
+        hbonds.append((h, centre))
 
-    # Ponts: cada H de la central cap a l'O acceptora, i cada H donador cap a l'O central.
-    hbonds = []
-    for theta in (-90 + half, -90 - half):
-        hbonds.append((_at(centre, L, theta), _at(centre, L + gap, theta)))
-    for phi in (90 + half, 90 - half):
-        hbonds.append((_at(centre, gap, phi), centre))
+    atoms = [(m["o"], ro) for m in mols] + [(h, rh) for m in mols for h in m["h"]]
 
-    for h, o_acc in hbonds:
-        parts.append(_bond(h, o_acc, dash=True, color="#0E7C66", width=2.0, pad=13))
-    for o, h1, h2 in molecules:
-        parts.append(_bond(o, h1, pad=13))
-        parts.append(_bond(o, h2, pad=13))
+    def hits(p, w, hgt, taken):
+        x0, y0, x1, y1 = p[0] - w / 2, p[1] - hgt / 2, p[0] + w / 2, p[1] + hgt / 2
+        for (ax, ay), r in atoms:
+            cx, cy = min(max(ax, x0), x1), min(max(ay, y0), y1)
+            if math.hypot(cx - ax, cy - ay) < r + 10:
+                return True
+        for q, qw, qh in taken:
+            if abs(p[0] - q[0]) < (w + qw) / 2 + 16 and abs(p[1] - q[1]) < (hgt + qh) / 2 + 10:
+                return True
+        return False
 
-    def beside(atom, axis_from, text, fill, dist=26):
-        """Etiqueta al costat de l'eix, no a sobre. Tria el costat més buit."""
-        px, py = _perp(axis_from, atom)
-        a = (atom[0] + px * dist, atom[1] + py * dist)
-        b = (atom[0] - px * dist, atom[1] - py * dist)
-        # El punt més lluny del centre del grup queda fora del grapat.
-        da = math.hypot(a[0] - centre[0], a[1] - centre[1])
-        db = math.hypot(b[0] - centre[0], b[1] - centre[1])
-        q = a if da >= db else b
-        return _atom(q, text, fill, dy=4, size=13)
+    def park(anchor, direction, text, fill, taken, base):
+        px, py = direction
+        n = math.hypot(px, py) or 1
+        px, py = px / n, py / n
+        w, hgt = (32, 18) if "−" in text else (28, 18)
+        for dist in range(int(base), int(base) + 90, 3):
+            q = (anchor[0] + px * dist, anchor[1] + py * dist)
+            if not hits(q, w, hgt, taken):
+                taken.append((q, w, hgt))
+                return _atom(q, text, fill, dy=5, size=15)
+        q = (anchor[0] + px * (base + 90), anchor[1] + py * (base + 90))
+        taken.append((q, w, hgt))
+        return _atom(q, text, fill, dy=5, size=15)
 
-    for o, h1, h2 in molecules:
-        parts.append(f'<circle cx="{o[0]:.1f}" cy="{o[1]:.1f}" r="12" fill="#fff"/>')
-        parts.append(_atom(o, "O", "#1F6AA5", dy=5, size=16))
-        for h in (h1, h2):
-            parts.append(f'<circle cx="{h[0]:.1f}" cy="{h[1]:.1f}" r="10" fill="#fff"/>')
-            parts.append(_atom(h, "H", "#1b1f24", dy=5, size=15))
-        # δ− al costat de l'oxigen, no sobre cap enllaç.
-        parts.append(beside(o, h1, "δ−", "#1F6AA5", 28))
-        parts.append(beside(h1, o, "δ+", "#B23A52", 24))
-        parts.append(beside(h2, o, "δ+", "#B23A52", 24))
+    taken = []
+    charges = []
+    for m in mols:
+        h1, h2 = m["h"]
+        # δ+ fora de l'angle H–O–H, al costat oposat de l'altre hidrogen.
+        for h, sib in ((h1, h2), (h2, h1)):
+            px, py = _perp(m["o"], h)
+            if (sib[0] - h[0]) * px + (sib[1] - h[1]) * py > 0:
+                px, py = -px, -py
+            charges.append(park(h, (px, py), "δ+", "#8E2438", taken, rh + 18))
+        if m["kind"] == "don":
+            # Més enllà de l'oxigen, a l'exterior: el pont queda a l'altre costat.
+            direction = (m["o"][0] - centre[0], m["o"][1] - centre[1])
+        elif m["kind"] == "acc":
+            # Perpendicular al pont, no sobre la línia discontínua.
+            px, py = _perp(centre, m["o"])
+            if (h1[0] - m["o"][0]) * px + (h1[1] - m["o"][1]) * py > 0:
+                px, py = -px, -py
+            direction = (px, py)
+        else:
+            direction = (-1.0, 0.15)  # buit entre els dos ponts de l'esquerra
+        charges.append(park(m["o"], direction, "δ−", "#C0392B", taken, ro + 16))
 
-    parts.append(
-        '<text x="400" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#0E7C66">'
-        "pont d’hidrogen (línia discontínua)</text>"
+    # Pont de dalt a la dreta: el rètol surt en perpendicular, cap al buit.
+    phi = 90 - half
+    bridge_h = _at(centre, gap, phi)
+    a = _inset(bridge_h, centre, rh + 2)
+    b = _inset(centre, bridge_h, ro + 2)
+    mid = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
+    px, py = _perp(centre, bridge_h)
+
+    obstacles = [p for p, _r in atoms] + [q for q, _w, _h in taken]
+
+    def clearance(sign, dist):
+        q = (mid[0] + sign * px * dist, mid[1] + sign * py * dist)
+        return min(math.hypot(q[0] - p[0], q[1] - p[1]) for p in obstacles)
+
+    sign = 1 if clearance(1, 130) >= clearance(-1, 130) else -1
+    lx, ly_ = sign * px, sign * py
+    label_at = (mid[0] + lx * 132, mid[1] + ly_ * 132)
+    leader = (
+        f'<line x1="{mid[0]+lx*8:.1f}" y1="{mid[1]+ly_*8:.1f}" x2="{label_at[0]-lx*46:.1f}" y2="{label_at[1]-ly_*10:.1f}" '
+        f'stroke="#0E7C66" stroke-width="1.3"/>'
+        f'<circle cx="{mid[0]:.1f}" cy="{mid[1]:.1f}" r="2.6" fill="#0E7C66"/>'
+        + _atom(label_at, "pont d’hidrogen", "#0E7C66", dy=4, size=14)
     )
-    return frame(
-        960, 640, "Molècules d’aigua enllaçades per ponts d’hidrogen",
-        "".join(parts),
-        [
-            "Cada molècula és angular: l’angle H–O–H és d’uns 104,5°. L’oxigen és δ− i cada hidrogen és δ+.",
-            "El pont, discontinu, surt de l’H (δ+) d’una molècula i arriba a l’O (δ−) de la veïna. O–H···O és gairebé lineal.",
-            "La molècula central en fa quatre: dos pels seus hidrògens i dos per la banda dels parells no enllaçants.",
-        ],
+
+    parts = []
+    for h, o_acc in hbonds:
+        a, b = _inset(h, o_acc, rh + 2), _inset(o_acc, h, ro + 2)
+        parts.append(
+            f'<line x1="{a[0]:.1f}" y1="{a[1]:.1f}" x2="{b[0]:.1f}" y2="{b[1]:.1f}" '
+            f'stroke="#0E7C66" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="9 6"/>'
+        )
+    for m in mols:
+        for h in m["h"]:
+            a, b = _inset(m["o"], h, ro + 1), _inset(h, m["o"], rh + 1)
+            parts.append(
+                f'<line x1="{a[0]:.1f}" y1="{a[1]:.1f}" x2="{b[0]:.1f}" y2="{b[1]:.1f}" '
+                f'stroke="#1b1f24" stroke-width="3.4" stroke-linecap="round"/>'
+            )
+    for m in mols:
+        ox, oy = m["o"]
+        parts.append(f'<circle cx="{ox:.1f}" cy="{oy:.1f}" r="{ro:.0f}" fill="#C0392B"/>')
+        parts.append(_atom(m["o"], "O", "#fff", dy=6, size=20))
+        for h in m["h"]:
+            parts.append(
+                f'<circle cx="{h[0]:.1f}" cy="{h[1]:.1f}" r="{rh:.0f}" fill="#F2F3F5" stroke="#5c6570" stroke-width="1.7"/>'
+            )
+            parts.append(_atom(h, "H", "#1b1f24", dy=5, size=16))
+    parts.extend(charges)
+    parts.append(leader)
+
+    extents = [(p[0] - r - 2, p[1] - r - 2, p[0] + r + 2, p[1] + r + 2) for p, r in atoms]
+    extents += [(q[0] - qw / 2 - 2, q[1] - qh / 2 - 2, q[0] + qw / 2 + 2, q[1] + 6) for q, qw, qh in taken]
+    extents.append((label_at[0] - 68, label_at[1] - 14, label_at[0] + 68, label_at[1] + 6))
+    minx = min(a[0] for a in extents)
+    maxx = max(a[2] for a in extents)
+    miny = min(a[1] for a in extents)
+    maxy = max(a[3] for a in extents)
+    # Llegenda en dues files, centrada, sense allargar el requadre.
+    cx = (minx + maxx) / 2
+    row1, row2 = maxy + 36, maxy + 64
+    legend = (
+        f'<circle cx="{cx-168:.1f}" cy="{row1:.1f}" r="9" fill="#C0392B"/>'
+        f'<text x="{cx-154:.1f}" y="{row1+4:.1f}" font-size="14" fill="#1b1f24">oxigen (δ−)</text>'
+        f'<circle cx="{cx+28:.1f}" cy="{row1:.1f}" r="8" fill="#F2F3F5" stroke="#5c6570" stroke-width="1.4"/>'
+        f'<text x="{cx+42:.1f}" y="{row1+4:.1f}" font-size="14" fill="#1b1f24">hidrogen (δ+)</text>'
+        f'<line x1="{cx-168:.1f}" y1="{row2:.1f}" x2="{cx-124:.1f}" y2="{row2:.1f}" stroke="#1b1f24" stroke-width="3.2"/>'
+        f'<text x="{cx-116:.1f}" y="{row2+4:.1f}" font-size="14" fill="#1b1f24">enllaç covalent</text>'
+        f'<line x1="{cx+36:.1f}" y1="{row2:.1f}" x2="{cx+84:.1f}" y2="{row2:.1f}" stroke="#0E7C66" stroke-width="2.8" stroke-dasharray="9 6"/>'
+        f'<text x="{cx+92:.1f}" y="{row2+4:.1f}" font-size="14" fill="#1b1f24">pont d’hidrogen</text>'
+    )
+    parts.append(legend)
+    pad = 10
+    vx, vy = minx - pad, miny - pad
+    vw, vh = (maxx - minx) + 2 * pad, (row2 + 14) - miny + pad
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.1f} {vy:.1f} {vw:.1f} {vh:.1f}" '
+        f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">'
+        f'<rect x="{vx:.1f}" y="{vy:.1f}" width="{vw:.1f}" height="{vh:.1f}" fill="#fff"/>'
+        f'{"".join(parts)}</svg>'
     )
 
 
@@ -246,7 +322,7 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
             f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="2.4" stroke-linecap="round"/>'
         )
     # números fora de l'anell, lluny dels substituents
-    labels = {"C1": (18, 6, "1"), "C2": (14, 16, "2"), "C3": (2, 18, "3"), "C4": (-16, -14, "4"), "C5": (2, 16, "5")}
+    labels = {"C1": (16, -10, "1"), "C2": (16, 4, "2"), "C3": (10, 16, "3"), "C4": (14, -12, "4"), "C5": (12, 14, "5")}
     for name, (dx, dy, lab) in labels.items():
         x, y = pts[name]
         parts.append(
@@ -271,11 +347,13 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
         x2, y2 = x + vx * 40, y + vy * 40
         # C3 i C4 són veïns: el rètol de l'un va cap a l'esquerra i el de l'altre cap avall.
         if atom == "C3" and up:
-            x2, y2 = x - 42, y - 24
-            tx, ty = x - 68, y - 28
+            # Gairebé horitzontal, una mica amunt: queda a l'alçada del C3, no del C4.
+            x2, y2 = x - 36, y - 8
+            tx, ty = x - 64, y - 4
         elif atom == "C4" and not up:
-            x2, y2 = x, y + 46
-            tx, ty = x, y + 64
+            # Gairebé horitzontal, una mica avall: separat del substituent del C3.
+            x2, y2 = x - 36, y + 10
+            tx, ty = x - 64, y + 16
         else:
             tx, ty = x2 + vx * 16, y2 + vy * 14 + 4
         parts.append(f'<line x1="{x:.0f}" y1="{y:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="1.8"/>')
@@ -318,7 +396,9 @@ def fig_maltose() -> str:
     left, p1 = _haworth_glc(150, 56, "alpha", c1="alpha-link", c4="oh")
     right, p2 = _haworth_glc(520, 56, "beta", c1="oh", c4="link")
     c1, c4 = p1["C1"], p2["C4"]
-    ox, oy = (c1[0] + c4[0]) / 2, c1[1] + 36
+    # El pont baixa per sota dels OH del C2, perquè l'enllaç α surt cap avall.
+    low = max(p1["C2"][1], p1["C3"][1], p2["C2"][1], p2["C3"][1]) + 78
+    ox, oy = (c1[0] + c4[0]) / 2, low
     bridge = (
         f'<line x1="{c1[0]:.0f}" y1="{c1[1]:.0f}" x2="{ox:.0f}" y2="{oy:.0f}" stroke="#B23A52" stroke-width="2.3"/>'
         f'<line x1="{ox:.0f}" y1="{oy:.0f}" x2="{c4[0]:.0f}" y2="{c4[1]:.0f}" stroke="#B23A52" stroke-width="2.3"/>'
@@ -330,7 +410,7 @@ def fig_maltose() -> str:
         + left + right + bridge
     )
     return frame(
-        860, 300, "Maltosa: enllaç glicosídic α(1→4)",
+        860, 360, "Maltosa: enllaç glicosídic α(1→4)",
         body,
         [
             "L’oxigen vermell surt del C1 (posició α, avall) i arriba al C4 de la segona glucosa.",
@@ -410,7 +490,7 @@ def fig_nucleotide() -> str:
 def fig_atp() -> str:
     drawing = rdkit_svg(PUBCHEM["atp"][1], 640, 280)
     return frame(
-        700, 300, "ATP",
+        860, 300, "ATP",
         drawing,
         [
             "Adenina, ribosa i tres fosfats. La hidròlisi ATP → ADP + Pᵢ allibera l’energia que gasten les vies.",

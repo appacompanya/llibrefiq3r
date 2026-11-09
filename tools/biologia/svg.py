@@ -1,8 +1,64 @@
 """Utilitats per a figures SVG originals del dossier de Biologia."""
 from __future__ import annotations
 
+import re
+
+
+def _wrap_notes(body: str, width: int) -> tuple[str, int]:
+    """Parteix els textos que surten del requadre i baixa el que hi ha a sota."""
+    pat = re.compile(
+        r'<text x="([\d.]+)" y="([\d.]+)" font-size="([\d.]+)" text-anchor="([^"]*)" fill="([^"]*)"'
+        r'(?: font-weight="([^"]*)")?(?: font-style="([^"]*)")?>([^<]*)</text>'
+    )
+    plans = []
+    for m in pat.finditer(body):
+        if m.group(4) != "start":
+            continue
+        x = float(m.group(1))
+        size = float(m.group(3))
+        content = m.group(8)
+        max_w = width - x - 12
+        if max_w < 160 or len(content) * size * 0.52 <= max_w:
+            continue
+        limit = max(16, int(max_w / (size * 0.52)))
+        lines, cur = [], ""
+        for word in content.split():
+            trial = (cur + " " + word).strip()
+            if len(trial) <= limit:
+                cur = trial
+            else:
+                if cur:
+                    lines.append(cur)
+                cur = word
+        if cur:
+            lines.append(cur)
+        if len(lines) > 1:
+            plans.append((m, lines, size + 4))
+    extra_total = 0
+    for m, lines, lh in sorted(plans, key=lambda p: -float(p[0].group(2))):
+        y = float(m.group(2))
+        extra = (len(lines) - 1) * lh
+        extra_total += extra
+
+        def bump(match, y=y, extra=extra):
+            val = float(match.group(1))
+            if val > y + 0.5:
+                return f'y="{val + extra:.1f}"'
+            return match.group(0)
+
+        body = re.sub(r'y="([\d.]+)"', bump, body)
+        chunks = []
+        for i, line in enumerate(lines):
+            node = m.group(0).replace(f'y="{m.group(2)}"', f'y="{y + i * lh:.1f}"', 1)
+            node = node.replace(f'>{m.group(8)}</text>', f'>{line}</text>', 1)
+            chunks.append(node)
+        body = body.replace(m.group(0), "".join(chunks), 1)
+    return body, int(extra_total + 8) if extra_total else 0
+
 
 def svg(w: int, h: int, body: str) -> str:
+    body, extra = _wrap_notes(body, w)
+    h += extra
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" '
         f'font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">'
