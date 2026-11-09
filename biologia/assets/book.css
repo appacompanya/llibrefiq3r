@@ -222,6 +222,7 @@ section.err li::before{content:"!";position:absolute;left:0;top:.18em;width:1.1e
   .card:hover,.pn a:hover{transform:none}
   a{color:#000;text-decoration:none}
   .page h3{break-after:avoid}
+  figure img,figure svg{max-height:92mm;width:auto!important;height:auto!important}
   .box{break-inside:avoid;page-break-inside:avoid;background:#fff}
   ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
   details.sol{break-before:avoid}

@@ -497,6 +497,7 @@ ol.qlist>li{break-inside:avoid;page-break-inside:avoid}
 ol.qlist>li .q{break-after:avoid;page-break-after:avoid}
 details.sol{break-before:avoid;page-break-before:avoid}
 figure{break-inside:avoid;page-break-inside:avoid}
+figure img,figure svg{max-height:92mm;width:auto!important;height:auto!important}
 .qa-fig{display:block;width:min(100%,440px);height:auto;margin:.5em auto .8em;background:#fff}
 figure svg,figure img{max-width:100%}
 nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
@@ -525,6 +526,9 @@ CC_CREDIT = {
     "fig-2.6": ("Jpablo cad i Juliana Osorio. https://commons.wikimedia.org/wiki/File:Mitosis_schematic_diagram-en.svg", "CC BY-SA 3.0", "correspon a 2.7 Mitosi: profase, prometafase, metafase, anafase i telofase"),
     "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi: meiosi I (se separen homòlegs) i meiosi II (se separen cromàtides)"),
     "fig-7.2": ("Adenosine, a partir de Pbroks13, Tevenphage. https://commons.wikimedia.org/wiki/File:Tevenphage.svg", "CC BY-SA 2.5", "correspon a 7.6 Virus: bacteriòfag amb cap, cua, placa basal i fibres"),
+    "fig-3.10": ("Zlir'a, Cellular respiration. https://commons.wikimedia.org/wiki/File:Cellular_respiration_EN.svg", "CC BY-SA 4.0", "correspon a 3 Respiració: glucòlisi al citosol, Krebs a la matriu, cadena i ATP-sintasa a la membrana interna"),
+    "fig-3.11": ("Daniel Mayer, versió vectorial de Yerpo, Simple photosynthesis overview. https://commons.wikimedia.org/wiki/File:Simple_photosynthesis_overview.svg", "CC BY-SA 4.0", "correspon a 3.8 Fotosíntesi: fase lluminosa i cicle de Calvin"),
+    "fig-7.1": ("Ali Zifan, Prokaryote cell. https://commons.wikimedia.org/wiki/File:Prokaryote_cell.svg", "CC BY-SA 4.0", "correspon a 7.1 Bacteri: càpsula, paret, membrana, citoplasma, nucleoide, ribosomes, fímbria i flagel, sense mesosoma"),
 }
 
 
