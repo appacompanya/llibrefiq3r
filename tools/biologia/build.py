@@ -519,23 +519,11 @@ nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
     return "".join(parts)
 
 
-MOL_CREDIT = {
-    "fig-1.1": ("Elaboració pròpia", "—", "correspon a 1.1 Aigua: dos enllaços O–H, δ−/δ+ i pont d’hidrogen d’un H a un O"),
-    "fig-1.2": ("Elaboració pròpia", "—", "correspon a 1.2 Glúcids: α-D-glucopiranosa (OH del C1 avall) i β (OH del C1 amunt)"),
-    "fig-1.3": ("Elaboració pròpia", "—", "correspon a 1.2 Glúcids: maltosa, pont des del C1 α fins al C4"),
-    "fig-1.4": ("Elaboració pròpia", "—", "correspon a 1.3 Lípids: triacilglicerol, fosfolípid amb cap polar i colesterol"),
-    "fig-1.5": ("Elaboració pròpia", "—", "correspon a 1.4 Proteïnes: zwitterió i enllaç peptídic"),
-    "fig-1.7": ("Elaboració pròpia", "—", "correspon a 1.6 Àcids nucleics: nucleòtid de DNA i ponts d’hidrogen"),
-    "fig-3.9": ("Elaboració pròpia", "—", "correspon a 3.1 Visió general: l’ATP com a transportador d’energia"),
-    "fig-2.2": ("Mariana Ruiz (LadyofHats), Wikimedia Commons, Cell membrane detailed diagram.", "Domini públic.", "correspon a 2.3 Membrana: bicapa, proteïnes, glicocàlix, colesterol i citoesquelet"),
-    "fig-2.3": ("LadyofHats; adaptació al català de Gerard Duenas, Animal cell structure ca.", "Domini públic.", "correspon a 2.5 Cèl·lula animal: nucli, reticle, Golgi, mitocondri, centríols, sense paret"),
-    "fig-2.3b": ("LadyofHats, Plant cell structure.", "Domini públic.", "correspon a 2.5 Cèl·lula vegetal: paret, vacúol, cloroplast i nucli"),
-    "fig-2.4": ("LadyofHats, Animal mitochondrion diagram.", "Domini públic.", "correspon a 2.5 Mitocondri: doble membrana, crestes i matriu"),
+# Només les làmines de tercers amb llicència que exigeix atribució.
+CC_CREDIT = {
     "fig-2.5": ("Kelvinsong, Chloroplast II. https://commons.wikimedia.org/wiki/File:Chloroplast_II.svg", "CC BY 3.0", "correspon a 2.5 i 3.8 Cloroplast: tilacoide (fase lluminosa) i estroma (Calvin)"),
     "fig-2.6": ("Jpablo cad i Juliana Osorio. https://commons.wikimedia.org/wiki/File:Mitosis_schematic_diagram-en.svg", "CC BY-SA 3.0", "correspon a 2.7 Mitosi: profase, prometafase, metafase, anafase i telofase"),
     "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi: meiosi I (se separen homòlegs) i meiosi II (se separen cromàtides)"),
-    "fig-5.2": ("LadyofHats, DNA replication.", "Domini públic.", "correspon a 5.2 Replicació: forquilla, cadena líder i retardada, fragments d’Okazaki"),
-    "fig-5.4": ("LadyofHats, Ribosome mRNA translation.", "Domini públic.", "correspon a 5.4 Traducció: subunitats, llocs A i P, RNAm i RNAt"),
     "fig-7.2": ("Adenosine, a partir de Pbroks13, Tevenphage. https://commons.wikimedia.org/wiki/File:Tevenphage.svg", "CC BY-SA 2.5", "correspon a 7.6 Virus: bacteriòfag amb cap, cua, placa basal i fibres"),
 }
 
@@ -548,25 +536,23 @@ def write_credits_and_gallery(bodies: dict[str, str]) -> None:
     rows = []
     cards = []
     for fid in sorted(figures.FIGS):
-        if fid in MOL_CREDIT:
-            font, lic, comp = MOL_CREDIT[fid]
-        else:
-            font = "Esquema original del dossier (flux, mapa, quadre o gràfic). Cap làmina externa: les disponibles afegeixen detalls o etiquetes que aquest apartat no explica."
-            lic = "Original. No és una obra de tercers."
-            comp = "correspon al peu de la figura del capítol; revisat perquè no contradigui el text"
-        cap = caps.get(fid, "(la figura encara no és dins un capítol d’aquest WIP)")
+        cap = caps.get(fid, "")
+        comp = CC_CREDIT[fid][2] if fid in CC_CREDIT else "correspon al peu del capítol"
+        cards.append(
+            f'<article class="card" style="padding:12px"><h3>{esc(fid)}</h3>'
+            f'<img src="assets/fig/{fid}.svg" alt="{esc(cap)}" style="width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px">'
+            f'<p>{esc(cap)}</p></article>'
+        )
+    for fid in sorted(CC_CREDIT):
+        font, lic, comp = CC_CREDIT[fid]
+        cap = caps.get(fid, "")
         rows.append(
             f"<tr><td>{esc(fid)}</td><td>{esc(cap)}</td><td>{esc(font)}</td><td>{esc(lic)}</td>"
             f"<td>comprovat: {esc(comp)}</td></tr>"
         )
-        cards.append(
-            f'<article class="card" style="padding:12px"><h3>{esc(fid)}</h3>'
-            f'<img src="assets/fig/{fid}.svg" alt="{esc(cap)}" style="width:100%;height:auto;background:#fff;border:1px solid var(--line);border-radius:12px">'
-            f'<p>{esc(cap)}</p><p class="note-src">comprovat: {esc(comp)}</p></article>'
-        )
     table = (
         '<header class="hero"><div class="eyebrow">Figures</div><h1>Crèdits</h1>'
-        '<p>Les figures amb llicència CC BY o CC BY-SA porten l’atribució que la llicència exigeix. La resta és elaboració pròpia del dossier.</p></header>'
+        '<p>Les il·lustracions de tercers amb llicència CC BY o CC BY-SA. La resta de figures del dossier són elaboració pròpia i no requereixen crèdit.</p></header>'
         '<table><thead><tr><th>Figura</th><th>Peu</th><th>Font</th><th>Llicència</th><th>Comprovació</th></tr></thead><tbody>'
         + "".join(rows) + "</tbody></table>"
     )
@@ -585,11 +571,8 @@ def write_credits_and_gallery(bodies: dict[str, str]) -> None:
     ))
     # còpia llegible fora de l'HTML, amb la columna que ha demanat el professorat
     lines = ["figura\tpeu\tfont\tllicencia\tcomprovat"]
-    for fid in sorted(figures.FIGS, key=lambda s: s):
-        if fid in MOL_CREDIT:
-            font, lic, comp = MOL_CREDIT[fid]
-        else:
-            font, lic, comp = ("Esquema original", "Original", "correspon al peu del capítol")
+    for fid in sorted(CC_CREDIT):
+        font, lic, comp = CC_CREDIT[fid]
         cap = caps.get(fid, "")
         lines.append("\t".join(x.replace("\t", " ") for x in (fid, cap, font, lic, f"comprovat: {comp}")))
     (ROOT / "tools" / "biologia" / "credits.tsv").write_text("\n".join(lines) + "\n")

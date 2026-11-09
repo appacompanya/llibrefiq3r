@@ -120,51 +120,97 @@ def _bond(p, q, dash=False, color="#1b1f24", width=2.6, pad=14):
     )
 
 
-def _atom(p, label, fill, dx=0, dy=4):
+def _atom(p, label, fill, dx=0, dy=5, size=16):
     return (
         f'<text x="{p[0]+dx:.1f}" y="{p[1]+dy:.1f}" text-anchor="middle" '
-        f'font-size="18" font-weight="700" fill="{fill}">{label}</text>'
+        f'font-size="{size}" font-weight="700" fill="{fill}">{label}</text>'
     )
 
 
+def _perp(p, q):
+    dx, dy = q[0] - p[0], q[1] - p[1]
+    n = math.hypot(dx, dy) or 1
+    return (-dy / n, dx / n)
+
+
 def fig_water() -> str:
-    """Dues aigües angulars (104,5°). El pont és O–H···O: l'O d'una queda al costat de l'H de l'altra."""
-    L = 58
-    gap = 46
-    o1 = (168, 132)
-    h_don = _at(o1, L, 0)          # H donador, cap a la dreta
-    h1b = _at(o1, L, 104.5)        # segon H, amunt i a l'esquerra
-    o2 = _at(h_don, gap, 0)        # O acceptor, a continuació del mateix eix
-    h2a = _at(o2, L, 52.25)        # els dos H de la segona molècula, lluny del pont
-    h2b = _at(o2, L, -52.25)
-    dash_a = _at(h_don, 16, 0)
-    dash_b = _at(o2, 16, 180)
-    drawing = "".join([
-        _bond(o1, h_don),
-        _bond(o1, h1b),
-        _bond(o2, h2a),
-        _bond(o2, h2b),
-        _bond(dash_a, dash_b, dash=True, color="#0E7C66", width=2.2, pad=0),
-        _atom(o1, "O", "#1F6AA5", dy=6),
-        _atom(o2, "O", "#1F6AA5", dy=6),
-        _atom(h_don, "H", "#1b1f24", dy=6),
-        _atom(h1b, "H", "#1b1f24", dy=6),
-        _atom(h2a, "H", "#1b1f24", dy=6),
-        _atom(h2b, "H", "#1b1f24", dy=6),
-        _atom(o1, "δ−", "#1F6AA5", dx=0, dy=28),
-        _atom(o2, "δ−", "#1F6AA5", dx=0, dy=-20),
-        _atom(h_don, "δ+", "#B23A52", dy=28),
-        _atom(h1b, "δ+", "#B23A52", dx=-4, dy=-18),
-        _atom(h2a, "δ+", "#B23A52", dx=16, dy=-16),
-        _atom(h2b, "δ+", "#B23A52", dx=16, dy=26),
-        '<text x="250" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#0E7C66">pont d’hidrogen</text>',
-    ])
+    """Cinc aigües. Angle H–O–H de 104,5°. Cada pont és O–H···O, gairebé lineal.
+
+    La molècula central dona dos ponts pels seus H i en rep dos per la banda
+    dels parells no enllaçants (disposició tetraèdrica, en projecció).
+    """
+    L = 44.0
+    gap = 78.0
+    half = 52.25
+    centre = (460.0, 330.0)
+    parts: list[str] = []
+
+    def water_at(o, bisector):
+        return o, _at(o, L, bisector + half), _at(o, L, bisector - half)
+
+    molecules = [water_at(centre, -90)]
+    # Acceptores: l'O veí queda sobre l'eix de cada H central, més enllà de l'H.
+    for theta in (-90 + half, -90 - half):
+        acc_o = _at(centre, L + gap, theta)
+        molecules.append(water_at(acc_o, theta))
+    # Donadores: un H apunta al parell no enllaçant de la central. O–H···O lineal.
+    donors = []
+    for phi in (90 + half, 90 - half):
+        h = _at(centre, gap, phi)
+        o = _at(centre, gap + L, phi)
+        alpha = phi + 180
+        alt_a = _at(o, L, alpha + 104.5)
+        alt_b = _at(o, L, alpha - 104.5)
+        alt = alt_a if math.hypot(alt_a[0] - centre[0], alt_a[1] - centre[1]) > math.hypot(alt_b[0] - centre[0], alt_b[1] - centre[1]) else alt_b
+        molecules.append((o, h, alt))
+        donors.append(h)
+
+    # Ponts: cada H de la central cap a l'O acceptora, i cada H donador cap a l'O central.
+    hbonds = []
+    for theta in (-90 + half, -90 - half):
+        hbonds.append((_at(centre, L, theta), _at(centre, L + gap, theta)))
+    for phi in (90 + half, 90 - half):
+        hbonds.append((_at(centre, gap, phi), centre))
+
+    for h, o_acc in hbonds:
+        parts.append(_bond(h, o_acc, dash=True, color="#0E7C66", width=2.0, pad=13))
+    for o, h1, h2 in molecules:
+        parts.append(_bond(o, h1, pad=13))
+        parts.append(_bond(o, h2, pad=13))
+
+    def beside(atom, axis_from, text, fill, dist=26):
+        """Etiqueta al costat de l'eix, no a sobre. Tria el costat més buit."""
+        px, py = _perp(axis_from, atom)
+        a = (atom[0] + px * dist, atom[1] + py * dist)
+        b = (atom[0] - px * dist, atom[1] - py * dist)
+        # El punt més lluny del centre del grup queda fora del grapat.
+        da = math.hypot(a[0] - centre[0], a[1] - centre[1])
+        db = math.hypot(b[0] - centre[0], b[1] - centre[1])
+        q = a if da >= db else b
+        return _atom(q, text, fill, dy=4, size=13)
+
+    for o, h1, h2 in molecules:
+        parts.append(f'<circle cx="{o[0]:.1f}" cy="{o[1]:.1f}" r="12" fill="#fff"/>')
+        parts.append(_atom(o, "O", "#1F6AA5", dy=5, size=16))
+        for h in (h1, h2):
+            parts.append(f'<circle cx="{h[0]:.1f}" cy="{h[1]:.1f}" r="10" fill="#fff"/>')
+            parts.append(_atom(h, "H", "#1b1f24", dy=5, size=15))
+        # δ− al costat de l'oxigen, no sobre cap enllaç.
+        parts.append(beside(o, h1, "δ−", "#1F6AA5", 28))
+        parts.append(beside(h1, o, "δ+", "#B23A52", 24))
+        parts.append(beside(h2, o, "δ+", "#B23A52", 24))
+
+    parts.append(
+        '<text x="400" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#0E7C66">'
+        "pont d’hidrogen (línia discontínua)</text>"
+    )
     return frame(
-        640, 250, "Dues molècules d’aigua",
-        drawing,
+        960, 640, "Molècules d’aigua enllaçades per ponts d’hidrogen",
+        "".join(parts),
         [
-            "Cada molècula és angular, amb dos enllaços O–H. L’oxigen és δ− i cada hidrogen és δ+.",
-            "El pont d’hidrogen (verd, discontinu) va de l’H d’una molècula a l’O de l’altra. No és covalent.",
+            "Cada molècula és angular: l’angle H–O–H és d’uns 104,5°. L’oxigen és δ− i cada hidrogen és δ+.",
+            "El pont, discontinu, surt de l’H (δ+) d’una molècula i arriba a l’O (δ−) de la veïna. O–H···O és gairebé lineal.",
+            "La molècula central en fa quatre: dos pels seus hidrògens i dos per la banda dels parells no enllaçants.",
         ],
     )
 
@@ -225,11 +271,11 @@ def _haworth_glc(ox: int, oy: int, anomer: str, c1="oh", c4="oh") -> str:
         x2, y2 = x + vx * 40, y + vy * 40
         # C3 i C4 són veïns: el rètol de l'un va cap a l'esquerra i el de l'altre cap avall.
         if atom == "C3" and up:
-            x2, y2 = x - 8, y - 36
-            tx, ty = x - 36, y - 40
+            x2, y2 = x - 42, y - 24
+            tx, ty = x - 68, y - 28
         elif atom == "C4" and not up:
-            x2, y2 = x - 6, y + 42
-            tx, ty = x - 8, y + 60
+            x2, y2 = x, y + 46
+            tx, ty = x, y + 64
         else:
             tx, ty = x2 + vx * 16, y2 + vy * 14 + 4
         parts.append(f'<line x1="{x:.0f}" y1="{y:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke="#1b1f24" stroke-width="1.8"/>')
