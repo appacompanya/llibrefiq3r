@@ -1,0 +1,50 @@
+figura	peu	font	llicencia	comprovat
+fig-1.1	L’aigua és polar. Els ponts d’hidrogen (línia discontínua) uneixen el δ+ d’un hidrogen amb el δ− d’un oxigen veí.	RDKit a partir de l’aigua, PubChem CID 962. El pont d’hidrogen és una anotació pròpia.	Estructura de domini públic (PubChem); dibuix RDKit (BSD).	comprovat: correspon a 1.1 Aigua: dos enllaços O–H, δ−/δ+ i pont d’hidrogen d’un H a un O
+fig-1.2	α-D-glucopiranosa i β-D-glucopiranosa. L’única diferència de configuració és l’OH del carboni anomèric (C1).	Plantilla de Haworth (hexàgon regular, O entre C5 i C1) contrastada amb els CID 79025 (α) i 64689 (β).	Esquema propi; estereoquímica la de PubChem.	comprovat: correspon a 1.2 Glúcids: α-D-glucopiranosa (OH del C1 avall) i β (OH del C1 amunt)
+fig-1.3	Enllaç glicosídic α(1→4) entre dues glucoses, el de la maltosa, l’amilosa i el tram lineal del glicogen.	Mateixa plantilla. Enllaç α(1→4), coherent amb la maltosa CID 439186.	Esquema propi.	comprovat: correspon a 1.2 Glúcids: maltosa, pont des del C1 α fins al C4
+fig-1.4	Triacilglicerol (tres cues, reserva, apolar) i fosfolípid (dues cues i un cap polar, amfipàtic).	RDKit. Triacilglicerol de cues curtes (mateix èster que el tripalmitin CID 11147), fosfolípid CID 10072611, colesterol CID 5997.	Estructures PubChem; dibuix RDKit (BSD).	comprovat: correspon a 1.3 Lípids: triacilglicerol, fosfolípid amb cap polar i colesterol
+fig-1.5	Zwitterió d’un aminoàcid i enllaç peptídic. La cadena s’escriu de l’extrem amino a l’extrem carboxil.	RDKit. L-alanina zwitterió a partir del CID 5950; glicilglicina CID 11163 amb càrregues de pH 7.	Connectivitat PubChem; dibuix RDKit (BSD).	comprovat: correspon a 1.4 Proteïnes: zwitterió i enllaç peptídic
+fig-1.6	Quatre nivells. Desnaturalitzar desfà el plegament (2a, 3a, 4a). La seqüència es conserva.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-1.7	Nucleòtid i doble hèlix antiparal·lela. A–T fa dos ponts d’hidrogen; G–C, tres.	RDKit del dAMP, CID 12599, més l’esquema d’aparellament A–T / G–C.	Estructura PubChem; dibuix RDKit (BSD).	comprovat: correspon a 1.6 Àcids nucleics: nucleòtid de DNA i ponts d’hidrogen
+fig-1.8	Les quatre funcions que les orientacions demanen de relacionar amb els grups: energia, estructura, regulació i informació.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.1	Procariota: nucleoide, sense orgànuls membranosos. Eucariota: nucli delimitat i compartiments.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.2	Mosaic fluid. Les proteïnes integrals travessen la bicapa; el glicocàlix mira cap enfora; el colesterol és propi de la membrana animal.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.3	Animal, sense paret i amb centríols. Vegetal, amb paret, cloroplasts i vacúol gran.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.4	Mitocondri. Krebs i β-oxidació a la matriu; cadena i ATP-sintasa a la membrana interna.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.5	Cloroplast. Fase lluminosa al tilacoide; Calvin a l’estroma.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.6	Mitosi. A l’anafase se separen cromàtides germanes, no cromosomes homòlegs. El resultat són dues cèl·lules diploides.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.7	Meiosi I separa homòlegs (i és on hi ha l’entrecreuament). Meiosi II separa cromàtides. Quatre cèl·lules n, diferents.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-2.8	De la cèl·lula a les dues divisions. La localització de les vies metabòliques és al tema 3.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.1	Catabolisme i anabolisme queden lligats per l’ATP i pels coenzims. Una via no és una reacció.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.2	Glucòlisi: es paguen 2 ATP i se’n cobren 4. Net: 2 ATP i 2 NADH, al citosol.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.3	Una volta del cicle per cada acetil-CoA. El carboni que entra no és, volta per volta, el que surt com a CO₂: el balanç sí que és de dos CO₂.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.4	Els electrons acaben a l’oxigen. El gradient de protons mou l’ATP-sintasa. El FADH₂ no passa pel complex I.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.5	Les dues fermentacions regeneren NAD⁺. El guany és el de la glucòlisi: 2 ATP.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.6	Esquema en Z. L’aigua es trenca al fotosistema II. El NADPH es forma al final del fotosistema I.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.7	Calvin a l’estroma. La rubisco fixa el CO₂. El balanç per CO₂ és 3 ATP i 2 NADPH.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-3.8	Localització en una cèl·lula eucariota. Els procariotes fan les mateixes químiques a la membrana i al citoplasma, sense orgànuls.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-4.1	Punnett d’Aa × Aa. Genotips 1:2:1. Amb dominància completa, fenotips 3:1.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-4.3	Dos no afectats amb un fill afectat: patró compatible amb un recessiu. Cal mirar més generacions abans de tancar-ho.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-4.4	Mare portadora i pare sa: la meitat dels fills homes, en esperança, són afectats. Cap filla no ho és, però la meitat són portadores.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-4.5	Un gen, dos gens lliures, gens lligats o un gen a l’X: el quadre de Punnett no és el mateix.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.1	El camí habitual i l’excepció dels retrovirus, que es reprèn al tema 7.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.2	Forquilla. La polimerasa només allarga en sentit 5′→3′. Per això una de les dues cadenes és discontínua.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.3	El motlle es llegeix 3′→5′. L’RNA que en surt s’assembla a la cadena codificant, amb U en lloc de T.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.4	Llocs A, P i E. La cadena creix per l’extrem carboxil. L’RNAm es llegeix 5′→3′.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.5	Les tres temperatures d’un cicle de PCR. La polimerasa de l’extensió ha de ser termostable.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.6	L’RNA guia porta el Cas9 a la diana. El tall es repara amb errors o amb un motlle.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-5.7	Restricció, ligasa, plasmidi i les dues tècniques que amplien o editen: PCR i CRISPR.	Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.1		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.2		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.3		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-6.4		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.1		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.2		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.3		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.4		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-7.5		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.1		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.2		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.3		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-8.4		Esquema original	Original	comprovat: correspon al peu del capítol
+fig-9.1		Esquema original	Original	comprovat: correspon al peu del capítol

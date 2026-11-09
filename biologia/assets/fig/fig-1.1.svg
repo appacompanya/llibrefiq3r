@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 294" font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif"><rect width="680" height="294" fill="#fff"/><text x="16" y="22" font-size="15" font-weight="700" fill="#0E7C66">Dues molècules d’aigua</text><g transform="translate(0,36)"><g transform="translate(20,10)"><svg version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='240px' height='160px' viewBox='0 0 240 160'>
+<!-- END OF HEADER -->
+<rect style='opacity:1.0;fill:#FFFFFF;stroke:none' width='240.0' height='160.0' x='0.0' y='0.0'> </rect>
+<path class='bond-0 atom-0 atom-1' d='M 128.3,100.4 L 164.6,79.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 164.6,79.5 L 201.0,58.5' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-0 atom-2' d='M 111.1,100.4 L 74.8,79.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-0 atom-2' d='M 74.8,79.5 L 38.4,58.5' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-0' d='M 114.5 105.4
+Q 114.5 102.7, 115.8 101.2
+Q 117.2 99.7, 119.7 99.7
+Q 122.2 99.7, 123.6 101.2
+Q 124.9 102.7, 124.9 105.4
+Q 124.9 108.2, 123.5 109.8
+Q 122.2 111.3, 119.7 111.3
+Q 117.2 111.3, 115.8 109.8
+Q 114.5 108.2, 114.5 105.4
+M 119.7 110.0
+Q 121.4 110.0, 122.4 108.9
+Q 123.3 107.7, 123.3 105.4
+Q 123.3 103.2, 122.4 102.1
+Q 121.4 101.0, 119.7 101.0
+Q 118.0 101.0, 117.0 102.1
+Q 116.1 103.2, 116.1 105.4
+Q 116.1 107.7, 117.0 108.9
+Q 118.0 110.0, 119.7 110.0
+' fill='#FF0000'/>
+<path class='atom-1' d='M 204.4 48.3
+L 205.9 48.3
+L 205.9 53.1
+L 211.7 53.1
+L 211.7 48.3
+L 213.2 48.3
+L 213.2 59.6
+L 211.7 59.6
+L 211.7 54.4
+L 205.9 54.4
+L 205.9 59.6
+L 204.4 59.6
+L 204.4 48.3
+' fill='#000000'/>
+<path class='atom-2' d='M 26.2 48.3
+L 27.7 48.3
+L 27.7 53.1
+L 33.5 53.1
+L 33.5 48.3
+L 35.0 48.3
+L 35.0 59.6
+L 33.5 59.6
+L 33.5 54.4
+L 27.7 54.4
+L 27.7 59.6
+L 26.2 59.6
+L 26.2 48.3
+' fill='#000000'/>
+</svg>
+</g><g transform="translate(360,10)"><svg version='1.1' baseProfile='full'
+              xmlns='http://www.w3.org/2000/svg'
+                      xmlns:rdkit='http://www.rdkit.org/xml'
+                      xmlns:xlink='http://www.w3.org/1999/xlink'
+                  xml:space='preserve'
+width='240px' height='160px' viewBox='0 0 240 160'>
+<!-- END OF HEADER -->
+<rect style='opacity:1.0;fill:#FFFFFF;stroke:none' width='240.0' height='160.0' x='0.0' y='0.0'> </rect>
+<path class='bond-0 atom-0 atom-1' d='M 128.3,100.4 L 164.6,79.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-0 atom-0 atom-1' d='M 164.6,79.5 L 201.0,58.5' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-0 atom-2' d='M 111.1,100.4 L 74.8,79.5' style='fill:none;fill-rule:evenodd;stroke:#FF0000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='bond-1 atom-0 atom-2' d='M 74.8,79.5 L 38.4,58.5' style='fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1' />
+<path class='atom-0' d='M 114.5 105.4
+Q 114.5 102.7, 115.8 101.2
+Q 117.2 99.7, 119.7 99.7
+Q 122.2 99.7, 123.6 101.2
+Q 124.9 102.7, 124.9 105.4
+Q 124.9 108.2, 123.5 109.8
+Q 122.2 111.3, 119.7 111.3
+Q 117.2 111.3, 115.8 109.8
+Q 114.5 108.2, 114.5 105.4
+M 119.7 110.0
+Q 121.4 110.0, 122.4 108.9
+Q 123.3 107.7, 123.3 105.4
+Q 123.3 103.2, 122.4 102.1
+Q 121.4 101.0, 119.7 101.0
+Q 118.0 101.0, 117.0 102.1
+Q 116.1 103.2, 116.1 105.4
+Q 116.1 107.7, 117.0 108.9
+Q 118.0 110.0, 119.7 110.0
+' fill='#FF0000'/>
+<path class='atom-1' d='M 204.4 48.3
+L 205.9 48.3
+L 205.9 53.1
+L 211.7 53.1
+L 211.7 48.3
+L 213.2 48.3
+L 213.2 59.6
+L 211.7 59.6
+L 211.7 54.4
+L 205.9 54.4
+L 205.9 59.6
+L 204.4 59.6
+L 204.4 48.3
+' fill='#000000'/>
+<path class='atom-2' d='M 26.2 48.3
+L 27.7 48.3
+L 27.7 53.1
+L 33.5 53.1
+L 33.5 48.3
+L 35.0 48.3
+L 35.0 59.6
+L 33.5 59.6
+L 33.5 54.4
+L 27.7 54.4
+L 27.7 59.6
+L 26.2 59.6
+L 26.2 48.3
+' fill='#000000'/>
+</svg>
+</g><line x1="236" y1="62" x2="480" y2="117" stroke="#0E7C66" stroke-width="2" stroke-dasharray="7 5"/><text x="330" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#0E7C66">enllaç d’hidrogen</text><text x="140" y="175" text-anchor="middle" font-size="12" fill="#1F6AA5">δ− a l’oxigen</text><text x="500" y="175" text-anchor="middle" font-size="12" fill="#B23A52">δ+ a cada hidrogen</text></g><text x="16" y="248" font-size="13" fill="#3b4148" font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">Cada molècula (RDKit, CID 962) té dos enllaços O–H. L’oxigen és δ− i cada hidrogen és δ+.</text><text x="16" y="266" font-size="13" fill="#3b4148" font-family="DejaVu Sans, Liberation Sans, Arial, sans-serif">El pont d’hidrogen, en verd, va d’un H d’una molècula a l’O de l’altra. No és un enllaç covalent.</text></svg>
