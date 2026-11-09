@@ -312,13 +312,21 @@ def shell(title: str, body_cls: str, main: str, current: str | None, depth: int,
 """
 
 
+TALL_FIGS = {"fig-3.11"}
+
+
+def fig_open(fid: str) -> str:
+    cls = ' class="tall"' if fid in TALL_FIGS else ""
+    return f'<figure id="{fid}"{cls}>'
+
+
 def fig_tag(fid: str, cap: str, svg: str) -> str:
     vb = re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', svg)
     w, h = (vb.group(1), vb.group(2)) if vb else ("700", "400")
     digest = hashlib.sha1(svg.encode()).hexdigest()[:8]
     alt = esc(re.sub(r"<[^>]+>", "", cap))
     return (
-        f'<figure id="{fid}"><img src="../assets/fig/{fid}.svg?v={digest}" alt="{alt}" '
+        f'{fig_open(fid)}<img src="../assets/fig/{fid}.svg?v={digest}" alt="{alt}" '
         f'data-zoom="../assets/fig/{fid}.svg?v={digest}" data-zoom-alt="{alt}" '
         f'width="{w}" height="{h}" loading="lazy" decoding="async">'
         f"<figcaption><b>Figura {fid.removeprefix('fig-')}.</b> {cap}</figcaption></figure>"
@@ -330,7 +338,7 @@ def expand_figs(fragment: str, inline: bool) -> str:
         fid, cap = m.group(1), m.group(2)
         svg = figures.FIGS[fid]
         if inline:
-            return f'<figure id="{fid}">{svg}<figcaption><b>Figura {fid.removeprefix("fig-")}.</b> {cap}</figcaption></figure>'
+            return f'{fig_open(fid)}{svg}<figcaption><b>Figura {fid.removeprefix("fig-")}.</b> {cap}</figcaption></figure>'
         return fig_tag(fid, cap, svg)
 
     out = re.sub(r"\{\{fig:([\w.-]+)\|(.*?)\}\}", repl, fragment, flags=re.S)
@@ -498,6 +506,7 @@ ol.qlist>li .q{break-after:avoid;page-break-after:avoid}
 details.sol{break-before:avoid;page-break-before:avoid}
 figure{break-inside:avoid;page-break-inside:avoid}
 figure img,figure svg{max-height:92mm;width:auto!important;height:auto!important}
+figure.tall img,figure.tall svg{max-height:118mm;width:100%!important;height:auto!important}
 .qa-fig{display:block;width:min(100%,440px);height:auto;margin:.5em auto .8em;background:#fff}
 figure svg,figure img{max-width:100%}
 nav.toc ol{font-family:"Atkinson Hyperlegible",sans-serif}
@@ -527,7 +536,7 @@ CC_CREDIT = {
     "fig-2.7": ("Ali Zifan, Meiosis Stages. https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg", "CC BY-SA 4.0", "correspon a 2.8 Meiosi: meiosi I (se separen homòlegs) i meiosi II (se separen cromàtides)"),
     "fig-7.2": ("Adenosine, a partir de Pbroks13, Tevenphage. https://commons.wikimedia.org/wiki/File:Tevenphage.svg", "CC BY-SA 2.5", "correspon a 7.6 Virus: bacteriòfag amb cap, cua, placa basal i fibres"),
     "fig-3.10": ("Zlir'a, Cellular respiration. https://commons.wikimedia.org/wiki/File:Cellular_respiration_EN.svg", "CC BY-SA 4.0", "correspon a 3 Respiració: glucòlisi al citosol, Krebs a la matriu, cadena i ATP-sintasa a la membrana interna"),
-    "fig-3.11": ("Daniel Mayer, versió vectorial de Yerpo, Simple photosynthesis overview. https://commons.wikimedia.org/wiki/File:Simple_photosynthesis_overview.svg", "CC BY-SA 4.0", "correspon a 3.8 Fotosíntesi: fase lluminosa i cicle de Calvin"),
+    "fig-3.11": ("Yikrazuul, adaptació d’AngelHerraez, Thylakoid membrane. https://commons.wikimedia.org/wiki/File:Thylakoid_membrane_(es).svg", "CC BY-SA 3.0", "correspon a 3.8 Fase lluminosa a la membrana del tilacoide i Calvin a l’estroma"),
     "fig-7.1": ("Ali Zifan, Prokaryote cell. https://commons.wikimedia.org/wiki/File:Prokaryote_cell.svg", "CC BY-SA 4.0", "correspon a 7.1 Bacteri: càpsula, paret, membrana, citoplasma, nucleoide, ribosomes, fímbria i flagel, sense mesosoma"),
 }
 
