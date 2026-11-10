@@ -5,11 +5,15 @@ name: Biologia · imatges de Commons
 on:
   push:
     branches: [main]
-    paths: ["tools/biologia/commons.txt"]
+    paths: ["tools/biologia/commons.txt", "tools/biologia/commons-cerca.txt"]
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: biologia-commons
+  cancel-in-progress: false
 
 jobs:
   baixa:
@@ -54,10 +58,23 @@ jobs:
                   meta[n] = {"error": str(e)}
               time.sleep(6)
           json.dump(meta, open(os.path.join(out, "commons.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          # cerques: tools/biologia/commons-cerca.txt (una consulta per línia) → cerca.json
+          res = {}
+          cq = "tools/biologia/commons-cerca.txt"
+          if os.path.exists(cq):
+              for qline in [l.strip() for l in open(cq, encoding="utf-8") if l.strip() and not l.startswith("#")]:
+                  q = urllib.parse.urlencode({"action": "query", "list": "search", "srsearch": qline, "srnamespace": 6, "srlimit": 30, "format": "json"})
+                  try:
+                      d = json.loads(get("https://commons.wikimedia.org/w/api.php?" + q, 60))
+                      res[qline] = [x["title"] for x in d["query"]["search"]]
+                  except Exception as e:
+                      res[qline] = str(e)
+                  time.sleep(3)
+              json.dump(res, open(os.path.join(out, "cerca.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
           PY
       - name: Desa
         run: |
           git add tools/biologia/commons
           if git diff --cached --quiet; then exit 0; fi
           git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Biologia: imatges de Commons descarregades"
-          git push
+          git pull --rebase origin main && git push
