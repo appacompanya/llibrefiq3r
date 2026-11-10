@@ -1,0 +1,52 @@
+# Descarrega a tools/biologia/commons/ els fitxers de Wikimedia Commons llistats a tools/biologia/commons.txt,
+# amb la llicència i l'autoria de cada un (commons.json). Les il·lustracions del llibre de Biologia en surten.
+name: Biologia · imatges de Commons
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/biologia/commons.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descarrega
+        run: |
+          python3 - <<'PY'
+          import json, os, time, urllib.parse, urllib.request
+          UA = {"User-Agent": "llibrefiq3r-biologia/1.0 (educational textbook)"}
+          out = "tools/biologia/commons"; os.makedirs(out, exist_ok=True)
+          names = [l.strip() for l in open("tools/biologia/commons.txt", encoding="utf-8") if l.strip() and not l.startswith("#")]
+          meta = {}
+          for n in names:
+              q = urllib.parse.urlencode({"action": "query", "titles": "File:" + n, "prop": "imageinfo", "iiprop": "url|extmetadata|size", "format": "json"})
+              try:
+                  d = json.load(urllib.request.urlopen(urllib.request.Request("https://commons.wikimedia.org/w/api.php?" + q, headers=UA), timeout=60))
+                  page = next(iter(d["query"]["pages"].values()))
+                  if "imageinfo" not in page:
+                      meta[n] = {"error": "no existeix"}; continue
+                  ii = page["imageinfo"][0]; em = ii.get("extmetadata", {})
+                  g = lambda k: em.get(k, {}).get("value", "")
+                  meta[n] = {"url": ii["url"], "descurl": ii.get("descriptionurl"), "w": ii.get("width"), "h": ii.get("height"),
+                             "license": g("LicenseShortName"), "artist": g("Artist"), "credit": g("Credit"), "desc": g("ImageDescription")[:600]}
+                  data = urllib.request.urlopen(urllib.request.Request(ii["url"], headers=UA), timeout=120).read()
+                  safe = n.replace("/", "_")
+                  open(os.path.join(out, safe), "wb").write(data)
+                  meta[n]["file"] = safe
+              except Exception as e:
+                  meta[n] = {"error": str(e)}
+              time.sleep(1)
+          json.dump(meta, open(os.path.join(out, "commons.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          PY
+      - name: Desa
+        run: |
+          git add tools/biologia/commons
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Biologia: imatges de Commons descarregades"
+          git push

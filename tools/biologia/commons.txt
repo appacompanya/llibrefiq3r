@@ -1,0 +1,44 @@
+# Fitxers de Wikimedia Commons candidats per a les il·lustracions de Biologia (un per línia)
+Animal cell structure en.svg
+Animal cell structure ca.svg
+Plant cell structure-en.svg
+Plant cell structure ca.svg
+Plant cell structure svg.svg
+Average prokaryote cell- en.svg
+Average prokaryote cell- ca.svg
+Prokaryote cell.svg
+Cell membrane detailed diagram en.svg
+Cell membrane detailed diagram ca.svg
+Diagram human cell nucleus.svg
+Diagram human cell nucleus ca.svg
+Animal mitochondrion diagram en (edit).svg
+Mitochondrion structure.svg
+Scheme Chloroplast-en.svg
+Chloroplast structure.svg
+Chloroplast II.svg
+Scheme sodium-potassium pump-en.svg
+Osmotic pressure on blood cells diagram.svg
+Turgor pressure on plant cells diagram.svg
+Major events in mitosis.svg
+Mitosis Stages.svg
+Meiosis Overview new.svg
+MajorEventsInMeiosis variant int.svg
+Main protein structure levels en.svg
+DNA chemical structure.svg
+DNA replication en.svg
+DNA replication ca.svg
+Ribosome mRNA translation en.svg
+TRNA-Phe yeast en.svg
+Tevenphage.svg
+Antibody.svg
+Antibody ca.svg
+Thylakoid membrane 3.svg
+Calvin-cycle4.svg
+Mitochondrial electron transport chain—Etc4.svg
+Homology vertebrates-en.svg
+Speciation modes edit.svg
+Polymerase chain reaction.svg
+Lac Operon.svg
+Nitrogen Cycle.svg
+Gram-positive and Gram-negative cell wall.svg
+Darwin's finches.jpeg
