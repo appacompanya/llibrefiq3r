@@ -13,6 +13,25 @@ def leader(f, x1, y1, x2, y2, label, anchor="start", size=13):
     f.text(x2 + dx, y2, label, size=size, anchor=anchor)
 
 
+def labels(f, items, xt, y0, y1, anchor="start", size=13, xl=None, xmid=None):
+    """Etiquetes en columna, ordenades per l'altura del punt assenyalat perquè les línies no es creuin.
+    Si es dona xl i xmid, els punts a l'esquerra de xmid s'etiqueten en una columna a l'esquerra (xl)."""
+    groups = [(items, xt, anchor)]
+    if xl is not None:
+        groups = [([i for i in items if i[0] >= xmid], xt, "start"), ([i for i in items if i[0] < xmid], xl, "end")]
+    for its, x, anc in groups:
+        its = sorted(its, key=lambda t: t[1])
+        n = len(its)
+        lines = [lab.count("\n") + 1 for _, _, lab in its]
+        tot = sum(lines)
+        acc = 0
+        for k, (tx, ty, lab) in enumerate(its):
+            c = acc + lines[k] / 2
+            yy = y0 + (y1 - y0) * (c / tot) if n > 1 else (y0 + y1) / 2
+            acc += lines[k]
+            leader(f, tx, ty, x, yy, lab, anc, size)
+
+
 def ribos(f, pts, r=2.6, color="#6b4c9a"):
     for x, y in pts:
         f.circle(x, y, r, fill=color, stroke="none")
@@ -225,16 +244,12 @@ def fig_nucli():
     # RER continu
     f.path(f"M{cx+128},{cy-40} q50,-10 60,20 q-40,10 -20,40 q40,0 40,40", stroke="#2f6fb5", sw=3)
     ribos(f, [(cx + 150, cy - 46), (cx + 170, cy - 40), (cx + 188, cy - 20), (cx + 172, cy + 22), (cx + 195, cy + 50)])
-    leader(f, cx + 20, cy - 10, 470, 70, "nuclèol (RNAr i subunitats\ndels ribosomes)")
-    leader(f, cx - 40, cy + 40, 470, 270, "cromatina (DNA + histones)")
-    leader(f, cx + 124 * math.cos(math.radians(320)), cy + 124 * math.sin(math.radians(320)), 470, 115, "porus nuclear")
-    leader(f, cx - 90, cy - 85, 40, 20, "embolcall: doble membrana", "start")
-    leader(f, cx + 185, cy + 10, 470, 175, "reticle rugós, continu\namb l’embolcall")
+    labels(f, [(cx + 20, cy - 10, "nuclèol (RNAr i subunitats\ndels ribosomes)"), (cx + 185, cy + 10, "reticle rugós, continu\namb l’embolcall"), (cx - 40, cy + 40, "cromatina (DNA + histones)"), (cx + 124 * math.cos(math.radians(320)), cy + 124 * math.sin(math.radians(320)), "porus nuclear"), (cx - 90, cy - 85, "embolcall: doble membrana")], 430, 30, 300)
     return f.svg()
 
 
 def fig_mitocondri():
-    f = Fig(760, 300, "El mitocondri")
+    f = Fig(760, 265, "El mitocondri")
     cx, cy, w, h = 250, 150, 380, 180
     f.ellipse(cx, cy, w / 2, h / 2, fill="#fbe3cf", stroke="#c4651a", sw=3)
     f.ellipse(cx, cy, w / 2 - 12, h / 2 - 12, fill="#fff3e6", stroke="#c4651a", sw=2.2)
@@ -246,12 +261,7 @@ def fig_mitocondri():
         f.path(f"M{x-7},{y0} L{x-7},{y1} Q{x},{y1 + (10 if top else -10)} {x+7},{y1} L{x+7},{y0}", stroke="#c4651a", sw=2, fill="#fbe3cf")
     f.path(f"M{cx-40},{cy+5} c15,-25 35,25 50,0 c10,-15 25,-10 20,8 c-5,20 -40,25 -70,-8", stroke=col("lila"), sw=2)
     ribos(f, [(cx + 60, cy - 30), (cx + 80, cy + 40), (cx - 100, cy - 25), (cx - 80, cy + 45), (cx + 110, cy + 10)])
-    leader(f, cx - 160, cy - 60, 30, 20, "membrana externa", "start")
-    leader(f, cx - 120, cy - 52, 160, 20, "espai intermembranós (H⁺)", "start")
-    leader(f, cx + 8, cy - 55, 500, 40, "membrana interna: crestes,\ncadena respiratòria i ATP-sintasa")
-    leader(f, cx + 120, cy + 30, 500, 140, "matriu: Krebs, β-oxidació,\ndescarboxilació del piruvat")
-    leader(f, cx - 10, cy + 5, 500, 205, "DNA circular propi")
-    leader(f, cx + 80, cy + 40, 500, 260, "ribosomes 70S")
+    labels(f, [(cx + 8, cy - 55, "membrana interna: crestes,\ncadena respiratòria\ni ATP-sintasa"), (cx + 120, cy + 30, "matriu: Krebs, β-oxidació,\ndescarboxilació del piruvat"), (cx - 160, cy - 60, "membrana externa"), (cx - 120, cy - 52, "espai intermembranós (H⁺)"), (cx - 10, cy + 5, "DNA circular propi"), (cx + 80, cy + 40, "ribosomes 70S")], 470, 20, 285)
     return f.svg()
 
 
@@ -267,12 +277,7 @@ def fig_cloroplast():
     f.path(f"M{cx-60},{cy+50} c10,-10 20,10 30,0", stroke=col("lila"), sw=2)
     ribos(f, [(cx - 120, cy + 40), (cx + 100, cy - 60), (cx + 140, cy + 30), (cx - 60, cy - 70)])
     f.ellipse(cx + 40, cy + 55, 18, 10, fill="#fff", stroke=MUTED, sw=1)
-    leader(f, cx - 150, cy - 70, 30, 25, "embolcall: doble membrana", "start")
-    leader(f, 215, 106, 500, 40, "tilacoide: fase lluminosa\n(fotosistemes, ATP-sintasa)")
-    leader(f, 300, 150, 500, 110, "granum (pila de tilacoides)")
-    leader(f, cx + 150, cy + 10, 500, 175, "estroma: cicle de Calvin")
-    leader(f, cx - 45, cy + 50, 500, 235, "DNA circular i ribosomes 70S")
-    leader(f, cx + 40, cy + 55, 500, 290, "grànul de midó")
+    labels(f, [(215, 106, "tilacoide: fase lluminosa\n(fotosistemes, ATP-sintasa)"), (cx - 150, cy - 70, "embolcall: doble membrana"), (300, 150, "granum (pila de tilacoides)"), (cx + 150, cy + 10, "estroma: cicle de Calvin"), (cx - 45, cy + 50, "DNA circular i ribosomes 70S"), (cx + 40, cy + 55, "grànul de midó")], 470, 30, 290)
     return f.svg()
 
 
@@ -321,7 +326,7 @@ def fig_animal():
 
 
 def fig_vegetal():
-    f = Fig(760, 340, "Cèl·lula vegetal")
+    f = Fig(760, 290, "Cèl·lula vegetal")
     cx, cy = 230, 170
     cell_common(f, cx, cy, plant=True)
     f.rect(cx - 60, cy - 90, 230, 175, fill="#dcecf8", stroke=col("blau"), sw=2, rx=40)
@@ -333,16 +338,9 @@ def fig_vegetal():
     mito(f, cx - 50, cy + 100, 46, 22, 0)
     for k in range(3):
         f.path(f"M{cx-185},{cy+5+k*9} q20,-8 40,0", stroke=col("taronja"), sw=2.6)
-    leader(f, cx + 200, cy + 60, 470, 30, "paret de cel·lulosa")
-    leader(f, cx + 196, cy - 20, 470, 65, "membrana plasmàtica")
-    leader(f, cx + 120, cy, 470, 100, "vacúol (tonoplast)")
-    leader(f, cx + 150, cy - 105, 470, 135, "cloroplast")
-    leader(f, cx - 50, cy + 100, 470, 170, "mitocondri")
-    leader(f, cx - 125, cy - 55, 470, 205, "nucli")
-    leader(f, cx - 165, cy + 10, 470, 240, "aparell de Golgi")
-    leader(f, cx - 205, cy - 120, 470, 290, "plasmodesmes a la paret · sense centríols")
     for y in (cy - 60, cy + 40):
         f.line(cx - 210, y, cx - 196, y, stroke="#5c8a2e", sw=2)
+    labels(f, [(cx + 200, cy + 60, "paret de cel·lulosa"), (cx + 196, cy - 20, "membrana plasmàtica"), (cx + 120, cy, "vacúol (tonoplast)"), (cx + 150, cy - 105, "cloroplast"), (cx - 50, cy + 100, "mitocondri"), (cx - 125, cy - 55, "nucli"), (cx - 165, cy + 10, "aparell de Golgi"), (cx - 205, cy - 120, "plasmodesmes a la paret · sense centríols")], 450, 30, 310)
     return f.svg()
 
 
