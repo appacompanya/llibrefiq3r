@@ -1,0 +1,62 @@
+.b-1{--c:#12857A}.b-2{--c:#2F6FB5}.b-3{--c:#C7651A}.b-4{--c:#6A4FA0}.b-5{--c:#B83A7A}.b-6{--c:#2E7D4F}.b-7{--c:#A86F12}.b-8{--c:#C63D3D}.b-9{--c:#5F6670}
+/* Biologia · complements de book.css (el llibre de Física II) */
+.logo{font-size:.85rem}
+.page h4{font-family:var(--sans);font-size:1rem;margin:1.6em 0 .5em;color:var(--cd)}
+/* figures pròpies (SVG incrustat) i de Commons */
+figure .fig-in{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;overflow:hidden}
+figure .fig-in svg.bio{border:0;padding:0;border-radius:0;display:block;width:100%;height:auto;max-height:80vh;font-family:var(--sans)}
+figure .fig-in img{border:0;padding:0;border-radius:0;max-height:80vh;width:auto;max-width:100%;cursor:zoom-in}
+figure.map .fig-in{border:0;padding:0;background:none}
+figure.map .fig-in svg.bio>rect:first-of-type{fill:transparent}
+figcaption{font-family:var(--sans);font-size:.86rem;line-height:1.45;color:#3b4148;text-align:left;max-width:64ch;margin:.7em auto 0}
+figcaption .cr{display:block;margin-top:.2em;font-size:.76rem;color:var(--muted)}
+figcaption .cr a{color:inherit}
+/* taules */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1em 0}
+.tw table{margin:0;display:table}
+.tw th,.tw td{text-align:left;vertical-align:top;padding:.5em .7em;border-bottom:1px solid var(--line)}
+.tw thead th{font-family:var(--sans);font-size:.85rem;background:var(--ct);color:var(--cd)}
+.tw tbody tr:last-child td{border-bottom:0}
+/* exercicis resolts */
+.box .sol{margin-top:.5em;padding-top:.5em;border-top:1px dashed color-mix(in srgb,var(--k) 35%,#fff)}
+.box .sol-h{display:block;font-family:var(--sans);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--k) 75%,#000);margin-bottom:.2em}
+details.sol>summary{cursor:pointer;font-family:var(--sans);font-weight:700;font-size:.88rem;color:color-mix(in srgb,var(--k,#2f6fb5) 80%,#000);list-style:none;display:inline-flex;align-items:center;gap:.4em;padding:.25em .8em;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--k,#2f6fb5) 40%,#fff);background:#fff}
+details.sol>summary::-webkit-details-marker{display:none}
+details.sol>summary::before{content:"▸";transition:transform .15s}
+details.sol[open]>summary::before{transform:rotate(90deg)}
+details.sol[open]>summary{margin-bottom:.4em}
+/* glossari */
+.box.def dl{display:grid;grid-template-columns:minmax(9em,auto) 1fr;gap:.35em 1em;margin:.3em 0}
+.box.def dt{margin:0;font-family:var(--sans);font-size:.95rem}
+.box.def dd{margin:0}
+@media (max-width:620px){.box.def dl{grid-template-columns:1fr}.box.def dd{margin-bottom:.4em}}
+/* autoavaluació */
+ol.aut{padding-left:1.4em}
+ol.aut>li{margin:0 0 1.2em;padding-left:.2em}
+ol.aut>li::marker{font-family:var(--sans);font-weight:700;color:var(--cd)}
+ol.aut details.sol{--k:var(--c)}
+ol.aut details.sol>div,ol.aut details.sol>p{background:var(--ct);border-radius:10px}
+ol.aut details.sol p{margin:.4em 0;padding:.6em .8em;background:var(--ct);border-radius:10px}
+/* errors típics */
+ul.errl{list-style:none;padding:0}
+ul.errl li{position:relative;padding-left:1.7em;margin:.45em 0}
+ul.errl li::before{content:"!";position:absolute;left:0;top:.2em;width:1.15em;height:1.15em;border-radius:50%;background:#b3261e;color:#fff;font:700 .78em/1.5 var(--sans);text-align:center}
+.cover-pdf{margin:.4em 0 0;font-family:var(--sans);font-size:.9rem}
+.cover-pdf a{font-weight:700}
+.box.pra{--k:#0b6e6e}
+/* versió per imprimir */
+.print-book{background:#fff;font-size:11pt;line-height:1.5;max-width:180mm;margin:0 auto}
+.print-book .ptitle{min-height:240mm;display:flex;flex-direction:column;justify-content:center;break-after:page}
+.print-book .ptitle h1{font-family:var(--display);font-size:56pt;margin:.1em 0}
+.print-book .ptitle .eyebrow{font-family:var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.print-book .ptoc{list-style:none;padding:0;font-family:var(--sans);font-size:13pt;columns:1}
+.print-book .ptoc li{display:flex;gap:.8em;padding:.3em 0;border-bottom:1px solid var(--line)}
+.print-book .ptoc span{font-weight:700;min-width:1.5em}
+.print-book .chap{break-before:page}
+.print-book .cover{margin:0 0 1em}
+.print-book details.sol>summary{display:none}
+.print-book details.sol{display:block}
+.print-book figure{break-inside:avoid}
+.print-book figure .fig-in svg.bio{max-height:150mm}
+.print-book figure .fig-in img{max-height:150mm}
+@media print{details.sol>summary{display:none}}

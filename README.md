@@ -77,3 +77,16 @@ Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fi
 ## Correcció amb IA
 
 Les respostes escrites d'una fitxa digital es poden enviar a un proveïdor d'IA per proposar una correcció. L'indicador «Possible IA» i la qualificació alternativa només els veu el docent: són un indici, no la nota oficial. Text per a famílies: [docs/privacitat-ia.html](docs/privacitat-ia.html).
+
+## Biologia de 2n de batxillerat (`/biologia/`)
+
+Llibre web de teoria (9 temes), PDF per imprimir i exercicis PAU 2011–2026 per blocs (ordinador i mòbil) amb cercador.
+Les fonts són a `tools/biologia/` i `contingut/biologia/`:
+
+- `extreu_teoria.py dossier.pdf` → `contingut/biologia/teoria-extret.json` (estructura recuperada del PDF original).
+- `revisio.py` recull totes les correccions científiques i de redacció (i quines figures substitueixen les originals);
+  `aplica_revisio.py` les aplica → `teoria-revisat.json`.
+- Figures: esquemes propis en SVG (`figs1-4.py`, `svg.py`) i il·lustracions de Wikimedia Commons amb les etiquetes
+  traduïdes (`commons_proc.py`; l'acció `biologia-commons.yml` descarrega els fitxers llistats a `commons.txt`).
+- `build_web.py` → `biologia/` · `node pdf_teoria.js` → `biologia/biologia-teoria.pdf` ·
+  `build_pau.py enunciats.pdf solucions.pdf` → `biologia/pau/`.

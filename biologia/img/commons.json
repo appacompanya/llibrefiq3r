@@ -1,0 +1,23 @@
+{
+ "animal": {
+  "file": "animal.svg",
+  "w": 704,
+  "h": 469,
+  "credit": "Imatge: Gerardduenas, <a href=\"https://commons.wikimedia.org/wiki/File:Animal_cell_structure_ca.svg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (Public domain), etiquetes traduïdes.",
+  "src": "Animal cell structure ca.svg"
+ },
+ "membrana": {
+  "file": "membrana.svg",
+  "w": 913,
+  "h": 396,
+  "credit": "Imatge: LadyofHats, traducció User:imartin6, <a href=\"https://commons.wikimedia.org/wiki/File:Cell_membrane_detailed_diagram_ca.svg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (Public domain), etiquetes traduïdes.",
+  "src": "Cell membrane detailed diagram ca.svg"
+ },
+ "dna_quimica": {
+  "file": "dna_quimica.svg",
+  "w": 1542,
+  "h": 1659,
+  "credit": "Imatge: Madprime, <a href=\"https://commons.wikimedia.org/wiki/File:DNA_chemical_structure.svg\" target=\"_blank\" rel=\"noopener\">Wikimedia Commons</a> (CC BY-SA 3.0), etiquetes traduïdes.",
+  "src": "DNA chemical structure.svg"
+ }
+}
