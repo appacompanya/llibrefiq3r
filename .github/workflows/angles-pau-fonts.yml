@@ -1,0 +1,40 @@
+# Baixa els exàmens, les correccions i els àudios de la PAU d'anglès a la branca «fonts-pau-angles».
+# El contenidor de treball no pot accedir a gencat.cat ni a Dropbox; GitHub Actions sí.
+# Es dispara quan canvia tools/angles-pau/fonts.py.
+name: Anglès PAU · fonts
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/angles-pau/fonts.py", ".github/workflows/angles-pau-fonts.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools/angles-pau
+      - name: Baixa
+        run: |
+          python3 tools/angles-pau/fonts.py /tmp/fonts
+          cat /tmp/fonts/registre.txt
+          (cd /tmp/fonts && find . -type f ! -name registre.txt -printf '%s\t%P\n' | sort -k2 > llista.tsv)
+          wc -l /tmp/fonts/llista.tsv; du -sh /tmp/fonts
+          # GitHub no accepta fitxers de més de 100 MB
+          find /tmp/fonts -type f -size +95M -print -delete
+      - name: Desa a la branca fonts-pau-angles
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd /tmp/fonts
+          git init -q -b fonts-pau-angles
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -qm "Fonts PAU Anglès (coordinació i Canal Universitats)"
+          git push -f "https://x-access-token:${TOKEN}@github.com/${{ github.repository }}" fonts-pau-angles
