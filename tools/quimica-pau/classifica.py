@@ -2,8 +2,8 @@
 import re
 
 BLOCS = [
-    ("estructura", "Estructura atòmica i taula periòdica"),
-    ("enllac", "Enllaç químic i forces intermoleculars"),
+    ("estequiometria", "Estats de la matèria, gasos i estequiometria"),
+    ("estructura", "Estructura atòmica, taula periòdica i enllaç químic"),
     ("termo", "Termoquímica i espontaneïtat"),
     ("cinetica", "Cinètica química"),
     ("equilibri", "Equilibri químic"),
@@ -15,6 +15,10 @@ BLOCS = [
 NOMS = dict(BLOCS)
 
 KW = {
+    "estequiometria": [r"estequiom[èe]tric", r"reactiu limitant", r"reactiu en excés", r"riquesa", r"puresa", r"\bpV\s*=", r"gasos? ideals?",
+                       r"llei dels gasos", r"volum molar", r"condicions normals", r"f[óo]rmula emp[íi]rica", r"composici[óo] centesimal",
+                       r"fracci[óo] molar", r"molalitat", r"diagrama de fases", r"pressi[óo] de vapor", r"propietats col·ligatives",
+                       r"destil·laci[óo]", r"cromatografia", r"separaci[óo] de", r"punt triple"],
     "estructura": [r"configuraci[óo] electr[òo]nica", r"nombres? qu[àa]ntics?", r"orbitals?\b", r"energia d.ionitzaci[óo]",
                    r"radi (at[òo]mic|i[òo]nic)", r"afinitat electr[òo]nica", r"espectre", r"longitud d.ona", r"\bfot[óo]", r"Planck",
                    r"model at[òo]mic", r"\bBohr\b", r"taula peri[òo]dica", r"electronegativitat", r"freq[üu][èe]ncia", r"is[òo]top",
@@ -49,7 +53,9 @@ KWC = {k: [re.compile(p, re.I) for p in v] for k, v in KW.items()}
 
 def scores(text):
     t = re.sub(r"\s+", " ", text)
-    return {k: sum(len(p.findall(t)) for p in ps) for k, ps in KWC.items()}
+    s = {k: sum(len(p.findall(t)) for p in ps) for k, ps in KWC.items()}
+    s["estructura"] += s.pop("enllac")  # un sol bloc: estructura de la matèria i enllaç
+    return s
 
 
 def classify(text):

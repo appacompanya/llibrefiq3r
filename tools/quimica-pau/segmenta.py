@@ -4,12 +4,17 @@ import pymupdf
 
 # Línies que no formen part del contingut d'un exercici (capçaleres, peus, quadres de correcció)
 SKIP = re.compile(
-    r"^(Pàgina \d+ de \d+|Química|Proves d.accés a la universitat.*|Oficina d.Accés.*|Criteri (específic|d.avaluació).*|"
+    r"^(Pàgina \d+ de \d+|Química|Prov(a|es) d.accés a la universitat.*|Districte Universitari.*|Oficina d.Accés.*|Criteris? (específics?|d.avaluació).*|proves|"
     r"Espai per a la correcció|Espai per a la revisió|Total|[a-d]|[–•]\s*\d+\s*[–•]|\d{1,2}|"
     r"Etiqueta de.*|Ubicació del tribunal.*|Número del tribunal.*|Qualificació.*|Comprovació|2a correcció|"
     r"Generalitat de Catalunya|Consell Interuniversitari de Catalunya|Pautes de correcció.*|"
     r"P[àa]gina \d+ de \d+.*|Convocatòria \d{4}.*|Sèrie \d\s*$|SERIE \d|SÈRIE \d|PAU \d{4}|\d{4})$", re.I
 )
+
+
+HEADER = re.compile(r"^(Pàgina \d+ de \d+|Química|Prov(a|es) d.accés a la universitat.*|Districte Universitari.*|Oficina d.Accés.*|"
+                    r"Criteris? (específics?|d.avaluació).*|proves|PAU \d{4}.*|Pautes de correcció.*|Convocatòria \d{4}.*|\d{4})$", re.I)
+FOOT = re.compile(r"^([–•]\s*\d+\s*[–•]|\d{1,2}|Pàgina \d+ de \d+)$")
 
 
 def lines(page):
@@ -44,6 +49,10 @@ def correction_boxes(page):
         r, f = d["rect"], d.get("fill")
         if f and all(0.85 < c < 0.95 for c in f[:3]) and 100 < r.width < 260 and 10 < r.height < 32 and r.x0 > 280:
             rs.append(pymupdf.Rect(r.x0 - 4, r.y0 - 4, r.x1 + 4, r.y1 + 4))
+    # etiqueta de l'alumne a dalt de la pàgina de la darrera pregunta
+    for r in page.search_for("Etiqueta de l"):
+        if r.y0 < 140:
+            rs.append(pymupdf.Rect(r.x0 - 12, r.y0 - 6, min(page.rect.x1, r.x0 + 230), r.y1 + 75))
     return rs
 
 
@@ -53,7 +62,7 @@ def content_bbox(page, y0, y1, extra_skip=None):
     boxes = correction_boxes(page)
     ls = lines(page)
     # capçalera de pàgina: tot el que queda per sobre de l'última línia de capçalera (logo i filet inclosos)
-    hl = [l[1] for l in ls if l[1] < 150 and SKIP.match(l[4])]
+    hl = [l[1] for l in ls if l[1] < 150 and HEADER.match(l[4])]
     head = max(hl) + 9 if hl else 0
     y0 = max(y0, head)
     top, bot = None, None
@@ -76,7 +85,7 @@ def content_bbox(page, y0, y1, extra_skip=None):
         xs0.append(r.x0); xs1.append(r.x1)
 
     for (ly0, ly1, lx0, lx1, t, bold) in ls:
-        if SKIP.match(t) or (extra_skip and extra_skip.match(t)):
+        if SKIP.match(t) or STOP.search(t) or (extra_skip and extra_skip.match(t)):
             continue
         add(pymupdf.Rect(lx0, ly0, lx1, ly1))
     for d in page.get_drawings():
@@ -93,10 +102,13 @@ def content_bbox(page, y0, y1, extra_skip=None):
         return None
     x0 = max(0, min(xs0) - 4)
     x1 = min(page.rect.width, max(xs1) + 4)
-    return pymupdf.Rect(x0, top - 3, x1, min(bot + 14, y1, H - 40))
+    # peu de pàgina: el número de pàgina o els crèdits de l'IEC marquen el límit inferior
+    feet = [l[0] for l in ls if l[0] > bot - 1 and (FOOT.match(l[4]) and l[0] > H - 70 or STOP.search(l[4]))]
+    cap = (min(feet) - 1) if feet else H - 18
+    return pymupdf.Rect(x0, top - 3, x1, min(bot + 14, y1, cap))
 
 
-STOP = re.compile(r"Podeu utilitzar aquest(es pàgines|a pàgina)|ha tingut cura de la correcció lingüística|Etiqueta de l.estudiant|Etiqueta de qualificació")
+STOP = re.compile(r"Podeu utilitzar aquest(es pàgines|a pàgina)|ha tingut cura de la correcció lingüística|Etiqueta de l.(estudiant|alumne)|Etiqueta de qualificació|Espai per a (les )?etiquet")
 
 
 def useful_pages(doc, pages):
@@ -105,7 +117,14 @@ def useful_pages(doc, pages):
     out = []
     for p in pages:
         ls = lines(doc[p])
-        if not any(STOP.search(l[4]) for l in ls) or any(re.match(r"^[1-7]\.\s+\S", l[4]) for l in ls):
+        long = [l for l in ls if len(l[4]) > 30 and not STOP.search(l[4]) and not SKIP.match(l[4])
+                and not re.search(r"Ubicació del tribunal|Número del tribunal|\.{8}", l[4])]
+        if not long and (not doc[p].get_image_info() or re.search(r"Espai per a (les )?etiquet", doc[p].get_text())):
+            continue  # pàgina sense text llarg ni imatges: espai per respondre, quadres buits
+        txt = doc[p].get_text()
+        if re.search(r"Etiqueta de l", txt) and not any(re.match(r"^[1-7]\.(\s+\S.{20,}|\s*$)", l[4]) for l in ls):
+            continue  # portada o contraportada
+        if not any(STOP.search(l[4]) for l in ls) or len(long) >= 6:
             out.append(p)
     return out
 
@@ -160,6 +179,23 @@ def neteja(path, out):
     doc = pymupdf.open(path)
     for page in doc:
         bs = correction_boxes(page)
+        # textos verticals del marge (crèdits de l'IEC, «Districte Universitari…»): fora
+        rot = []
+        for b in page.get_text("dict")["blocks"]:
+            for l in b.get("lines", []):
+                if abs(l["dir"][1]) > 0.5:
+                    rot.append(pymupdf.Rect(l["bbox"]))
+        # logo de l'IEC al peu de l'última pàgina de cada sèrie (imatge petita i centrada)
+        H = page.rect.height
+        for im in page.get_image_info():
+            b = pymupdf.Rect(im["bbox"])
+            if b.y0 > H - 110 and b.width < 140 and b.height < 60 and abs((b.x0 + b.x1) / 2 - page.rect.width / 2) < 40:
+                page.draw_rect(pymupdf.Rect(b.x0 - 1, b.y0 - 1, b.x1 + 1, b.y1 + 1), color=None, fill=(1, 1, 0.996), overlay=True)
+        for r in rot:
+            page.add_redact_annot(r, fill=False)
+        if rot:
+            page.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE, graphics=pymupdf.PDF_REDACT_LINE_ART_NONE,
+                                  text=pymupdf.PDF_REDACT_TEXT_REMOVE)
         if not bs:
             continue
         for b in page.get_text("dict")["blocks"]:

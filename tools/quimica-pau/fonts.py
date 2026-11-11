@@ -36,7 +36,7 @@ def pauta_start(doc):
 
 
 H_ENUN_25 = re.compile(r"^Exercici (\d)\s*$")
-H_PAUTA_25 = re.compile(r"^(?:Exercici|Pregunta|Problema|Qüestió) (\d)(?:[a-d.]|\s|$)")
+H_PAUTA_25 = re.compile(r"^(?:(?:Exercici|Pregunta|PREGUNTA|Problema|PROBLEMA|Qüestió|QÜESTIÓ)\s*|(?=[1-7]\.\s+[A-ZÀÈÉÍÒÓÚÇ]{3}))([1-7])(?:[a-d.)]|\s|$)")
 H_ENUN_24 = re.compile(r"^([1-7])\.(\s+\S|\s*$)")
 
 
@@ -87,6 +87,12 @@ def ranges(starts, n):
     return {starts[k]: list(range(k, (ks[i + 1] if i + 1 < len(ks) else n))) for i, k in enumerate(ks)}
 
 
+def _put(d, kind, f):
+    """Si hi ha dues còpies del mateix document, es queda la que té més pàgines (la completa)."""
+    if kind not in d or pymupdf.open(f).page_count > pymupdf.open(d[kind]).page_count:
+        d[kind] = f
+
+
 def convocatories(src: Path):
     files = {}
     for f in src.rglob("*.pdf"):
@@ -98,7 +104,7 @@ def convocatories(src: Path):
         m3 = re.search(r"pau_quimica_(20\d\d)_(juny|setembre)_(enunciat|solucio)\.pdf$", name, re.I)
         if m:
             yy, c, kind, tei = m.groups()
-            by.setdefault((int(yy), c.lower(), bool(tei)), {}).setdefault(kind.lower() or "x", f)
+            _put(by.setdefault((int(yy), c.lower(), bool(tei)), {}), kind.lower() or "x", f)
         elif m2 or m3:
             if m2:
                 cv, yr, k = m2.groups()
@@ -106,7 +112,7 @@ def convocatories(src: Path):
                 yr, cv, k = m3.groups()
             key = (int(yr) - 2000, cv.lower()[0], False)
             kind = "l" if k.lower().startswith("enunciat") else "p"
-            by.setdefault(key, {}).setdefault(kind, f)
+            _put(by.setdefault(key, {}), kind, f)
     out = []
     for (yy, c, tei), d in sorted(by.items()):
         year = 2000 + yy
