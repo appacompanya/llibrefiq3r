@@ -6,7 +6,7 @@ name: Química PAU · fonts
 on:
   push:
     branches: [main]
-    paths: ["tools/quimica-pau/crawl.txt", "tools/quimica-pau/crawl.py", "tools/quimica-pau/urls.txt"]
+    paths: ["tools/quimica-pau/crawl.txt", "tools/quimica-pau/crawl.py", "tools/quimica-pau/wayback.py", "tools/quimica-pau/urls.txt"]
 
 permissions:
   contents: write
@@ -14,11 +14,13 @@ permissions:
 jobs:
   baixa:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - name: Recorre i baixa
         run: |
           python3 tools/quimica-pau/crawl.py /tmp/fonts
+          python3 tools/quimica-pau/wayback.py /tmp/fonts || true
           if [ -f tools/quimica-pau/urls.txt ]; then
             grep -v '^#' tools/quimica-pau/urls.txt | while read -r u; do
               [ -z "$u" ] && continue
