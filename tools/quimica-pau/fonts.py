@@ -37,7 +37,7 @@ def pauta_start(doc):
 
 H_ENUN_25 = re.compile(r"^Exercici (\d)\s*$")
 H_PAUTA_25 = re.compile(r"^(?:Exercici|Pregunta|Problema|Qüestió) (\d)(?:[a-d.]|\s|$)")
-H_ENUN_24 = re.compile(r"^([1-7])\.\s+\S")
+H_ENUN_24 = re.compile(r"^([1-7])\.(\s+\S|\s*$)")
 
 
 def _ex(enun_path, enun_pages, h_enun, pauta_path, pauta_pages, h_pauta, nom_fmt):
@@ -58,32 +58,75 @@ def _ex(enun_path, enun_pages, h_enun, pauta_path, pauta_pages, h_pauta, nom_fmt
     return out
 
 
+def cover_pages(doc):
+    """Portades de cada sèrie dins d'un fitxer d'enunciats: {pàgina: sèrie}."""
+    out = {}
+    for i, p in enumerate(doc):
+        t = p.get_text()
+        top = [l[4] for l in lines(p) if l[0] < 260]
+        ser = [re.match(r"^Sèrie\s*(\d)\s*$", x) for x in top]
+        ser = [m for m in ser if m]
+        if ser and any(re.match(r"^Proves d.accés a la universitat", x, re.I) for x in top):
+            out[i] = int(ser[0].group(1))
+    return out
+
+
+def pauta_series(doc, first=0):
+    """Inici de cada sèrie dins d'un fitxer de pautes: {pàgina: sèrie}."""
+    out = {}
+    for i in range(first, doc.page_count):
+        for l in lines(doc[i])[:8]:
+            m = re.match(r"^S[ÈèEe]RIE\s*(\d)\s*$", l[4], re.I)
+            if m:
+                out[i] = int(m.group(1)); break
+    return out
+
+
+def ranges(starts, n):
+    ks = sorted(starts)
+    return {starts[k]: list(range(k, (ks[i + 1] if i + 1 < len(ks) else n))) for i, k in enumerate(ks)}
+
+
 def convocatories(src: Path):
-    files = {f.name: f for f in src.rglob("*.pdf")}
-    out = []
+    files = {}
+    for f in src.rglob("*.pdf"):
+        files.setdefault(f.name.split("__")[-1].lower(), f)
     by = {}
     for name, f in files.items():
         m = re.search(r"pau_quim(\d\d)([jsoe])([lpt]?)(_tei)?\.pdf$", name, re.I)
         if m:
             yy, c, kind, tei = m.groups()
             by.setdefault((int(yy), c.lower(), bool(tei)), {})[kind.lower() or "x"] = f
+    out = []
     for (yy, c, tei), d in sorted(by.items()):
         year = 2000 + yy
-        if yy >= 24:
-            if "x" in d:  # enunciat i pauta en un sol fitxer (2026)
-                doc = pymupdf.open(d["x"]); ps = pauta_start(doc)
-                el, ep = (d["x"], list(range(1, ps))), (d["x"], list(range(ps, doc.page_count)))
-            else:
-                if "l" not in d:
-                    continue
-                pk = d.get("p") or d.get("t")
-                doc = pymupdf.open(d["l"])
-                el = (d["l"], list(range(1, doc.page_count)))
-                ep = (pk, list(range(0, pymupdf.open(pk).page_count))) if pk else (None, [])
-            serie = serie_of(pymupdf.open(el[0]))
-            h_en = H_ENUN_24 if yy == 24 else H_ENUN_25
-            fmt = (lambda k: f"Qüestió {k}") if yy == 24 else (lambda k: f"Exercici {k}")
+        if "x" in d:  # enunciat i pauta en un sol fitxer (2026)
+            doc = pymupdf.open(d["x"]); ps = pauta_start(doc)
+            lpath, ppath, lpages_all, ppages_first = d["x"], d["x"], ps, ps
+        else:
+            if "l" not in d:
+                continue
+            lpath = d["l"]; ppath = d.get("p") or d.get("t")
+            lpages_all = pymupdf.open(lpath).page_count; ppages_first = 0
+        dl = pymupdf.open(lpath)
+        covers = {k: v for k, v in cover_pages(dl).items() if k < lpages_all}
+        if not covers:
+            covers = {0: serie_of(dl)}
+        lr = ranges(covers, lpages_all)
+        pr = {}
+        if ppath:
+            dp = pymupdf.open(ppath)
+            ps_ = pauta_series(dp, ppages_first)
+            if not ps_:
+                ps_ = {ppages_first: next(iter(lr))}
+            pr = ranges(ps_, dp.page_count)
+        if yy >= 25:
+            h_en, fmt = H_ENUN_25, (lambda k: f"Exercici {k}")
+        else:
+            h_en, fmt = H_ENUN_24, (lambda k: f"Qüestió {k}")
+        for serie, pages in lr.items():
+            pp = pr.get(serie) or (list(pr.values())[0] if len(pr) == 1 and len(lr) == 1 else [])
             out.append({"any": year, "conv": CONV[c], "serie": serie,
-                        "exercicis": (lambda el=el, ep=ep, h_en=h_en, fmt=fmt:
-                                      _ex(el[0], el[1], h_en, ep[0], ep[1], H_PAUTA_25, fmt))})
+                        "exercicis": (lambda lpath=lpath, pages=pages, ppath=ppath, pp=pp, h_en=h_en, fmt=fmt:
+                                      _ex(lpath, pages, h_en, ppath if pp else None, pp, H_PAUTA_25, fmt))})
     return out

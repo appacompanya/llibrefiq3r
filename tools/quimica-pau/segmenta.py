@@ -5,7 +5,7 @@ import pymupdf
 # Línies que no formen part del contingut d'un exercici (capçaleres, peus, quadres de correcció)
 SKIP = re.compile(
     r"^(Pàgina \d+ de \d+|Química|Proves d.accés a la [Uu]niversitat.*|Oficina d.Accés.*|Criteri específic.*|"
-    r"Espai per a la correcció|Espai per a la revisió|Total|[a-d]|–\s*\d+\s*–|\d{1,2}|"
+    r"Espai per a la correcció|Espai per a la revisió|Total|[a-d]|[–•]\s*\d+\s*[–•]|\d{1,2}|"
     r"Etiqueta de.*|Ubicació del tribunal.*|Número del tribunal.*|Qualificació.*|Comprovació|2a correcció|"
     r"Generalitat de Catalunya|Consell Interuniversitari de Catalunya|Pautes de correcció.*|"
     r"P[àa]gina \d+ de \d+.*|Convocatòria \d{4}.*|Sèrie \d\s*$|SERIE \d|SÈRIE \d|PAU \d{4}|\d{4})$"
@@ -58,6 +58,9 @@ def content_bbox(page, y0, y1, extra_skip=None):
     y0 = max(y0, head)
     top, bot = None, None
     xs0, xs1 = [], []
+    whites = [d["rect"] for d in page.get_drawings() if d.get("fill") and all(c > 0.98 for c in d["fill"][:3])
+              and not d.get("color") and d["rect"].width * d["rect"].height > 300]
+    boxes = boxes + [pymupdf.Rect(w.x0 - 1, w.y0 - 1, w.x1 + 1, w.y1 + 1) for w in whites]
 
     def add(r):
         nonlocal top, bot
@@ -79,6 +82,9 @@ def content_bbox(page, y0, y1, extra_skip=None):
         r = d["rect"]
         if r.width < 2 and r.height < 2 or r.width > page.rect.width * 0.95:
             continue
+        f = d.get("fill")
+        if f and all(c > 0.98 for c in f[:3]) and not d.get("color"):
+            continue  # rectangles blancs (els que tapen els quadres de correcció)
         add(r)
     for info in page.get_image_info():
         add(pymupdf.Rect(info["bbox"]))
@@ -89,7 +95,7 @@ def content_bbox(page, y0, y1, extra_skip=None):
     return pymupdf.Rect(x0, top - 3, x1, min(bot + 14, y1, H - 40))
 
 
-STOP = re.compile(r"Podeu utilitzar aquestes pàgines|ha tingut cura de la correcció lingüística|Etiqueta de l.estudiant")
+STOP = re.compile(r"Podeu utilitzar aquest(es pàgines|a pàgina)|ha tingut cura de la correcció lingüística|Etiqueta de l.estudiant")
 
 
 def useful_pages(doc, pages):
