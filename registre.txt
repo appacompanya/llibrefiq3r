@@ -1,0 +1,24 @@
+OK	dropbox/examens	47 fitxers	11424437 bytes
+OK	dropbox/audios	66 fitxers	303901294 bytes
+OK	dropbox/solucions	47 fitxers	10286908 bytes
+OK	dropbox/nou-model	18 fitxers	8252104 bytes
+OK	https://universitats.gencat.cat/ca/pau/models-examen-anys-anteriors/angles/
+OK	06_pau__models-examen-anys-anteriors__examens-2026__angles__ord__pau_angl26o.pdf	917196	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2026/angles/ord/pau_angl26o.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2026__angles__ord__pau_angl26o_tei.pdf	865343	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2026/angles/ord/pau_angl26o_tei.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2026__angles__ext__pau_angl26e.pdf	580913	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2026/angles/ext/pau_angl26e.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ord__pau_angl25jl.pdf	541918	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ord/pau_angl25jl.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ord__pau_angl25jl_tei.pdf	410719	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ord/pau_angl25jl_tei.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ord__pau_angl25jp.pdf	175632	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ord/pau_angl25jp.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ord__pau_angl25jp_tei.pdf	198056	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ord/pau_angl25jp_tei.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ext__pau_angl25sl.pdf	525778	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ext/pau_angl25sl.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2025__angles__ext__pau_angl25sp.pdf	248146	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2025/angles/ext/pau_angl25sp.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ord__pau_angl24jl.pdf	119544	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ord/pau_angl24jl.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ord__pau_angl24jl_tei.pdf	120213	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ord/pau_angl24jl_tei.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ord__pau_angl24jp.pdf	459470	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ord/pau_angl24jp.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ord__pau_angl24jp_tei.pdf	291423	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ord/pau_angl24jp_tei.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ext__pau_angl24sl.pdf	133000	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ext/pau_angl24sl.pdf
+OK	06_pau__models-examen-anys-anteriors__examens-2024__angles__ext__pau_angl24sp.pdf	473149	https://universitats.gencat.cat/web/.content/06_pau/models-examen-anys-anteriors/examens-2024/angles/ext/pau_angl24sp.pdf
+OK	https://universitats.gencat.cat/ca/pau/materies-pau/angles/
+OK	01_acces_i_admissio__proves-acces-PAU-PAP__ambits__angles__pau_angl25_0.pdf	270672	https://universitats.gencat.cat/web/.content/01_acces_i_admissio/proves-acces-PAU-PAP/ambits/angles/pau_angl25_0.pdf
+OK	01_acces_i_admissio__proves-acces-PAU-PAP__ambits__angles__pau_angl25_0c.pdf	274802	https://universitats.gencat.cat/web/.content/01_acces_i_admissio/proves-acces-PAU-PAP/ambits/angles/pau_angl25_0c.pdf
+OK	01_acces_i_admissio__proves-acces-PAU-PAP__ambits__angles__pau_angl26_orientacions.pdf	170897	https://universitats.gencat.cat/web/.content/01_acces_i_admissio/proves-acces-PAU-PAP/ambits/angles/pau_angl26_orientacions.pdf
