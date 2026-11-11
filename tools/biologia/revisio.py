@@ -15,7 +15,7 @@ GLOBAL = [
     (r"\bglucogen fosforilasa\b", "glicogen fosforilasa"),
     (r"\bEs escriu\b", "S’escriu"),
     (r"(?<=\d)– (?=\d)", "–"),
-    (r"\bpatògen(s?)\b", r"patogen\1"),
+    (r"\bpatògen\b", "patogen"),
     (r"PrPSc", "PrP<sup>Sc</sup>"),
     (r"\b[Uu]na enzima\b", "un enzim"),
 ]
@@ -301,4 +301,8 @@ C += [
      "La manera més directa de calcular la distància és un encreuament prova (dihíbrid × doble homozigot recessiu), perquè el fenotip de cada descendent mostra quin gàmete ha aportat el dihíbrid."),
     ("sub", "1086.0", "que els limfòcits naïfs inicials", "que els limfòcits verges (naïfs) inicials"),
 ]
-GLOBAL += [(r"\bpatogens\b", "patògens"), (r"\bPatogens\b", "Patògens")]
+GLOBAL += [(r"\bpatogens\b", "patògens"), (r"\bPatogens\b", "Patògens")]  # plana acabada en -ens: porta accent
+
+# ---- revisió didàctica: conceptes previs abans de fer-los servir ----
+from revisio_didactica import D as _D
+C += _D

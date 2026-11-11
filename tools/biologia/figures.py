@@ -46,6 +46,7 @@ FIG = {
     "calvin": (figs3.fig_calvin, "Cicle de Calvin, a l’estroma del cloroplast (valors per a 3 CO₂ fixats)."),
     "map3": (figs4.map3, "Mapa del tema 3."),
     # tema 4
+    "homolegs": (figs6.fig_homolegs, "Els dos cromosomes d’una parella d’homòlegs porten els mateixos gens en les mateixes posicions (loci), però cada un pot portar un al·lel diferent. Cada individu diploide té, per tant, dos al·lels de cada gen autosòmic."),
     "punnett_mono": (figs4.fig_punnett_mono, "Quadre de Punnett de l’encreuament Aa × Aa."),
     "punnett_di": (figs4.fig_punnett_di, "Dihibridisme amb gens independents: AaBb × AaBb dona 9 : 3 : 3 : 1 en els fenotips."),
     "lligament": (figs4.fig_lligament, "Gens lligats: si no hi ha entrecreuament entre els dos loci, els gàmetes són parentals; l’entrecreuament produeix gàmetes recombinants."),

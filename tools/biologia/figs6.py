@@ -183,3 +183,35 @@ def fig_fase_lluminosa():
     f.text(X - 10, y1 - 96, "ADP + P_{i} → ATP", size=12, weight=700, fill="#8a6a0e")
     f.text(350, 345, "L’O₂ prové de l’aigua (fotòlisi al FS II). L’ATP i el NADPH queden a l’estroma per al cicle de Calvin.", size=11.5, fill=MUTED)
     return f.svg()
+
+
+def fig_homolegs():
+    """Parella de cromosomes homòlegs: mateixos loci, al·lels iguals o diferents."""
+    f = Fig(640, 360, "Una parella de cromosomes homòlegs amb dos gens")
+    RED, BLU = "#c0504d", "#3d6fb0"
+    xs = {"m": 230, "p": 330}
+    w, top, bot, cen = 46, 50, 320, 150
+    for k, c in (("m", RED), ("p", BLU)):
+        x = xs[k]
+        f.path(f"M{x-w/2},{top+20} Q{x-w/2},{top} {x},{top} Q{x+w/2},{top} {x+w/2},{top+20} L{x+w/2},{cen-10} "
+               f"Q{x+w/2-12},{cen} {x+w/2},{cen+10} L{x+w/2},{bot-20} Q{x+w/2},{bot} {x},{bot} Q{x-w/2},{bot} {x-w/2},{bot-20} "
+               f"L{x-w/2},{cen+10} Q{x-w/2+12},{cen} {x-w/2},{cen-10} Z", fill=light("vermell") if k == "m" else light("blau"), stroke=c, sw=2.2)
+    # loci
+    loci = [(100, "Y", "y"), (240, "A", "A")]
+    for y, am, ap in loci:
+        f.line(150 if y > 200 else xs["m"] - w / 2 - 8, y, xs["p"] + w / 2 + 8, y, stroke=MUTED, sw=1, dash="3 3")
+        for k, a in (("m", am), ("p", ap)):
+            x = xs[k]
+            f.rect(x - w / 2 + 2, y - 9, w - 4, 18, fill="#fff", stroke=INK, sw=1.4, rx=3)
+            f.text(x, y, a, size=15, weight=700, italic=True)
+    f.text(xs["m"], top - 22, "de la mare", size=13, weight=700, fill=RED)
+    f.text(xs["p"], top - 22, "del pare", size=13, weight=700, fill=BLU)
+    f.text(118, cen, "centròmer", size=12, fill=MUTED, anchor="end")
+    f.line(122, cen, xs["m"] - w / 2 - 2, cen, stroke=MUTED, sw=1)
+    f.text(372, 92, "locus del gen del color de la llavor", size=13, weight=700, anchor="start")
+    f.text(372, 110, "al·lels diferents (Y i y): heterozigot", size=12.5, fill=MUTED, anchor="start")
+    f.text(372, 232, "locus del gen del color de la flor", size=13, weight=700, anchor="start")
+    f.text(372, 250, "al·lels iguals (A i A): homozigot", size=12.5, fill=MUTED, anchor="start")
+    f.text(30, 206, "mateix gen,\nmateixa posició\nals dos homòlegs", size=12, fill=MUTED, anchor="start")
+    f.text(320, 348, "Genotip per a aquests dos gens: YyAA", size=14, weight=700)
+    return f.svg()
