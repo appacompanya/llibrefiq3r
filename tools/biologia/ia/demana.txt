@@ -1,1 +1,11 @@
-# imatges a baixar
+# imatges a descarregar
+bio-portada
+bio-tema1
+bio-tema2
+bio-tema3
+bio-tema4
+bio-tema5
+bio-tema6
+bio-tema7
+bio-tema8
+bio-tema9
