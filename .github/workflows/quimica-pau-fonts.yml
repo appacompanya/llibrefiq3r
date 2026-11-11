@@ -1,0 +1,38 @@
+# Baixa els exàmens i les pautes de Química de la PAU (universitats.gencat.cat) a la branca «fonts-pau-quimica».
+# El contenidor de treball no pot accedir a gencat.cat; GitHub Actions sí.
+# Es dispara quan canvia tools/quimica-pau/crawl.txt o tools/quimica-pau/crawl.py.
+name: Química PAU · fonts
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/quimica-pau/crawl.txt", "tools/quimica-pau/crawl.py", "tools/quimica-pau/urls.txt"]
+
+permissions:
+  contents: write
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recorre i baixa
+        run: |
+          python3 tools/quimica-pau/crawl.py /tmp/fonts
+          if [ -f tools/quimica-pau/urls.txt ]; then
+            grep -v '^#' tools/quimica-pau/urls.txt | while read -r u; do
+              [ -z "$u" ] && continue
+              n=$(echo "$u" | sed -E 's#.*/web/\.content/##; s#^https?://##; s#/#__#g')
+              if curl -sSfL --retry 2 -A "Mozilla/5.0" -o "/tmp/fonts/$n" "$u"; then echo -e "$n\t$(stat -c%s /tmp/fonts/$n)\t$u\turls.txt" >> /tmp/fonts/llista.tsv; else echo -e "ERR\t0\t$u\turls.txt" >> /tmp/fonts/llista.tsv; fi
+            done
+          fi
+          wc -l /tmp/fonts/llista.tsv; du -sh /tmp/fonts
+      - name: Desa a la branca fonts-pau-quimica
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan fonts-pau-quimica
+          git rm -rq --cached . && find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r /tmp/fonts/. .
+          git add -A && git commit -qm "Fonts PAU Química (universitats.gencat.cat)"
+          git push -f origin fonts-pau-quimica
