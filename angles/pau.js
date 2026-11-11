@@ -15,8 +15,9 @@
     return D.capitols.map(function (c) {
       var f = kind === "e" ? c.enunciats : c.solucions, p = kind === "e" ? c.pagines_enunciats : c.pagines_solucions;
       var n = kind === "e" ? c.exercicis : c.solucions_n;
-      return '<a class="ch" style="--c:' + COLORS[c.slug] + '" data-pdf="' + esc(f) + '" href="' + esc(f) + '" target="_blank" rel="noopener"><span class="n">' + ICON[c.slug] + '</span><span><b>' + esc(c.titol) + "</b><span>" +
-        esc(c.sub) + " · " + nf(n, "examen", "exàmens") + " · " + nf(p, "pàgina", "pàgines") + "</span></span></a>";
+      return '<div class="chw" style="--c:' + COLORS[c.slug] + ';--np:1"><span class="chpics" aria-hidden="true"><img src="img/' + c.slug + '_thumb.webp" alt="" loading="lazy" decoding="async" width="600" height="400"></span>' +
+        '<a class="ch" data-pdf="' + esc(f) + '" href="' + esc(f) + '" target="_blank" rel="noopener"><span class="n">' + ICON[c.slug] + '</span><span><b>' + esc(c.titol) + "</b><span>" +
+        esc(c.sub) + " · " + nf(n, "examen", "exàmens") + " · " + nf(p, "pàgina", "pàgines") + "</span></span></a></div>";
     }).join("");
   }
   function label(x) {
