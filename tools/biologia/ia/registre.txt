@@ -1,11 +1,10 @@
-bio-portada	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-prova	ok
-bio-tema1	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema2	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema3	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema4	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema5	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema6	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema7	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema8	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
-bio-tema9	error 400 {"message":"The model 'gpt-image-1' does not exist.","type":"image_generation_user_error","param":"model","code":"invalid_value"}
+bio-portada	ok
+bio-tema1	ok
+bio-tema2	ok
+bio-tema3	ok
+bio-tema4	ok
+bio-tema5	ok
+bio-tema6	ok
+bio-tema7	ok
+bio-tema8	ok
+bio-tema9	ok
