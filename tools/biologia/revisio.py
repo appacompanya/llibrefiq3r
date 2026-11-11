@@ -288,3 +288,17 @@ F = [
     ("after", "1062", _f("map8")),
     ("rep", "1107", _f("disseny")), ("ins", "1131", _f("map9")),
 ]
+
+# ---- revisió de llenguatge i precisió (novembre 2026, 2a passada) ----
+C += [
+    ("set", "25", "Els glúcids (hidrats de carboni) són polihidroxialdehids o polihidroxicetones i els polímers que en deriven. "
+     "Molts responen a la fórmula empírica C<sub>m</sub>(H<sub>2</sub>O)<sub>n</sub>, però hi ha excepcions (la desoxiribosa, C<sub>5</sub>H<sub>10</sub>O<sub>4</sub>). "
+     "Cada monosacàrid porta diversos grups hidroxil i un grup carbonil: aldehid (aldoses) o cetona (cetoses). "
+     "Es classifiquen pel nombre de monosacàrids units: monosacàrids, disacàrids, oligosacàrids i polisacàrids."),
+    ("sub", "252.1", "això només passa, i un instant, quan les cromàtides se separen a l’anafase i cada una compta com un cromosoma.",
+     "això només passa des de l’anafase, quan les cromàtides germanes se separen i cada una passa a comptar com un cromosoma, fins que la citocinesi reparteix el material."),
+    ("sub", "532", "La distància es calcula només amb un encreuament prova, on es veu el genotip de cada descendent.",
+     "La manera més directa de calcular la distància és un encreuament prova (dihíbrid × doble homozigot recessiu), perquè el fenotip de cada descendent mostra quin gàmete ha aportat el dihíbrid."),
+    ("sub", "1086.0", "que els limfòcits naïfs inicials", "que els limfòcits verges (naïfs) inicials"),
+]
+GLOBAL += [(r"\bpatogens\b", "patògens"), (r"\bPatogens\b", "Patògens")]

@@ -25,7 +25,10 @@
 .chw:hover{border-color:var(--c)}
 .chw .ch{border:0;border-radius:0;background:none;padding:10px 12px 12px}
 .ch b{color:var(--fg)}
-.chpics{display:grid;grid-template-columns:repeat(var(--np,1),minmax(0,1fr));gap:8px;padding:10px 10px 0}
+.chpics{display:grid;grid-template-columns:repeat(var(--np,1),minmax(0,1fr));gap:0;background:#f6f5f2;border-bottom:1px solid var(--line)}
+.chpics{height:136px;overflow:hidden}
+.chpics img{display:block;width:100%;height:136px;min-width:0;object-fit:cover;object-position:66% 50%}
+.chpics img+img{border-left:1px solid var(--line)}
 .chpic{position:relative;display:block;width:100%;padding:0;border:3px solid #1b1f24;border-radius:12px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:3px 3px 0 rgba(0,0,0,.3)}
 .chpic img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;transition:transform .25s}
 .chpic:hover img,.chpic:focus-visible img{transform:scale(1.04)}

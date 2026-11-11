@@ -32,7 +32,7 @@ def fig_punnett_mono():
 
 
 def fig_punnett_di():
-    f = Fig(640, 470, "Dihibridisme AaBb × AaBb")
+    f = Fig(640, 380, "Dihibridisme AaBb × AaBb")
     g = ["AB", "Ab", "aB", "ab"]
     cells, colors = [], []
     ph = {"AB": "verd", "Ab": "blau", "aB": "taronja", "ab": "groc"}
@@ -70,7 +70,7 @@ def fig_punnett_x():
 
 
 def fig_pedigri():
-    f = Fig(640, 300, "Pedigrí compatible amb herència autosòmica recessiva")
+    f = Fig(640, 345, "Pedigrí compatible amb herència autosòmica recessiva")
     s = 34
 
     def male(x, y, aff=False, carrier=False):
@@ -88,21 +88,23 @@ def fig_pedigri():
     # II
     for x, kind in ((150, "m"), (250, "f"), (400, "m")):
         f.line(x, 90, x, 133, sw=2)
-    male(150, 150); female(250, 150, carrier=True); male(400, 150, carrier=True)
+    male(150, 150); female(250, 150); male(400, 150, carrier=True)
     female(500, 150, carrier=True); f.line(417, 150, 483, 150, sw=2)
     f.line(450, 150, 450, 200, sw=2); f.line(390, 200, 510, 200, sw=2)
     for x in (390, 450, 510):
         f.line(x, 200, x, 233, sw=2)
-    male(390, 250); female(450, 250, aff=True); male(510, 250, carrier=True)
+    male(390, 250); female(450, 250, aff=True); male(510, 250)
+    for x, y, t in ((200, 50, "1"), (300, 50, "2"), (150, 150, "1"), (250, 150, "2"), (400, 150, "3"), (500, 150, "4"),
+                    (390, 250, "1"), (450, 250, "2"), (510, 250, "3")):
+        f.text(x, y + 30, t, size=11, fill=MUTED)
     for y, t in ((50, "I"), (150, "II"), (250, "III")):
         f.text(40, y, t, size=16, weight=700, fill=MUTED)
-    f.text(600, 60, "", size=10)
     lx = 560
     f.rect(lx - 10, 40, 16, 16, fill="#fff", stroke=INK, rx=1); f.text(lx + 14, 48, "home", size=12, anchor="start")
     f.circle(lx - 2, 74, 8, fill="#fff", stroke=INK); f.text(lx + 14, 74, "dona", size=12, anchor="start")
     f.rect(lx - 10, 92, 16, 16, fill=INK, stroke=INK, rx=1); f.text(lx + 14, 100, "afectat", size=12, anchor="start")
     f.circle(lx - 2, 128, 8, fill="#fff", stroke=INK); f.circle(lx - 2, 128, 3, fill=INK, stroke="none"); f.text(lx + 14, 128, "portador\n(deduït)", size=12, anchor="start")
-    f.text(320, 290, "Dos progenitors no afectats (II-3 i II-4) tenen una filla afectada: tots dos han de ser portadors.", size=12, fill=MUTED)
+    f.text(320, 318, "II-3 i II-4 no estan afectats però tenen una filla afectada (III-2): tots dos són portadors obligats.\nLa resta d’individus no afectats poden ser portadors o no (no es pot deduir).", size=12, fill=MUTED)
     return f.svg()
 
 
@@ -127,26 +129,27 @@ def fig_lligament():
         f.rect(x - 8, 130, 16, 70, fill=light(cb), stroke=col(cb), sw=1.6, rx=8)
         f.text(x + 18, 100, a, size=14, weight=700, anchor="start"); f.text(x + 18, 160, b, size=14, weight=700, anchor="start")
         f.text(x + 8, 225, t, size=12, weight=700, fill=col("teal") if t == "parental" else col("groc"))
-    f.text(470, 255, "Freqüència de recombinació = recombinants / total · 1 % = 1 cM", size=12, fill=MUTED)
+    f.text(320, 255, "Freqüència de recombinació = recombinants / total · 1 % = 1 cM", size=12, fill=MUTED)
     return f.svg()
 
 
 # ---------------- genètica molecular ----------------
 def fig_dogma():
     f = Fig(640, 200, "Flux de la informació genètica")
-    f.box(40, 70, 130, 60, "DNA", color="blau", size=20)
-    f.box(255, 70, 130, 60, "RNA", color="vermell", size=20)
-    f.box(470, 70, 130, 60, "proteïna", color="verd", size=18)
-    f.arrow(172, 92, 253, 92, color=INK, sw=2.4); f.text(212, 80, "transcripció", size=12, weight=700)
-    f.arrow(253, 112, 172, 112, color=col("taronja"), sw=2.2, dash="6 4"); f.text(212, 128, "retrotranscripció", size=12, weight=700, fill=col("taronja"))
-    f.arrow(387, 100, 468, 100, color=INK, sw=2.4); f.text(427, 86, "traducció", size=12, weight=700)
-    f.arrowpath("M80,68 C60,10 150,10 130,68", color=INK, sw=2.2); f.text(105, 22, "replicació", size=12, weight=700)
-    f.text(320, 175, "La línia discontínua és l’excepció dels retrovirus. La proteïna no torna mai a àcid nucleic.", size=12, fill=MUTED)
+    f.box(20, 70, 110, 60, "DNA", color="blau", size=20)
+    f.box(265, 70, 110, 60, "RNA", color="vermell", size=20)
+    f.box(510, 70, 110, 60, "proteïna", color="verd", size=18)
+    f.arrow(132, 90, 263, 90, color=INK, sw=2.4); f.text(197, 78, "transcripció", size=12, weight=700)
+    f.arrow(263, 112, 132, 112, color=col("taronja"), sw=2.2, dash="6 4"); f.text(197, 128, "retrotranscripció", size=12, weight=700, fill=col("taronja"))
+    f.arrow(377, 100, 508, 100, color=INK, sw=2.4); f.text(442, 86, "traducció", size=12, weight=700)
+    f.arrowpath("M50,68 C30,10 120,10 100,68", color=INK, sw=2.2); f.text(124, 30, "replicació", anchor="start", size=12, weight=700)
+    f.arrowpath("M295,68 C275,10 365,10 345,68", color=col("taronja"), sw=1.8, dash="6 4"); f.text(369, 30, "replicació de l’RNA (alguns virus)", anchor="start", size=11, weight=700, fill=col("taronja"))
+    f.text(320, 175, "Línies discontínues: només en virus (retrovirus, virus RNA). La proteïna no torna mai a àcid nucleic.", size=12, fill=MUTED)
     return f.svg()
 
 
 def fig_transcripcio():
-    f = Fig(640, 250, "Cadena motlle, cadena codificant i RNA missatger")
+    f = Fig(690, 250, "Cadena motlle, cadena codificant i RNA missatger")
     mono = 'font-family="ui-monospace,Menlo,Consolas,monospace"'
     rows = [("cadena codificant", "5′– A T G T T T G G A T A A –3′", "blau"),
             ("cadena motlle", "3′– T A C A A A C C T A T T –5′", "vermell"),
@@ -157,10 +160,14 @@ def fig_transcripcio():
         f.raw(f'<text x="170" y="{y}" font-size="19" {mono} fill="{col(c)}" font-weight="700" dominant-baseline="central">{seq}</text>')
     f.arrow(170, 130, 520, 130, color=col("vermell"), sw=1.4, dash="3 3")
     f.text(345, 145, "l’RNA-polimerasa llegeix el motlle 3′→5′", size=12, fill=col("vermell"))
-    f.raw(f'<text x="170" y="225" font-size="16" {mono} fill="{INK}" font-weight="700" dominant-baseline="central">   Met    Phe    Gly    stop</text>')
+    cw = 19 * 0.6
+    for k, aa in enumerate(["Met", "Phe", "Gly", "stop"]):
+        xc = 170 + cw * (4 + 6 * k + 2.5)
+        f.line(xc - 2.5 * cw, 200, xc + 2.5 * cw, 200, stroke=col("lila"), sw=1.6)
+        f.raw(f'<text x="{xc:.1f}" y="225" font-size="16" {mono} fill="{INK}" font-weight="700" text-anchor="middle" dominant-baseline="central">{aa}</text>')
     f.text(150, 225, "proteïna", size=14, weight=700, anchor="end")
-    f.text(560, 50, "igual que l’RNA\n(T en lloc d’U)", size=11, fill=MUTED, anchor="start")
-    f.text(560, 170, "complementari\ndel motlle", size=11, fill=MUTED, anchor="start")
+    f.text(570, 50, "igual que l’RNA\n(T en lloc d’U)", size=11, fill=MUTED, anchor="start")
+    f.text(570, 170, "complementari\ndel motlle", size=11, fill=MUTED, anchor="start")
     return f.svg()
 
 
@@ -358,14 +365,14 @@ def fig_seleccio():
 
 
 def fig_forces():
-    f = Fig(640, 280, "Factors que canvien les freqüències al·lèliques")
+    f = Fig(640, 292, "Factors que canvien les freqüències al·lèliques")
     f.box(230, 110, 180, 60, "p i q\n(freqüències al·lèliques)", color="gris", size=13)
     forces = [("Selecció natural", "adaptativa", "verd", 20, 20), ("Deriva", "atzar; forta en\npoblacions petites", "blau", 430, 20),
               ("Mutació", "crea al·lels nous;\nefecte lent", "lila", 20, 200), ("Flux gènic", "migració entre\npoblacions", "taronja", 430, 200)]
     for t, s, c, x, y in forces:
         f.box(x, y, 190, 60, f"{t}\n{s}", color=c, size=12)
         f.arrow(x + 95 + (95 if x < 300 else -95), y + 30, 320 + (-90 if x < 300 else 90), 140 + (-20 if y < 100 else 20), color=col(c), sw=2)
-    f.text(320, 270, "L’aparellament no aleatori canvia els genotips, no p ni q.", size=12, fill=MUTED)
+    f.text(320, 282, "L’aparellament no aleatori canvia els genotips, no p ni q.", size=12, fill=MUTED)
     return f.svg()
 
 
@@ -433,8 +440,8 @@ def fig_nitrogen():
     a((130, 216), (250, 300), "nitrificació\n(Nitrosomonas)", 110, 290, curve=(150, 300))
     a((390, 300), (510, 216), "nitrificació\n(Nitrobacter)", 530, 290, curve=(490, 300))
     a((520, 164), (395, 58), "desnitrificació\n(anaerobiosi)", 545, 90, curve=(500, 70))
-    a((450, 190), (408, 180), "assimilació", 430, 160)
-    a((235, 180), (192, 188), "amonificació", 213, 155)
+    a((450, 190), (408, 180), "assimilació", 440, 138)
+    a((235, 180), (192, 188), "amonificació", 205, 138)
     return f.svg()
 
 

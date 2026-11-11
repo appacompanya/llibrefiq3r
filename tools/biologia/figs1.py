@@ -136,7 +136,7 @@ def fig_disacarids():
     f.line(a[0], a[1], a[0] - 22, c1[1] + 42)
     f.line(c1[0] + 40, c1[1] + 42, a[0] - 22, c1[1] + 42)
     glyco_O(f, (c1[0] + 40 + a[0] - 22) / 2, c1[1] + 42)
-    f.text((c1[0] + a[0]) / 2 + 10, c1[1] + 66, "enllaç α1↔β2: cap anomèric lliure", size=13, weight=700, fill=col("vermell"))
+    f.text(250, c1[1] + 92, "enllaç α1↔β2 (O-glicosídic entre els dos carbonis anomèrics)", size=13, weight=700, fill=col("vermell"))
     f.text(fx + 60, fy - 52, "β-D-fructofuranosa (girada)", size=12, fill=MUTED)
     return f.svg()
 
@@ -226,7 +226,7 @@ def fig_lipids():
         zig(f, X + 70, yy - 3, 11, step=14, amp=7, color=col("marro"))
 
     f.rect(X - 6, 60, 92, 112, fill="none", stroke=col("blau"), dash="5 4", rx=10)
-    f.text(X + 40, 186 + 112, "cap hidròfil", size=12, fill=col("blau"), weight=700)
+    f.text(X - 10, 116, "cap\nhidròfil", size=12, fill=col("blau"), weight=700, anchor="end")
     f.text(X + 160, 290, "cues hidròfobes", size=12, fill=col("marro"), weight=700)
     # bicapa petita
     by = 322
@@ -245,7 +245,7 @@ def fig_aminoacid():
     f.text(130, 22, "Aminoàcid a pH ≈ 7 (zwitterió)", size=15, weight=700, fill=col("teal"))
     cx, cy = 130, 120
     f.text(cx, cy, "C", size=20, weight=700)
-    f.text(cx, cy - 18, "α", size=11, fill=MUTED)
+    f.text(cx - 14, cy - 14, "α", size=12, fill=MUTED, weight=700)
     f.line(cx - 12, cy, cx - 48, cy); f.text(cx - 75, cy, "H₃N⁺", size=18, weight=700, fill=col("blau"))
     f.line(cx + 12, cy, cx + 48, cy); f.text(cx + 75, cy, "COO⁻", size=18, weight=700, fill="#b03a2e")
     f.line(cx, cy + 12, cx, cy + 40); f.text(cx, cy + 54, "R", size=18, weight=700, fill=col("lila"))
@@ -284,14 +284,18 @@ def fig_proteina():
         f.text(x + 74, 262, sub, size=12, fill=MUTED)
     # primària
     cols = ["verd", "blau", "taronja", "lila", "vermell", "teal", "groc"]
-    for j in range(7):
-        bx, by = 32 + (j % 4) * 34, 90 + (j // 4) * 70
-        if j < 6:
-            nx, ny = 32 + ((j + 1) % 4) * 34, 90 + ((j + 1) // 4) * 70
-            f.line(bx, by, nx, ny, stroke=MUTED, sw=2)
-        f.circle(bx, by, 13, fill=light(cols[j]), stroke=col(cols[j]), sw=1.8)
-        f.text(bx, by, "AGLKVDS"[j], size=12, weight=700)
-    f.text(40, 195, "N", size=12, weight=700, fill=MUTED); f.text(130, 195, "C", size=12, weight=700, fill=MUTED)
+    # cadena en serp: fila 1 d'esquerra a dreta, fila 2 de dreta a esquerra
+    def pos(j):
+        r, c = divmod(j, 4)
+        return (36 + (c if r % 2 == 0 else 3 - c) * 32, 85 + r * 46)
+    for j in range(11):
+        if j < 10:
+            f.line(*pos(j), *pos(j + 1), stroke=MUTED, sw=2)
+    for j in range(11):
+        bx, by = pos(j)
+        f.circle(bx, by, 12, fill=light(cols[j % 7]), stroke=col(cols[j % 7]), sw=1.8)
+        f.text(bx, by, "MAGLKVDSERW"[j], size=11, weight=700)
+    f.text(18, 85, "N", size=12, weight=700, fill=MUTED); f.text(68, 177, "C", size=12, weight=700, fill=MUTED, anchor="end")
     # secundària: hèlix i full
     x = 167
     d = "M" + " ".join(f"{x+20+ t*1.6},{70+14*math.sin(t/4.2)}" for t in range(0, 70))
@@ -383,7 +387,7 @@ def fig_vs(variant="tres"):
         f.line(x0 + 0.35 * W, y0, x0 + 0.35 * W, y0 - 0.45 * H, stroke=col("blau"), dash="3 3", sw=1.2)
         f.text(x0 + 0.35 * W, y0 + 14, "K_{m} aparent", size=12, fill=col("blau"), weight=700)
         f.text(x0 - 8, y0 - 0.45 * H, "V_{max}/2", size=11, anchor="end", fill=MUTED)
-        lx, ly = x0 + 300, y0 - 120
+        lx, ly = x0 + 270, y0 - 62
         for k, (c, d, t) in enumerate([("verd", None, "sense inhibidor"), ("blau", "8 5", "competitiu: V_{max} igual"), ("vermell", "2 5", "no competitiu: V_{max} baixa")]):
             f.line(lx, ly + k * 24, lx + 30, ly + k * 24, stroke=col(c), sw=3, dash=d)
             f.text(lx + 38, ly + k * 24, t, size=13, anchor="start")

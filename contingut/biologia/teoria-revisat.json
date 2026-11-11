@@ -299,7 +299,7 @@
  },
  {
   "t": "p",
-  "html": "Els glúcids (hidrats de carboni, sucres) responen aproximadament a C<sub>n</sub>(H<sub>2</sub>O)<sub>n</sub>. Porten diversos grups hidroxil i un grup carbonil: aldehid (aldoses) o cetona (cetoses). Es classifiquen pel nombre de monosacàrids units.",
+  "html": "Els glúcids (hidrats de carboni) són polihidroxialdehids o polihidroxicetones i els polímers que en deriven. Molts responen a la fórmula empírica C<sub>m</sub>(H<sub>2</sub>O)<sub>n</sub>, però hi ha excepcions (la desoxiribosa, C<sub>5</sub>H<sub>10</sub>O<sub>4</sub>). Cada monosacàrid porta diversos grups hidroxil i un grup carbonil: aldehid (aldoses) o cetona (cetoses). Es classifiquen pel nombre de monosacàrids units: monosacàrids, disacàrids, oligosacàrids i polisacàrids.",
   "x": 51,
   "page": 5,
   "oid": "25"
@@ -3047,7 +3047,7 @@
    },
    {
     "t": "p",
-    "html": "Continua tenint 46 cromosomes. Cada un té 2 cromàtides, o sigui 92 cromàtides. El DNA és el doble que a G1 (4C en lloc de 2C). L’error és dir que té 92 cromosomes ja a la fase S: això només passa, i un instant, quan les cromàtides se separen a l’anafase i cada una compta com un cromosoma. Abans de la citocinesi n’hi ha 92 al conjunt, i cada nucli fill en torna a tenir 46.",
+    "html": "Continua tenint 46 cromosomes. Cada un té 2 cromàtides, o sigui 92 cromàtides. El DNA és el doble que a G1 (4C en lloc de 2C). L’error és dir que té 92 cromosomes ja a la fase S: això només passa des de l’anafase, quan les cromàtides germanes se separen i cada una passa a comptar com un cromosoma, fins que la citocinesi reparteix el material. Abans de la citocinesi n’hi ha 92 al conjunt, i cada nucli fill en torna a tenir 46.",
     "x": 69
    }
   ],
@@ -6119,7 +6119,7 @@
  },
  {
   "t": "p",
-  "html": "La distància es calcula només amb un encreuament prova, on es veu el genotip de cada descendent. Es sumen els dos tipus recombinants, es divideix pel total i es multiplica per 100. Els parentals són els dos grups grans. Si els quatre grups són semblants, no hi ha lligament i no es dona una distància: es diu que són independents o tan lluny que no es distingeixen.",
+  "html": "La manera més directa de calcular la distància és un encreuament prova (dihíbrid × doble homozigot recessiu), perquè el fenotip de cada descendent mostra quin gàmete ha aportat el dihíbrid. Es sumen els dos tipus recombinants, es divideix pel total i es multiplica per 100. Els parentals són els dos grups grans. Si els quatre grups són semblants, no hi ha lligament i no es dona una distància: es diu que són independents o tan lluny que no es distingeixen.",
   "x": 51,
   "page": 100,
   "oid": "532"
@@ -8666,7 +8666,7 @@
   "children": [
    {
     "t": "p",
-    "html": "Uns fongs patogens eren rars en mamífers perquè la nostra temperatura els anava malament. Amb un clima més càlid, les soques que toleren temperatures més altes es fan més freqüents. És lamarckisme o selecció?",
+    "html": "Uns fongs patògens eren rars en mamífers perquè la nostra temperatura els anava malament. Amb un clima més càlid, les soques que toleren temperatures més altes es fan més freqüents. És lamarckisme o selecció?",
     "x": 69
    },
    {
@@ -9677,7 +9677,7 @@
    },
    {
     "t": "p",
-    "html": "Tècniques: esterilització, aïllament, cultiu i tinció de Gram. Transferència horitzontal: transformació, transducció i conjugació, i la resistència als antibiòtics. Les orientacions demanen no fer servir el terme parasexualitat. Dels virus cal composició, cicles lític i lisogènic i retrotranscripció. Viroides i prions es comparen amb els virus. Els fongs surten als exàmens com a patogens oportunistes, no com un tema de micologia.",
+    "html": "Tècniques: esterilització, aïllament, cultiu i tinció de Gram. Transferència horitzontal: transformació, transducció i conjugació, i la resistència als antibiòtics. Les orientacions demanen no fer servir el terme parasexualitat. Dels virus cal composició, cicles lític i lisogènic i retrotranscripció. Viroides i prions es comparen amb els virus. Els fongs surten als exàmens com a patògens oportunistes, no com un tema de micologia.",
     "x": 69
    }
   ],
@@ -9870,7 +9870,7 @@
  },
  {
   "t": "p",
-  "html": "Cultivar és fer créixer en un medi. Esterilitzar és matar tota forma de vida, espores incloses: autoclau (vapor a pressió), flama, filtració per a líquids que no es poden escalfar. Desinfectar és reduir els microorganismes d’una superfície, no garantir l’absència d’espores. Pasteuritzar és un escalfament suau que mata patogens vegetatius i allarga la vida de la llet; no esterilitza. Una espora bacteriana no és un gàmeta: és una forma de resistència, amb el DNA protegit, que germina quan les condicions tornen.",
+  "html": "Cultivar és fer créixer en un medi. Esterilitzar és matar tota forma de vida, espores incloses: autoclau (vapor a pressió), flama, filtració per a líquids que no es poden escalfar. Desinfectar és reduir els microorganismes d’una superfície, no garantir l’absència d’espores. Pasteuritzar és un escalfament suau que mata patògens vegetatius i allarga la vida de la llet; no esterilitza. Una espora bacteriana no és un gàmeta: és una forma de resistència, amb el DNA protegit, que germina quan les condicions tornen.",
   "x": 51,
   "page": 154,
   "oid": "883"
@@ -9887,7 +9887,7 @@
    },
    {
     "t": "p",
-    "html": "L’autoclau esterilitza: és més que desinfectar. La llet pasteuritzada no està estèril: s’han mort formes vegetatives i queden, o hi poden quedar, espores i microorganismes termoresistents no patogens. Per això es guarda a la nevera i caduca. Confondre els tres mots és un error de protocol, no de vocabulari menor.",
+    "html": "L’autoclau esterilitza: és més que desinfectar. La llet pasteuritzada no està estèril: s’han mort formes vegetatives i queden, o hi poden quedar, espores i microorganismes termoresistents no patògens. Per això es guarda a la nevera i caduca. Confondre els tres mots és un error de protocol, no de vocabulari menor.",
     "x": 69
    }
   ],
@@ -9959,7 +9959,7 @@
  },
  {
   "t": "p",
-  "html": "Pel que mengen i d’on treuen l’energia, els bacteris es reparteixen en fotoautòtrofs (cianobacteris: llum i CO₂, amb O₂), fotoheteròtrofs, quimioautòtrofs (oxiden un inorgànic i fixen CO₂: nitrificants, bacteris del sofre) i quimioheteròtrofs (la majoria de patogens i descomponedors). N’hi ha d’aerobis, d’anaerobis estrictes i de facultatius.",
+  "html": "Pel que mengen i d’on treuen l’energia, els bacteris es reparteixen en fotoautòtrofs (cianobacteris: llum i CO₂, amb O₂), fotoheteròtrofs, quimioautòtrofs (oxiden un inorgànic i fixen CO₂: nitrificants, bacteris del sofre) i quimioheteròtrofs (la majoria de patògens i descomponedors). N’hi ha d’aerobis, d’anaerobis estrictes i de facultatius.",
   "x": 51,
   "page": 155,
   "oid": "889"
@@ -11015,7 +11015,7 @@
  },
  {
   "t": "p",
-  "html": "El complement és un conjunt de proteïnes del plasma. La via clàssica s’engega amb anticossos units a l’antigen. L’alternativa s’engega a la superfície de molts patogens, sense anticossos. La de les lectines s’engega quan una lectina del plasma reconeix manoses de la paret microbiana. Les tres convergeixen. Els efectes que cal saber són l’opsonització (marcar per fagocitar), la inflamació i el complex d’atac a la membrana, que forada alguns bacteris. No cal la llista numerada de les proteïnes.",
+  "html": "El complement és un conjunt de proteïnes del plasma. La via clàssica s’engega amb anticossos units a l’antigen. L’alternativa s’engega a la superfície de molts patògens, sense anticossos. La de les lectines s’engega quan una lectina del plasma reconeix manoses de la paret microbiana. Les tres convergeixen. Els efectes que cal saber són l’opsonització (marcar per fagocitar), la inflamació i el complex d’atac a la membrana, que forada alguns bacteris. No cal la llista numerada de les proteïnes.",
   "x": 51,
   "page": 170,
   "oid": "992"
@@ -12027,7 +12027,7 @@
   "children": [
    {
     "t": "p",
-    "html": "Perquè el primer contacte ha seleccionat el clon de limfòcits que reconeixia l’antigen i n’ha deixat cèl·lules de memòria, molt més nombroses i més fàcils d’activar que els limfòcits naïfs inicials. En el segon contacte, aquest clon s’expandeix de seguida. A més, els limfòcits B de memòria ja han fet el canvi de classe, de manera que la resposta és sobretot IgG, mentre que la primària comença amb IgM i tarda dies. No és que la immunitat innata «recordi» l’antigen: la memòria és de la resposta específica. Una corba que no millorés la segona vegada no seria una resposta amb memòria.",
+    "html": "Perquè el primer contacte ha seleccionat el clon de limfòcits que reconeixia l’antigen i n’ha deixat cèl·lules de memòria, molt més nombroses i més fàcils d’activar que els limfòcits verges (naïfs) inicials. En el segon contacte, aquest clon s’expandeix de seguida. A més, els limfòcits B de memòria ja han fet el canvi de classe, de manera que la resposta és sobretot IgG, mentre que la primària comença amb IgM i tarda dies. No és que la immunitat innata «recordi» l’antigen: la memòria és de la resposta específica. Una corba que no millorés la segona vegada no seria una resposta amb memòria.",
     "x": 92
    }
   ],

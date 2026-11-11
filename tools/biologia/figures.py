@@ -1,6 +1,6 @@
 """Registre de figures del llibre de Biologia: clau → dibuix (SVG propi) o imatge de Commons + peu."""
 from pathlib import Path
-import figs1, figs2, figs3, figs4
+import figs1, figs2, figs3, figs4, figs5, figs6
 
 ROOT = Path(__file__).resolve().parents[2]
 IMG = ROOT / "biologia" / "img"
@@ -20,28 +20,28 @@ FIG = {
     "vs_aut": (lambda: figs1.fig_vs("aut"), "Gràfic de l’exercici: velocitat de la reacció en funció de la concentració de substrat, sense fàrmac i amb fàrmac."),
     "map1": (figs4.map1, "Mapa del tema 1."),
     # tema 2
-    "pro_euc": (figs2.fig_pro_euc, "Cèl·lula procariota i cèl·lula eucariota (no a escala: la eucariota sol ser unes deu vegades més gran)."),
+    "pro_euc": (figs5.fig_pro_euc, "Cèl·lula procariota i cèl·lula eucariota (no a escala: la eucariota sol ser unes deu vegades més gran)."),
     "membrana": ("commons:membrana", "Model del mosaic fluid de la membrana plasmàtica."),
-    "bomba": (figs2.fig_bomba, "Bomba de sodi i potassi (Na⁺/K⁺-ATPasa): per cada ATP hidrolitzat treu 3 Na⁺ i entra 2 K⁺, tots dos en contra del seu gradient."),
-    "osmosi": (figs2.fig_osmosi, "Osmosi en una cèl·lula animal (eritròcit) i en una cèl·lula vegetal segons la concentració de soluts del medi."),
-    "nucli": ("commons:nucli", "El nucli i la seva relació amb el reticle endoplasmàtic."),
-    "mitocondri": ("commons:mitocondri", "Estructura del mitocondri."),
-    "cloroplast": ("commons:cloroplast", "Estructura del cloroplast."),
-    "animal": ("commons:animal", "Cèl·lula animal: no té paret ni cloroplasts, té centríols i lisosomes."),
-    "vegetal": ("commons:vegetal", "Cèl·lula vegetal: paret de cel·lulosa, vacúol gran, cloroplasts i plasmodesmes; no té centríols."),
+    "bomba": (figs5.fig_bomba, "Bomba de sodi i potassi (Na⁺/K⁺-ATPasa): per cada ATP hidrolitzat treu 3 Na⁺ i entra 2 K⁺, tots dos en contra del seu gradient."),
+    "osmosi": (figs5.fig_osmosi, "Osmosi en una cèl·lula animal (eritròcit) i en una cèl·lula vegetal segons la concentració de soluts del medi."),
+    "nucli": (figs5.fig_nucli, "El nucli: embolcall nuclear doble amb porus, continu amb el reticle endoplasmàtic rugós; a dins, la cromatina i el nuclèol."),
+    "mitocondri": (figs5.fig_mitocondri, "Estructura del mitocondri: membrana externa, espai intermembranós, membrana interna plegada en crestes i matriu amb DNA circular i ribosomes 70S."),
+    "cloroplast": (figs5.fig_cloroplast, "Estructura del cloroplast: doble membrana, estroma (amb DNA circular i ribosomes 70S) i tilacoides apilats en grana."),
+    "animal": (figs5.fig_animal, "Cèl·lula animal: no té paret ni cloroplasts, té centríols i lisosomes."),
+    "vegetal": (figs5.fig_vegetal, "Cèl·lula vegetal: paret de cel·lulosa, vacúol gran, cloroplasts i plasmodesmes; no té centríols."),
     "cicle": (figs2.fig_cicle, "El cicle cel·lular. La interfase (G1, S i G2) ocupa la major part del cicle; la fase M és la mitosi més la citocinesi."),
-    "mitosi": (figs2.fig_mitosi, "Fases de la mitosi en una cèl·lula 2n = 4 (homòlegs en vermell i en blau). A l’anafase se separen les cromàtides germanes i en surten dues cèl·lules 2n idèntiques."),
-    "meiosi": (figs2.fig_meiosi, "Fases de la meiosi en una cèl·lula 2n = 4. A l’anafase I se separen els homòlegs (amb dues cromàtides); a l’anafase II, les cromàtides germanes. En surten quatre cèl·lules n diferents."),
+    "mitosi": (figs5.fig_mitosi, "Fases de la mitosi en una cèl·lula 2n = 4: un parell de cromosomes llargs i un de curts (d’origen matern en vermell i patern en blau). A l’anafase se separen les cromàtides germanes i en surten dues cèl·lules 2n idèntiques."),
+    "meiosi": (figs5.fig_meiosi, "Fases de la meiosi en una cèl·lula 2n = 4. A la profase I els homòlegs s’aparellen i fan entrecreuaments (puntes de l’altre color). A l’anafase I se separen els homòlegs (amb dues cromàtides); a l’anafase II, les cromàtides germanes. En surten quatre cèl·lules n diferents."),
     "map2": (figs4.map2, "Mapa del tema 2."),
     # tema 3
     "atp": (figs3.fig_atp, "L’ATP és un nucleòtid: adenina, ribosa i tres fosfats. La cèl·lula aprofita l’energia de la hidròlisi dels enllaços entre fosfats."),
-    "cat_anab": (figs3.fig_cat_anab, "El catabolisme i l’anabolisme queden lligats per l’ATP i pels coenzims reduïts."),
-    "glucolisi": (figs3.fig_glucolisi, "Balanç de la glucòlisi: es gasten 2 ATP, se’n formen 4 i es redueixen 2 NAD⁺. Net per glucosa: 2 ATP, 2 NADH i 2 piruvats, al citosol."),
+    "cat_anab": (figs6.fig_cat_anab, "El catabolisme i l’anabolisme queden lligats per l’ATP i pels coenzims reduïts."),
+    "glucolisi": (figs6.fig_glucolisi, "Balanç de la glucòlisi: es gasten 2 ATP, se’n formen 4 i es redueixen 2 NAD⁺. Net per glucosa: 2 ATP, 2 NADH i 2 piruvats, al citosol."),
     "respiracio": (figs3.fig_respiracio, "Visió de conjunt de la respiració cel·lular aeròbica en una cèl·lula eucariota."),
-    "krebs": (figs3.fig_krebs, "El cicle de Krebs, a la matriu mitocondrial. Cada acetil-CoA que entra s’uneix a l’oxalacetat; en una volta surten 2 CO₂, 3 NADH, 1 FADH₂ i 1 GTP, i es regenera l’oxalacetat."),
-    "cadena": (figs3.fig_cadena, "Cadena respiratòria i fosforilació oxidativa. Els complexos I, III i IV bombegen protons cap a l’espai intermembranós; el retorn dels protons per l’ATP-sintasa fa l’ATP."),
-    "fermentacions": (figs3.fig_fermentacions, "Les fermentacions reoxiden el NADH de la glucòlisi sense cadena respiratòria. El rendiment és el de la glucòlisi: 2 ATP per glucosa."),
-    "fase_lluminosa": (figs3.fig_fase_lluminosa, "Fase lluminosa a la membrana del tilacoide (flux acíclic d’electrons). Els protons s’acumulen al lumen i tornen a l’estroma per l’ATP-sintasa."),
+    "krebs": (figs6.fig_krebs, "El cicle de Krebs, a la matriu mitocondrial. Cada acetil-CoA que entra s’uneix a l’oxalacetat; en una volta surten 2 CO₂, 3 NADH, 1 FADH₂ i 1 GTP, i es regenera l’oxalacetat."),
+    "cadena": (figs6.fig_cadena, "Cadena respiratòria i fosforilació oxidativa. Els complexos I, III i IV bombegen protons cap a l’espai intermembranós; el retorn dels protons per l’ATP-sintasa fa l’ATP."),
+    "fermentacions": (figs6.fig_fermentacions, "Les fermentacions reoxiden el NADH de la glucòlisi sense cadena respiratòria. El rendiment és el de la glucòlisi: 2 ATP per glucosa."),
+    "fase_lluminosa": (figs6.fig_fase_lluminosa, "Fase lluminosa a la membrana del tilacoide (flux acíclic d’electrons). Els protons s’acumulen al lumen i tornen a l’estroma per l’ATP-sintasa."),
     "zeta": (figs3.fig_zeta, "Esquema en Z: energia dels electrons al llarg de la fase lluminosa. Cada fotosistema absorbeix llum i aixeca els electrons."),
     "calvin": (figs3.fig_calvin, "Cicle de Calvin, a l’estroma del cloroplast (valors per a 3 CO₂ fixats)."),
     "map3": (figs4.map3, "Mapa del tema 3."),
@@ -64,23 +64,23 @@ FIG = {
     "crispr": (figs4.fig_crispr, "CRISPR-Cas9: l’RNA guia porta la nucleasa Cas9 a la seqüència diana, al costat d’un PAM. La reparació del tall decideix el resultat."),
     "map5": (figs4.map5, "Mapa del tema 5."),
     # tema 6
-    "homologia": ("commons:homologia", "Òrgans homòlegs: l’extremitat anterior de diversos vertebrats té el mateix pla ossi encara que la funció sigui diferent."),
+    "homologia": (figs5.fig_homologia, "Òrgans homòlegs: l’extremitat anterior de l’ésser humà, el ratpenat, la balena i l’ocell té el mateix pla ossi (húmer, radi i cúbit, carp, metacarp i falanges, cada os amb el mateix color) encara que la funció sigui diferent."),
     "seleccio": (figs4.fig_seleccio, "Les tres condicions de la selecció natural han de donar-se alhora."),
     "forces": (figs4.fig_forces, "Factors que canvien les freqüències al·lèliques d’una població."),
     "especiacio": (figs4.fig_especiacio, "Especiació al·lopàtrica i simpàtrica."),
     "map6": (figs4.map6, "Mapa del tema 6."),
     # tema 7
-    "bacteri": ("commons:bacteri", "Estructura d’una cèl·lula bacteriana."),
+    "bacteri": (figs5.fig_bacteri, "Estructura d’una cèl·lula bacteriana: càpsula, paret, membrana plasmàtica, nucleoide amb el cromosoma circular, plasmidis, ribosomes 70S, inclusions, fímbries, pilus sexual i flagel. No té nucli ni orgànuls amb membrana."),
     "gram": (figs4.fig_gram, "Paret dels bacteris gram positius i gram negatius."),
     "nitrogen": (figs4.fig_nitrogen, "Cicle del nitrogen: els passos que fan els microorganismes."),
-    "fag": ("commons:fag", "Bacteriòfag de tipus T4: càpsida (cap) amb DNA, coll, cua, placa basal i fibres de la cua."),
-    "cicles_virus": (figs4.fig_cicles_virus, "Cicle lític i cicle lisogènic d’un bacteriòfag."),
+    "fag": (figs5.fig_fag, "Bacteriòfag de tipus T4: càpsida (cap) amb DNA, coll, cua, placa basal i fibres de la cua."),
+    "cicles_virus": (figs5.fig_cicles_virus, "Cicle lític i cicle lisogènic d’un bacteriòfag."),
     "acel": (figs4.fig_acel, "Tres agents infecciosos acel·lulars."),
     "map7": (figs4.map7, "Mapa del tema 7."),
     # tema 8
     "humoral_cel": (figs4.fig_humoral_cel, "Resposta immunitària específica humoral i cel·lular."),
     "anticos": (figs4.fig_anticos, "Estructura d’un anticòs IgG."),
-    "resposta": (figs4.fig_resposta, "Concentració d’anticossos després del primer i del segon contacte amb el mateix antigen."),
+    "resposta": (figs5.fig_resposta, "Concentració d’anticossos després del primer i del segon contacte amb el mateix antigen."),
     "tipus_immunitat": (figs4.fig_tipus_immunitat, "Tipus d’immunitat adquirida."),
     "map8": (figs4.map8, "Mapa del tema 8."),
     # tema 9

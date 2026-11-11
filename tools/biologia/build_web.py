@@ -300,6 +300,12 @@ def scripts(prefix):
 COVER_SVG = {}
 
 
+def cover_art(t, prefix, eager=True):
+    """Il·lustració decorativa del tema (generada amb IA, vegeu tools/biologia/imatges_ia.json)."""
+    return (f'<div class="cover-art" aria-hidden="true"><img src="{prefix}img/temes/{t.slug}.webp" alt="" width="1200" height="800"'
+            f'{"" if eager else " loading=lazy"} decoding="async"></div>')
+
+
 def cover_toc(t, href=""):
     li = "".join(f'<li><a href="{href}#{sid}"><span{" class=nn aria-hidden=true" if not num else ""}>{num or "·"}</span>{esc(label)}</a></li>' for sid, num, label in t.secs)
     return li
@@ -317,7 +323,7 @@ def page_tema(t, temes):
     pn += "</nav>"
     cover = (f'<header class="cover"><div class="cover-band"><div class="cover-num"><small>Tema {t.n}</small>{t.n}</div>'
              f'<div class="cover-kick">Teoria · {esc(t.group)}</div><h1>{esc(t.title)}</h1></div>'
-             f'<div class="cover-body"><nav class="cover-toc" aria-label="En aquest tema"><h2>En aquest tema</h2><ol>{cover_toc(t)}</ol></nav>'
+             f'{cover_art(t, prefix)}<div class="cover-body"><nav class="cover-toc" aria-label="En aquest tema"><h2>En aquest tema</h2><ol>{cover_toc(t)}</ol></nav>'
              f'<p class="cover-pdf noprint"><a href="../pau/?cap={t.slug}#index">Exercicis PAU d’aquest tema →</a></p></div></header>')
     body = (head(f"Tema {t.n}. {t.title} – Biologia", prefix) + f'<body class="b-{t.n} doc-teoria" id="top"><a class="skip" href="#contingut">Salta al contingut</a><div class="layout">'
             + sidebar(temes, t.slug, prefix) + '<div class="main">'
@@ -331,14 +337,15 @@ def cards(temes, prefix):
     for t in temes:
         li = "".join(f'<li><a href="{prefix}teoria/{t.slug}.html#{sid}"><span{" class=nn aria-hidden=true" if not num else ""}>{num or "·"}</span>{esc(label)}</a></li>'
                      for sid, num, label in t.secs if label not in ("Glossari",))
-        out.append(f'<article class="card b-{t.n}" id="tema-{t.slug}"><a class="card-h" href="{prefix}teoria/{t.slug}.html"><span class="big">{t.n}</span>'
+        out.append(f'<article class="card b-{t.n}" id="tema-{t.slug}"><a class="card-art" href="{prefix}teoria/{t.slug}.html" tabindex="-1" aria-hidden="true">'
+                   f'<img src="{prefix}img/temes/{t.slug}_thumb.webp" alt="" width="600" height="400" loading="lazy" decoding="async"></a><a class="card-h" href="{prefix}teoria/{t.slug}.html"><span class="big">{t.n}</span>'
                    f'<span><small>Tema {t.n} · {esc(t.group)}</small><b>{esc(t.title)}</b></span></a><ol>{li}</ol></article>')
     return '<div class="cards">' + "".join(out) + "</div>"
 
 
 def page_index(temes):
     prefix = ""
-    hero = ('<header class="hero"><div class="eyebrow">2n de Batxillerat · PAU Catalunya</div><h1>Biologia</h1>'
+    hero = ('<header class="hero"><div class="hero-art" aria-hidden="true"><img src="img/temes/portada.webp" alt="" width="1200" height="800" decoding="async"></div><div class="eyebrow">2n de Batxillerat · PAU Catalunya</div><h1>Biologia</h1>'
             '<p>La teoria de Biologia de 2n de Batxillerat, tema per tema, amb exercicis resolts, autoavaluació i mapes de cada tema. '
             'A part, el recull d’exercicis de les PAU de Catalunya (2011–2026) per blocs, amb el solucionari separat perquè primer hi pugueu pensar.</p>'
             '<p class="credit">Llibre digital dinàmic creat per <b>Macià Esteve Pallarès Pallarès</b> · <a href="../">← Llibre de 3r d’ESO</a> · <a href="../btx/">Física II →</a></p>'
@@ -368,7 +375,7 @@ def page_print(temes):
     parts = []
     for t in temes:
         parts.append(f'<div class="b-{t.n} chap"><header class="cover"><div class="cover-band"><div class="cover-num"><small>Tema {t.n}</small>{t.n}</div>'
-                     f'<div class="cover-kick">{esc(t.group)}</div><h1>{esc(t.title)}</h1></div></header>{t.body}</div>')
+                     f'<div class="cover-kick">{esc(t.group)}</div><h1>{esc(t.title)}</h1></div>{cover_art(t, "")}</header>{t.body}</div>')
     body = (head("Biologia – 2n de Batxillerat · Teoria", "") + '<body class="print-book">'
             + '<div class="ptitle"><div class="eyebrow">2n de Batxillerat · PAU Catalunya</div><h1>Biologia</h1><p>Llibre de teoria</p>'
             + '<p class="credit">Macià Esteve Pallarès Pallarès · llibrefiq3r.cat/biologia</p><ol class="ptoc">'

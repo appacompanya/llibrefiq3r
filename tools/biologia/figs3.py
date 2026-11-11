@@ -69,7 +69,7 @@ def fig_respiracio():
     f.text(30, 50, "CITOSOL", size=12, weight=700, fill=MUTED, anchor="start")
     f.rect(210, 70, 410, 380, fill="#fbe3cf", stroke=col("taronja"), sw=3, rx=40)
     f.rect(222, 82, 386, 356, fill="#fff3e6", stroke=col("taronja"), sw=2, rx=32)
-    f.text(600, 100, "MITOCONDRI", size=12, weight=700, fill=col("taronja"), anchor="end")
+    f.text(615, 58, "MITOCONDRI", size=12, weight=700, fill=col("taronja"), anchor="end")
     f.text(420, 118, "matriu", size=12, fill=MUTED)
     f.box(30, 80, 150, 40, "glucosa", color="verd", size=14)
     f.arrow(105, 122, 105, 160)
@@ -85,18 +85,17 @@ def fig_respiracio():
     f.text(325, 312, "Cicle de", size=14, weight=700); f.text(325, 330, "Krebs", size=14, weight=700)
     f.text(325, 400, "×2: 6 NADH · 2 FADH₂\n2 GTP · 4 CO₂", size=12, weight=700, fill=col("vermell"))
     # cadena
-    f.rect(470, 140, 120, 280, fill=light("lila"), stroke=col("lila"), sw=2, rx=12)
+    f.rect(470, 140, 120, 285, fill=light("lila"), stroke=col("lila"), sw=2, rx=12)
     f.text(530, 162, "Cadena\nrespiratòria", size=13, weight=700)
     f.text(530, 200, "membrana\ninterna", size=11, fill=MUTED)
     for k in range(4):
         f.rect(490, 225 + k * 26, 80, 18, fill="#fff", stroke=col("lila"), rx=4)
         f.text(530, 234 + k * 26, ["complex I", "complex II · Q", "complex III · cit c", "complex IV"][k], size=10)
     f.text(530, 345, "½ O₂ → H₂O", size=12, weight=700, fill=col("blau"))
-    f.box(490, 365, 80, 36, "ATP-sintasa", color="groc", size=11)
+    f.box(486, 358, 88, 30, "ATP-sintasa", color="groc", size=11)
     f.arrow(395, 280, 470, 250, color=col("lila"), sw=2.2)
     f.text(430, 245, "NADH,\nFADH₂", size=11, fill=col("lila"), weight=700)
-    f.arrow(325, 175, 470, 200, color=col("lila"), sw=1.6, dash="5 4")
-    f.pill(530, 425, "≈ 26–28 ATP", color="groc", size=12, solid=True)
+    f.pill(530, 405, "≈ 26–28 ATP", color="groc", size=12, solid=True)
     f.text(320, 18, "Total per glucosa: ≈ 30–32 ATP (2 + 2 de substrat, la resta de la fosforilació oxidativa)", size=12, fill=INK, weight=700)
     return f.svg()
 
@@ -241,10 +240,10 @@ def fig_fase_lluminosa():
 
 
 def fig_zeta():
-    f = Fig(640, 330, "Esquema en Z de la fase lluminosa")
-    f.line(50, 300, 50, 30, sw=1.6); f.text(30, 165, "potencial redox (energia dels e⁻)", size=12, rot=-90, fill=MUTED)
-    f.text(56, 36, "més reductor", size=11, anchor="start", fill=MUTED); f.text(56, 294, "més oxidant", size=11, anchor="start", fill=MUTED)
-    pts = [(110, 270, "H₂O"), (170, 250, "P680"), (210, 70, "P680*"), (280, 130, "PQ"), (340, 170, "cit b₆f"), (400, 200, "PC"), (440, 210, "P700"), (480, 50, "P700*"), (540, 90, "Fd"), (600, 120, "NADP⁺")]
+    f = Fig(640, 345, "Esquema en Z de la fase lluminosa")
+    f.line(50, 318, 50, 30, sw=1.6); f.text(30, 165, "potencial redox (energia dels e⁻)", size=12, rot=-90, fill=MUTED)
+    f.text(56, 36, "més reductor", size=11, anchor="start", fill=MUTED); f.text(56, 312, "més oxidant", size=11, anchor="start", fill=MUTED)
+    pts = [(118, 262, "H₂O"), (170, 250, "P680"), (210, 70, "P680*"), (280, 130, "PQ"), (340, 170, "cit b₆f"), (400, 200, "PC"), (440, 210, "P700"), (480, 50, "P700*"), (540, 90, "Fd"), (600, 120, "NADP⁺")]
     for (x, y, t), (x2, y2, _) in zip(pts, pts[1:]):
         if t in ("P680", "P700"):
             f.arrow(x, y - 8, x2, y2 + 10, color="#e6a700", sw=4)
@@ -254,9 +253,9 @@ def fig_zeta():
         f.text(x, y + (16 if t in ("H₂O", "P680", "P700", "PC") else -14), t, size=12, weight=700)
     f.text(190, 160, "llum", size=12, fill="#b38600", weight=700, anchor="end")
     f.text(462, 140, "llum", size=12, fill="#b38600", weight=700, anchor="end")
-    f.text(110, 300, "O₂ + H⁺", size=11, fill=col("blau"))
+    f.text(145, 284, "→ ½ O₂ + 2 H⁺", size=11, fill=col("blau"), anchor="start")
     f.text(600, 150, "NADPH", size=12, weight=700, fill=col("lila"))
-    f.text(320, 315, "Els e⁻ baixen entre fotosistemes i això bombeja H⁺ (ATP). En la fosforilació cíclica, tornen del FS I al cit b₆f.", size=11, fill=MUTED)
+    f.text(330, 336, "Els e⁻ baixen entre fotosistemes i això bombeja H⁺ (ATP). En la fosforilació cíclica, tornen del FS I al cit b₆f.", size=11, fill=MUTED)
     return f.svg()
 
 
