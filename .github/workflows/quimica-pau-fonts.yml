@@ -6,7 +6,7 @@ name: Química PAU · fonts
 on:
   push:
     branches: [main]
-    paths: ["tools/quimica-pau/crawl.txt", "tools/quimica-pau/crawl.py", "tools/quimica-pau/wayback.py", "tools/quimica-pau/urls.txt"]
+    paths: ["tools/quimica-pau/crawl.txt", "tools/quimica-pau/crawl.py", "tools/quimica-pau/wayback.py"]
 
 permissions:
   contents: write

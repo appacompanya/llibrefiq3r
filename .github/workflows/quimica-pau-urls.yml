@@ -1,0 +1,38 @@
+# Prova una llista d'URL candidates (tools/quimica-pau/urls.txt) i desa els PDF que existeixen a la branca «fonts-pau-quimica-urls».
+name: Química PAU · URL
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/quimica-pau/urls.txt"]
+
+permissions:
+  contents: write
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixa
+        run: |
+          mkdir -p /tmp/f
+          grep -v '^#' tools/quimica-pau/urls.txt | while read -r u; do
+            [ -z "$u" ] && continue
+            n=$(basename "$u")
+            [ -s "/tmp/f/$n" ] && continue
+            if curl -sSfL --max-time 90 -A "Mozilla/5.0" -o "/tmp/f/$n.tmp" "$u" && head -c 4 "/tmp/f/$n.tmp" | grep -q '%PDF'; then
+              mv "/tmp/f/$n.tmp" "/tmp/f/$n"; echo -e "$n\t$(stat -c%s /tmp/f/$n)\t$u" >> /tmp/f/llista.tsv
+            else rm -f "/tmp/f/$n.tmp"; fi
+          done
+          touch /tmp/f/llista.tsv; cat /tmp/f/llista.tsv
+      - name: Desa
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan fonts-pau-quimica-urls
+          git rm -rq --cached . && find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r /tmp/f/. .
+          git add -A && git commit -qm "Fonts PAU Química (URL candidates)"
+          git push -f origin fonts-pau-quimica-urls
