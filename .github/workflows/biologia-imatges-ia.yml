@@ -1,0 +1,35 @@
+# Baixa a tools/biologia/ia/ les imatges decoratives del llibre de Biologia generades amb OpenAI
+# (privat.genera_imatge4 a Supabase; la funció «imatges-bio» només serveix les imatges «bio-*»).
+# Es dispara quan canvia tools/biologia/ia/demana.txt (llista de noms, un per línia).
+name: Biologia · imatges IA
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/biologia/ia/demana.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biologia-imatges-ia
+  cancel-in-progress: false
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descarrega
+        run: |
+          noms=$(grep -v '^#' tools/biologia/ia/demana.txt | grep -E '^bio-[a-z0-9-]+$' | paste -sd, -)
+          curl -sSf --retry 3 -o /tmp/ia.zip "https://pwqyqwiwarffzdkblglt.supabase.co/functions/v1/imatges-bio?noms=${noms}"
+          mkdir -p tools/biologia/ia && unzip -o /tmp/ia.zip -d tools/biologia/ia
+          cat tools/biologia/ia/registre.txt
+      - name: Desa
+        run: |
+          git add tools/biologia/ia
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Biologia: imatges decoratives (OpenAI)"
+          git pull --rebase origin main && git push
