@@ -4,7 +4,7 @@ name: Química PAU · URL
 on:
   push:
     branches: [main]
-    paths: ["tools/quimica-pau/urls.txt"]
+    paths: ["tools/quimica-pau/urls.txt", "tools/quimica-pau/wb_pagines.py"]
 
 permissions:
   contents: write
@@ -12,13 +12,15 @@ permissions:
 jobs:
   baixa:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - name: Baixa
         run: |
           mkdir -p /tmp/f
-          grep -v '^#' tools/quimica-pau/urls.txt | while read -r u; do
+          python3 tools/quimica-pau/wb_pagines.py > /tmp/wb.txt || true
+          cp /tmp/wb.txt /tmp/f/wb_trobats.txt
+          { grep -v '^#' tools/quimica-pau/urls.txt; cat /tmp/wb.txt; sed 's#^#https://web.archive.org/web/2023id_/#' /tmp/wb.txt; } | while read -r u; do
             [ -z "$u" ] && continue
             n=$(basename "$u")
             [ -s "/tmp/f/$n" ] && continue
