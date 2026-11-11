@@ -525,3 +525,204 @@ D += [
         "d’enzim i d’aigua oxigenada, a la mateixa temperatura, i cada tub es posa a un pH diferent (4, 5, 6, 7, 8, 9). A cada tub es mesura el volum d’oxigen alliberat en dos minuts. "
         "El pH és el que es canvia; el volum d’oxigen és el que es mesura; la quantitat d’enzim, la d’aigua oxigenada i la temperatura es mantenen iguals.")),
 ]
+
+# =====================================================================================
+# SEGONA PASSADA · TEMA 3
+# =====================================================================================
+D += [
+    # 3.2 Glucòlisi
+    ("after", "342", P(
+        "Per entendre els passos cal saber dues paraules. <b>Fosforilar</b> una molècula és unir-hi un grup fosfat; el fosfat el sol aportar un ATP, que queda com a ADP. "
+        "Una molècula fosforilada té més energia i, a més, té càrrega negativa, de manera que ja no pot travessar la membrana: la glucosa fosforilada queda atrapada dins la cèl·lula. "
+        "La <b>fosforilació a nivell de substrat</b> és el procés invers: un metabòlit que porta un fosfat amb molta energia el passa directament a un ADP, i es forma ATP sense necessitat de membranes ni de cadena.")),
+    ("after", "342", P(
+        "La lògica de la glucòlisi és la d’una inversió. Primer la cèl·lula «paga» 2 ATP per fosforilar la glucosa per les dues bandes i fer-la més reactiva; així la molècula de 6 carbonis es pot partir "
+        "en dues molècules de 3 carbonis (dues trioses fosfat). Després, cada triosa s’oxida: els electrons que se li treuen passen al NAD⁺, que queda com a NADH, i l’energia alliberada s’aprofita per formar ATP "
+        "a nivell de substrat. Com que es fan 4 ATP i se n’havien gastat 2, el guany net és de 2 ATP per glucosa.")),
+    ("after", "350", P(
+        "Per què el NAD⁺ és tan important? La cèl·lula en té una quantitat petita i fixa. Cada glucosa que passa per la glucòlisi en converteix dos en NADH. Si el NADH no torna a donar els electrons a algú "
+        "(a la cadena respiratòria si hi ha oxigen, o al piruvat en una fermentació si no n’hi ha), el NAD⁺ s’esgota en pocs segons i la glucòlisi s’atura, encara que sobri glucosa. "
+        "Aquesta és la clau per entendre el destí del piruvat: depèn de qui pot reoxidar el NADH.")),
+    # 3.3 Piruvat i Krebs
+    ("ins", "358", P(
+        "El piruvat que surt de la glucòlisi encara conté la major part de l’energia de la glucosa. El que en passa depèn de l’oxigen. Si n’hi ha, el piruvat entra al mitocondri i s’oxida del tot fins a CO<sub>2</sub> "
+        "(respiració aeròbica). Si no n’hi ha, es queda al citosol i es transforma en un producte de fermentació (apartat 3.5).")),
+    ("ins", "358", P(
+        "Dues paraules més. <b>Descarboxilar</b> és treure un grup carboxil (–COOH) d’una molècula en forma de CO<sub>2</sub>: és la manera com els carbonis de la glucosa acaben en el CO<sub>2</sub> que expirem. "
+        "El <b>coenzim A</b> (CoA) és una molècula transportadora de grups de dos carbonis (grups acetil); unit a un acetil forma l’<b>acetil-CoA</b>, que és la porta d’entrada comuna al cicle de Krebs "
+        "per als glúcids, els àcids grassos i alguns aminoàcids.")),
+    ("ins", "361", P(
+        "El <b>cicle de Krebs</b> és una via circular: el producte de l’últim pas (l’oxalacetat) és el substrat del primer. A cada volta hi entren 2 carbonis (l’acetil) i en surten 2 en forma de CO<sub>2</sub>, "
+        "de manera que la quantitat d’intermedis del cicle no varia. El que interessa del cicle no és fer ATP (només en fa un per volta), sinó <b>arrencar electrons</b> dels carbonis de l’acetil "
+        "i carregar-los en 3 NADH i 1 FADH<sub>2</sub>, que portaran aquests electrons a la cadena respiratòria. Hans Krebs va proposar el cicle el 1937.")),
+    # 3.4 Cadena
+    ("after", "376", P(
+        "Peter Mitchell va proposar el 1961 la <b>hipòtesi quimiosmòtica</b> per explicar com es connecten el transport d’electrons i la síntesi d’ATP. La membrana interna és impermeable als protons, "
+        "de manera que els que la cadena bomba cap a l’espai intermembranós s’hi acumulen: es crea un <b>gradient electroquímic</b>, amb més concentració de H⁺ (pH més baix) i més càrrega positiva a fora que a la matriu. "
+        "L’única via de retorn és l’<b>ATP-sintasa</b>, una proteïna que funciona com un motor giratori: el pas dels protons a favor de gradient fa girar una part de la proteïna, i aquest gir canvia la forma de la part "
+        "situada a la matriu, que uneix ADP i P<sub>i</sub> i forma ATP.")),
+    # 3.5 Fermentacions
+    ("ins", "395", P(
+        "Molts organismes viuen sense oxigen o en poden prescindir durant un temps. Els <b>anaerobis estrictes</b> no fan servir oxigen (i a molts els és tòxic); els <b>anaerobis facultatius</b>, com els llevats "
+        "o moltes cèl·lules musculars, respiren si hi ha oxigen i fermenten si no n’hi ha. La <b>fermentació</b> és la seva manera d’obtenir energia sense oxigen.")),
+    ("after", "396", P(
+        "Al múscul, la fermentació làctica permet fer un esforç intens quan l’oxigen que arriba no és suficient, però només dona 2 ATP per glucosa i el lactat s’acumula. "
+        "El lactat passa a la sang i el fetge el torna a convertir en glucosa (neoglucogènesi); aquest anar i venir entre múscul i fetge és el <b>cicle de Cori</b>. "
+        "Contràriament al que es deia abans, les agulletes de l’endemà no les causen cristalls d’àcid làctic, sinó petites lesions de les fibres musculars.")),
+    # 3.6 β-oxidació
+    ("after", "409", P(
+        "Cada volta de la β-oxidació té quatre reaccions: una oxidació en què el FAD es redueix a FADH<sub>2</sub>, una hidratació (s’hi afegeix aigua), una segona oxidació en què el NAD⁺ es redueix a NADH, "
+        "i un tall que separa els dos últims carbonis en forma d’acetil-CoA. La cadena que queda, dos carbonis més curta, torna a començar. Un àcid gras llarg dona molts més acetil-CoA, NADH i FADH<sub>2</sub> que una glucosa: "
+        "per això els greixos són la reserva més concentrada d’energia.")),
+    # 3.7 Anabolisme
+    ("ins", "418", P(
+        "Per fabricar les seves molècules, una cèl·lula necessita tres coses: <b>precursors</b> (molècules petites que serviran de peces, sovint intermedis del catabolisme com el piruvat o l’acetil-CoA), "
+        "<b>energia</b> en forma d’ATP i <b>poder reductor</b> en forma de NADPH, perquè les molècules biològiques grans són més reduïdes que els precursors. En els heteròtrofs, el NADPH s’obté sobretot "
+        "en una via que oxida glucosa, la via de les pentoses fosfat.")),
+    ("after", "422", P(
+        "La glucosa sobrant es guarda com a <b>glicogen</b>, sobretot al fetge i al múscul. La síntesi de glicogen a partir de glucosa és la <b>glicogenogènesi</b>, i la seva degradació, la <b>glicogenòlisi</b>. "
+        "Les hormones regulen quina passa: després de menjar, la insulina afavoreix guardar glucosa com a glicogen; en dejú o en un esforç, el glucagó (al fetge) i l’adrenalina (al fetge i al múscul) n’afavoreixen la degradació.")),
+    # 3.8 Fotosíntesi
+    ("ins", "433", P(
+        "A la fase lluminosa, la llum fa dues feines alhora. D’una banda, arrenca electrons de l’aigua i els porta fins al NADP⁺, que queda reduït a NADPH. De l’altra, aquest flux d’electrons bomba protons "
+        "cap a l’interior del tilacoide (el lumen), i el gradient de protons fa funcionar una ATP-sintasa, igual que al mitocondri. La síntesi d’ATP impulsada per la llum s’anomena <b>fotofosforilació</b>.")),
+    ("ins", "435", P(
+        "<b>Fixar</b> el CO<sub>2</sub> vol dir incorporar-lo a una molècula orgànica: el carboni passa de la forma inorgànica, molt oxidada, a formar part d’un sucre, més reduït. "
+        "Per reduir-lo calen els electrons del NADPH i l’energia de l’ATP que ha fet la fase lluminosa. Melvin Calvin va descobrir la via als anys 1950 seguint on anava a parar el carboni radioactiu (<sup>14</sup>C) que donava a les algues.")),
+    # 3.9
+    ("ins", "452", P(
+        "Els bacteris tenen una diversitat metabòlica molt més gran que plantes i animals. Alguns són autòtrofs, com les plantes, però no sempre fan servir la llum ni l’aigua: "
+        "hi ha bacteris que fan una fotosíntesi diferent, i d’altres que obtenen l’energia per fixar el CO<sub>2</sub> oxidant substàncies inorgàniques, sense llum.")),
+    ("after", "453", P(
+        "La quimiosíntesi té una gran importància ecològica. Els bacteris nitrificants fan que el nitrogen de la matèria orgànica en descomposició torni a ser nitrat, la forma que absorbeixen les plantes (cicle del nitrogen, tema 7). "
+        "I a les fumaroles hidrotermals del fons del mar, on no arriba la llum, ecosistemes sencers depenen de bacteris que oxiden H<sub>2</sub>S.")),
+]
+
+# =====================================================================================
+# SEGONA PASSADA · TEMA 5
+# =====================================================================================
+D += [
+    ("after", "622", P(
+        "Que la replicació és <b>semiconservativa</b> ho van demostrar Meselson i Stahl el 1958. Van fer créixer bacteris en un medi amb nitrogen pesant (<sup>15</sup>N) fins que tot el seu DNA era «pesant», "
+        "i després els van passar a un medi amb nitrogen normal (<sup>14</sup>N). Després d’una generació, tot el DNA tenia una densitat intermèdia (una cadena pesant i una de lleugera); després de dues, "
+        "la meitat era intermedi i la meitat lleuger. Aquest resultat és el que prediu el model semiconservatiu i descarta els altres models possibles.")),
+    ("after", "622", P(
+        "Les dues cadenes del DNA són <b>antiparal·leles</b> (tema 1): una va de 5′ a 3′ i l’altra de 3′ a 5′. La DNA-polimerasa té dues limitacions que ho compliquen tot: "
+        "només pot afegir nucleòtids a l’extrem 3′ d’una cadena (la cadena nova sempre creix en sentit 5′→3′) i no pot començar una cadena del no-res, sinó que necessita un tros ja aparellat on enganxar-se.")),
+    ("after", "637", P(
+        "Els gens eucariotes són <b>discontinus</b>: la part que codifica la proteïna està fragmentada en trossos, els <b>exons</b>, separats per trossos que no la codifiquen, els <b>introns</b>. "
+        "La RNA-polimerasa ho copia tot (el transcrit primari, o pre-RNAm), i després els introns s’eliminen i els exons s’empalmen: és la maduració o <i>splicing</i>. Els gens procariotes no tenen introns.")),
+    ("after", "656", P(
+        "Exemple complet: l’RNAm 5′–AUG GCU UGG UAA–3′ es tradueix així. El ribosoma troba l’AUG (inici, metionina); després llegeix GCU (alanina) i UGG (triptòfan); en arribar a UAA (parada) no hi entra cap RNAt "
+        "i la cadena s’allibera. El pèptid és Met–Ala–Trp, escrit de l’extrem N al C. Per traduir-lo n’hi ha prou amb la taula del codi: cal anar de tres en tres des de l’AUG.")),
+    ("after", "676", P(
+        "Una analogia ajuda a veure-ho. Si la frase «EL GAT VOL SAL» fos un gen llegit de tres en tres: una substitució la pot deixar igual de llegible o canviar-ne una paraula («EL GAT VOL SOL»); "
+        "en canvi, si s’hi insereix una lletra al principi («EL XGA TVO LSA L»), totes les paraules de després queden sense sentit. Per això les insercions i delecions que desplacen el marc solen ser molt més greus que les substitucions.")),
+    ("ins", "695", P(
+        "Moltes tècniques (diagnosticar una infecció, identificar una persona per una gota de sang, estudiar un gen) necessiten molta quantitat d’un tros concret de DNA, i sovint se’n té molt poc. "
+        "La <b>PCR</b> (<i>polymerase chain reaction</i>, reacció en cadena de la polimerasa), inventada per Kary Mullis el 1983, resol aquest problema: és una replicació al tub d’assaig, repetida moltes vegades, "
+        "que copia només el tram que hi ha entre dos encebadors.")),
+    ("ins", "697", P(
+        "Editar un gen vol dir canviar-ne la seqüència en el lloc exacte on és, dins el genoma d’una cèl·lula viva, en lloc d’afegir-ne un de nou en qualsevol lloc. "
+        "Fins fa poc era molt difícil; el sistema CRISPR-Cas9, descrit com a eina d’edició per Emmanuelle Charpentier i Jennifer Doudna el 2012 (Premi Nobel de Química 2020), ho ha fet senzill i barat.")),
+]
+
+# =====================================================================================
+# SEGONA PASSADA · TEMES 1 I 2
+# =====================================================================================
+D += [
+    ("after", "70", P(
+        "Tots els aminoàcids tenen la mateixa part comuna (el carboni α amb el grup amino, el grup carboxil i un hidrogen) i es diferencien només per la <b>cadena lateral R</b>. "
+        "Segons com sigui la R, es classifiquen en <b>apolars</b> (hidròfobes, com l’alanina o la leucina), <b>polars sense càrrega</b> (com la serina, amb un OH), <b>àcides</b> (amb càrrega negativa a pH 7, com l’aspartat) "
+        "i <b>bàsiques</b> (amb càrrega positiva, com la lisina). Aquesta classificació és la clau per entendre com es plega una proteïna: en un medi aquós, les R apolars tendeixen a amagar-se a l’interior "
+        "i les polars i carregades queden a la superfície, en contacte amb l’aigua.")),
+    ("after", "191", P(
+        "La bicapa es forma sola. Els fosfolípids són <b>amfipàtics</b> (tema 1): en aigua, la manera més estable d’ordenar-los és amb les cues hidròfobes amagades a dins, de cara les unes a les altres, "
+        "i els caps hidròfils de cara a l’aigua de cada costat. El nom del model descriu les dues idees: <b>mosaic</b>, perquè les proteïnes estan escampades entre els lípids com les peces d’un mosaic, "
+        "i <b>fluid</b>, perquè lípids i proteïnes es poden desplaçar lateralment, com en un líquid. Com que l’interior de la bicapa és hidròfob, fa de barrera per a les substàncies amb càrrega o polars: "
+        "aquestes només passen a través de proteïnes de transport.")),
+    ("after", "222", P(
+        "Un exemple lliga tots aquests orgànuls: el camí d’un anticòs que fabrica una cèl·lula plasmàtica. La traducció comença en un ribosoma lliure, que s’enganxa al reticle rugós; la proteïna es fabrica cap a l’interior del reticle, "
+        "on es plega. Una vesícula la porta a l’aparell de Golgi, on se li afegeixen sucres i es classifica. Finalment, una altra vesícula viatja fins a la membrana plasmàtica, s’hi fusiona i allibera l’anticòs a l’exterior (exocitosi). "
+        "Els <b>lisosomes</b> es formen també a partir del Golgi; s’uneixen a les vesícules d’endocitosi per digerir el que la cèl·lula ha capturat, i també digereixen orgànuls vells de la mateixa cèl·lula (autofàgia).")),
+    ("ins", "258", P(
+        "La mitosi és un procés continu, però per descriure’l es divideix en quatre fases segons el que es veu al microscopi: <b>profase</b>, <b>metafase</b>, <b>anafase</b> i <b>telofase</b>. "
+        "En les cèl·lules animals, els microtúbuls del fus surten dels <b>centrosomes</b>, dues zones que contenen cada una una parella de centríols i que, a la profase, es desplacen cap a pols oposats de la cèl·lula. "
+        "Les cèl·lules vegetals no tenen centríols, però també munten un fus.")),
+    ("ins", "271", P(
+        "La meiosi té dues divisions, i cadascuna té també profase, metafase, anafase i telofase (I i II). La diferència clau amb la mitosi és a la profase I: "
+        "els dos cromosomes homòlegs de cada parella, que fins ara anaven per separat, s’aparellen al llarg de tota la seva longitud (<b>sinapsi</b>). "
+        "Cada parella d’homòlegs aparellats és un <b>bivalent</b>, i com que cada homòleg té dues cromàtides, el bivalent té quatre cromàtides (per això també se’n diu <b>tètrada</b>). "
+        "Els punts on dues cromàtides d’homòlegs diferents s’han encreuat es veuen com una X: són els <b>quiasmes</b>.")),
+    ("after", "272", P(
+        "La meiosi té dues conseqüències. La primera és mantenir constant el nombre de cromosomes de l’espècie d’una generació a la següent. La segona és generar <b>variabilitat genètica</b>: "
+        "cada gàmeta porta una combinació d’al·lels diferent, gràcies a l’entrecreuament i al repartiment a l’atzar dels homòlegs. Per això dos germans (llevat dels bessons idèntics) no són mai genèticament iguals, "
+        "i aquesta variació és la matèria primera de l’evolució (tema 6).")),
+]
+
+# =====================================================================================
+# SEGONA PASSADA · TEMES 7 I 8
+# =====================================================================================
+D += [
+    ("ins", "889", P(
+        "Els tipus de nutrició que es van definir al tema 3 (autòtrofs i heteròtrofs segons la font de carboni; fotòtrofs i quimiòtrofs segons la font d’energia) es veuen en tota la seva varietat als bacteris: "
+        "n’hi ha de les quatre combinacions possibles. També varien en la relació amb l’oxigen.")),
+    ("ins", "892", P(
+        "Els elements que formen la matèria viva (C, N, S, P…) no es gasten: passen dels éssers vius al medi i tornen als éssers vius, en uns circuits anomenats <b>cicles biogeoquímics</b>. "
+        "Els microorganismes hi tenen un paper insubstituïble, perquè fan transformacions químiques que ni les plantes ni els animals poden fer. El cas més clar és el del nitrogen: tots els éssers vius el necessiten "
+        "per fer proteïnes i àcids nucleics, i l’atmosfera en té un 78 %, però en forma de N<sub>2</sub>, una molècula tan estable que ni plantes ni animals la poden aprofitar. "
+        "Només alguns procariotes la saben convertir en una forma útil (<b>fixació del nitrogen</b>).")),
+    ("ins", "902", P(
+        "Una <b>malaltia infecciosa</b> és la que causa un microorganisme (o un virus o un prió) que entra a l’organisme i s’hi multiplica. Es pot transmetre d’una persona a una altra per contacte directe, "
+        "per l’aire (gotetes en tossir), per l’aigua o els aliments contaminats, per la sang o per vectors, com els mosquits.")),
+    ("after", "921", P(
+        "Per això es discuteix si els virus són éssers vius: tenen material genètic i evolucionen, però fora d’una cèl·lula són partícules inerts (els <b>virions</b>), sense metabolisme ni capacitat de reproduir-se pel seu compte. "
+        "Són <b>paràsits intracel·lulars obligats</b>. Cada virus infecta un tipus concret de cèl·lules, perquè per entrar-hi ha d’unir-se a una molècula concreta de la seva superfície (el receptor): "
+        "el VIH, per exemple, s’uneix a la proteïna CD4 dels limfòcits T col·laboradors.")),
+    ("ins", "938", P(
+        "A més dels virus, hi ha agents infecciosos encara més simples, que no tenen ni l’estructura d’un virus: s’anomenen <b>agents subvírics</b>. Són els viroides, fets només d’RNA, i els prions, fets només de proteïna.")),
+    ("ins", "991", P(
+        "La resposta innata actua en minuts o hores, i ho fa sempre igual. Els seus dos mecanismes principals són la fagocitosi i la inflamació. La <b>fagocitosi</b> és la captura d’una partícula estranya: "
+        "el fagòcit l’envolta amb prolongacions de la membrana (pseudòpodes), la tanca en una vesícula (fagosoma) i la digereix amb els enzims dels lisosomes. Els fagòcits reconeixen molècules típiques dels microorganismes, "
+        "que les nostres cèl·lules no tenen (components de la paret bacteriana, per exemple).")),
+    ("ins", "991", P(
+        "La <b>inflamació</b> és la resposta d’un teixit lesionat o infectat. Les cèl·lules danyades i els mastòcits alliberen substàncies, com la histamina, que dilaten els capil·lars i els fan més permeables. "
+        "Arriba més sang (la zona es posa vermella i calenta), surt plasma als teixits (s’inflama) i es pressionen terminacions nervioses (fa mal): són els quatre signes clàssics, rubor, calor, tumor i dolor. "
+        "Aquests canvis permeten que els fagòcits i les proteïnes de defensa surtin de la sang i arribin al lloc de la infecció. La <b>febre</b> és una resposta general que dificulta la multiplicació d’alguns patògens.")),
+    ("ins", "1030", P(
+        "La memòria immunitària es pot provocar de manera artificial. El 1796, Edward Jenner va observar que les persones que havien passat la verola de les vaques (una malaltia lleu) no agafaven la verola humana, "
+        "i va inocular material de les lesions de la vaca a un nen, que va quedar protegit. D’aquí ve la paraula <i>vacuna</i>. El principi és el mateix avui: posar el sistema immunitari en contacte amb un antigen "
+        "sense causar la malaltia, perquè faci una resposta primària i en quedi memòria. Les diferents maneres d’adquirir immunitat es classifiquen amb dos criteris:")),
+    ("ins", "1044", P(
+        "El sistema immunitari pot fallar de tres maneres: respondre massa contra una cosa inofensiva (<b>hipersensibilitat</b>, com les al·lèrgies), respondre contra el propi organisme (<b>autoimmunitat</b>) "
+        "o respondre massa poc (<b>immunodeficiència</b>). A més, la resposta immunitària és la que causa el rebuig dels òrgans trasplantats.")),
+]
+
+# =====================================================================================
+# SEGONA PASSADA · TEMA 6
+# =====================================================================================
+D += [
+    ("ins", "758", P(
+        "Que l’evolució ha passat ho mostren proves de disciplines molt diferents, que s’han obtingut de manera independent i que coincideixen: la paleontologia (els fòssils), l’anatomia comparada, "
+        "l’embriologia, la biogeografia (la distribució de les espècies a la Terra) i la biologia molecular.")),
+    ("after", "758", P(
+        "Un <b>fòssil</b> és una resta o una empremta d’un ésser viu conservada a les roques. Com que les capes de roca sedimentària s’acumulen les unes sobre les altres, les més profundes solen ser les més antigues, "
+        "i els fòssils que contenen es poden ordenar en el temps (i datar amb isòtops radioactius). Alguns fòssils mostren formes intermèdies entre grups actuals, com <i>Archaeopteryx</i>, amb plomes com un ocell "
+        "però dents, urpes a les ales i cua llarga com un rèptil, o <i>Tiktaalik</i>, un peix amb aletes que tenien ossos semblants als de les potes dels primers tetràpodes.")),
+    ("ins", "768", P(
+        "Jean-Baptiste de Lamarck va publicar el 1809 la primera teoria completa de l’evolució. Proposava que els organismes canvien per adaptar-se al medi segons dos principis: "
+        "(1) l’<b>ús i desús</b>: els òrgans que s’utilitzen molt es desenvolupen i els que no s’utilitzen s’atrofien; i (2) l’<b>herència dels caràcters adquirits</b>: els canvis que un individu adquireix durant la vida "
+        "passen als fills. L’exemple clàssic és la girafa: de tant estirar el coll per arribar a les fulles altes, cada girafa l’allargaria una mica i passaria aquest allargament a les cries.")),
+    ("after", "781", P(
+        "D’on surten aquestes proporcions? Si els individus s’aparellen a l’atzar, és com si es triessin dos gàmetes a l’atzar de tota la població. La probabilitat que un gàmeta porti <i>A</i> és <i>p</i>, i que porti <i>a</i>, <i>q</i>. "
+        "La probabilitat de formar un zigot <i>AA</i> és <i>p</i> · <i>p</i> = <i>p</i>²; un <i>aa</i>, <i>q</i>²; i un <i>Aa</i>, <i>pq</i> + <i>qp</i> = 2<i>pq</i> (perquè l’<i>A</i> pot venir del pare o de la mare). "
+        "Com que <i>p</i> + <i>q</i> = 1, també <i>p</i>² + 2<i>pq</i> + <i>q</i>² = (<i>p</i> + <i>q</i>)² = 1. Exemple: si <i>q</i> = 0,4, s’esperen 0,16 de <i>aa</i>, 0,48 de <i>Aa</i> i 0,36 de <i>AA</i>, "
+        "i aquestes proporcions es mantenen generació rere generació mentre es compleixin les condicions.")),
+    ("after", "810", P(
+        "Un exemple d’especiació al·lopàtrica: quan es va formar l’istme de Panamà, fa uns 3 milions d’anys, va separar les poblacions de moltes espècies marines en dues, una al Carib i una al Pacífic. "
+        "Avui moltes d’aquestes parelles de poblacions, com algunes gambes, ja no es poden creuar entre si: s’han convertit en espècies diferents. En plantes, en canvi, l’especiació per poliploïdia és freqüent: "
+        "el blat que fem servir per al pa és un híbrid hexaploide sorgit de tres espècies d’herba diferents.")),
+    ("ins", "819", P(
+        "La teoria sintètica de mitjan segle XX continua sent la base de la biologia evolutiva, però des d’aleshores s’hi han afegit noves idees i nous debats, sobretot sobre el ritme de l’evolució "
+        "i sobre com els canvis en els gens del desenvolupament poden produir canvis grans en la forma del cos.")),
+]
