@@ -18,13 +18,13 @@ jobs:
       - name: Baixa
         run: |
           mkdir -p /tmp/f
-          python3 tools/quimica-pau/wb_pagines.py > /tmp/wb.txt || true
+          touch /tmp/wb.txt
           cp /tmp/wb.txt /tmp/f/wb_trobats.txt
           { grep -v '^#' tools/quimica-pau/urls.txt; cat /tmp/wb.txt; sed 's#^#https://web.archive.org/web/2023id_/#' /tmp/wb.txt; } | while read -r u; do
             [ -z "$u" ] && continue
             n=$(echo "$u" | sed -E 's#^https?://(web\.archive\.org/web/[0-9a-z_]+/)?##; s#^https?://##' | awk -F/ '{print $1"__"$NF}')
             [ -s "/tmp/f/$n" ] && continue
-            if curl -sSfL --max-time 60 --connect-timeout 15 -A "Mozilla/5.0" -o "/tmp/f/$n.tmp" "$u" && head -c 4 "/tmp/f/$n.tmp" | grep -q '%PDF'; then
+            if curl -sSfL --max-time 60 --connect-timeout 15 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" -o "/tmp/f/$n.tmp" "$u" && head -c 4 "/tmp/f/$n.tmp" | grep -q '%PDF'; then
               mv "/tmp/f/$n.tmp" "/tmp/f/$n"; echo -e "$n\t$(stat -c%s /tmp/f/$n)\t$u" >> /tmp/f/llista.tsv
             else rm -f "/tmp/f/$n.tmp"; fi
           done

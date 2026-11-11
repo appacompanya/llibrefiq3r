@@ -4,11 +4,11 @@ import pymupdf
 
 # Línies que no formen part del contingut d'un exercici (capçaleres, peus, quadres de correcció)
 SKIP = re.compile(
-    r"^(Pàgina \d+ de \d+|Química|Proves d.accés a la [Uu]niversitat.*|Oficina d.Accés.*|Criteri específic.*|"
+    r"^(Pàgina \d+ de \d+|Química|Proves d.accés a la universitat.*|Oficina d.Accés.*|Criteri (específic|d.avaluació).*|"
     r"Espai per a la correcció|Espai per a la revisió|Total|[a-d]|[–•]\s*\d+\s*[–•]|\d{1,2}|"
     r"Etiqueta de.*|Ubicació del tribunal.*|Número del tribunal.*|Qualificació.*|Comprovació|2a correcció|"
     r"Generalitat de Catalunya|Consell Interuniversitari de Catalunya|Pautes de correcció.*|"
-    r"P[àa]gina \d+ de \d+.*|Convocatòria \d{4}.*|Sèrie \d\s*$|SERIE \d|SÈRIE \d|PAU \d{4}|\d{4})$"
+    r"P[àa]gina \d+ de \d+.*|Convocatòria \d{4}.*|Sèrie \d\s*$|SERIE \d|SÈRIE \d|PAU \d{4}|\d{4})$", re.I
 )
 
 

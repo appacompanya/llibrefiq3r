@@ -101,9 +101,17 @@ class Book:
             y = min(b.y0 for b in hit) - 1
             if y <= r.y0 + 20:
                 break
-        # si no hi ha cap tall net (dibuix molt alt), es talla entre línies de text
-        lines = sorted(b[3] for b in page.get_text("blocks", clip=pymupdf.Rect(r.x0, r.y0, r.x1, ymax)))
-        return (lines[-1] + 1) if lines else ymax
+        # si no hi ha cap tall net (dibuix molt alt), es talla entre dues línies de text
+        ls = []
+        for bl in page.get_text("dict", clip=r)["blocks"]:
+            for l in bl.get("lines", []):
+                ls.append((l["bbox"][1], l["bbox"][3]))
+        ls.sort()
+        best = ymax
+        for (a0, a1), (b0, b1) in zip(ls, ls[1:]):
+            if a1 <= ymax and b0 >= a1 - 3 and b0 <= ymax + 40:
+                best = min(ymax, (a1 + b0) / 2 if b0 > a1 else b0 - 0.5)
+        return best
 
     def number_pages(self, first=1):
         for i, p in enumerate(self.doc):
