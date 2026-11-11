@@ -1,0 +1,1356 @@
+{
+"meta": {
+"quadern_enunciats": "quadern_enunciats.pdf",
+"quadern_solucions": "quadern_solucions.pdf",
+"pagines_quadern_enunciats": 245,
+"pagines_quadern_solucions": 290,
+"total": 48,
+"audios": 48,
+"anys": [
+2011,
+2026
+]
+},
+"capitols": [
+{
+"n": 1,
+"slug": "listening",
+"titol": "Listening",
+"sub": "Comprensió oral · 3 punts",
+"exercicis": 48,
+"solucions_n": 47,
+"enunciats": "enunciats_listening.pdf",
+"pagines_enunciats": 101,
+"mb_enunciats": 1.7,
+"solucions": "solucions_listening.pdf",
+"pagines_solucions": 198,
+"mb_solucions": 6.2
+},
+{
+"n": 2,
+"slug": "reading",
+"titol": "Reading",
+"sub": "Comprensió escrita · 3 punts",
+"exercicis": 48,
+"solucions_n": 47,
+"enunciats": "enunciats_reading.pdf",
+"pagines_enunciats": 96,
+"mb_enunciats": 2.0,
+"solucions": "solucions_reading.pdf",
+"pagines_solucions": 86,
+"mb_solucions": 4.6
+},
+{
+"n": 3,
+"slug": "writing",
+"titol": "Writing",
+"sub": "Expressió escrita · 4 punts",
+"exercicis": 48,
+"solucions_n": 6,
+"enunciats": "enunciats_writing.pdf",
+"pagines_enunciats": 48,
+"mb_enunciats": 1.2,
+"solucions": "solucions_writing.pdf",
+"pagines_solucions": 6,
+"mb_solucions": 0.6
+}
+],
+"exercicis": [
+{
+"ex": 1,
+"id": "2026-juny-s1",
+"any": 2026,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model actual",
+"lt": "An Interview with Gotcha, the Musical Force",
+"rt": "What’s After Umami? Scientists are Hunting",
+"a": "audio/2026-juny-s1.mp3",
+"dur": 471,
+"p": {
+"listening": {
+"e": 1,
+"s": 1
+},
+"reading": {
+"e": 1,
+"s": 1
+},
+"writing": {
+"e": 1,
+"s": 1
+}
+}
+},
+{
+"ex": 2,
+"id": "2026-juny-tei-s5",
+"any": 2026,
+"conv": "Juny",
+"tei": true,
+"serie": 5,
+"model": "Model actual",
+"lt": "A Conversation with Yayoi Kusama on the Power",
+"rt": "The Science of Fear: How It Affects your Body and Mind",
+"a": "audio/2026-juny-tei-s5.mp3",
+"dur": 436,
+"p": {
+"listening": {
+"e": 3,
+"s": 6
+},
+"reading": {
+"e": 3,
+"s": 4
+},
+"writing": {
+"e": 2,
+"s": 2
+}
+}
+},
+{
+"ex": 3,
+"id": "2026-setembre-s2",
+"any": 2026,
+"conv": "Setembre",
+"tei": false,
+"serie": 2,
+"model": "Model actual",
+"lt": "The World of Cenotes",
+"rt": "You Might Be a Late Bloomer",
+"a": "audio/2026-setembre-s2.mp3",
+"dur": 477,
+"p": {
+"listening": {
+"e": 5,
+"s": 11
+},
+"reading": {
+"e": 5,
+"s": 5
+},
+"writing": {
+"e": 3,
+"s": 3
+}
+}
+},
+{
+"ex": 4,
+"id": "2025-juny-s1",
+"any": 2025,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model actual",
+"lt": "Uluru: Exploring the Heart and Spirit of Australia",
+"rt": "Tipping is More Confusing Than Ever. Here’s How to Handle It",
+"a": "audio/2025-juny-s1.mp3",
+"dur": 493,
+"p": {
+"listening": {
+"e": 7,
+"s": 15
+},
+"reading": {
+"e": 7,
+"s": 7
+},
+"writing": {
+"e": 4,
+"s": 4
+}
+}
+},
+{
+"ex": 5,
+"id": "2025-juny-tei-s4",
+"any": 2025,
+"conv": "Juny",
+"tei": true,
+"serie": 4,
+"model": "Model actual",
+"lt": "30 by 30",
+"rt": "How to Make Pizza Like a Neapolitan Master",
+"a": "audio/2025-juny-tei-s4.mp3",
+"dur": 454,
+"p": {
+"listening": {
+"e": 9,
+"s": 20
+},
+"reading": {
+"e": 9,
+"s": 9
+},
+"writing": {
+"e": 5,
+"s": 5
+}
+}
+},
+{
+"ex": 6,
+"id": "2025-setembre-s3",
+"any": 2025,
+"conv": "Setembre",
+"tei": false,
+"serie": 3,
+"model": "Model actual",
+"lt": "Subtitling as a Foreign Language Learning Tool",
+"rt": "Give Yourself a Break: Why Small Business Owners",
+"a": "audio/2025-setembre-s3.mp3",
+"dur": 411,
+"p": {
+"listening": {
+"e": 11,
+"s": 25
+},
+"reading": {
+"e": 11,
+"s": 11
+},
+"writing": {
+"e": 6,
+"s": 6
+}
+}
+},
+{
+"ex": 7,
+"id": "2024-juny-s1",
+"any": 2024,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Michael Smith: a Michelin-starred Chef",
+"rt": "Stone Age Babies Had Better Parenting Than Today!",
+"a": "audio/2024-juny-s1.mp3",
+"dur": 399,
+"p": {
+"listening": {
+"e": 13,
+"s": 29
+},
+"reading": {
+"e": 13,
+"s": 13
+},
+"writing": {
+"e": 7,
+"s": null
+}
+}
+},
+{
+"ex": 8,
+"id": "2024-juny-tei-s5",
+"any": 2024,
+"conv": "Juny",
+"tei": true,
+"serie": 5,
+"model": "Model anterior",
+"lt": "K-pop, More Than Just a Music Style",
+"rt": "What your Jeans Can (and Do) Hide",
+"a": "audio/2024-juny-tei-s5.mp3",
+"dur": 605,
+"p": {
+"listening": {
+"e": 15,
+"s": 33
+},
+"reading": {
+"e": 15,
+"s": 14
+},
+"writing": {
+"e": 8,
+"s": null
+}
+}
+},
+{
+"ex": 9,
+"id": "2024-setembre-s3",
+"any": 2024,
+"conv": "Setembre",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Making Music After Brain Surgery",
+"rt": "How AI Can Make Cancer Treatment More Equitable",
+"a": "audio/2024-setembre-s3.mp3",
+"dur": 499,
+"p": {
+"listening": {
+"e": 17,
+"s": 37
+},
+"reading": {
+"e": 17,
+"s": 15
+},
+"writing": {
+"e": 9,
+"s": null
+}
+}
+},
+{
+"ex": 10,
+"id": "2023-juny-s1",
+"any": 2023,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "The Rise of Pregnant Stand-up",
+"rt": "Dance Like You’re in Bridgerton, Play Squid Game: Why are Immersive",
+"a": "audio/2023-juny-s1.mp3",
+"dur": 340,
+"p": {
+"listening": {
+"e": 19,
+"s": 40
+},
+"reading": {
+"e": 19,
+"s": 16
+},
+"writing": {
+"e": 10,
+"s": null
+}
+}
+},
+{
+"ex": 11,
+"id": "2023-juny-s5",
+"any": 2023,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Chocolate and Valentine’s Day: a Sweet Story",
+"rt": "How Global Climate Targets are Set and What They Mean",
+"a": "audio/2023-juny-s5.mp3",
+"dur": 389,
+"p": {
+"listening": {
+"e": 21,
+"s": 45
+},
+"reading": {
+"e": 21,
+"s": 17
+},
+"writing": {
+"e": 11,
+"s": null
+}
+}
+},
+{
+"ex": 12,
+"id": "2023-setembre-s2",
+"any": 2023,
+"conv": "Setembre",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "Juanita. the Inca Mummy",
+"rt": "Soccer is the World’s Most Popular Sport. But Who Invented It?",
+"a": "audio/2023-setembre-s2.mp3",
+"dur": 552,
+"p": {
+"listening": {
+"e": 23,
+"s": 50
+},
+"reading": {
+"e": 23,
+"s": 18
+},
+"writing": {
+"e": 12,
+"s": null
+}
+}
+},
+{
+"ex": 13,
+"id": "2022-juny-s2",
+"any": 2022,
+"conv": "Juny",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "America’s Best Known Architect",
+"rt": "Assateague’s Wild Horses",
+"a": "audio/2022-juny-s2.mp3",
+"dur": 478,
+"p": {
+"listening": {
+"e": 25,
+"s": 56
+},
+"reading": {
+"e": 25,
+"s": 19
+},
+"writing": {
+"e": 13,
+"s": null
+}
+}
+},
+{
+"ex": 14,
+"id": "2022-juny-s5",
+"any": 2022,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "The Surprising History of Handwashing",
+"rt": "Ginkgo Trees Nearly Went Extinct. Here’s How We Saved",
+"a": "audio/2022-juny-s5.mp3",
+"dur": 520,
+"p": {
+"listening": {
+"e": 27,
+"s": 61
+},
+"reading": {
+"e": 27,
+"s": 20
+},
+"writing": {
+"e": 14,
+"s": null
+}
+}
+},
+{
+"ex": 15,
+"id": "2022-setembre-s3",
+"any": 2022,
+"conv": "Setembre",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "3, 2, 1… Slam!: Poetry Comes to the Stage",
+"rt": "She Was Sold to a Stranger So Her Family Could Eat",
+"a": "audio/2022-setembre-s3.mp3",
+"dur": 400,
+"p": {
+"listening": {
+"e": 29,
+"s": 67
+},
+"reading": {
+"e": 29,
+"s": 21
+},
+"writing": {
+"e": 15,
+"s": null
+}
+}
+},
+{
+"ex": 16,
+"id": "2021-juny-s2",
+"any": 2021,
+"conv": "Juny",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "Goalball, a Unique Sport",
+"rt": "The Woman Who Saved Millions of Lives Without Knowing",
+"a": "audio/2021-juny-s2.mp3",
+"dur": 407,
+"p": {
+"listening": {
+"e": 31,
+"s": 72
+},
+"reading": {
+"e": 31,
+"s": 22
+},
+"writing": {
+"e": 16,
+"s": null
+}
+}
+},
+{
+"ex": 17,
+"id": "2021-juny-s5",
+"any": 2021,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "The Mystery of Jim Thompson",
+"rt": "Is Plastic a Deadly Threat to Wildlife?",
+"a": "audio/2021-juny-s5.mp3",
+"dur": 477,
+"p": {
+"listening": {
+"e": 33,
+"s": 77
+},
+"reading": {
+"e": 33,
+"s": 23
+},
+"writing": {
+"e": 17,
+"s": null
+}
+}
+},
+{
+"ex": 18,
+"id": "2021-setembre-s1",
+"any": 2021,
+"conv": "Setembre",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Karen Blixen, a Life Made for Film",
+"rt": "Rage Against the Machines: How Unplugging Helps",
+"a": "audio/2021-setembre-s1.mp3",
+"dur": 489,
+"p": {
+"listening": {
+"e": 35,
+"s": 82
+},
+"reading": {
+"e": 35,
+"s": 24
+},
+"writing": {
+"e": 18,
+"s": null
+}
+}
+},
+{
+"ex": 19,
+"id": "2020-juny-s1",
+"any": 2020,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "We’ll Be on Mars Again!",
+"rt": "Is There Such a Thing as Love at First Sight?",
+"a": "audio/2020-juny-s1.mp3",
+"dur": 385,
+"p": {
+"listening": {
+"e": 37,
+"s": 87
+},
+"reading": {
+"e": 37,
+"s": 25
+},
+"writing": {
+"e": 19,
+"s": null
+}
+}
+},
+{
+"ex": 20,
+"id": "2020-juny-s3",
+"any": 2020,
+"conv": "Juny",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Is Life in the Outback Compatible with Climate Change?",
+"rt": "How to Look Modern in Vintage",
+"a": "audio/2020-juny-s3.mp3",
+"dur": 359,
+"p": {
+"listening": {
+"e": 39,
+"s": 92
+},
+"reading": {
+"e": 39,
+"s": 26
+},
+"writing": {
+"e": 20,
+"s": null
+}
+}
+},
+{
+"ex": 21,
+"id": "2020-setembre-s4",
+"any": 2020,
+"conv": "Setembre",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "Counting the Bugs and Bacteria, You’re ‘never Home Alone’",
+"rt": "Huge Reductions in Meat-eating ‘essential’ to Avoid",
+"a": "audio/2020-setembre-s4.mp3",
+"dur": 433,
+"p": {
+"listening": {
+"e": 41,
+"s": 98
+},
+"reading": {
+"e": 41,
+"s": 27
+},
+"writing": {
+"e": 21,
+"s": null
+}
+}
+},
+{
+"ex": 22,
+"id": "2019-juny-s1",
+"any": 2019,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "‘moby-duck’: When 28,800 Bath Toys are Lost at Sea",
+"rt": "The Emoji is the Birth of a New Type of Language (no Joke)",
+"a": "audio/2019-juny-s1.mp3",
+"dur": 437,
+"p": {
+"listening": {
+"e": 43,
+"s": 102
+},
+"reading": {
+"e": 43,
+"s": 28
+},
+"writing": {
+"e": 22,
+"s": null
+}
+}
+},
+{
+"ex": 23,
+"id": "2019-juny-s4",
+"any": 2019,
+"conv": "Juny",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "Do you Get on Well with your Smartphone?",
+"rt": "Thriller: Michael Jackson’s Surprising Success",
+"a": "audio/2019-juny-s4.mp3",
+"dur": 404,
+"p": {
+"listening": {
+"e": 45,
+"s": 105
+},
+"reading": {
+"e": 45,
+"s": 30
+},
+"writing": {
+"e": 23,
+"s": null
+}
+}
+},
+{
+"ex": 24,
+"id": "2019-setembre-s5",
+"any": 2019,
+"conv": "Setembre",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Does High School Start Too Early?",
+"rt": "Leonardo’s Salvator Mundi: Art or Business?",
+"a": "audio/2019-setembre-s5.mp3",
+"dur": 445,
+"p": {
+"listening": {
+"e": 47,
+"s": 108
+},
+"reading": {
+"e": 47,
+"s": 32
+},
+"writing": {
+"e": 24,
+"s": null
+}
+}
+},
+{
+"ex": 25,
+"id": "2018-juny-s1",
+"any": 2018,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "An Interview with a Dancer",
+"rt": "The Future of Fake News:",
+"a": "audio/2018-juny-s1.mp3",
+"dur": 435,
+"p": {
+"listening": {
+"e": 49,
+"s": 112
+},
+"reading": {
+"e": 49,
+"s": 34
+},
+"writing": {
+"e": 25,
+"s": null
+}
+}
+},
+{
+"ex": 26,
+"id": "2018-juny-s5",
+"any": 2018,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Education in the 21st Century",
+"rt": "Secrets in Buckinghamshire",
+"a": "audio/2018-juny-s5.mp3",
+"dur": 468,
+"p": {
+"listening": {
+"e": 51,
+"s": 116
+},
+"reading": {
+"e": 51,
+"s": 36
+},
+"writing": {
+"e": 26,
+"s": null
+}
+}
+},
+{
+"ex": 27,
+"id": "2018-setembre-s3",
+"any": 2018,
+"conv": "Setembre",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "U.s. National Parks: Yellowstone",
+"rt": "How the Colour Red Warps the Mind",
+"a": "audio/2018-setembre-s3.mp3",
+"dur": 456,
+"p": {
+"listening": {
+"e": 53,
+"s": 121
+},
+"reading": {
+"e": 53,
+"s": 38
+},
+"writing": {
+"e": 27,
+"s": null
+}
+}
+},
+{
+"ex": 28,
+"id": "2017-juny-s1",
+"any": 2017,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Are Insects the Future of Food?",
+"rt": "What’s the Real History of Black Friday?",
+"a": "audio/2017-juny-s1.mp3",
+"dur": 435,
+"p": {
+"listening": {
+"e": 55,
+"s": 125
+},
+"reading": {
+"e": 55,
+"s": 40
+},
+"writing": {
+"e": 28,
+"s": null
+}
+}
+},
+{
+"ex": 29,
+"id": "2017-juny-s5",
+"any": 2017,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Does Handwriting Have a Future?",
+"rt": "Jamie’s Sugar Tax on Fizzy Drinks",
+"a": "audio/2017-juny-s5.mp3",
+"dur": 412,
+"p": {
+"listening": {
+"e": 57,
+"s": 129
+},
+"reading": {
+"e": 57,
+"s": 42
+},
+"writing": {
+"e": 29,
+"s": null
+}
+}
+},
+{
+"ex": 30,
+"id": "2017-setembre-s2",
+"any": 2017,
+"conv": "Setembre",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "Salvador Dalí’s Cookbook",
+"rt": "How a Robot Could Be Grandma’s New Caregiver",
+"a": "audio/2017-setembre-s2.mp3",
+"dur": 396,
+"p": {
+"listening": {
+"e": 59,
+"s": 133
+},
+"reading": {
+"e": 59,
+"s": 44
+},
+"writing": {
+"e": 30,
+"s": null
+}
+}
+},
+{
+"ex": 31,
+"id": "2016-juny-s3",
+"any": 2016,
+"conv": "Juny",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Interview with a Scriptwriter",
+"rt": "Norway, the Green Path",
+"a": "audio/2016-juny-s3.mp3",
+"dur": 419,
+"p": {
+"listening": {
+"e": 61,
+"s": 136
+},
+"reading": {
+"e": 61,
+"s": 46
+},
+"writing": {
+"e": 31,
+"s": null
+}
+}
+},
+{
+"ex": 32,
+"id": "2016-juny-s5",
+"any": 2016,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Food in Space",
+"rt": "The Secret Life of Words: How English Became English",
+"a": "audio/2016-juny-s5.mp3",
+"dur": 383,
+"p": {
+"listening": {
+"e": 63,
+"s": 140
+},
+"reading": {
+"e": 63,
+"s": 49
+},
+"writing": {
+"e": 32,
+"s": null
+}
+}
+},
+{
+"ex": 33,
+"id": "2016-setembre-s1",
+"any": 2016,
+"conv": "Setembre",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Building for a Better World",
+"rt": "Starting Early",
+"a": "audio/2016-setembre-s1.mp3",
+"dur": 375,
+"p": {
+"listening": {
+"e": 65,
+"s": 144
+},
+"reading": {
+"e": 65,
+"s": 52
+},
+"writing": {
+"e": 33,
+"s": null
+}
+}
+},
+{
+"ex": 34,
+"id": "2015-juny-s2",
+"any": 2015,
+"conv": "Juny",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "An Interview with a Champion",
+"rt": "Are Love-locks on Bridges Romantic or a Menace?",
+"a": "audio/2015-juny-s2.mp3",
+"dur": 388,
+"p": {
+"listening": {
+"e": 67,
+"s": 147
+},
+"reading": {
+"e": 67,
+"s": 54
+},
+"writing": {
+"e": 34,
+"s": null
+}
+}
+},
+{
+"ex": 35,
+"id": "2015-juny-s4",
+"any": 2015,
+"conv": "Juny",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "Telepathy",
+"rt": "Esperanto and Universal Communication",
+"a": "audio/2015-juny-s4.mp3",
+"dur": 422,
+"p": {
+"listening": {
+"e": 69,
+"s": null
+},
+"reading": {
+"e": 69,
+"s": null
+},
+"writing": {
+"e": 35,
+"s": null
+}
+}
+},
+{
+"ex": 36,
+"id": "2015-setembre-s5",
+"any": 2015,
+"conv": "Setembre",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Hearing Dogs",
+"rt": "The Last of the Noblest Generation",
+"a": "audio/2015-setembre-s5.mp3",
+"dur": 374,
+"p": {
+"listening": {
+"e": 71,
+"s": 150
+},
+"reading": {
+"e": 71,
+"s": 56
+},
+"writing": {
+"e": 36,
+"s": null
+}
+}
+},
+{
+"ex": 37,
+"id": "2014-juny-s3",
+"any": 2014,
+"conv": "Juny",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Do Schools Destroy Creativity?",
+"rt": "The Right to Vote",
+"a": "audio/2014-juny-s3.mp3",
+"dur": 419,
+"p": {
+"listening": {
+"e": 73,
+"s": 153
+},
+"reading": {
+"e": 73,
+"s": 58
+},
+"writing": {
+"e": 37,
+"s": null
+}
+}
+},
+{
+"ex": 38,
+"id": "2014-juny-s4",
+"any": 2014,
+"conv": "Juny",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "Are We Alone in the Universe?",
+"rt": "Why Bilinguals are Smarter",
+"a": "audio/2014-juny-s4.mp3",
+"dur": 392,
+"p": {
+"listening": {
+"e": 75,
+"s": 156
+},
+"reading": {
+"e": 75,
+"s": 61
+},
+"writing": {
+"e": 38,
+"s": null
+}
+}
+},
+{
+"ex": 39,
+"id": "2014-setembre-s5",
+"any": 2014,
+"conv": "Setembre",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "The Best Advice",
+"rt": "The Teacher Who Changed My Life",
+"a": "audio/2014-setembre-s5.mp3",
+"dur": 435,
+"p": {
+"listening": {
+"e": 77,
+"s": 160
+},
+"reading": {
+"e": 77,
+"s": 64
+},
+"writing": {
+"e": 39,
+"s": null
+}
+}
+},
+{
+"ex": 40,
+"id": "2013-juny-s5",
+"any": 2013,
+"conv": "Juny",
+"tei": false,
+"serie": 5,
+"model": "Model anterior",
+"lt": "Smiling Indians",
+"rt": "How China is Winning the School Race",
+"a": "audio/2013-juny-s5.mp3",
+"dur": 344,
+"p": {
+"listening": {
+"e": 79,
+"s": 164
+},
+"reading": {
+"e": 79,
+"s": 67
+},
+"writing": {
+"e": 40,
+"s": null
+}
+}
+},
+{
+"ex": 41,
+"id": "2013-juny-s3",
+"any": 2013,
+"conv": "Juny",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Norwich",
+"rt": "Why Kids Bully: Because They’re Popular",
+"a": "audio/2013-juny-s3.mp3",
+"dur": 358,
+"p": {
+"listening": {
+"e": 81,
+"s": 169
+},
+"reading": {
+"e": 81,
+"s": 70
+},
+"writing": {
+"e": 41,
+"s": null
+}
+}
+},
+{
+"ex": 42,
+"id": "2013-setembre-s1",
+"any": 2013,
+"conv": "Setembre",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Vegetarianism",
+"rt": "Nomophobia: the Biggest Phobia in the World?",
+"a": "audio/2013-setembre-s1.mp3",
+"dur": 366,
+"p": {
+"listening": {
+"e": 83,
+"s": 173
+},
+"reading": {
+"e": 83,
+"s": 73
+},
+"writing": {
+"e": 42,
+"s": null
+}
+}
+},
+{
+"ex": 43,
+"id": "2012-juny-s3",
+"any": 2012,
+"conv": "Juny",
+"tei": false,
+"serie": 3,
+"model": "Model anterior",
+"lt": "Is Hollywood in Crisis?",
+"rt": "The Day I Met the Strange and Inscrutable Steve Jobs",
+"a": "audio/2012-juny-s3.mp3",
+"dur": 364,
+"p": {
+"listening": {
+"e": 85,
+"s": 177
+},
+"reading": {
+"e": 85,
+"s": 75
+},
+"writing": {
+"e": 43,
+"s": null
+}
+}
+},
+{
+"ex": 44,
+"id": "2012-juny-s1",
+"any": 2012,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Living in Greenland",
+"rt": "Death Sites: How to Log in your Afterlife",
+"a": "audio/2012-juny-s1.mp3",
+"dur": 389,
+"p": {
+"listening": {
+"e": 88,
+"s": 180
+},
+"reading": {
+"e": 87,
+"s": 77
+},
+"writing": {
+"e": 44,
+"s": null
+}
+}
+},
+{
+"ex": 45,
+"id": "2012-setembre-s4",
+"any": 2012,
+"conv": "Setembre",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "Interview with Steven Spencer",
+"rt": "Living in Harmony with the Land",
+"a": "audio/2012-setembre-s4.mp3",
+"dur": 357,
+"p": {
+"listening": {
+"e": 91,
+"s": 183
+},
+"reading": {
+"e": 89,
+"s": 79
+},
+"writing": {
+"e": 45,
+"s": null
+}
+}
+},
+{
+"ex": 46,
+"id": "2011-juny-s1",
+"any": 2011,
+"conv": "Juny",
+"tei": false,
+"serie": 1,
+"model": "Model anterior",
+"lt": "Lost… or Maybe Not?",
+"rt": "What the Au Pair Saw",
+"a": "audio/2011-juny-s1.mp3",
+"dur": 341,
+"p": {
+"listening": {
+"e": 94,
+"s": 187
+},
+"reading": {
+"e": 91,
+"s": 81
+},
+"writing": {
+"e": 46,
+"s": null
+}
+}
+},
+{
+"ex": 47,
+"id": "2011-juny-s4",
+"any": 2011,
+"conv": "Juny",
+"tei": false,
+"serie": 4,
+"model": "Model anterior",
+"lt": "John Craven: the Best-loved Presenter on British Television",
+"rt": "The Camino De Santiago, the English Way",
+"a": "audio/2011-juny-s4.mp3",
+"dur": 388,
+"p": {
+"listening": {
+"e": 96,
+"s": 191
+},
+"reading": {
+"e": 93,
+"s": 83
+},
+"writing": {
+"e": 47,
+"s": null
+}
+}
+},
+{
+"ex": 48,
+"id": "2011-setembre-s2",
+"any": 2011,
+"conv": "Setembre",
+"tei": false,
+"serie": 2,
+"model": "Model anterior",
+"lt": "The End of the World Train",
+"rt": "Digital and Traditional Tools",
+"a": "audio/2011-setembre-s2.mp3",
+"dur": 354,
+"p": {
+"listening": {
+"e": 99,
+"s": 195
+},
+"reading": {
+"e": 95,
+"s": 85
+},
+"writing": {
+"e": 48,
+"s": null
+}
+}
+}
+]
+}

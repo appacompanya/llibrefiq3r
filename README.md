@@ -90,3 +90,9 @@ Les fonts són a `tools/biologia/` i `contingut/biologia/`:
   traduïdes (`commons_proc.py`; l'acció `biologia-commons.yml` descarrega els fitxers llistats a `commons.txt`).
 - `build_web.py` → `biologia/` · `node pdf_teoria.js` → `biologia/biologia-teoria.pdf` ·
   `build_pau.py enunciats.pdf solucions.pdf` → `biologia/pau/`.
+
+## PAU d'anglès (`/angles/`)
+
+Exàmens d'anglès de les PAU de Catalunya (2011–2026) separats en Listening, Reading i Writing, amb els àudios (mono, 48 kbps) i el solucionari.
+Les fonts (exàmens, pautes i àudios de la coordinació de la PAU d'anglès i del Canal Universitats) les baixa l'acció `.github/workflows/angles-pau-fonts.yml` a la branca `fonts-pau-angles`.
+Per regenerar: `python3 tools/angles-pau/build.py <còpia de la branca fonts-pau-angles>`.
