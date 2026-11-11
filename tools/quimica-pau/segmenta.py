@@ -58,8 +58,9 @@ def content_bbox(page, y0, y1, extra_skip=None):
     y0 = max(y0, head)
     top, bot = None, None
     xs0, xs1 = [], []
-    whites = [d["rect"] for d in page.get_drawings() if d.get("fill") and all(c > 0.98 for c in d["fill"][:3])
-              and not d.get("color") and d["rect"].width * d["rect"].height > 300]
+    # els rectangles «blancs» que tapen els quadres de correcció es pinten amb (1, 1, 0.996) per reconèixer-los
+    whites = [d["rect"] for d in page.get_drawings() if d.get("fill") and d["fill"][0] > 0.999 and 0.99 < d["fill"][2] < 0.999
+              and not d.get("color")]
     boxes = boxes + [pymupdf.Rect(w.x0 - 1, w.y0 - 1, w.x1 + 1, w.y1 + 1) for w in whites]
 
     def add(r):
@@ -84,7 +85,7 @@ def content_bbox(page, y0, y1, extra_skip=None):
             continue
         f = d.get("fill")
         if f and all(c > 0.98 for c in f[:3]) and not d.get("color"):
-            continue  # rectangles blancs (els que tapen els quadres de correcció)
+            continue  # rectangles blancs (fons o tapes): no són contingut visible
         add(r)
     for info in page.get_image_info():
         add(pymupdf.Rect(info["bbox"]))
@@ -95,11 +96,18 @@ def content_bbox(page, y0, y1, extra_skip=None):
     return pymupdf.Rect(x0, top - 3, x1, min(bot + 14, y1, H - 40))
 
 
-STOP = re.compile(r"Podeu utilitzar aquest(es pàgines|a pàgina)|ha tingut cura de la correcció lingüística|Etiqueta de l.estudiant")
+STOP = re.compile(r"Podeu utilitzar aquest(es pàgines|a pàgina)|ha tingut cura de la correcció lingüística|Etiqueta de l.estudiant|Etiqueta de qualificació")
 
 
 def useful_pages(doc, pages):
-    return [p for p in pages if not STOP.search(doc[p].get_text())]
+    """Descarta les pàgines de portada, de «podeu utilitzar aquesta pàgina…» i de crèdits, però no les que,
+    a més d'aquests textos, tenen una pregunta (els fitxers compactats posen la sèrie i la pregunta 1 a la portada)."""
+    out = []
+    for p in pages:
+        ls = lines(doc[p])
+        if not any(STOP.search(l[4]) for l in ls) or any(re.match(r"^[1-7]\.\s+\S", l[4]) for l in ls):
+            out.append(p)
+    return out
 
 
 def segment(doc, pages, heading, key, extra_skip=None, min_gap=0):
@@ -110,12 +118,17 @@ def segment(doc, pages, heading, key, extra_skip=None, min_gap=0):
     Torna [(clau, text_capçalera, [(pno, Rect)], text)]."""
     pages = useful_pages(doc, pages)
     marks = []
+    last = 0
     for pno in pages:
         boxes = correction_boxes(doc[pno])
         for (y0, y1, x0, x1, t, bold) in lines(doc[pno]):
             m = heading.match(t)
             if m and not any(b.x0 <= (x0 + x1) / 2 <= b.x1 and b.y0 <= (y0 + y1) / 2 <= b.y1 for b in boxes):
-                marks.append((pno, y0 - 2, key(m), t))
+                k = key(m)
+                if k < last:
+                    continue  # les claus van creixent: una de més petita és una repetició (contraportada, índex)
+                last = k
+                marks.append((pno, y0 - 2, k, t))
     # fusiona capçaleres consecutives amb la mateixa clau (p. ex. «Exercici 1a» i «Exercici 1b»)
     starts = []
     for mk in marks:
@@ -165,6 +178,6 @@ def neteja(path, out):
                 u = pymupdf.Rect(parts[0])
                 for r in parts[1:]:
                     u |= r
-                page.draw_rect(pymupdf.Rect(u.x0 - 1.5, u.y0 - 1.5, u.x1 + 1.5, u.y1 + 1.5), color=None, fill=(1, 1, 1), overlay=True)
+                page.draw_rect(pymupdf.Rect(u.x0 - 1.5, u.y0 - 1.5, u.x1 + 1.5, u.y1 + 1.5), color=None, fill=(1, 1, 0.996), overlay=True)
     doc.save(out, garbage=3, deflate=True)
     return out

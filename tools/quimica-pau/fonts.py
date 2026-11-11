@@ -76,7 +76,7 @@ def pauta_series(doc, first=0):
     out = {}
     for i in range(first, doc.page_count):
         for l in lines(doc[i])[:8]:
-            m = re.match(r"^S[ÈèEe]RIE\s*(\d)\s*$", l[4], re.I)
+            m = re.match(r"^S[ÈèEe](?:RIE|IRE)\s*(\d)\s*$", l[4], re.I)
             if m:
                 out[i] = int(m.group(1)); break
     return out
@@ -94,9 +94,19 @@ def convocatories(src: Path):
     by = {}
     for name, f in files.items():
         m = re.search(r"pau_quim(\d\d)([jsoe])([lpt]?)(_tei)?\.pdf$", name, re.I)
+        m2 = re.search(r"quimica-catalunya-(juny|setembre)-(20\d\d)-(enunciats|solucions)\.pdf$", name, re.I)
+        m3 = re.search(r"pau_quimica_(20\d\d)_(juny|setembre)_(enunciat|solucio)\.pdf$", name, re.I)
         if m:
             yy, c, kind, tei = m.groups()
-            by.setdefault((int(yy), c.lower(), bool(tei)), {})[kind.lower() or "x"] = f
+            by.setdefault((int(yy), c.lower(), bool(tei)), {}).setdefault(kind.lower() or "x", f)
+        elif m2 or m3:
+            if m2:
+                cv, yr, k = m2.groups()
+            else:
+                yr, cv, k = m3.groups()
+            key = (int(yr) - 2000, cv.lower()[0], False)
+            kind = "l" if k.lower().startswith("enunciat") else "p"
+            by.setdefault(key, {}).setdefault(kind, f)
     out = []
     for (yy, c, tei), d in sorted(by.items()):
         year = 2000 + yy
@@ -126,7 +136,7 @@ def convocatories(src: Path):
             h_en, fmt = H_ENUN_24, (lambda k: f"Qüestió {k}")
         for serie, pages in lr.items():
             pp = pr.get(serie) or (list(pr.values())[0] if len(pr) == 1 and len(lr) == 1 else [])
-            out.append({"any": year, "conv": CONV[c], "serie": serie,
+            out.append({"any": year, "conv": ("Juliol" if year == 2020 and c in "jo" else CONV[c]), "serie": serie,
                         "exercicis": (lambda lpath=lpath, pages=pages, ppath=ppath, pp=pp, h_en=h_en, fmt=fmt:
                                       _ex(lpath, pages, h_en, ppath if pp else None, pp, H_PAUTA_25, fmt))})
     return out
