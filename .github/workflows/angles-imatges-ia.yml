@@ -1,0 +1,37 @@
+# Baixa a tools/angles-pau/ia/ les il·lustracions de la PAU d'anglès generades amb OpenAI
+# (privat.genera_imatge4 a Supabase; la funció «imatges-ang» només serveix les imatges «ang-*»).
+# Es dispara quan canvia tools/angles-pau/ia/demana.txt (llista de noms, un per línia).
+name: Anglès · imatges IA
+
+on:
+  push:
+    branches: [main]
+    paths: ["tools/angles-pau/ia/demana.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: angles-imatges-ia
+  cancel-in-progress: false
+
+jobs:
+  baixa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools/angles-pau
+      - name: Descarrega
+        run: |
+          noms=$(grep -v '^#' tools/angles-pau/ia/demana.txt | grep -E '^ang-[a-z0-9-]+$' | paste -sd, -)
+          curl -sSf --retry 3 -o /tmp/ia.zip "https://pwqyqwiwarffzdkblglt.supabase.co/functions/v1/imatges-ang?noms=${noms}"
+          mkdir -p tools/angles-pau/ia && unzip -o /tmp/ia.zip -d tools/angles-pau/ia
+          cat tools/angles-pau/ia/registre.txt
+      - name: Desa
+        run: |
+          git add tools/angles-pau/ia
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Anglès: il·lustracions dels blocs (OpenAI)"
+          git pull --rebase origin main && git push
