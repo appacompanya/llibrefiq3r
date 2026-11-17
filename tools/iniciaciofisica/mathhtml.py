@@ -93,15 +93,20 @@ def _atom(s, i):
         return f'<span class="rm">{html.escape(s[i:j])}</span>', j
     if s[i].isalpha():
         return f"<i>{html.escape(s[i])}</i>", i + 1
-    if s[i] in "+-=()[]<>":
+    if s[i] == "(":
+        inner, j = _seq(s, i + 1, stop=")")
+        if j >= len(s) or s[j] != ")":
+            raise ValueError("falta ) a: " + s)
+        return f'<span class="op">(</span>{inner}<span class="op">)</span>', j + 1
+    if s[i] in "+-=)[]<>":
         return f'<span class="op">{html.escape(s[i])}</span>', i + 1
     return html.escape(s[i]), i + 1
 
 
-def _seq(s, i):
+def _seq(s, i, stop="}"):
     parts = []
     while i < len(s):
-        if s[i] == "}":
+        if s[i] in stop:
             break
         if s[i].isspace():
             i += 1

@@ -579,7 +579,26 @@ def v_omega():
 
 
 # Registre: nom -> funció que rep un dict i torna svg
+def _amb_qui(svg, qui):
+    if not qui:
+        return svg
+    import re
+    from html import escape
+    m = re.search(r'viewBox="0 0 ([0-9.]+) ([0-9.]+)"', svg)
+    if not m:
+        return svg
+    w, h = float(m.group(1)), float(m.group(2))
+    svg = svg.replace(m.group(0), f'viewBox="0 -32 {w:.0f} {h + 32:.0f}"', 1)
+    etiqueta = (
+        f'<text x="14" y="-12" font-size="16" font-weight="700" text-anchor="start" '
+        f'font-family="Atkinson Hyperlegible, DejaVu Sans, sans-serif" fill="#1b1f24">'
+        f'{escape(qui)}</text>'
+    )
+    return svg.replace(">", ">" + etiqueta, 1)
+
+
 def dibuixa(nom, **kw):
+    qui = kw.pop("qui", None)
     fn = {
         "eix": lambda **k: eix(k["punts"], k.get("cota")),
         "grafica": lambda **k: grafica(k["trams"], k["xlabel"], k["ylabel"], k["xmin"], k["xmax"], k["ymin"], k["ymax"], k.get("marca")),
@@ -608,4 +627,4 @@ def dibuixa(nom, **kw):
         "parells": lambda **k: parells(),
         "v_omega": lambda **k: v_omega(),
     }[nom]
-    return fn(**kw)
+    return _amb_qui(fn(**kw), qui)

@@ -49,7 +49,7 @@ def html_problemes(tema):
             f'<div class="qa" id="p-{p["id"].replace(".", "-")}">'
             f'<article class="prob"><h4><span class="pno">{p["id"]}</span> {esc(p["titol"])}'
             f'<span class="niv">{esc(p["nivell"])}</span></h4>'
-            f'{fig}{p["enunciat"]}</article>'
+            f'<div class="enun">{fig}{p["enunciat"]}</div></article>'
             f'<div class="box ex sol"><p class="lead">Solució</p>{sol_fig}{p["solucio"]}</div>'
             f'</div>'
         )
@@ -67,7 +67,7 @@ def capitol_html(tema, amb_portada=True):
     if amb_portada:
         portada = f'''<header class="cover"><div class="cover-band"><div class="cover-num"><small>Tema</small>{tema["n"]}</div><div><div class="cover-kick">{esc(tema["grup"])}</div><h1>{esc(tema["titol"])}</h1></div></div>
 <div class="cover-body"><p>{esc(tema["resum"])}</p></div></header>'''
-    return portada + "\n".join(seccions) + f'<h3 id="{tema["slug"]}-problemes"><span class="secno">P</span> Problemes</h3><p>Els problemes van de més senzills a més complets. Cada solució explica el plantejament, les equacions, el càlcul i el resultat amb unitats. Si no es diu una altra cosa, g = 9,8 m/s².</p>' + probs
+    return portada + "\n".join(seccions) + f'<h3 id="{tema["slug"]}-problemes"><span class="secno">P</span> Problemes</h3><p>Els problemes són de 1r de batxillerat: primer els senzills i després algun de dificultat mitjana. Es resolen amb les equacions del tema, àlgebra senzilla i sinus i cosinus. Cada solució justifica el plantejament i substitueix les dades amb unitats. Si no es diu una altra cosa, g = 9,8 m/s².</p>' + probs
 
 
 def mixtos_html():

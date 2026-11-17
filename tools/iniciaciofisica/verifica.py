@@ -71,6 +71,8 @@ def fis(tipus, p):
         return math.sqrt(2 * g * p["h"])
     if tipus == "tir_h_v":
         return math.hypot(p["v0"], math.sqrt(2 * g * p["h"]))
+    if tipus == "tir_h_v0":
+        return p["R"] / math.sqrt(2 * p["h"] / g)
     if tipus == "tir_t":
         return 2 * p["v0"] * math.sin(math.radians(p["theta"])) / g
     if tipus == "tir_H":
@@ -276,6 +278,14 @@ def comprova_problemes(problemes):
             errors.append(f"{pr['id']}: no s'ha d'usar el treball de les forces no conservatives")
         if "Plantejament" not in pr["solucio"] or "Resultat" not in pr["solucio"]:
             errors.append(f"{pr['id']}: la solució no té plantejament i resultat")
+        enun = text_net(pr["enunciat"]).lower()
+        if re.search(r"\bun cos\b", enun):
+            errors.append(f"{pr['id']}: l'enunciat parla d'«un cos» i no de la situació del títol")
+        claus = [m for m in re.findall(r"[0-9A-Za-zÀ-ÿ]+", pr["titol"]) if len(m) >= 4]
+        if claus and not any(m.lower() in enun for m in claus):
+            errors.append(f"{pr['id']}: el títol «{pr['titol']}» no lliga amb l'enunciat")
+        if "·" not in net and "/" not in net:
+            errors.append(f"{pr['id']}: el càlcul no mostra la substitució")
         for r in pr["resultats"]:
             a = calcular(r["tipus"], r["params"])
             b = fis(r["tipus"], r["params"])

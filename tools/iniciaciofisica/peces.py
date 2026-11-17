@@ -28,5 +28,17 @@ def valor(x, d, unitat):
     return f"<b>{fmt(x, d)} {unitat}</b>"
 
 
+def igual(lhs, mig, resultat, d, unitat, sup=""):
+    """Línia de càlcul amb la substitució i les unitats: lhs = dades = resultat."""
+    uni = rf"\,\mathrm{{{unitat}}}"
+    if sup:
+        uni += "^{" + sup + "}"
+    return EQ(f"{lhs} = {mig} = {fmt(resultat, d)}{uni}")
+
+
+def gtex():
+    return r"9,8\,\mathrm{m/s}^2"
+
+
 def calc(tipus, params):
     return calcular(tipus, params)

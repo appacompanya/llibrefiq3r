@@ -93,6 +93,9 @@ def calcular(tipus, p):
         h, v0 = _need(p, "h", "v0")
         vy = math.sqrt(2 * g * h)
         return math.sqrt(v0 * v0 + vy * vy)
+    if tipus == "tir_h_v0":
+        h, R = _need(p, "h", "R")
+        return R / math.sqrt(2 * h / g)
     if tipus == "tir_t":
         v0, th = _need(p, "v0", "theta")
         return 2 * v0 * math.sin(math.radians(th)) / g
