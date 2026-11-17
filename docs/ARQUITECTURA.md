@@ -1,6 +1,6 @@
 # Arquitectura del repositori
 
-El repositori publica quatre llibres. No és només el de 3r.
+El repositori publica els llibres d'ESO, el de Física II, el de Biologia i el d'iniciació a la física de 1r de batxillerat. No és només el de 3r.
 
 | Curs | On és | Com es construeix |
 | --- | --- | --- |
@@ -8,6 +8,8 @@ El repositori publica quatre llibres. No és només el de 3r.
 | 2n ESO | `2n/` | PDF de `2n/docs` → `tools/digital-pdf/build.py` |
 | 4t ESO | `4t/` | PDF de `4t/docs` → `tools/digital-pdf/build.py` |
 | Batxillerat | `btx/` | material propi; aquest document no el descriu |
+| Física, 1r de batxillerat | `iniciaciofisica/` | `tools/iniciaciofisica/build_web.py` |
+| Biologia, 2n de batxillerat | `biologia/` | `tools/biologia/` |
 
 2n i 4t comparteixen el codi de `digital/js` i `digital/css`. El seu material de professorat va xifrat (AES-256-GCM, clau derivada per Diffie-Hellman). Aquest model no es canvia des d'aquí. Vegeu `tools/material/build.py`.
 

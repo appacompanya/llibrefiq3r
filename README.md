@@ -78,6 +78,11 @@ Fan servir el mateix codi que el de 3r (`digital/js`, `digital/css`), amb les fi
 
 Les respostes escrites d'una fitxa digital es poden enviar a un proveïdor d'IA per proposar una correcció. L'indicador «Possible IA» i la qualificació alternativa només els veu el docent: són un indici, no la nota oficial. Text per a famílies: [docs/privacitat-ia.html](docs/privacitat-ia.html).
 
+## Iniciació a la física, 1r de batxillerat (`/iniciaciofisica/`)
+
+Llibre de teoria i problemes (cinemàtica, tir parabòlic, moviment circular, lleis de Newton, forces i energia mecànica sense fregament).
+Les fonts són a `tools/iniciaciofisica/`: `build_web.py` escriu `iniciaciofisica/`, `verifica.py` comprova els resultats numèrics i `pdf.js` genera `iniciaciofisica/iniciacio-fisica.pdf`.
+
 ## Biologia de 2n de batxillerat (`/biologia/`)
 
 Llibre web de teoria (9 temes), PDF per imprimir i exercicis PAU 2011–2026 per blocs (ordinador i mòbil) amb cercador.
