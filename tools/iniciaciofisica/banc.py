@@ -452,7 +452,8 @@ def cinematica():
                 + igual("t", ntex(v0, "m/s") + " / " + ntex(9.8, "m/s", "2"), rt["valor"], rt["decimals"], "s")
                 + igual("T", "2 \cdot " + ntex(rt["valor"], "s"), rT["valor"], rT["decimals"], "s"),
                 f"Puja {valor(rh['valor'], rh['decimals'], 'm')}, triga {valor(rt['valor'], rt['decimals'], 's')} a arribar-hi i {valor(rT['valor'], rT['decimals'], 's')} a tornar al punt de partida."),
-            ("llancament", {"qui": qui}, "Llançament cap amunt. Al punt més alt la velocitat és zero i l’acceleració no."))
+            ("llancament", {"v0": f"v₀ = {fmt(v0, dec(v0))} m/s"},
+             "Llançament cap amunt. Al punt més alt la velocitat és zero i l’acceleració no."))
 
     llanc("La pilota de la classe de gimnàs", "senzill",
           "<p>A gimnàs es llança una pilota verticalment cap amunt a 14 m/s des del terra. g = 9,8 m/s² i l’eix apunta cap amunt.</p><p>a) Quina alçada màxima assoleix?</p><p>b) Quant triga a arribar-hi?</p><p>c) Quant triga a tornar a la mà, si es queda a la mateixa altura?</p>",
@@ -479,7 +480,7 @@ def cinematica():
             igual("y", ntex(20, "m/s") + r" \cdot " + ntex(1, "s") + r" - \frac{1}{2} \cdot " + ntex(9.8, "m/s", "2") + r" \cdot " + ntex(1, "s") + "^2", ry["valor"], ry["decimals"], "m")
             + igual("v", ntex(20, "m/s") + " - " + ntex(9.8, "m/s", "2") + r" \cdot " + ntex(1, "s"), rv["valor"], rv["decimals"], "m/s"),
             f"Al cap d’1 s la pedra és a {valor(ry['valor'], ry['decimals'], 'm')} i porta {valor(rv['valor'], rv['decimals'], 'm/s')}. El signe positiu vol dir que encara puja."),
-        ("llancament", {"qui": "Pedra · v₀ = 20 m/s · t = 1 s"}, "Es demana la situació al cap d’un segon, abans del punt més alt."))
+        ("llancament", {"v0": "v₀ = 20 m/s"}, "Al cap d’un segon la pedra encara puja."))
 
     r = R("mru_v", {"x0": 0, "x": 400, "t": 50}, "v", "m/s")
     add("L’autobús urbà", "senzill",

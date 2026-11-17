@@ -337,15 +337,19 @@ figure svg{width:100%;height:auto}
   @page{size:A4;margin:14mm 15mm 16mm 15mm;
     @bottom-left{content:"Iniciació a la física · 1r de batxillerat · llibrefiq3r.cat/iniciaciofisica";font-size:8pt;color:#555;font-family:sans-serif}
     @bottom-right{content:counter(page);font-size:8pt;color:#555;font-family:sans-serif}}
-  .prob,.box,.qa,.qa>.prob,.qa .sol{break-inside:auto !important;page-break-inside:auto !important}
+  .prob,.qa,.qa>.prob{break-inside:auto !important;page-break-inside:auto !important}
+  .box,.qa .sol{break-inside:avoid !important;page-break-inside:avoid !important}
   .enun,figure,table,.eq{break-inside:avoid;page-break-inside:avoid}
+  .sol>.lead,.prob>h4,h3,h4{break-after:avoid;page-break-after:avoid}
   .chapter + .chapter{break-before:page}
-  h3,h4{break-after:avoid}
-  h4{break-after:avoid}
-  p{orphans:2;widows:2}
-  figure{margin:.45em auto}
-  .qa{margin:.7em 0 .9em}
-  .qa>.prob,.qa .sol{padding:.55em .8em}
+  p{orphans:3;widows:3}
+  figure{margin:.25em auto .35em}
+  figcaption{margin:.25em auto 0}
+  .qa{margin:.4em 0 .55em}
+  .qa>.prob,.qa .sol{padding:.35em .65em .3em}
+  .qa p{margin:.22em 0}
+  .qa .sol p{margin:.22em 0}
+  .eq{margin:.22em 0}
 }
 .altres{display:flex;flex-wrap:wrap;gap:8px;margin:.6em 0 0;font-family:var(--sans)}
 .altres a{font-size:.82rem;font-weight:700;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--ink);background:#fff}

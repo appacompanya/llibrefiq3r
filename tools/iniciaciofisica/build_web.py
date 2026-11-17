@@ -44,7 +44,7 @@ def html_problemes(tema):
         fig = figura_de(p["esq"], f"Figura {p['id']}.")
         sol_fig = ""
         if p.get("esq_sol"):
-            sol_fig = figura_de(p["esq_sol"], "Diagrama de la solució.")
+            sol_fig = figura_de(p["esq_sol"], f"Figura {p['id']}b.")
         trossos.append(
             f'<div class="qa" id="p-{p["id"].replace(".", "-")}">'
             f'<article class="prob"><h4><span class="pno">{p["id"]}</span> {esc(p["titol"])}'

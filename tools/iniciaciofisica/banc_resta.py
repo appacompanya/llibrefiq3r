@@ -71,7 +71,7 @@ def _tir_real(out, add):
         add(titol, niv, enun, [bag[k] for k in demana],
             solucio(perque, EQ(r"t = \sqrt{2h/g},\quad R = v_0 t"), blocs, cloenda(bag)),
             ("tir_h", {"h": f"{fmt(h, dec(h))} m", "v": f"{fmt(v0, dec(v0))} m/s", "qui": qui},
-             f"{qui}: surt en horitzontal."))
+             "Tir horitzontal: la velocitat inicial no té component vertical."))
 
     H("La pilota des del penya-segat", "senzill",
       "<p>Des del penya-segat de la cala, a 19,6 m sobre l’aigua, es llança una pilota en horitzontal a 10 m/s. Es negligeix l’aire i g = 9,8 m/s².</p><p>a) Quant triga a caure a l’aigua?</p><p>b) A quina distància horitzontal de la base del penya-segat cau?</p>",
@@ -538,7 +538,8 @@ def forces():
                 igual("N", ntex(m, "kg") + r" \cdot " + ntex(9.8, "m/s", "2"), rn["valor"], rn["decimals"], "N")
                 + igual("a", ntex(F, "N") + " / " + ntex(m, "kg"), ra["valor"], ra["decimals"], "m/s", "2"),
                 f"La normal és {valor(rn['valor'], rn['decimals'], 'N')} i l’acceleració és {valor(ra['valor'], ra['decimals'], 'm/s²')}."),
-            ("dcl", {"fregament": False, "força": True, "F": "F", "qui": qui}, "Pla horitzontal llis."))
+            ("dcl", {"fregament": False, "força": True, "F": f"{fmt_s(F)} N", "massa": f"{fmt_s(m)} kg"},
+             "Pla horitzontal llis: el pes i la normal es compensen."))
 
     llis("El trineu al gel llis", "<p>S’estira un trineu de 8 kg amb una força horitzontal de 24 N sobre gel que es pot considerar llis.</p><p>a) Quant val la normal?</p><p>b) Quina acceleració té el trineu?</p>", 24, 8, "Trineu · 8 kg · F = 24 N · gel llis")
     llis("La caixa al terra encerat", "<p>S’empeny una caixa de 4 kg amb una força horitzontal de 10 N per un terra encerat que considerem llis.</p><p>a) Quant val la normal?</p><p>b) Quina acceleració té?</p>", 10, 4, "Caixa · 4 kg · F = 10 N")
@@ -555,7 +556,8 @@ def forces():
                 igual("f", ntex(mu, "") + r" \cdot " + ntex(m, "kg") + r" \cdot " + ntex(9.8, "m/s", "2"), rf["valor"], rf["decimals"], "N")
                 + igual("a", "(" + ntex(F, "N") + " - " + ntex(rf["valor"], "N") + ") / " + ntex(m, "kg"), ra["valor"], ra["decimals"], "m/s", "2"),
                 f"El fregament és {valor(rf['valor'], rf['decimals'], 'N')} i l’acceleració és {valor(ra['valor'], ra['decimals'], 'm/s²')}."),
-            ("dcl", {"fregament": True, "força": True, "F": "F", "qui": qui}, "Fregament cinètic oposat al moviment."))
+            ("dcl", {"fregament": True, "força": True, "F": f"{fmt_s(F)} N", "massa": f"{fmt_s(m)} kg", "mu": f"μ = {str(mu).replace('.', ',')}"},
+             "El fregament cinètic s’oposa al lliscament."))
 
     freg("La maleta que rellisca", "<p>S’estira una maleta de 6 kg amb una força horitzontal de 20 N. El coeficient de fregament cinètic amb el terra és 0,1 i la maleta ja llisca. g = 9,8 m/s².</p><p>a) Quant val el fregament?</p><p>b) Quina acceleració té?</p>", 20, 6, 0.1, "Maleta · 6 kg · F = 20 N · μ = 0,1")
     freg("El sofà pel passadís", "<p>S’empeny un sofà de 20 kg amb una força horitzontal de 80 N. El coeficient de fregament cinètic és 0,3 i el sofà ja llisca. g = 9,8 m/s².</p><p>a) Quant val el fregament?</p><p>b) Quina acceleració té?</p>", 80, 20, 0.3, "Sofà · 20 kg · F = 80 N · μ = 0,3")
@@ -576,8 +578,10 @@ def forces():
                 igual("a", ntex(9.8, "m/s", "2") + rf" \cdot \sin {alpha}^\circ", ra["valor"], ra["decimals"], "m/s", "2")
                 + igual("N", ntex(m, "kg") + r" \cdot " + ntex(9.8, "m/s", "2") + rf" \cdot \cos {alpha}^\circ", rn["valor"], rn["decimals"], "N"),
                 f"L’acceleració pendent avall és {valor(ra['valor'], ra['decimals'], 'm/s²')} i la normal és {valor(rn['valor'], rn['decimals'], 'N')}."),
-            ("inclinat", {"alpha": alpha, "fregament": False, "qui": qui}, f"Pla llis de {alpha}°."),
-            ("dcl_inclinat", {"alpha": alpha, "fregament": False, "qui": "Diagrama"}, "Components del pes al llarg del pla i en la direcció de la normal."))
+            ("inclinat", {"alpha": alpha, "fregament": False, "massa": f"{fmt_s(m)} kg"},
+             f"Baixada per un pla llis de {alpha}°. El pes és vertical i la normal, perpendicular al pla."),
+            ("dcl_inclinat", {"alpha": alpha, "fregament": False, "massa": f"{fmt_s(m)} kg"},
+             "El pes es descompon en P sin α, al llarg del pla, i P cos α, perpendicular al pla."))
 
     inc0("El trineu al pla de 30°", "<p>Un trineu de 2 kg baixa per un pla nevat, llis, de 30°. g = 9,8 m/s².</p><p>a) Quina acceleració té?</p><p>b) Quant val la normal?</p>", 2, 30, "Trineu · 2 kg · pla llis 30°")
     inc0("La caixa al pla de 45°", "<p>Una caixa de 5 kg baixa per un pla llis de 45°. g = 9,8 m/s².</p><p>a) Quina acceleració té?</p><p>b) Quant val la normal?</p>", 5, 45, "Caixa · 5 kg · pla llis 45°")
@@ -596,8 +600,10 @@ def forces():
                 + igual("f", ntex(mu, "") + r" \cdot " + ntex(rn["valor"], "N"), rf["valor"], rf["decimals"], "N")
                 + igual("a", ntex(9.8, "m/s", "2") + rf" \cdot (\sin {alpha}^\circ - " + ntex(mu, "") + rf" \cdot \cos {alpha}^\circ)", ra["valor"], ra["decimals"], "m/s", "2"),
                 f"La normal és {valor(rn['valor'], rn['decimals'], 'N')}, el fregament és {valor(rf['valor'], rf['decimals'], 'N')} i l’acceleració pendent avall és {valor(ra['valor'], ra['decimals'], 'm/s²')}."),
-            ("inclinat", {"alpha": alpha, "fregament": True, "qui": qui}, f"Pla de {alpha}° amb fregament cinètic."),
-            ("dcl_inclinat", {"alpha": alpha, "fregament": True}, "El fregament apunta pendent amunt perquè el bloc baixa."))
+            ("inclinat", {"alpha": alpha, "fregament": True, "massa": f"{fmt_s(m)} kg"},
+             f"Baixada per un pla de {alpha}° amb fregament cinètic."),
+            ("dcl_inclinat", {"alpha": alpha, "fregament": True, "massa": f"{fmt_s(m)} kg"},
+             "El pes es descompon en P sin α i P cos α. El fregament apunta pendent amunt."))
 
     incf("La caixa que baixa a 30°", "<p>Una caixa de 2 kg baixa lliscant per un pla de 30°. μ_c = 0,2. g = 9,8 m/s².</p><p>a) Quant valen la normal i el fregament?</p><p>b) Quina acceleració té?</p>", 2, 30, 0.2, "Caixa · 2 kg · 30° · μ = 0,2")
     incf("El trineu que baixa a 20°", "<p>Un trineu de 6 kg baixa lliscant per un pla de 20°. μ_c = 0,1. g = 9,8 m/s².</p><p>a) Quant valen la normal i el fregament?</p><p>b) Quina acceleració té?</p>", 6, 20, 0.1, "Trineu · 6 kg · 20° · μ = 0,1")
@@ -650,7 +656,7 @@ def forces():
                 EQ(r"F = k x"),
                 igual("F", ntex(k, "N/m") + r" \cdot " + ntex(x, "m"), r["valor"], r["decimals"], "N"),
                 f"La molla fa {valor(r['valor'], r['decimals'], 'N')}."),
-            ("molla", {"qui": qui}, "La cota x és la deformació, no la longitud total."))
+            ("molla", {"x": f"{fmt_s(x)} m"}, "La cota és la deformació, no la longitud total de la molla."))
 
     rf = R("ac_necessaria", {"m": 0.4, "v": 3, "r": 0.8}, "T", "N")
     add("La corda que fa girar la pilota", "mitjà",
@@ -788,7 +794,7 @@ def energia():
                 igual("E", r"\frac{1}{2} \cdot " + ntex(k, "N/m") + r" \cdot " + ntex(A, "m") + "^2", re["valor"], re["decimals"], "J")
                 + igual("v", ntex(A, "m") + r" \cdot \sqrt{" + ntex(k, "N/m") + " / " + ntex(m, "kg") + "}", rv["valor"], rv["decimals"], "m/s"),
                 f"L’energia inicial de la molla és {valor(re['valor'], re['decimals'], 'J')} i la velocitat a l’equilibri és {valor(rv['valor'], rv['decimals'], 'm/s')}."),
-            ("molla", {"comprimida": True, "qui": qui}, "La cota és la compressió inicial."))
+            ("molla", {"comprimida": True, "x": f"{fmt_s(A)} m"}, "La cota és la compressió inicial de la molla."))
 
     moll("La molla de 200 N/m", "<p>Una molla de 200 N/m està comprimida 0,1 m i es deixa anar, unida a un bloc de 0,5 kg, damunt una taula llisa.</p><p>a) Quina energia té la molla al principi?</p><p>b) Quina velocitat porta el bloc en passar per l’equilibri?</p>", 0.5, 200, 0.1, "Bloc 0,5 kg · k = 200 N/m · 0,1 m")
     moll("La molla tova", "<p>Una molla de 50 N/m, comprimida 0,08 m, llança un bloc de 0,2 kg per una taula llisa.</p><p>a) Quina energia té al principi?</p><p>b) Quina velocitat porta a l’equilibri?</p>", 0.2, 50, 0.08, "Bloc 0,2 kg · k = 50 N/m")
@@ -814,8 +820,10 @@ def mixtos():
                 igual("a", ntex(9.8, "m/s", "2") + rf" \cdot \sin {alpha}^\circ", ra["valor"], ra["decimals"], "m/s", "2")
                 + igual("v", r"\sqrt{2 \cdot " + ntex(9.8, "m/s", "2") + r" \cdot " + ntex(d, "m") + rf" \cdot \sin {alpha}^\circ" + "}", rv["valor"], rv["decimals"], "m/s"),
                 f"L’acceleració és {valor(ra['valor'], ra['decimals'], 'm/s²')} i la velocitat al final del tram és {valor(rv['valor'], rv['decimals'], 'm/s')}."),
-            ("inclinat", {"alpha": alpha, "fregament": False, "qui": qui}, "Pla llis: es pot fer per forces i per energia."),
-            ("dcl_inclinat", {"alpha": alpha, "fregament": False}, "Diagrama per escriure la segona llei al llarg del pla."))
+            ("inclinat", {"alpha": alpha, "fregament": False, "massa": f"{fmt_s(m)} kg", "longitud": f"{fmt_s(d)} m"},
+             f"Recorregut de {fmt_s(d)} m per un pla llis de {alpha}°."),
+            ("dcl_inclinat", {"alpha": alpha, "fregament": False, "massa": f"{fmt_s(m)} kg"},
+             "El pes es descompon en P sin α, al llarg del pla, i P cos α, perpendicular al pla."))
 
     rampa("El trineu als dos mètodes", "<p>Un trineu de 3 kg parteix del repòs i recorre 4 m per un pla nevat llis de 30°. g = 9,8 m/s².</p><p>a) Quina acceleració té, amb Newton?</p><p>b) Quina velocitat porta al final, amb l’energia?</p>", 3, 4, 30, "Trineu · 4 m · pla llis 30°")
     rampa("El monopatí a la rampa", "<p>Un monopatí de 5 kg parteix del repòs i recorre 6 m per una rampa llisa de 20°. g = 9,8 m/s².</p><p>a) Quina acceleració té?</p><p>b) Quina velocitat porta al final?</p>", 5, 6, 20, "Monopatí · 6 m · rampa llisa 20°")
@@ -877,7 +885,7 @@ def mixtos():
                 igual("v", ntex(A, "m") + r" \cdot \sqrt{" + ntex(k, "N/m") + " / " + ntex(m, "kg") + "}", rv["valor"], rv["decimals"], "m/s")
                 + igual("h", r"\frac{1}{2} \cdot " + ntex(k, "N/m") + r" \cdot " + ntex(A, "m") + "^2 / (" + ntex(m, "kg") + r" \cdot " + ntex(9.8, "m/s", "2") + ")", rh["valor"], rh["decimals"], "m"),
                 f"En sortir de la molla porta {valor(rv['valor'], rv['decimals'], 'm/s')} i puja {valor(rh['valor'], rh['decimals'], 'm')}."),
-            ("molla", {"comprimida": True, "qui": qui}, "La compressió inicial fixa l’energia."))
+            ("molla", {"comprimida": True, "x": f"{fmt_s(A)} m"}, "La compressió inicial fixa l’energia de la molla."))
 
     molla_rampa("La molla que llança el bloc rampa amunt", "<p>Una molla de 200 N/m, comprimida 0,2 m, llança un bloc de 0,5 kg per un pla horitzontal llis. Després el bloc entra en una rampa llisa. g = 9,8 m/s².</p><p>a) Quina velocitat porta en deixar la molla, a l’equilibri?</p><p>b) Quina altura màxima puja, des del pla?</p>", 0.5, 200, 0.2, "Bloc 0,5 kg · k = 200 N/m · 0,2 m")
     molla_rampa("El carro impulsat cap a la rampa", "<p>Una molla de 100 N/m, comprimida 0,3 m, impulsa un carro d’1 kg per un carril llis que després puja. g = 9,8 m/s².</p><p>a) Quina velocitat porta a l’equilibri de la molla?</p><p>b) Quina altura màxima assoleix?</p>", 1, 100, 0.3, "Carro 1 kg · k = 100 N/m · 0,3 m")
